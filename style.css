@@ -5,7 +5,7 @@
     font-family: Arial, sans-serif;
 }
 body {
-    background-color: #121212; /* Deep Black Light */
+    background-color: #121212;
     color: #ffffff;
     display: flex;
     flex-direction: column;
@@ -16,116 +16,153 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 20px;
-    border-bottom: 2px solid #800080; /* Purple accent */
+    padding: 15px 30px;
+    border-bottom: 2px solid #800080;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 .menu-icon {
-    font-size: 24px;
+    font-size: 28px;
     cursor: pointer;
-    color: #00BFFF; /* Sky Blue */
+    color: #00BFFF;
 }
 .logo {
-    font-size: 20px;
+    font-size: 24px;
     font-weight: bold;
-    color: #FF4500; /* Orange/Red accent */
+    color: #FF4500;
 }
 .login-btn {
-    background-color: #FF0000; /* Red */
-    color: #fff;
+    background-color: #FF0000;
+    color: #ffffff;
     border: none;
-    padding: 10px 15px;
+    padding: 12px 25px;
     cursor: pointer;
     border-radius: 5px;
+    font-weight: bold;
 }
 .sidebar {
     background-color: #1a1a1a;
     width: 250px;
     position: fixed;
-    height: 100%;
     top: 0;
+    left: -250px;
+    height: 100%;
+    padding-top: 80px;
+    transition: left 0.3s ease;
+    z-index: 900;
+}
+.sidebar.active {
     left: 0;
-    padding-top: 60px;
-    transition: all 0.3s ease;
 }
 .sidebar nav ul {
     list-style: none;
-    padding: 0;
 }
 .sidebar nav ul li {
-    padding: 15px 20px;
-    color: #fff;
+    padding: 16px 25px;
+    color: #ffffff;
     cursor: pointer;
     border-left: 4px solid transparent;
 }
 .sidebar nav ul li:hover {
-    background-color: #333;
-    border-left-color: #00FF00; /* Green */
+    background-color: #222222;
+    border-left-color: #00FF00;
+}
+main {
+    flex: 1;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
 }
 .hero img {
     width: 100%;
-    height: auto;
-    display: block;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 20px;
 }
 .game-categories {
     display: flex;
-    justify-content: space-around;
-    padding: 20px 0;
+    justify-content: space-between;
     background-color: #1f1f1f;
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
 }
 .category-item {
     text-align: center;
     cursor: pointer;
+    flex: 1;
 }
 .category-item img {
     width: 50px;
     height: 50px;
+    object-fit: contain;
 }
 .category-item span {
     display: block;
     margin-top: 5px;
-    color: #FFD700; /* Yellow */
+    color: #FFD700;
+    font-weight: bold;
 }
 .main-games-section {
     display: flex;
-    padding: 20px;
+    flex-wrap: wrap;
     gap: 20px;
 }
-.game-left, .game-right {
-    flex: 1;
+.game-left {
+    flex: 1 1 300px;
 }
-.game-left img, .game-right img {
+.game-right {
+    flex: 2 1 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.game-left img, .game-top img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 8px;
 }
+.game-top img {
+    max-height: 250px;
+}
 .game-bottom-buttons {
     display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
+    gap: 15px;
 }
 .glow-btn {
-    background-color: #8A2BE2; /* Purple */
-    color: #fff;
+    flex: 1;
+    background-color: #8A2BE2;
+    color: #ffffff;
     border: none;
-    padding: 12px 20px;
+    padding: 15px;
     cursor: pointer;
     border-radius: 5px;
-    box-shadow: 0 0 10px #00BFFF; /* Sky Blue glow */
+    font-weight: bold;
+    box-shadow: 0 0 12px #00BFFF;
+    transition: transform 0.2s ease;
+}
+.glow-btn:hover {
+    transform: scale(1.03);
 }
 .bottom-menu {
     background-color: #1a1a1a;
+    padding: 12px 0;
+    text-align: center;
     position: fixed;
     bottom: 0;
     width: 100%;
-    padding: 10px 0;
-    text-align: center;
+    z-index: 900;
 }
 .bottom-menu nav a {
-    color: #fff;
-    margin: 0 15px;
+    color: #ffffff;
+    margin: 0 20px;
     text-decoration: none;
+    font-weight: bold;
 }
 .bottom-menu nav a:hover {
-    color: #FF0000; /* Red */
+    color: #FF0000;
 }
