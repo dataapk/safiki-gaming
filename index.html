@@ -4,33 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SAFIKI Gaming</title>
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header class="hero-section">
-        <img src="images/banner.png" alt="100% Bonus Banner" class="hero-banner">
+    <header class="top-bar">
+        <div class="menu-icon">☰</div> <div class="logo">SAFIKI</div>
+        <div class="top-right-actions">
+            <button class="download-btn">⬇️</button> <button class="options-btn">⋮</button> <button class="login-register-btn">Login / Register</button>
+        </div>
     </header>
 
+    <nav class="sidebar">
+        <ul>
+            <li>Home</li>
+            <li>Invite & Earn</li>
+            <li>VIP Club</li>
+            <li>Promotions</li>
+            <li>Rewards</li> <li>Transactions</li>
+            <li>Support</li>
+            <li>Settings</li>
+            <li>About Us</li>
+        </ul>
+    </nav>
+
     <main>
-        <section class="game-categories">
-            <div class="icon-grid">
-                <img src="images/jhandi.png" alt="Jhandi Munda" class="game-icon" data-game="jhandi-munda">
-                <img src="images/teenpatti.png" alt="Teen Patti" class="game-icon" data-game="teen-patti">
-                <img src="images/dice.png" alt="Dice Game" class="game-icon" data-game="dice">
-                <img src="images/more.png" alt="More Games" class="game-icon" data-game="more">
-            </div>
+        <section class="hero-banner">
+            <img src="images/banner.png" alt="Welcome Bonus">
         </section>
+        
+        </main>
 
-        <section class="featured-games">
-            <div class="game-grid">
-                <img src="images/jhandimain.png" alt="Jhandi Munda Main" class="main-game-banner">
-                <img src="images/teenpattimain.png" alt="Teen Patti Main" class="main-game-banner">
-            </div>
-        </section>
-    </main>
+    <footer class="bottom-nav">
+        <ul>
+            <li>Home</li>
+            <li>Games</li>
+            <li>Wallet</li>
+            <li>Refer</li>
+            <li>Profile</li>
+        </ul>
+    </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="script.js"></script>
 </body>
 </html>
