@@ -1,14 +1,131 @@
-/* প্রফেশনাল ডার্ক ও গোল্ডেন ডিজাইন */
-body { margin: 0; background: #0d0d0d; color: #fff; font-family: sans-serif; }
-.top-nav { display: flex; justify-content: space-between; align-items: center; padding: 15px; background: #1a1a1a; border-bottom: 2px solid #d4af37; }
-.login-btn { background: #d4af37; border: none; padding: 8px 12px; border-radius: 4px; font-weight: bold; }
-.game-icons { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; padding: 15px; }
-.game-icons img { width: 100%; border-radius: 8px; border: 1px solid #333; }
-.large-game-banners { display: flex; gap: 10px; padding: 15px; }
-.large-game-banners img { width: 50%; border-radius: 10px; }
-.stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 15px; }
-.stat-card { background: #1a1a1a; padding: 10px; border: 1px solid #d4af37; text-align: center; font-size: 11px; }
-.payment-actions { display: flex; justify-content: center; gap: 20px; padding: 15px; }
-.dep-btn { background: #6a1b9a; color: white; padding: 10px 20px; border: none; border-radius: 20px; }
-.with-btn { background: #d4af37; color: black; padding: 10px 20px; border: none; border-radius: 20px; }
-.bottom-nav { position: fixed; bottom: 0; width: 100%; background: #000; display: flex; justify-content: space-around; padding: 15px 0; border-top: 1px solid #d4af37; }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+body {
+    background-color: #121212; /* Deep Black Light */
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.top-nav {
+    background-color: #1a1a1a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 2px solid #800080; /* Purple accent */
+}
+.menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+    color: #00BFFF; /* Sky Blue */
+}
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+    color: #FF4500; /* Orange/Red accent */
+}
+.login-btn {
+    background-color: #FF0000; /* Red */
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.sidebar {
+    background-color: #1a1a1a;
+    width: 250px;
+    position: fixed;
+    height: 100%;
+    top: 0;
+    left: 0;
+    padding-top: 60px;
+    transition: all 0.3s ease;
+}
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+}
+.sidebar nav ul li {
+    padding: 15px 20px;
+    color: #fff;
+    cursor: pointer;
+    border-left: 4px solid transparent;
+}
+.sidebar nav ul li:hover {
+    background-color: #333;
+    border-left-color: #00FF00; /* Green */
+}
+.hero img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.game-categories {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 0;
+    background-color: #1f1f1f;
+}
+.category-item {
+    text-align: center;
+    cursor: pointer;
+}
+.category-item img {
+    width: 50px;
+    height: 50px;
+}
+.category-item span {
+    display: block;
+    margin-top: 5px;
+    color: #FFD700; /* Yellow */
+}
+.main-games-section {
+    display: flex;
+    padding: 20px;
+    gap: 20px;
+}
+.game-left, .game-right {
+    flex: 1;
+}
+.game-left img, .game-right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+.game-bottom-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+.glow-btn {
+    background-color: #8A2BE2; /* Purple */
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #00BFFF; /* Sky Blue glow */
+}
+.bottom-menu {
+    background-color: #1a1a1a;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 10px 0;
+    text-align: center;
+}
+.bottom-menu nav a {
+    color: #fff;
+    margin: 0 15px;
+    text-decoration: none;
+}
+.bottom-menu nav a:hover {
+    color: #FF0000; /* Red */
+}
