@@ -400,10 +400,10 @@ body {
 }
 
 /* =====================================
-   FOOTER MENU CSS
+   FOOTER CSS
 ===================================== */
 
-.bottom-menu {
+.bottom-nav {
 
     position: fixed;
 
@@ -419,9 +419,11 @@ body {
 
     border-top: 1px solid rgba(138, 43, 226, 0.25);
 
+    z-index: 999;
+
 }
 
-.bottom-menu nav {
+.bottom-nav nav {
 
     display: flex;
 
@@ -431,7 +433,7 @@ body {
 
 }
 
-.bottom-menu nav a {
+.bottom-nav nav a {
 
     width: 75px;
 
@@ -461,12 +463,34 @@ body {
 
 }
 
-.bottom-menu nav a:hover {
+.bottom-nav nav a:hover {
 
     transform: translateY(-4px);
 
     box-shadow:
         0 0 15px rgba(138, 43, 226, 0.7);
+
+}
+
+/* Mobile Responsive */
+
+@media (max-width: 768px) {
+
+    .bottom-nav nav {
+
+        gap: 5px;
+
+    }
+
+    .bottom-nav nav a {
+
+        width: 70px;
+
+        height: 70px;
+
+        font-size: 11px;
+
+    }
 
 }
 /* =====================================
