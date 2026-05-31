@@ -1,1 +1,312 @@
+/* ========================================
+   RESET SETTINGS
+   এখানে পুরো সাইটের Default Margin/Padding Reset হবে
+======================================== */
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ========================================
+   ROOT COLORS
+   এখানে সাইটের Main Color System থাকবে
+======================================== */
+
+:root {
+    --primary: #ffb800;
+    --secondary: #111827;
+    --background: #0f172a;
+    --card: #1e293b;
+    --text: #ffffff;
+}
+
+/* ========================================
+   BODY
+   পুরো সাইটের Background ও Font
+======================================== */
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--background);
+    color: var(--text);
+
+    max-width: 480px;
+    margin: 0 auto;
+
+    min-height: 100vh;
+}
+
+/* ========================================
+   HEADER SECTION
+   Logo + Balance + Login/Register
+======================================== */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 15px;
+
+    background: var(--secondary);
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--primary);
+}
+
+.user-info {
+    font-weight: bold;
+}
+
+.login-btn,
+.register-btn {
+    padding: 8px 12px;
+    border-radius: 6px;
+    background: var(--primary);
+}
+
+/* ========================================
+   ANNOUNCEMENT SECTION
+   Notice / Offer / Update
+======================================== */
+
+.announcement-section {
+    padding: 10px;
+    text-align: center;
+    background: #1e293b;
+}
+
+/* ========================================
+   WELCOME BANNER
+   Homepage Hero Section
+======================================== */
+
+.welcome-banner {
+    text-align: center;
+    padding: 30px 15px;
+}
+
+.play-btn {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: var(--primary);
+    border-radius: 6px;
+}
+
+/* ========================================
+   GAME CATEGORY SECTION
+   Game Menu
+======================================== */
+
+.game-categories {
+    display: flex;
+    gap: 10px;
+
+    overflow-x: auto;
+
+    padding: 15px;
+}
+
+.category-item {
+    padding: 10px;
+    background: var(--card);
+    border-radius: 8px;
+
+    white-space: nowrap;
+}
+
+/* ========================================
+   MAIN GAME SECTION
+   Game Cards
+======================================== */
+
+.main-games {
+    padding: 15px;
+}
+
+.game-card {
+    background: var(--card);
+
+    padding: 15px;
+
+    margin-bottom: 15px;
+
+    border-radius: 10px;
+}
+
+/* ========================================
+   INVITE SECTION
+   Refer & Earn
+======================================== */
+
+.invite-section {
+    padding: 15px;
+}
+
+/* ========================================
+   WINNER FEED
+   Recent Winners
+======================================== */
+
+.winner-feed {
+    padding: 15px;
+}
+
+/* ========================================
+   RECENT GAME HISTORY
+   Recent Played Games
+======================================== */
+
+.game-history-section {
+    padding: 15px;
+}
+
+/* ========================================
+   STATISTICS SECTION
+   Online Players / Jackpot
+======================================== */
+
+.statistics-section {
+    padding: 15px;
+}
+
+.statistics-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.stat-card {
+    background: var(--card);
+    padding: 10px;
+    border-radius: 8px;
+}
+
+/* ========================================
+   WALLET SECTION
+   Deposit / Withdraw
+======================================== */
+
+.wallet-section {
+    padding: 15px;
+}
+
+.wallet-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.deposit-btn,
+.withdraw-btn {
+    flex: 1;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+/* ========================================
+   TRANSACTION HISTORY
+======================================== */
+
+.transaction-section {
+    padding: 15px;
+}
+
+/* ========================================
+   CASHBACK & RAKEBACK
+======================================== */
+
+.cashback-section {
+    padding: 15px;
+}
+
+.cashback-card {
+    background: var(--card);
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
+
+/* ========================================
+   PROMOTIONS
+======================================== */
+
+.promotions-section {
+    padding: 15px;
+}
+
+.promotion-card {
+    background: var(--card);
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
+
+/* ========================================
+   VIP CLUB
+======================================== */
+
+.vip-section {
+    padding: 15px;
+}
+
+/* ========================================
+   SUPPORT
+======================================== */
+
+.support-section {
+    padding: 15px;
+}
+
+/* ========================================
+   PROFILE
+======================================== */
+
+.profile-section {
+    padding: 15px;
+}
+
+/* ========================================
+   NOTIFICATIONS
+======================================== */
+
+.notification-section {
+    padding: 15px;
+}
+
+/* ========================================
+   LEADERBOARD
+======================================== */
+
+.leaderboard-section {
+    padding: 15px;
+}
+
+/* ========================================
+   FOOTER
+======================================== */
+
+.footer {
+    text-align: center;
+    padding: 20px;
+}
+
+/* ========================================
+   BOTTOM NAVIGATION
+======================================== */
+
+.bottom-nav {
+    position: sticky;
+    bottom: 0;
+
+    display: flex;
+    justify-content: space-around;
+
+    padding: 15px;
+
+    background: var(--secondary);
+}
