@@ -1,168 +1,72 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-body {
-    background-color: #121212;
-    color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
+/* রিসেট এবং বেসিক স্ট্রাকচার */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background-color: #121212; color: #ffffff; font-family: 'Segoe UI', sans-serif; }
+
+/* টপ নেভিগেশন - লগইন বাটন ডানদিকে নেওয়ার জন্য */
 .top-nav {
-    background-color: #1a1a1a;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 30px;
-    border-bottom: 2px solid #800080;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-.menu-icon {
-    font-size: 28px;
-    cursor: pointer;
-    color: #00BFFF;
-}
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: #FF4500;
-}
-.login-btn {
-    background-color: #FF0000;
-    color: #ffffff;
-    border: none;
-    padding: 12px 25px;
-    cursor: pointer;
-    border-radius: 5px;
-    font-weight: bold;
-}
-.sidebar {
     background-color: #1a1a1a;
-    width: 250px;
-    position: fixed;
-    top: 0;
-    left: -250px;
-    height: 100%;
-    padding-top: 80px;
-    transition: left 0.3s ease;
-    z-index: 900;
+    border-bottom: 2px solid #800080;
 }
-.sidebar.active {
-    left: 0;
-}
-.sidebar nav ul {
-    list-style: none;
-}
-.sidebar nav ul li {
-    padding: 16px 25px;
-    color: #ffffff;
-    cursor: pointer;
-    border-left: 4px solid transparent;
-}
-.sidebar nav ul li:hover {
-    background-color: #222222;
-    border-left-color: #00FF00;
-}
-main {
-    flex: 1;
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
+
+/* হিরো সেকশন - ইমেজ যাতে বড় না হয় */
+.hero-section {
     width: 100%;
+    max-width: 1200px; /* ডেস্কটপে সীমাবদ্ধতা */
+    margin: 20px auto; /* সেন্টারে রাখার জন্য */
+    padding: 0 20px;
 }
-.hero img {
+.hero-section img {
     width: 100%;
+    height: auto;
     max-height: 400px;
     object-fit: cover;
     border-radius: 10px;
-    margin-bottom: 20px;
 }
+
+/* ক্যাটাগরি সেকশন */
 .game-categories {
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* মাঝখানে আনার জন্য */
+    gap: 30px;
+    padding: 20px;
     background-color: #1f1f1f;
-    padding: 15px 20px;
-    border-radius: 8px;
-    margin-bottom: 20px;
+    margin: 10px auto;
+    max-width: 1200px;
 }
-.category-item {
-    text-align: center;
-    cursor: pointer;
-    flex: 1;
-}
-.category-item img {
-    width: 50px;
-    height: 50px;
-    object-fit: contain;
-}
-.category-item span {
-    display: block;
-    margin-top: 5px;
-    color: #FFD700;
-    font-weight: bold;
-}
+
+/* মেইন গেমপ্লে সেকশন - রেসপন্সিভ গ্রিড */
 .main-games-section {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* বামে ১ অংশ, ডানে ২ অংশ */
     gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
 }
-.game-left {
-    flex: 1 1 300px;
+
+/* মোবাইল ভিউতে রেসপন্সিভ করার জন্য মিডিয়া কুয়েরি */
+@media (max-width: 768px) {
+    .main-games-section {
+        grid-template-columns: 1fr; /* মোবাইল হলে সব কলাম নিচে নেমে যাবে */
+        text-align: center;
+    }
+    .top-nav { padding: 15px; }
 }
-.game-right {
-    flex: 2 1 500px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-.game-left img, .game-top img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 8px;
-}
-.game-top img {
-    max-height: 250px;
-}
-.game-bottom-buttons {
-    display: flex;
-    gap: 15px;
-}
+
+/* বাটনের কালার ও ইফেক্ট */
 .glow-btn {
-    flex: 1;
-    background-color: #8A2BE2;
-    color: #ffffff;
-    border: none;
-    padding: 15px;
+    background-color: #8A2BE2; /* পার্পল */
+    border: 2px solid #00BFFF; /* আকাশী বর্ডার */
+    color: white;
+    padding: 10px 20px;
     cursor: pointer;
-    border-radius: 5px;
-    font-weight: bold;
-    box-shadow: 0 0 12px #00BFFF;
-    transition: transform 0.2s ease;
 }
-.glow-btn:hover {
-    transform: scale(1.03);
-}
-.bottom-menu {
-    background-color: #1a1a1a;
-    padding: 12px 0;
-    text-align: center;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    z-index: 900;
-}
-.bottom-menu nav a {
-    color: #ffffff;
-    margin: 0 20px;
-    text-decoration: none;
-    font-weight: bold;
-}
-.bottom-menu nav a:hover {
-    color: #FF0000;
+.login-btn {
+    background-color: #FF0000; /* লাল */
+    border: none;
+    padding: 10px 20px;
 }
