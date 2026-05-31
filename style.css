@@ -434,9 +434,15 @@ body {
 
     width: 100%;
 
-    background: #121212;
+    display: flex;
+
+    justify-content: center;
+
+    gap: 6px;
 
     padding: 8px;
+
+    background: #121212;
 
     border-top: 1px solid rgba(138, 43, 226, 0.25);
 
@@ -444,17 +450,7 @@ body {
 
 }
 
-.bottom-nav nav {
-
-    display: flex;
-
-    justify-content: center;
-
-    gap: 6px;
-
-}
-
-.bottom-nav nav a {
+.footer-btn {
 
     width: 75px;
 
@@ -484,7 +480,7 @@ body {
 
 }
 
-.bottom-nav nav a:hover {
+.footer-btn:hover {
 
     transform: translateY(-4px);
 
@@ -493,17 +489,17 @@ body {
 
 }
 
-/* Mobile Responsive */
+/* Mobile */
 
 @media (max-width: 768px) {
 
-    .bottom-nav nav {
+    .bottom-nav {
 
         gap: 5px;
 
     }
 
-    .bottom-nav nav a {
+    .footer-btn {
 
         width: 70px;
 
