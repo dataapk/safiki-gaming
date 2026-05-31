@@ -1,312 +1,520 @@
-/* ========================================
-   RESET SETTINGS
-   এখানে পুরো সাইটের Default Margin/Padding Reset হবে
-======================================== */
+/* =========================
+   GLOBAL RESET
+========================= */
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-/* ========================================
-   ROOT COLORS
-   এখানে সাইটের Main Color System থাকবে
-======================================== */
-
-:root {
-    --primary: #ffb800;
-    --secondary: #111827;
-    --background: #0f172a;
-    --card: #1e293b;
-    --text: #ffffff;
+html{
+    scroll-behavior:smooth;
 }
 
-/* ========================================
-   BODY
-   পুরো সাইটের Background ও Font
-======================================== */
-
-body {
-    font-family: Arial, sans-serif;
-    background: var(--background);
-    color: var(--text);
-
-    max-width: 480px;
-    margin: 0 auto;
-
-    min-height: 100vh;
+body{
+    background:#05030d;
+    color:#ffffff;
+    font-family:Arial, sans-serif;
+    min-height:100vh;
+    overflow-x:hidden;
+    padding-bottom:90px;
 }
 
-/* ========================================
-   HEADER SECTION
-   Logo + Balance + Login/Register
-======================================== */
+/* =========================
+   HEADER
+========================= */
 
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
 
-    padding: 15px;
+    padding:15px 20px;
 
-    background: var(--secondary);
+    background:#0d0a1f;
+    border-bottom:1px solid #2d0a4d;
+
+    position:sticky;
+    top:0;
+    z-index:1000;
 }
 
-.logo {
-    font-size: 22px;
-    font-weight: bold;
-    color: var(--primary);
+.logo{
+    font-size:32px;
+    font-weight:700;
+    color:#ffcc00;
 }
 
-.user-info {
-    font-weight: bold;
+.user-info{
+    color:#00d26a;
+    font-weight:bold;
+}
+
+.header-buttons{
+    display:flex;
+    gap:10px;
 }
 
 .login-btn,
-.register-btn {
-    padding: 8px 12px;
-    border-radius: 6px;
-    background: var(--primary);
+.register-btn{
+    background:#ffcc00;
+    color:#000;
+    border:none;
+    border-radius:10px;
+    padding:10px 18px;
+    cursor:pointer;
+    font-weight:bold;
 }
 
-/* ========================================
-   ANNOUNCEMENT SECTION
-   Notice / Offer / Update
-======================================== */
+/* =========================
+   ANNOUNCEMENT
+========================= */
 
-.announcement-section {
-    padding: 10px;
-    text-align: center;
-    background: #1e293b;
+.announcement-section{
+    background:#2d0a4d;
+    padding:12px;
+    text-align:center;
+    color:#fff;
+    font-size:14px;
 }
 
-/* ========================================
-   WELCOME BANNER
-   Homepage Hero Section
-======================================== */
+/* =========================
+   BANNER
+========================= */
 
-.welcome-banner {
-    text-align: center;
-    padding: 30px 15px;
+.welcome-banner{
+    margin:20px;
+    padding:50px 25px;
+    border-radius:20px;
+
+    background:
+    linear-gradient(
+    135deg,
+    #2d0a4d,
+    #0d0a1f);
+
+    text-align:center;
 }
 
-.play-btn {
-    margin-top: 10px;
-    padding: 10px 20px;
-    background: var(--primary);
-    border-radius: 6px;
+.banner-content h1{
+    font-size:48px;
+    color:#ffcc00;
+    margin-bottom:15px;
 }
 
-/* ========================================
-   GAME CATEGORY SECTION
-   Game Menu
-======================================== */
-
-.game-categories {
-    display: flex;
-    gap: 10px;
-
-    overflow-x: auto;
-
-    padding: 15px;
+.banner-content p{
+    font-size:18px;
+    margin-bottom:20px;
 }
 
-.category-item {
-    padding: 10px;
-    background: var(--card);
-    border-radius: 8px;
-
-    white-space: nowrap;
+.play-btn{
+    background:#ffcc00;
+    color:#000;
+    border:none;
+    padding:15px 30px;
+    border-radius:10px;
+    font-weight:bold;
+    cursor:pointer;
 }
 
-/* ========================================
-   MAIN GAME SECTION
-   Game Cards
-======================================== */
+/* =========================
+   CATEGORY
+========================= */
 
-.main-games {
-    padding: 15px;
+.game-categories{
+    display:flex;
+    gap:12px;
+    overflow-x:auto;
+    padding:20px;
 }
 
-.game-card {
-    background: var(--card);
+.category-item{
+    min-width:140px;
+    text-align:center;
 
-    padding: 15px;
+    background:#0d0a1f;
+    border:1px solid #2d0a4d;
 
-    margin-bottom: 15px;
+    padding:15px;
 
-    border-radius: 10px;
+    border-radius:12px;
 }
 
-/* ========================================
-   INVITE SECTION
-   Refer & Earn
-======================================== */
+/* =========================
+   MAIN GAMES
+========================= */
 
-.invite-section {
-    padding: 15px;
+.main-games{
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(320px,1fr));
+
+    gap:20px;
+
+    padding:20px;
 }
 
-/* ========================================
-   WINNER FEED
-   Recent Winners
-======================================== */
-
-.winner-feed {
-    padding: 15px;
+.game-card{
+    background:#0d0a1f;
+    border-radius:20px;
+    overflow:hidden;
+    border:1px solid #2d0a4d;
 }
 
-/* ========================================
-   RECENT GAME HISTORY
-   Recent Played Games
-======================================== */
+.game-image{
+    height:300px;
 
-.game-history-section {
-    padding: 15px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:
+    linear-gradient(
+    180deg,
+    #2d0a4d,
+    #05030d);
+
+    color:#ffcc00;
+    font-size:24px;
+    font-weight:bold;
 }
 
-/* ========================================
-   STATISTICS SECTION
-   Online Players / Jackpot
-======================================== */
-
-.statistics-section {
-    padding: 15px;
+.game-info{
+    padding:20px;
 }
 
-.statistics-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+.game-info h2{
+    margin-bottom:15px;
 }
 
-.stat-card {
-    background: var(--card);
-    padding: 10px;
-    border-radius: 8px;
+.game-info button{
+    width:100%;
+    padding:12px;
+
+    border:none;
+    border-radius:10px;
+
+    background:#00d26a;
+    color:#fff;
+    cursor:pointer;
 }
 
-/* ========================================
-   WALLET SECTION
-   Deposit / Withdraw
-======================================== */
+/* =========================
+   COMMON SECTION STYLE
+========================= */
 
-.wallet-section {
-    padding: 15px;
+.invite-section,
+.winner-feed,
+.statistics-section,
+.wallet-section,
+.cashback-section,
+.promotions-section,
+.vip-section,
+.support-section,
+.profile-section,
+.notification-section,
+.leaderboard-section,
+.footer{
+
+    margin:20px;
+
+    padding:20px;
+
+    background:#0d0a1f;
+
+    border-radius:20px;
+
+    border:1px solid #2d0a4d;
 }
 
-.wallet-buttons {
-    display: flex;
-    gap: 10px;
+h3{
+    margin-bottom:15px;
+    color:#ffcc00;
+}
+
+/* =========================
+   WINNERS
+========================= */
+
+.winner-feed ul{
+    list-style:none;
+}
+
+.winner-feed li{
+    padding:10px 0;
+    border-bottom:1px solid #222;
+}
+
+/* =========================
+   STATISTICS
+========================= */
+
+.statistics-grid{
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(200px,1fr));
+
+    gap:15px;
+}
+
+.stat-card{
+    background:#1a1233;
+    padding:20px;
+    border-radius:15px;
+    text-align:center;
+}
+
+.stat-card h4{
+    color:#ffcc00;
+    margin-bottom:10px;
+}
+
+/* =========================
+   WALLET
+========================= */
+
+.wallet-buttons{
+    display:flex;
+    gap:15px;
 }
 
 .deposit-btn,
-.withdraw-btn {
-    flex: 1;
-    padding: 10px;
-    border-radius: 6px;
+.withdraw-btn{
+
+    flex:1;
+
+    border:none;
+
+    padding:15px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-weight:bold;
 }
 
-/* ========================================
-   TRANSACTION HISTORY
-======================================== */
-
-.transaction-section {
-    padding: 15px;
+.deposit-btn{
+    background:#6b21ff;
+    color:#fff;
 }
 
-/* ========================================
-   CASHBACK & RAKEBACK
-======================================== */
-
-.cashback-section {
-    padding: 15px;
+.withdraw-btn{
+    background:#ffcc00;
+    color:#000;
 }
 
-.cashback-card {
-    background: var(--card);
-    padding: 12px;
-    margin-bottom: 10px;
-    border-radius: 8px;
+/* =========================
+   CASHBACK
+========================= */
+
+.cashback-container{
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
+
+    gap:15px;
 }
 
-/* ========================================
-   PROMOTIONS
-======================================== */
-
-.promotions-section {
-    padding: 15px;
+.cashback-card{
+    background:#1a1233;
+    padding:20px;
+    border-radius:15px;
+    text-align:center;
 }
 
-.promotion-card {
-    background: var(--card);
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 8px;
+.cashback-percent{
+    color:#00d26a;
+    font-size:22px;
+    font-weight:bold;
+    margin:10px 0;
 }
 
-/* ========================================
-   VIP CLUB
-======================================== */
+.cashback-card button{
+    margin-top:15px;
 
-.vip-section {
-    padding: 15px;
+    width:100%;
+
+    border:none;
+
+    padding:12px;
+
+    border-radius:10px;
+
+    background:#ffcc00;
+    color:#000;
+
+    cursor:pointer;
 }
 
-/* ========================================
-   SUPPORT
-======================================== */
+/* =========================
+   PROMOTION
+========================= */
 
-.support-section {
-    padding: 15px;
+.promotion-card{
+    background:#1a1233;
+    padding:15px;
+    border-radius:12px;
+    margin-bottom:12px;
 }
 
-/* ========================================
+/* =========================
+   VIP
+========================= */
+
+.vip-card{
+    background:#1a1233;
+    padding:20px;
+    border-radius:15px;
+}
+
+/* =========================
    PROFILE
-======================================== */
+========================= */
 
-.profile-section {
-    padding: 15px;
+.profile-card{
+    background:#1a1233;
+    padding:20px;
+    border-radius:15px;
 }
 
-/* ========================================
-   NOTIFICATIONS
-======================================== */
-
-.notification-section {
-    padding: 15px;
+.profile-card p{
+    margin-bottom:10px;
 }
 
-/* ========================================
+/* =========================
+   NOTIFICATION
+========================= */
+
+.notification-section ul{
+    list-style:none;
+}
+
+.notification-section li{
+    padding:10px 0;
+    border-bottom:1px solid #222;
+}
+
+/* =========================
    LEADERBOARD
-======================================== */
+========================= */
 
-.leaderboard-section {
-    padding: 15px;
+.leaderboard-section ol{
+    padding-left:20px;
 }
 
-/* ========================================
+.leaderboard-section li{
+    margin-bottom:10px;
+}
+
+/* =========================
+   SUPPORT
+========================= */
+
+.support-btn{
+    margin-top:15px;
+
+    background:#ffcc00;
+    color:#000;
+
+    border:none;
+
+    padding:12px 20px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+}
+
+/* =========================
    FOOTER
-======================================== */
+========================= */
 
-.footer {
-    text-align: center;
-    padding: 20px;
+.footer{
+    text-align:center;
+    color:#999;
 }
 
-/* ========================================
-   BOTTOM NAVIGATION
-======================================== */
+/* =========================
+   BOTTOM NAV
+========================= */
 
-.bottom-nav {
-    position: sticky;
-    bottom: 0;
+.bottom-nav{
+    position:fixed;
 
-    display: flex;
-    justify-content: space-around;
+    bottom:0;
+    left:0;
 
-    padding: 15px;
+    width:100%;
 
-    background: var(--secondary);
+    background:#0d0a1f;
+
+    display:flex;
+
+    justify-content:space-around;
+
+    align-items:center;
+
+    padding:15px 0;
+
+    border-top:1px solid #2d0a4d;
+
+    z-index:999;
+}
+
+.bottom-nav div{
+    color:#fff;
+    font-size:14px;
+}
+
+/* =========================
+   DESKTOP IMPROVEMENT
+========================= */
+
+@media (min-width:1200px){
+
+    body{
+        max-width:1400px;
+        margin:auto;
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width:768px){
+
+    .header{
+        flex-wrap:wrap;
+    }
+
+    .logo{
+        font-size:26px;
+    }
+
+    .banner-content h1{
+        font-size:32px;
+    }
+
+    .main-games{
+        grid-template-columns:1fr;
+    }
+
+    .wallet-buttons{
+        flex-direction:column;
+    }
+
+    .statistics-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .cashback-container{
+        grid-template-columns:1fr;
+    }
 }
