@@ -119,29 +119,57 @@ body{
     cursor:pointer;
 }
 
-/* =========================
-   CATEGORY
-========================= */
-
-.game-categories{
-    display:flex;
-    gap:12px;
-    overflow-x:auto;
-    padding:20px;
-}
-
 .category-item{
-    min-width:140px;
-    text-align:center;
 
-    background:#0d0a1f;
-    border:1px solid #2d0a4d;
+    min-width:160px;
+
+    background:linear-gradient(
+    145deg,
+    #3b1566,
+    #1a1233);
+
+    border:1px solid #6b21ff;
+
+    border-radius:18px;
 
     padding:15px;
 
-    border-radius:12px;
+    text-align:center;
+
+    box-shadow:
+    0 8px 18px rgba(0,0,0,.4);
+
+    transition:.3s;
+
+    cursor:pointer;
 }
 
+.category-item:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:
+    0 15px 30px rgba(0,0,0,.5);
+}
+
+.category-item img{
+
+    width:70px;
+    height:70px;
+
+    object-fit:contain;
+
+    margin-bottom:10px;
+}
+
+.category-item span{
+
+    display:block;
+
+    color:#fff;
+
+    font-weight:700;
+}
 /* =========================
    MAIN GAMES
 ========================= */
