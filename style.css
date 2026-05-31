@@ -1,4 +1,18 @@
+/* =====================================
+   GLOBAL SETTINGS
+===================================== */
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #121212;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+}
 /* Header CSS */
 ...
 
