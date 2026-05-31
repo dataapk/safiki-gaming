@@ -1,72 +1,78 @@
-/* রিসেট এবং বেসিক স্ট্রাকচার */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { background-color: #121212; color: #ffffff; font-family: 'Segoe UI', sans-serif; }
+/* বেসিক সেটআপ */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
+body { background-color: #121212; color: #ffffff; }
 
-/* টপ নেভিগেশন - লগইন বাটন ডানদিকে নেওয়ার জন্য */
+/* টপ নেভিগেশন */
 .top-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 30px;
+    padding: 15px 20px;
     background-color: #1a1a1a;
     border-bottom: 2px solid #800080;
 }
 
-/* হিরো সেকশন - ইমেজ যাতে বড় না হয় */
-.hero-section {
-    width: 100%;
-    max-width: 1200px; /* ডেস্কটপে সীমাবদ্ধতা */
-    margin: 20px auto; /* সেন্টারে রাখার জন্য */
-    padding: 0 20px;
+/* হিরো ব্যানার */
+.hero {
+    width: 95%;
+    max-width: 1200px;
+    margin: 20px auto;
 }
-.hero-section img {
+.hero img {
     width: 100%;
     height: auto;
-    max-height: 400px;
+    max-height: 350px;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 12px;
 }
 
 /* ক্যাটাগরি সেকশন */
 .game-categories {
     display: flex;
-    justify-content: center; /* মাঝখানে আনার জন্য */
-    gap: 30px;
+    justify-content: space-around;
     padding: 20px;
-    background-color: #1f1f1f;
-    margin: 10px auto;
+    background: #1f1f1f;
+    margin: 0 auto 20px;
     max-width: 1200px;
 }
+.category-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
 
-/* মেইন গেমপ্লে সেকশন - রেসপন্সিভ গ্রিড */
+/* মেইন গেমপ্লে সেকশন */
 .main-games-section {
-    display: grid;
-    grid-template-columns: 1fr 2fr; /* বামে ১ অংশ, ডানে ২ অংশ */
+    display: flex;
     gap: 20px;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 0 20px;
+    flex-wrap: wrap; /* মোবাইল ভিউর জন্য */
+}
+.game-left, .game-right { flex: 1; min-width: 300px; }
+
+/* ইমেজ রেসপন্সিভনেস */
+.game-left img, .game-top img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
 }
 
-/* মোবাইল ভিউতে রেসপন্সিভ করার জন্য মিডিয়া কুয়েরি */
-@media (max-width: 768px) {
-    .main-games-section {
-        grid-template-columns: 1fr; /* মোবাইল হলে সব কলাম নিচে নেমে যাবে */
-        text-align: center;
-    }
-    .top-nav { padding: 15px; }
-}
-
-/* বাটনের কালার ও ইফেক্ট */
 .glow-btn {
-    background-color: #8A2BE2; /* পার্পল */
-    border: 2px solid #00BFFF; /* আকাশী বর্ডার */
-    color: white;
-    padding: 10px 20px;
-    cursor: pointer;
-}
-.login-btn {
-    background-color: #FF0000; /* লাল */
+    padding: 15px;
+    background: #8A2BE2;
+    color: #fff;
     border: none;
-    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* মোবাইল রেসপন্সিভনেস */
+@media (max-width: 768px) {
+    .main-games-section { flex-direction: column; }
+    .game-categories { flex-wrap: wrap; gap: 15px; }
 }
