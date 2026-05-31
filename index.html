@@ -1,86 +1,288 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SAFIKI Gaming</title>
-    <link rel="stylesheet" href="style.css">
+
+```
+<!-- ========================= -->
+<!-- ওয়েবসাইটের বেসিক সেটআপ -->
+<!-- ========================= -->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SAFIKI Gaming</title>
+
+<!-- SEO Meta Tags -->
+<meta name="description" content="SAFIKI Gaming Platform">
+<meta name="keywords" content="Gaming, Teen Patti, Jhandi Munda">
+<meta name="author" content="SAFIKI Gaming">
+
+<!-- CSS File -->
+<link rel="stylesheet" href="style.css">
+```
+
 </head>
+
 <body>
 
-    <header class="top-nav">
-        <div class="menu-icon">☰</div>
-        <div class="logo">SAFIKI</div>
-        <div class="actions">
-            <button class="login-btn">Login / Register</button>
+```
+<!-- ========================= -->
+<!-- টপ হেডার / নেভিগেশন বার -->
+<!-- ========================= -->
+
+<header class="top-nav">
+
+    <!-- মেনু ওপেন বাটন -->
+    <button id="menu-toggle" class="menu-icon">
+        ☰
+    </button>
+
+    <!-- ওয়েবসাইট লোগো -->
+    <div id="site-logo" class="logo">
+        SAFIKI
+    </div>
+
+    <!-- ইউজার সেকশন -->
+    <div id="user-section">
+
+        <a href="login.html" class="login-btn">
+            Login / Register
+        </a>
+
+    </div>
+
+</header>
+
+<!-- ========================= -->
+<!-- সাইডবার মেনু -->
+<!-- ========================= -->
+
+<aside id="sidebar" class="sidebar">
+
+    <nav>
+
+        <ul id="sidebar-menu" class="sidebar-menu">
+
+            <li>
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
+
+            <!-- More Dropdown -->
+            <li class="dropdown-menu">
+
+                <button id="moreBtn" class="dropdown-btn">
+                    More
+                </button>
+
+                <ul id="submenu" class="submenu">
+
+                    <li><a href="#">Invite & Earn</a></li>
+
+                    <li><a href="#">VIP Club</a></li>
+
+                    <li><a href="#">Promotions</a></li>
+
+                    <li><a href="#">Rewards</a></li>
+
+                    <li><a href="#">Transactions</a></li>
+
+                    <li><a href="#">Support</a></li>
+
+                    <li><a href="#">Settings</a></li>
+
+                    <li><a href="#">About Us</a></li>
+
+                </ul>
+
+            </li>
+
+        </ul>
+
+    </nav>
+
+</aside>
+
+<!-- ========================= -->
+<!-- মূল ওয়েবসাইট কনটেন্ট -->
+<!-- ========================= -->
+
+<main>
+
+    <!-- ========================= -->
+    <!-- হিরো ব্যানার সেকশন -->
+    <!-- ========================= -->
+
+    <section class="hero">
+
+        <img
+            id="hero-banner"
+            src="image/banner.png"
+            alt="SAFIKI Gaming Banner">
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- গেম ক্যাটাগরি সেকশন -->
+    <!-- ========================= -->
+
+    <section class="game-categories">
+
+        <div
+            id="game-jhandi"
+            class="category-item"
+            data-game="jhandi">
+
+            <img src="image/jhandi.png" alt="Jhandi Munda">
+
+            <span>Jhandi Munda</span>
+
         </div>
-    </header>
 
-    <aside class="sidebar">
-        <nav>
-            <ul>
-                <li>Home</li>
-                <li>Invite & Earn</li>
-                <li>VIP Club</li>
-                <li>Promotions</li>
-                <li>Rewards</li>
-                <li>Transactions</li>
-                <li>Support</li>
-                <li>Settings</li>
-                <li>About Us</li>
-            </ul>
-        </nav>
-    </aside>
+        <div
+            id="game-teenpatti"
+            class="category-item"
+            data-game="teenpatti">
 
-    <main>
-        <section class="hero">
-            <img src="image/banner.png" alt="Hero Banner">
-        </section>
+            <img src="image/teenpatti.png" alt="Teen Patti">
 
-        <section class="game-categories">
-            <div class="category-item">
-                <img src="image/jhandi.png" alt="Jhandi Munda">
-                <span>Jhandi Munda</span>
-            </div>
-            <div class="category-item">
-                <img src="image/teenpatti.png" alt="Teen Patti">
-                <span>Teen Patti</span>
-            </div>
-            <div class="category-item">
-                <img src="image/dice.png" alt="Dice">
-                <span>Dice</span>
-            </div>
-            <div class="category-item">
-                <img src="image/more.png" alt="More Games">
-                <span>More</span>
-            </div>
-        </section>
+            <span>Teen Patti</span>
 
-        <section class="main-games-section">
-            <div class="game-left">
-                <img src="image/jhandimain.png" alt="Jhandi Munda Game">
-            </div>
-            <div class="game-right">
-                <div class="game-top">
-                    <img src="image/teenpattimain.png" alt="Teen Patti Main">
-                </div>
-                <div class="game-bottom-buttons">
-                    <button class="glow-btn">Demo Gameplay</button>
-                    <button class="glow-btn">Real Time Gameplay</button>
-                </div>
-            </div>
-        </section>
-    </main>
+        </div>
 
-    <footer class="bottom-menu">
-        <nav>
-            <a href="#">Home</a>
-            <a href="#">Games</a>
-            <a href="#">Wallet</a>
-            <a href="#">Profile</a>
-        </nav>
-    </footer>
+        <div
+            id="game-dice"
+            class="category-item"
+            data-game="dice">
 
-    <script src="script.js"></script>
+            <img src="image/dice.png" alt="Dice">
+
+            <span>Dice</span>
+
+        </div>
+
+        <div
+            id="game-more"
+            class="category-item"
+            data-game="more">
+
+            <img src="image/more.png" alt="More Games">
+
+            <span>More</span>
+
+        </div>
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- ফিচারড গেম সেকশন -->
+    <!-- ========================= -->
+
+    <section class="main-games-section">
+
+        <!-- বাম পাশের প্রধান গেম -->
+        <div class="game-left">
+
+            <img
+                src="image/jhandimain.png"
+                alt="Jhandi Munda Main Game">
+
+        </div>
+
+        <!-- ডান পাশের ফিচারড গেম -->
+        <div class="game-right">
+
+            <div class="game-top">
+
+                <img
+                    src="image/teenpattimain.png"
+                    alt="Teen Patti Main Game">
+
+            </div>
+
+            <!-- গেম বাটন -->
+            <div class="game-bottom-buttons">
+
+                <button
+                    class="glow-btn"
+                    data-mode="demo">
+
+                    Demo Gameplay
+
+                </button>
+
+                <button
+                    class="glow-btn"
+                    data-mode="real">
+
+                    Real Time Gameplay
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- ভবিষ্যৎ ওয়ালেট সেকশন -->
+    <!-- ========================= -->
+
+    <!-- Wallet Section -->
+
+    <!-- ========================= -->
+    <!-- ভবিষ্যৎ প্রোফাইল সেকশন -->
+    <!-- ========================= -->
+
+    <!-- Profile Section -->
+
+    <!-- ========================= -->
+    <!-- ভবিষ্যৎ নোটিফিকেশন সেকশন -->
+    <!-- ========================= -->
+
+    <!-- Notification Section -->
+
+</main>
+
+<!-- ========================= -->
+<!-- নিচের নেভিগেশন / ফুটার -->
+<!-- ========================= -->
+
+<footer class="bottom-menu">
+
+    <nav>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="games.html">
+            Games
+        </a>
+
+        <a href="wallet.html">
+            Wallet
+        </a>
+
+        <a href="profile.html">
+            Profile
+        </a>
+
+    </nav>
+
+</footer>
+
+<!-- ========================= -->
+<!-- জাভাস্ক্রিপ্ট ফাইল -->
+<!-- ========================= -->
+
+<script src="script.js"></script>
+```
+
 </body>
+
 </html>
