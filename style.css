@@ -185,6 +185,64 @@ body {
     }
 
 }
+/* =====================================
+   DROPDOWN MENU CSS
+===================================== */
+
+.dropdown-menu {
+
+    display: none;
+
+    position: absolute;
+
+    top: 70px;
+
+    left: 10px;
+
+    width: 220px;
+
+    background: #1f1f1f;
+
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(138, 43, 226, 0.3);
+
+    box-shadow:
+        0 0 20px rgba(138, 43, 226, 0.25);
+
+    z-index: 9999;
+
+}
+
+.dropdown-menu.active {
+
+    display: block;
+
+}
+
+.dropdown-menu a {
+
+    display: block;
+
+    padding: 14px;
+
+    text-decoration: none;
+
+    color: #ffffff;
+
+    font-size: 14px;
+
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+
+}
+
+.dropdown-menu a:hover {
+
+    background: rgba(138, 43, 226, 0.20);
+
+}
 
 /* =====================================
    HERO BANNER CSS
