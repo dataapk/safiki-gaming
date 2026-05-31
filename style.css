@@ -1,78 +1,120 @@
-/* বেসিক সেটআপ */
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
-body { background-color: #121212; color: #ffffff; }
+/* =====================================
+   AUTH PAGE START
+===================================== */
 
-/* টপ নেভিগেশন */
-.top-nav {
+.auth-section {
+
+    min-height: 100vh;
+
     display: flex;
-    justify-content: space-between;
+
+    justify-content: center;
+
     align-items: center;
-    padding: 15px 20px;
-    background-color: #1a1a1a;
-    border-bottom: 2px solid #800080;
+
+    padding: 30px 15px;
+
 }
 
-/* হিরো ব্যানার */
-.hero {
-    width: 95%;
-    max-width: 1200px;
-    margin: 20px auto;
-}
-.hero img {
+.auth-container {
+
     width: 100%;
-    height: auto;
-    max-height: 350px;
-    object-fit: cover;
-    border-radius: 12px;
+
+    max-width: 500px;
+
 }
 
-/* ক্যাটাগরি সেকশন */
-.game-categories {
-    display: flex;
-    justify-content: space-around;
+.auth-header {
+
+    text-align: center;
+
+    margin-bottom: 25px;
+
+}
+
+.auth-header h1 {
+
+    font-size: 28px;
+
+    margin-bottom: 10px;
+
+}
+
+.auth-header p {
+
+    opacity: 0.8;
+
+}
+
+
+/* Authentication Card */
+
+.auth-card {
+
+    background: rgba(255, 255, 255, 0.05);
+
+    border-radius: 18px;
+
     padding: 20px;
-    background: #1f1f1f;
-    margin: 0 auto 20px;
-    max-width: 1200px;
-}
-.category-item img {
-    width: 60px;
-    height: 60px;
-    object-fit: contain;
+
+    margin-bottom: 20px;
+
+    border: 1px solid rgba(138, 43, 226, 0.4);
+
 }
 
-/* মেইন গেমপ্লে সেকশন */
-.main-games-section {
-    display: flex;
-    gap: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    flex-wrap: wrap; /* মোবাইল ভিউর জন্য */
-}
-.game-left, .game-right { flex: 1; min-width: 300px; }
+.auth-card h2 {
 
-/* ইমেজ রেসপন্সিভনেস */
-.game-left img, .game-top img {
+    text-align: center;
+
+    margin-bottom: 20px;
+
+}
+
+
+/* Input Fields */
+
+.auth-card input {
+
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 10px;
+
+    padding: 14px;
+
+    margin-bottom: 12px;
+
+    border-radius: 12px;
+
+    border: 1px solid #444;
+
+    background: #1e1e1e;
+
+    color: #ffffff;
+
+    outline: none;
+
 }
 
-.glow-btn {
-    padding: 15px;
-    background: #8A2BE2;
-    color: #fff;
+
+/* Submit Button */
+
+.auth-btn {
+
+    width: 100%;
+
+    padding: 14px;
+
     border: none;
-    border-radius: 5px;
+
+    border-radius: 14px;
+
     cursor: pointer;
-    width: 100%;
-    margin-top: 10px;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
 }
 
-/* মোবাইল রেসপন্সিভনেস */
-@media (max-width: 768px) {
-    .main-games-section { flex-direction: column; }
-    .game-categories { flex-wrap: wrap; gap: 15px; }
-}
+/* =====================================
+   AUTH PAGE END
+===================================== */
