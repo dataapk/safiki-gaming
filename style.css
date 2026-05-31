@@ -233,19 +233,19 @@ body {
 
     justify-content: center;
 
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 
-    gap: 12px;
+    gap: 6px;
 
-    padding: 15px;
+    padding: 8px;
 
 }
 
 .category-item {
 
-    width: 110px;
+    width: 75px;
 
-    min-height: 120px;
+    height: 75px;
 
     display: flex;
 
@@ -259,9 +259,7 @@ body {
 
     background: #1f1f1f;
 
-    border-radius: 16px;
-
-    padding: 12px;
+    border-radius: 14px;
 
     cursor: pointer;
 
@@ -282,23 +280,25 @@ body {
 
 .category-item img {
 
-    width: 55px;
+    width: 30px;
 
-    height: 55px;
+    height: 30px;
 
     object-fit: contain;
 
-    margin-bottom: 8px;
+    margin-bottom: 4px;
 
 }
 
 .category-item span {
 
-    font-size: 14px;
+    font-size: 10px;
 
     font-weight: 600;
 
     color: #ffffff;
+
+    line-height: 1.1;
 
 }
 
@@ -306,24 +306,15 @@ body {
 
 @media (max-width: 768px) {
 
-    .category-item {
+    .game-categories {
 
-        width: 95px;
+        gap: 5px;
 
-        min-height: 105px;
-
-    }
-
-    .category-item img {
-
-        width: 45px;
-
-        height: 45px;
+        padding: 6px;
 
     }
 
 }
-
 /* =====================================
    MAIN GAMES CSS
 ===================================== */
