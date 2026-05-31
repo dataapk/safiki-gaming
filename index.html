@@ -3,67 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SAFIKI Gaming</title>
+    <title>SAFIKI Gaming - Official</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header class="top-nav">
-        <div class="menu-icon">☰</div>
+
+    <header class="main-header">
+        <div class="menu-trigger" onclick="toggleSidebar()">☰</div>
         <div class="logo">SAFIKI</div>
-        <div class="actions">
-            <button class="download-btn">⬇</button>
-            <button class="options-btn">⋮</button>
-            <button class="login-btn">Login / Register</button>
+        <div class="auth-buttons">
+            <button class="login-btn">Login</button>
+            <button class="register-btn">Register</button>
         </div>
     </header>
 
-    <aside class="sidebar">
+    <aside id="sidebar" class="sidebar">
         <nav>
             <ul>
-                <li>Home</li>
-                <li>Invite & Earn</li>
-                <li>VIP Club</li>
-                <li>Promotions</li>
-                <li>Rewards</li>
-                <li>Transactions</li>
-                <li>Support</li>
-                <li>Settings</li>
-                <li>About Us</li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Invite & Earn</a></li>
+                <li><a href="#">VIP Club</a></li>
+                <li><a href="#">Promotions</a></li>
+                <li><a href="#">Rewards</a></li>
+                <li><a href="#">Transactions</a></li>
+                <li><a href="#">Support</a></li>
+                <li><a href="#">Settings</a></li>
+                <li><a href="#">Logout</a></li>
             </ul>
         </nav>
     </aside>
 
-    <main>
-        <section class="hero"><img src="images/banner.png" alt="Banner"></section>
-        
-        <section class="game-icons">
-            <img src="images/crash.png" alt="Crash">
-            <img src="images/triple7.png" alt="Triple 7">
-            <img src="images/andarbahar.png" alt="Andar Bahar">
-            <img src="images/roulette.png" alt="Roulette">
-            <img src="images/more.png" alt="More">
+    <main class="container">
+        <section class="hero-section">
+            <img src="images/banner.png" alt="Hero Banner">
         </section>
 
-        <section class="large-game-banners">
-            <img src="images/jhandimain.png" alt="Jhandi Main">
+        <section class="game-categories">
+            <div class="category-item"><img src="images/jhandi.png" alt="Jhandi Munda"><span>Jhandi Munda</span></div>
+            <div class="category-item"><img src="images/teenpatti.png" alt="Teen Patti"><span>Teen Patti</span></div>
+            <div class="category-item"><img src="images/dice.png" alt="Dice"><span>Dice</span></div>
+            <div class="category-item"><img src="images/more.png" alt="More"><span>More</span></div>
+        </section>
+
+        <section class="featured-games">
+            <img src="images/jhandimain.png" alt="Jhandi Munda Main">
             <img src="images/teenpattimain.png" alt="Teen Patti Main">
         </section>
 
-        <section class="stats">
-            <div class="stat-card">Jackpot: 5,68,945</div>
-            <div class="stat-card">Online: 1,268</div>
-            <div class="stat-card">Total Dep: 25,68,850</div>
-            <div class="stat-card">Total With: 18,75,680</div>
-        </section>
-
-        <section class="payment-actions">
-            <button class="dep-btn">Deposit Now</button>
-            <button class="with-btn">Withdraw Now</button>
+        <section class="payment-gateway">
+            <button class="pay-btn deposit">Deposit</button>
+            <button class="pay-btn withdraw">Withdraw</button>
         </section>
     </main>
 
     <footer class="bottom-nav">
-        <a href="#">Home</a><a href="#">Games</a><a href="#">Wallet</a><a href="#">Refer</a><a href="#">Profile</a>
+        <a href="#">Home</a>
+        <a href="#">Games</a>
+        <a href="#">Wallet</a>
+        <a href="#">Refer</a>
+        <a href="#">Profile</a>
     </footer>
 
     <script src="js/script.js"></script>
