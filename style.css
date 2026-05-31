@@ -1,567 +1,478 @@
-/* =========================
-   GLOBAL RESET
-========================= */
+// ======================================================
+// SAFIKI PLATFORM
+// Frontend Application Script
+// Version 1.0
+// Future Ready For Supabase Integration
+// ======================================================
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+document.addEventListener("DOMContentLoaded", () => {
 
-html{
-    scroll-behavior:smooth;
-}
+    console.log("SAFIKI Platform Loaded");
 
-body{
-    background:#05030d;
-    color:#ffffff;
-    font-family:Arial, sans-serif;
-    min-height:100vh;
-    overflow-x:hidden;
-    padding-bottom:90px;
-}
+    // Core Modules
+    initAuth();
+    initUserProfile();
+    initBalance();
 
-/* =========================
-   HEADER
-========================= */
+    // UI Modules
+    initSidebar();
+    initAnnouncement();
+    initBottomNav();
 
-.header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:15px;
+    // Game Modules
+    initGameCategories();
+    initMainGames();
+    initRecentWinners();
+    initRecentGameHistory();
 
-    padding:15px 20px;
+    // Wallet Modules
+    initWallet();
+    initTransactionHistory();
 
-    background:#0d0a1f;
-    border-bottom:1px solid #2d0a4d;
+    // Rewards Modules
+    initCashback();
+    initRakeback();
+    initReferralSystem();
 
-    position:sticky;
-    top:0;
-    z-index:1000;
-}
+    // Community Modules
+    initLeaderboard();
+    initVipClub();
+    initPromotions();
 
-.logo{
-    font-size:32px;
-    font-weight:700;
-    color:#ffcc00;
-}
+    // System Modules
+    initNotifications();
+    initSupport();
+    initStatistics();
 
-.user-info{
-    color:#00d26a;
-    font-weight:bold;
-}
+});
 
-.header-buttons{
-    display:flex;
-    gap:10px;
-}
+// ======================================================
+// AUTH MODULE
+// ======================================================
 
-.login-btn,
-.register-btn{
-    background:#ffcc00;
-    color:#000;
-    border:none;
-    border-radius:10px;
-    padding:10px 18px;
-    cursor:pointer;
-    font-weight:bold;
-}
+function initAuth() {
 
-/* =========================
-   ANNOUNCEMENT
-========================= */
+    const loginBtn =
+        document.getElementById("loginBtn");
 
-.announcement-section{
-    background:#2d0a4d;
-    padding:12px;
-    text-align:center;
-    color:#fff;
-    font-size:14px;
-}
+    const registerBtn =
+        document.getElementById("registerBtn");
 
-/* =========================
-   BANNER
-========================= */
+    if(loginBtn){
 
-.welcome-banner{
-    margin:20px;
-    padding:50px 25px;
-    border-radius:20px;
+        loginBtn.addEventListener("click", () => {
 
-    background:
-    linear-gradient(
-    135deg,
-    #2d0a4d,
-    #0d0a1f);
+            window.location.href =
+            "login.html";
 
-    text-align:center;
-}
+        });
 
-.banner-content h1{
-    font-size:48px;
-    color:#ffcc00;
-    margin-bottom:15px;
-}
-
-.banner-content p{
-    font-size:18px;
-    margin-bottom:20px;
-}
-
-.play-btn{
-    background:#ffcc00;
-    color:#000;
-    border:none;
-    padding:15px 30px;
-    border-radius:10px;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-.category-item{
-
-    min-width:160px;
-
-    background:linear-gradient(
-    145deg,
-    #3b1566,
-    #1a1233);
-
-    border:1px solid #6b21ff;
-
-    border-radius:18px;
-
-    padding:15px;
-
-    text-align:center;
-
-    box-shadow:
-    0 8px 18px rgba(0,0,0,.4);
-
-    transition:.3s;
-
-    cursor:pointer;
-}
-
-.category-item:hover{
-
-    transform:translateY(-5px);
-
-    box-shadow:
-    0 15px 30px rgba(0,0,0,.5);
-}
-
-.category-item img{
-
-    width:70px;
-    height:70px;
-
-    object-fit:contain;
-
-    margin-bottom:10px;
-}
-
-.category-item span{
-
-    display:block;
-
-    color:#fff;
-
-    font-weight:700;
-}
-/* =========================
-   MAIN GAMES
-========================= */
-
-.main-games{
-    display:grid;
-
-    grid-template-columns:
-    repeat(auto-fit,minmax(320px,1fr));
-
-    gap:20px;
-
-    padding:20px;
-}
-
-.game-card{
-    background:#0d0a1f;
-    border-radius:20px;
-    overflow:hidden;
-    border:1px solid #2d0a4d;
-}
-
-.game-image{
-    height:300px;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    background:
-    linear-gradient(
-    180deg,
-    #2d0a4d,
-    #05030d);
-
-    color:#ffcc00;
-    font-size:24px;
-    font-weight:bold;
-}
-
-.game-info{
-    padding:20px;
-}
-
-.game-info h2{
-    margin-bottom:15px;
-}
-
-.game-info button{
-    width:100%;
-    padding:12px;
-
-    border:none;
-    border-radius:10px;
-
-    background:#00d26a;
-    color:#fff;
-    cursor:pointer;
-}
-
-/* =========================
-   COMMON SECTION STYLE
-========================= */
-
-.invite-section,
-.winner-feed,
-.statistics-section,
-.wallet-section,
-.cashback-section,
-.promotions-section,
-.vip-section,
-.support-section,
-.profile-section,
-.notification-section,
-.leaderboard-section,
-.footer{
-
-    margin:20px;
-
-    padding:20px;
-
-    background:#0d0a1f;
-
-    border-radius:20px;
-
-    border:1px solid #2d0a4d;
-}
-
-h3{
-    margin-bottom:15px;
-    color:#ffcc00;
-}
-
-/* =========================
-   WINNERS
-========================= */
-
-.winner-feed ul{
-    list-style:none;
-}
-
-.winner-feed li{
-    padding:10px 0;
-    border-bottom:1px solid #222;
-}
-
-/* =========================
-   STATISTICS
-========================= */
-
-.statistics-grid{
-    display:grid;
-
-    grid-template-columns:
-    repeat(auto-fit,minmax(200px,1fr));
-
-    gap:15px;
-}
-
-.stat-card{
-    background:#1a1233;
-    padding:20px;
-    border-radius:15px;
-    text-align:center;
-}
-
-.stat-card h4{
-    color:#ffcc00;
-    margin-bottom:10px;
-}
-
-/* =========================
-   WALLET
-========================= */
-
-.wallet-buttons{
-    display:flex;
-    gap:15px;
-}
-
-.deposit-btn,
-.withdraw-btn{
-
-    flex:1;
-
-    border:none;
-
-    padding:15px;
-
-    border-radius:12px;
-
-    cursor:pointer;
-
-    font-weight:bold;
-}
-
-.deposit-btn{
-    background:#6b21ff;
-    color:#fff;
-}
-
-.withdraw-btn{
-    background:#ffcc00;
-    color:#000;
-}
-
-/* =========================
-   CASHBACK
-========================= */
-
-.cashback-container{
-    display:grid;
-
-    grid-template-columns:
-    repeat(auto-fit,minmax(220px,1fr));
-
-    gap:15px;
-}
-
-.cashback-card{
-    background:#1a1233;
-    padding:20px;
-    border-radius:15px;
-    text-align:center;
-}
-
-.cashback-percent{
-    color:#00d26a;
-    font-size:22px;
-    font-weight:bold;
-    margin:10px 0;
-}
-
-.cashback-card button{
-    margin-top:15px;
-
-    width:100%;
-
-    border:none;
-
-    padding:12px;
-
-    border-radius:10px;
-
-    background:#ffcc00;
-    color:#000;
-
-    cursor:pointer;
-}
-
-/* =========================
-   PROMOTION
-========================= */
-
-.promotion-card{
-    background:#1a1233;
-    padding:15px;
-    border-radius:12px;
-    margin-bottom:12px;
-}
-
-/* =========================
-   VIP
-========================= */
-
-.vip-card{
-    background:#1a1233;
-    padding:20px;
-    border-radius:15px;
-}
-
-/* =========================
-   PROFILE
-========================= */
-
-.profile-card{
-    background:#1a1233;
-    padding:20px;
-    border-radius:15px;
-}
-
-.profile-card p{
-    margin-bottom:10px;
-}
-
-/* =========================
-   NOTIFICATION
-========================= */
-
-.notification-section ul{
-    list-style:none;
-}
-
-.notification-section li{
-    padding:10px 0;
-    border-bottom:1px solid #222;
-}
-
-/* =========================
-   LEADERBOARD
-========================= */
-
-.leaderboard-section ol{
-    padding-left:20px;
-}
-
-.leaderboard-section li{
-    margin-bottom:10px;
-}
-
-/* =========================
-   SUPPORT
-========================= */
-
-.support-btn{
-    margin-top:15px;
-
-    background:#ffcc00;
-    color:#000;
-
-    border:none;
-
-    padding:12px 20px;
-
-    border-radius:10px;
-
-    cursor:pointer;
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-.footer{
-    text-align:center;
-    color:#999;
-}
-
-/* =========================
-   BOTTOM NAV
-========================= */
-
-.bottom-nav{
-    position:fixed;
-
-    bottom:0;
-    left:0;
-
-    width:100%;
-
-    background:#0d0a1f;
-
-    display:flex;
-
-    justify-content:space-around;
-
-    align-items:center;
-
-    padding:15px 0;
-
-    border-top:1px solid #2d0a4d;
-
-    z-index:999;
-}
-
-.bottom-nav div{
-    color:#fff;
-    font-size:14px;
-}
-
-/* =========================
-   DESKTOP IMPROVEMENT
-========================= */
-
-@media (min-width:1200px){
-
-    body{
-        max-width:1400px;
-        margin:auto;
-    }
-}
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width:768px){
-
-    .header{
-        flex-wrap:wrap;
     }
 
-    .logo{
-        font-size:26px;
+    if(registerBtn){
+
+        registerBtn.addEventListener("click", () => {
+
+            window.location.href =
+            "register.html";
+
+        });
+
     }
 
-    .banner-content h1{
-        font-size:32px;
-    }
-
-    .main-games{
-        grid-template-columns:1fr;
-    }
-
-    .wallet-buttons{
-        flex-direction:column;
-    }
-
-    .statistics-grid{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .cashback-container{
-        grid-template-columns:1fr;
-    }
 }
-<div class="layout">
 
-    <aside class="sidebar">
-        ...
-    </aside>
+// ======================================================
+// USER PROFILE
+// ======================================================
 
-    <main class="content">
+function initUserProfile(){
 
-        announcement
+    console.log(
+        "User Profile Module Ready"
+    );
 
-        banner
+    // Future Supabase Hook
+    // Load User Data
+    // Update Profile Card
+    // Update User Status
 
-        games
+}
 
-        wallet
+// ======================================================
+// BALANCE MODULE
+// ======================================================
 
-    </main>
+function initBalance(){
 
-</div>
+    const balance =
+        document.getElementById(
+            "userBalance"
+        );
+
+    if(balance){
+
+        balance.textContent =
+        "৳0.00";
+
+    }
+
+}
+
+// ======================================================
+// SIDEBAR MODULE
+// ======================================================
+
+function initSidebar(){
+
+    console.log(
+        "Sidebar Ready"
+    );
+
+    // Future:
+    // Open / Close Sidebar
+    // Mobile Sidebar Toggle
+
+}
+
+// ======================================================
+// ANNOUNCEMENT MODULE
+// ======================================================
+
+function initAnnouncement(){
+
+    const messages = [
+
+        "Welcome To SAFIKI",
+        "New Rewards Available",
+        "Invite Friends And Earn",
+        "VIP Benefits Active"
+
+    ];
+
+    let index = 0;
+
+    const section =
+        document.getElementById(
+            "announcement-section"
+        );
+
+    if(!section) return;
+
+    setInterval(() => {
+
+        section.innerHTML =
+        `<p>${messages[index]}</p>`;
+
+        index++;
+
+        if(index >= messages.length){
+
+            index = 0;
+
+        }
+
+    },5000);
+
+}
+
+// ======================================================
+// BOTTOM NAVIGATION
+// ======================================================
+
+function initBottomNav(){
+
+    console.log(
+        "Bottom Navigation Ready"
+    );
+
+}
+
+// ======================================================
+// GAME CATEGORY
+// ======================================================
+
+function initGameCategories(){
+
+    console.log(
+        "Game Categories Ready"
+    );
+
+}
+
+// ======================================================
+// MAIN GAMES
+// ======================================================
+
+function initMainGames(){
+
+    const playButtons =
+        document.querySelectorAll(
+            ".play-btn"
+        );
+
+    playButtons.forEach(button => {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                alert(
+                    "Game Opening Soon"
+                );
+
+            }
+        );
+
+    });
+
+}
+
+// ======================================================
+// WINNERS FEED
+// ======================================================
+
+function initRecentWinners(){
+
+    console.log(
+        "Winner Feed Ready"
+    );
+
+    // Future Supabase
+    // Real-Time Winners Feed
+
+}
+
+// ======================================================
+// GAME HISTORY
+// ======================================================
+
+function initRecentGameHistory(){
+
+    console.log(
+        "Game History Ready"
+    );
+
+}
+
+// ======================================================
+// WALLET MODULE
+// ======================================================
+
+function initWallet(){
+
+    const depositBtn =
+        document.querySelector(
+            ".deposit-btn"
+        );
+
+    const withdrawBtn =
+        document.querySelector(
+            ".withdraw-btn"
+        );
+
+    if(depositBtn){
+
+        depositBtn.addEventListener(
+            "click",
+            () => {
+
+                alert(
+                    "Deposit Page"
+                );
+
+            }
+        );
+
+    }
+
+    if(withdrawBtn){
+
+        withdrawBtn.addEventListener(
+            "click",
+            () => {
+
+                alert(
+                    "Withdraw Page"
+                );
+
+            }
+        );
+
+    }
+
+}
+
+// ======================================================
+// TRANSACTION HISTORY
+// ======================================================
+
+function initTransactionHistory(){
+
+    console.log(
+        "Transaction History Ready"
+    );
+
+}
+
+// ======================================================
+// CASHBACK
+// ======================================================
+
+function initCashback(){
+
+    const btn =
+        document.querySelector(
+            ".claim-weekly-btn"
+        );
+
+    if(btn){
+
+        btn.addEventListener(
+            "click",
+            () => {
+
+                alert(
+                    "Cashback Claim"
+                );
+
+            }
+        );
+
+    }
+
+}
+
+// ======================================================
+// RAKEBACK
+// ======================================================
+
+function initRakeback(){
+
+    const btn =
+        document.querySelector(
+            ".claim-rakeback-btn"
+        );
+
+    if(btn){
+
+        btn.addEventListener(
+            "click",
+            () => {
+
+                alert(
+                    "Rakeback Claim"
+                );
+
+            }
+        );
+
+    }
+
+}
+
+// ======================================================
+// REFERRAL SYSTEM
+// ======================================================
+
+function initReferralSystem(){
+
+    console.log(
+        "Referral System Ready"
+    );
+
+}
+
+// ======================================================
+// LEADERBOARD
+// ======================================================
+
+function initLeaderboard(){
+
+    console.log(
+        "Leaderboard Ready"
+    );
+
+}
+
+// ======================================================
+// VIP CLUB
+// ======================================================
+
+function initVipClub(){
+
+    console.log(
+        "VIP Club Ready"
+    );
+
+}
+
+// ======================================================
+// PROMOTIONS
+// ======================================================
+
+function initPromotions(){
+
+    console.log(
+        "Promotions Ready"
+    );
+
+}
+
+// ======================================================
+// NOTIFICATIONS
+// ======================================================
+
+function initNotifications(){
+
+    console.log(
+        "Notifications Ready"
+    );
+
+}
+
+// ======================================================
+// SUPPORT
+// ======================================================
+
+function initSupport(){
+
+    const btn =
+        document.querySelector(
+            ".support-btn"
+        );
+
+    if(btn){
+
+        btn.addEventListener(
+            "click",
+            () => {
+
+                alert(
+                    "Support Coming Soon"
+                );
+
+            }
+        );
+
+    }
+
+}
+
+// ======================================================
+// STATISTICS
+// ======================================================
+
+function initStatistics(){
+
+    console.log(
+        "Statistics Ready"
+    );
+
+    // Future:
+    // Online Users
+    // Deposits
+    // Withdrawals
+    // Jackpot Winners
+
+}
