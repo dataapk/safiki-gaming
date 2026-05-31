@@ -1,20 +1,28 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // ১. মেনু আইকন এবং সাইডবার টগল
+    // মেনু আইকন এবং সাইডবার এলিমেন্ট নির্বাচন
     const menuIcon = document.querySelector('.menu-icon');
     const sidebar = document.querySelector('.sidebar');
 
+    // মেনু আইকনে ক্লিক ইভেন্ট
     if (menuIcon && sidebar) {
-        menuIcon.addEventListener('click', () => {
-            sidebar.classList.toggle('active');
+        menuIcon.addEventListener('click', (event) => {
+            // ইভেন্ট বাবলিং বন্ধ করা যাতে সাথে সাথে বাইরে ক্লিক হিসেবে না ধরে
+            event.stopPropagation(); 
+            
+            // সাইডবার অ্যাক্টিভ করা
+            sidebar.classList.add('active');
+            console.log("Menu opened");
         });
 
-        // সাইডবারের বাইরে ক্লিক করলে বন্ধ হবে
+        // ডকুমেন্টের যেকোনো জায়গায় ক্লিক করলে মেনু বন্ধ হবে
         document.addEventListener('click', (event) => {
+            // যদি ক্লিকটি সাইডবারের ভেতরে না হয় এবং মেনু আইকনে না হয়, তবে মেনু বন্ধ হবে
             if (!sidebar.contains(event.target) && !menuIcon.contains(event.target)) {
                 sidebar.classList.remove('active');
             }
         });
     }
+});
 
     // ২. ক্যাটাগরি সিলেকশন (ক্লিক করলে ফিডব্যাক)
     const categories = document.querySelectorAll('.category-item');
