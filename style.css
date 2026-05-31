@@ -1,1 +1,104 @@
-v
+/* গ্লোবাল স্টাইল: ডার্ক থিম */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #0d0d0d;
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* টপ বার: লোগো ও বাটন */
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: #1a1a1a;
+    border-bottom: 2px solid #d4af37; /* গোল্ডেন বর্ডার */
+}
+
+.login-btn {
+    background: linear-gradient(to right, #d4af37, #aa8811);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    color: #000;
+    font-weight: bold;
+}
+
+/* গেম গ্রিড ও ইমেজ */
+.game-icons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 15px;
+}
+
+.game-icons img {
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid #333;
+}
+
+.large-game-banners {
+    display: flex;
+    gap: 15px;
+    padding: 15px;
+}
+
+.large-game-banners img {
+    width: 50%;
+    border-radius: 12px;
+}
+
+/* স্ট্যাটস কার্ড: গোল্ডেন থিম */
+.stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 15px;
+}
+
+.stat-card {
+    background: #1a1a1a;
+    padding: 15px;
+    border: 1px solid #d4af37;
+    border-radius: 8px;
+    font-size: 11px;
+    text-align: center;
+    color: #d4af37;
+}
+
+/* পেমেন্ট বাটন */
+.payment-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.payment-actions button {
+    padding: 12px 30px;
+    border-radius: 20px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* বটম মেনু */
+.bottom-menu {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #000;
+    padding: 15px 0;
+    display: flex;
+    justify-content: space-around;
+    border-top: 1px solid #d4af37;
+}
+
+.bottom-menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 12px;
+}
