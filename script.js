@@ -128,28 +128,3 @@ document.addEventListener('DOMContentLoaded', () => {
         );
 
     }
-
-
-   /* =========================
-   MENU BUTTON
-========================= */
-
-const menuBtn =
-    document.getElementById(
-        'menu-toggle'
-    );
-
-if (menuBtn) {
-
-    menuBtn.addEventListener(
-        'click',
-        () => {
-
-            console.log(
-                'Menu Clicked'
-            );
-
-        }
-    );
-
-}
