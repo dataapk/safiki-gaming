@@ -128,6 +128,14 @@ body {
     display: inline-block;
 
 }
+.login-btn:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 0 20px rgba(157, 78, 221, 0.8);
+
+}
 
 
 /* Mobile Responsive */
@@ -257,6 +265,19 @@ body {
 
     cursor: pointer;
 
+    transition: all 0.3s ease;
+
+    border: 1px solid rgba(138, 43, 226, 0.25);
+
+}
+
+.category-item:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 0 15px rgba(138, 43, 226, 0.7);
+
 }
 
 .category-item img {
@@ -277,8 +298,9 @@ body {
 
     font-weight: 600;
 
-}
+    color: #ffffff;
 
+}
 
 /* Mobile Responsive */
 
