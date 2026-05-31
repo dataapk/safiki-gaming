@@ -1,6 +1,34 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     /* =========================
+       MENU DROPDOWN
+    ========================= */
+
+    const menuBtn =
+        document.getElementById('menu-toggle');
+
+    const dropdownMenu =
+        document.getElementById('dropdown-menu');
+
+    if (menuBtn && dropdownMenu) {
+
+        menuBtn.addEventListener('click', (e) => {
+
+            e.stopPropagation();
+
+            dropdownMenu.classList.toggle('active');
+
+        });
+
+        document.addEventListener('click', () => {
+
+            dropdownMenu.classList.remove('active');
+
+        });
+
+    }
+
+    /* =========================
        CATEGORY SELECTION
     ========================= */
 
