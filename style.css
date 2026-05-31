@@ -1,196 +1,196 @@
-// ======================================================
-// SAFIKI PLATFORM
-// Frontend Application Script
-// Version 1.0
-// Future Ready For Supabase Integration
-// ======================================================
+/* ====================================
+   GLOBAL
+==================================== */
 
-document.addEventListener("DOMContentLoaded", () => {
-
-    console.log("SAFIKI Platform Loaded");
-
-    // Core Modules
-    initAuth();
-    initUserProfile();
-    initBalance();
-
-    // UI Modules
-    initSidebar();
-    initAnnouncement();
-    initBottomNav();
-
-    // Game Modules
-    initGameCategories();
-    initMainGames();
-    initRecentWinners();
-    initRecentGameHistory();
-
-    // Wallet Modules
-    initWallet();
-    initTransactionHistory();
-
-    // Rewards Modules
-    initCashback();
-    initRakeback();
-    initReferralSystem();
-
-    // Community Modules
-    initLeaderboard();
-    initVipClub();
-    initPromotions();
-
-    // System Modules
-    initNotifications();
-    initSupport();
-    initStatistics();
-
-});
-
-// ======================================================
-// AUTH MODULE
-// ======================================================
-
-function initAuth() {
-
-    const loginBtn =
-        document.getElementById("loginBtn");
-
-    const registerBtn =
-        document.getElementById("registerBtn");
-
-    if(loginBtn){
-
-        loginBtn.addEventListener("click", () => {
-
-            window.location.href =
-            "login.html";
-
-        });
-
-    }
-
-    if(registerBtn){
-
-        registerBtn.addEventListener("click", () => {
-
-            window.location.href =
-            "register.html";
-
-        });
-
-    }
-
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-// ======================================================
-// USER PROFILE
-// ======================================================
+body{
 
-function initUserProfile(){
+    font-family:Arial,sans-serif;
 
-    console.log(
-        "User Profile Module Ready"
-    );
+    background:#0f0c1d;
 
-    // Future Supabase Hook
-    // Load User Data
-    // Update Profile Card
-    // Update User Status
+    color:#ffffff;
 
+    min-height:100vh;
 }
 
-// ======================================================
-// BALANCE MODULE
-// ======================================================
+/* ====================================
+   HEADER
+==================================== */
 
-function initBalance(){
+.header{
 
-    const balance =
-        document.getElementById(
-            "userBalance"
-        );
+    display:flex;
 
-    if(balance){
+    justify-content:space-between;
 
-        balance.textContent =
-        "৳0.00";
+    align-items:center;
 
-    }
+    padding:15px 20px;
 
+    background:#1b1335;
+
+    border-bottom:1px solid #35225f;
+
+    position:sticky;
+
+    top:0;
+
+    z-index:999;
 }
 
-// ======================================================
-// SIDEBAR MODULE
-// ======================================================
+.logo{
 
-function initSidebar(){
+    font-size:24px;
 
-    console.log(
-        "Sidebar Ready"
-    );
+    font-weight:700;
 
-    // Future:
-    // Open / Close Sidebar
-    // Mobile Sidebar Toggle
-
+    color:#ffcc00;
 }
 
-// ======================================================
-// ANNOUNCEMENT MODULE
-// ======================================================
+.user-info{
 
-function initAnnouncement(){
+    background:#271b4a;
 
-    const messages = [
+    padding:8px 15px;
 
-        "Welcome To SAFIKI",
-        "New Rewards Available",
-        "Invite Friends And Earn",
-        "VIP Benefits Active"
-
-    ];
-
-    let index = 0;
-
-    const section =
-        document.getElementById(
-            "announcement-section"
-        );
-
-    if(!section) return;
-
-    setInterval(() => {
-
-        section.innerHTML =
-        `<p>${messages[index]}</p>`;
-
-        index++;
-
-        if(index >= messages.length){
-
-            index = 0;
-
-        }
-
-    },5000);
-
+    border-radius:10px;
 }
 
-// ======================================================
-// BOTTOM NAVIGATION
-// ======================================================
+.header-buttons{
 
-function initBottomNav(){
+    display:flex;
 
-    console.log(
-        "Bottom Navigation Ready"
-    );
-
+    gap:10px;
 }
 
-/* ===================================
-   GAME CATEGORIES SECTION
-=================================== */
+.login-btn,
+.register-btn{
+
+    border:none;
+
+    padding:10px 18px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-weight:700;
+
+    transition:.3s;
+}
+
+.login-btn{
+
+    background:#ffb400;
+
+    color:#000;
+}
+
+.register-btn{
+
+    background:#6a3dff;
+
+    color:#fff;
+}
+
+.login-btn:hover,
+.register-btn:hover{
+
+    transform:translateY(-2px);
+}
+
+/* ====================================
+   SIDEBAR
+==================================== */
+
+.sidebar{
+
+    width:220px;
+
+    background:#161024;
+
+    padding:20px;
+}
+
+.sidebar a{
+
+    display:block;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    padding:12px;
+
+    border-radius:10px;
+
+    margin-bottom:8px;
+}
+
+.sidebar a:hover{
+
+    background:#271b4a;
+}
+
+/* ====================================
+   ANNOUNCEMENT
+==================================== */
+
+.announcement-section{
+
+    background:#24183f;
+
+    padding:12px;
+
+    text-align:center;
+
+    color:#ffcc00;
+}
+
+/* ====================================
+   BANNER
+==================================== */
+
+.welcome-banner{
+
+    padding:40px 20px;
+
+    text-align:center;
+
+    background:linear-gradient(
+    135deg,
+    #321b5f,
+    #140f28);
+}
+
+.play-btn{
+
+    margin-top:15px;
+
+    padding:12px 25px;
+
+    border:none;
+
+    border-radius:15px;
+
+    background:#ffb400;
+
+    color:#000;
+
+    font-weight:700;
+
+    cursor:pointer;
+}
+
+/* ====================================
+   GAME CATEGORIES
+==================================== */
 
 .game-categories{
 
@@ -203,8 +203,6 @@ function initBottomNav(){
     overflow-x:auto;
 
     scrollbar-width:none;
-
-    width:100%;
 }
 
 .game-categories::-webkit-scrollbar{
@@ -212,358 +210,293 @@ function initBottomNav(){
     display:none;
 }
 
-/* ===================================
-   CATEGORY CARD
-=================================== */
-
 .category-item{
 
-    min-width:140px;
+    min-width:150px;
 
-    max-width:140px;
+    max-width:150px;
 
-    height:160px;
+    height:170px;
 
     flex-shrink:0;
 
     background:linear-gradient(
     145deg,
     #2c0f52,
-    #151029);
+    #171126);
 
-    border:1px solid #5e2eff;
-
-    border-radius:18px;
+    border-radius:20px;
 
     display:flex;
 
     flex-direction:column;
 
-    align-items:center;
-
     justify-content:center;
 
-    text-align:center;
-
-    cursor:pointer;
-
-    transition:.3s;
+    align-items:center;
 
     box-shadow:
     0 8px 20px rgba(0,0,0,.35);
+
+    transition:.3s;
 }
 
 .category-item:hover{
 
     transform:translateY(-5px);
-
-    box-shadow:
-    0 15px 30px rgba(94,46,255,.35);
 }
-
-/* ===================================
-   CATEGORY IMAGE
-=================================== */
 
 .category-item img{
 
-    width:80px;
+    width:90px;
 
-    height:80px;
+    height:90px;
 
     object-fit:contain;
-
-    margin-bottom:10px;
 }
-
-/* ===================================
-   CATEGORY TITLE
-=================================== */
 
 .category-item span{
 
-    color:#fff;
-
-    font-size:14px;
+    margin-top:10px;
 
     font-weight:700;
 }
 
-/* ===================================
-   DESKTOP VIEW
-=================================== */
+/* ====================================
+   GAME CARDS
+==================================== */
 
-@media (min-width:1024px){
+.main-games{
 
-    .game-categories{
+    display:grid;
 
-        justify-content:center;
+    grid-template-columns:
+    repeat(auto-fit,minmax(280px,1fr));
 
-        overflow-x:visible;
+    gap:20px;
+
+    padding:20px;
+}
+
+.game-card{
+
+    background:#1b1335;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 8px 20px rgba(0,0,0,.35);
+}
+
+.game-image{
+
+    width:100%;
+
+    height:220px;
+
+    overflow:hidden;
+}
+
+.game-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+}
+
+.game-info{
+
+    padding:15px;
+}
+
+/* ====================================
+   COMMON SECTION
+==================================== */
+
+.statistics-section,
+.wallet-section,
+.cashback-section,
+.promotions-section,
+.vip-section,
+.support-section,
+.profile-section,
+.notification-section,
+.leaderboard-section,
+.winner-feed,
+.invite-section{
+
+    background:#1b1335;
+
+    margin:15px;
+
+    padding:20px;
+
+    border-radius:20px;
+}
+
+/* ====================================
+   STATISTICS
+==================================== */
+
+.statistics-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(180px,1fr));
+
+    gap:15px;
+}
+
+.stat-card{
+
+    background:#271b4a;
+
+    padding:15px;
+
+    border-radius:15px;
+
+    text-align:center;
+}
+
+/* ====================================
+   WALLET
+==================================== */
+
+.wallet-buttons{
+
+    display:flex;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+}
+
+.deposit-btn,
+.withdraw-btn{
+
+    border:none;
+
+    padding:12px 20px;
+
+    border-radius:15px;
+
+    font-weight:700;
+
+    cursor:pointer;
+}
+
+.deposit-btn{
+
+    background:#00c853;
+
+    color:#fff;
+}
+
+.withdraw-btn{
+
+    background:#ff5252;
+
+    color:#fff;
+}
+
+/* ====================================
+   CASHBACK
+==================================== */
+
+.cashback-container{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
+
+    gap:15px;
+}
+
+.cashback-card{
+
+    background:#271b4a;
+
+    border-radius:18px;
+
+    padding:20px;
+
+    text-align:center;
+}
+
+/* ====================================
+   FOOTER
+==================================== */
+
+.footer{
+
+    text-align:center;
+
+    padding:20px;
+
+    background:#140f28;
+
+    margin-top:30px;
+}
+
+/* ====================================
+   BOTTOM NAV
+==================================== */
+
+.bottom-nav{
+
+    position:fixed;
+
+    bottom:0;
+
+    left:0;
+
+    width:100%;
+
+    background:#1b1335;
+
+    display:flex;
+
+    justify-content:space-around;
+
+    padding:12px;
+
+    z-index:999;
+}
+
+/* ====================================
+   MOBILE
+==================================== */
+
+@media(max-width:768px){
+
+    .header{
+
+        flex-wrap:wrap;
+
+        gap:10px;
     }
 
-    .category-item{
+    .logo{
 
-        min-width:180px;
+        width:100%;
 
-        max-width:180px;
-
-        height:190px;
+        text-align:center;
     }
 
-    .category-item img{
+    .main-games{
 
-        width:100px;
-
-        height:100px;
+        grid-template-columns:1fr;
     }
 
-}
-// ======================================================
-// WINNERS FEED
-// ======================================================
+    .sidebar{
 
-function initRecentWinners(){
-
-    console.log(
-        "Winner Feed Ready"
-    );
-
-    // Future Supabase
-    // Real-Time Winners Feed
-
-}
-
-// ======================================================
-// GAME HISTORY
-// ======================================================
-
-function initRecentGameHistory(){
-
-    console.log(
-        "Game History Ready"
-    );
-
-}
-
-// ======================================================
-// WALLET MODULE
-// ======================================================
-
-function initWallet(){
-
-    const depositBtn =
-        document.querySelector(
-            ".deposit-btn"
-        );
-
-    const withdrawBtn =
-        document.querySelector(
-            ".withdraw-btn"
-        );
-
-    if(depositBtn){
-
-        depositBtn.addEventListener(
-            "click",
-            () => {
-
-                alert(
-                    "Deposit Page"
-                );
-
-            }
-        );
-
+        width:100%;
     }
-
-    if(withdrawBtn){
-
-        withdrawBtn.addEventListener(
-            "click",
-            () => {
-
-                alert(
-                    "Withdraw Page"
-                );
-
-            }
-        );
-
-    }
-
-}
-
-// ======================================================
-// TRANSACTION HISTORY
-// ======================================================
-
-function initTransactionHistory(){
-
-    console.log(
-        "Transaction History Ready"
-    );
-
-}
-
-// ======================================================
-// CASHBACK
-// ======================================================
-
-function initCashback(){
-
-    const btn =
-        document.querySelector(
-            ".claim-weekly-btn"
-        );
-
-    if(btn){
-
-        btn.addEventListener(
-            "click",
-            () => {
-
-                alert(
-                    "Cashback Claim"
-                );
-
-            }
-        );
-
-    }
-
-}
-
-// ======================================================
-// RAKEBACK
-// ======================================================
-
-function initRakeback(){
-
-    const btn =
-        document.querySelector(
-            ".claim-rakeback-btn"
-        );
-
-    if(btn){
-
-        btn.addEventListener(
-            "click",
-            () => {
-
-                alert(
-                    "Rakeback Claim"
-                );
-
-            }
-        );
-
-    }
-
-}
-
-// ======================================================
-// REFERRAL SYSTEM
-// ======================================================
-
-function initReferralSystem(){
-
-    console.log(
-        "Referral System Ready"
-    );
-
-}
-
-// ======================================================
-// LEADERBOARD
-// ======================================================
-
-function initLeaderboard(){
-
-    console.log(
-        "Leaderboard Ready"
-    );
-
-}
-
-// ======================================================
-// VIP CLUB
-// ======================================================
-
-function initVipClub(){
-
-    console.log(
-        "VIP Club Ready"
-    );
-
-}
-
-// ======================================================
-// PROMOTIONS
-// ======================================================
-
-function initPromotions(){
-
-    console.log(
-        "Promotions Ready"
-    );
-
-}
-
-// ======================================================
-// NOTIFICATIONS
-// ======================================================
-
-function initNotifications(){
-
-    console.log(
-        "Notifications Ready"
-    );
-
-}
-
-// ======================================================
-// SUPPORT
-// ======================================================
-
-function initSupport(){
-
-    const btn =
-        document.querySelector(
-            ".support-btn"
-        );
-
-    if(btn){
-
-        btn.addEventListener(
-            "click",
-            () => {
-
-                alert(
-                    "Support Coming Soon"
-                );
-
-            }
-        );
-
-    }
-
-}
-
-// ======================================================
-// STATISTICS
-// ======================================================
-
-function initStatistics(){
-
-    console.log(
-        "Statistics Ready"
-    );
-
-    // Future:
-    // Online Users
-    // Deposits
-    // Withdrawals
-    // Jackpot Winners
 
 }
