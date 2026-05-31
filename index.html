@@ -4,45 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SAFIKI Gaming</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
-    <header class="top-bar">
-        <div class="menu-icon">☰</div> <div class="logo">SAFIKI</div>
-        <div class="top-right-actions">
-            <button class="download-btn">⬇️</button> <button class="options-btn">⋮</button> <button class="login-register-btn">Login / Register</button>
+    <header class="top-nav">
+        <div class="menu-icon">☰</div>
+        <div class="logo">SAFIKI</div>
+        <div class="actions">
+            <button class="download-btn">⬇</button>
+            <button class="options-btn">⋮</button>
+            <button class="login-btn">Login / Register</button>
         </div>
     </header>
 
-    <nav class="sidebar">
-        <ul>
-            <li>Home</li>
-            <li>Invite & Earn</li>
-            <li>VIP Club</li>
-            <li>Promotions</li>
-            <li>Rewards</li> <li>Transactions</li>
-            <li>Support</li>
-            <li>Settings</li>
-            <li>About Us</li>
-        </ul>
-    </nav>
+    <aside class="sidebar">
+        <nav>
+            <ul>
+                <li>Home</li>
+                <li>Invite & Earn</li>
+                <li>VIP Club</li>
+                <li>Promotions</li>
+                <li>Rewards</li>
+                <li>Transactions</li>
+                <li>Support</li>
+                <li>Settings</li>
+                <li>About Us</li>
+            </ul>
+        </nav>
+    </aside>
 
     <main>
-        <section class="hero-banner">
-            <img src="images/banner.png" alt="Welcome Bonus">
-        </section>
+        <section class="hero"><img src="images/banner.png" alt="Banner"></section>
         
-        </main>
+        <section class="game-icons">
+            <img src="images/crash.png" alt="Crash">
+            <img src="images/triple7.png" alt="Triple 7">
+            <img src="images/andarbahar.png" alt="Andar Bahar">
+            <img src="images/roulette.png" alt="Roulette">
+            <img src="images/more.png" alt="More">
+        </section>
+
+        <section class="large-game-banners">
+            <img src="images/jhandimain.png" alt="Jhandi Main">
+            <img src="images/teenpattimain.png" alt="Teen Patti Main">
+        </section>
+
+        <section class="stats">
+            <div class="stat-card">Jackpot: 5,68,945</div>
+            <div class="stat-card">Online: 1,268</div>
+            <div class="stat-card">Total Dep: 25,68,850</div>
+            <div class="stat-card">Total With: 18,75,680</div>
+        </section>
+
+        <section class="payment-actions">
+            <button class="dep-btn">Deposit Now</button>
+            <button class="with-btn">Withdraw Now</button>
+        </section>
+    </main>
 
     <footer class="bottom-nav">
-        <ul>
-            <li>Home</li>
-            <li>Games</li>
-            <li>Wallet</li>
-            <li>Refer</li>
-            <li>Profile</li>
-        </ul>
+        <a href="#">Home</a><a href="#">Games</a><a href="#">Wallet</a><a href="#">Refer</a><a href="#">Profile</a>
     </footer>
 
+    <script src="js/script.js"></script>
 </body>
 </html>
