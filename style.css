@@ -518,3 +518,22 @@ h3{
         grid-template-columns:1fr;
     }
 }
+<div class="layout">
+
+    <aside class="sidebar">
+        ...
+    </aside>
+
+    <main class="content">
+
+        announcement
+
+        banner
+
+        games
+
+        wallet
+
+    </main>
+
+</div>
