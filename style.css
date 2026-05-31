@@ -483,35 +483,29 @@ body{
 
     z-index:999;
 }
-
 /* ====================================
    MOBILE
 ==================================== */
 
 @media(max-width:768px){
 
-    .header{
+    .category-item{
 
-        flex-wrap:wrap;
+        min-width:120px;
 
-        gap:10px;
+        max-width:120px;
+
+        height:150px;
     }
 
-    .logo{
+    .category-item img{
 
-        width:100%;
-
-        text-align:center;
+        height:75px;
     }
 
     .main-games{
 
         grid-template-columns:1fr;
-    }
-
-    .sidebar{
-
-        width:100%;
     }
 
 }
