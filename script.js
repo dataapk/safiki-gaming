@@ -130,28 +130,26 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    /* =========================
-       MENU BUTTON
-    ========================= */
+   /* =========================
+   MENU BUTTON
+========================= */
 
-    const menuBtn =
-        document.getElementById(
-            'menu-toggle'
-        );
+const menuBtn =
+    document.getElementById(
+        'menu-toggle'
+    );
 
-    if (menuBtn) {
+if (menuBtn) {
 
-        menuBtn.addEventListener(
-            'click',
-            () => {
+    menuBtn.addEventListener(
+        'click',
+        () => {
 
-                console.log(
-                    'Menu Clicked'
-                );
+            console.log(
+                'Menu Clicked'
+            );
 
-            }
-        );
+        }
+    );
 
-    }
-
-});
+}
