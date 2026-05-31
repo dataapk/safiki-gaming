@@ -400,10 +400,10 @@ body {
 }
 
 /* =====================================
-   FOOTER CSS
+   FOOTER MENU CSS
 ===================================== */
 
-.bottom-nav {
+.bottom-menu {
 
     position: fixed;
 
@@ -413,69 +413,62 @@ body {
 
     width: 100%;
 
+    background: #121212;
+
+    padding: 8px;
+
+    border-top: 1px solid rgba(138, 43, 226, 0.25);
+
+}
+
+.bottom-menu nav {
+
     display: flex;
 
     justify-content: center;
 
-    gap: 10px;
-
-    padding: 12px;
-
-    background: #1a1a1a;
-
-    border-top: 1px solid rgba(138, 43, 226, 0.3);
-
-    z-index: 1000;
+    gap: 6px;
 
 }
 
-.footer-btn {
+.bottom-menu nav a {
+
+    width: 75px;
+
+    height: 75px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
 
     text-decoration: none;
 
     color: #ffffff;
 
-    background: #242424;
-
-    padding: 10px 16px;
-
-    border-radius: 14px;
-
-    font-size: 14px;
+    font-size: 12px;
 
     font-weight: 600;
 
-    text-align: center;
+    background: #1f1f1f;
 
-    min-width: 80px;
+    border-radius: 14px;
 
-}
+    border: 1px solid rgba(138, 43, 226, 0.25);
 
-
-/* Mobile Responsive */
-
-@media (max-width: 768px) {
-
-    .bottom-nav {
-
-        gap: 6px;
-
-        padding: 10px;
-
-    }
-
-    .footer-btn {
-
-        min-width: 65px;
-
-        font-size: 12px;
-
-        padding: 8px 12px;
-
-    }
+    transition: all 0.3s ease;
 
 }
 
+.bottom-menu nav a:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 0 15px rgba(138, 43, 226, 0.7);
+
+}
 /* =====================================
    AUTH PAGE START
 ===================================== */
