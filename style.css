@@ -188,46 +188,137 @@ function initBottomNav(){
 
 }
 
-// ======================================================
-// GAME CATEGORY
-// ======================================================
+/* ===================================
+   GAME CATEGORIES SECTION
+=================================== */
 
-function initGameCategories(){
+.game-categories{
 
-    console.log(
-        "Game Categories Ready"
-    );
+    display:flex;
 
+    gap:15px;
+
+    padding:15px;
+
+    overflow-x:auto;
+
+    scrollbar-width:none;
+
+    width:100%;
 }
 
-// ======================================================
-// MAIN GAMES
-// ======================================================
+.game-categories::-webkit-scrollbar{
 
-function initMainGames(){
-
-    const playButtons =
-        document.querySelectorAll(
-            ".play-btn"
-        );
-
-    playButtons.forEach(button => {
-
-        button.addEventListener(
-            "click",
-            () => {
-
-                alert(
-                    "Game Opening Soon"
-                );
-
-            }
-        );
-
-    });
-
+    display:none;
 }
 
+/* ===================================
+   CATEGORY CARD
+=================================== */
+
+.category-item{
+
+    min-width:140px;
+
+    max-width:140px;
+
+    height:160px;
+
+    flex-shrink:0;
+
+    background:linear-gradient(
+    145deg,
+    #2c0f52,
+    #151029);
+
+    border:1px solid #5e2eff;
+
+    border-radius:18px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    box-shadow:
+    0 8px 20px rgba(0,0,0,.35);
+}
+
+.category-item:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:
+    0 15px 30px rgba(94,46,255,.35);
+}
+
+/* ===================================
+   CATEGORY IMAGE
+=================================== */
+
+.category-item img{
+
+    width:80px;
+
+    height:80px;
+
+    object-fit:contain;
+
+    margin-bottom:10px;
+}
+
+/* ===================================
+   CATEGORY TITLE
+=================================== */
+
+.category-item span{
+
+    color:#fff;
+
+    font-size:14px;
+
+    font-weight:700;
+}
+
+/* ===================================
+   DESKTOP VIEW
+=================================== */
+
+@media (min-width:1024px){
+
+    .game-categories{
+
+        justify-content:center;
+
+        overflow-x:visible;
+    }
+
+    .category-item{
+
+        min-width:180px;
+
+        max-width:180px;
+
+        height:190px;
+    }
+
+    .category-item img{
+
+        width:100px;
+
+        height:100px;
+    }
+
+}
 // ======================================================
 // WINNERS FEED
 // ======================================================
