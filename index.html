@@ -3,65 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SAFIKI Gaming - Official</title>
+    <title>SAFIKI Gaming</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
-    <header class="main-header">
-        <div class="menu-trigger" onclick="toggleSidebar()">☰</div>
+    <header class="top-nav">
+        <div class="menu-icon">☰</div>
         <div class="logo">SAFIKI</div>
-        <div class="auth-buttons">
-            <button class="login-btn">Login</button>
-            <button class="register-btn">Register</button>
+        <div class="actions">
+            <button class="login-btn">Login / Register</button>
         </div>
     </header>
 
-    <aside id="sidebar" class="sidebar">
+    <aside class="sidebar">
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Invite & Earn</a></li>
-                <li><a href="#">VIP Club</a></li>
-                <li><a href="#">Promotions</a></li>
-                <li><a href="#">Rewards</a></li>
-                <li><a href="#">Transactions</a></li>
-                <li><a href="#">Support</a></li>
-                <li><a href="#">Settings</a></li>
-                <li><a href="#">Logout</a></li>
+                <li>Home</li>
+                <li>Invite & Earn</li>
+                <li>VIP Club</li>
+                <li>Promotions</li>
+                <li>Rewards</li>
+                <li>Transactions</li>
+                <li>Support</li>
+                <li>Settings</li>
+                <li>About Us</li>
             </ul>
         </nav>
     </aside>
 
-    <main class="container">
-        <section class="hero-section">
+    <main>
+        <section class="hero">
             <img src="image/banner.png" alt="Hero Banner">
         </section>
 
         <section class="game-categories">
-            <div class="category-item"><img src="image/jhandi.png" alt="Jhandi Munda"><span>Jhandi Munda</span></div>
-            <div class="category-item"><img src="image/teenpatti.png" alt="Teen Patti"><span>Teen Patti</span></div>
-            <div class="category-item"><img src="image/dice.png" alt="Dice"><span>Dice</span></div>
-            <div class="category-item"><img src="image/more.png" alt="More"><span>More</span></div>
+            <div class="category-item">
+                <img src="image/jhandi.png" alt="Jhandi Munda">
+                <span>Jhandi Munda</span>
+            </div>
+            <div class="category-item">
+                <img src="image/teenpatti.png" alt="Teen Patti">
+                <span>Teen Patti</span>
+            </div>
+            <div class="category-item">
+                <img src="image/dice.png" alt="Dice">
+                <span>Dice</span>
+            </div>
+            <div class="category-item">
+                <img src="image/more.png" alt="More Games">
+                <span>More</span>
+            </div>
         </section>
 
-        <section class="featured-games">
-            <img src="image/jhandimain.png" alt="Jhandi Munda Main">
-            <img src="image/teenpattimain.png" alt="Teen Patti Main">
-        </section>
-
-        <section class="payment-gateway">
-            <button class="pay-btn deposit">Deposit</button>
-            <button class="pay-btn withdraw">Withdraw</button>
+        <section class="main-games-section">
+            <div class="game-left">
+                <img src="image/jhandimain.png" alt="Jhandi Munda Game">
+            </div>
+            <div class="game-right">
+                <div class="game-top">
+                    <img src="image/teenpattimain.png" alt="Teen Patti Main">
+                </div>
+                <div class="game-bottom-buttons">
+                    <button class="glow-btn">Demo Gameplay</button>
+                    <button class="glow-btn">Real Time Gameplay</button>
+                </div>
+            </div>
         </section>
     </main>
 
-    <footer class="bottom-nav">
-        <a href="#">Home</a>
-        <a href="#">Games</a>
-        <a href="#">Wallet</a>
-        <a href="#">Refer</a>
-        <a href="#">Profile</a>
+    <footer class="bottom-menu">
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Games</a>
+            <a href="#">Wallet</a>
+            <a href="#">Profile</a>
+        </nav>
     </footer>
 
     <script src="js/script.js"></script>
