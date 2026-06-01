@@ -214,3 +214,52 @@ setInterval(() => {
 }
 
 });
+<script>
+/* =========================
+   PRIVACY & TERMS MODAL
+========================= */
+
+document.addEventListener('DOMContentLoaded', function () {
+
+    // Privacy Policy Button
+    const privacyBtn = document.getElementById("privacy-btn");
+    const privacyModal = document.getElementById("privacy-modal");
+
+    if (privacyBtn && privacyModal) {
+        privacyBtn.onclick = function(e){
+            e.preventDefault();
+            privacyModal.style.display = "block";
+        };
+    }
+
+    // Terms of Use Button
+    const termsBtn = document.getElementById("terms-btn");
+    const termsModal = document.getElementById("terms-modal");
+
+    if (termsBtn && termsModal) {
+        termsBtn.onclick = function(e){
+            e.preventDefault();
+            termsModal.style.display = "block";
+        };
+    }
+
+    // Close Buttons
+    document.querySelectorAll(".close").forEach(btn => {
+        btn.onclick = function(){
+            const modalId = this.getAttribute("data-modal");
+            const modal = document.getElementById(modalId);
+            if(modal) modal.style.display = "none";
+        };
+    });
+
+    // Click outside modal closes it
+    window.onclick = function(event){
+        if(event.target.classList.contains("modal")){
+            event.target.style.display = "none";
+        }
+    };
+
+});
+</script>
+</body>
+</html>
