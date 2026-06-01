@@ -189,35 +189,34 @@ body {
    DROPDOWN MENU CSS
 ===================================== */
 
-.dropdown-menu a {
+<div id="dropdown-menu" class="dropdown-menu">
 
-    display: block;
+    <a href="#">
+        <i class="fas fa-dice"></i>
+        Jhandi Munda
+    </a>
 
-    padding: 14px;
+    <a href="#">
+        <i class="fas fa-crown"></i>
+        Teen Patti
+    </a>
 
-    text-decoration: none;
+    <a href="#">
+        <i class="fas fa-user-friends"></i>
+        Invite & Earn
+    </a>
 
-    color: #ffffff;
+    <a href="#">
+        <i class="fas fa-gift"></i>
+        Cash Back & Rewards
+    </a>
 
-    font-size: 14px;
+    <a href="#">
+        <i class="fas fa-headset"></i>
+        Support
+    </a>
 
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-
-    transition: all 0.3s ease;
-
-}
-
-.dropdown-menu a i {
-
-    width: 22px;
-
-    margin-right: 10px;
-
-    color: #39FF14;
-
-    text-align: center;
-
-}
+</div>
 
 /* =====================================
    HERO BANNER CSS
