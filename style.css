@@ -593,6 +593,73 @@ box-shadow: 0 0 10px rgba(57, 255, 20, 0.8);
 
 }
 /* =====================================
+   RECENT WINNERS
+===================================== */
+
+.winner-section {
+
+    padding: 15px;
+
+}
+
+.winner-title {
+
+    color: #ffffff;
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+    margin-bottom: 12px;
+
+}
+
+.winner-box {
+
+    height: 180px;
+
+    overflow: hidden;
+
+    border-radius: 16px;
+
+    background: #1f1f1f;
+
+    border: 1px solid rgba(138,43,226,0.3);
+
+    box-shadow: 0 0 15px rgba(138,43,226,0.15);
+
+}
+
+.winner-track {
+
+    animation: scrollWinner 12s linear infinite;
+
+}
+
+.winner-item {
+
+    padding: 14px;
+
+    color: #ffffff;
+
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+
+    font-size: 14px;
+
+}
+
+@keyframes scrollWinner {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-50%);
+    }
+
+}
+/* =====================================
    PREMIUM FOOTER
 ===================================== */
 
