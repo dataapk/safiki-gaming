@@ -564,7 +564,7 @@ body {
 
 }
 /* =====================================
-   PROFESSIONAL APP FOOTER
+   PREMIUM FOOTER
 ===================================== */
 
 .bottom-nav {
@@ -577,13 +577,13 @@ body {
 
     width: 100%;
 
+    height: 70px;
+
     display: flex;
 
     justify-content: space-around;
 
     align-items: center;
-
-    padding: 8px 0;
 
     background: #121212;
 
@@ -603,8 +603,6 @@ body {
 
     justify-content: center;
 
-    gap: 4px;
-
     text-decoration: none;
 
     color: #bdbdbd;
@@ -613,13 +611,11 @@ body {
 
     font-weight: 600;
 
-    min-width: 60px;
+    gap: 4px;
 
     transition: all 0.3s ease;
 
 }
-
-/* Icon */
 
 .footer-icon {
 
@@ -627,24 +623,42 @@ body {
 
     color: #ffffff;
 
-    transition: all 0.3s ease;
+}
+
+/* Center Games Button */
+
+.center-btn {
+
+    width: 70px;
+
+    height: 70px;
+
+    border-radius: 50%;
+
+    background: linear-gradient(
+        145deg,
+        #8A2BE2,
+        #6a1bbf
+    );
+
+    position: relative;
+
+    top: -18px;
+
+    box-shadow:
+        0 0 20px rgba(138,43,226,0.6);
 
 }
 
-/* Active */
+.center-btn .footer-icon {
 
-.footer-btn.active {
-
-    color: #39FF14;
+    color: #ffffff;
 
 }
 
-.footer-btn.active .footer-icon {
+.center-btn span {
 
-    color: #39FF14;
-
-    text-shadow:
-        0 0 10px rgba(57,255,20,0.8);
+    color: #ffffff;
 
 }
 
@@ -660,9 +674,6 @@ body {
 
     color: #39FF14;
 
-    text-shadow:
-        0 0 10px rgba(57,255,20,0.8);
-
 }
 
 /* Mobile */
@@ -671,13 +682,15 @@ body {
 
     .bottom-nav{
 
-        padding: 7px 0;
+        height: 65px;
 
     }
 
-    .footer-icon{
+    .center-btn{
 
-        font-size:20px;
+        width: 65px;
+
+        height: 65px;
 
     }
 
