@@ -774,3 +774,24 @@ body {
 /* =====================================
    AUTH PAGE END
 ===================================== */
+/* =====================================
+   DESKTOP VIEW FIX
+===================================== */
+
+@media (min-width: 769px) {
+
+    .promotion-slide {
+
+        height: 180px;
+
+    }
+
+    .game-card img {
+
+        height: 220px;
+
+        object-fit: cover;
+
+    }
+
+}
