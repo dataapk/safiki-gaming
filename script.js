@@ -130,41 +130,71 @@ document.addEventListener('DOMContentLoaded', () => {
     }
  
 /* =========================
-   PROMOTION AUTO SLIDER
+PROMOTION AUTO SLIDER
 ========================= */
 
 const promotionSlider =
-    document.querySelector(
-        '.promotion-slider'
-    );
+document.querySelector(
+'.promotion-slider'
+);
 
-if (promotionSlider) {
+const promotionSlides =
+document.querySelectorAll(
+'.promotion-slide'
+);
 
-    let scrollAmount = 0;
+if (
+promotionSlider &&
+promotionSlides.length
+) {
 
-    setInterval(() => {
+```
+let currentIndex = 0;
 
-        scrollAmount += 220;
+setInterval(() => {
 
-        if (
-            scrollAmount >=
-            promotionSlider.scrollWidth -
-            promotionSlider.clientWidth
-        ) {
+    currentIndex++;
 
-            scrollAmount = 0;
+    if (
+        currentIndex >=
+        promotionSlides.length
+    ) {
 
-        }
+        currentIndex = 0;
+
+    }
+
+    const slideWidth =
+        promotionSlides[0]
+        .offsetWidth + 10;
+
+    promotionSlider.scrollTo({
+
+        left:
+            currentIndex *
+            slideWidth,
+
+        behavior:
+            'smooth'
+
+    });
+
+    if (
+        currentIndex === 0
+    ) {
 
         promotionSlider.scrollTo({
 
-            left: scrollAmount,
+            left: 0,
 
-            behavior: 'smooth'
+            behavior:
+                'smooth'
 
         });
 
-    }, 3000);
+    }
+
+}, 3000);
 
 }
 
