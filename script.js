@@ -143,12 +143,39 @@ document.querySelectorAll(
 '.promotion-slide'
 );
 
+const dots =
+document.querySelectorAll(
+'.dot'
+);
+
 if (
 promotionSlider &&
 promotionSlides.length
 ) {
 
 let currentIndex = 0;
+
+function updateDots(index) {
+
+    dots.forEach(dot => {
+
+        dot.classList.remove(
+            'active'
+        );
+
+    });
+
+    if (dots[index]) {
+
+        dots[index].classList.add(
+            'active'
+        );
+
+    }
+
+}
+
+updateDots(0);
 
 setInterval(() => {
 
@@ -178,24 +205,12 @@ setInterval(() => {
 
     });
 
-    if (
-        currentIndex === 0
-    ) {
-
-        promotionSlider.scrollTo({
-
-            left: 0,
-
-            behavior:
-                'smooth'
-
-        });
-
-    }
+    updateDots(
+        currentIndex
+    );
 
 }, 3000);
 
 }
-
 
 });
