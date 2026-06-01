@@ -314,36 +314,28 @@ body {
 
 .promotion-slider {
 
-    position: relative;
+    display: flex;
 
-    width: 100%;
-
-    height: 120px;
+    gap: 10px;
 
     overflow: hidden;
-
-    border-radius: 16px;
-
-    border: 2px solid rgba(138, 43, 226, 0.5);
-
-    box-shadow:
-        0 0 15px rgba(138, 43, 226, 0.3);
 
 }
 
 .promotion-slide {
 
-    display: none;
+    flex: 0 0 calc(50% - 5px);
 
-    width: 100%;
+    height: 110px;
 
-    height: 100%;
+    border-radius: 16px;
 
-}
+    overflow: hidden;
 
-.promotion-slide.active {
+    border: 2px solid rgba(138, 43, 226, 0.5);
 
-    display: block;
+    box-shadow:
+        0 0 15px rgba(138, 43, 226, 0.3);
 
 }
 
@@ -355,7 +347,7 @@ body {
 
     object-fit: cover;
 
-    border-radius: 16px;
+    display: block;
 
 }
 
@@ -383,6 +375,8 @@ body {
 
     background: #666;
 
+    transition: all 0.3s ease;
+
 }
 
 .dot.active {
@@ -393,6 +387,7 @@ body {
         0 0 10px rgba(138, 43, 226, 0.8);
 
 }
+
 /* =====================================
    GAME CATEGORIES CSS
 ===================================== */
