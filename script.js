@@ -148,7 +148,6 @@ promotionSlider &&
 promotionSlides.length
 ) {
 
-```
 let currentIndex = 0;
 
 setInterval(() => {
