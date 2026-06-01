@@ -128,4 +128,45 @@ document.addEventListener('DOMContentLoaded', () => {
         );
 
     }
+ 
+/* =========================
+   PROMOTION AUTO SLIDER
+========================= */
+
+const promotionSlider =
+    document.querySelector(
+        '.promotion-slider'
+    );
+
+if (promotionSlider) {
+
+    let scrollAmount = 0;
+
+    setInterval(() => {
+
+        scrollAmount += 220;
+
+        if (
+            scrollAmount >=
+            promotionSlider.scrollWidth -
+            promotionSlider.clientWidth
+        ) {
+
+            scrollAmount = 0;
+
+        }
+
+        promotionSlider.scrollTo({
+
+            left: scrollAmount,
+
+            behavior: 'smooth'
+
+        });
+
+    }, 3000);
+
+}
+
+
 });
