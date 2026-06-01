@@ -593,7 +593,7 @@ box-shadow: 0 0 10px rgba(57, 255, 20, 0.8);
 
 }
 /* =====================================
-   RECENT WINNERS
+   LIVE WINNERS
 ===================================== */
 
 .winner-section {
@@ -604,6 +604,12 @@ box-shadow: 0 0 10px rgba(57, 255, 20, 0.8);
 
 .winner-title {
 
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
     color: #ffffff;
 
     font-size: 18px;
@@ -611,6 +617,38 @@ box-shadow: 0 0 10px rgba(57, 255, 20, 0.8);
     font-weight: 700;
 
     margin-bottom: 12px;
+
+}
+
+.live-dot {
+
+    width: 10px;
+
+    height: 10px;
+
+    border-radius: 50%;
+
+    background: #39FF14;
+
+    box-shadow: 0 0 10px #39FF14;
+
+    animation: livePulse 1.5s infinite;
+
+}
+
+@keyframes livePulse {
+
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: .4;
+    }
+
+    100% {
+        opacity: 1;
+    }
 
 }
 
@@ -632,7 +670,7 @@ box-shadow: 0 0 10px rgba(57, 255, 20, 0.8);
 
 .winner-track {
 
-    animation: scrollWinner 12s linear infinite;
+    animation: winnerScroll 15s linear infinite;
 
 }
 
@@ -642,13 +680,13 @@ box-shadow: 0 0 10px rgba(57, 255, 20, 0.8);
 
     color: #ffffff;
 
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-
     font-size: 14px;
+
+    border-bottom: 1px solid rgba(255,255,255,0.05);
 
 }
 
-@keyframes scrollWinner {
+@keyframes winnerScroll {
 
     0% {
         transform: translateY(0);
