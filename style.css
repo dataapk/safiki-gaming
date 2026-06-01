@@ -581,9 +581,9 @@ body {
 
     justify-content: center;
 
-    gap: 8px;
+    gap: 6px;
 
-    padding: 10px;
+    padding: 8px;
 
     background: linear-gradient(
         145deg,
@@ -601,29 +601,37 @@ body {
 
 .footer-btn {
 
-    width: 75px;
+    width: 68px;
 
-    height: 75px;
+    height: 58px;
 
     display: flex;
+
+    flex-direction: column;
 
     align-items: center;
 
     justify-content: center;
 
+    gap: 4px;
+
     text-decoration: none;
 
     color: #ffffff;
 
-    font-size: 12px;
+    font-size: 11px;
 
     font-weight: 600;
 
-    background: rgba(255, 255, 255, 0.08);
+    background: linear-gradient(
+        145deg,
+        #252525,
+        #181818
+    );
 
-    border-radius: 14px;
+    border-radius: 12px;
 
-    border: 1px solid rgba(57, 255, 20, 0.5);
+    border: 1px solid rgba(57, 255, 20, 0.45);
 
     transition: all 0.3s ease;
 
@@ -631,21 +639,31 @@ body {
 
 .footer-btn:hover {
 
-    transform: translateY(-4px);
-
-    box-shadow:
-        0 0 18px rgba(57, 255, 20, 0.8);
+    transform: translateY(-3px);
 
     border-color: #39FF14;
+
+    box-shadow:
+        0 0 15px rgba(57, 255, 20, 0.7);
 
 }
 
 .footer-btn.active {
 
-    box-shadow:
-        0 0 20px rgba(57, 255, 20, 0.9);
-
     border-color: #39FF14;
+
+    box-shadow:
+        0 0 18px rgba(57, 255, 20, 0.9);
+
+}
+
+.footer-icon {
+
+    width: 22px;
+
+    height: 22px;
+
+    object-fit: contain;
 
 }
 
@@ -657,17 +675,25 @@ body {
 
         gap: 5px;
 
-        padding: 8px;
+        padding: 6px;
 
     }
 
     .footer-btn {
 
-        width: 70px;
+        width: 64px;
 
-        height: 70px;
+        height: 54px;
 
-        font-size: 11px;
+        font-size: 10px;
+
+    }
+
+    .footer-icon {
+
+        width: 20px;
+
+        height: 20px;
 
     }
 
