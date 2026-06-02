@@ -702,7 +702,8 @@ box-shadow: 0 0 10px rgba(57, 255, 20, 0.8);
 ===================================== */
 .footer {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* About Us left, Contact right */
+  align-items: flex-start;
   padding: 20px 40px;
   background-color: #111;
   color: #fff;
@@ -726,25 +727,28 @@ box-shadow: 0 0 10px rgba(57, 255, 20, 0.8);
   margin: 0;
 }
 
-.footer-links li {
+.footer-links li,
+.contact-links li {
   margin-bottom: 8px;
 }
 
+/* Updated deep Yolo color */
 .footer-links li a {
   text-decoration: none; /* remove underline */
   font-weight: 500; /* light bold */
-  color: #FFD700; /* deep yellow / yolo */
+  color: #E6B800; /* deep Yolo color */
   transition: transform 0.2s ease, color 0.2s ease;
 }
 
 .footer-links li a:hover {
-  color: #FFE066; /* lighter yellow */
+  color: #FFD633; /* slightly lighter on hover */
   transform: scale(1.05); /* subtle 3D hover effect */
 }
 
-/* Contact links styling */
+/* Contact links styling similar to footer links */
 .contact-links li {
-  color: #eee;
+  color: #E6B800; /* deep Yolo color for contact */
+  font-weight: 500;
 }
 
 /* Modals */
@@ -774,7 +778,7 @@ box-shadow: 0 0 10px rgba(57, 255, 20, 0.8);
 
 /* Close button */
 .modal-content .close {
-  color: #FFD700;
+  color: #E6B800; /* deep Yolo color */
   font-size: 28px;
   font-weight: bold;
   position: absolute;
