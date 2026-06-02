@@ -242,7 +242,7 @@ html, body {
 
 /* Game Card */
 .game-card {
-    width: 45%;          /* মোবাইলে দুটি কার্ড পাশাপাশি */
+    width: 20%;          /* মোবাইলে দুটি কার্ড পাশাপাশি */
     max-width: 220px;    /* ডেস্কটপে সীমা */
     height: 180px;       /* container height */
     border-radius: 16px;
