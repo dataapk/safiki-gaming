@@ -225,63 +225,68 @@ html, body {
     line-height: 1.1;
 }
 
-/* =====================================
-   MAIN GAMES SECTION FIXED
-===================================== */
-.main-games .games-container {
+/* ==========================
+   MAIN GAMES FIXED (Desktop + Mobile)
+========================== */
+.main-games-section {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    flex-wrap: nowrap;
-    gap: 15px; /* cardগুলোর মধ্যে gap */
-    padding: 0 15px;
-    margin-top: 20px; /* উপরের সেকশন থেকে দূরত্ব */
-    margin-bottom: 40px; /* নীচের সেকশন থেকে দূরত্ব */
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 15px;
 }
 
-/* Game Card */
-.game-card {
-    width: 30%; /* মোবাইলে দুইটি side by side */
-    max-width: 200px; /* desktop maximum width */
-    height: auto; /* auto height to maintain image ratio */
-    border-radius: 16px;
-    overflow: hidden;
+.main-games-section .game-card {
+    flex: 1 1 30%;       /* Desktop: 3 কার্ড পাশাপাশি */
+    max-width: 220px;    /* কার্ডের সর্বোচ্চ চওড়া */
+    height: 260px;       /* কার্ডের ফিক্সড হাইট */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.game-card img {
-    width: 100%; /* fill card width */
-    height: auto; /* maintain aspect ratio */
-    display: block;
-    border-radius: 16px;
-    object-fit: cover;
+.main-games-section .game-card img {
+    width: 100%;
+    height: 120px;        /* ইমেজের ফিক্সড হাইট */
+    max-width: 120px;     /* ডেক্সটপে বেশি বড় না হয় */
+    object-fit: contain;
+    margin-top: 20px;
+    margin-bottom: 15px;
 }
 
-/* Game title */
-.game-card h3 {
-    font-size: 1rem; /* readable mobile */
-    margin-top: 8px;
+.main-games-section .game-card .game-title {
+    font-size: 1rem;
+    font-weight: 600;
     color: #fff;
 }
 
-/* Desktop adjustments */
-@media (min-width: 769px) {
-    .main-games .games-container {
-        flex-wrap: nowrap;
-        gap: 25px; /* desktop gap */
+/* Hover Effect */
+.main-games-section .game-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(138,43,226,0.3);
+}
+
+/* ==========================
+   MOBILE FIX
+========================== */
+@media (max-width: 768px) {
+    .main-games-section .game-card {
+        flex: 1 1 45%;      /* মোবাইলে দুটি কার্ড পাশাপাশি */
+        max-width: none;
+        height: auto;       /* কার্ড হাইট স্বয়ংক্রিয় */
     }
 
-    .game-card {
-        width: 200px; /* fixed desktop card width */
+    .main-games-section .game-card img {
+        height: 100px;      /* মোবাইলে ছোট ইমেজ */
+        max-width: 90px;    /* মোবাইলে ছোট আইকন */
     }
 
-    .game-card img {
-        width: 100%;
-        height: auto;
-    }
-
-    .game-card h3 {
-        font-size: 1.2rem; /* desktop text */
+    .main-games-section {
+        gap: 12px;          /* মোবাইলে gap কমানো */
     }
 }
 /* =====================================
