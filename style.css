@@ -1,4 +1,65 @@
 /* ==========================
+   GLOBAL BACKGROUND SMOOTHNESS
+========================== */
+
+body {
+    background: linear-gradient(135deg, #0f0f11, #1a1a1c);
+    transition: background 0.5s ease;
+}
+
+/* Smooth hover for buttons and cards */
+.menu-btn,
+.login-btn,
+.category-item,
+.promotion-slide,
+.game-card,
+.footer-btn {
+    transition: all 0.3s ease-in-out;
+}
+
+/* Add subtle shadow / depth for app-feel */
+.menu-btn,
+.login-btn {
+    box-shadow: 0 4px 12px rgba(138, 43, 226, 0.3);
+}
+
+.category-item {
+    box-shadow: 0 4px 15px rgba(138, 43, 226, 0.2);
+}
+
+.promotion-slide {
+    box-shadow: 0 6px 18px rgba(138, 43, 226, 0.25);
+}
+
+.game-card {
+    box-shadow: 0 10px 30px rgba(138, 43, 226, 0.25);
+}
+
+/* Subtle hover scaling for smooth apps-feel */
+.category-item:hover,
+.promotion-slide:hover,
+.game-card:hover,
+.login-btn:hover,
+.menu-btn:hover {
+    transform: translateY(-2px) scale(1.02);
+}
+
+/* Smooth scrolling for horizontal sliders */
+.promotion-slider {
+    scroll-behavior: smooth;
+}
+
+/* Smooth modal opening */
+.modal-content {
+    transition: all 0.4s ease;
+}
+
+/* Footer glow on hover */
+.footer-btn:hover {
+    color: #39FF14;
+    text-shadow: 0 0 10px rgba(57,255,20,0.5);
+}
+/* ==========================
    BASE RESET
 ========================== */
 * {
