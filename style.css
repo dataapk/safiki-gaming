@@ -226,67 +226,69 @@ html, body {
 }
 
 /* =====================================
-   MAIN GAME CATEGORIES - FINAL
+   MAIN GAMES SECTION FIXED & RESPONSIVE
 ===================================== */
-.game-categories {
+
+.main-games .games-container {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap; /* wrap করলে multiple rows auto হবে */
-    gap: 16px; /* space increase, স্পেশাল অফারের থেকে একটু বেশি */
-    padding: 20px 25px; /* সেকশনটি বড় করা হয়েছে */
+    align-items: flex-start;
+    flex-wrap: wrap; /* allows wrapping if needed */
+    gap: 20px; /* space between cards */
+    padding: 0 15px;
 }
 
-.category-item {
-    flex: 1 1 48%; /* মোবাইলে দুইটি পাশাপাশি থাকবে */
-    max-width: 140px; /* desktop auto-fit column */
-    height: 140px; /* height increase */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background: #1f1f1f;
+/* Individual Game Card */
+.game-card {
+    width: 48%; /* two cards side by side in mobile */
+    max-width: 250px; /* limit maximum width for desktop */
+    height: auto; /* auto height based on image */
     border-radius: 16px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border: 1px solid rgba(138, 43, 226, 0.25);
+    overflow: hidden;
+    text-align: center;
+    flex-shrink: 0; /* prevent shrinking */
 }
 
-.category-item:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 0 18px rgba(138, 43, 226, 0.7);
+.game-card img {
+    width: 100%; /* image fills card width */
+    height: auto; /* maintain aspect ratio */
+    display: block;
+    border-radius: 16px;
 }
 
-.category-item img {
-    width: 60px; /* স্পেশাল অফারের তুলনায় বড় */
-    height: 60px;
-    object-fit: contain;
-    margin-bottom: 8px;
+/* Game Title */
+.game-card h3 {
+    font-size: 1rem; /* mobile readable text */
+    margin-top: 8px;
 }
 
-.category-item span {
-    font-size: 13px; /* একটু বড় টেক্সট */
-    font-weight: 600;
-    color: #ffffff;
-    line-height: 1.2;
-}
+/* Desktop Fix */
+@media (min-width: 769px) {
+    .main-games .games-container {
+        flex-wrap: nowrap; /* no wrap for desktop */
+        gap: 30px; /* more space between cards */
+    }
 
-/* Responsive adjustments */
+    .game-card {
+        width: 200px; /* fixed width for desktop */
+        height: auto;
+    }
 
-/* Mobile: two side-by-side */
-@media (max-width: 768px) {
-    .category-item {
-        flex: 1 1 48%;
-        max-width: none;
-        height: 120px;
+    .game-card img {
+        width: 100%;
+        height: auto; /* proportional */
+    }
+
+    .game-card h3 {
+        font-size: 1.2rem; /* readable desktop text */
+        margin-top: 10px;
     }
 }
 
-/* Tablet/Desktop: auto-fit multiple columns */
-@media (min-width: 769px) {
-    .category-item {
-        flex: 1 1 140px;
-        height: 140px;
+/* Optional: slightly bigger cards for tablets */
+@media (min-width: 1024px) and (max-width: 1440px) {
+    .game-card {
+        width: 220px;
     }
 }
 /* =====================================
