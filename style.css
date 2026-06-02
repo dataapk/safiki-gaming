@@ -226,43 +226,67 @@ html, body {
 }
 
 /* ==========================
-   MAIN GAMES FIX (Simple & Responsive)
+   MAIN GAMES FIXED (Desktop + Mobile)
 ========================== */
 .main-games-section {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap; /* কার্ডগুলো পাশাপাশি রাখার জন্য */
+    flex-wrap: wrap;
     gap: 20px;
     padding: 15px;
 }
 
 .main-games-section .game-card {
-    flex: 1 1 30%; /* Desktop: 3 কার্ড পাশাপাশি, auto-resize */
-    max-width: 220px; /* কার্ড বেশি বড় হবে না */
-    height: auto;
+    flex: 1 1 30%;       /* Desktop: 3 কার্ড পাশাপাশি */
+    max-width: 220px;    /* কার্ডের সর্বোচ্চ চওড়া */
+    height: 260px;       /* কার্ডের ফিক্সড হাইট */
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .main-games-section .game-card img {
     width: 100%;
-    height: auto; /* অটো ফিক্সড ইমেজ */
-    max-width: 120px; /* Desktop এর জন্য max width */
+    height: 120px;        /* ইমেজের ফিক্সড হাইট */
+    max-width: 120px;     /* ডেক্সটপে বেশি বড় না হয় */
     object-fit: contain;
-    margin-bottom: 10px;
+    margin-top: 20px;
+    margin-bottom: 15px;
 }
 
-/* মোবাইল ভিউ */
+.main-games-section .game-card .game-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+/* Hover Effect */
+.main-games-section .game-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(138,43,226,0.3);
+}
+
+/* ==========================
+   MOBILE FIX
+========================== */
 @media (max-width: 768px) {
     .main-games-section .game-card {
-        flex: 1 1 45%; /* দুটি কার্ড পাশাপাশি থাকবে মোবাইলে */
+        flex: 1 1 45%;      /* মোবাইলে দুটি কার্ড পাশাপাশি */
         max-width: none;
+        height: auto;       /* কার্ড হাইট স্বয়ংক্রিয় */
     }
 
     .main-games-section .game-card img {
-        max-width: 90px; /* মোবাইলের জন্য ছোট আইকন */
+        height: 100px;      /* মোবাইলে ছোট ইমেজ */
+        max-width: 90px;    /* মোবাইলে ছোট আইকন */
+    }
+
+    .main-games-section {
+        gap: 12px;          /* মোবাইলে gap কমানো */
     }
 }
 /* =====================================
