@@ -217,10 +217,7 @@ setInterval(() => {
 /* =========================
    PRIVACY & TERMS MODAL
 ========================= */
-
 document.addEventListener('DOMContentLoaded', function () {
-
-    // Privacy Policy Button
     const privacyBtn = document.getElementById("privacy-btn");
     const privacyModal = document.getElementById("privacy-modal");
 
@@ -231,7 +228,6 @@ document.addEventListener('DOMContentLoaded', function () {
         };
     }
 
-    // Terms of Use Button
     const termsBtn = document.getElementById("terms-btn");
     const termsModal = document.getElementById("terms-modal");
 
@@ -242,6 +238,21 @@ document.addEventListener('DOMContentLoaded', function () {
         };
     }
 
+    // Close buttons
+    document.querySelectorAll(".close").forEach(btn => {
+        btn.onclick = function(){
+            const modalId = this.getAttribute("data-modal");
+            const modal = document.getElementById(modalId);
+            if(modal) modal.style.display = "none";
+        };
+    });
+
+    // Click outside modal
+    window.onclick = function(event){
+        if(event.target.classList.contains("modal")){
+            event.target.style.display = "none";
+        }
+    };
 });
 /* =========================
    PRIVACY & TERMS MODAL END
