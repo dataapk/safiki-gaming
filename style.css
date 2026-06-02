@@ -225,20 +225,20 @@ html, body {
     line-height: 1.1;
 }
 
-/* =====================================
-   MAIN GAMES
-===================================== */
+/* ==========================
+   MAIN GAMES FIX (Simple & Responsive)
+========================== */
 .main-games-section {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap; /* দুটি গেম পাশাপাশি রাখতে */
+    flex-wrap: wrap; /* কার্ডগুলো পাশাপাশি রাখার জন্য */
     gap: 20px;
     padding: 15px;
 }
 
 .main-games-section .game-card {
-    width: 45%; /* মোবাইল ভিউতে দুটি পাশাপাশি */
-    max-width: 220px; /* ডেস্কটপে কার্ডের বেশি বড় হবে না */
+    flex: 1 1 30%; /* Desktop: 3 কার্ড পাশাপাশি, auto-resize */
+    max-width: 220px; /* কার্ড বেশি বড় হবে না */
     height: auto;
     display: flex;
     flex-direction: column;
@@ -247,38 +247,24 @@ html, body {
 }
 
 .main-games-section .game-card img {
-    width: 100px; /* আইকন/ছবির সাইজ ঠিক করা */
-    height: 100px;
+    width: 100%;
+    height: auto; /* অটো ফিক্সড ইমেজ */
+    max-width: 120px; /* Desktop এর জন্য max width */
     object-fit: contain;
     margin-bottom: 10px;
 }
 
-/* ডেস্কটপ ভিউ */
-@media (min-width: 1024px) {
-    .main-games-section .game-card {
-        width: 200px; /* ডেস্কটপে আগের মতো ফিক্সড */
-        height: 260px;
-    }
-
-    .main-games-section .game-card img {
-        width: 120px;
-        height: 120px;
-    }
-}
-
-/* মোবাইল (ফোন স্ক্রীন) */
+/* মোবাইল ভিউ */
 @media (max-width: 768px) {
     .main-games-section .game-card {
-        width: 48%; /* দুইটি কার্ড পাশাপাশি থাকবে */
-        margin-bottom: 15px;
+        flex: 1 1 45%; /* দুটি কার্ড পাশাপাশি থাকবে মোবাইলে */
+        max-width: none;
     }
 
     .main-games-section .game-card img {
-        width: 90px;
-        height: 90px;
+        max-width: 90px; /* মোবাইলের জন্য ছোট আইকন */
     }
 }
-
 /* =====================================
    LIVE WINNERS
 ===================================== */
