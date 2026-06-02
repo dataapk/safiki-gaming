@@ -218,38 +218,38 @@ setInterval(() => {
    ABOUT US SECTION START
 ========================= */
 document.addEventListener('DOMContentLoaded', function () {
-    const modalMap = {
-        "terms-btn": "terms-modal",
-        "privacy-btn": "privacy-modal",
-        "fair-btn": "fair-modal",
-        "responsible-btn": "responsible-modal"
-    };
+  const modalMap = {
+    "terms-btn": "terms-modal",
+    "privacy-btn": "privacy-modal",
+    "fair-btn": "fair-modal",
+    "responsible-btn": "responsible-modal"
+  };
 
-    for (let btnId in modalMap) {
-        const btn = document.getElementById(btnId);
-        const modal = document.getElementById(modalMap[btnId]);
-        if(btn && modal){
-            btn.onclick = function(e){
-                e.preventDefault();
-                modal.style.display = "block";
-            };
-        }
+  for (let btnId in modalMap) {
+    const btn = document.getElementById(btnId);
+    const modal = document.getElementById(modalMap[btnId]);
+    if(btn && modal){
+      btn.onclick = function(e){
+        e.preventDefault();
+        modal.style.display = "block";
+      };
     }
+  }
 
-    // Close buttons
-    document.querySelectorAll(".close").forEach(btn => {
-        btn.onclick = function(){
-            const modal = document.getElementById(this.getAttribute("data-modal"));
-            if(modal) modal.style.display = "none";
-        };
-    });
-
-    // Click outside modal
-    window.onclick = function(event){
-        if(event.target.classList.contains("modal")){
-            event.target.style.display = "none";
-        }
+  // Close buttons
+  document.querySelectorAll(".close").forEach(btn => {
+    btn.onclick = function(){
+      const modal = document.getElementById(this.getAttribute("data-modal"));
+      if(modal) modal.style.display = "none";
     };
+  });
+
+  // Click outside modal closes
+  window.onclick = function(event){
+    if(event.target.classList.contains("modal")){
+      event.target.style.display = "none";
+    }
+  };
 });
 /* =========================
     ABOUT US SECTION END
