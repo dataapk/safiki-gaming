@@ -225,10 +225,6 @@ html, body {
     line-height: 1.1;
 }
 
-
-/* =====================================
-   MAIN GAMES SECTION MOBILE FIXED
-===================================== */
 /* =====================================
    MAIN GAMES SECTION - FIXED OBJECT-FIT
 ===================================== */
@@ -246,7 +242,7 @@ html, body {
 
 /* Game Card */
 .game-card {
-    width: 48%;          /* মোবাইলে দুটি কার্ড পাশাপাশি */
+    width: 45%;          /* মোবাইলে দুটি কার্ড পাশাপাশি */
     max-width: 220px;    /* ডেস্কটপে সীমা */
     height: 180px;       /* container height */
     border-radius: 16px;
