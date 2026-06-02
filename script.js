@@ -219,7 +219,6 @@ setInterval(() => {
 ========================= */
 document.addEventListener('DOMContentLoaded', function () {
 
-    // Modal buttons and modals
     const modalMap = {
         "terms-btn": "terms-modal",
         "privacy-btn": "privacy-modal",
@@ -236,6 +235,7 @@ document.addEventListener('DOMContentLoaded', function () {
             btn.onclick = function(e) {
                 e.preventDefault();
                 modal.style.display = "block";
+                modal.classList.add('show-modal');
             };
         }
     }
@@ -245,7 +245,10 @@ document.addEventListener('DOMContentLoaded', function () {
         btn.onclick = function() {
             const modalId = this.getAttribute("data-modal");
             const modal = document.getElementById(modalId);
-            if(modal) modal.style.display = "none";
+            if(modal) {
+                modal.style.display = "none";
+                modal.classList.remove('show-modal');
+            }
         };
     });
 
@@ -253,6 +256,7 @@ document.addEventListener('DOMContentLoaded', function () {
     window.onclick = function(event) {
         if(event.target.classList.contains("modal")) {
             event.target.style.display = "none";
+            event.target.classList.remove('show-modal');
         }
     };
 
