@@ -1,316 +1,292 @@
-/* =========================
-   GLOBAL RESET
-========================= */
+/* ==========================
+   BASE RESET
+========================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* ==========================
+   BODY
+========================== */
 body {
-    background-color: #0f0f0f;
+    background-color: #0e0e10;
     color: #fff;
-    line-height: 1.6;
+    line-height: 1.5;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
-/* =========================
-   TOP NAVIGATION
-========================= */
+/* ==========================
+   HEADER / NAV
+========================== */
 .top-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
-    background-color: #111;
+    padding: 15px 20px;
+    background: #1b1b1f;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4);
     position: sticky;
     top: 0;
-    z-index: 100;
-}
-
-.top-nav .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #fcd34d; /* deep yellow */
-}
-
-.menu-btn {
-    background: none;
-    border: none;
-    color: #fff;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: color 0.3s ease;
-}
-
-.menu-btn:hover {
-    color: #fcd34d;
-}
-
-.header-actions .login-btn {
-    text-decoration: none;
-    color: #fff;
-    border: 1px solid #fcd34d;
-    padding: 0.4rem 1rem;
-    border-radius: 6px;
+    z-index: 1000;
     transition: all 0.3s ease;
 }
 
-.header-actions .login-btn:hover {
-    background-color: #fcd34d;
-    color: #111;
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #FFD700; /* subtle golden highlight */
+    transition: transform 0.3s ease;
 }
 
-/* =========================
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.menu-btn, .login-btn {
+    background: #FFD700;
+    color: #0e0e10;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.menu-btn:hover, .login-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(255,215,0,0.5);
+}
+
+/* ==========================
    DROPDOWN MENU
-========================= */
+========================== */
 .dropdown-menu {
     display: none;
     flex-direction: column;
+    background: #1b1b1f;
     position: absolute;
     top: 60px;
-    left: 0;
-    background-color: #111;
-    width: 200px;
-    border-radius: 6px;
+    left: 20px;
+    border-radius: 8px;
     overflow: hidden;
-    z-index: 99;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    transition: all 0.3s ease;
 }
 
 .dropdown-menu a {
-    padding: 0.8rem 1rem;
+    padding: 12px 20px;
     color: #fff;
     text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, transform 0.3s ease;
 }
 
 .dropdown-menu a:hover {
-    background-color: #222;
+    background: rgba(255, 215, 0, 0.2);
+    transform: scale(1.02);
 }
 
-/* =========================
+/* ==========================
    HERO SECTION
-========================= */
+========================== */
 .hero-section {
     position: relative;
-    width: 100%;
     overflow: hidden;
 }
 
 .hero-image {
     width: 100%;
     display: block;
-    border-radius: 8px;
-    transition: transform 0.5s ease;
+    transition: transform 0.3s ease;
 }
 
 .hero-image:hover {
     transform: scale(1.02);
 }
 
-/* =========================
-   PROMOTION SECTION
-========================= */
+/* ==========================
+   PROMOTION SLIDER
+========================== */
 .promotion-section {
-    text-align: center;
-    padding: 2rem 1rem;
+    padding: 40px 20px;
+    background: #161618;
 }
 
-.promotion-title {
-    font-size: 1.8rem;
-    color: #fcd34d;
-    margin-bottom: 1rem;
+.promotion-slide img {
+    width: 100%;
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.promotion-slider {
-    display: flex;
-    gap: 1rem;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-}
-
-.promotion-slide {
-    min-width: 200px;
-    border-radius: 8px;
-    overflow: hidden;
-    transition: transform 0.3s ease;
-}
-
-.promotion-slide:hover {
-    transform: scale(1.05);
+.promotion-slide img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 20px rgba(255,215,0,0.4);
 }
 
 .slider-dots {
-    margin-top: 1rem;
+    text-align: center;
+    margin-top: 15px;
 }
 
 .slider-dots .dot {
     display: inline-block;
-    height: 10px;
-    width: 10px;
-    background-color: #444;
-    border-radius: 50%;
+    width: 12px;
+    height: 12px;
     margin: 0 5px;
+    background: #555;
+    border-radius: 50%;
+    transition: background 0.3s ease, transform 0.3s ease;
 }
 
 .slider-dots .dot.active {
-    background-color: #fcd34d;
+    background: #FFD700;
+    transform: scale(1.2);
 }
 
-/* =========================
+/* ==========================
    GAME CATEGORIES
-========================= */
+========================== */
 .game-categories {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    padding: 2rem 1rem;
+    padding: 30px 20px;
 }
 
 .category-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    cursor: pointer;
+    text-align: center;
+    margin: 10px;
     transition: transform 0.3s ease;
 }
 
-.category-item:hover {
-    transform: scale(1.05);
+.category-item img {
+    width: 80px;
+    transition: transform 0.3s ease;
 }
 
-/* =========================
-   MAIN GAMES
-========================= */
-.main-games-section {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    padding: 2rem 1rem;
+.category-item:hover img {
+    transform: scale(1.1);
 }
 
-.game-card {
-    background-color: #111;
-    padding: 1rem;
-    border-radius: 8px;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-}
-
-.game-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 15px #fcd34d55;
-}
-
-.game-title {
-    margin-top: 0.5rem;
-}
-
-/* =========================
-   WINNERS SECTION
-========================= */
-.winner-section {
-    background-color: #111;
-    padding: 2rem 1rem;
-    text-align: center;
-}
-
-.winner-title {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    color: #fcd34d;
-}
-
-.live-dot {
-    height: 12px;
-    width: 12px;
-    background-color: red;
-    border-radius: 50%;
-    display: inline-block;
-    animation: blink 1s infinite;
-}
-
-@keyframes blink {
-    0%, 50%, 100% { opacity: 1; }
-    25%, 75% { opacity: 0; }
-}
-
-.winner-box {
-    overflow: hidden;
-    max-height: 150px;
-}
-
-.winner-track {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    animation: winnerScroll 10s linear infinite;
-}
-
-@keyframes winnerScroll {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-100%); }
-}
-
-/* =========================
-   FOOTER
-========================= */
-.bottom-nav, .footer {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background-color: #111;
-    padding: 1rem;
-    flex-wrap: wrap;
-}
-
-.bottom-nav .footer-btn, .footer-links a {
-    text-decoration: none;
-    color: #fff;
-    text-align: center;
+.category-item span {
+    display: block;
+    margin-top: 6px;
+    color: #FFD700;
+    font-weight: 600;
     transition: color 0.3s ease;
 }
 
+.category-item:hover span {
+    color: #fff;
+}
+
+/* ==========================
+   MAIN GAMES
+========================== */
+.main-games-section {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 30px 20px;
+}
+
+.game-card {
+    background: #1b1b1f;
+    border-radius: 12px;
+    margin: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.game-card img {
+    width: 100%;
+}
+
+.game-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 18px rgba(255,215,0,0.3);
+}
+
+.game-title {
+    padding: 10px;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* ==========================
+   WINNER SECTION
+========================== */
+.winner-section {
+    padding: 30px 20px;
+    background: #161618;
+}
+
+.winner-title {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+}
+
+.live-dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-right: 10px;
+    background: #FF3B3B;
+    border-radius: 50%;
+    animation: blink 1.2s infinite;
+}
+
+@keyframes blink {
+    0%,50%,100% {opacity:1;}
+    25%,75% {opacity:0.2;}
+}
+
+.winner-item {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+/* ==========================
+   FOOTERS
+========================== */
+.bottom-nav, .footer {
+    display: flex;
+    justify-content: space-around;
+    padding: 15px 0;
+    background: #1b1b1f;
+    transition: all 0.3s ease;
+}
+
 .footer-left, .footer-right {
-    flex: 1;
-    padding: 1rem;
-}
-
-.footer-left {
-    text-align: left;
-}
-
-.footer-right {
-    text-align: right;
+    width: 45%;
 }
 
 .footer-title {
-    color: #fcd34d;
-    margin-bottom: 0.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #FFD700;
 }
 
-.footer-links li, .contact-links li {
-    list-style: none;
-    margin: 0.3rem 0;
+.footer-links a, .contact-links li {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    margin-bottom: 6px;
+    transition: color 0.3s ease;
 }
 
 .footer-links a:hover {
-    color: #fcd34d;
+    color: #FFD700;
 }
 
-/* =========================
+/* ==========================
    MODALS
-========================= */
+========================== */
 .modal {
     display: none;
     position: fixed;
@@ -318,61 +294,58 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.85);
+    background: rgba(0,0,0,0.8);
     justify-content: center;
     align-items: center;
-    z-index: 999;
+    z-index: 2000;
+    transition: all 0.3s ease;
 }
 
 .modal-content {
-    background-color: #111;
-    color: #fff;
-    padding: 2rem;
-    border-radius: 8px;
+    background: #1b1b1f;
+    padding: 25px;
+    border-radius: 12px;
     max-width: 500px;
     width: 90%;
-    position: relative;
+    color: #fff;
+    text-align: left;
+    transition: all 0.3s ease;
 }
 
 .modal-content h2 {
-    color: #fcd34d;
-    margin-bottom: 1rem;
+    margin-bottom: 12px;
+    color: #FFD700;
 }
 
-.modal-content .close {
+.close {
     position: absolute;
-    top: 10px;
+    top: 15px;
     right: 15px;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     cursor: pointer;
-    color: #fcd34d;
+    color: #FFD700;
+    transition: transform 0.3s ease;
 }
 
-.modal-content .close:hover {
-    color: #fff;
+.close:hover {
+    transform: scale(1.2);
 }
 
-/* =========================
+/* ==========================
    RESPONSIVE
-========================= */
+========================== */
 @media screen and (max-width: 768px) {
-    .game-categories, .main-games-section {
+    .top-nav, .footer-left, .footer-right, .main-games-section, .game-categories {
         flex-direction: column;
         align-items: center;
     }
 
     .footer-left, .footer-right {
-        text-align: center;
-        padding: 0.5rem;
-    }
-
-    .top-nav {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-
-    .dropdown-menu {
         width: 100%;
-        top: 50px;
+        margin-bottom: 20px;
+    }
+
+    .category-item img {
+        width: 60px;
     }
 }
