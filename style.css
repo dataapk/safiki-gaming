@@ -226,50 +226,80 @@ html, body {
 }
 
 /* =====================================
-   MAIN GAMES SECTION - FIXED OBJECT-FIT
+   MAIN GAMES SECTION FIXED
 ===================================== */
-
 .main-games .games-container {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    flex-wrap: nowrap;  /* দুইটি গেম পাশাপাশি থাকবে */
-    gap: 12px;          /* দুটি ইমেজের মাঝে gap */
-    padding: 15px;      /* container padding */
-    margin-top: 20px;   /* উপরের সেকশন থেকে gap */
-    margin-bottom: 20px; /* নিচের সেকশন থেকে gap */
+    flex-wrap: nowrap; /* prevent wrapping */
+    gap: 12px; /* gap between two games */
+    padding: 0 15px;
 }
 
 /* Game Card */
 .game-card {
-    width: 20%;          /* মোবাইলে দুটি কার্ড পাশাপাশি */
-    max-width: 220px;    /* ডেস্কটপে সীমা */
-    height: 180px;       /* container height */
+    width: 48%; /* two cards side by side on mobile */
+    max-width: 220px; /* prevent too big on desktop */
     border-radius: 16px;
     overflow: hidden;
     text-align: center;
-    background: #1a1a1a;
+    flex-shrink: 0; /* prevent shrinking below width */
 }
 
-/* Image inside card */
 .game-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;  /* proportional ফিট */
+    width: 100%; /* fill the card width */
+    height: auto; /* maintain aspect ratio */
+    object-fit: cover; /* ensure full coverage */
     display: block;
     border-radius: 16px;
 }
 
-/* Desktop adjustments */
+/* Card Title */
+.game-card h3 {
+    font-size: 1rem; /* readable on mobile */
+    margin-top: 8px;
+    color: #ffffff;
+}
+
+/* Desktop View */
 @media (min-width: 769px) {
     .main-games .games-container {
-        gap: 20px;
-        padding: 20px;
+        flex-wrap: nowrap;
+        gap: 20px; /* gap between desktop cards */
+        justify-content: flex-start;
     }
 
     .game-card {
-        width: 200px; /* fixed width desktop */
-        height: 200px; /* fixed height desktop */
+        width: 200px; /* fixed card width */
+    }
+
+    .game-card img {
+        width: 100%;
+        height: auto;
+    }
+
+    .game-card h3 {
+        font-size: 1.2rem; /* desktop text size */
+    }
+}
+
+/* Mobile adjustments */
+@media (max-width: 480px) {
+    .main-games .games-container {
+        gap: 8px; /* reduce gap for very small screens */
+    }
+
+    .game-card {
+        width: 48%; /* keep two cards side by side */
+    }
+
+    .game-card img {
+        height: auto;
+    }
+
+    .game-card h3 {
+        font-size: 0.95rem;
     }
 }
 /* =====================================
