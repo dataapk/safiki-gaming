@@ -215,45 +215,48 @@ setInterval(() => {
 
 });
 /* =========================
-   PRIVACY & TERMS MODAL
+   ABOUT US SECTION START
 ========================= */
 document.addEventListener('DOMContentLoaded', function () {
-    const privacyBtn = document.getElementById("privacy-btn");
-    const privacyModal = document.getElementById("privacy-modal");
 
-    if (privacyBtn && privacyModal) {
-        privacyBtn.onclick = function(e){
-            e.preventDefault();
-            privacyModal.style.display = "block";
-        };
-    }
+    // Modal buttons and modals
+    const modalMap = {
+        "terms-btn": "terms-modal",
+        "privacy-btn": "privacy-modal",
+        "fair-btn": "fair-modal",
+        "responsible-btn": "responsible-modal"
+    };
 
-    const termsBtn = document.getElementById("terms-btn");
-    const termsModal = document.getElementById("terms-modal");
+    for (let btnId in modalMap) {
+        const btn = document.getElementById(btnId);
+        const modalId = modalMap[btnId];
+        const modal = document.getElementById(modalId);
 
-    if (termsBtn && termsModal) {
-        termsBtn.onclick = function(e){
-            e.preventDefault();
-            termsModal.style.display = "block";
-        };
+        if (btn && modal) {
+            btn.onclick = function(e) {
+                e.preventDefault();
+                modal.style.display = "block";
+            };
+        }
     }
 
     // Close buttons
     document.querySelectorAll(".close").forEach(btn => {
-        btn.onclick = function(){
+        btn.onclick = function() {
             const modalId = this.getAttribute("data-modal");
             const modal = document.getElementById(modalId);
             if(modal) modal.style.display = "none";
         };
     });
 
-    // Click outside modal
-    window.onclick = function(event){
-        if(event.target.classList.contains("modal")){
+    // Click outside modal closes it
+    window.onclick = function(event) {
+        if(event.target.classList.contains("modal")) {
             event.target.style.display = "none";
         }
     };
+
 });
 /* =========================
-   PRIVACY & TERMS MODAL END
+    ABOUT US SECTION END
 ========================= */
