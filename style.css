@@ -241,7 +241,7 @@ html, body {
 
 /* Game Card */
 .game-card {
-    width: 45%; /* মোবাইলে দুইটি side by side */
+    width: 30%; /* মোবাইলে দুইটি side by side */
     max-width: 200px; /* desktop maximum width */
     height: auto; /* auto height to maintain image ratio */
     border-radius: 16px;
