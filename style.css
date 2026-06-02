@@ -225,24 +225,25 @@ html, body {
     line-height: 1.1;
 }
 
+
 /* =====================================
-   MAIN GAMES SECTION FIXED & RESPONSIVE
+   MAIN GAMES SECTION MOBILE FIXED
 ===================================== */
 
 .main-games .games-container {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    flex-wrap: wrap; /* allows wrapping if needed */
-    gap: 20px; /* space between cards */
-    padding: 0 15px;
+    align-items: center; /* vertically center if needed */
+    flex-wrap: nowrap; /* prevent wrapping on mobile */
+    gap: 12px; /* gap like special offer slider */
+    padding: 0 10px;
 }
 
 /* Individual Game Card */
 .game-card {
-    width: 48%; /* two cards side by side in mobile */
-    max-width: 250px; /* limit maximum width for desktop */
-    height: auto; /* auto height based on image */
+    width: 45%; /* smaller so both fit side by side */
+    max-width: 200px; /* limit max width for larger screens */
+    height: auto;
     border-radius: 16px;
     overflow: hidden;
     text-align: center;
@@ -258,37 +259,29 @@ html, body {
 
 /* Game Title */
 .game-card h3 {
-    font-size: 1rem; /* mobile readable text */
-    margin-top: 8px;
+    font-size: 0.95rem; /* slightly smaller text */
+    margin-top: 6px;
 }
 
-/* Desktop Fix */
+/* Desktop */
 @media (min-width: 769px) {
     .main-games .games-container {
-        flex-wrap: nowrap; /* no wrap for desktop */
-        gap: 30px; /* more space between cards */
+        flex-wrap: nowrap;
+        gap: 30px; /* desktop gap */
     }
 
     .game-card {
-        width: 200px; /* fixed width for desktop */
+        width: 200px;
         height: auto;
     }
 
     .game-card img {
         width: 100%;
-        height: auto; /* proportional */
+        height: auto;
     }
 
     .game-card h3 {
-        font-size: 1.2rem; /* readable desktop text */
-        margin-top: 10px;
-    }
-}
-
-/* Optional: slightly bigger cards for tablets */
-@media (min-width: 1024px) and (max-width: 1440px) {
-    .game-card {
-        width: 220px;
+        font-size: 1.2rem;
     }
 }
 /* =====================================
