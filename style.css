@@ -239,7 +239,7 @@ html, body {
 
 /* Game Card */
 .game-card {
-    width: 45%; /* two cards side by side on mobile */
+    width: 30%; /* two cards side by side on mobile */
     max-width: 220px; /* prevent too big on desktop */
     border-radius: 16px;
     overflow: hidden;
