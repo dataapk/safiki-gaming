@@ -218,7 +218,6 @@ setInterval(() => {
    ABOUT US SECTION START
 ========================= */
 document.addEventListener('DOMContentLoaded', function () {
-
     const modalMap = {
         "terms-btn": "terms-modal",
         "privacy-btn": "privacy-modal",
@@ -228,38 +227,29 @@ document.addEventListener('DOMContentLoaded', function () {
 
     for (let btnId in modalMap) {
         const btn = document.getElementById(btnId);
-        const modalId = modalMap[btnId];
-        const modal = document.getElementById(modalId);
-
-        if (btn && modal) {
-            btn.onclick = function(e) {
+        const modal = document.getElementById(modalMap[btnId]);
+        if(btn && modal){
+            btn.onclick = function(e){
                 e.preventDefault();
                 modal.style.display = "block";
-                modal.classList.add('show-modal');
             };
         }
     }
 
     // Close buttons
     document.querySelectorAll(".close").forEach(btn => {
-        btn.onclick = function() {
-            const modalId = this.getAttribute("data-modal");
-            const modal = document.getElementById(modalId);
-            if(modal) {
-                modal.style.display = "none";
-                modal.classList.remove('show-modal');
-            }
+        btn.onclick = function(){
+            const modal = document.getElementById(this.getAttribute("data-modal"));
+            if(modal) modal.style.display = "none";
         };
     });
 
-    // Click outside modal closes it
-    window.onclick = function(event) {
-        if(event.target.classList.contains("modal")) {
+    // Click outside modal
+    window.onclick = function(event){
+        if(event.target.classList.contains("modal")){
             event.target.style.display = "none";
-            event.target.classList.remove('show-modal');
         }
     };
-
 });
 /* =========================
     ABOUT US SECTION END
