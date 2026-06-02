@@ -214,7 +214,6 @@ setInterval(() => {
 }
 
 });
-<script>
 /* =========================
    PRIVACY & TERMS MODAL
 ========================= */
@@ -243,23 +242,6 @@ document.addEventListener('DOMContentLoaded', function () {
         };
     }
 
-    // Close Buttons
-    document.querySelectorAll(".close").forEach(btn => {
-        btn.onclick = function(){
-            const modalId = this.getAttribute("data-modal");
-            const modal = document.getElementById(modalId);
-            if(modal) modal.style.display = "none";
-        };
-    });
-
-    // Click outside modal closes it
-    window.onclick = function(event){
-        if(event.target.classList.contains("modal")){
-            event.target.style.display = "none";
-        }
-    };
-
 });
-</script>
 </body>
 </html>
