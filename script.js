@@ -243,3 +243,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 });
+/* =========================
+   PRIVACY & TERMS MODAL END
+========================= */
