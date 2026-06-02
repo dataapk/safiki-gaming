@@ -282,9 +282,10 @@ html, body {
     }
 
     .main-games-section .game-card img {
-        height: 100px;      /* মোবাইলে ছোট ইমেজ */
-        max-width: 90px;    /* মোবাইলে ছোট আইকন */
-        object-fit: cover;  /* ফিট থাকবে */
+    width: 100%;
+    height: 100%;        /* পুরো কার্ড কভার করবে */
+    object-fit: cover;    /* ইমেজ ফুল কার্ডে ফিট হবে */
+    display: block;
     }
 
     .main-games-section {
