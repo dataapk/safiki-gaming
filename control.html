@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Control Panel</title>
+<link rel="stylesheet" href="control-style.css">
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<style>
+/* --- Basic Reset --- */
+* { box-sizing: border-box; margin:0; padding:0; font-family: Arial, sans-serif; }
+body { display:flex; min-height:100vh; background:#121212; color:#fff; }
+
+/* --- Sidebar --- */
+.sidebar {
+  width:250px;
+  background:#1f1f1f;
+  display:flex;
+  flex-direction:column;
+  padding:20px 10px;
+}
+.sidebar h2 { text-align:center; margin-bottom:20px; color:#f5c518; }
+.sidebar a {
+  color:#fff; text-decoration:none; padding:12px 20px; margin:5px 0; border-radius:8px; display:flex; align-items:center; transition:0.3s; 
+}
+.sidebar a:hover { background:#333; transform: translateX(5px); }
+.sidebar a i { margin-right:10px; }
+
+/* --- Main Content --- */
+.main-content { flex:1; padding:20px; overflow-y:auto; }
+
+/* --- Cards --- */
+.card {
+  background:#1e1e1e; padding:20px; border-radius:10px; margin-bottom:20px; box-shadow:0 4px 8px rgba(0,0,0,0.5); transition:0.3s;
+}
+.card:hover { transform: translateY(-5px); box-shadow:0 8px 16px rgba(0,0,0,0.7); }
+
+/* --- Tables --- */
+table { width:100%; border-collapse:collapse; margin-top:10px; }
+th, td { padding:12px; text-align:left; border-bottom:1px solid #333; }
+th { background:#222; }
+
+/* --- Buttons --- */
+.btn {
+  background:#f5c518; color:#000; padding:8px 16px; border:none; border-radius:5px; cursor:pointer; font-weight:bold; transition:0.3s;
+}
+.btn:hover { background:#d4a000; transform:translateY(-2px); }
+
+/* --- Responsive --- */
+@media(max-width:768px){
+  body { flex-direction:column; }
+  .sidebar { width:100%; flex-direction:row; overflow-x:auto; }
+  .sidebar a { flex:1; text-align:center; margin:0 5px; }
+  .main-content { padding:10px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Sidebar Navigation -->
+<div class="sidebar">
+  <h2>Admin Panel</h2>
+  <a href="#dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+  <a href="#games"><i class="fas fa-gamepad"></i> Games Management</a>
+  <a href="#users"><i class="fas fa-users"></i> User Management</a>
+  <a href="#payments"><i class="fas fa-credit-card"></i> Payments</a>
+  <a href="#reports"><i class="fas fa-chart-line"></i> Reports & Analytics</a>
+  <a href="#settings"><i class="fas fa-cogs"></i> Settings</a>
+</div>
+
+<!-- Main Content -->
+<div class="main-content">
+
+  <!-- Dashboard -->
+  <div class="card" id="dashboard">
+    <h2>Dashboard</h2>
+    <p>Overview of all activities.</p>
+    <table>
+      <tr><th>Metric</th><th>Value</th></tr>
+      <tr><td>Active Users</td><td>120</td></tr>
+      <tr><td>New Signups</td><td>15</td></tr>
+      <tr><td>Total Deposits</td><td>$5,230</td></tr>
+      <tr><td>Total Withdrawals</td><td>$1,120</td></tr>
+    </table>
+  </div>
+
+  <!-- Games Management -->
+  <div class="card" id="games">
+    <h2>Games Management</h2>
+    <button class="btn" onclick="alert('Add new game popup')">Add New Game</button>
+    <table>
+      <tr><th>Game Name</th><th>Status</th><th>Actions</th></tr>
+      <tr><td>Game 1</td><td>Active</td><td><button class="btn">Edit</button></td></tr>
+      <tr><td>Game 2</td><td>Inactive</td><td><button class="btn">Edit</button></td></tr>
+      <tr><td>Game 3</td><td>Active</td><td><button class="btn">Edit</button></td></tr>
+    </table>
+  </div>
+
+  <!-- User Management -->
+  <div class="card" id="users">
+    <h2>User Management</h2>
+    <button class="btn" onclick="alert('Add new user popup')">Add New User</button>
+    <table>
+      <tr><th>Username</th><th>Status</th><th>Deposit</th><th>Withdraw</th><th>Actions</th></tr>
+      <tr><td>John</td><td>Active</td><td>$500</td><td>$100</td><td><button class="btn">Edit</button></td></tr>
+      <tr><td>Emma</td><td>Inactive</td><td>$300</td><td>$50</td><td><button class="btn">Edit</button></td></tr>
+    </table>
+  </div>
+
+  <!-- Payments -->
+  <div class="card" id="payments">
+    <h2>Payments</h2>
+    <table>
+      <tr><th>User</th><th>Type</th><th>Amount</th><th>Date</th></tr>
+      <tr><td>John</td><td>Deposit</td><td>$500</td><td>2026-06-02</td></tr>
+      <tr><td>Emma</td><td>Withdrawal</td><td>$50</td><td>2026-06-01</td></tr>
+    </table>
+  </div>
+
+  <!-- Reports & Analytics -->
+  <div class="card" id="reports">
+    <h2>Reports & Analytics</h2>
+    <p>Graphs and charts will be displayed here.</p>
+  </div>
+
+  <!-- Settings -->
+  <div class="card" id="settings">
+    <h2>Settings</h2>
+    <p>Admin settings and configurations.</p>
+  </div>
+
+</div>
+
+<script>
+// Placeholder JS for interactivity
+console.log("Admin Control Panel loaded");
+</script>
+
+</body>
+</html>
