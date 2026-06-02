@@ -253,23 +253,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 </section>
 
 <!-- Recent Winners End -->
-    
-    <!-- ========================= -->
-<!-- PRIVACY POLICY -->
-<!-- ========================= -->
-<div class="legal-links">
 
-    <a href="#" id="privacy-btn">
-        Privacy Policy
-    </a>
-
-    |
-
-    <a href="#" id="terms-btn">
-        Terms of Use
-    </a>
-
-</div>
     <!-- FOOTER START -->
 
 <footer class="bottom-nav">
@@ -290,55 +274,74 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     </a>
 
 </footer>
-
-<!-- Footer End -->
     <script src="script.js"></script>
     <script>
+        
+ <!--Menu button Footer End -->
+        
 /* =========================
    PRIVACY & TERMS MODAL
 ========================= */
+<!-- =======================
+     FOOTER SECTION
+======================= -->
+<footer class="footer">
+  <div class="footer-left">
+    <h3 class="footer-title">About Us</h3>
+    <ul class="footer-links">
+      <li><a href="#" id="terms-btn">Terms & Conditions</a></li>
+      <li><a href="#" id="fair-btn">Probably Fair</a></li>
+      <li><a href="#" id="privacy-btn">Privacy Policy</a></li>
+      <li><a href="#" id="responsible-btn">Responsible Gambling</a></li>
+    </ul>
+  </div>
 
-document.addEventListener('DOMContentLoaded', function () {
+  <div class="footer-right">
+    <h3 class="footer-title">Contact</h3>
+    <ul class="contact-links">
+      <li>Email: support@example.com</li>
+      <li>Email: help@example.com</li>
+    </ul>
+  </div>
+</footer>
 
-    // Privacy Policy Button
-    const privacyBtn = document.getElementById("privacy-btn");
-    const privacyModal = document.getElementById("privacy-modal");
+<!-- =======================
+     MODALS
+======================= -->
+<!-- Terms Modal -->
+<div class="modal" id="terms-modal">
+  <div class="modal-content">
+    <span class="close" data-modal="terms-modal">&times;</span>
+    <h2>Terms & Conditions</h2>
+    <p>এখানে Terms & Conditions এর full text থাকবে...</p>
+  </div>
+</div>
 
-    if (privacyBtn && privacyModal) {
-        privacyBtn.onclick = function(e){
-            e.preventDefault();
-            privacyModal.style.display = "block";
-        };
-    }
+<!-- Privacy Modal -->
+<div class="modal" id="privacy-modal">
+  <div class="modal-content">
+    <span class="close" data-modal="privacy-modal">&times;</span>
+    <h2>Privacy Policy</h2>
+    <p>এখানে Privacy Policy এর full text থাকবে...</p>
+  </div>
+</div>
 
-    // Terms of Use Button
-    const termsBtn = document.getElementById("terms-btn");
-    const termsModal = document.getElementById("terms-modal");
+<!-- Probably Fair Modal -->
+<div class="modal" id="fair-modal">
+  <div class="modal-content">
+    <span class="close" data-modal="fair-modal">&times;</span>
+    <h2>Probably Fair</h2>
+    <p>এখানে Probably Fair এর full text থাকবে...</p>
+  </div>
+</div>
 
-    if (termsBtn && termsModal) {
-        termsBtn.onclick = function(e){
-            e.preventDefault();
-            termsModal.style.display = "block";
-        };
-    }
-
-    // Close Buttons
-    document.querySelectorAll(".close").forEach(btn => {
-        btn.onclick = function(){
-            const modalId = this.getAttribute("data-modal");
-            const modal = document.getElementById(modalId);
-            if(modal) modal.style.display = "none";
-        };
-    });
-
-    // Click outside modal closes it
-    window.onclick = function(event){
-        if(event.target.classList.contains("modal")){
-            event.target.style.display = "none";
-        }
-    };
-
-});
-</script>
+<!-- Responsible Gambling Modal -->
+<div class="modal" id="responsible-modal">
+  <div class="modal-content">
+    <span class="close" data-modal="responsible-modal">&times;</span>
+    <h2>Responsible Gambling</h2>
+    <p>এখানে Responsible Gambling এর full text থাকবে...</p>
+  </div>
+</div>
 </body>
 </html>
