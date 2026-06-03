@@ -225,74 +225,32 @@ html, body {
     line-height: 1.1;
 }
 
-/* ==========================
-   MAIN GAMES FIXED (Desktop + Mobile)
-========================== */
-.main-games-section {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding: 15px;
-}
-
-.main-games-section .game-card {
-    flex: 1 1 30%;       /* Desktop: 3 কার্ড পাশাপাশি */
-    max-width: 220px;    /* কার্ডের সর্বোচ্চ চওড়া */
-    height: 260px;       /* কার্ডের ফিক্সড হাইট */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    border-radius: 20px;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.main-games-section .game-card img {
-    width: 100%;
-    height: 120px;        /* ইমেজের ফিক্সড হাইট */
-    max-width: 120px;     /* ডেক্সটপে বেশি বড় না হয় */
-    object-fit: cover;    /* ছবি পুরো ফ্রেম কভার করবে */
-    margin-top: 20px;
-    margin-bottom: 15px;
-    border-radius: 12px;  /* হালকা রাউন্ডেড কর্ণার */
-}
-
-.main-games-section .game-card .game-title {
-    font-size: 1rem;
-    font-weight: 600;
-    color: #fff;
-}
-
-/* Hover Effect */
-.main-games-section .game-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 15px 30px rgba(138,43,226,0.3);
-}
-
-/* ==========================
-   MOBILE FIX
-========================== */
-@media (max-width: 768px) {
+/* =====================================
+   MAIN GAMES SECTION DESKTOP FIX (DOUBLE SIZE)
+===================================== */
+@media (min-width: 1024px) {
     .main-games-section .game-card {
-        flex: 1 1 45%;      /* মোবাইলে দুটি কার্ড পাশাপাশি */
-        max-width: none;
-        height: auto;       /* কার্ড হাইট স্বয়ংক্রিয় */
+        flex: 1 1 300px;      /* Desktop: বড় কার্ড */
+        max-width: 300px;     /* সর্বোচ্চ চওড়া */
+        height: 520px;        /* ডাবল উচ্চতা */
     }
 
     .main-games-section .game-card img {
-    width: 100%;
-    height: 100%;        /* পুরো কার্ড কভার করবে */
-    object-fit: cover;    /* ইমেজ ফুল কার্ডে ফিট হবে */
-    display: block;
+        width: 100%;
+        height: 240px;        /* ইমেজও ডাবল হাইট */
+        object-fit: cover;    /* পুরো কার্ডে ফিট */
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .main-games-section .game-card .game-title {
+        font-size: 1.4rem;    /* টেক্সট বড় করা */
     }
 
     .main-games-section {
-        gap: 12px;          /* মোবাইলে gap কমানো */
+        gap: 40px;            /* কার্ডগুলোর মধ্যে স্পেস ডাবল */
     }
 }
-
 /* =====================================
    LIVE WINNERS
 ===================================== */
