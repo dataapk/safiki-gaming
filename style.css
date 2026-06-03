@@ -407,8 +407,8 @@ html, body {
 ========================== */
 .image-section {
     background-color: #1a1e29;
-    padding: 20px;
-    border-radius: 15px;
+    padding: 15px;
+    border-radius: 18px;
     text-align: center;
     margin-top: 20px;
 }
@@ -433,7 +433,7 @@ html, body {
     }
     
     .payment-title {
-        font-size: 18px; /* মোবাইলে শিরোনাম একটু ছোট করে দিলাম */
+        font-size: 15px; /* মোবাইলে শিরোনাম একটু ছোট করে দিলাম */
     }
 }
    /* PAYMENT SECTION END */
