@@ -281,7 +281,7 @@ html, body {
 }
 
 /* ==========================
-   MOBILE MAIN GAMES - UPDATED LIGHT OVERLAY + GAP
+   MOBILE MAIN GAMES - ADVANCED LIGHT + ROUNDED GLOW
 ========================== */
 @media (max-width: 768px) {
 
@@ -289,13 +289,13 @@ html, body {
         display: flex;
         flex-direction: column; /* stacked view */
         align-items: center;
-        gap: 20px; /* মাঝখানে গ্যাপ বড়ানো */
+        gap: 25px; /* মাঝখানে গ্যাপ বড়ানো */
         padding: 10px 0;
     }
 
     .main-games-section .game-card {
-        width: 90%; /* ফুল স্ক্রিন প্রায় */
-        height: auto; /* auto height based on image */
+        width: 95%; /* 95% স্ক্রিন */
+        height: auto;
         position: relative;
         border-radius: 16px;
         overflow: hidden;
@@ -312,32 +312,43 @@ html, body {
         object-fit: cover; /* পুরো কার্ডে ফিট হবে */
         display: block;
         border-radius: 16px;
+        z-index: 2; /* overlay এর উপরে */
     }
 
-    /* Overlay effect (lighter now) */
+    /* Overlay effect (lighter) */
     .main-games-section .game-card::after {
         content: "";
         position: absolute;
         top: 0; left: 0;
         width: 100%; height: 100%;
-        background: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)); /* লাইটার overlay */
+        background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2));
         pointer-events: none;
         border-radius: 16px;
+        z-index: 3;
     }
 
-    /* Glow effect (নিচে) */
-    .main-games-section .game-card-glow {
+    /* Rounded rainbow glow (5% gap) */
+    .main-games-section .game-card::before {
+        content: "";
         position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 80%;
-        height: 8px;
-        background: rgba(57,255,20,0.5); /* green glow */
-        filter: blur(6px);
-        border-radius: 4px;
+        top: 2.5%; left: 2.5%;
+        width: 95%; height: 95%;
+        border-radius: 16px;
         pointer-events: none;
+        background: 
+            radial-gradient(circle at top left, red, transparent 70%),
+            radial-gradient(circle at top right, blue, transparent 70%),
+            radial-gradient(circle at bottom left, green, transparent 70%),
+            radial-gradient(circle at bottom right, purple, transparent 70%),
+            radial-gradient(circle at center, yellow, transparent 70%);
+        z-index: 1; /* overlay এর নিচে */
     }
+
+    /* Hide text labels under images */
+    .main-games-section .game-card .game-title {
+        display: none;
+    }
+}
 
     /* Hide text labels under images */
     .main-games-section .game-card .game-title {
