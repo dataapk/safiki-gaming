@@ -281,7 +281,7 @@ html, body {
 }
 
 /* ==========================
-   MOBILE MAIN GAMES STACKED VIEW
+   MOBILE MAIN GAMES - UPDATED LIGHT OVERLAY + GAP
 ========================== */
 @media (max-width: 768px) {
 
@@ -289,7 +289,7 @@ html, body {
         display: flex;
         flex-direction: column; /* stacked view */
         align-items: center;
-        gap: 15px; /* মাঝখানে গ্যাপ */
+        gap: 20px; /* মাঝখানে গ্যাপ বড়ানো */
         padding: 10px 0;
     }
 
@@ -314,13 +314,13 @@ html, body {
         border-radius: 16px;
     }
 
-    /* Overlay effect */
+    /* Overlay effect (lighter now) */
     .main-games-section .game-card::after {
         content: "";
         position: absolute;
         top: 0; left: 0;
         width: 100%; height: 100%;
-        background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)); /* হালকা কালো overlay */
+        background: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)); /* লাইটার overlay */
         pointer-events: none;
         border-radius: 16px;
     }
@@ -343,12 +343,6 @@ html, body {
     .main-games-section .game-card .game-title {
         display: none;
     }
-}
-
-/* Hover effect for both desktop and mobile */
-.main-games-section .game-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 15px 30px rgba(138,43,226,0.3);
 }
 /* =====================================
    LIVE WINNERS
