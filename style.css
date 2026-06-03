@@ -306,8 +306,8 @@ html, body {
     }
 
     .main-games-section .game-card img {
-        width: 100%;
-        height: auto;
+        width: 95%;
+        height: 95%;
         object-fit: cover; /* image covers card */
         border-radius: 16px;
         display: block;
