@@ -292,25 +292,7 @@ html, body {
         gap: 12px;          /* মোবাইলে gap কমানো */
     }
 }
-/* ==========================
-   MOBILE FIX
-========================== */
-@media (max-width: 768px) {
-    .main-games-section .game-card {
-        flex: 1 1 45%;      /* মোবাইলে দুটি কার্ড পাশাপাশি */
-        max-width: none;
-        height: auto;       /* কার্ড হাইট স্বয়ংক্রিয় */
-    }
 
-    .main-games-section .game-card img {
-        height: 100px;      /* মোবাইলে ছোট ইমেজ */
-        max-width: 90px;    /* মোবাইলে ছোট আইকন */
-    }
-
-    .main-games-section {
-        gap: 12px;          /* মোবাইলে gap কমানো */
-    }
-}
 /* =====================================
    LIVE WINNERS
 ===================================== */
