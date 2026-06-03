@@ -308,6 +308,14 @@ html, body {
         transition: all 0.3s ease; /* hover animation */
         background: #1f1f1f;
         border: 1px solid rgba(138, 43, 226, 0.25);
+       /* ==========================
+   MOBILE - Remove all tap/focus flash
+========================== */
+.main-games-section .game-card {
+    -webkit-tap-highlight-color: transparent; /* Safari/Chrome */
+    outline: none;                              /* remove focus outline */
+    -webkit-user-select: none;                  /* prevent selection flash */
+    -webkit-touch-callout: none;                /* prevent long-press callout */
     }
 
     .main-games-section .game-card img {
