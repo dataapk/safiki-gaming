@@ -213,8 +213,8 @@ html, body {
     box-shadow: 0 0 15px rgba(138, 43, 226, 0.7);
 }
 .category-item img {
-    width: 30px;
-    height: 30px;
+    width: 90%;
+    height: 90%;
     object-fit: contain;
     margin-bottom: 4px;
 }
