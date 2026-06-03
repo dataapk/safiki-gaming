@@ -281,7 +281,7 @@ html, body {
 }
 
 /* ==========================
-   MOBILE MAIN GAMES - FINAL with corner animated lights
+   MOBILE MAIN GAMES - FINAL with corner animated lights + click effect
 ========================== */
 @media (max-width: 768px) {
 
@@ -289,29 +289,30 @@ html, body {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 20px; /* vertical gap between cards */
+        gap: 20px;
         padding: 10px 0;
     }
 
     .main-games-section .game-card {
-        width: 95%;           /* leave 5% gap for lights */
-        aspect-ratio: 1 / 1;  /* square container */
+        width: 95%;
+        aspect-ratio: 1 / 1;  /* square card */
         position: relative;
         border-radius: 16px;
-        overflow: visible;    /* lights visible outside image */
+        overflow: visible;    /* lights visible in gap */
+        transition: transform 0.3s ease; /* click animation */
     }
 
     .main-games-section .game-card img {
-        width: 95%;           /* fill container with 5% gap */
-        height: 95%;          /* maintain square gap */
+        width: 95%;
+        height: 95%;
         object-fit: cover;
         display: block;
         border-radius: 16px;
-        z-index: 1;           /* image below lights */
         margin: auto;
+        z-index: 1;
     }
 
-    /* Animated green lights in gap area (corners) */
+    /* Animated rainbow lights in gap area (corners) */
     .main-games-section .game-card::before {
         content: '';
         position: absolute;
@@ -321,14 +322,16 @@ html, body {
         height: 105%;
         border-radius: 20px;
         pointer-events: none;
-        background: radial-gradient(circle, rgba(57,255,20,0.6) 15%, transparent 16%) top left,
-                    radial-gradient(circle, rgba(57,255,20,0.6) 15%, transparent 16%) top right,
-                    radial-gradient(circle, rgba(57,255,20,0.6) 15%, transparent 16%) bottom left,
-                    radial-gradient(circle, rgba(57,255,20,0.6) 15%, transparent 16%) bottom right;
+        background: 
+            radial-gradient(circle, red 15%, transparent 16%) top left,
+            radial-gradient(circle, blue 15%, transparent 16%) top right,
+            radial-gradient(circle, green 15%, transparent 16%) bottom left,
+            radial-gradient(circle, purple 15%, transparent 16%) bottom right,
+            radial-gradient(circle, skyblue 15%, transparent 16%) center;
         background-size: 25px 25px;
         background-repeat: repeat;
         animation: rotateLights 6s linear infinite;
-        z-index: 2;           /* above image */
+        z-index: 2;
     }
 
     @keyframes rotateLights {
@@ -336,7 +339,16 @@ html, body {
         100% { transform: rotate(360deg); }
     }
 
-    /* Hide game title text */
+    /* Click effect - image bounces down and up */
+    .main-games-section .game-card:active {
+        transform: translateY(6px); /* click down */
+    }
+    .main-games-section .game-card:active img {
+        transition: transform 0.2s ease;
+        transform: scale(0.97); /* slight shrink for press effect */
+    }
+
+    /* Hide game title */
     .main-games-section .game-card .game-title {
         display: none;
     }
