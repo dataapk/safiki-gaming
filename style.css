@@ -416,18 +416,14 @@ html, body {
    
 }
 
-.payment-title {
-    background-color: #800080; 
-    color: #FFFF00 
-    padding: 15px 25px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+.payment-gateway-section .payment-title {
+    background-color: #6A0DAD !important; /* পার্পল ব্যাকগ্রাউন্ড */
+    color: #FFFFFF !important; /* সাদা ফন্ট কালার */
+    padding: 15px 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4), inset 0 2px 4px rgba(255, 255, 255, 0.2); /* থ্রিডি ইফেক্ট */
+    display: inline-block;
     text-align: center;
-    display: block; /* এখানে সংশোধন করা হয়েছে */
-    width: fit-content; /* 'auto'-এর পরিবর্তে 'fit-content' দিলে এটি টেক্সটের মাপ অনুযায়ী সেন্টারে থাকবে */
-    margin: 0 auto; /* কোটেশন মার্ক সরিয়ে দেওয়া হয়েছে */
-    font-size: 24px;
-    font-weight: bold;
 }
 
 /* ডেস্কটপের জন্য সাইজ (৫০% থাকবে) */
