@@ -417,18 +417,17 @@ html, body {
 }
 
 .payment-title {
-    background-color: #800080; /* থ্রিডি বাটনের বক্সের জন্য পার্পল রঙ */
-    color: #ffffff; /* টেক্সটের রঙ */
+    background-color: #800080; 
+    color: #ffffff; 
     padding: 15px 25px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
-    display: display-block;
-    width: auto;
+    display: block; /* এখানে সংশোধন করা হয়েছে */
+    width: fit-content; /* 'auto'-এর পরিবর্তে 'fit-content' দিলে এটি টেক্সটের মাপ অনুযায়ী সেন্টারে থাকবে */
+    margin: 0 auto; /* কোটেশন মার্ক সরিয়ে দেওয়া হয়েছে */
     font-size: 24px;
     font-weight: bold;
-    margin: 0 auto"
-   
 }
 
 /* ডেস্কটপের জন্য সাইজ (৫০% থাকবে) */
