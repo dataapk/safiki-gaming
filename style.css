@@ -422,10 +422,10 @@ html, body {
 
 /* Payment box container */
 .payment-box {
-    width: 90%;              /* two side gap */
+    width: 240%;              /* two side gap */
     max-width: 600px;        /* desktop max width */
     margin: 0 auto;
-    height: 300px;           /* mobile height */
+    height: 180px;           /* mobile height */
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 0 15px rgba(138,43,226,0.2);
