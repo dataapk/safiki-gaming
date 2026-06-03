@@ -405,36 +405,33 @@ html, body {
 /* ==========================
    PAYMENT SECTION - PERFECT MOBILE FIT
 ========================== */
-/* মেইন স্টাইল (সব ডিভাইসের জন্য) */
 .payment-section {
-    background-color: #1a1e29;
-    padding: 20px;
-    border-radius: 15px;
-    color: white;
     text-align: center;
+    padding: 30px 10px;
+    background-color: #1a1e29; /* আপনার পছন্দমতো ডার্ক ব্যাকগ্রাউন্ড */
     margin-top: 20px;
+    border-radius: 15px;
+}
+
+.payment-title {
+    color: #ffffff;           /* লেখার রঙ সাদা */
+    font-size: 32px;          /* লেখাটি বড় করার জন্য */
+    margin-bottom: 20px;      /* ইমেজ থেকে লেখার দূরত্ব */
+    font-weight: bold;
+    text-transform: uppercase; /* লেখাগুলো বড় হাতের দেখাবে */
 }
 
 .payment-full-img {
-    width: 100%;        /* ডিফল্ট হিসেবে মোবাইলের জন্য ফুল উইডথ */
-    max-width: 800px;   /* খুব বড় স্ক্রিনে যাতে অতিরিক্ত বড় না হয় */
+    width: 100%;
+    max-width: 800px;         /* ডেস্কটপে সাইজ কন্ট্রোল করার জন্য */
     height: auto;
     object-fit: contain;
 }
 
-/* ডেক্সটপের জন্য (যখন স্ক্রিন ৯৯২ পিক্সেলের বড় হবে) */
-@media screen and (min-width: 992px) {
-    .payment-full-img {
-        max-height: 70px; /* ডেক্সটপে হাইট একটু বেশি রাখা যাবে */
-        width: auto;      /* উইডথ ফিক্সড থাকবে */
-    }
-}
-
-/* মোবাইলের জন্য (যখন স্ক্রিন ৭৬৮ পিক্সেলের ছোট হবে) */
+/* মোবাইলের জন্য লেখার সাইজ একটু ছোট করে দিচ্ছি */
 @media screen and (max-width: 767px) {
-    .payment-full-img {
-        max-height: 40px; /* মোবাইলে লোগো ছোট করে সুন্দর করে দিবে */
-        width: 100%;      /* মোবাইলে পুরো জায়গা জুড়ে থাকবে */
+    .payment-title {
+        font-size: 22px;      /* মোবাইলে লেখার সাইজ একটু কমিয়ে দিলাম */
     }
 }
    /* PAYMENT SECTION END */
