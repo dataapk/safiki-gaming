@@ -281,7 +281,8 @@ html, body {
 }
 
 /* ==========================
-   MAIN GAMES MOBILE - 5% Gap Glow
+   MOBILE MAIN GAMES - FINAL
+   Square container + animated lights
 ========================== */
 @media (max-width: 768px) {
 
@@ -294,67 +295,43 @@ html, body {
     }
 
     .main-games-section .game-card {
-        width: 90%; /* almost full width */
-        height: auto;
+        width: 95%;           /* leave 5% gap for lights */
+        aspect-ratio: 1 / 1;  /* square container */
         position: relative;
         border-radius: 16px;
         overflow: hidden;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
     }
 
     .main-games-section .game-card img {
-        width: 98%;
-        height: 98%;
-        object-fit: cover; /* image covers card */
-        border-radius: 16px;
+        width: 95%;           /* fill container with 5% gap */
+        height: 95%;          /* maintain square gap */
+        object-fit: cover;
         display: block;
-    }
-
-    /* Overlay (optional, no lighting) */
-    .main-games-section .game-card::after {
-        content: "";
-        position: absolute;
-        top: 0; left: 0;
-        width: 100%; height: 100%;
-        background: rgba(0,0,0,0.15); /* slightly dark overlay */
-        pointer-events: none;
         border-radius: 16px;
+        z-index: 2;           /* above lights container */
     }
 
-    /* Animated lights around the 5% gap */
-    .main-games-section .game-card-glow {
-        position: absolute;
-        top: -5%; left: -5%;
-        width: 110%; /* 100% + 5% gap each side */
-        height: 110%;
-        border-radius: 20px;
-        pointer-events: none;
-        background: transparent;
-    }
-
-    /* Multiple pseudo-elements for colored glowing dots */
-    .main-games-section .game-card-glow::before,
-    .main-games-section .game-card-glow::after {
+    /* Animated lights in gap area */
+    .main-games-section .game-card::before {
         content: '';
         position: absolute;
-        top: 0; left: 0;
-        width: 100%;
-        height: 100%;
-        border-radius: inherit;
-        background: radial-gradient(circle, red 10%, transparent 10%) center,
-                    radial-gradient(circle, blue 10%, transparent 10%) center,
-                    radial-gradient(circle, green 10%, transparent 10%) center,
-                    radial-gradient(circle, purple 10%, transparent 10%) center,
-                    radial-gradient(circle, yellow 10%, transparent 10%) center;
+        top: -2.5%; left: -2.5%;
+        width: 105%; height: 105%;
+        border-radius: 20px;
+        pointer-events: none;
+        background: 
+            radial-gradient(circle, red 10%, transparent 10%) top left,
+            radial-gradient(circle, blue 10%, transparent 10%) top right,
+            radial-gradient(circle, green 10%, transparent 10%) bottom left,
+            radial-gradient(circle, purple 10%, transparent 10%) bottom right,
+            radial-gradient(circle, yellow 10%, transparent 10%) center;
         background-size: 20px 20px;
         background-repeat: repeat;
-        animation: rotateGlow 8s linear infinite;
+        animation: rotateLights 8s linear infinite;
+        z-index: 3;           /* above image */
     }
 
-    @keyframes rotateGlow {
+    @keyframes rotateLights {
         0% { transform: rotate(0deg); }
         100% { transform: rotate(360deg); }
     }
