@@ -405,51 +405,25 @@ html, body {
 /* ==========================
    PAYMENT SECTION - PERFECT MOBILE FIT
 ========================== */
+/* CSS অংশ */
 .payment-section {
-    width: 100%;
-    padding: 20px 10px;
+    background-color: #1a1e29;
+    padding: 30px;
+    border-radius: 15px;
+    color: white;
     text-align: center;
-    background: #1a1a1a;
 }
 
-.payment-section h2 {
-    color: #fff;
-    font-size: 1.4rem;
-    font-weight: 700;
-    margin-bottom: 15px;
+.payment-image-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
 }
 
-/* Container for image */
-.payment-container .payment-img {
-    width: 90%;           /* two side gap */
-    max-width: 600px;
-    height: auto;         /* preserve aspect ratio */
-    object-fit: contain;  /* show entire image, no crop */
-    display: block;
-    margin: 0 auto;
-    border-radius: 12px;
-}
-
-/* Image itself */
-.payment-container .payment-img {
-    width: 95%;              /* slightly smaller than container for gap */
-    height: auto;            /* maintain original aspect ratio */
-    object-fit: contain;     /* no cropping, full visible */
-    display: block;
-    border-radius: 12px;
-    max-height: 200px;       /* optional: control image height */
-    margin: 0 auto;
-}
-
-/* Desktop adjustments */
-@media(min-width: 769px) {
-    .payment-section h2 {
-        font-size: 1.6rem;
-    }
-    .payment-container .payment-img {
-        width: 80%;           /* desktop image slightly smaller than container */
-        max-height: 270px;    /* bigger for desktop */
-    }
+.payment-full-img {
+    max-width: 100%; /* ইমেজটি আপনার ওয়েবসাইটের উইডথ অনুযায়ী ছোট-বড় হবে */
+    height: auto;
+    object-fit: contain;
 }
    /* PAYMENT SECTION END */
 /* =====================================
