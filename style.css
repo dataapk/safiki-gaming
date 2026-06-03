@@ -406,7 +406,7 @@ html, body {
    PAYMENT SECTION FINAL CSS
 ========================== */
 .payment-section {
-    width: 100%;
+    width: 80%;
     padding: 20px 10px;
     text-align: center;
     background: #1a1a1a;
@@ -421,7 +421,7 @@ html, body {
 
 /* Image styling */
 .payment-section .payment-img {
-    width: 250%;           /* two side gap */
+    width: 120%;           /* two side gap */
     max-width: 600px;
     height: 180px;        /* fixed height */
     object-fit: cover;    /* fill the box */
