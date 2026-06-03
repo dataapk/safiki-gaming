@@ -421,7 +421,7 @@ html, body {
 
 /* Image styling */
 .payment-section .payment-img {
-    width: 150%;           /* two side gap */
+    width: 250%;           /* two side gap */
     max-width: 600px;
     height: 180px;        /* fixed height */
     object-fit: cover;    /* fill the box */
