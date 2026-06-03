@@ -225,31 +225,88 @@ html, body {
     line-height: 1.1;
 }
 
-/* =====================================
-   MAIN GAMES SECTION DESKTOP FIX (DOUBLE SIZE)
-===================================== */
+/* ==========================
+   MAIN GAMES SECTION FINAL (Desktop + Mobile)
+========================== */
+.main-games-section {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 15px;
+}
+
+/* General card styling */
+.main-games-section .game-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* General image styling */
+.main-games-section .game-card img {
+    object-fit: cover; /* পুরো কার্ড ফিট */
+    width: 100%;
+    border-radius: 16px;
+}
+
+/* Desktop specific */
 @media (min-width: 1024px) {
     .main-games-section .game-card {
-        flex: 1 1 300px;      /* Desktop: বড় কার্ড */
-        max-width: 300px;     /* সর্বোচ্চ চওড়া */
-        height: 520px;        /* ডাবল উচ্চতা */
+        flex: 1 1 300px;   /* বড় কার্ড */
+        max-width: 300px;
+        height: 520px;      /* ডাবল হাইট */
+        margin-bottom: 0;
     }
 
     .main-games-section .game-card img {
-        width: 100%;
-        height: 240px;        /* ইমেজও ডাবল হাইট */
-        object-fit: cover;    /* পুরো কার্ডে ফিট */
+        height: 240px;      /* ডাবল হাইট ইমেজ */
         margin-top: 20px;
         margin-bottom: 20px;
     }
 
+    .main-games-section {
+        gap: 40px;          /* কার্ডের মধ্যে gap */
+        margin-top: 40px;   /* ক্যাটাগরি থেকে gap */
+    }
+
     .main-games-section .game-card .game-title {
-        font-size: 1.4rem;    /* টেক্সট বড় করা */
+        display: none;      /* নিচের টেক্সট রিমুভ */
+    }
+}
+
+/* Mobile specific */
+@media (max-width: 768px) {
+    .main-games-section .game-card {
+        flex: 1 1 45%;      /* দুই কার্ড পাশে পাশে */
+        max-width: none;
+        height: auto;       /* কার্ড স্বয়ংক্রিয় হাইট */
+    }
+
+    .main-games-section .game-card img {
+        height: 120px;      /* ছোট ইমেজ */
+        max-width: 120px;
+        margin-top: 15px;
+        margin-bottom: 15px;
     }
 
     .main-games-section {
-        gap: 40px;            /* কার্ডগুলোর মধ্যে স্পেস ডাবল */
+        gap: 12px;          /* কার্ডের মধ্যে gap */
     }
+
+    .main-games-section .game-card .game-title {
+        display: none;      /* মোবাইলেও নিচের টেক্সট সরানো */
+    }
+}
+
+/* Hover effect for both desktop and mobile */
+.main-games-section .game-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(138,43,226,0.3);
 }
 /* =====================================
    LIVE WINNERS
