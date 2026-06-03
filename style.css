@@ -281,26 +281,25 @@ html, body {
 }
 
 /* ==========================
-   MOBILE MAIN GAMES - ADVANCED LIGHT + ROUNDED GLOW
+   MAIN GAMES MOBILE - 5% Gap Glow
 ========================== */
 @media (max-width: 768px) {
 
     .main-games-section {
         display: flex;
-        flex-direction: column; /* stacked view */
+        flex-direction: column;
         align-items: center;
-        gap: 25px; /* মাঝখানে গ্যাপ বড়ানো */
+        gap: 20px; /* vertical gap between cards */
         padding: 10px 0;
     }
 
     .main-games-section .game-card {
-        width: 95%; /* 95% স্ক্রিন */
+        width: 90%; /* almost full width */
         height: auto;
         position: relative;
         border-radius: 16px;
         overflow: hidden;
         display: flex;
-        flex-direction: column;
         justify-content: center;
         align-items: center;
         text-align: center;
@@ -309,42 +308,58 @@ html, body {
     .main-games-section .game-card img {
         width: 100%;
         height: auto;
-        object-fit: cover; /* পুরো কার্ডে ফিট হবে */
-        display: block;
+        object-fit: cover; /* image covers card */
         border-radius: 16px;
-        z-index: 2; /* overlay এর উপরে */
+        display: block;
     }
 
-    /* Overlay effect (lighter) */
+    /* Overlay (optional, no lighting) */
     .main-games-section .game-card::after {
         content: "";
         position: absolute;
         top: 0; left: 0;
         width: 100%; height: 100%;
-        background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2));
+        background: rgba(0,0,0,0.15); /* slightly dark overlay */
         pointer-events: none;
         border-radius: 16px;
-        z-index: 3;
     }
 
-    /* Rounded rainbow glow (5% gap) */
-    .main-games-section .game-card::before {
-        content: "";
+    /* Animated lights around the 5% gap */
+    .main-games-section .game-card-glow {
         position: absolute;
-        top: 2.5%; left: 2.5%;
-        width: 95%; height: 95%;
-        border-radius: 16px;
+        top: -5%; left: -5%;
+        width: 110%; /* 100% + 5% gap each side */
+        height: 110%;
+        border-radius: 20px;
         pointer-events: none;
-        background: 
-            radial-gradient(circle at top left, red, transparent 70%),
-            radial-gradient(circle at top right, blue, transparent 70%),
-            radial-gradient(circle at bottom left, green, transparent 70%),
-            radial-gradient(circle at bottom right, purple, transparent 70%),
-            radial-gradient(circle at center, yellow, transparent 70%);
-        z-index: 1; /* overlay এর নিচে */
+        background: transparent;
     }
 
-    /* Hide text labels under images */
+    /* Multiple pseudo-elements for colored glowing dots */
+    .main-games-section .game-card-glow::before,
+    .main-games-section .game-card-glow::after {
+        content: '';
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: inherit;
+        background: radial-gradient(circle, red 10%, transparent 10%) center,
+                    radial-gradient(circle, blue 10%, transparent 10%) center,
+                    radial-gradient(circle, green 10%, transparent 10%) center,
+                    radial-gradient(circle, purple 10%, transparent 10%) center,
+                    radial-gradient(circle, yellow 10%, transparent 10%) center;
+        background-size: 20px 20px;
+        background-repeat: repeat;
+        animation: rotateGlow 8s linear infinite;
+    }
+
+    @keyframes rotateGlow {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    /* Hide game title text */
     .main-games-section .game-card .game-title {
         display: none;
     }
