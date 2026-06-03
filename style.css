@@ -405,33 +405,35 @@ html, body {
 /* ==========================
    PAYMENT SECTION - PERFECT MOBILE FIT
 ========================== */
-.payment-section {
-    text-align: center;
-    padding: 30px 10px;
-    background-color: #1a1e29; /* আপনার পছন্দমতো ডার্ক ব্যাকগ্রাউন্ড */
-    margin-top: 20px;
+.image-section {
+    background-color: #1a1e29;
+    padding: 20px;
     border-radius: 15px;
+    text-align: center;
+    margin-top: 20px;
 }
 
 .payment-title {
-    color: #ffffff;           /* লেখার রঙ সাদা */
-    font-size: 32px;          /* লেখাটি বড় করার জন্য */
-    margin-bottom: 20px;      /* ইমেজ থেকে লেখার দূরত্ব */
-    font-weight: bold;
-    text-transform: uppercase; /* লেখাগুলো বড় হাতের দেখাবে */
+    color: #ffffff;
+    font-size: 24px;
+    margin-bottom: 15px;
 }
 
-.payment-full-img {
-    width: 100%;
-    max-width: 800px;         /* ডেস্কটপে সাইজ কন্ট্রোল করার জন্য */
+/* ডেস্কটপের জন্য সাইজ (৫০% থাকবে) */
+.payment-img {
+    width: 50%;
     height: auto;
     object-fit: contain;
 }
 
-/* মোবাইলের জন্য লেখার সাইজ একটু ছোট করে দিচ্ছি */
+/* মোবাইলের জন্য সাইজ (স্ক্রিন ৭৬৮ পিক্সেলের ছোট হলে) */
 @media screen and (max-width: 767px) {
+    .payment-img {
+        width: 85%; /* মোবাইলে একটু বড় দেখালে সুবিধা হবে, চাইলে ৫০% রাখতে পারেন */
+    }
+    
     .payment-title {
-        font-size: 22px;      /* মোবাইলে লেখার সাইজ একটু কমিয়ে দিলাম */
+        font-size: 18px; /* মোবাইলে শিরোনাম একটু ছোট করে দিলাম */
     }
 }
    /* PAYMENT SECTION END */
