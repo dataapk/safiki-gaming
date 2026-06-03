@@ -406,7 +406,7 @@ html, body {
    PAYMENT SECTION FINAL CSS
 ========================== */
 .payment-section {
-    width: 100%;
+    width: 90%;
     padding: 20px 15px;
     background: #1a1a1a;
     text-align: center;
@@ -425,7 +425,7 @@ html, body {
     width: 90%;              /* two side gap */
     max-width: 600px;        /* desktop max width */
     margin: 0 auto;
-    height: 140px;           /* mobile height */
+    height: 300px;           /* mobile height */
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 0 15px rgba(138,43,226,0.2);
