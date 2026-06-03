@@ -403,28 +403,55 @@ html, body {
     100% { transform: translateY(-50%); }
 }
  /* PAYMENT SECTION START */
+/* ==========================
+   PAYMENT SECTION STYLING
+========================== */
 .payment-section {
     width: 100%;
-    padding: 25px 15px;
+    padding: 20px 15px;
     background: #1a1a1a;
     text-align: center;
-    border-top: 1px solid rgba(138, 43, 226, 0.3);
+    border-top: 1px solid rgba(138,43,226,0.3);
 }
 
 .payment-section h2 {
     color: #fff;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: 700;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
-.payment-section .payment-image img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 12px;
-    box-shadow: 0 0 15px rgba(138, 43, 226, 0.2);
+/* Payment box container */
+.payment-box {
+    width: 95%;
+    max-width: 600px; /* desktop max width */
+    margin: 0 auto;
+    height: 120px; /* mobile height */
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(138,43,226,0.2);
 }
-   /* PAYMENT SECTION START */
+
+/* Image inside the box */
+.payment-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* ==========================
+   Responsive Adjustments
+========================== */
+@media(min-width: 769px) {
+    .payment-box {
+        height: 180px; /* bigger for desktop */
+    }
+    .payment-section h2 {
+        font-size: 1.6rem;
+    }
+}
+   /* PAYMENT SECTION END */
 /* =====================================
    FOOTER
 ===================================== */
