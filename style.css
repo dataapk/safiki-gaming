@@ -416,14 +416,33 @@ html, body {
    
 }
 
-.payment-gateway-section .payment-title {
-    background-color: #6A0DAD !important; /* পার্পল ব্যাকগ্রাউন্ড */
-    color: #FFFFFF !important; /* সাদা ফন্ট কালার */
-    padding: 15px 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4), inset 0 2px 4px rgba(255, 255, 255, 0.2); /* থ্রিডি ইফেক্ট */
-    display: inline-block;
+/* পেমেন্ট গেটওয়ে সেকশনের জন্য বিশেষ স্টাইল */
+.payment-gateway-wrapper {
+    padding: 20px;
     text-align: center;
+}
+
+.payment-title {
+    background-color: #6A0DAD !important; /* পার্পল ব্যাকগ্রাউন্ড */
+    color: #FFFFFF !important;            /* সাদা ফন্ট কালার */
+    padding: 20px 40px;
+    border-radius: 12px;
+    display: inline-block;
+    
+    /* থ্রিডি ইফেক্ট (গর্ত বা গভীরতার জন্য শ্যাডো) */
+    box-shadow: 0 8px 0 #4a077a, 0 8px 15px rgba(0, 0, 0, 0.5);
+    
+    /* বাটনটি যেন সুন্দর দেখায় */
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: transform 0.2s;
+}
+
+/* যখন মাউস উপরে নেবেন তখন সামান্য নড়াচড়া করবে (ঐচ্ছিক) */
+.payment-title:hover {
+    transform: translateY(2px);
+    box-shadow: 0 6px 0 #4a077a, 0 6px 10px rgba(0, 0, 0, 0.5);
 }
 
 /* ডেস্কটপের জন্য সাইজ (৫০% থাকবে) */
