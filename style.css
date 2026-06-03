@@ -408,6 +408,8 @@ html, body {
 .image-section {
     background-color: #1a1e29;
     padding: 15px;
+   margin-left: 15px;  /* বক্সটি বাম দিক থেকে সরে আসবে */
+   margin-right: 15px; /* বক্সটি ডান দিক থেকে সরে আসবে */
     border-radius: 18px;
     text-align: center;
     margin-top: 20px;
@@ -416,12 +418,12 @@ html, body {
 .payment-title {
     color: #ffffff;
     font-size: 24px;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
 }
 
 /* ডেস্কটপের জন্য সাইজ (৫০% থাকবে) */
 .payment-img {
-    width: 50%;
+    width: 40%;
     height: auto;
     object-fit: contain;
 }
