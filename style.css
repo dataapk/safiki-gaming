@@ -281,7 +281,7 @@ html, body {
 }
 
 /* ==========================
-   MOBILE MAIN GAMES - Click float + corner green glow
+   MAIN GAMES SECTION - Category-style Hover + Click Green Glow
 ========================== */
 @media (max-width: 768px) {
 
@@ -295,11 +295,19 @@ html, body {
 
     .main-games-section .game-card {
         width: 90%;
+        height: auto;
         position: relative;
         border-radius: 16px;
-        overflow: visible;  /* glow visible in gap */
+        overflow: hidden;
         cursor: pointer;
-        transition: transform 0.25s ease; /* click float effect */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        transition: all 0.3s ease; /* hover animation */
+        background: #1f1f1f;
+        border: 1px solid rgba(138, 43, 226, 0.25);
     }
 
     .main-games-section .game-card img {
@@ -308,37 +316,31 @@ html, body {
         object-fit: cover;
         display: block;
         border-radius: 16px;
-        transition: transform 0.25s ease; /* click animation */
+        transition: transform 0.25s ease;
     }
 
-    /* Click effect - image float up */
-    .main-games-section .game-card:active img {
-        transform: translateY(-6px) scale(0.98);
+    /* Hover effect like category-item */
+    .main-games-section .game-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 0 15px rgba(138, 43, 226, 0.7);
     }
 
-    /* Continuous green glow around gap */
-    .main-games-section .game-card::before {
+    /* Click effect - green glow at bottom */
+    .main-games-section .game-card:active::after {
         content: '';
         position: absolute;
-        top: -2.5%;
-        left: -2.5%;
-        width: 105%;
-        height: 105%;
-        border-radius: 20px;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        height: 6px;
+        background: rgba(57, 255, 20, 0.5); /* green glow */
+        filter: blur(6px);
+        border-radius: 4px;
         pointer-events: none;
-        background: radial-gradient(circle, rgba(57,255,20,0.5) 15%, transparent 85%);
-        background-size: 20px 20px;
-        background-repeat: repeat;
-        animation: rotateGlow 6s linear infinite;
-        z-index: 1;  /* behind image */
     }
 
-    @keyframes rotateGlow {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-    }
-
-    /* Hide text */
+    /* Hide text labels under images */
     .main-games-section .game-card .game-title {
         display: none;
     }
