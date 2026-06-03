@@ -225,9 +225,9 @@ html, body {
     line-height: 1.1;
 }
 
-/* ==========================
+/* =======================================
    MAIN GAMES SECTION FINAL (Desktop + Mobile)
-========================== */
+======================================== */
 .main-games-section {
     display: flex;
     justify-content: center;
@@ -280,27 +280,68 @@ html, body {
     }
 }
 
-/* Mobile specific */
+/* ==========================
+   MOBILE MAIN GAMES STACKED VIEW
+========================== */
 @media (max-width: 768px) {
+
+    .main-games-section {
+        display: flex;
+        flex-direction: column; /* stacked view */
+        align-items: center;
+        gap: 15px; /* মাঝখানে গ্যাপ */
+        padding: 10px 0;
+    }
+
     .main-games-section .game-card {
-        flex: 1 1 45%;      /* দুই কার্ড পাশে পাশে */
-        max-width: none;
-        height: auto;       /* কার্ড স্বয়ংক্রিয় হাইট */
+        width: 90%; /* ফুল স্ক্রিন প্রায় */
+        height: auto; /* auto height based on image */
+        position: relative;
+        border-radius: 16px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
     }
 
     .main-games-section .game-card img {
-        height: 120px;      /* ছোট ইমেজ */
-        max-width: 120px;
-        margin-top: 15px;
-        margin-bottom: 15px;
+        width: 100%;
+        height: auto;
+        object-fit: cover; /* পুরো কার্ডে ফিট হবে */
+        display: block;
+        border-radius: 16px;
     }
 
-    .main-games-section {
-        gap: 12px;          /* কার্ডের মধ্যে gap */
+    /* Overlay effect */
+    .main-games-section .game-card::after {
+        content: "";
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)); /* হালকা কালো overlay */
+        pointer-events: none;
+        border-radius: 16px;
     }
 
+    /* Glow effect (নিচে) */
+    .main-games-section .game-card-glow {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        height: 8px;
+        background: rgba(57,255,20,0.5); /* green glow */
+        filter: blur(6px);
+        border-radius: 4px;
+        pointer-events: none;
+    }
+
+    /* Hide text labels under images */
     .main-games-section .game-card .game-title {
-        display: none;      /* মোবাইলেও নিচের টেক্সট সরানো */
+        display: none;
     }
 }
 
