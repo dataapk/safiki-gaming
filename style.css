@@ -258,7 +258,7 @@ html, body {
 @media (min-width: 1024px) {
     .main-games-section .game-card {
         flex: 1 1 300px;   /* বড় কার্ড */
-        max-width: 300px;
+        max-width: 600px;
         height: 520px;      /* ডাবল হাইট */
         margin-bottom: 0;
     }
