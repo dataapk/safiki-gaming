@@ -349,12 +349,6 @@ html, body {
         display: none;
     }
 }
-
-    /* Hide text labels under images */
-    .main-games-section .game-card .game-title {
-        display: none;
-    }
-}
 /* =====================================
    LIVE WINNERS
 ===================================== */
