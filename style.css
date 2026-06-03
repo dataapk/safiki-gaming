@@ -281,14 +281,14 @@ html, body {
 }
 
 /* ==========================
-   MOBILE MAIN GAMES - Full Gap Rounded Lights
+   MOBILE MAIN GAMES - Clean + Click Animation
 ========================== */
 @media (max-width: 768px) {
     .main-games-section {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 20px;
+        gap: 20px;  /* gap between cards */
         padding: 10px 0;
     }
 
@@ -298,44 +298,46 @@ html, body {
         position: relative;
         border-radius: 16px;
         overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        /* Reset all previous light/glass effects */
+        background: none;
+        box-shadow: none;
     }
 
     .main-games-section .game-card img {
-        width: 95%;   /* leaves 5% gap around */
+        width: 95%;
         height: auto;
         object-fit: cover;
         display: block;
         border-radius: 16px;
+        transition: transform 0.25s ease;
     }
 
-    /* Lights covering full 5% gap around the image */
-    .main-games-section .game-card::before {
+    /* Click / tap animation */
+    .main-games-section .game-card:active img {
+        transform: scale(0.97); /* slight shrink for click effect */
+    }
+
+    /* Blue glow below image */
+    .main-games-section .game-card::after {
         content: '';
         position: absolute;
-        top: 0; left: 0;
-        width: 100%; height: 100%;
-        border-radius: 16px;  /* same as card */
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        height: 6px;
+        background: rgba(57, 255, 255, 0.5); /* blue glow */
+        filter: blur(6px);
+        border-radius: 4px;
         pointer-events: none;
-        background: 
-            radial-gradient(circle, red 15%, transparent 85%) top left,
-            radial-gradient(circle, blue 15%, transparent 85%) top right,
-            radial-gradient(circle, green 15%, transparent 85%) bottom left,
-            radial-gradient(circle, purple 15%, transparent 85%) bottom right,
-            radial-gradient(circle, yellow 15%, transparent 85%) center;
-        background-size: 20px 20px;
-        background-repeat: repeat;
-        padding: 5%; /* ensures lights appear in the 5% gap */
-        box-sizing: border-box;
-        animation: rotateLights 8s linear infinite;
-        z-index: 1; /* below image */
     }
 
-    @keyframes rotateLights {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-    }
-
-    /* Hide text labels */
+    /* Hide text labels under images */
     .main-games-section .game-card .game-title {
         display: none;
     }
