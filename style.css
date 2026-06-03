@@ -264,9 +264,10 @@ html, body {
     }
 
     .main-games-section .game-card img {
-        height: 240px;      /* ডাবল হাইট ইমেজ */
-        margin-top: 20px;
-        margin-bottom: 20px;
+        width: 100%;    /* পুরো কার্ড জুড়ে ফিট */
+        height: 100%;   /* পুরো কার্ড জুড়ে ফিট */
+        object-fit: cover; /* ইমেজ পুরো স্কোয়ার ভরে আসবে */
+        border-radius: 16px; /* আগের মতো হালকা রাউন্ডেড */
     }
 
     .main-games-section {
