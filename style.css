@@ -405,25 +405,37 @@ html, body {
 /* ==========================
    PAYMENT SECTION - PERFECT MOBILE FIT
 ========================== */
-/* CSS অংশ */
+/* মেইন স্টাইল (সব ডিভাইসের জন্য) */
 .payment-section {
     background-color: #1a1e29;
-    padding: 30px;
+    padding: 20px;
     border-radius: 15px;
     color: white;
     text-align: center;
-}
-
-.payment-image-container {
     margin-top: 20px;
-    display: flex;
-    justify-content: center;
 }
 
 .payment-full-img {
-    max-width: 100%; /* ইমেজটি আপনার ওয়েবসাইটের উইডথ অনুযায়ী ছোট-বড় হবে */
+    width: 100%;        /* ডিফল্ট হিসেবে মোবাইলের জন্য ফুল উইডথ */
+    max-width: 800px;   /* খুব বড় স্ক্রিনে যাতে অতিরিক্ত বড় না হয় */
     height: auto;
     object-fit: contain;
+}
+
+/* ডেক্সটপের জন্য (যখন স্ক্রিন ৯৯২ পিক্সেলের বড় হবে) */
+@media screen and (min-width: 992px) {
+    .payment-full-img {
+        max-height: 70px; /* ডেক্সটপে হাইট একটু বেশি রাখা যাবে */
+        width: auto;      /* উইডথ ফিক্সড থাকবে */
+    }
+}
+
+/* মোবাইলের জন্য (যখন স্ক্রিন ৭৬৮ পিক্সেলের ছোট হবে) */
+@media screen and (max-width: 767px) {
+    .payment-full-img {
+        max-height: 40px; /* মোবাইলে লোগো ছোট করে সুন্দর করে দিবে */
+        width: 100%;      /* মোবাইলে পুরো জায়গা জুড়ে থাকবে */
+    }
 }
    /* PAYMENT SECTION END */
 /* =====================================
