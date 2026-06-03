@@ -420,17 +420,14 @@ html, body {
 }
 
 /* Container for image */
-.payment-container {
-    width: 90%;              /* two side gap */
-    max-width: 600px;        /* desktop max width */
+.payment-container .payment-img {
+    width: 90%;           /* two side gap */
+    max-width: 600px;
+    height: auto;         /* preserve aspect ratio */
+    object-fit: contain;  /* show entire image, no crop */
+    display: block;
     margin: 0 auto;
-    height: auto;             /* height auto so image fits naturally */
-    overflow: hidden;
     border-radius: 12px;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;  /* image sticks to top of container */
-    padding-bottom: 10px;     /* gap below image for content */
 }
 
 /* Image itself */
