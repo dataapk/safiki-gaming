@@ -402,9 +402,8 @@ html, body {
     0% { transform: translateY(0); }
     100% { transform: translateY(-50%); }
 }
- /* PAYMENT SECTION START */
 /* ==========================
-   PAYMENT SECTION FINAL
+   PAYMENT SECTION FINAL CSS
 ========================== */
 .payment-section {
     width: 100%;
@@ -423,10 +422,10 @@ html, body {
 
 /* Payment box container */
 .payment-box {
-    width: 90%;          /* two side gap */
-    max-width: 600px;    /* desktop max width */
+    width: 90%;              /* two side gap */
+    max-width: 600px;        /* desktop max width */
     margin: 0 auto;
-    height: 140px;       /* mobile height */
+    height: 140px;           /* mobile height */
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 0 15px rgba(138,43,226,0.2);
@@ -439,17 +438,17 @@ html, body {
 .payment-box img {
     width: 100%;
     height: 100%;
-    object-fit: cover;   /* full image fit */
+    object-fit: cover;       /* full box fill */
     display: block;
     border-radius: 16px;
 }
 
 /* ==========================
-   Responsive for Desktop
+   Responsive Desktop Adjustments
 ========================== */
 @media(min-width: 769px) {
     .payment-box {
-        height: 180px;       /* slightly bigger for desktop */
+        height: 180px;       /* bigger height for desktop */
     }
     .payment-section h2 {
         font-size: 1.6rem;
