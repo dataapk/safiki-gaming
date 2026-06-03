@@ -403,7 +403,7 @@ html, body {
     100% { transform: translateY(-50%); }
 }
 /* ==========================
-   PAYMENT SECTION FINAL
+   PAYMENT SECTION - PERFECT MOBILE FIT
 ========================== */
 .payment-section {
     width: 100%;
@@ -421,33 +421,37 @@ html, body {
 
 /* Container for image */
 .payment-container {
-    width: 90%;             /* two side gap */
-    max-width: 600px;       /* desktop max width */
+    width: 90%;              /* two side gap */
+    max-width: 600px;        /* desktop max width */
     margin: 0 auto;
-    height: 210px;          /* increased height for mobile */
+    height: auto;             /* height auto so image fits naturally */
     overflow: hidden;
     border-radius: 12px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;  /* image sticks to top of container */
+    padding-bottom: 10px;     /* gap below image for content */
 }
 
 /* Image itself */
 .payment-container .payment-img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;    /* full image visible */
+    width: 95%;              /* slightly smaller than container for gap */
+    height: auto;            /* maintain original aspect ratio */
+    object-fit: contain;     /* no cropping, full visible */
     display: block;
     border-radius: 12px;
+    max-height: 200px;       /* optional: control image height */
+    margin: 0 auto;
 }
 
 /* Desktop adjustments */
 @media(min-width: 769px) {
-    .payment-container {
-        height: 270px;       /* desktop height bigger */
-    }
     .payment-section h2 {
         font-size: 1.6rem;
+    }
+    .payment-container .payment-img {
+        width: 80%;           /* desktop image slightly smaller than container */
+        max-height: 270px;    /* bigger for desktop */
     }
 }
    /* PAYMENT SECTION END */
