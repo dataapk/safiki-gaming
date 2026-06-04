@@ -20,11 +20,14 @@ html, body {
 /* ==========================
    HEADER / NAVIGATION
 =========================== */
+/* ==========================
+   HEADER FIXED DESIGN
+=========================== */
 .top-nav {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 6px 20px;
+    align-items: center; /* vertical center */
+    padding: 6px 20px;   /* compact height */
     background: #1a1a1a;
     position: sticky;
     top: 0;
@@ -32,19 +35,19 @@ html, body {
     box-shadow: 0 6px 15px rgba(0,0,0,0.4); /* subtle 3D */
 }
 
-/* Left container */
+/* Left container - Menu button */
 .header-left {
     display: flex;
     align-items: center;
 }
 
+/* Menu button */
 .menu-btn {
     display: flex;
     align-items: center; /* vertically center dots + text */
-    justify-content: center;
-    padding: 8px 16px; /* smaller height + width */
-    background: linear-gradient(145deg, #8A2BE2, #5d1aa8);
+    padding: 8px 16px;
     border-radius: 12px;
+    background: linear-gradient(145deg, #8A2BE2, #5d1aa8);
     color: #fff;
     font-weight: 600;
     cursor: pointer;
@@ -56,11 +59,12 @@ html, body {
     box-shadow: 0 0 20px rgba(157,78,221,0.8);
 }
 
+/* Menu icon (three dots) */
 .menu-icon {
-    margin-right: 6px; /* text থেকে gap */
+    margin-right: 6px;
     font-size: 18px;
+    line-height: 1;
     vertical-align: middle;
-    line-height: 1; /* prevent vertical overflow */
 }
 
 /* Logo */
@@ -69,70 +73,77 @@ html, body {
     font-weight: 700;
     letter-spacing: 2px;
     color: #fff;
+    line-height: 1;
 }
 
-/* Header actions container */
+/* Header actions - Login/Register buttons */
 .header-actions {
     display: flex;
-    gap: 8px; /* spacing between buttons */
+    gap: 8px;
     align-items: center;
 }
 
-
-/* Login Button */
+/* Login button */
 .header-btn.login-btn {
     color: #fff;
     background: linear-gradient(145deg, #6a0dad, #9b59b6);
     border-radius: 14px;
     font-weight: 700;
-    padding: 10px 16px;
+    padding: 10px 20px;
     text-decoration: none;
-    box-shadow: 0 6px 20px rgba(155,89,182,0.4), 0 0 12px rgba(155,89,182,0.3);
+    box-shadow: 0 6px 18px rgba(155,89,182,0.4);
     transition: all 0.3s ease;
-    margin-left: 20px;
 }
 .header-btn.login-btn:hover {
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 12px 25px rgba(155,89,182,0.5), 0 0 15px rgba(155,89,182,0.4);
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 10px 22px rgba(155,89,182,0.5);
 }
 
-/* Register Button - full 3D style */
+/* Register button - 3D + pulse */
 .header-btn.register-btn {
-    color: #000; /* deep black text */
-    background: linear-gradient(145deg, #FFFF66, #FFD700); /* bright yellow */
+    color: #000;
+    background: linear-gradient(145deg, #FFFF66, #FFD700);
     border-radius: 16px;
     font-weight: 800;
-    padding: 10px 18px;
+    padding: 10px 22px;
     text-decoration: none;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.5), 0 0 8px rgba(0,0,0,0.3); /* deeper 3D shadow */
+    box-shadow: 0 6px 18px rgba(0,0,0,0.5), 0 0 8px rgba(0,0,0,0.3);
     transition: all 0.3s ease;
     animation: pulseRegister 2s infinite;
-    margin-left: 20px;  /* <-- এখান থেকে horizontal spacing adjust করতে পারবে */
-      
+    margin-left: 8px;
 }
-
-/* Register Button hover effect */
 .header-btn.register-btn:hover {
     transform: translateY(-3px) scale(1.05);
     box-shadow: 0 12px 25px rgba(0,0,0,0.6), 0 0 12px rgba(0,0,0,0.4);
 }
-
-/* Register button pulse animation */
-@keyframes pulseRegister {
-    0%,100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
+.header-btn.register-btn:active {
+    transform: translateY(2px) scale(0.98);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.5);
 }
 
-/* Mobile responsive - side by side if enough space */
+/* Pulse animation for register */
+@keyframes pulseRegister {
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.04); }
+}
+
+/* Mobile responsive adjustments */
 @media(max-width:500px){
-    .header-actions {
-        flex-direction: row; /* side-by-side on mobile */
-        justify-content: flex-end;
-        gap: 6px;
-        padding: 0 6px;
+    .top-nav {
+        padding: 4px 10px; /* reduce header height on mobile */
     }
-    .header-btn.login-btn, .header-btn.register-btn {
-        padding: 8px 16px; /* smaller on mobile */
+    .menu-btn {
+        padding: 6px 12px; /* smaller button */
+    }
+    .menu-icon {
+        font-size: 16px;
+    }
+    .logo {
+        font-size: 20px;
+    }
+    .header-btn.login-btn,
+    .header-btn.register-btn {
+        padding: 8px 14px;
     }
 }
 /* =====================================
