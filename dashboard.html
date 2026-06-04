@@ -13,28 +13,40 @@
 
 </head>
 <body>
+ <!-- =========================
+    HEADER VSTART
+========================= -->
 
-<div class="header-actions">
-    <!-- Logged-in state -->
-    <span id="userSection" style="display:inline-flex; align-items:center;">
-        <button id="balanceBtn" class="header-btn balance-btn">
-            <i class="fas fa-wallet"></i> Balance: $100
-        </button>
-        <button id="logoutBtn">Logout</button>
-    </span>
-</div>
+<header class="top-nav">
+  <div class="header-left">
+    <button id="menu-toggle" class="menu-btn">☰</button>
+    <div class="logo">SAFIKI</div>
+  </div>
 
-<!-- Balance Dropdown -->
-<div id="balanceDropdown" class="balance-dropdown" style="display:none;">
-    <div class="balance-section deposit-section">
-        <h4>Deposit</h4>
-        <button class="deposit-btn">Add Funds</button>
+  <div class="header-actions">
+    <!-- Balance -->
+    <button id="balanceBtn" class="header-btn balance-btn">
+      <i class="fas fa-wallet"></i> $50.70
+    </button>
+
+    <!-- Notification -->
+    <button class="header-btn notif-btn">
+      <i class="fas fa-bell"></i>
+    </button>
+
+    <!-- Profile -->
+    <div class="profile-wrapper">
+      <img src="image/default-avatar.png" alt="Profile" id="profileAvatar" class="profile-avatar">
+      <input type="file" id="profileUpload" accept="image/*" style="display:none;">
     </div>
-    <div class="balance-section withdraw-section">
-        <h4>Withdraw</h4>
-        <button class="withdraw-btn">Withdraw Funds</button>
-    </div>
-</div>
+
+    <!-- Logout -->
+    <button id="logoutBtn" class="header-btn">Logout</button>
+  </div>
+</header>
+    <!-- =========================
+    HEADER END
+========================= -->
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const userEmail = localStorage.getItem('userEmail');
