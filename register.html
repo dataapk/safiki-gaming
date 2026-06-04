@@ -65,6 +65,12 @@ document.getElementById('registerForm').addEventListener('submit', function(e){
     alert('Signup successful (frontend simulation)');
     localStorage.setItem('userEmail', username);
     localStorage.setItem('isLoggedIn','true');
+     // ✅ এই লাইনটি বসাতে হবে
+        window.location.href = 'dashboard.html';
+    } else {
+        alert('Please fill all fields');
+    }
+});
 });
 </script>
 
