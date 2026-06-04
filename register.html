@@ -3,28 +3,45 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>3D Signup - SAFIKI</title>
-<link rel="stylesheet" href="style.css">
+<title>Signup Popup - SAFIKI</title>
 <style>
-body { font-family: 'Segoe UI', sans-serif; background: linear-gradient(135deg,#8A2BE2,#6a0dad); display:flex; justify-content:center; align-items:center; height:100vh; }
-.login-container { background:#9b59b6; padding:40px; border-radius:20px; box-shadow:0 10px 30px rgba(0,0,0,0.5); width:350px; text-align:center;}
-.login-container h2 { color:#fff; margin-bottom:20px; letter-spacing:1px;}
-.login-container input { width:100%; padding:15px; margin:10px 0; border-radius:12px; border:none; box-shadow:inset 0 4px 10px rgba(255,255,255,0.2), inset 0 -4px 6px rgba(0,0,0,0.2); font-size:16px; color:#fff; background: rgba(255,255,255,0.1);}
-.login-container input::placeholder { color:#eee;}
-.login-container .login-btn { width:100%; padding:15px; margin-top:15px; border:none; border-radius:12px; font-weight:700; background: linear-gradient(145deg,#6a0dad,#8A2BE2); color:#fff; cursor:pointer; box-shadow:0 6px 15px rgba(0,0,0,0.4); transition:all 0.3s ease;}
-.login-container .login-btn:hover { transform:translateY(-2px) scale(1.02); box-shadow:0 10px 20px rgba(0,0,0,0.6);}
+body { font-family: 'Segoe UI', sans-serif; background: #fff; display:flex; justify-content:center; align-items:flex-start; padding-top:50px; height:100vh; }
+.login-container {
+    background: #8B3A62; /* light maroon box */
+    padding: 25px;
+    border-radius: 16px;
+    width: 320px;
+    max-width: 90%;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    position: relative;
+}
+.login-container h2 {
+    background-color: #5a1f3c; /* highlighted top */
+    color: #fff;
+    margin: -25px -25px 20px -25px;
+    padding: 12px;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    text-align: center;
+    font-size: 18px;
+}
+.login-container input { width:100%; padding:12px; margin:8px 0; border-radius:10px; border:none; background: rgba(255,255,255,0.1); color:#fff; font-size:14px;}
+.login-container input::placeholder { color:#eee; }
+.login-container .login-btn { width:100%; padding:12px; margin-top:12px; border-radius:10px; border:none; background: linear-gradient(145deg,#6a0dad,#8A2BE2); color:#fff; font-weight:700; cursor:pointer; box-shadow:0 4px 15px rgba(0,0,0,0.3); transition:all 0.3s ease;}
+.login-container .login-btn:hover { transform:translateY(-1px) scale(1.02); box-shadow:0 8px 20px rgba(0,0,0,0.5);}
+@media(max-width:500px){ .login-container { width:90%; padding:20px; } }
 </style>
 </head>
 <body>
 
 <div class="login-container">
-    <h2>USER SIGNUP</h2>
+    <h2>User Signup</h2>
     <form id="registerForm">
-        <input type="text" placeholder="Full Name" id="name" required value="">
-        <input type="text" placeholder="Username" id="username" required value="">
-        <input type="password" placeholder="Password" id="password" required value="">
-        <input type="password" placeholder="Confirm Password" id="confirmPassword" required value="">
-        <button class="login-btn" type="submit">SIGN UP</button>
+        <input type="text" placeholder="Full Name" id="name" value="" required>
+        <input type="text" placeholder="Username" id="username" value="" required>
+        <input type="password" placeholder="Password" id="password" value="" required>
+        <input type="password" placeholder="Confirm Password" id="confirmPassword" value="" required>
+        <button type="submit" class="login-btn">Sign Up</button>
     </form>
 </div>
 
@@ -45,9 +62,9 @@ document.getElementById('registerForm').addEventListener('submit', function(e){
         return;
     }
 
-    localStorage.setItem('userEmail', username); // store for header
-    localStorage.setItem('isLoggedIn', 'true');
     alert('Signup successful (frontend simulation)');
+    localStorage.setItem('userEmail', username);
+    localStorage.setItem('isLoggedIn','true');
 });
 </script>
 
