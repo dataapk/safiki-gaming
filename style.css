@@ -17,19 +17,19 @@ html, body {
     padding-bottom: 95px;
 }
 
-/* =====================================
+/* ==========================
    HEADER / NAVIGATION
-===================================== */
+=========================== */
 .top-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 20px;
     background: #1a1a1a;
-    border-bottom: 1px solid rgba(138, 43, 226, 0.4);
     position: sticky;
     top: 0;
     z-index: 1000;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.4); /* subtle 3D effect instead of purple shadow */
 }
 
 .header-left {
@@ -59,9 +59,9 @@ html, body {
     color: #fff;
 }
 
-.header-right {
+.header-actions {
     display: flex;
-    align-items: center;
+    gap: 12px;
 }
 
 /* Login Button */
@@ -80,48 +80,28 @@ html, body {
     box-shadow: 0 12px 25px rgba(155,89,182,0.5), 0 0 15px rgba(155,89,182,0.4);
 }
 
-/* Register Button - full 3D + interactive */
+/* Register Button */
 .header-btn.register-btn {
     color: #000; /* deep black text */
     background: linear-gradient(145deg, #FFFF66, #FFD700); /* bright yellow */
+    border-radius: 14px;
     font-weight: 800;
-    padding: 12px 28px; /* wider than login */
-    border-radius: 16px; /* more rounded for 3D look */
+    padding: 10px 22px;
     text-decoration: none;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.5), 0 0 8px rgba(0,0,0,0.3); /* deeper shadow */
+    box-shadow: 0 6px 18px rgba(0,0,0,0.5);
     transition: all 0.3s ease;
     animation: pulseRegister 2s infinite;
 }
-
-/* Hover effect - subtle 3D lift */
 .header-btn.register-btn:hover {
-    transform: translateY(-4px) scale(1.07);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.6), 0 0 12px rgba(0,0,0,0.4);
+    transform: translateY(-3px) scale(1.08);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.6);
 }
 
-/* Active effect - button press down */
-.header-btn.register-btn:active {
-    transform: translateY(2px) scale(0.98);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.5);
-}
-
-/* Pulse animation */
+/* Register button pulse animation */
 @keyframes pulseRegister {
-    0%, 100% { transform: scale(1); }
+    0%,100% { transform: scale(1); }
     50% { transform: scale(1.05); }
 }
-
-/* Responsive spacing for mobile */
-@media(max-width:500px){
-    .header-actions {
-        flex-direction: column;
-        gap: 10px;
-        padding: 0 8px; /* padding around buttons on mobile */
-    }
-
-    .header-btn.register-btn {
-        padding: 12px 24px; /* slightly smaller on mobile */
-    }
 
 /* Mobile Responsive */
 @media(max-width:500px){
