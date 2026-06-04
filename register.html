@@ -1,92 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sign Up</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3D Signup - SAFIKI</title>
+<link rel="stylesheet" href="style.css">
+<style>
+body { font-family: 'Segoe UI', sans-serif; background: linear-gradient(135deg,#8A2BE2,#6a0dad); display:flex; justify-content:center; align-items:center; height:100vh; }
+.login-container { background:#9b59b6; padding:40px; border-radius:20px; box-shadow:0 10px 30px rgba(0,0,0,0.5); width:350px; text-align:center;}
+.login-container h2 { color:#fff; margin-bottom:20px; letter-spacing:1px;}
+.login-container input { width:100%; padding:15px; margin:10px 0; border-radius:12px; border:none; box-shadow:inset 0 4px 10px rgba(255,255,255,0.2), inset 0 -4px 6px rgba(0,0,0,0.2); font-size:16px; color:#fff; background: rgba(255,255,255,0.1);}
+.login-container input::placeholder { color:#eee;}
+.login-container .login-btn { width:100%; padding:15px; margin-top:15px; border:none; border-radius:12px; font-weight:700; background: linear-gradient(145deg,#6a0dad,#8A2BE2); color:#fff; cursor:pointer; box-shadow:0 6px 15px rgba(0,0,0,0.4); transition:all 0.3s ease;}
+.login-container .login-btn:hover { transform:translateY(-2px) scale(1.02); box-shadow:0 10px 20px rgba(0,0,0,0.6);}
+</style>
 </head>
 <body>
 
-  /* ==========================
-     HEADER START
-  =========================== */
-  <header class="top-nav">
-
-  <div class="header-left">
-      <button id="menu-toggle" class="menu-btn" type="button">☰ Menu</button>
-  </div>
-
-  <div class="logo">SAFIKI</div>
-
-  <div class="header-actions">
-      <a href="login.html" class="header-btn login-btn" id="loginLink">Login</a>
-      <a href="register.html" class="header-btn register-btn" id="signupLink">Register</a>
-      <span id="userSection" style="display:none;">
-        Welcome, <span id="userEmail"></span> | 
-        <a href="#" onclick="logoutUser()">Logout</a>
-      </span>
-  </div>
-
-</header>
-  /* ==========================
-     HEADER END
-  =========================== */
-
-  /* ==========================
-     MAIN START
-  =========================== */
-  <main>
-    <h2>Sign Up</h2>
-    <form id="signupForm">
-      <input type="text" id="name" placeholder="Full Name" required><br><br>
-      <input type="email" id="email" placeholder="Email" required><br><br>
-      <input type="password" id="password" placeholder="Password" required><br><br>
-      <button type="submit">Sign Up</button>
+<div class="login-container">
+    <h2>USER SIGNUP</h2>
+    <form id="registerForm">
+        <input type="text" placeholder="Full Name" id="name" required value="">
+        <input type="text" placeholder="Username" id="username" required value="">
+        <input type="password" placeholder="Password" id="password" required value="">
+        <input type="password" placeholder="Confirm Password" id="confirmPassword" required value="">
+        <button class="login-btn" type="submit">SIGN UP</button>
     </form>
-  </main>
-  /* ==========================
-     MAIN END
-  =========================== */
+</div>
 
-  /* ==========================
-     JS START
-  =========================== */
-  <script>
-    // Header check
-    window.addEventListener('DOMContentLoaded', () => {
-      if(localStorage.getItem('isLoggedIn') === 'true'){
-          document.getElementById('loginLink').style.display = 'none';
-          document.getElementById('signupLink').style.display = 'none';
-          document.getElementById('userSection').style.display = 'inline';
-          document.getElementById('userEmail').innerText = localStorage.getItem('userEmail');
-      }
-    });
+<script>
+document.getElementById('registerForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const name = document.getElementById('name').value;
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirmPassword').value;
 
-    function logoutUser() {
-      localStorage.removeItem('isLoggedIn');
-      localStorage.removeItem('userEmail');
-      window.location.href = 'index.html';
+    if(!name || !username || !password || !confirmPassword){
+        alert('Please fill all fields');
+        return;
+    }
+    if(password !== confirmPassword){
+        alert('Passwords do not match');
+        return;
     }
 
-    document.getElementById('signupForm').addEventListener('submit', function(e){
-      e.preventDefault();
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
-
-      if(name && email && password){
-        localStorage.setItem('userEmail', email);
-        localStorage.setItem('isLoggedIn', 'true');
-        window.location.href = 'index.html';
-      } else {
-        alert('Please fill all fields');
-      }
-    });
-  </script>
-  /* ==========================
-     JS END
-  =========================== */
+    localStorage.setItem('userEmail', username); // store for header
+    localStorage.setItem('isLoggedIn', 'true');
+    alert('Signup successful (frontend simulation)');
+});
+</script>
 
 </body>
 </html>
