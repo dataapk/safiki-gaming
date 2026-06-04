@@ -13,9 +13,30 @@
 
 </head>
 <body>
- <!-- =========================
-    HEADER VSTART
-========================= -->
+ <!-- ========================== HEADER START ========================== -->
+  <header class="top-nav">
+
+    <div class="header-left">
+      <button id="menu-toggle" class="menu-btn" type="button">☰ Menu</button>
+    </div>
+
+    <div class="logo">SAFIKI</div>
+
+    <div class="header-actions">
+      <!-- Links for login / register -->
+      <a href="login.html" class="header-btn login-btn" id="loginLink">Login</a>
+      <a href="register.html" class="header-btn register-btn" id="signupLink">Register</a>
+      <span id="userSection" style="display:none;">
+        Welcome, <span id="userEmail"></span> | 
+        <a href="#" id="logoutBtn">Logout</a>
+      </span>
+    </div>
+
+  </header>
+  <!-- ========================== HEADER END ========================== -->
+   <!-- =========================
+         DASHBOARD
+    ========================= -->
 <div class="header-after-login" style="display:none;">
   <div class="header-left">
     <button id="menu-toggle" class="menu-btn" type="button">☰</button>
