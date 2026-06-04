@@ -13,71 +13,200 @@
 
 </head>
 <body>
- <!-- ========================== HEADER START ========================== -->
-  <header class="top-nav">
+
+<!-- =========================
+     DASHBOARD HEADER
+========================= -->
+<div class="header-after-login">
 
     <div class="header-left">
-      <button id="menu-toggle" class="menu-btn" type="button">☰ Menu</button>
+        <button id="menu-toggle" class="menu-btn" type="button">
+            ☰
+        </button>
     </div>
-
-    <div class="logo">SAFIKI</div>
 
     <div class="header-actions">
-      <!-- Links for login / register -->
-      <a href="login.html" class="header-btn login-btn" id="loginLink">Login</a>
-      <a href="register.html" class="header-btn register-btn" id="signupLink">Register</a>
-      <span id="userSection" style="display:none;">
-        Welcome, <span id="userEmail"></span> | 
-        <a href="#" id="logoutBtn">Logout</a>
-      </span>
+
+        <div class="wallet-box">
+
+            <i class="fas fa-wallet"></i>
+
+            <span>$50.00</span>
+
+            <button id="balanceBtn" class="balance-arrow">
+                ▼
+            </button>
+
+        </div>
+
+        <div id="balanceDropdown"
+             class="balance-dropdown"
+             style="display:none;">
+
+            <div class="balance-section">
+                USD Balance : $50.00
+            </div>
+
+            <div class="balance-section">
+                Bonus Balance : $10.00
+            </div>
+
+            <div class="balance-section">
+                Reward Balance : $5.00
+            </div>
+
+        </div>
+
+        <div class="profile-wrapper">
+
+            <img
+                src="image/default-avatar.png"
+                alt="Profile"
+                class="profile-avatar"
+                id="profileAvatar">
+
+            <input
+                type="file"
+                id="profileUpload"
+                accept="image/*"
+                style="display:none;">
+
+        </div>
+
     </div>
 
-  </header>
-  <!-- ========================== HEADER END ========================== -->
-   <!-- =========================
-         DASHBOARD
-    ========================= -->
-<div class="header-after-login" style="display:none;">
-  <div class="header-left">
-    <button id="menu-toggle" class="menu-btn" type="button">☰</button>
-  </div>
-
-  <div class="header-actions">
-    <button class="balance-btn" id="balanceBtn">Balance: $50</button>
-    <div class="balance-dropdown" id="balanceDropdown" style="display:none;">
-      <div class="balance-section">Deposit</div>
-      <div class="balance-section">Withdraw</div>
-    </div>
-    <img src="image/default-avatar.png" alt="Profile" class="profile-avatar" id="profileAvatar">
-    <input type="file" id="profileUpload" style="display:none;">
-  </div>
 </div>
-    <!-- =========================
-    HEADER END
+<!-- =========================
+     DASHBOARD HEADER END
 ========================= -->
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  const userEmail = localStorage.getItem('userEmail');
-  const isLoggedIn = localStorage.getItem('isLoggedIn');
 
-  const userSection = document.getElementById('userSection');
-  const loginLink = document.getElementById('loginLink');
-  const signupLink = document.getElementById('signupLink');
+    const isLoggedIn =
+        localStorage.getItem('isLoggedIn');
 
-  if (!isLoggedIn) {
-    window.location.href = 'login.html';
-  } else {
-    userSection.style.display = 'inline';
-    loginLink.style.display = 'none';
-    signupLink.style.display = 'none';
-    document.getElementById('userEmail').textContent = userEmail;
-  }
+    if (!isLoggedIn) {
 
-  document.getElementById('logoutBtn').addEventListener('click', () => {
-    localStorage.removeItem('isLoggedIn');
-    localStorage.removeItem('userEmail');
-    window.location.href = 'https://dataapk.github.io/safiki-gaming';
-  });
+        window.location.href =
+            'login.html';
+
+        return;
+
+    }
+
+    /* =========================
+       BALANCE DROPDOWN
+    ========================= */
+
+    const balanceBtn =
+        document.getElementById(
+            'balanceBtn'
+        );
+
+    const balanceDropdown =
+        document.getElementById(
+            'balanceDropdown'
+        );
+
+    if(balanceBtn){
+
+        balanceBtn.addEventListener(
+            'click',
+            (e)=>{
+
+                e.stopPropagation();
+
+                balanceDropdown.style.display =
+                    balanceDropdown.style.display === 'block'
+                    ? 'none'
+                    : 'block';
+
+            }
+        );
+
+    }
+
+    document.addEventListener(
+        'click',
+        ()=>{
+
+            if(balanceDropdown){
+
+                balanceDropdown.style.display =
+                    'none';
+
+            }
+
+        }
+    );
+
+    /* =========================
+       PROFILE IMAGE UPLOAD
+    ========================= */
+
+    const profileAvatar =
+        document.getElementById(
+            'profileAvatar'
+        );
+
+    const profileUpload =
+        document.getElementById(
+            'profileUpload'
+        );
+
+    const savedImage =
+        localStorage.getItem(
+            'profileImage'
+        );
+
+    if(savedImage){
+
+        profileAvatar.src =
+            savedImage;
+
+    }
+
+    profileAvatar.addEventListener(
+        'click',
+        ()=>{
+
+            profileUpload.click();
+
+        }
+    );
+
+    profileUpload.addEventListener(
+        'change',
+        (e)=>{
+
+            const file =
+                e.target.files[0];
+
+            if(!file) return;
+
+            const reader =
+                new FileReader();
+
+            reader.onload =
+                function(){
+
+                    profileAvatar.src =
+                        reader.result;
+
+                    localStorage.setItem(
+                        'profileImage',
+                        reader.result
+                    );
+
+                };
+
+            reader.readAsDataURL(
+                file
+            );
+
+        }
+    );
+
 });
 </script>
 
