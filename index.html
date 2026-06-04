@@ -21,29 +21,27 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
 <body>
 
-<!-- ========================= -->
-<!-- টপ হেডার / নেভিগেশন বার -->
-<header class="top-nav">
+  <!-- ========================== HEADER START ========================== -->
+  <header class="top-nav">
 
     <div class="header-left">
-        <button id="menu-toggle" class="menu-btn" type="button">
-            ☰ Menu
-        </button>
+      <button id="menu-toggle" class="menu-btn" type="button">☰ Menu</button>
     </div>
 
-    <div class="logo">
-        SAFIKI
-    </div>
+    <div class="logo">SAFIKI</div>
 
     <div class="header-actions">
-        <!-- Separate Buttons -->
-        <a href="login.html" class="header-btn login-btn">Login</a>
-        <a href="register.html" class="header-btn register-btn">Register</a>
+      <!-- Links for login / register -->
+      <a href="login.html" class="header-btn login-btn" id="loginLink">Login</a>
+      <a href="register.html" class="header-btn register-btn" id="signupLink">Register</a>
+      <span id="userSection" style="display:none;">
+        Welcome, <span id="userEmail"></span> | 
+        <a href="#" id="logoutBtn">Logout</a>
+      </span>
     </div>
 
-</header>
-
-<!-- Header End -->
+  </header>
+  <!-- ========================== HEADER END ========================== -->
 
 <!-- Dropdown Menu Start -->
 
