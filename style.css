@@ -74,7 +74,7 @@ html, body {
     text-decoration: none;
     box-shadow: 0 6px 20px rgba(155,89,182,0.4), 0 0 12px rgba(155,89,182,0.3);
     transition: all 0.3s ease;
-    margin-right: -10px;
+    margin-right: -50px;
 }
 .header-btn.login-btn:hover {
     transform: translateY(-3px) scale(1.05);
@@ -92,7 +92,7 @@ html, body {
     box-shadow: 0 6px 18px rgba(0,0,0,0.5), 0 0 8px rgba(0,0,0,0.3); /* deeper 3D shadow */
     transition: all 0.3s ease;
     animation: pulseRegister 2s infinite;
-    margin-left: 20px;  /* <-- এখান থেকে horizontal spacing adjust করতে পারবে */
+    margin-left: 50px;  /* <-- এখান থেকে horizontal spacing adjust করতে পারবে */
       
 }
 
