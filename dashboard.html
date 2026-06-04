@@ -346,5 +346,87 @@ document.addEventListener('DOMContentLoaded', () => {
 <!-- =========================
     MODALS END
 ========================= -->
+<!-- =========================
+    FINAL ADJUSTMENTS / INCÓGNITO DARK BACKGROUND
+========================= -->
+<style>
+/* Body Background */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: #121212; /* Deep dark for Incognito mode */
+    color: #ffffff;
+}
+
+/* 3D Effect for Cards */
+.game-card, .promotion-slide, .winner-item {
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.game-card:hover, .promotion-slide:hover, .winner-item:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.6);
+}
+
+/* Hero Image */
+.hero-image {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+}
+
+/* Buttons */
+.header-btn, .glow-btn, .footer-btn {
+    border-radius: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.header-btn:hover, .glow-btn:hover, .footer-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.5);
+}
+
+/* Modals */
+.modal-content {
+    background: #1e1e1e;
+    color: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    max-width: 500px;
+    margin: auto;
+}
+
+/* Promotion Dots */
+.slider-dots .dot {
+    background: #888;
+}
+
+.slider-dots .dot.active {
+    background: #8A2BE2;
+}
+
+/* Winner Section Live Dot */
+.live-dot {
+    background: #ff2a68;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 8px;
+}
+
+/* Adjustments for Mobile */
+@media (max-width: 768px) {
+    .hero-image, .promotion-slide {
+        border-radius: 8px;
+    }
+
+    .game-card {
+        margin: 10px 0;
+    }
+}
+</style>
 
 
