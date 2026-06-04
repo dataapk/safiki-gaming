@@ -1,5 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAFIKI Dashboard</title>
+
+<!-- External CSS -->
+<link rel="stylesheet" href="style.css">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+<body>
+
 <!-- =========================
-    HEADER START
+    HEADER + LOGIN CHECK
 ========================= -->
 <header class="top-nav">
   <div class="header-left">
@@ -26,7 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const signupLink = document.getElementById('signupLink');
 
   if (!isLoggedIn) {
-    // Not logged in → redirect to login
     window.location.href = 'login.html';
   } else {
     userSection.style.display = 'inline';
@@ -35,7 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('userEmail').textContent = userEmail;
   }
 
-  // Logout
   document.getElementById('logoutBtn').addEventListener('click', () => {
     localStorage.removeItem('isLoggedIn');
     localStorage.removeItem('userEmail');
@@ -43,11 +57,9 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 </script>
+
 <!-- =========================
-    HEADER END
-========================= -->
-<!-- =========================
-    DROPDOWN MENU START
+    DROPDOWN MENU
 ========================= -->
 <div id="dropdown-menu" class="dropdown-menu">
     <a href="jhandimunda.html"><i class="fas fa-gamepad"></i> Jhandi Munda</a>
@@ -67,19 +79,15 @@ document.addEventListener('DOMContentLoaded', () => {
             e.stopPropagation();
             dropdownMenu.classList.toggle('active');
         });
-
         document.addEventListener('click', () => {
             dropdownMenu.classList.remove('active');
         });
     }
 });
 </script>
-<!-- =========================
-    DROPDOWN MENU END
-========================= -->
 
 <!-- =========================
-    HERO SECTION START
+    HERO SECTION
 ========================= -->
 <section class="hero-section">
     <div class="hero-slider">
@@ -88,158 +96,151 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
     </div>
 </section>
-<!-- =========================
-    HERO SECTION END
-========================= -->
-<!-- =========================
-    PROMOTION SECTION START
-========================= -->
+
+ <!-- Promotion Section Start -->
+
 <section class="promotion-section">
-    <h2 class="promotion-title">🎁 Special Offers</h2>
+
+    <h2 class="promotion-title">
+        🎁 Special Offers
+    </h2>
+
     <div class="promotion-slider">
-        <div class="promotion-slide active"><img src="image/daily.png" alt="Daily Reward"></div>
-        <div class="promotion-slide"><img src="image/weekly.png" alt="Weekly Reward"></div>
-        <div class="promotion-slide"><img src="image/monthly.png" alt="Monthly Reward"></div>
-        <div class="promotion-slide"><img src="image/viprewards.png" alt="VIP Rewards"></div>
+
+        <div class="promotion-slide active">
+            <img src="image/daily.png" alt="Daily Reward">
+        </div>
+
+        <div class="promotion-slide">
+            <img src="image/weekly.png" alt="Weekly Reward">
+        </div>
+
+        <div class="promotion-slide">
+            <img src="image/monthly.png" alt="Monthly Reward">
+        </div>
+
+        <div class="promotion-slide">
+            <img src="image/viprewards.png" alt="VIP Rewards">
+        </div>
+
     </div>
+
     <div class="slider-dots">
+
         <span class="dot active"></span>
         <span class="dot"></span>
         <span class="dot"></span>
         <span class="dot"></span>
+
     </div>
+
 </section>
 
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    const promotionSlider = document.querySelector('.promotion-slider');
-    const promotionSlides = document.querySelectorAll('.promotion-slide');
-    const dots = document.querySelectorAll('.dot');
+<!-- Promotion Section End -->
+    
+    <!-- Game Categories Start -->
 
-    if(promotionSlider && promotionSlides.length){
-        let currentIndex = 0;
-
-        function updateDots(index){
-            dots.forEach(dot => dot.classList.remove('active'));
-            if(dots[index]) dots[index].classList.add('active');
-        }
-
-        updateDots(0);
-
-        setInterval(() => {
-            currentIndex++;
-            if(currentIndex >= promotionSlides.length) currentIndex = 0;
-            const slideWidth = promotionSlides[0].offsetWidth + 10;
-            promotionSlider.scrollTo({left: currentIndex * slideWidth, behavior: 'smooth'});
-            updateDots(currentIndex);
-        }, 3000);
-    }
-});
-</script>
-<!-- =========================
-    PROMOTION SECTION END
-========================= -->
-<!-- =========================
-    GAME CATEGORIES START
-========================= -->
 <section class="game-categories">
-    <div class="category-item">
-        <img src="image/jhandi.png" alt="Jhandi Munda">
-        <span>Jhandi Munda</span>
-    </div>
-    <div class="category-item">
-        <img src="image/teenpatti.png" alt="Teen Patti">
-        <span>Teen Patti</span>
-    </div>
-    <div class="category-item">
-        <img src="image/dice.png" alt="Dice">
-        <span>Dice</span>
-    </div>
-    <div class="category-item">
-        <img src="image/more.png" alt="More Games">
-        <span>More Games</span>
-    </div>
-</section>
-<!-- =========================
-    GAME CATEGORIES END
-========================= -->
 
-<!-- =========================
-    MAIN GAMES START
-========================= -->
+    <div class="category-item">
+
+        <img
+            src="image/jhandi.png"
+            alt="Jhandi Munda">
+
+        <span>Jhandi Munda</span>
+
+    </div>
+
+    <div class="category-item">
+
+        <img
+            src="image/teenpatti.png"
+            alt="Teen Patti">
+
+        <span>Teen Patti</span>
+
+    </div>
+
+    <div class="category-item">
+
+        <img
+            src="image/dice.png"
+            alt="Dice">
+
+        <span>Dice</span>
+
+    </div>
+
+    <div class="category-item">
+
+        <img
+            src="image/more.png"
+            alt="More Games">
+
+        <span>More Games</span>
+
+    </div>
+
+</section>
+
+<!-- Main Games Start -->
+
 <section class="main-games-section">
+
     <div class="game-card">
-        <img src="image/jhandimain.png" alt="Jhandi Munda Main">
+        <img src="image/jhandimain.png">
         <div class="game-title">Jhandi Munda</div>
     </div>
+
     <div class="game-card">
-        <img src="image/teenpattimain.png" alt="Teen Patti Main">
+        <img src="image/teenpattimain.png">
         <div class="game-title">Teen Patti</div>
     </div>
+
 </section>
-<!-- =========================
-    MAIN GAMES END
-========================= -->
 
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    const categories = document.querySelectorAll('.category-item');
+<!-- Main Games End -->
+    <!-- Recent Winners Start -->
 
-    categories.forEach(item => {
-        item.addEventListener('click', () => {
-            categories.forEach(cat => cat.style.opacity = '1');
-            item.style.opacity = '0.7';
-            console.log('Selected Category: ' + item.innerText);
-        });
-    });
-
-    const gameButtons = document.querySelectorAll('.glow-btn');
-    gameButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            console.log('Opening Game: ' + btn.innerText);
-        });
-    });
-});
-</script>
-<!-- =========================
-    MAIN GAMES script  END
-========================= -->
-<!-- =========================
-    RECENT WINNERS START
-========================= -->
 <section class="winner-section">
+
     <h2 class="winner-title">
+
         <span class="live-dot"></span>
+
         LIVE WINNERS
+
     </h2>
+
     <div class="winner-box">
+
         <div class="winner-track">
-            <div class="winner-item">🎲 Player***123 won ৳2,500</div>
-            <div class="winner-item">🃏 Player***789 won ৳5,000</div>
-            <div class="winner-item">🎲 Player***456 won ৳1,200</div>
+
+            <div class="winner-item">
+                🎲 Player***123 won ৳2,500
+            </div>
+
+            <div class="winner-item">
+                🃏 Player***789 won ৳5,000
+            </div>
+
+            <div class="winner-item">
+                🎲 Player***456 won ৳1,200
+            </div>
+
         </div>
+
     </div>
+
 </section>
 
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    const winnerTrack = document.querySelector('.winner-track');
-    if (winnerTrack) {
-        let scrollAmount = 0;
-        setInterval(() => {
-            scrollAmount += 1;
-            if (scrollAmount >= winnerTrack.scrollWidth) scrollAmount = 0;
-            winnerTrack.scrollTo({left: scrollAmount, behavior: 'smooth'});
-        }, 50);
-    }
-});
-</script>
-<!-- =========================
-    RECENT WINNERS END
-========================= -->
-<!-- =========================
-    FOOTER START
-========================= -->
+<!-- Recent Winners End -->
+
+ <!-- =======================
+     FOOTER START
+======================= -->
+
 <footer class="bottom-nav">
     <a href="index.html" class="footer-btn">
         <i class="fas fa-house footer-icon"></i>
@@ -254,179 +255,11 @@ document.addEventListener('DOMContentLoaded', () => {
         <span>Profile</span>
     </a>
 </footer>
+    <!-- =======================
+     FOOTER END
+======================= -->
 
-<footer class="footer">
-  <div class="footer-left">
-    <h3 class="footer-title">About Us</h3>
-    <ul class="footer-links">
-      <li><a href="#" id="terms-btn">Terms & Conditions</a></li>
-      <li><a href="#" id="privacy-btn">Privacy Policy</a></li>
-      <li><a href="#" id="fair-btn">Probably Fair</a></li>
-      <li><a href="#" id="responsible-btn">Responsible Gambling</a></li>
-    </ul>
-  </div>
-  <div class="footer-right">
-    <h3 class="footer-title">Contact</h3>
-    <ul class="contact-links">
-      <li>Email: support@safiki.com</li>
-      <li>Email: help@safiki.com</li>
-    </ul>
-  </div>
-</footer>
+<script src="script.js"></script> <!-- External JS -->
 
-<!-- =========================
-    MODALS START
-========================= -->
-<div class="modal" id="terms-modal">
-  <div class="modal-content">
-    <span class="close" data-modal="terms-modal">&times;</span>
-    <h2>Terms & Conditions</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac venenatis urna.</p>
-  </div>
-</div>
-
-<div class="modal" id="privacy-modal">
-  <div class="modal-content">
-    <span class="close" data-modal="privacy-modal">&times;</span>
-    <h2>Privacy Policy</h2>
-    <p>We respect your privacy. All personal data will be handled according to applicable laws.</p>
-  </div>
-</div>
-
-<div class="modal" id="fair-modal">
-  <div class="modal-content">
-    <span class="close" data-modal="fair-modal">&times;</span>
-    <h2>Probably Fair</h2>
-    <p>All games offered are tested for fairness and transparency according to industry standards.</p>
-  </div>
-</div>
-
-<div class="modal" id="responsible-modal">
-  <div class="modal-content">
-    <span class="close" data-modal="responsible-modal">&times;</span>
-    <h2>Responsible Gambling</h2>
-    <p>We encourage responsible play. Please play within your limits and seek help if needed.</p>
-  </div>
-</div>
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const modalMap = {
-    "terms-btn": "terms-modal",
-    "privacy-btn": "privacy-modal",
-    "fair-btn": "fair-modal",
-    "responsible-btn": "responsible-modal"
-  };
-
-  for (let btnId in modalMap) {
-    const btn = document.getElementById(btnId);
-    const modal = document.getElementById(modalMap[btnId]);
-    if(btn && modal){
-      btn.onclick = function(e){
-        e.preventDefault();
-        modal.style.display = "block";
-      };
-    }
-  }
-
-  document.querySelectorAll(".close").forEach(btn => {
-    btn.onclick = function(){
-      const modal = document.getElementById(this.getAttribute("data-modal"));
-      if(modal) modal.style.display = "none";
-    };
-  });
-
-  window.onclick = function(event){
-    if(event.target.classList.contains("modal")){
-      event.target.style.display = "none";
-    }
-  };
-});
-</script>
-<!-- =========================
-    MODALS END
-========================= -->
-<!-- =========================
-    FINAL ADJUSTMENTS / INCÓGNITO DARK BACKGROUND
-========================= -->
-<style>
-/* Body Background */
-body {
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-    background: #121212; /* Deep dark for Incognito mode */
-    color: #ffffff;
-}
-
-/* 3D Effect for Cards */
-.game-card, .promotion-slide, .winner-item {
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.game-card:hover, .promotion-slide:hover, .winner-item:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 12px 24px rgba(0,0,0,0.6);
-}
-
-/* Hero Image */
-.hero-image {
-    width: 100%;
-    border-radius: 12px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.4);
-}
-
-/* Buttons */
-.header-btn, .glow-btn, .footer-btn {
-    border-radius: 8px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.header-btn:hover, .glow-btn:hover, .footer-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(0,0,0,0.5);
-}
-
-/* Modals */
-.modal-content {
-    background: #1e1e1e;
-    color: #fff;
-    border-radius: 12px;
-    padding: 20px;
-    max-width: 500px;
-    margin: auto;
-}
-
-/* Promotion Dots */
-.slider-dots .dot {
-    background: #888;
-}
-
-.slider-dots .dot.active {
-    background: #8A2BE2;
-}
-
-/* Winner Section Live Dot */
-.live-dot {
-    background: #ff2a68;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    display: inline-block;
-    margin-right: 8px;
-}
-
-/* Adjustments for Mobile */
-@media (max-width: 768px) {
-    .hero-image, .promotion-slide {
-        border-radius: 8px;
-    }
-
-    .game-card {
-        margin: 10px 0;
-    }
-}
-</style>
-
-
+</body>
+</html>
