@@ -17,24 +17,39 @@
 <!-- =========================
      DASHBOARD HEADER
 ========================= -->
-<div class="header-after-login">
+
+<header class="header-after-login">
+
+    <!-- LEFT MENU -->
 
     <div class="header-left">
-        <button id="menu-toggle" class="menu-btn" type="button">
+
+        <button id="menu-toggle"
+                class="menu-btn">
+
             ☰
+
         </button>
+
     </div>
 
-    <div class="header-actions">
+    <!-- CENTER WALLET -->
+
+    <div class="header-center">
 
         <div class="wallet-box">
 
             <i class="fas fa-wallet"></i>
 
-            <span>$50.00</span>
+            <span id="walletBalance">
+                $50.00
+            </span>
 
-            <button id="balanceBtn" class="balance-arrow">
+            <button id="balanceBtn"
+                    class="balance-arrow">
+
                 ▼
+
             </button>
 
         </div>
@@ -57,28 +72,114 @@
 
         </div>
 
+    </div>
+
+    <!-- RIGHT PROFILE -->
+
+    <div class="header-right">
+
         <div class="profile-wrapper">
 
-            <img
-                src="image/default-avatar.png"
-                alt="Profile"
-                class="profile-avatar"
-                id="profileAvatar">
+            <div id="profileAvatar"
+                 class="profile-avatar">
 
-            <input
-                type="file"
-                id="profileUpload"
-                accept="image/*"
-                style="display:none;">
+                <i class="fas fa-user"></i>
+
+            </div>
+
+            <input type="file"
+                   id="profileUpload"
+                   accept="image/*"
+                   style="display:none;">
 
         </div>
 
     </div>
 
+</header>
+
+<!-- MENU DROPDOWN -->
+
+<div id="dropdown-menu"
+     class="dropdown-menu">
+
+    <a href="refer.html">
+        <i class="fas fa-users"></i>
+        Refer & Earn
+    </a>
+
+    <a href="rewards.html">
+        <i class="fas fa-gift"></i>
+        Cash Back & Rewards
+    </a>
+
+    <a href="#">
+        <i class="fas fa-headset"></i>
+        Support
+    </a>
+
 </div>
+
+<!-- PROFILE DROPDOWN -->
+
+<div id="profileMenu"
+     class="profile-menu"
+     style="display:none;">
+
+    <a href="#">
+        <i class="fas fa-wallet"></i>
+        Wallet
+    </a>
+
+    <a href="#">
+        <i class="fas fa-gift"></i>
+        Rewards & Gifts
+    </a>
+
+    <a href="#">
+        <i class="fas fa-clock-rotate-left"></i>
+        Transaction History
+    </a>
+
+    <div class="currency-wrapper">
+
+        <a href="#"
+           id="currencyBtn">
+
+            <i class="fas fa-dollar-sign"></i>
+
+            Display Currency ▼
+
+        </a>
+
+        <div id="currencyMenu"
+             class="currency-menu">
+
+            <a href="#" data-currency="USD">🇺🇸 USD ($)</a>
+            <a href="#" data-currency="BDT">🇧🇩 BDT (৳)</a>
+            <a href="#" data-currency="INR">🇮🇳 INR (₹)</a>
+            <a href="#" data-currency="PKR">🇵🇰 PKR (₨)</a>
+            <a href="#" data-currency="NPR">🇳🇵 NPR (₨)</a>
+
+        </div>
+
+    </div>
+
+    <a href="#"
+       id="logoutBtn">
+
+        <i class="fas fa-right-from-bracket"></i>
+
+        Logout
+
+    </a>
+
+</div>
+
 <!-- =========================
      DASHBOARD HEADER END
 ========================= -->
+
 <script>
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -92,85 +193,31 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!isLoggedIn) {
 
         window.location.href =
-            'login.html';
+        'login.html';
 
         return;
-
     }
 
     /* =========================
-       ELEMENTS
+       MENU DROPDOWN
     ========================= */
 
-    const balanceBtn =
-        document.getElementById('balanceBtn');
+    const menuBtn =
+        document.getElementById('menu-toggle');
 
-    const balanceDropdown =
-        document.getElementById('balanceDropdown');
+    const menuDropdown =
+        document.getElementById('dropdown-menu');
 
-    const notificationBtn =
-        document.getElementById('notificationBtn');
+    if(menuBtn && menuDropdown){
 
-    const notificationMenu =
-        document.getElementById('notificationMenu');
-
-    const profileAvatar =
-        document.getElementById('profileAvatar');
-
-    const profileMenu =
-        document.getElementById('profileMenu');
-
-    const profileUpload =
-        document.getElementById('profileUpload');
-
-    const logoutBtn =
-        document.getElementById('logoutBtn');
-
-    /* =========================
-       WALLET DROPDOWN
-    ========================= */
-
-    if (balanceBtn && balanceDropdown) {
-
-        balanceBtn.addEventListener('click', (e) => {
+        menuBtn.addEventListener('click',(e)=>{
 
             e.stopPropagation();
 
-            balanceDropdown.style.display =
-                balanceDropdown.style.display === 'block'
-                ? 'none'
-                : 'block';
+            menuDropdown.classList.toggle('active');
 
-            if(notificationMenu)
-                notificationMenu.style.display = 'none';
-
-            if(profileMenu)
-                profileMenu.style.display = 'none';
-
-        });
-
-    }
-
-    /* =========================
-       NOTIFICATION MENU
-    ========================= */
-
-    if (notificationBtn && notificationMenu) {
-
-        notificationBtn.addEventListener('click', (e) => {
-
-            e.stopPropagation();
-
-            notificationMenu.style.display =
-                notificationMenu.style.display === 'block'
-                ? 'none'
-                : 'block';
-
-            if(balanceDropdown)
-                balanceDropdown.style.display = 'none';
-
-            if(profileMenu)
-                profileMenu.style.display = 'none';
+            profileMenu.style.display='none';
+            currencyMenu.style.display='none';
 
         });
 
@@ -180,98 +227,200 @@ document.addEventListener('DOMContentLoaded', () => {
        PROFILE MENU
     ========================= */
 
-    if (profileAvatar && profileMenu) {
+    const profileAvatar =
+        document.getElementById('profileAvatar');
 
-        profileAvatar.addEventListener('click', (e) => {
+    const profileMenu =
+        document.getElementById('profileMenu');
+
+    if(profileAvatar && profileMenu){
+
+        profileAvatar.addEventListener('click',(e)=>{
 
             e.stopPropagation();
 
             profileMenu.style.display =
-                profileMenu.style.display === 'block'
-                ? 'none'
-                : 'block';
+            profileMenu.style.display === 'block'
+            ? 'none'
+            : 'block';
 
-            if(balanceDropdown)
-                balanceDropdown.style.display = 'none';
-
-            if(notificationMenu)
-                notificationMenu.style.display = 'none';
+            menuDropdown.classList.remove('active');
 
         });
 
     }
 
     /* =========================
-       PROFILE IMAGE UPLOAD
+       WALLET DROPDOWN
     ========================= */
 
-    const savedImage =
-        localStorage.getItem('profileImage');
+    const balanceBtn =
+        document.getElementById('balanceBtn');
 
-    if (savedImage && profileAvatar) {
+    const balanceDropdown =
+        document.getElementById('balanceDropdown');
 
-        profileAvatar.src =
-            savedImage;
+    if(balanceBtn && balanceDropdown){
 
-    }
+        balanceBtn.addEventListener('click',(e)=>{
 
-    if (profileAvatar && profileUpload) {
+            e.stopPropagation();
 
-        profileUpload.addEventListener(
-            'change',
-            (e) => {
+            balanceDropdown.style.display =
+            balanceDropdown.style.display === 'block'
+            ? 'none'
+            : 'block';
 
-                const file =
-                    e.target.files[0];
-
-                if (!file) return;
-
-                const reader =
-                    new FileReader();
-
-                reader.onload = () => {
-
-                    profileAvatar.src =
-                        reader.result;
-
-                    localStorage.setItem(
-                        'profileImage',
-                        reader.result
-                    );
-
-                };
-
-                reader.readAsDataURL(file);
-
-            }
-        );
+        });
 
     }
 
     /* =========================
-       CLOSE MENUS OUTSIDE CLICK
+       CURRENCY MENU
     ========================= */
 
-    document.addEventListener('click', () => {
+    const currencyBtn =
+        document.getElementById('currencyBtn');
 
-        if(balanceDropdown)
-            balanceDropdown.style.display = 'none';
+    const currencyMenu =
+        document.getElementById('currencyMenu');
 
-        if(notificationMenu)
-            notificationMenu.style.display = 'none';
+    if(currencyBtn && currencyMenu){
 
-        if(profileMenu)
-            profileMenu.style.display = 'none';
+        currencyBtn.addEventListener('click',(e)=>{
+
+            e.preventDefault();
+
+            e.stopPropagation();
+
+            currencyMenu.style.display =
+            currencyMenu.style.display === 'block'
+            ? 'none'
+            : 'block';
+
+        });
+
+    }
+
+    /* =========================
+       SAVE CURRENCY
+    ========================= */
+
+    document
+    .querySelectorAll('[data-currency]')
+    .forEach(item => {
+
+        item.addEventListener('click',(e)=>{
+
+            e.preventDefault();
+
+            const currency =
+            item.dataset.currency;
+
+            localStorage.setItem(
+                'selectedCurrency',
+                currency
+            );
+
+            alert(
+                'Currency Changed To ' +
+                currency
+            );
+
+            currencyMenu.style.display='none';
+
+        });
 
     });
+
+    /* =========================
+       PROFILE IMAGE UPLOAD
+    ========================= */
+
+    const profileUpload =
+        document.getElementById('profileUpload');
+
+    if(profileAvatar && profileUpload){
+
+        profileAvatar.addEventListener('dblclick',()=>{
+
+            profileUpload.click();
+
+        });
+
+        profileUpload.addEventListener('change',(e)=>{
+
+            const file =
+                e.target.files[0];
+
+            if(!file) return;
+
+            const reader =
+                new FileReader();
+
+            reader.onload = function(event){
+
+                profileAvatar.innerHTML = '';
+
+                const img =
+                    document.createElement('img');
+
+                img.src =
+                    event.target.result;
+
+                img.style.width='100%';
+                img.style.height='100%';
+                img.style.borderRadius='50%';
+                img.style.objectFit='cover';
+
+                profileAvatar.appendChild(img);
+
+                localStorage.setItem(
+                    'profileImage',
+                    event.target.result
+                );
+
+            };
+
+            reader.readAsDataURL(file);
+
+        });
+
+        const savedImage =
+            localStorage.getItem(
+                'profileImage'
+            );
+
+        if(savedImage){
+
+            profileAvatar.innerHTML='';
+
+            const img =
+                document.createElement('img');
+
+            img.src=savedImage;
+
+            img.style.width='100%';
+            img.style.height='100%';
+            img.style.borderRadius='50%';
+            img.style.objectFit='cover';
+
+            profileAvatar.appendChild(img);
+
+        }
+
+    }
 
     /* =========================
        LOGOUT
     ========================= */
 
-    if (logoutBtn) {
+    const logoutBtn =
+        document.getElementById('logoutBtn');
 
-        logoutBtn.addEventListener('click', (e) => {
+    if(logoutBtn){
+
+        logoutBtn.addEventListener('click',(e)=>{
 
             e.preventDefault();
 
@@ -283,50 +432,57 @@ document.addEventListener('DOMContentLoaded', () => {
                 'userEmail'
             );
 
-            localStorage.removeItem(
-                'profileImage'
+            window.location.href =
+            'https://dataapk.github.io/safiki-gaming';
+
+        });
+
+    }
+
+    /* =========================
+       CLOSE ALL DROPDOWNS
+    ========================= */
+
+    document.addEventListener('click',()=>{
+
+        if(menuDropdown){
+
+            menuDropdown.classList.remove(
+                'active'
             );
 
-            window.location.href =
-                'https://dataapk.github.io/safiki-gaming';
+        }
 
-        });
+        if(profileMenu){
 
-    }
+            profileMenu.style.display =
+            'none';
+
+        }
+
+        if(balanceDropdown){
+
+            balanceDropdown.style.display =
+            'none';
+
+        }
+
+        if(currencyMenu){
+
+            currencyMenu.style.display =
+            'none';
+
+        }
+
+    });
 
 });
 </script>
-
-
 <!-- =========================
-    DROPDOWN MENU
+    header script close
 ========================= -->
-<div id="dropdown-menu" class="dropdown-menu">
-    <a href="jhandimunda.html"><i class="fas fa-gamepad"></i> Jhandi Munda</a>
-    <a href="teenpatti.html"><i class="fas fa-star"></i> Teen Patti</a>
-    <a href="refer.html"><i class="fas fa-users"></i> Refer & Earn</a>
-    <a href="rewards.html"><i class="fas fa-gift"></i> Cash Back & Rewards</a>
-    <a href="#"><i class="fas fa-headset"></i> Support</a>
-</div>
 
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    const menuBtn = document.getElementById('menu-toggle');
-    const dropdownMenu = document.getElementById('dropdown-menu');
-
-    if(menuBtn && dropdownMenu){
-        menuBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            dropdownMenu.classList.toggle('active');
-        });
-        document.addEventListener('click', () => {
-            dropdownMenu.classList.remove('active');
-        });
-    }
-});
-</script>
-
-<!-- =========================
+!-- =========================
     HERO SECTION
 ========================= -->
 <section class="hero-section">
