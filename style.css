@@ -64,19 +64,51 @@ html, body {
     align-items: center;
 }
 
-.login-btn {
-    text-decoration: none;
+/* Login Button */
+.header-btn.login-btn {
     color: #fff;
-    padding: 10px 18px;
-    border-radius: 12px;
-    background: linear-gradient(145deg, #8A2BE2, #5d1aa8);
-    font-weight: 600;
+    background: linear-gradient(145deg, #6a0dad, #9b59b6);
+    border-radius: 14px;
+    font-weight: 700;
+    padding: 10px 22px;
+    text-decoration: none;
+    box-shadow: 0 6px 20px rgba(155,89,182,0.4), 0 0 12px rgba(155,89,182,0.3);
     transition: all 0.3s ease;
 }
-.login-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 0 20px rgba(157,78,221,0.8);
+.header-btn.login-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 12px 25px rgba(155,89,182,0.5), 0 0 15px rgba(155,89,182,0.4);
 }
+
+/* Register Button */
+.header-btn.register-btn {
+    color: #000; /* deep black text */
+    background: linear-gradient(145deg, #FFFF66, #FFD700); /* bright yellow */
+    border-radius: 14px;
+    font-weight: 800;
+    padding: 10px 22px;
+    text-decoration: none;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+    transition: all 0.3s ease;
+    animation: pulseRegister 2s infinite;
+}
+.header-btn.register-btn:hover {
+    transform: translateY(-3px) scale(1.08);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+}
+
+/* Register button pulse animation */
+@keyframes pulseRegister {
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+/* Mobile Responsive */
+@media(max-width:500px){
+    .header-actions {
+        flex-direction: column;
+        gap: 8px;
+    }
 
 /* =====================================
    DROPDOWN MENU
