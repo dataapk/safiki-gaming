@@ -91,6 +91,7 @@ html, body {
     box-shadow: 0 6px 18px rgba(0,0,0,0.5), 0 0 8px rgba(0,0,0,0.3); /* deeper 3D shadow */
     transition: all 0.3s ease;
     animation: pulseRegister 2s infinite;
+    margin-right: 3px;  /* <-- এখান থেকে horizontal spacing adjust করতে পারবে */
 }
 
 /* Register Button hover effect */
