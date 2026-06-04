@@ -104,30 +104,65 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
     });
+    
+    /* ==================
+    LOGIN FORM START
+========================= */
 
 
-    /* =========================
-       LOGIN BUTTON
-    ========================= */
+   const loginForm = document.getElementById('login-form');
+const registerForm = document.getElementById('register-form');
+const submitBtn = document.querySelector('.login-btn'); // or form button
 
-    const loginBtn =
-        document.querySelector(
-            '.login-btn'
-        );
+submitBtn.addEventListener('click', async (e) => {
+    e.preventDefault();
 
-    if (loginBtn) {
+    let activeForm;
+    if (loginForm.style.display !== 'none') activeForm = loginForm;
+    else activeForm = registerForm;
 
-        loginBtn.addEventListener(
-            'click',
-            () => {
+    const formData = new FormData(activeForm);
+    const data = Object.fromEntries(formData.entries());
 
-                window.location.href =
-                    'auth.html';
-
-            }
-        );
-
+    // Basic validation
+    for (const key in data) {
+        if (!data[key]) {
+            alert(`Please fill ${key}`);
+            return;
+        }
     }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = activeForm === loginForm ? 'Logging in...' : 'Registering...';
+
+    try {
+        const endpoint = activeForm === loginForm ? '/api/login' : '/api/register';
+        const response = await fetch(endpoint, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(data)
+        });
+        const resData = await response.json();
+
+        if (response.ok && resData.success) {
+            // redirect after success
+            window.location.href = activeForm === loginForm ? 'dashboard.html' : 'login.html';
+        } else {
+            alert(resData.message || 'Something went wrong.');
+            submitBtn.disabled = false;
+            submitBtn.textContent = activeForm === loginForm ? 'Login' : 'Register';
+        }
+    } catch (error) {
+        console.error(error);
+        alert('Network error, try again.');
+        submitBtn.disabled = false;
+        submitBtn.textContent = activeForm === loginForm ? 'Login' : 'Register';
+    }
+});
+    /* ==================
+    LOGIN FORM END 
+========================= */
+    
  
 /* =========================
 PROMOTION AUTO SLIDER
