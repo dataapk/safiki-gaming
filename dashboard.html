@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard - SAFIKI</title>
+<style>
+/* ===== Dashboard CSS ===== */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0; padding: 0;
+  background: #f4f4f4;
+  color: #333;
+}
+
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #6a0dad;
+  color: #fff;
+  padding: 12px 20px;
+}
+
+.top-nav .logo {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.header-actions button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 8px;
+  background: #8A2BE2;
+  color: #fff;
+  cursor: pointer;
+}
+
+.header-actions button:hover {
+  background: #6a0dad;
+}
+
+main {
+  padding: 30px;
+}
+
+.dashboard-content h1 {
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+.supervisor-section {
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.supervisor-section h2 {
+  margin-top: 0;
+  color: #6a0dad;
+}
+</style>
+</head>
+<body>
+
+<header class="top-nav">
+  <div class="logo">SAFIKI</div>
+  <div class="header-actions">
+    <span id="userSection">Welcome, <span id="userEmail"></span> | 
+      <button id="logoutBtn">Logout</button>
+    </span>
+  </div>
+</header>
+
+<main>
+  <section class="dashboard-content">
+    <h1>Dashboard</h1>
+    <p>You are successfully logged in. Welcome to your dashboard.</p>
+    <div class="supervisor-section">
+      <h2>Supervisor Panel</h2>
+      <p>Here you can monitor users and manage activities (frontend simulation).</p>
+    </div>
+  </section>
+</main>
+
+<script>
+/* ===== Dashboard JS ===== */
+document.addEventListener('DOMContentLoaded', () => {
+  const userEmail = localStorage.getItem('userEmail');
+  const isLoggedIn = localStorage.getItem('isLoggedIn');
+
+  if(!isLoggedIn) {
+    // Not logged in → redirect to login page
+    window.location.href = 'login.html';
+  } else {
+    document.getElementById('userEmail').textContent = userEmail;
+  }
+
+  // Logout button
+  document.getElementById('logoutBtn').addEventListener('click', () => {
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('userEmail');
+    window.location.href = 'login.html';
+  });
+});
+</script>
+
+</body>
+</html>
