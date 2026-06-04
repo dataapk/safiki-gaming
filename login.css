@@ -19,13 +19,13 @@
 
 /* Register Button - bright yellow 3D with black bold text */
 .header-btn.register-btn {
-    padding: 10px 22px;
-    border-radius: 14px;
+    background: linear-gradient(145deg, #FFFF66, #FFD700) !important;
+    color: #000 !important;
+    text-decoration: none !important;
     font-weight: 800;
-    text-decoration: none;
-    color: #000; /* deep black text */
-    background: linear-gradient(145deg, #FFFF66, #FFD700); /* bright yellow */
-    box-shadow: 0 6px 18px rgba(0,0,0,0.5); /* subtle deep black shadow */
+    border-radius: 14px;
+    padding: 10px 22px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.5);
     transition: all 0.3s ease;
     animation: pulseRegister 2s infinite;
 }
