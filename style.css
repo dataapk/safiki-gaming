@@ -74,7 +74,7 @@ html, body {
     text-decoration: none;
     box-shadow: 0 6px 20px rgba(155,89,182,0.4), 0 0 12px rgba(155,89,182,0.3);
     transition: all 0.3s ease;
-    margin-left: 10px;
+    margin-left: 30px;
 }
 .header-btn.login-btn:hover {
     transform: translateY(-3px) scale(1.05);
