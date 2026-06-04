@@ -1,111 +1,488 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dashboard - SAFIKI</title>
-<style>
-/* ===== Dashboard CSS ===== */
-body {
-  font-family: 'Segoe UI', sans-serif;
-  margin: 0; padding: 0;
-  background: #f4f4f4;
-  color: #333;
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - SAFIKI</title>
 
-.top-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #6a0dad;
-  color: #fff;
-  padding: 12px 20px;
-}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-.top-nav .logo {
-  font-size: 22px;
-  font-weight: bold;
-}
+  <style>
+    /* ===== Dashboard + Frontend CSS ===== */
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+      color: #333;
+    }
 
-.header-actions button {
-  padding: 6px 12px;
-  border: none;
-  border-radius: 8px;
-  background: #8A2BE2;
-  color: #fff;
-  cursor: pointer;
-}
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #6a0dad;
+      color: #fff;
+      padding: 12px 20px;
+    }
 
-.header-actions button:hover {
-  background: #6a0dad;
-}
+    .top-nav .logo {
+      font-size: 22px;
+      font-weight: bold;
+    }
 
-main {
-  padding: 30px;
-}
+    .header-actions span {
+      font-size: 14px;
+    }
 
-.dashboard-content h1 {
-  font-size: 28px;
-  margin-bottom: 12px;
-}
+    .header-actions button,
+    .header-actions a {
+      margin-left: 10px;
+      padding: 6px 12px;
+      border: none;
+      border-radius: 8px;
+      background: #8A2BE2;
+      color: #fff;
+      cursor: pointer;
+      text-decoration: none;
+    }
 
-.supervisor-section {
-  background: #fff;
-  border-radius: 16px;
-  padding: 20px;
-  margin-top: 20px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-}
+    .header-actions button:hover,
+    .header-actions a:hover {
+      background: #6a0dad;
+    }
 
-.supervisor-section h2 {
-  margin-top: 0;
-  color: #6a0dad;
-}
-</style>
+    main {
+      padding: 20px;
+    }
+
+    /* Dropdown Menu */
+    .dropdown-menu {
+      display: flex;
+      flex-direction: column;
+      background: #fff;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      margin-bottom: 20px;
+    }
+
+    .dropdown-menu a {
+      padding: 10px;
+      color: #333;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-radius: 8px;
+    }
+
+    .dropdown-menu a:hover {
+      background: #eee;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      margin-bottom: 20px;
+    }
+
+    .hero-section img.hero-image {
+      width: 100%;
+      border-radius: 16px;
+    }
+
+    /* Promotion Section */
+    .promotion-section {
+      margin-bottom: 20px;
+    }
+
+    .promotion-title {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .promotion-slider {
+      display: flex;
+      overflow-x: auto;
+      gap: 10px;
+    }
+
+    .promotion-slide img {
+      border-radius: 12px;
+      width: 150px;
+      height: auto;
+    }
+
+    .slider-dots {
+      margin-top: 5px;
+    }
+
+    .dot {
+      display: inline-block;
+      height: 10px;
+      width: 10px;
+      background-color: #bbb;
+      border-radius: 50%;
+      margin-right: 5px;
+    }
+
+    .dot.active {
+      background-color: #6a0dad;
+    }
+
+    /* Game Categories */
+    .game-categories {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .category-item {
+      background: #fff;
+      border-radius: 12px;
+      padding: 10px;
+      text-align: center;
+      flex: 1 1 80px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .category-item img {
+      width: 50px;
+      height: auto;
+      margin-bottom: 5px;
+    }
+
+    /* Main Games */
+    .main-games-section {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .game-card {
+      flex: 1 1 150px;
+      background: #fff;
+      border-radius: 12px;
+      padding: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .game-card img {
+      width: 100%;
+      border-radius: 12px;
+    }
+
+    .game-title {
+      margin-top: 8px;
+      font-weight: bold;
+    }
+
+    /* Winners Section */
+    .winner-section {
+      margin-bottom: 20px;
+    }
+
+    .winner-title {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .winner-track {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .winner-item {
+      background: #fff;
+      padding: 8px 12px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Footer */
+    footer.bottom-nav {
+      display: flex;
+      justify-content: space-around;
+      background: #6a0dad;
+      color: #fff;
+      padding: 10px 0;
+      margin-top: 20px;
+    }
+
+    footer.bottom-nav a {
+      color: #fff;
+      text-decoration: none;
+      text-align: center;
+    }
+
+    footer.bottom-nav a span {
+      display: block;
+      font-size: 12px;
+    }
+
+    /* Modals */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.3);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .modal-content {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 400px;
+      position: relative;
+    }
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    @media(max-width:768px){
+      .cards, .main-games-section, .game-categories {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<header class="top-nav">
-  <div class="logo">SAFIKI</div>
-  <div class="header-actions">
-    <span id="userSection">Welcome, <span id="userEmail"></span> | 
-      <button id="logoutBtn">Logout</button>
-    </span>
-  </div>
-</header>
+  <!-- Header -->
+  <header class="top-nav">
+    <div class="header-left">
+      <button id="menu-toggle" class="menu-btn" type="button">☰ Menu</button>
+    </div>
+    <div class="logo">SAFIKI</div>
+    <div class="header-actions">
+      <span id="userSection" style="display:none;">
+        Welcome, <span id="userEmail"></span> |
+        <button id="logoutBtn">Logout</button>
+      </span>
+      <a href="login.html" class="header-btn login-btn" id="loginLink">Login</a>
+      <a href="register.html" class="header-btn register-btn" id="signupLink">Register</a>
+    </div>
+  </header>
 
-<main>
-  <section class="dashboard-content">
-    <h1>Dashboard</h1>
-    <p>You are successfully logged in. Welcome to your dashboard.</p>
-    <div class="supervisor-section">
-      <h2>Supervisor Panel</h2>
-      <p>Here you can monitor users and manage activities (frontend simulation).</p>
+  <!-- Dropdown Menu -->
+  <div id="dropdown-menu" class="dropdown-menu">
+    <a href="jhandimunda.html"><i class="fas fa-gamepad"></i> Jhandi Munda</a>
+    <a href="teenpatti.html"><i class="fas fa-star"></i> Teen Patti</a>
+    <a href="refer.html"><i class="fas fa-users"></i> Refer & Earn</a>
+    <a href="rewards.html"><i class="fas fa-gift"></i> Cash Back & Rewards</a>
+    <a href="#"><i class="fas fa-headset"></i> Support</a>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-slider">
+      <div class="hero-slide active">
+        <img src="image/banner.png" alt="SAFIKI Gaming Banner" class="hero-image">
+      </div>
     </div>
   </section>
-</main>
 
-<script>
-/* ===== Dashboard JS ===== */
-document.addEventListener('DOMContentLoaded', () => {
-  const userEmail = localStorage.getItem('userEmail');
-  const isLoggedIn = localStorage.getItem('isLoggedIn');
+  <!-- Promotion Section -->
+  <section class="promotion-section">
+    <h2 class="promotion-title">🎁 Special Offers</h2>
+    <div class="promotion-slider">
+      <div class="promotion-slide active"><img src="image/daily.png" alt="Daily Reward"></div>
+      <div class="promotion-slide"><img src="image/weekly.png" alt="Weekly Reward"></div>
+      <div class="promotion-slide"><img src="image/monthly.png" alt="Monthly Reward"></div>
+      <div class="promotion-slide"><img src="image/viprewards.png" alt="VIP Rewards"></div>
+    </div>
+    <div class="slider-dots">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+  </section>
 
-  if(!isLoggedIn) {
-    // Not logged in → redirect to login page
-    window.location.href = 'login.html';
-  } else {
-    document.getElementById('userEmail').textContent = userEmail;
-  }
+  <!-- Game Categories -->
+  <section class="game-categories">
+    <div class="category-item"><img src="image/jhandi.png" alt="Jhandi Munda"><span>Jhandi Munda</span></div>
+    <div class="category-item"><img src="image/teenpatti.png" alt="Teen Patti"><span>Teen Patti</span></div>
+    <div class="category-item"><img src="image/dice.png" alt="Dice"><span>Dice</span></div>
+    <div class="category-item"><img src="image/more.png" alt="More Games"><span>More Games</span></div>
+  </section>
 
-  // Logout button
-  document.getElementById('logoutBtn').addEventListener('click', () => {
-    localStorage.removeItem('isLoggedIn');
-    localStorage.removeItem('userEmail');
-    window.location.href = 'login.html';
-  });
-});
-</script>
+  <!-- Main Games -->
+  <section class="main-games-section">
+    <div class="game-card"><img src="image/jhandimain.png"><div class="game-title">Jhandi Munda</div></div>
+    <div class="game-card"><img src="image/teenpattimain.png"><div class="game-title">Teen Patti</div></div>
+  </section>
+
+  <!-- Recent Winners -->
+  <section class="winner-section">
+    <h2 class="winner-title"><span class="live-dot"></span> LIVE WINNERS</h2>
+    <div class="winner-box">
+      <div class="winner-track">
+        <div class="winner-item">🎲 Player***123 won ৳2,500</div>
+        <div class="winner-item">🃏 Player***789 won ৳5,000</div>
+        <div class="winner-item">🎲 Player***456 won ৳1,200</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bottom-nav">
+    <a href="index.html" class="footer-btn"><i class="fas fa-house footer-icon"></i><span>Home</span></a>
+    <a href="games.html" class="footer-btn center-btn"><i class="fas fa-gamepad footer-icon"></i><span>Games</span></a>
+    <a href="profile.html" class="footer-btn"><i class="fas fa-user footer-icon"></i><span>Profile</span></a>
+  </footer>
+
+  <!-- Modals -->
+  <div class="modal" id="terms-modal">
+    <div class="modal-content">
+      <span class="close" data-modal="terms-modal">&times;</span>
+      <h2>Terms & Conditions</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac venenatis urna.</p>
+    </div>
+  </div>
+
+  <div class="modal" id="privacy-modal">
+    <div class="modal-content">
+      <span class="close" data-modal="privacy-modal">&times;</span>
+      <h2>Privacy Policy</h2>
+      <p>We respect your privacy. All personal data will be handled according to applicable laws.</p>
+    </div>
+  </div>
+
+  <div class="modal" id="fair-modal">
+    <div class="modal-content">
+      <span class="close" data-modal="fair-modal">&times;</span>
+      <h2>Probably Fair</h2>
+      <p>All games offered are tested for fairness and transparency according to industry standards.</p>
+    </div>
+  </div>
+
+  <div class="modal" id="responsible-modal">
+    <div class="modal-content">
+      <span class="close" data-modal="responsible-modal">&times;</span>
+      <h2>Responsible Gambling</h2>
+      <p>We encourage responsible play. Please play within your limits and seek help if needed.</p>
+    </div>
+  </div>
+
+  <!-- JS Section -->
+  <script>
+    // ===== Dashboard JS =====
+    document.addEventListener('DOMContentLoaded', () => {
+
+      // Login session check
+      const userEmail = localStorage.getItem('userEmail');
+      const isLoggedIn = localStorage.getItem('isLoggedIn');
+
+      const userSection = document.getElementById('userSection');
+      const loginLink = document.getElementById('loginLink');
+      const signupLink = document.getElementById('signupLink');
+
+      if (!isLoggedIn) {
+        // Not logged in → redirect to login
+        window.location.href = 'login.html';
+      } else {
+        userSection.style.display = 'inline';
+        loginLink.style.display = 'none';
+        signupLink.style.display = 'none';
+        document.getElementById('userEmail').textContent = userEmail;
+      }
+
+      // Logout
+      document.getElementById('logoutBtn').addEventListener('click', () => {
+        localStorage.removeItem('isLoggedIn');
+        localStorage.removeItem('userEmail');
+        window.location.href = 'login.html';
+      });
+
+      // Dropdown Menu toggle
+      const menuBtn = document.getElementById('menu-toggle');
+      const dropdownMenu = document.getElementById('dropdown-menu');
+      if (menuBtn && dropdownMenu) {
+        menuBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          dropdownMenu.classList.toggle('active');
+        });
+        document.addEventListener('click', () => {
+          dropdownMenu.classList.remove('active');
+        });
+      }
+
+      // Promotion slider
+      const promotionSlider = document.querySelector('.promotion-slider');
+      const promotionSlides = document.querySelectorAll('.promotion-slide');
+      const dots = document.querySelectorAll('.dot');
+      if (promotionSlider && promotionSlides.length) {
+        let currentIndex = 0;
+        function updateDots(index) {
+          dots.forEach(dot => dot.classList.remove('active'));
+          if (dots[index]) dots[index].classList.add('active');
+        }
+        updateDots(0);
+        setInterval(() => {
+          currentIndex++;
+          if (currentIndex >= promotionSlides.length) currentIndex = 0;
+          const slideWidth = promotionSlides[0].offsetWidth + 10;
+          promotionSlider.scrollTo({ left: currentIndex * slideWidth, behavior: 'smooth' });
+          updateDots(currentIndex);
+        }, 3000);
+      }
+
+      // Game categories click opacity effect
+      const categories = document.querySelectorAll('.category-item');
+      categories.forEach(item => {
+        item.addEventListener('click', () => {
+          categories.forEach(cat => cat.style.opacity = '1');
+          item.style.opacity = '0.7';
+        });
+      });
+
+      // Modals open/close
+      const modalMap = {
+        "terms-btn": "terms-modal",
+        "privacy-btn": "privacy-modal",
+        "fair-btn": "fair-modal",
+        "responsible-btn": "responsible-modal"
+      };
+      for (let btnId in modalMap) {
+        const btn = document.getElementById(btnId);
+        const modal = document.getElementById(modalMap[btnId]);
+        if (btn && modal) {
+          btn.onclick = function (e) {
+            e.preventDefault();
+            modal.style.display = "flex";
+          };
+        }
+      }
+      document.querySelectorAll(".close").forEach(btn => {
+        btn.onclick = function () {
+          const modal = document.getElementById(this.getAttribute("data-modal"));
+          if (modal) modal.style.display = "none";
+        };
+      });
+      window.onclick = function (event) {
+        if (event.target.classList.contains("modal")) {
+          event.target.style.display = "none";
+        }
+      };
+
+    });
+  </script>
 
 </body>
 </html>
