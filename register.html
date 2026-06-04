@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  /* ==========================
+     HEADER START
+  =========================== */
+  <header class="top-nav">
+
+  <div class="header-left">
+      <button id="menu-toggle" class="menu-btn" type="button">☰ Menu</button>
+  </div>
+
+  <div class="logo">SAFIKI</div>
+
+  <div class="header-actions">
+      <a href="login.html" class="header-btn login-btn" id="loginLink">Login</a>
+      <a href="register.html" class="header-btn register-btn" id="signupLink">Register</a>
+      <span id="userSection" style="display:none;">
+        Welcome, <span id="userEmail"></span> | 
+        <a href="#" onclick="logoutUser()">Logout</a>
+      </span>
+  </div>
+
+</header>
+  /* ==========================
+     HEADER END
+  =========================== */
+
+  /* ==========================
+     MAIN START
+  =========================== */
+  <main>
+    <h2>Sign Up</h2>
+    <form id="signupForm">
+      <input type="text" id="name" placeholder="Full Name" required><br><br>
+      <input type="email" id="email" placeholder="Email" required><br><br>
+      <input type="password" id="password" placeholder="Password" required><br><br>
+      <button type="submit">Sign Up</button>
+    </form>
+  </main>
+  /* ==========================
+     MAIN END
+  =========================== */
+
+  /* ==========================
+     JS START
+  =========================== */
+  <script>
+    // Header check
+    window.addEventListener('DOMContentLoaded', () => {
+      if(localStorage.getItem('isLoggedIn') === 'true'){
+          document.getElementById('loginLink').style.display = 'none';
+          document.getElementById('signupLink').style.display = 'none';
+          document.getElementById('userSection').style.display = 'inline';
+          document.getElementById('userEmail').innerText = localStorage.getItem('userEmail');
+      }
+    });
+
+    function logoutUser() {
+      localStorage.removeItem('isLoggedIn');
+      localStorage.removeItem('userEmail');
+      window.location.href = 'index.html';
+    }
+
+    document.getElementById('signupForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      if(name && email && password){
+        localStorage.setItem('userEmail', email);
+        localStorage.setItem('isLoggedIn', 'true');
+        window.location.href = 'index.html';
+      } else {
+        alert('Please fill all fields');
+      }
+    });
+  </script>
+  /* ==========================
+     JS END
+  =========================== */
+
+</body>
+</html>
