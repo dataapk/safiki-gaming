@@ -1,703 +1,350 @@
-/* =====================================
-   GLOBAL SETTINGS
-===================================== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+<!-- =========================
+    HEADER START
+========================= -->
+<header class="top-nav">
+  <div class="header-left">
+    <button id="menu-toggle" class="menu-btn" type="button">☰ Menu</button>
+  </div>
+  <div class="logo">SAFIKI</div>
+  <div class="header-actions">
+    <span id="userSection" style="display:none;">
+      Welcome, <span id="userEmail"></span> |
+      <button id="logoutBtn">Logout</button>
+    </span>
+    <a href="login.html" class="header-btn login-btn" id="loginLink">Login</a>
+    <a href="register.html" class="header-btn register-btn" id="signupLink">Register</a>
+  </div>
+</header>
 
-html, body {
-    width: 100%;
-    min-height: 100vh;
-    overflow-x: hidden;
-    background: #121212;
-    color: #ffffff;
-    font-family: Arial, sans-serif;
-    padding-bottom: 95px;
-}
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const userEmail = localStorage.getItem('userEmail');
+  const isLoggedIn = localStorage.getItem('isLoggedIn');
 
-/* ==========================
-   HEADER / NAVIGATION
-=========================== */
-.top-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 6px 20px;
-    background: #1a1a1a;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.4);
-}
+  const userSection = document.getElementById('userSection');
+  const loginLink = document.getElementById('loginLink');
+  const signupLink = document.getElementById('signupLink');
 
-.menu-btn {
-    display: flex;
-    align-items: center;
-    padding: 8px 16px;
-    background: linear-gradient(145deg, #8A2BE2, #5d1aa8);
-    border-radius: 12px;
-    color: #fff;
-    font-weight: 600;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-.menu-icon {
-    margin-right: 6px;
-    font-size: 18px;
-    line-height: 1;
-    vertical-align: middle;
-}
-
-.logo {
-    font-size: 24px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    color: #fff;
-    line-height: 1;
-}
-
-.header-actions {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-}
-
-.header-btn.login-btn {
-    background: linear-gradient(145deg, #6a0dad, #9b59b6);
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 14px;
-    font-weight: 700;
-    text-decoration: none;
-    box-shadow: 0 6px 18px rgba(155,89,182,0.4);
-    transition: all 0.3s ease;
-}
-.header-btn.login-btn:hover {
-    transform: translateY(-2px) scale(1.03);
-    box-shadow: 0 10px 22px rgba(155,89,182,0.5);
-}
-
-.header-btn.register-btn {
-    background: linear-gradient(145deg, #FFFF66, #FFD700);
-    color: #000;
-    padding: 10px 22px;
-    border-radius: 16px;
-    font-weight: 800;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.5), 0 0 8px rgba(0,0,0,0.3);
-    transition: all 0.3s ease;
-    animation: pulseRegister 2s infinite;
-}
-.header-btn.register-btn:hover {
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.6), 0 0 12px rgba(0,0,0,0.4);
-}
-
-@keyframes pulseRegister {
-    0%,100% { transform: scale(1); }
-    50% { transform: scale(1.04); }
-}
-
-@media(max-width:500px){
-    .top-nav {
-        padding: 4px 10px;
-    }
-    .menu-btn {
-        padding: 6px 12px;
-    }
-    .menu-icon {
-        font-size: 16px;
-    }
-    .logo {
-        font-size: 20px;
-    }
-    .header-btn.login-btn,
-    .header-btn.register-btn {
-        padding: 8px 14px;
-    }
-}
-/* =====================================
-   DROPDOWN MENU
-===================================== */
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 70px;
-    left: 10px;
-    width: 240px;
-    background: #1f1f1f;
-    border-radius: 16px;
-    overflow: hidden;
-    border: 1px solid rgba(138,43,226,0.35);
-    box-shadow: 0 0 25px rgba(138,43,226,0.25);
-    z-index: 9999;
-}
-.dropdown-menu.active {
-    display: block;
-}
-.dropdown-menu a {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 14px 16px;
-    text-decoration: none;
-    color: #fff;
-    font-size: 14px;
-    transition: all .25s ease;
-    border-bottom: 1px solid rgba(255,255,255,.05);
-}
-.dropdown-menu a:last-child {
-    border-bottom: none;
-}
-.dropdown-menu a:hover {
-    background: rgba(138,43,226,.18);
-}
-.dropdown-menu a i {
-    width: 20px;
-    text-align: center;
-    color: inherit;
-}
-
-/* =====================================
-   HERO SECTION
-===================================== */
-.hero-section {
-    width: 100%;
-    padding: 15px;
-}
-.hero-slider {
-    width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
-}
-.hero-slide {
-    width: 100%;
-}
-.hero-image {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 18px;
-}
-
-/* =====================================
-   PROMOTION SLIDER
-===================================== */
-.promotion-section {
-    padding: 12px 15px;
-}
-.promotion-title {
-    color: #fff;
-    font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 12px;
-}
-.promotion-slider {
-    display: flex;
-    gap: 10px;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    scrollbar-width: none;
-}
-.promotion-slider::-webkit-scrollbar {
-    display: none;
-}
-.promotion-slide {
-    flex: 0 0 calc(50% - 5px);
-    height: 120px;
-    border-radius: 16px;
-    overflow: hidden;
-    background: #1a1a1a;
-    border: 1px solid rgba(138, 43, 226, 0.35);
-    box-shadow: 0 0 12px rgba(138, 43, 226, 0.20);
-    transition: all 0.3s ease;
-}
-.promotion-slide:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 0 18px rgba(138, 43, 226, 0.35);
-}
-.promotion-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* =====================================
-   GAME CATEGORIES
-===================================== */
-.game-categories {
-    display: flex;
-    justify-content: center;
-    flex-wrap: nowrap;
-    gap: 6px;
-    padding: 8px;
-}
-.category-item {
-    width: 75px;
-    height: 75px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background: #1f1f1f;
-    border-radius: 14px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border: 1px solid rgba(138, 43, 226, 0.25);
-}
-.category-item:hover {
-    transform: translateY(-4px) scale(1.05);
-    box-shadow: 0 0 15px rgba(138, 43, 226, 0.7);
-}
-.category-item img {
-    width: 70%;
-    height: 70%;
-    object-fit: contain;
-    margin-bottom: 4px;
-}
-.category-item span {
-    font-size: 10px;
-    font-weight: 600;
-    color: #fff;
-    line-height: 1.1;
-}
-
-/* =======================================
-   MAIN GAMES SECTION FINAL (Desktop + Mobile)
-======================================== */
-.main-games-section {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding: 15px;
-}
-
-/* General card styling */
-.main-games-section .game-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    border-radius: 20px;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* General image styling */
-.main-games-section .game-card img {
-    object-fit: cover; /* পুরো কার্ড ফিট */
-    width: 100%;
-    border-radius: 16px;
-}
-
-/* Desktop specific */
-@media (min-width: 1024px) {
-    .main-games-section .game-card {
-        flex: 1 1 300px;   /* বড় কার্ড */
-        max-width: 600px;
-        height: 520px;      /* ডাবল হাইট */
-        margin-bottom: 0;
-    }
-
-    .main-games-section .game-card img {
-        width: 100%;    /* পুরো কার্ড জুড়ে ফিট */
-        height: 100%;   /* পুরো কার্ড জুড়ে ফিট */
-        object-fit: cover; /* ইমেজ পুরো স্কোয়ার ভরে আসবে */
-        border-radius: 16px; /* আগের মতো হালকা রাউন্ডেড */
-    }
-
-    .main-games-section {
-        gap: 40px;          /* কার্ডের মধ্যে gap */
-        margin-top: 40px;   /* ক্যাটাগরি থেকে gap */
-    }
-
-    .main-games-section .game-card .game-title {
-        display: none;      /* নিচের টেক্সট রিমুভ */
-    }
-}
-
-/* ==========================
-   MAIN GAMES SECTION - Category-style Hover + Click Green Glow
-========================== */
-@media (max-width: 768px) {
-
-    .main-games-section {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-        padding: 10px 0;
-    }
-
-    .main-games-section .game-card {
-        width: 90%;
-        height: auto;
-        position: relative;
-        border-radius: 16px;
-        overflow: hidden;
-        cursor: pointer;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        transition: all 0.3s ease; /* hover animation */
-        background: #1f1f1f;
-        border: 1px solid rgba(138, 43, 226, 0.25);
-       /* ==========================
-   MOBILE - Remove all tap/focus flash
-========================== */
-.main-games-section .game-card {
-    -webkit-tap-highlight-color: transparent; /* Safari/Chrome */
-    outline: none;                              /* remove focus outline */
-    -webkit-user-select: none;                  /* prevent selection flash */
-    -webkit-touch-callout: none;                /* prevent long-press callout */
-    }
-
-    .main-games-section .game-card img {
-        width: 98%;
-        height: auto;
-        object-fit: cover;
-        display: block;
-        border-radius: 16px;
-        transition: transform 0.25s ease;
-    }
-
-    /* Hover effect like category-item */
-    .main-games-section .game-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 0 15px rgba(138, 43, 226, 0.7);
-    }
-
-    /* Click effect - green glow at bottom */
-    .main-games-section .game-card:active::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 80%;
-        height: 6px;
-        background: rgba(57, 255, 20, 0.5); /* green glow */
-        filter: blur(6px);
-        border-radius: 4px;
-        pointer-events: none;
-    }
-
-    /* Hide text labels under images */
-    .main-games-section .game-card .game-title {
-        display: none;
-    }
-}
-/* =====================================
-   LIVE WINNERS
-===================================== */
-.winner-section {
-    padding: 15px;
-}
-.winner-title {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: #fff;
-    font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 12px;
-}
-.live-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: #39FF14;
-    box-shadow: 0 0 10px #39FF14;
-    animation: livePulse 1.5s infinite;
-}
-@keyframes livePulse {
-    0% { opacity: 1; }
-    50% { opacity: .4; }
-    100% { opacity: 1; }
-}
-.winner-box {
-    height: 180px;
-    overflow: hidden;
-    border-radius: 16px;
-    background: #1f1f1f;
-    border: 1px solid rgba(138,43,226,0.3);
-    box-shadow: 0 0 15px rgba(138,43,226,0.15);
-}
-.winner-track {
-    animation: winnerScroll 15s linear infinite;
-}
-.winner-item {
-    padding: 14px;
-    color: #fff;
-    font-size: 14px;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-}
-@keyframes winnerScroll {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-50%); }
-}
-/* ==========================
-   PAYMENT SECTION - PERFECT MOBILE FIT
-========================== */
-.image-section {
-    background-color: #1a1e29;
-    padding: 15px;
-   margin-left: 15px;  /* বক্সটি বাম দিক থেকে সরে আসবে */
-   margin-right: 15px; /* বক্সটি ডান দিক থেকে সরে আসবে */
-    border-radius: 18px;
-    text-align: center;
-    margin-top: 20px;
-   
-}
-
-/* পেমেন্ট গেটওয়ে সেকশনের জন্য বিশেষ স্টাইল */
-.payment-gateway-wrapper {
-    padding: 20px;
-    text-align: center;
-}
-
-.payment-title {
-    background-color: #6A0DAD !important; /* পার্পল ব্যাকগ্রাউন্ড */
-    color: #FFFFFF !important;            /* সাদা ফন্ট কালার */
-    padding: 20px 40px;
-    border-radius: 12px;
-    display: inline-block;
-    
-    /* থ্রিডি ইফেক্ট (গর্ত বা গভীরতার জন্য শ্যাডো) */
-    box-shadow: 0 8px 0 #4a077a, 0 8px 15px rgba(0, 0, 0, 0.5);
-    
-    /* বাটনটি যেন সুন্দর দেখায় */
-    font-size: 24px;
-    font-weight: bold;
-    text-transform: uppercase;
-    transition: transform 0.2s;
-}
-
-/* যখন মাউস উপরে নেবেন তখন সামান্য নড়াচড়া করবে (ঐচ্ছিক) */
-.payment-title:hover {
-    transform: translateY(2px);
-    box-shadow: 0 6px 0 #4a077a, 0 6px 10px rgba(0, 0, 0, 0.5);
-}
-
-/* ডেস্কটপের জন্য সাইজ (৫০% থাকবে) */
-.payment-img {
-    width: 40%;
-    height: auto;
-    object-fit: contain;
-}
-
-/* মোবাইলের জন্য সাইজ (স্ক্রিন ৭৬৮ পিক্সেলের ছোট হলে) */
-@media screen and (max-width: 767px) {
-    .payment-img {
-        width: 85%; /* মোবাইলে একটু বড় দেখালে সুবিধা হবে, চাইলে ৫০% রাখতে পারেন */
-    }
-    
-    .payment-title {
-        font-size: 15px; /* মোবাইলে শিরোনাম একটু ছোট করে দিলাম */
-    }
-}
-   /* PAYMENT SECTION END */
-/* =====================================
-   FOOTER
-===================================== */
-/* Footer */
-.footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding: 20px 40px;
-  background-color: #111;
-  color: #fff;
-  flex-wrap: nowrap; /* Prevent stacking */
-}
-
-.footer-left,
-.footer-right {
-  flex: 1 1 auto;
-}
-
-/* About Us Text - smaller font for mobile */
-.footer-left h3,
-.footer-left p {
-  font-size: 1rem; /* smaller font */
-  line-height: 1.4;
-}
-
-.footer-right h3,
-.footer-right ul {
-  font-size: 1rem;
-  line-height: 1.4;
-}
-
-.footer-title {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-}
-
-.footer-links,
-.contact-links {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.footer-links li,
-.contact-links li {
-  margin-bottom: 6px;
-}
-
-/* Link Style */
-.footer-links li a,
-.contact-links li {
-  text-decoration: none;
-  font-weight: 500;
-  color: #E6B800; /* deep yellow */
-  transition: transform 0.2s ease, color 0.2s ease;
-}
-
-.footer-links li a:hover {
-  color: #FFD633;
-  transform: scale(1.05);
-}
-
-/* Modal Styling */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 999;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.7);
-}
-
-.modal-content {
-  background-color: #111;
-  color: #fff;
-  margin: 10% auto;
-  padding: 20px;
-  border-radius: 8px;
-  width: 90%;
-  max-width: 500px;
-  position: relative;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-}
-
-.modal-content .close {
-  color: #E6B800;
-  font-size: 28px;
-  font-weight: bold;
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-.modal-content .close:hover {
-  transform: rotate(90deg);
-}
-
-/* Responsive tweaks */
-@media(max-width:768px){
-  .footer {
-    flex-direction: row; /* Keep left-right alignment on mobile */
-    justify-content: space-between;
-    padding: 15px 20px;
+  if (!isLoggedIn) {
+    // Not logged in → redirect to login
+    window.location.href = 'login.html';
+  } else {
+    userSection.style.display = 'inline';
+    loginLink.style.display = 'none';
+    signupLink.style.display = 'none';
+    document.getElementById('userEmail').textContent = userEmail;
   }
 
-  .footer-left, .footer-right {
-    flex: 1 1 48%; /* almost half-half */
+  // Logout
+  document.getElementById('logoutBtn').addEventListener('click', () => {
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('userEmail');
+    window.location.href = 'login.html';
+  });
+});
+</script>
+<!-- =========================
+    HEADER END
+========================= -->
+<!-- =========================
+    DROPDOWN MENU START
+========================= -->
+<div id="dropdown-menu" class="dropdown-menu">
+    <a href="jhandimunda.html"><i class="fas fa-gamepad"></i> Jhandi Munda</a>
+    <a href="teenpatti.html"><i class="fas fa-star"></i> Teen Patti</a>
+    <a href="refer.html"><i class="fas fa-users"></i> Refer & Earn</a>
+    <a href="rewards.html"><i class="fas fa-gift"></i> Cash Back & Rewards</a>
+    <a href="#"><i class="fas fa-headset"></i> Support</a>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const menuBtn = document.getElementById('menu-toggle');
+    const dropdownMenu = document.getElementById('dropdown-menu');
+
+    if(menuBtn && dropdownMenu){
+        menuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dropdownMenu.classList.toggle('active');
+        });
+
+        document.addEventListener('click', () => {
+            dropdownMenu.classList.remove('active');
+        });
+    }
+});
+</script>
+<!-- =========================
+    DROPDOWN MENU END
+========================= -->
+
+<!-- =========================
+    HERO SECTION START
+========================= -->
+<section class="hero-section">
+    <div class="hero-slider">
+        <div class="hero-slide active">
+            <img src="image/banner.png" alt="SAFIKI Gaming Banner" class="hero-image">
+        </div>
+    </div>
+</section>
+<!-- =========================
+    HERO SECTION END
+========================= -->
+<!-- =========================
+    PROMOTION SECTION START
+========================= -->
+<section class="promotion-section">
+    <h2 class="promotion-title">🎁 Special Offers</h2>
+    <div class="promotion-slider">
+        <div class="promotion-slide active"><img src="image/daily.png" alt="Daily Reward"></div>
+        <div class="promotion-slide"><img src="image/weekly.png" alt="Weekly Reward"></div>
+        <div class="promotion-slide"><img src="image/monthly.png" alt="Monthly Reward"></div>
+        <div class="promotion-slide"><img src="image/viprewards.png" alt="VIP Rewards"></div>
+    </div>
+    <div class="slider-dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const promotionSlider = document.querySelector('.promotion-slider');
+    const promotionSlides = document.querySelectorAll('.promotion-slide');
+    const dots = document.querySelectorAll('.dot');
+
+    if(promotionSlider && promotionSlides.length){
+        let currentIndex = 0;
+
+        function updateDots(index){
+            dots.forEach(dot => dot.classList.remove('active'));
+            if(dots[index]) dots[index].classList.add('active');
+        }
+
+        updateDots(0);
+
+        setInterval(() => {
+            currentIndex++;
+            if(currentIndex >= promotionSlides.length) currentIndex = 0;
+            const slideWidth = promotionSlides[0].offsetWidth + 10;
+            promotionSlider.scrollTo({left: currentIndex * slideWidth, behavior: 'smooth'});
+            updateDots(currentIndex);
+        }, 3000);
+    }
+});
+</script>
+<!-- =========================
+    PROMOTION SECTION END
+========================= -->
+<!-- =========================
+    GAME CATEGORIES START
+========================= -->
+<section class="game-categories">
+    <div class="category-item">
+        <img src="image/jhandi.png" alt="Jhandi Munda">
+        <span>Jhandi Munda</span>
+    </div>
+    <div class="category-item">
+        <img src="image/teenpatti.png" alt="Teen Patti">
+        <span>Teen Patti</span>
+    </div>
+    <div class="category-item">
+        <img src="image/dice.png" alt="Dice">
+        <span>Dice</span>
+    </div>
+    <div class="category-item">
+        <img src="image/more.png" alt="More Games">
+        <span>More Games</span>
+    </div>
+</section>
+<!-- =========================
+    GAME CATEGORIES END
+========================= -->
+
+<!-- =========================
+    MAIN GAMES START
+========================= -->
+<section class="main-games-section">
+    <div class="game-card">
+        <img src="image/jhandimain.png" alt="Jhandi Munda Main">
+        <div class="game-title">Jhandi Munda</div>
+    </div>
+    <div class="game-card">
+        <img src="image/teenpattimain.png" alt="Teen Patti Main">
+        <div class="game-title">Teen Patti</div>
+    </div>
+</section>
+<!-- =========================
+    MAIN GAMES END
+========================= -->
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const categories = document.querySelectorAll('.category-item');
+
+    categories.forEach(item => {
+        item.addEventListener('click', () => {
+            categories.forEach(cat => cat.style.opacity = '1');
+            item.style.opacity = '0.7';
+            console.log('Selected Category: ' + item.innerText);
+        });
+    });
+
+    const gameButtons = document.querySelectorAll('.glow-btn');
+    gameButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            console.log('Opening Game: ' + btn.innerText);
+        });
+    });
+});
+</script>
+<!-- =========================
+    MAIN GAMES script  END
+========================= -->
+<!-- =========================
+    RECENT WINNERS START
+========================= -->
+<section class="winner-section">
+    <h2 class="winner-title">
+        <span class="live-dot"></span>
+        LIVE WINNERS
+    </h2>
+    <div class="winner-box">
+        <div class="winner-track">
+            <div class="winner-item">🎲 Player***123 won ৳2,500</div>
+            <div class="winner-item">🃏 Player***789 won ৳5,000</div>
+            <div class="winner-item">🎲 Player***456 won ৳1,200</div>
+        </div>
+    </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const winnerTrack = document.querySelector('.winner-track');
+    if (winnerTrack) {
+        let scrollAmount = 0;
+        setInterval(() => {
+            scrollAmount += 1;
+            if (scrollAmount >= winnerTrack.scrollWidth) scrollAmount = 0;
+            winnerTrack.scrollTo({left: scrollAmount, behavior: 'smooth'});
+        }, 50);
+    }
+});
+</script>
+<!-- =========================
+    RECENT WINNERS END
+========================= -->
+<!-- =========================
+    FOOTER START
+========================= -->
+<footer class="bottom-nav">
+    <a href="index.html" class="footer-btn">
+        <i class="fas fa-house footer-icon"></i>
+        <span>Home</span>
+    </a>
+    <a href="games.html" class="footer-btn center-btn">
+        <i class="fas fa-gamepad footer-icon"></i>
+        <span>Games</span>
+    </a>
+    <a href="profile.html" class="footer-btn">
+        <i class="fas fa-user footer-icon"></i>
+        <span>Profile</span>
+    </a>
+</footer>
+
+<footer class="footer">
+  <div class="footer-left">
+    <h3 class="footer-title">About Us</h3>
+    <ul class="footer-links">
+      <li><a href="#" id="terms-btn">Terms & Conditions</a></li>
+      <li><a href="#" id="privacy-btn">Privacy Policy</a></li>
+      <li><a href="#" id="fair-btn">Probably Fair</a></li>
+      <li><a href="#" id="responsible-btn">Responsible Gambling</a></li>
+    </ul>
+  </div>
+  <div class="footer-right">
+    <h3 class="footer-title">Contact</h3>
+    <ul class="contact-links">
+      <li>Email: support@safiki.com</li>
+      <li>Email: help@safiki.com</li>
+    </ul>
+  </div>
+</footer>
+
+<!-- =========================
+    MODALS START
+========================= -->
+<div class="modal" id="terms-modal">
+  <div class="modal-content">
+    <span class="close" data-modal="terms-modal">&times;</span>
+    <h2>Terms & Conditions</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac venenatis urna.</p>
+  </div>
+</div>
+
+<div class="modal" id="privacy-modal">
+  <div class="modal-content">
+    <span class="close" data-modal="privacy-modal">&times;</span>
+    <h2>Privacy Policy</h2>
+    <p>We respect your privacy. All personal data will be handled according to applicable laws.</p>
+  </div>
+</div>
+
+<div class="modal" id="fair-modal">
+  <div class="modal-content">
+    <span class="close" data-modal="fair-modal">&times;</span>
+    <h2>Probably Fair</h2>
+    <p>All games offered are tested for fairness and transparency according to industry standards.</p>
+  </div>
+</div>
+
+<div class="modal" id="responsible-modal">
+  <div class="modal-content">
+    <span class="close" data-modal="responsible-modal">&times;</span>
+    <h2>Responsible Gambling</h2>
+    <p>We encourage responsible play. Please play within your limits and seek help if needed.</p>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const modalMap = {
+    "terms-btn": "terms-modal",
+    "privacy-btn": "privacy-modal",
+    "fair-btn": "fair-modal",
+    "responsible-btn": "responsible-modal"
+  };
+
+  for (let btnId in modalMap) {
+    const btn = document.getElementById(btnId);
+    const modal = document.getElementById(modalMap[btnId]);
+    if(btn && modal){
+      btn.onclick = function(e){
+        e.preventDefault();
+        modal.style.display = "block";
+      };
+    }
   }
 
-  /* Make text smaller for very small screens */
-  .footer-left h3,
-  .footer-left p,
-  .footer-right h3,
-  .footer-right ul {
-    font-size: 0.9rem;
-  }
-}
+  document.querySelectorAll(".close").forEach(btn => {
+    btn.onclick = function(){
+      const modal = document.getElementById(this.getAttribute("data-modal"));
+      if(modal) modal.style.display = "none";
+    };
+  });
 
-/* =====================================
-   BOTTOM NAV / FOOTER BUTTONS
-===================================== */
-.bottom-nav {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 70px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background: #121212;
-    border-top: 1px solid rgba(255,255,255,0.08);
-    z-index: 999;
-}
-.footer-btn {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    color: #bdbdbd;
-    font-size: 11px;
-    font-weight: 600;
-    gap: 4px;
-    transition: all 0.3s ease;
-}
-.footer-icon {
-    font-size: 22px;
-    color: #fff;
-}
-.center-btn {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    background: #121212;
-    position: relative;
-    top: -18px;
-    border: 2px solid rgba(57,255,20,0.35);
-    box-shadow: 0 0 12px rgba(57,255,20,0.25);
-}
-.center-btn .footer-icon {
-    color: #39FF14;
-    font-size: 24px;
-}
-.center-btn span {
-    color: #fff;
-}
-@media (max-width:768px){
-    .bottom-nav{ height:65px; }
-    .center-btn{ width:65px; height:65px; }
-}
+  window.onclick = function(event){
+    if(event.target.classList.contains("modal")){
+      event.target.style.display = "none";
+    }
+  };
+});
+</script>
+<!-- =========================
+    MODALS END
+========================= -->
 
-/* =====================================
-   MOBILE RESPONSIVE
-===================================== */
-@media (max-width: 768px){
-    .top-nav { padding: 12px 15px; }
-    .logo { font-size: 18px; }
-    .menu-btn, .login-btn { padding: 8px 12px; font-size: 14px; }
-    .hero-section { padding: 10px; }
-    .hero-image { border-radius: 14px; }
-    .game-categories { gap: 5px; padding: 6px; }
-    .games-container { flex-direction: column; align-items: center; }
-}
 
-/* =====================================
-   DESKTOP FIX
-===================================== */
-@media (min-width: 769px){
-    .promotion-slide { height: 180px; }
-    .game-card img { height: 220px; object-fit: cover; }
-}
