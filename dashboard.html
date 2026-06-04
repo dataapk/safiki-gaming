@@ -16,34 +16,21 @@
  <!-- =========================
     HEADER VSTART
 ========================= -->
-
-<header class="top-nav">
+<div class="header-after-login" style="display:none;">
   <div class="header-left">
-    <button id="menu-toggle" class="menu-btn">☰</button>
-    <div class="logo">SAFIKI</div>
+    <button id="menu-toggle" class="menu-btn" type="button">☰</button>
   </div>
 
   <div class="header-actions">
-    <!-- Balance -->
-    <button id="balanceBtn" class="header-btn balance-btn">
-      <i class="fas fa-wallet"></i> $50.70
-    </button>
-
-    <!-- Notification -->
-    <button class="header-btn notif-btn">
-      <i class="fas fa-bell"></i>
-    </button>
-
-    <!-- Profile -->
-    <div class="profile-wrapper">
-      <img src="image/default-avatar.png" alt="Profile" id="profileAvatar" class="profile-avatar">
-      <input type="file" id="profileUpload" accept="image/*" style="display:none;">
+    <button class="balance-btn" id="balanceBtn">Balance: $50</button>
+    <div class="balance-dropdown" id="balanceDropdown" style="display:none;">
+      <div class="balance-section">Deposit</div>
+      <div class="balance-section">Withdraw</div>
     </div>
-
-    <!-- Logout -->
-    <button id="logoutBtn" class="header-btn">Logout</button>
+    <img src="image/default-avatar.png" alt="Profile" class="profile-avatar" id="profileAvatar">
+    <input type="file" id="profileUpload" style="display:none;">
   </div>
-</header>
+</div>
     <!-- =========================
     HEADER END
 ========================= -->
