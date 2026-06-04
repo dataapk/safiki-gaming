@@ -82,6 +82,10 @@
 <script>
 document.addEventListener('DOMContentLoaded', () => {
 
+    /* =========================
+       LOGIN CHECK
+    ========================= */
+
     const isLoggedIn =
         localStorage.getItem('isLoggedIn');
 
@@ -95,100 +99,137 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* =========================
-       BALANCE DROPDOWN
+       ELEMENTS
     ========================= */
 
     const balanceBtn =
-        document.getElementById(
-            'balanceBtn'
-        );
+        document.getElementById('balanceBtn');
 
     const balanceDropdown =
-        document.getElementById(
-            'balanceDropdown'
-        );
+        document.getElementById('balanceDropdown');
 
-    if(balanceBtn){
+    const notificationBtn =
+        document.getElementById('notificationBtn');
 
-        balanceBtn.addEventListener(
-            'click',
-            (e)=>{
+    const notificationMenu =
+        document.getElementById('notificationMenu');
 
-                e.stopPropagation();
+    const profileAvatar =
+        document.getElementById('profileAvatar');
 
-                balanceDropdown.style.display =
-                    balanceDropdown.style.display === 'block'
-                    ? 'none'
-                    : 'block';
+    const profileMenu =
+        document.getElementById('profileMenu');
 
-            }
-        );
+    const profileUpload =
+        document.getElementById('profileUpload');
+
+    const logoutBtn =
+        document.getElementById('logoutBtn');
+
+    /* =========================
+       WALLET DROPDOWN
+    ========================= */
+
+    if (balanceBtn && balanceDropdown) {
+
+        balanceBtn.addEventListener('click', (e) => {
+
+            e.stopPropagation();
+
+            balanceDropdown.style.display =
+                balanceDropdown.style.display === 'block'
+                ? 'none'
+                : 'block';
+
+            if(notificationMenu)
+                notificationMenu.style.display = 'none';
+
+            if(profileMenu)
+                profileMenu.style.display = 'none';
+
+        });
 
     }
 
-    document.addEventListener(
-        'click',
-        ()=>{
+    /* =========================
+       NOTIFICATION MENU
+    ========================= */
 
-            if(balanceDropdown){
+    if (notificationBtn && notificationMenu) {
 
-                balanceDropdown.style.display =
-                    'none';
+        notificationBtn.addEventListener('click', (e) => {
 
-            }
+            e.stopPropagation();
 
-        }
-    );
+            notificationMenu.style.display =
+                notificationMenu.style.display === 'block'
+                ? 'none'
+                : 'block';
+
+            if(balanceDropdown)
+                balanceDropdown.style.display = 'none';
+
+            if(profileMenu)
+                profileMenu.style.display = 'none';
+
+        });
+
+    }
+
+    /* =========================
+       PROFILE MENU
+    ========================= */
+
+    if (profileAvatar && profileMenu) {
+
+        profileAvatar.addEventListener('click', (e) => {
+
+            e.stopPropagation();
+
+            profileMenu.style.display =
+                profileMenu.style.display === 'block'
+                ? 'none'
+                : 'block';
+
+            if(balanceDropdown)
+                balanceDropdown.style.display = 'none';
+
+            if(notificationMenu)
+                notificationMenu.style.display = 'none';
+
+        });
+
+    }
 
     /* =========================
        PROFILE IMAGE UPLOAD
     ========================= */
 
-    const profileAvatar =
-        document.getElementById(
-            'profileAvatar'
-        );
-
-    const profileUpload =
-        document.getElementById(
-            'profileUpload'
-        );
-
     const savedImage =
-        localStorage.getItem(
-            'profileImage'
-        );
+        localStorage.getItem('profileImage');
 
-    if(savedImage){
+    if (savedImage && profileAvatar) {
 
         profileAvatar.src =
             savedImage;
 
     }
 
-    profileAvatar.addEventListener(
-        'click',
-        ()=>{
+    if (profileAvatar && profileUpload) {
 
-            profileUpload.click();
+        profileUpload.addEventListener(
+            'change',
+            (e) => {
 
-        }
-    );
+                const file =
+                    e.target.files[0];
 
-    profileUpload.addEventListener(
-        'change',
-        (e)=>{
+                if (!file) return;
 
-            const file =
-                e.target.files[0];
+                const reader =
+                    new FileReader();
 
-            if(!file) return;
-
-            const reader =
-                new FileReader();
-
-            reader.onload =
-                function(){
+                reader.onload = () => {
 
                     profileAvatar.src =
                         reader.result;
@@ -200,15 +241,62 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 };
 
-            reader.readAsDataURL(
-                file
+                reader.readAsDataURL(file);
+
+            }
+        );
+
+    }
+
+    /* =========================
+       CLOSE MENUS OUTSIDE CLICK
+    ========================= */
+
+    document.addEventListener('click', () => {
+
+        if(balanceDropdown)
+            balanceDropdown.style.display = 'none';
+
+        if(notificationMenu)
+            notificationMenu.style.display = 'none';
+
+        if(profileMenu)
+            profileMenu.style.display = 'none';
+
+    });
+
+    /* =========================
+       LOGOUT
+    ========================= */
+
+    if (logoutBtn) {
+
+        logoutBtn.addEventListener('click', (e) => {
+
+            e.preventDefault();
+
+            localStorage.removeItem(
+                'isLoggedIn'
             );
 
-        }
-    );
+            localStorage.removeItem(
+                'userEmail'
+            );
+
+            localStorage.removeItem(
+                'profileImage'
+            );
+
+            window.location.href =
+                'https://dataapk.github.io/safiki-gaming';
+
+        });
+
+    }
 
 });
 </script>
+
 
 <!-- =========================
     DROPDOWN MENU
