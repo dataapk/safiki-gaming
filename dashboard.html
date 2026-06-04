@@ -14,24 +14,27 @@
 </head>
 <body>
 
-<!-- =========================
-    HEADER + LOGIN CHECK
-========================= -->
-<header class="top-nav">
-  <div class="header-left">
-    <button id="menu-toggle" class="menu-btn" type="button">☰ Menu</button>
-  </div>
-  <div class="logo">SAFIKI</div>
-  <div class="header-actions">
-    <span id="userSection" style="display:none;">
-      Welcome, <span id="userEmail"></span> |
-      <button id="logoutBtn">Logout</button>
+<div class="header-actions">
+    <!-- Logged-in state -->
+    <span id="userSection" style="display:inline-flex; align-items:center;">
+        <button id="balanceBtn" class="header-btn balance-btn">
+            <i class="fas fa-wallet"></i> Balance: $100
+        </button>
+        <button id="logoutBtn">Logout</button>
     </span>
-    <a href="login.html" class="header-btn login-btn" id="loginLink">Login</a>
-    <a href="register.html" class="header-btn register-btn" id="signupLink">Register</a>
-  </div>
-</header>
+</div>
 
+<!-- Balance Dropdown -->
+<div id="balanceDropdown" class="balance-dropdown" style="display:none;">
+    <div class="balance-section deposit-section">
+        <h4>Deposit</h4>
+        <button class="deposit-btn">Add Funds</button>
+    </div>
+    <div class="balance-section withdraw-section">
+        <h4>Withdraw</h4>
+        <button class="withdraw-btn">Withdraw Funds</button>
+    </div>
+</div>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const userEmail = localStorage.getItem('userEmail');
