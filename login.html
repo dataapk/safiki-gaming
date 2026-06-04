@@ -89,10 +89,14 @@ document.getElementById('loginForm').addEventListener('submit', function(e){
     e.preventDefault();
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
+
     if(username && password){
-        alert('Login successful (frontend simulation)');
         localStorage.setItem('userEmail', username);
         localStorage.setItem('isLoggedIn','true');
+        alert('Login successful (frontend simulation)');
+
+        // ✅ এই লাইনটি বসাতে হবে
+        window.location.href = 'dashboard.html';
     } else {
         alert('Please fill all fields');
     }
