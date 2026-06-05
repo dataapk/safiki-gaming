@@ -113,34 +113,176 @@ function savePlayerSettings(){
 // ==========================
 
 // ==========================
-//Admin Actions: START
+// ADMIN ACTIONS ENGINE
 // ==========================
+
 function addBalance(){
 
-    alert("Add Balance System");
+    openAdminModal(
+        "Add Balance",
+
+        `
+        <input
+            type="text"
+            id="balanceUserId"
+            placeholder="User ID">
+
+        <input
+            type="number"
+            id="balanceAmount"
+            placeholder="Amount">
+
+        <button onclick="confirmAddBalance()">
+            Add Balance
+        </button>
+        `
+    );
+
+}
+
+function confirmAddBalance(){
+
+    let userId =
+        document.getElementById("balanceUserId").value;
+
+    let amount =
+        document.getElementById("balanceAmount").value;
+
+    alert(
+        "Balance Added\nUser: " +
+        userId +
+        "\nAmount: " +
+        amount
+    );
+
+    closeAdminModal();
 
 }
 
 function deductBalance(){
 
-    alert("Deduct Balance System");
+    openAdminModal(
+        "Deduct Balance",
+
+        `
+        <input
+            type="text"
+            id="deductUserId"
+            placeholder="User ID">
+
+        <input
+            type="number"
+            id="deductAmount"
+            placeholder="Amount">
+
+        <button onclick="confirmDeductBalance()">
+            Deduct Balance
+        </button>
+        `
+    );
+
+}
+
+function confirmDeductBalance(){
+
+    let userId =
+        document.getElementById("deductUserId").value;
+
+    let amount =
+        document.getElementById("deductAmount").value;
+
+    alert(
+        "Balance Deducted\nUser: " +
+        userId +
+        "\nAmount: " +
+        amount
+    );
+
+    closeAdminModal();
 
 }
 
 function suspendUser(){
 
-    alert("User Suspended");
+    openAdminModal(
+        "Suspend User",
+
+        `
+        <input
+            type="text"
+            id="suspendUserId"
+            placeholder="User ID">
+
+        <select id="suspendDuration">
+            <option>24 Hours</option>
+            <option>7 Days</option>
+            <option>30 Days</option>
+            <option>Permanent</option>
+        </select>
+
+        <button onclick="confirmSuspendUser()">
+            Suspend User
+        </button>
+        `
+    );
+
+}
+
+function confirmSuspendUser(){
+
+    let userId =
+        document.getElementById("suspendUserId").value;
+
+    let duration =
+        document.getElementById("suspendDuration").value;
+
+    alert(
+        "User Suspended\nUser: " +
+        userId +
+        "\nDuration: " +
+        duration
+    );
+
+    closeAdminModal();
 
 }
 
 function deleteUser(){
 
+    openAdminModal(
+        "Delete User",
+
+        `
+        <input
+            type="text"
+            id="deleteUserId"
+            placeholder="User ID">
+
+        <button onclick="confirmDeleteUser()">
+            Permanently Delete
+        </button>
+        `
+    );
+
+}
+
+function confirmDeleteUser(){
+
+    let userId =
+        document.getElementById("deleteUserId").value;
+
     let confirmDelete =
-        confirm("Delete User?");
+        confirm(
+            "Delete User ID: " + userId + " ?"
+        );
 
     if(confirmDelete){
 
-        alert("User Deleted");
+        alert(
+            "User Deleted: " + userId
+        );
+
+        closeAdminModal();
 
     }
 
