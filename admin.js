@@ -373,24 +373,18 @@ function openModal(action, userId = null){
 
 }
 
-function closeAdminModal(){
-
-    document.getElementById("adminModal")
-        .style.display = "none";
-
-}
-function toggleUserDetails() {
+function toggleUserProfile() {
 
     const panel =
         document.getElementById(
             "userDetailsPanel"
         );
 
-    if(panel.style.display === "block"){
+    if(panel.style.display === "block") {
 
         panel.style.display = "none";
 
-    }else{
+    } else {
 
         panel.style.display = "block";
 
