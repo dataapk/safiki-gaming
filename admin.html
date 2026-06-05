@@ -270,8 +270,56 @@
 <!-- =================================== -->
 <!-- USER DATA SECTION END -->
 <!-- =================================== -->
-    
     <!-- =================================== -->
+<!-- USER PROFILE START -->
+<!-- =================================== -->
+
+<div class="user-profile-grid">
+
+    <!-- BASIC INFORMATION -->
+
+    <div class="profile-card">
+
+        <h3>Basic Information</h3>
+
+        <p><strong>User ID:</strong> 1001</p>
+
+        <p><strong>Username:</strong> Player One</p>
+
+        <p><strong>Email:</strong> player@gmail.com</p>
+
+        <p><strong>Phone:</strong> +8801XXXXXXX</p>
+
+        <p><strong>Status:</strong> Active</p>
+
+    </div>
+
+    <!-- WALLET INFORMATION -->
+
+    <div class="profile-card">
+
+        <h3>Wallet Information</h3>
+
+        <p><strong>Main Balance:</strong> $50</p>
+
+        <p><strong>Bonus Balance:</strong> $10</p>
+
+        <p><strong>Reward Balance:</strong> $5</p>
+
+        <p><strong>Total Deposit:</strong> $500</p>
+
+        <p><strong>Total Withdraw:</strong> $250</p>
+
+    </div>
+
+</div>
+
+<!-- =================================== -->
+<!-- USER PROFILE END -->
+<!-- =================================== -->
+    
+    
+<!-- =================================== -->
 <!-- GAMES SECTION START -->
 <!-- =================================== -->
 
@@ -281,12 +329,49 @@
 
     <h2>Games</h2>
 
+    <table>
+
+        <thead>
+
+            <tr>
+                <th>Game ID</th>
+                <th>Game Name</th>
+                <th>RTP</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr>
+
+                <td>G1001</td>
+
+                <td>Jhandi Munda</td>
+
+                <td>95%</td>
+
+                <td>Active</td>
+
+                <td>
+                    <button>Edit</button>
+                </td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
 </div>
 
 <!-- =================================== -->
 <!-- GAMES SECTION END -->
 <!-- =================================== -->
-    <!-- =================================== -->
+    
+<!-- =================================== -->
 <!-- FINANCE SECTION START -->
 <!-- =================================== -->
 
@@ -296,12 +381,74 @@
 
     <h2>Finance</h2>
 
+    <div class="finance-summary">
+
+        <div class="stat-card">
+            <h3>Total Deposit</h3>
+            <span>$15,000</span>
+        </div>
+
+        <div class="stat-card">
+            <h3>Total Withdraw</h3>
+            <span>$8,500</span>
+        </div>
+
+        <div class="stat-card">
+            <h3>Pending Deposit</h3>
+            <span>12</span>
+        </div>
+
+        <div class="stat-card">
+            <h3>Pending Withdraw</h3>
+            <span>8</span>
+        </div>
+
+    </div>
+
+    <br>
+
+    <table>
+
+        <thead>
+
+            <tr>
+                <th>User ID</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Amount</th>
+                <th>Status</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr>
+                <td>1001</td>
+                <td>Player One</td>
+                <td>Deposit</td>
+                <td>$100</td>
+                <td>Pending</td>
+            </tr>
+
+            <tr>
+                <td>1002</td>
+                <td>Player Two</td>
+                <td>Withdraw</td>
+                <td>$50</td>
+                <td>Pending</td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
 </div>
 
 <!-- =================================== -->
 <!-- FINANCE SECTION END -->
 <!-- =================================== -->
-    <!-- =================================== -->
+ <!-- =================================== -->
 <!-- SETTINGS SECTION START -->
 <!-- =================================== -->
 
@@ -311,12 +458,91 @@
 
     <h2>Settings</h2>
 
+    <!-- FRONTEND SETTINGS -->
+
+    <div class="stat-card">
+
+        <h3>Frontend Settings</h3>
+
+        <p>Website Name</p>
+        <input type="text" placeholder="SAFIKI">
+
+        <p>Website URL</p>
+        <input type="text" placeholder="https://yoursite.com">
+
+        <button>Save Frontend Settings</button>
+
+    </div>
+
+    <br>
+
+    <!-- BACKEND SETTINGS -->
+
+    <div class="stat-card">
+
+        <h3>Backend Settings</h3>
+
+        <p>Node.js Configuration</p>
+
+        <button>Open Node.js Settings</button>
+
+        <br><br>
+
+        <p>Supabase Configuration</p>
+
+        <button>Open Supabase Settings</button>
+
+        <br><br>
+
+        <button>+ Add New Backend Service</button>
+
+    </div>
+
+    <br>
+
+    <!-- CURRENCY SETTINGS -->
+
+    <div class="stat-card">
+
+        <h3>Currency Settings</h3>
+
+        <p>Default Currency</p>
+
+        <select>
+
+            <option>USD</option>
+            <option>BDT</option>
+            <option>INR</option>
+
+        </select>
+
+        <button>Save Currency</button>
+
+    </div>
+
+    <br>
+
+    <!-- GAME CONFIG -->
+
+    <div class="stat-card">
+
+        <h3>Game Configuration</h3>
+
+        <p>Default RTP (%)</p>
+
+        <input type="number" placeholder="95">
+
+        <button>Save RTP</button>
+
+    </div>
+
 </div>
 
 <!-- =================================== -->
 <!-- SETTINGS SECTION END -->
 <!-- =================================== -->
-    <!-- =================================== -->
+    
+<!-- =================================== -->
 <!-- GLOBAL NOTIFICATION SECTION START -->
 <!-- =================================== -->
 
@@ -326,12 +552,64 @@
 
     <h2>Global Notification</h2>
 
+    <div class="stat-card">
+
+        <h3>Send Notification To All Users</h3>
+
+        <input
+            type="text"
+            id="notifTitle"
+            placeholder="Notification Title">
+
+        <textarea
+            id="notifMessage"
+            placeholder="Write notification message">
+        </textarea>
+
+        <button onclick="sendNotification()">
+            Send Notification
+        </button>
+
+    </div>
+
+    <br>
+
+    <div class="stat-card">
+
+        <h3>Recent Notifications</h3>
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>Date</th>
+                    <th>Title</th>
+                    <th>Status</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>2026-06-05</td>
+                    <td>Welcome Bonus Activated</td>
+                    <td>Sent</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
 </div>
 
 <!-- =================================== -->
 <!-- GLOBAL NOTIFICATION SECTION END -->
 <!-- =================================== -->
-    <!-- =================================== -->
+<!-- =================================== -->
 <!-- SECURITY SECTION START -->
 <!-- =================================== -->
 
@@ -341,11 +619,104 @@
 
     <h2>Security</h2>
 
+    <!-- SECURITY OVERVIEW -->
+
+    <div class="finance-summary">
+
+        <div class="stat-card">
+            <h3>Active Users</h3>
+            <span>120</span>
+        </div>
+
+        <div class="stat-card">
+            <h3>Blocked Users</h3>
+            <span>5</span>
+        </div>
+
+        <div class="stat-card">
+            <h3>Suspended Users</h3>
+            <span>3</span>
+        </div>
+
+        <div class="stat-card">
+            <h3>Today Logins</h3>
+            <span>85</span>
+        </div>
+
+    </div>
+
+    <br>
+
+    <!-- LOGIN HISTORY -->
+
+    <h3>Recent Login Activity</h3>
+
+    <table>
+
+        <thead>
+
+            <tr>
+                <th>User ID</th>
+                <th>Username</th>
+                <th>IP Address</th>
+                <th>Device</th>
+                <th>Login Time</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr>
+                <td>1001</td>
+                <td>Player One</td>
+                <td>127.0.0.1</td>
+                <td>Android</td>
+                <td>Today</td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+    <br>
+
+    <!-- ADMIN LOGS -->
+
+    <h3>Admin Activity Logs</h3>
+
+    <table>
+
+        <thead>
+
+            <tr>
+                <th>Date</th>
+                <th>Admin</th>
+                <th>Action</th>
+                <th>Details</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr>
+                <td>2026-06-05</td>
+                <td>Super Admin</td>
+                <td>User Balance Added</td>
+                <td>$50 added to User #1001</td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
 </div>
 
 <!-- =================================== -->
 <!-- SECURITY SECTION END -->
 <!-- =================================== -->
+    
     <!-- =================================== -->
 <!-- MAIN CONTENT END -->
 <!-- =================================== -->
