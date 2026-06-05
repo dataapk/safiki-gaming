@@ -276,23 +276,29 @@
 
 <div id="userDetailsPanel" style="display:none;">
 
+    <div class="profile-card">
 
-<div class="profile-card">
+        <!-- HEADER -->
+        <div style="display:flex;justify-content:space-between;align-items:center;">
 
-    <div style="display:flex;justify-content:space-between;align-items:center;">
+            <h3>User Control Panel</h3>
 
-        <h3>User Control Panel</h3>
+            <!-- FIXED: same function used for toggle -->
+            <button onclick="toggleUserProfile()">✕</button>
 
-        <button onclick="toggleUserDetails()">✕</button>
+        </div>
+
+        <hr>
+
+        <!-- USER INFO -->
+        <p><strong>User ID:</strong> 1001</p>
+        <p><strong>Username:</strong> Player One</p>
+        <p><strong>Email:</strong> player@gmail.com</p>
+        <p><strong>Status:</strong> Active</p>
 
     </div>
 
-    <p><strong>User ID:</strong> 1001</p>
-    <p><strong>Username:</strong> Player One</p>
-    <p><strong>Email:</strong> player@gmail.com</p>
-    <p><strong>Status:</strong> Active</p>
-
-    <hr>
+</div>
 
     <!-- ACTION BUTTONS -->
 
