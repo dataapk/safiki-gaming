@@ -1,12 +1,12 @@
 /* ============================= */
-/* BASE UI */
+/* GLOBAL BACKGROUND FIX (EXTRA CLEAN LAYER) */
 /* ============================= */
 
 body {
+    background: #eef2ff;
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #eef2ff;
-    color: #111827;
+    overflow-x: hidden;
 }
 
 /* ============================= */
@@ -83,32 +83,121 @@ body {
 }
 
 /* ============================= */
-/* MAIN CONTENT (SEPARATED CLEAN PANEL) */
+/* MAIN CONTENT - SEPARATED DEEP PANEL EFFECT */
 /* ============================= */
 
 .main-content {
     margin-left: 220px;
     padding: 24px;
     background: #eef2ff;
-    border-radius: 18px 0 0 18px;
+}
+
+/* INNER WHITE DASHBOARD SHELL (IMPORTANT NEW LAYER) */
+.dashboard-shell {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 18px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    margin-bottom: 20px;
 }
 
 /* ============================= */
-/* ADMIN SECTIONS */
+/* DASHBOARD HEADER (PURPLE STRIP) */
+/* ============================= */
+
+.admin-header h2 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 14px;
+    position: relative;
+    display: inline-block;
+}
+
+/* purple underline */
+.admin-header h2::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 4px;
+    background: #a855f7;
+    border-radius: 4px;
+}
+
+/* ============================= */
+/* STATS GRID FIX (SIDE BY SIDE CLEAN) */
+/* ============================= */
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+}
+
+/* ============================= */
+/* USER PROFILE BLOCKS (NEW STRUCTURE) */
+/* ============================= */
+
+.user-profile-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-top: 10px;
+}
+
+/* each info card */
+.profile-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 14px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    transition: 0.25s ease;
+    border: 1px solid rgba(168,85,247,0.08);
+}
+
+.profile-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.10);
+}
+
+/* ============================= */
+/* FINANCE GRID (SIDE BY SIDE SMALL BOXES) */
+/* ============================= */
+
+.finance-summary {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+/* ============================= */
+/* SECTION SEPARATION FIX (WHITE BLOCK FLOATING) */
 /* ============================= */
 
 .admin-section {
     background: #ffffff;
     padding: 18px;
-    margin: 14px 10px;
-    border-radius: 14px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+    margin: 14px 0;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
     transition: 0.25s ease;
 }
 
-.admin-section:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.10);
+/* ============================= */
+/* REMOVE OVERLAY CROWDING EFFECT */
+/* ============================= */
+
+.main-content > .admin-section {
+    margin-top: 14px;
+}
+
+/* ============================= */
+/* CLEAN SPACING BETWEEN BLOCKS */
+/* ============================= */
+
+.admin-section + .admin-section {
+    margin-top: 18px;
 }
 
 /* ============================= */
