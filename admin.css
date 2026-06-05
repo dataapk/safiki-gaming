@@ -136,30 +136,45 @@ body {
 }
 
 /* ============================= */
-/* USER PROFILE BLOCKS (NEW STRUCTURE) */
+/* USER PROFILE DASHBOARD GRID (FINAL FIX) */
 /* ============================= */
 
 .user-profile-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
     margin-top: 10px;
 }
 
-/* each info card */
+/* each box behaves like dashboard stat card */
 .profile-card {
     background: #ffffff;
-    border-radius: 12px;
-    padding: 14px;
+    border-radius: 14px;
+    padding: 16px;
     box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-    transition: 0.25s ease;
     border: 1px solid rgba(168,85,247,0.08);
+    transition: 0.25s ease;
+    position: relative;
 }
 
+/* hover lift effect */
 .profile-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.10);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.10);
 }
+
+/* optional purple accent strip */
+.profile-card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 12px;
+    width: 4px;
+    height: 70%;
+    background: #a855f7;
+    border-radius: 4px;
+}
+/* USER PROFILE DASHBOARD END) */
 
 /* ============================= */
 /* FINANCE GRID (SIDE BY SIDE SMALL BOXES) */
