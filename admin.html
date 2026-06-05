@@ -296,161 +296,203 @@
 
     <!-- ACTION BUTTONS -->
 
-    <button>Add Balance</button>
+<div class="action-buttons">
+
+    <button onclick="toggleActionPanel('addBalancePanel')">
+        Add Balance
+    </button>
+
+    <button onclick="toggleActionPanel('deductBalancePanel')">
+        Deduct Balance
+    </button>
+
+    <button onclick="toggleActionPanel('rtpPanel')">
+        RTP Settings
+    </button>
+
+    <button onclick="toggleActionPanel('playerControlPanel')">
+        Player Control
+    </button>
+
+    <button onclick="toggleActionPanel('rewardPanel')">
+        Send Reward
+    </button>
+
+    <button onclick="toggleActionPanel('notificationPanel')">
+        Send Notification
+    </button>
+
+    <button onclick="toggleActionPanel('suspendPanel')">
+        Suspend User
+    </button>
+
+    <button onclick="toggleActionPanel('deletePanel')">
+        Delete User
+    </button>
+
+</div>
+
+<hr>
+
+<!-- ========================= -->
+<!-- ADD BALANCE PANEL -->
+<!-- ========================= -->
+
+<div id="addBalancePanel"
+     class="action-panel"
+     style="display:none;">
+
+    <h4>Add Balance</h4>
+
+    <input type="number"
+           placeholder="Amount">
+
+    <select>
+
+        <option>Main Balance</option>
+        <option>Bonus Balance</option>
+        <option>Reward Balance</option>
+        <option>Gift Balance</option>
+
+    </select>
+
+    <input type="text"
+           placeholder="Note / Reason">
+
+    <button>Send Balance</button>
+
+</div>
+
+<!-- ========================= -->
+<!-- DEDUCT BALANCE PANEL -->
+<!-- ========================= -->
+
+<div id="deductBalancePanel"
+     class="action-panel"
+     style="display:none;">
+
+    <h4>Deduct Balance</h4>
+
+    <input type="number"
+           placeholder="Amount">
+
+    <input type="text"
+           placeholder="Reason">
 
     <button>Deduct Balance</button>
 
-    <button>RTP Settings</button>
+</div>
 
-    <button>Player Control</button>
+<!-- ========================= -->
+<!-- RTP PANEL -->
+<!-- ========================= -->
+
+<div id="rtpPanel"
+     class="action-panel"
+     style="display:none;">
+
+    <h4>RTP Settings</h4>
+
+    <input type="number"
+           placeholder="RTP %">
+
+    <button>Save RTP</button>
+
+</div>
+
+<!-- ========================= -->
+<!-- PLAYER CONTROL -->
+<!-- ========================= -->
+
+<div id="playerControlPanel"
+     class="action-panel"
+     style="display:none;">
+
+    <h4>Player Control</h4>
+
+    <p>Coming Next Step</p>
+
+</div>
+
+<!-- ========================= -->
+<!-- REWARD PANEL -->
+<!-- ========================= -->
+
+<div id="rewardPanel"
+     class="action-panel"
+     style="display:none;">
+
+    <h4>Send Reward</h4>
+
+    <input type="number"
+           placeholder="Amount">
+
+    <input type="text"
+           placeholder="Reason">
 
     <button>Send Reward</button>
 
+</div>
+
+<!-- ========================= -->
+<!-- NOTIFICATION PANEL -->
+<!-- ========================= -->
+
+<div id="notificationPanel"
+     class="action-panel"
+     style="display:none;">
+
+    <h4>Send Notification</h4>
+
+    <input type="text"
+           placeholder="Title">
+
+    <textarea placeholder="Message"></textarea>
+
     <button>Send Notification</button>
+
+</div>
+
+<!-- ========================= -->
+<!-- SUSPEND PANEL -->
+<!-- ========================= -->
+
+<div id="suspendPanel"
+     class="action-panel"
+     style="display:none;">
+
+    <h4>Suspend User</h4>
+
+    <select>
+
+        <option>24 Hours</option>
+        <option>7 Days</option>
+        <option>30 Days</option>
+        <option>Permanent</option>
+
+    </select>
+
+    <input type="text"
+           placeholder="Reason">
 
     <button>Suspend User</button>
 
-    <button>Delete User</button>
-
-    <hr>
-
-    <!-- ADD BALANCE SECTION -->
-
-    <div>
-
-        <h4>Add Balance</h4>
-
-        <input type="number" placeholder="Amount">
-
-        <select>
-
-            <option>Main Balance</option>
-
-            <option>Bonus Balance</option>
-
-            <option>Reward Balance</option>
-
-            <option>Gift Balance</option>
-
-        </select>
-
-        <input type="text" placeholder="Note / Reason">
-
-        <button>Send Balance</button>
-
-    </div>
-
-    <hr>
-
-    <!-- DEDUCT BALANCE SECTION -->
-
-    <div>
-
-        <h4>Deduct Balance</h4>
-
-        <input type="number" placeholder="Amount">
-
-        <select>
-
-            <option>Main Balance</option>
-
-            <option>Bonus Balance</option>
-
-            <option>Reward Balance</option>
-
-            <option>Gift Balance</option>
-
-        </select>
-
-        <input type="text" placeholder="Reason">
-
-        <button>Deduct Balance</button>
-
-    </div>
-
-    <hr>
-
-    <!-- RTP SETTINGS -->
-
-    <div>
-
-        <h4>RTP Settings</h4>
-
-        <input type="number" placeholder="Enter RTP %">
-
-        <button>Save RTP</button>
-
-    </div>
-
-    <hr>
-
-    <!-- PLAYER CONTROL -->
-
-    <div>
-
-        <h4>Player Control</h4>
-
-        <p>Player Control Options Coming Next Step</p>
-
-    </div>
-
-    <hr>
-
-    <!-- SEND NOTIFICATION -->
-
-    <div>
-
-        <h4>Send Notification</h4>
-
-        <input type="text" placeholder="Notification Title">
-
-        <textarea placeholder="Notification Message"></textarea>
-
-        <button>Send Notification</button>
-
-    </div>
-
-    <hr>
-
-    <!-- SUSPEND USER -->
-
-    <div>
-
-        <h4>Suspend User</h4>
-
-        <select>
-
-            <option>24 Hours</option>
-
-            <option>7 Days</option>
-
-            <option>30 Days</option>
-
-            <option>Permanent</option>
-
-        </select>
-
-        <input type="text" placeholder="Reason">
-
-        <button>Suspend User</button>
-
-    </div>
-
-    <hr>
-
-    <!-- DELETE USER -->
-
-    <div>
-
-        <h4>Delete User</h4>
-
-        <input type="text" placeholder="Type DELETE">
-
-        <button>Delete User</button>
-
-    </div>
-
 </div>
+
+<!-- ========================= -->
+<!-- DELETE PANEL -->
+<!-- ========================= -->
+
+<div id="deletePanel"
+     class="action-panel"
+     style="display:none;">
+
+    <h4>Delete User</h4>
+
+    <input type="text"
+           placeholder="Type DELETE">
+
+    <button>Delete User</button>
 
 </div>
 
