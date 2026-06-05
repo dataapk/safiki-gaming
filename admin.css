@@ -313,7 +313,7 @@ table tr:hover {
 }
 
 .modal-content {
-    background: white;
+    background:#fff;
     width: 420px;
     margin: 10% auto;
     padding: 20px;
