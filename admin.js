@@ -391,6 +391,29 @@ function toggleUserProfile() {
     }
 
 }
+function toggleActionPanel(panelId) {
+
+    const panels =
+        document.querySelectorAll(
+            ".action-panel"
+        );
+
+    panels.forEach(panel => {
+
+        panel.style.display = "none";
+
+    });
+
+    const target =
+        document.getElementById(panelId);
+
+    if(target){
+
+        target.style.display = "block";
+
+    }
+
+}
 console.log("SAFIKI ADMIN PANEL LOADED");
 
 
