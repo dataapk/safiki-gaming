@@ -205,27 +205,36 @@
         <hr>
 
 <!-- ============================= -->
-<!-- ADMIN ACTIONS PANEL (FINAL) -->
+<!-- ADMIN ACTIONS PANEL (MODAL CONTROLLED) -->
 <!-- ============================= -->
-
-<h3>Admin Actions</h3>
 
 <div class="admin-actions">
 
-    <button onclick="addBalance()">Add Balance</button>
-    <button onclick="deductBalance()">Deduct Balance</button>
+    <button onclick="openModal('addBalance', 1001)">
+        Add Balance
+    </button>
 
-    <!-- RTP CONTROL -->
-    <button onclick="toggleRtpPanel()">RTP Settings</button>
+    <button onclick="openModal('deductBalance', 1001)">
+        Deduct Balance
+    </button>
 
-    <!-- PLAYER BEHAVIOR CONTROL -->
-    <button onclick="togglePlayerPanel()">Player Balance Control</button>
+    <button onclick="openModal('rtpSettings')">
+        RTP Settings
+    </button>
 
-    <button onclick="suspendUser()">Suspend User</button>
-    <button onclick="deleteUser()">Delete User</button>
+    <button onclick="openModal('playerControl', 1001)">
+        Player Balance Control
+    </button>
+
+    <button onclick="openModal('suspendUser', 1001)">
+        Suspend User
+    </button>
+
+    <button onclick="openModal('deleteUser', 1001)">
+        Delete User
+    </button>
 
 </div>
-
 <hr>
 
 <!-- ============================= -->
