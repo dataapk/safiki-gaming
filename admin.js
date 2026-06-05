@@ -7,6 +7,49 @@ document.addEventListener("DOMContentLoaded", function () {
     initSidebar();
 
 });
+function initSidebar() {
+
+    const menuItems =
+        document.querySelectorAll(".sidebar-menu li");
+
+    const sections =
+        document.querySelectorAll(".admin-section");
+
+    menuItems.forEach(item => {
+
+        item.addEventListener("click", () => {
+
+            const target =
+                item.getAttribute("data-target");
+
+            menuItems.forEach(m =>
+                m.classList.remove("active")
+            );
+
+            item.classList.add("active");
+
+            sections.forEach(section => {
+                section.style.display = "none";
+            });
+
+            const activeSection =
+                document.getElementById(target);
+
+            if(activeSection){
+
+                activeSection.style.display = "block";
+
+                activeSection.scrollIntoView({
+                    behavior: "smooth"
+                });
+
+            }
+
+        });
+
+    });
+
+}
 // ==========================
 // SIDEBAR NAVIGATION
 // ==========================
