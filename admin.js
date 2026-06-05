@@ -355,6 +355,30 @@ function sendNotification(){
 // ==========================
 //Notification: END
 // ==========================
+function openModal(action, userId = null){
+
+    const modal =
+        document.getElementById("adminModal");
+
+    const title =
+        document.getElementById("modalTitle");
+
+    const body =
+        document.getElementById("modalBody");
+
+    modal.style.display = "block";
+
+    title.innerHTML = action;
+    body.innerHTML = "User ID : " + userId;
+
+}
+
+function closeAdminModal(){
+
+    document.getElementById("adminModal")
+        .style.display = "none";
+
+}
 console.log("SAFIKI ADMIN PANEL LOADED");
 
 
