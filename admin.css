@@ -5,57 +5,70 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #f5f7fb;
+    background: #eef2ff;
     color: #111827;
 }
 
 /* ============================= */
-/* SIDEBAR (DARK PREMIUM STYLE) */
+/* SIDEBAR (DARK PREMIUM + COMPACT) */
 /* ============================= */
 
 .sidebar {
-    width: 230px;
+    width: 190px;
     height: 100vh;
     position: fixed;
     left: 0;
     top: 0;
-    background: #0f172a; /* deep navy black */
-    padding: 20px;
+    background: #0f172a;
+    padding: 18px 14px;
     overflow-y: auto;
-    box-shadow: 4px 0 20px rgba(0,0,0,0.2);
+    box-shadow: 6px 0 25px rgba(0,0,0,0.25);
+    border-right: 1px solid rgba(255,255,255,0.06);
 }
 
 .admin-logo {
-    color: #ffffff;
-    font-size: 18px;
+    color: #fff;
+    font-size: 16px;
     font-weight: bold;
     margin-bottom: 20px;
+    text-align: center;
     letter-spacing: 1px;
 }
 
-/* MENU ITEMS */
+/* ============================= */
+/* SIDEBAR MENU */
+/* ============================= */
+
+.sidebar-menu {
+    padding: 0;
+    margin-top: 20px;
+}
+
 .sidebar-menu li {
     list-style: none;
-    padding: 12px 14px;
+    padding: 12px 12px;
     margin: 6px 0;
     cursor: pointer;
     border-radius: 8px;
-    color: #e5e7eb; /* soft white */
+    color: #e5e7eb;
+    font-size: 14px;
     transition: 0.2s ease;
     position: relative;
+    display: flex;
+    align-items: center;
 }
 
-/* HOVER EFFECT (LIGHT FLOAT ONLY) */
+/* hover */
 .sidebar-menu li:hover {
     background: rgba(255,255,255,0.06);
     transform: translateX(4px);
     color: #ffffff;
 }
 
-/* ACTIVE MENU */
+/* active */
 .sidebar-menu li.active {
     background: rgba(168, 85, 247, 0.15);
-    color: #ffffff;
+    color: #fff;
 }
 
 .sidebar-menu li.active::before {
@@ -65,34 +78,34 @@ body {
     top: 25%;
     width: 4px;
     height: 50%;
-    background: #a855f7; /* purple */
-    border-radius: 5px;
+    background: #a855f7;
+    border-radius: 4px;
 }
 
 /* ============================= */
-/* MAIN CONTENT (CLEAN WHITE DASHBOARD) */
+/* MAIN CONTENT (SEPARATED CLEAN PANEL) */
 /* ============================= */
 
 .main-content {
-    margin-left: 250px;
-    padding: 20px;
-    background: #f5f7fb;
+    margin-left: 220px;
+    padding: 24px;
+    background: #eef2ff;
+    border-radius: 18px 0 0 18px;
 }
 
 /* ============================= */
-/* ADMIN SECTION CARDS */
+/* ADMIN SECTIONS */
 /* ============================= */
 
 .admin-section {
     background: #ffffff;
     padding: 18px;
-    border-radius: 12px;
-    margin-bottom: 20px;
+    margin: 14px 10px;
+    border-radius: 14px;
     box-shadow: 0 6px 20px rgba(0,0,0,0.06);
     transition: 0.25s ease;
 }
 
-/* FLOAT EFFECT (LIGHT) */
 .admin-section:hover {
     transform: translateY(-4px);
     box-shadow: 0 12px 30px rgba(0,0,0,0.10);
@@ -115,7 +128,7 @@ body {
 }
 
 /* ============================= */
-/* BUTTONS (PURPLE PRIMARY SYSTEM) */
+/* BUTTONS (PURPLE SYSTEM) */
 /* ============================= */
 
 button {
@@ -125,18 +138,17 @@ button {
     cursor: pointer;
     background: #a855f7;
     color: white;
-    transition: 0.2s ease;
     font-weight: 500;
+    transition: 0.2s ease;
 }
 
-/* HOVER BUTTON */
 button:hover {
     background: #9333ea;
     transform: translateY(-2px);
 }
 
 /* ============================= */
-/* INPUT FIELDS */
+/* INPUT SYSTEM */
 /* ============================= */
 
 input, select, textarea {
@@ -155,21 +167,21 @@ input:focus, textarea:focus, select:focus {
 }
 
 /* ============================= */
-/* TABLE STYLE */
+/* TABLE SYSTEM */
 /* ============================= */
 
 table {
     width: 100%;
     border-collapse: collapse;
-    background: white;
+    background: #fff;
     border-radius: 10px;
     overflow: hidden;
 }
 
 table th {
     background: #f3f4f6;
-    text-align: left;
     padding: 12px;
+    text-align: left;
 }
 
 table td {
@@ -178,7 +190,7 @@ table td {
 }
 
 table tr:hover {
-    background: #f9fafb;
+    background: rgba(168,85,247,0.08);
 }
 
 /* ============================= */
