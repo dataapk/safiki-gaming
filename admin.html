@@ -204,31 +204,65 @@
 
         <hr>
 
-        <!-- USER ACTIONS -->
+<!-- ============================= -->
+<!-- ADMIN ACTIONS PANEL (FINAL) -->
+<!-- ============================= -->
 
-        <h3>Admin Actions</h3>
+<h3>Admin Actions</h3>
 
-        <button>Add Balance</button>
+<div class="admin-actions">
 
-        <button>Deduct Balance</button>
+    <button onclick="addBalance()">Add Balance</button>
 
-        <button>Suspend User</button>
+    <button onclick="deductBalance()">Deduct Balance</button>
 
-        <button>Delete User</button>
+    <!-- RTP CONTROL -->
+    <button onclick="toggleRtpPanel()">RTP Settings</button>
 
-        <hr>
+    <button onclick="suspendUser()">Suspend User</button>
 
-        <!-- SEND NOTIFICATION -->
+    <button onclick="deleteUser()">Delete User</button>
 
-        <h3>Send Notification</h3>
+</div>
 
-        <input type="text" placeholder="Notification Title">
+<hr>
 
-        <textarea placeholder="Write notification message"></textarea>
+<!-- ============================= -->
+<!-- RTP CONFIGURATION PANEL -->
+<!-- ============================= -->
 
-        <button>Send Notification</button>
+<div id="rtpPanel" style="display:none; padding:10px; border:1px solid #ccc; margin-top:10px;">
 
-    </div>
+    <h3>RTP Configuration</h3>
+
+    <p><strong>Current RTP :</strong> <span id="currentRtp">95%</span></p>
+
+    <p><strong>Website Share :</strong> <span id="houseEdge">5%</span></p>
+
+    <label>Set RTP %</label>
+    <input type="number" id="rtpInput" value="95" min="0" max="100">
+
+    <button onclick="saveRtp()">Save RTP</button>
+
+</div>
+
+<hr>
+
+<!-- ============================= -->
+<!-- SEND NOTIFICATION -->
+<!-- ============================= -->
+
+<h3>Send Notification</h3>
+
+<div class="notification-box">
+
+    <input type="text" id="notifTitle" placeholder="Notification Title">
+
+    <textarea id="notifMessage" placeholder="Write notification message"></textarea>
+
+    <button onclick="sendNotification()">Send Notification</button>
+
+</div>
     <!-- ===================================
      USER MODAL END
 =================================== -->
