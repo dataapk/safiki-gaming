@@ -213,14 +213,15 @@
 <div class="admin-actions">
 
     <button onclick="addBalance()">Add Balance</button>
-
     <button onclick="deductBalance()">Deduct Balance</button>
 
     <!-- RTP CONTROL -->
     <button onclick="toggleRtpPanel()">RTP Settings</button>
 
-    <button onclick="suspendUser()">Suspend User</button>
+    <!-- PLAYER BEHAVIOR CONTROL -->
+    <button onclick="togglePlayerPanel()">Player Balance Control</button>
 
+    <button onclick="suspendUser()">Suspend User</button>
     <button onclick="deleteUser()">Delete User</button>
 
 </div>
@@ -236,7 +237,6 @@
     <h3>RTP Configuration</h3>
 
     <p><strong>Current RTP :</strong> <span id="currentRtp">95%</span></p>
-
     <p><strong>Website Share :</strong> <span id="houseEdge">5%</span></p>
 
     <label>Set RTP %</label>
@@ -247,6 +247,48 @@
 </div>
 
 <hr>
+
+<!-- ============================= -->
+<!-- PLAYER GAME BALANCE CONTROL PANEL -->
+<!-- ============================= -->
+
+<div id="playerPanel" style="display:none; padding:10px; border:1px solid #ccc; margin-top:10px;">
+
+    <h3>Player Game Balance Control</h3>
+
+    <p><strong>System:</strong> Dynamic Win/Loss Probability Engine</p>
+
+    <!-- BASE RTP -->
+    <label>Base RTP (%)</label>
+    <input type="number" id="baseRtp" value="95" min="0" max="100">
+
+    <!-- LOSS RECOVERY BOOST -->
+    <label>Loss Recovery Boost (%)</label>
+    <input type="number" id="lossBoost" value="10" min="0" max="100">
+
+    <!-- HIGH PROFIT PENALTY -->
+    <label>High Profit Penalty (%)</label>
+    <input type="number" id="profitPenalty" value="10" min="0" max="100">
+
+    <!-- LOSS THRESHOLD -->
+    <label>Loss Threshold (%)</label>
+    <input type="number" id="lossThreshold" value="60" min="0" max="100">
+
+    <!-- PROFIT THRESHOLD -->
+    <label>Profit Threshold (%)</label>
+    <input type="number" id="profitThreshold" value="70" min="0" max="100">
+
+    <!-- MODE -->
+    <label>Balance Mode</label>
+    <select id="balanceMode">
+        <option value="normal">Normal</option>
+        <option value="adaptive">Adaptive</option>
+        <option value="strict">Strict</option>
+    </select>
+
+    <button onclick="savePlayerSettings()">Save Settings</button>
+
+</div>
 
 <!-- ============================= -->
 <!-- SEND NOTIFICATION -->
@@ -263,6 +305,10 @@
     <button onclick="sendNotification()">Send Notification</button>
 
 </div>
+        <!-- ============================= -->
+<!-- SEND NOTIFICATION END-->
+<!-- ============================= -->
+
     <!-- ===================================
      USER MODAL END
 =================================== -->
