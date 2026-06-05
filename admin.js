@@ -1,247 +1,181 @@
+// ==========================
+// SAFIKI ADMIN PANEL ENGINE
+// ==========================
 
-/* ============================= */
-/* GLOBAL STATE */
-/* ============================= */
+document.addEventListener("DOMContentLoaded", function () {
 
-let currentAction = null;
-let selectedUserId = null;
+    initSidebar();
 
-/* ============================= */
-/* MODAL CONTROL ENGINE */
-/* ============================= */
+});
+// ==========================
+// SIDEBAR NAVIGATION
+// ==========================
 
-function openModal(action, userId = null) {
+function initSidebar() {
 
-    currentAction = action;
-    selectedUserId = userId;
+    const menuItems = document.querySelectorAll(".sidebar-menu li");
 
-    const modal = document.getElementById("actionModal");
-    const title = document.getElementById("modalTitle");
-    const body = document.getElementById("modalBody");
+    const sections = document.querySelectorAll(".admin-section");
 
-    modal.style.display = "block";
+    menuItems.forEach(item => {
 
-    /* ============================= */
-    /* ADD BALANCE */
-    /* ============================= */
+        item.addEventListener("click", () => {
 
-    if (action === "addBalance") {
+            menuItems.forEach(m =>
+                m.classList.remove("active")
+            );
 
-        title.innerText = "Add Balance";
+            item.classList.add("active");
 
-        body.innerHTML = `
-            <label>Amount</label>
-            <input type="number" id="amount" placeholder="Enter amount">
+            const target = item.getAttribute("data-target");
 
-            <label>Type</label>
-            <select id="balanceType">
-                <option value="main">Main Balance</option>
-                <option value="bonus">Bonus Balance</option>
-                <option value="gift">Gift / Reward</option>
-            </select>
-        `;
-    }
+            sections.forEach(section => {
 
-    /* ============================= */
-    /* DEDUCT BALANCE */
-    */
+                section.style.display = "none";
 
-    if (action === "deductBalance") {
+            });
 
-        title.innerText = "Deduct Balance";
+            const activeSection =
+                document.getElementById(target);
 
-        body.innerHTML = `
-            <label>Amount</label>
-            <input type="number" id="amount" placeholder="Enter amount">
-        `;
-    }
+            if(activeSection){
 
-    /* ============================= */
-    /* RTP SETTINGS */
-    */
+                activeSection.style.display = "block";
 
-    if (action === "rtpSettings") {
+                activeSection.scrollIntoView({
+                    behavior: "smooth"
+                });
 
-        title.innerText = "RTP Control Panel";
+            }
 
-        body.innerHTML = `
-            <label>Global RTP (%)</label>
-            <input type="number" id="rtp" value="95">
-
-            <p>House Edge will auto adjust.</p>
-        `;
-    }
-
-    /* ============================= */
-    /* PLAYER CONTROL ENGINE */
-    */
-
-    if (action === "playerControl") {
-
-        title.innerText = "Player Win/Loss Control";
-
-        body.innerHTML = `
-            <label>Loss Threshold (%)</label>
-            <input type="number" id="lossThreshold" value="60">
-
-            <label>Profit Threshold (%)</label>
-            <input type="number" id="profitThreshold" value="70">
-
-            <label>Recovery Boost (%)</label>
-            <input type="number" id="recoveryBoost" value="10">
-
-            <label>Profit Penalty (%)</label>
-            <input type="number" id="profitPenalty" value="10">
-        `;
-    }
-
-    /* ============================= */
-    /* SUSPEND USER */
-    */
-
-    if (action === "suspendUser") {
-
-        title.innerText = "Suspend User";
-
-        body.innerHTML = `
-            <p>Are you sure you want to suspend User ID: <b>${userId}</b>?</p>
-        `;
-    }
-
-    /* ============================= */
-    /* DELETE USER */
-    */
-
-    if (action === "deleteUser") {
-
-        title.innerText = "Delete User";
-
-        body.innerHTML = `
-            <p style="color:red;">This action is permanent!</p>
-            <p>User ID: <b>${userId}</b></p>
-        `;
-    }
-}
-
-/* ============================= */
-/* CLOSE MODAL */
-/* ============================= */
-
-function closeModal() {
-    document.getElementById("actionModal").style.display = "none";
-    currentAction = null;
-    selectedUserId = null;
-}
-
-/* ============================= */
-/* SUBMIT ENGINE (SIMULATION NOW → BACKEND READY) */
-/* ============================= */
-
-function submitAction() {
-
-    /* ----------------------------- */
-    /* ADD BALANCE */
-    /* ----------------------------- */
-
-    if (currentAction === "addBalance") {
-
-        const amount = document.getElementById("amount").value;
-        const type = document.getElementById("balanceType").value;
-
-        console.log("ADD BALANCE:", {
-            userId: selectedUserId,
-            amount,
-            type
         });
 
-        alert(`Added $${amount} to ${type}`);
-    }
+    });
 
-    /* ----------------------------- */
-    /* DEDUCT BALANCE */
-    /* ----------------------------- */
+}
+// ==========================
+// SIDEBAR NAVIGATION
+// ==========================
+// ==========================
+// RTP FUNCTION START 
+// ==========================
+function toggleRtpPanel(){
 
-    if (currentAction === "deductBalance") {
+    const panel =
+        document.getElementById("rtpPanel");
 
-        const amount = document.getElementById("amount").value;
+    panel.style.display =
+        panel.style.display === "block"
+        ? "none"
+        : "block";
 
-        console.log("DEDUCT BALANCE:", {
-            userId: selectedUserId,
-            amount
-        });
-
-        alert(`Deducted $${amount}`);
-    }
-
-    /* ----------------------------- */
-    /* RTP SAVE */
-    /* ----------------------------- */
-
-    if (currentAction === "rtpSettings") {
-
-        const rtp = document.getElementById("rtp").value;
-
-        console.log("RTP UPDATED:", rtp);
-
-        alert(`RTP updated to ${rtp}%`);
-    }
-
-    /* ----------------------------- */
-    /* PLAYER CONTROL SAVE */
-    /* ----------------------------- */
-
-    if (currentAction === "playerControl") {
-
-        const loss = document.getElementById("lossThreshold").value;
-        const profit = document.getElementById("profitThreshold").value;
-        const recovery = document.getElementById("recoveryBoost").value;
-        const penalty = document.getElementById("profitPenalty").value;
-
-        console.log("PLAYER CONTROL:", {
-            userId: selectedUserId,
-            lossThreshold: loss,
-            profitThreshold: profit,
-            recoveryBoost: recovery,
-            profitPenalty: penalty
-        });
-
-        alert("Player control settings updated");
-    }
-
-    /* ----------------------------- */
-    /* SUSPEND USER */
-    */
-
-    if (currentAction === "suspendUser") {
-
-        console.log("SUSPEND USER:", selectedUserId);
-
-        alert(`User ${selectedUserId} suspended`);
-    }
-
-    /* ----------------------------- */
-    /* DELETE USER */
-    */
-
-    if (currentAction === "deleteUser") {
-
-        console.log("DELETE USER:", selectedUserId);
-
-        alert(`User ${selectedUserId} deleted`);
-    }
-
-    closeModal();
 }
 
-/* ============================= */
-/* CLICK OUTSIDE CLOSE MODAL */
-/* ============================= */
+function saveRtp(){
 
-window.onclick = function(event) {
+    let rtp =
+        document.getElementById("rtpInput").value;
 
-    const modal = document.getElementById("actionModal");
+    document.getElementById("currentRtp")
+        .innerText = rtp + "%";
 
-    if (event.target === modal) {
-        closeModal();
+    document.getElementById("houseEdge")
+        .innerText = (100 - rtp) + "%";
+
+    alert("RTP Updated");
+
+}
+// ==========================
+// RTP FUNCTION END
+// ==========================
+// ==========================
+//PLAYER CONTROL START
+// ==========================
+function togglePlayerPanel(){
+
+    const panel =
+        document.getElementById("playerPanel");
+
+    panel.style.display =
+        panel.style.display === "block"
+        ? "none"
+        : "block";
+
+}
+
+function savePlayerSettings(){
+
+    alert("Player Settings Saved");
+
+}
+// ==========================
+//PLAYER CONTROL END
+// ==========================
+
+// ==========================
+//Admin Actions: START
+// ==========================
+function addBalance(){
+
+    alert("Add Balance System");
+
+}
+
+function deductBalance(){
+
+    alert("Deduct Balance System");
+
+}
+
+function suspendUser(){
+
+    alert("User Suspended");
+
+}
+
+function deleteUser(){
+
+    let confirmDelete =
+        confirm("Delete User?");
+
+    if(confirmDelete){
+
+        alert("User Deleted");
+
     }
-};
+
+}
+// ==========================
+//Notification: START
+// ==========================
+function sendNotification(){
+
+    let title =
+        document.getElementById("notifTitle").value;
+
+    let msg =
+        document.getElementById("notifMessage").value;
+
+    if(!title || !msg){
+
+        alert("Fill Notification Data");
+
+        return;
+
+    }
+
+    alert("Notification Sent");
+
+}
+// ==========================
+//Notification: END
+// ==========================
+console.log("SAFIKI ADMIN PANEL LOADED");
+
+
+
+
+
+
+
+
