@@ -1,61 +1,247 @@
-<script>
-function addBalance() {
-    alert("Add Balance Triggered");
-}
 
-function deductBalance() {
-    alert("Deduct Balance Triggered");
-}
+/* ============================= */
+/* GLOBAL STATE */
+/* ============================= */
 
-function suspendUser() {
-    alert("User Suspended");
-}
+let currentAction = null;
+let selectedUserId = null;
 
-function deleteUser() {
-    alert("User Deleted");
-}
+/* ============================= */
+/* MODAL CONTROL ENGINE */
+/* ============================= */
 
-/* ================= RTP PANEL ================= */
+function openModal(action, userId = null) {
 
-function toggleRtpPanel() {
-    let panel = document.getElementById("rtpPanel");
-    panel.style.display = panel.style.display === "none" ? "block" : "none";
-}
+    currentAction = action;
+    selectedUserId = userId;
 
-document.addEventListener("input", function(e) {
-    if (e.target && e.target.id === "rtpInput") {
-        let rtp = parseFloat(e.target.value) || 0;
-        document.getElementById("currentRtp").innerText = rtp + "%";
-        document.getElementById("houseEdge").innerText = (100 - rtp) + "%";
-    }
-});
+    const modal = document.getElementById("actionModal");
+    const title = document.getElementById("modalTitle");
+    const body = document.getElementById("modalBody");
 
-function saveRtp() {
-    let rtp = parseFloat(document.getElementById("rtpInput").value);
-    let houseEdge = 100 - rtp;
+    modal.style.display = "block";
 
-    console.log("RTP Saved:", rtp);
-    console.log("House Edge:", houseEdge);
+    /* ============================= */
+    /* ADD BALANCE */
+    /* ============================= */
 
-    alert("RTP Updated Successfully!");
-}
+    if (action === "addBalance") {
 
-/* ================= NOTIFICATION ================= */
+        title.innerText = "Add Balance";
 
-function sendNotification() {
-    let title = document.getElementById("notifTitle").value;
-    let message = document.getElementById("notifMessage").value;
+        body.innerHTML = `
+            <label>Amount</label>
+            <input type="number" id="amount" placeholder="Enter amount">
 
-    if (!title || !message) {
-        alert("Please fill all fields");
-        return;
+            <label>Type</label>
+            <select id="balanceType">
+                <option value="main">Main Balance</option>
+                <option value="bonus">Bonus Balance</option>
+                <option value="gift">Gift / Reward</option>
+            </select>
+        `;
     }
 
-    console.log("Notification:", { title, message });
+    /* ============================= */
+    /* DEDUCT BALANCE */
+    */
 
-    alert("Notification Sent!");
+    if (action === "deductBalance") {
 
-    document.getElementById("notifTitle").value = "";
-    document.getElementById("notifMessage").value = "";
+        title.innerText = "Deduct Balance";
+
+        body.innerHTML = `
+            <label>Amount</label>
+            <input type="number" id="amount" placeholder="Enter amount">
+        `;
+    }
+
+    /* ============================= */
+    /* RTP SETTINGS */
+    */
+
+    if (action === "rtpSettings") {
+
+        title.innerText = "RTP Control Panel";
+
+        body.innerHTML = `
+            <label>Global RTP (%)</label>
+            <input type="number" id="rtp" value="95">
+
+            <p>House Edge will auto adjust.</p>
+        `;
+    }
+
+    /* ============================= */
+    /* PLAYER CONTROL ENGINE */
+    */
+
+    if (action === "playerControl") {
+
+        title.innerText = "Player Win/Loss Control";
+
+        body.innerHTML = `
+            <label>Loss Threshold (%)</label>
+            <input type="number" id="lossThreshold" value="60">
+
+            <label>Profit Threshold (%)</label>
+            <input type="number" id="profitThreshold" value="70">
+
+            <label>Recovery Boost (%)</label>
+            <input type="number" id="recoveryBoost" value="10">
+
+            <label>Profit Penalty (%)</label>
+            <input type="number" id="profitPenalty" value="10">
+        `;
+    }
+
+    /* ============================= */
+    /* SUSPEND USER */
+    */
+
+    if (action === "suspendUser") {
+
+        title.innerText = "Suspend User";
+
+        body.innerHTML = `
+            <p>Are you sure you want to suspend User ID: <b>${userId}</b>?</p>
+        `;
+    }
+
+    /* ============================= */
+    /* DELETE USER */
+    */
+
+    if (action === "deleteUser") {
+
+        title.innerText = "Delete User";
+
+        body.innerHTML = `
+            <p style="color:red;">This action is permanent!</p>
+            <p>User ID: <b>${userId}</b></p>
+        `;
+    }
 }
-</script>
+
+/* ============================= */
+/* CLOSE MODAL */
+/* ============================= */
+
+function closeModal() {
+    document.getElementById("actionModal").style.display = "none";
+    currentAction = null;
+    selectedUserId = null;
+}
+
+/* ============================= */
+/* SUBMIT ENGINE (SIMULATION NOW → BACKEND READY) */
+/* ============================= */
+
+function submitAction() {
+
+    /* ----------------------------- */
+    /* ADD BALANCE */
+    /* ----------------------------- */
+
+    if (currentAction === "addBalance") {
+
+        const amount = document.getElementById("amount").value;
+        const type = document.getElementById("balanceType").value;
+
+        console.log("ADD BALANCE:", {
+            userId: selectedUserId,
+            amount,
+            type
+        });
+
+        alert(`Added $${amount} to ${type}`);
+    }
+
+    /* ----------------------------- */
+    /* DEDUCT BALANCE */
+    /* ----------------------------- */
+
+    if (currentAction === "deductBalance") {
+
+        const amount = document.getElementById("amount").value;
+
+        console.log("DEDUCT BALANCE:", {
+            userId: selectedUserId,
+            amount
+        });
+
+        alert(`Deducted $${amount}`);
+    }
+
+    /* ----------------------------- */
+    /* RTP SAVE */
+    /* ----------------------------- */
+
+    if (currentAction === "rtpSettings") {
+
+        const rtp = document.getElementById("rtp").value;
+
+        console.log("RTP UPDATED:", rtp);
+
+        alert(`RTP updated to ${rtp}%`);
+    }
+
+    /* ----------------------------- */
+    /* PLAYER CONTROL SAVE */
+    /* ----------------------------- */
+
+    if (currentAction === "playerControl") {
+
+        const loss = document.getElementById("lossThreshold").value;
+        const profit = document.getElementById("profitThreshold").value;
+        const recovery = document.getElementById("recoveryBoost").value;
+        const penalty = document.getElementById("profitPenalty").value;
+
+        console.log("PLAYER CONTROL:", {
+            userId: selectedUserId,
+            lossThreshold: loss,
+            profitThreshold: profit,
+            recoveryBoost: recovery,
+            profitPenalty: penalty
+        });
+
+        alert("Player control settings updated");
+    }
+
+    /* ----------------------------- */
+    /* SUSPEND USER */
+    */
+
+    if (currentAction === "suspendUser") {
+
+        console.log("SUSPEND USER:", selectedUserId);
+
+        alert(`User ${selectedUserId} suspended`);
+    }
+
+    /* ----------------------------- */
+    /* DELETE USER */
+    */
+
+    if (currentAction === "deleteUser") {
+
+        console.log("DELETE USER:", selectedUserId);
+
+        alert(`User ${selectedUserId} deleted`);
+    }
+
+    closeModal();
+}
+
+/* ============================= */
+/* CLICK OUTSIDE CLOSE MODAL */
+/* ============================= */
+
+window.onclick = function(event) {
+
+    const modal = document.getElementById("actionModal");
+
+    if (event.target === modal) {
+        closeModal();
+    }
+};
