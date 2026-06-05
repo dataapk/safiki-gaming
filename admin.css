@@ -1,207 +1,135 @@
-
 /* ============================= */
-/* BASE UI */
+/* BASE UI (UPGRADED MODERN THEME) */
 /* ============================= */
 
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f4f6f9;
+    font-family: 'Arial', sans-serif;
+    background: #f5f3ff; /* soft purple tint background */
+    color: #111827;
+}
+
+/* smooth global behavior */
+html {
+    scroll-behavior: smooth;
 }
 
 /* ============================= */
-/* SIDEBAR */
+/* PURPLE THEME ENHANCEMENT */
 /* ============================= */
 
-.sidebar {
-    width: 220px;
-    height: 100vh;
-    background: #1f2937;
-    color: white;
-    position: fixed;
-    left: 0;
-    top: 0;
-    padding: 20px;
-}
-
-.sidebar-menu li {
-    list-style: none;
-    padding: 12px;
-    margin: 5px 0;
-    cursor: pointer;
-    border-radius: 6px;
-    transition: 0.2s;
-}
-
-.sidebar-menu li:hover {
-    background: #374151;
-    transform: translateX(5px);
+:root {
+    --primary: #6d28d9;      /* deep purple */
+    --primary-dark: #5b21b6;
+    --accent: #a855f7;
+    --bg-hover: rgba(109, 40, 217, 0.12);
 }
 
 /* ============================= */
-/* MAIN CONTENT */
-/* ============================= */
-
-.main-content {
-    margin-left: 240px;
-    padding: 20px;
-}
-
-/* ============================= */
-/* STATS CARDS */
-/* ============================= */
-
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 15px;
-}
-
-.stat-card {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    transition: 0.25s ease;
-}
-
-.stat-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-}
-
-/* ============================= */
-/* ADMIN ACTION BUTTONS */
+/* BUTTON PURPLE STYLE UPDATE */
 /* ============================= */
 
 .admin-actions button {
-    margin: 5px;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    background: #2563eb;
-    color: white;
-    transition: 0.2s;
+    background: var(--primary);
 }
 
 .admin-actions button:hover {
-    background: #1d4ed8;
-    transform: translateY(-3px);
+    background: var(--primary-dark);
+    box-shadow: 0 6px 18px rgba(109, 40, 217, 0.25);
 }
 
-/* ============================= */
-/* MODAL SYSTEM */
-/* ============================= */
-
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 9999;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.6);
-    backdrop-filter: blur(4px);
-}
-
-.modal-content {
-    background: #ffffff;
-    width: 420px;
-    margin: 10% auto;
-    padding: 20px;
-    border-radius: 12px;
-    position: relative;
-    animation: modalPop 0.25s ease;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-}
-
-@keyframes modalPop {
-    from {
-        transform: scale(0.85);
-        opacity: 0;
-    }
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
-.close {
-    position: absolute;
-    right: 12px;
-    top: 8px;
-    font-size: 22px;
-    cursor: pointer;
-}
-
-/* ============================= */
-/* INPUT STYLE */
-/* ============================= */
-
-input, select, textarea {
-    width: 100%;
-    padding: 10px;
-    margin: 8px 0;
+/* small buttons / inputs accent */
+button {
     border-radius: 8px;
-    border: 1px solid #ddd;
-    outline: none;
-}
-
-input:focus, textarea:focus, select:focus {
-    border-color: #2563eb;
 }
 
 /* ============================= */
-/* TABLE STYLE */
+/* SIDEBAR FIX (WIDTH + SCROLL + STABILITY) */
 /* ============================= */
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: white;
-    border-radius: 10px;
-    overflow: hidden;
+.sidebar {
+    width: 200px;              /* FIX: reduce from 220 → prevents overflow */
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
-table th, table td {
-    padding: 12px;
-    border-bottom: 1px solid #eee;
-    text-align: left;
-}
-
-table tr:hover {
-    background: #f9fafb;
-    transition: 0.2s;
+.main-content {
+    margin-left: 220px;        /* sync with sidebar */
 }
 
 /* ============================= */
-/* FLOAT HOVER EFFECT (GLOBAL LIFT) */
+/* SIDEBAR MENU ACTIVE + PURPLE LEFT INDICATOR */
+/* ============================= */
+
+.sidebar-menu li {
+    position: relative;
+}
+
+.sidebar-menu li.active {
+    background: rgba(109, 40, 217, 0.18);
+    color: white;
+}
+
+.sidebar-menu li.active::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 20%;
+    height: 60%;
+    width: 4px;
+    background: var(--primary);
+    border-radius: 4px;
+}
+
+/* hover effect improved */
+.sidebar-menu li:hover {
+    background: rgba(109, 40, 217, 0.15);
+    transform: translateX(6px);
+}
+
+/* ============================= */
+/* SECTION FLOAT (STRONGER MODERN FLOAT) */
 /* ============================= */
 
 .admin-section,
-.finance-summary,
 .stat-card,
+.finance-summary,
 .notification-box {
-    transition: 0.25s ease;
+    border-radius: 12px;
 }
 
 .admin-section:hover,
+.stat-card:hover,
 .finance-summary:hover,
 .notification-box:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+    border-left: 3px solid var(--primary);
 }
 
 /* ============================= */
-/* BUTTON PRIMARY STYLE */
+/* FORM ACCENT FOCUS (PURPLE BORDER) */
 /* ============================= */
 
-button {
-    transition: 0.2s;
+input:focus,
+textarea:focus,
+select:focus {
+    border: 1px solid var(--primary);
+    box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.15);
 }
 
-button:hover {
-    opacity: 0.95;
+/* ============================= */
+/* TABLE HOVER IMPROVED */
+/* ============================= */
+
+table tr:hover {
+    background: var(--bg-hover);
+}
+
+/* ============================= */
+/* OPTIONAL: SMOOTHER UI TRANSITION */
+/* ============================= */
+
+* {
+    transition: background 0.2s ease, transform 0.2s ease;
 }
