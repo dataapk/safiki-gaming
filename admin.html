@@ -118,7 +118,7 @@
         </table>
 
     </div>
-    <!-- USER PROFILE MODAL -->
+    <!-- USER PROFILE MODAL START-->
 
 <div class="user-modal" id="userModal">
 
@@ -229,8 +229,488 @@
         <button>Send Notification</button>
 
     </div>
+    <!-- ===================================
+     USER MODAL END
+=================================== -->
+    <!-- ===================================
+     FINANCE MANAGEMENT START
+     PLACE AFTER USER PROFILE MODAL
+=================================== -->
+
+<div class="admin-section">
+
+    <h2>Finance Management</h2>
+
+    <div class="finance-summary">
+
+        <div>
+
+            <h4>Total Deposit</h4>
+
+            <p>$15,000</p>
+
+        </div>
+
+        <div>
+
+            <h4>Total Withdraw</h4>
+
+            <p>$8,500</p>
+
+        </div>
+
+        <div>
+
+            <h4>Pending Deposits</h4>
+
+            <p>12</p>
+
+        </div>
+
+        <div>
+
+            <h4>Pending Withdraws</h4>
+
+            <p>8</p>
+
+        </div>
+
+    </div>
+
+    <h3>Pending Requests</h3>
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>User ID</th>
+
+                <th>Name</th>
+
+                <th>Type</th>
+
+                <th>Amount</th>
+
+                <th>Status</th>
+
+                <th>Action</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr>
+
+                <td>1001</td>
+
+                <td>Player One</td>
+
+                <td>Deposit</td>
+
+                <td>$100</td>
+
+                <td>Pending</td>
+
+                <td>
+
+                    <button>Approve</button>
+
+                    <button>Reject</button>
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>1002</td>
+
+                <td>Player Two</td>
+
+                <td>Withdraw</td>
+
+                <td>$50</td>
+
+                <td>Pending</td>
+
+                <td>
+
+                    <button>Approve</button>
+
+                    <button>Reject</button>
+
+                </td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
 
 </div>
+
+<!-- ===================================
+     FINANCE MANAGEMENT END
+=================================== -->
+    <!-- ===================================
+     TRANSACTION HISTORY START
+     PLACE AFTER FINANCE MANAGEMENT
+=================================== -->
+
+<div class="admin-section">
+
+    <h2>Transaction History</h2>
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>TXN ID</th>
+
+                <th>User</th>
+
+                <th>Type</th>
+
+                <th>Amount</th>
+
+                <th>Date</th>
+
+                <th>Status</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr>
+
+                <td>TXN10001</td>
+
+                <td>Player One</td>
+
+                <td>Deposit</td>
+
+                <td>$100</td>
+
+                <td>2026-06-05</td>
+
+                <td>Completed</td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<!-- ===================================
+     TRANSACTION HISTORY END
+=================================== -->
+    <!-- ===================================
+     REWARDS MANAGEMENT START
+=================================== -->
+
+<div class="admin-section">
+
+    <h2>Rewards Management</h2>
+
+    <h3>Send Reward To User</h3>
+
+    <input type="text" placeholder="User ID">
+
+    <input type="number" placeholder="Reward Amount">
+
+    <select>
+
+        <option>Cashback</option>
+
+        <option>Bonus</option>
+
+        <option>Referral Reward</option>
+
+        <option>Special Reward</option>
+
+    </select>
+
+    <button>Send Reward</button>
+
+    <hr>
+
+    <h3>Reward History</h3>
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>User ID</th>
+
+                <th>Reward Type</th>
+
+                <th>Amount</th>
+
+                <th>Date</th>
+
+                <th>Status</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr>
+
+                <td>1001</td>
+
+                <td>Cashback</td>
+
+                <td>$10</td>
+
+                <td>2026-06-05</td>
+
+                <td>Sent</td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<!-- ===================================
+     REWARDS MANAGEMENT END
+=================================== -->
+    <!-- ===================================
+     REFERRAL MANAGEMENT START
+     PLACE AFTER REWARDS MANAGEMENT
+=================================== -->
+
+<div class="admin-section">
+
+    <h2>Referral Management</h2>
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>User ID</th>
+
+                <th>Referral ID</th>
+
+                <th>Total Referrals</th>
+
+                <th>Total Deposit</th>
+
+                <th>Total Earnings</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr>
+
+                <td>1001</td>
+
+                <td>SAF1001</td>
+
+                <td>15</td>
+
+                <td>$1000</td>
+
+                <td>$250</td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<!-- ===================================
+     REFERRAL MANAGEMENT END
+=================================== -->
+    <!-- ===================================
+     GAMES MANAGEMENT START
+     PLACE AFTER REFERRAL MANAGEMENT
+=================================== -->
+
+<div class="admin-section">
+
+    <h2>Games Management</h2>
+
+    <button id="addGameBtn">
+        + Add New Game
+    </button>
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>Game Name</th>
+
+                <th>RTP %</th>
+
+                <th>House Edge %</th>
+
+                <th>Status</th>
+
+                <th>Action</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr>
+
+                <td>Jhandi Munda</td>
+
+                <td>95%</td>
+
+                <td>5%</td>
+
+                <td>Active</td>
+
+                <td>
+
+                    <button>Edit</button>
+
+                    <button>Disable</button>
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>Teen Patti</td>
+
+                <td>95%</td>
+
+                <td>5%</td>
+
+                <td>Active</td>
+
+                <td>
+
+                    <button>Edit</button>
+
+                    <button>Disable</button>
+
+                </td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<!-- ===================================
+     GAMES MANAGEMENT END
+=================================== -->
+    <!-- ===================================
+     ADD GAME MODAL START
+=================================== -->
+
+<div id="gameModal">
+
+    <h2>Add New Game</h2>
+
+    <input
+        type="text"
+        placeholder="Game Name">
+
+    <input
+        type="number"
+        placeholder="RTP Percentage">
+
+    <input
+        type="number"
+        placeholder="House Edge Percentage">
+
+    <button>
+        Save Game
+    </button>
+
+</div>
+
+<!-- ===================================
+     ADD GAME MODAL END
+=================================== -->
+    <!-- ===================================
+     NOTIFICATION CENTER START
+     PLACE AFTER ADD GAME MODAL
+=================================== -->
+
+<div class="admin-section">
+
+    <h2>Notification Center</h2>
+
+    <h3>Broadcast Message</h3>
+
+    <input
+        type="text"
+        placeholder="Notification Title">
+
+    <textarea
+        placeholder="Write notification message"></textarea>
+
+    <button>
+        Send To All Users
+    </button>
+
+    <hr>
+
+    <h3>Send To Single User</h3>
+
+    <input
+        type="text"
+        placeholder="User ID">
+
+    <input
+        type="text"
+        placeholder="Notification Title">
+
+    <textarea
+        placeholder="Write notification message"></textarea>
+
+    <button>
+        Send Notification
+    </button>
+
+</div>
+
+<!-- ===================================
+     NOTIFICATION CENTER END
+=================================== -->
+    
+    
+    
+    
+    
+    
+    </div>
 </div>
 
 <script src="admin.js"></script>
