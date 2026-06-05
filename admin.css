@@ -1,135 +1,49 @@
-/* ============================= */
-/* BASE UI (UPGRADED MODERN THEME) */
-/* ============================= */
-
-body {
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-    background: #f5f3ff; /* soft purple tint background */
-    color: #111827;
+body{
+margin:0;
+display:flex;
+font-family:Arial,sans-serif;
+background:#f5f7fb;
 }
 
-/* smooth global behavior */
-html {
-    scroll-behavior: smooth;
+.sidebar{
+width:260px;
+background:#111827;
+color:#fff;
+height:100vh;
+padding:20px;
 }
 
-/* ============================= */
-/* PURPLE THEME ENHANCEMENT */
-/* ============================= */
-
-:root {
-    --primary: #6d28d9;      /* deep purple */
-    --primary-dark: #5b21b6;
-    --accent: #a855f7;
-    --bg-hover: rgba(109, 40, 217, 0.12);
+.sidebar ul{
+list-style:none;
+padding:0;
 }
 
-/* ============================= */
-/* BUTTON PURPLE STYLE UPDATE */
-/* ============================= */
-
-.admin-actions button {
-    background: var(--primary);
+.sidebar li{
+padding:12px;
+cursor:pointer;
 }
 
-.admin-actions button:hover {
-    background: var(--primary-dark);
-    box-shadow: 0 6px 18px rgba(109, 40, 217, 0.25);
+.main-content{
+flex:1;
+padding:20px;
 }
 
-/* small buttons / inputs accent */
-button {
-    border-radius: 8px;
+.topbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
 }
 
-/* ============================= */
-/* SIDEBAR FIX (WIDTH + SCROLL + STABILITY) */
-/* ============================= */
-
-.sidebar {
-    width: 200px;              /* FIX: reduce from 220 → prevents overflow */
-    overflow-y: auto;
-    overflow-x: hidden;
+.dashboard-cards{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:15px;
+margin-top:20px;
 }
 
-.main-content {
-    margin-left: 220px;        /* sync with sidebar */
-}
-
-/* ============================= */
-/* SIDEBAR MENU ACTIVE + PURPLE LEFT INDICATOR */
-/* ============================= */
-
-.sidebar-menu li {
-    position: relative;
-}
-
-.sidebar-menu li.active {
-    background: rgba(109, 40, 217, 0.18);
-    color: white;
-}
-
-.sidebar-menu li.active::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 20%;
-    height: 60%;
-    width: 4px;
-    background: var(--primary);
-    border-radius: 4px;
-}
-
-/* hover effect improved */
-.sidebar-menu li:hover {
-    background: rgba(109, 40, 217, 0.15);
-    transform: translateX(6px);
-}
-
-/* ============================= */
-/* SECTION FLOAT (STRONGER MODERN FLOAT) */
-/* ============================= */
-
-.admin-section,
-.stat-card,
-.finance-summary,
-.notification-box {
-    border-radius: 12px;
-}
-
-.admin-section:hover,
-.stat-card:hover,
-.finance-summary:hover,
-.notification-box:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
-    border-left: 3px solid var(--primary);
-}
-
-/* ============================= */
-/* FORM ACCENT FOCUS (PURPLE BORDER) */
-/* ============================= */
-
-input:focus,
-textarea:focus,
-select:focus {
-    border: 1px solid var(--primary);
-    box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.15);
-}
-
-/* ============================= */
-/* TABLE HOVER IMPROVED */
-/* ============================= */
-
-table tr:hover {
-    background: var(--bg-hover);
-}
-
-/* ============================= */
-/* OPTIONAL: SMOOTHER UI TRANSITION */
-/* ============================= */
-
-* {
-    transition: background 0.2s ease, transform 0.2s ease;
+.card{
+background:#fff;
+padding:20px;
+border-radius:12px;
+box-shadow:0 2px 10px rgba(0,0,0,.1);
 }
