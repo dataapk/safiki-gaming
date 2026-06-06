@@ -529,23 +529,45 @@ async function savePlayerRtp() {
 // GLOBAL RTP SETTING
 // ==========================
 
-<script>
-    // Function to save global RTP for a specific game
-    async function saveGlobalRtp() {
-        const gameType = document.getElementById('game-select').value;
-        const rtpValue = document.getElementById('global-rtp-value').value;
+// Function to save global RTP for a specific game
+async function saveGlobalRtp() {
+    const gameType = document.getElementById('game-select').value;
+    const rtpValue = document.getElementById('global-rtp-value').value;
 
-        if (rtpValue < 1 || rtpValue > 100) {
-            alert("Please enter a value between 1 and 100");
-            return;
+    // ভ্যালিডেশন চেক: ১ থেকে ১০০ এর মধ্যে হতে হবে
+    if (rtpValue < 1 || rtpValue > 100) {
+        alert("Please enter a value between 1 and 100");
+        return;
+    }
+
+    // Logic to send data to the backend
+    try {
+        const response = await fetch('/api/admin/update-global-rtp', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ 
+                game: gameType, 
+                rtp: rtpValue 
+            })
+        });
+
+        // ব্যাকএন্ড থেকে রেসপন্স চেক করা
+        const result = await response.json();
+        
+        if (response.ok) {
+            alert("Global RTP updated successfully for " + gameType);
+        } else {
+            alert("Error: " + result.message);
         }
 
-        // Logic to send data to the backend
+        // সবার শেষে কনসোল লগ
         console.log("Saving Global RTP:", { game: gameType, rtp: rtpValue });
-        
-        // Add your fetch API logic here
+
+    } catch (error) {
+        console.error("Error connecting to server:", error);
+        alert("Failed to update global RTP. Please check your connection.");
     }
-</script>
+}
 // ==========================
 // GLOBAL RTP SETTING END
 // ==========================
