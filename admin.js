@@ -1,5 +1,5 @@
 // ==========================
-// SAFIKI SPA NAVIGATION ENGINE
+// SAFIKI SPA ADMIN ENGINE (FINAL CLEAN)
 // ==========================
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -10,47 +10,47 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // ==========================
-// MAIN NAVIGATION (SIDEBAR + QUICK ACCESS)
+// NAVIGATION SYSTEM (SIDEBAR + QUICK ACCESS)
 // ==========================
 
 function initNavigation() {
 
     const navItems =
-        document.querySelectorAll(
-            ".sidebar-menu li, .stats-grid .stat-card"
-        );
+        document.querySelectorAll(".sidebar-menu li, .stats-grid .stat-card");
 
     const sections =
         document.querySelectorAll(".admin-section");
 
-    function switchSection(targetId) {
+    function hideAllSections() {
 
-        if (!targetId) return;
-
-        // hide all sections
         sections.forEach(sec => {
             sec.style.display = "none";
             sec.classList.remove("active");
         });
 
-        // show target section
+    }
+
+    function switchSection(targetId) {
+
+        if (!targetId) return;
+
         const target = document.getElementById(targetId);
 
-        if (target) {
-
-            target.style.display = "block";
-            target.classList.add("active");
-
-            target.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
-
-        } else {
-
+        if (!target) {
             console.warn("Section not found:", targetId);
-
+            return;
         }
+
+        hideAllSections();
+
+        target.style.display = "block";
+        target.classList.add("active");
+
+        target.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
     }
 
     function setActiveUI(clickedItem) {
@@ -60,6 +60,7 @@ function initNavigation() {
         ).forEach(el => el.classList.remove("active"));
 
         clickedItem.classList.add("active");
+
     }
 
     navItems.forEach(item => {
@@ -69,7 +70,10 @@ function initNavigation() {
             const target =
                 this.getAttribute("data-target");
 
-            if (!target) return;
+            if (!target) {
+                console.warn("Missing data-target:", this);
+                return;
+            }
 
             switchSection(target);
             setActiveUI(this);
@@ -79,8 +83,11 @@ function initNavigation() {
     });
 
     // ==========================
-    // DEFAULT SECTION (DASHBOARD)
+    // DEFAULT LOAD (DASHBOARD)
     // ==========================
+
+    hideAllSections();
+
     const dashboard =
         document.getElementById("dashboardSection");
 
@@ -88,8 +95,12 @@ function initNavigation() {
 
         dashboard.style.display = "block";
         dashboard.classList.add("active");
+
+    } else {
+        console.warn("Dashboard section missing");
     }
 }
+
 // ==========================
 // RTP SYSTEM START
 // ==========================
@@ -102,17 +113,18 @@ function toggleRtpPanel() {
     if (!panel) return;
 
     panel.style.display =
-        panel.style.display === "block"
-            ? "none"
-            : "block";
+        panel.style.display === "block" ? "none" : "block";
 }
 
 function saveRtp() {
 
-    let rtp =
+    const rtp =
         document.getElementById("rtpInput")?.value;
 
-    if (!rtp) return;
+    if (!rtp) {
+        alert("RTP value missing");
+        return;
+    }
 
     document.getElementById("currentRtp").innerText = rtp + "%";
     document.getElementById("houseEdge").innerText = (100 - rtp) + "%";
@@ -121,7 +133,7 @@ function saveRtp() {
 }
 
 // ==========================
-// PLAYER RTP (API)
+// PLAYER RTP API
 // ==========================
 
 async function savePlayerRtp() {
@@ -135,12 +147,15 @@ async function savePlayerRtp() {
     const rtpInput =
         document.getElementById('rtp-value')?.value;
 
-    if (!dbId) return alert("User not found");
+    if (!dbId) {
+        alert("User not found");
+        return;
+    }
 
-    if (rtpInput < 1 || rtpInput > 100)
-        return alert("Invalid RTP");
-
-    const rtpValue = parseFloat(rtpInput) / 100;
+    if (rtpInput < 1 || rtpInput > 100) {
+        alert("Invalid RTP value");
+        return;
+    }
 
     try {
 
@@ -150,16 +165,17 @@ async function savePlayerRtp() {
             body: JSON.stringify({
                 db_id: dbId,
                 game: gameType,
-                rtp: rtpValue
+                rtp: parseFloat(rtpInput) / 100
             })
         });
 
         const result = await res.json();
 
-        alert(result.success
-            ? "RTP Updated"
-            : "Failed: " + result.message
-        );
+        if (result.success) {
+            alert("RTP Updated Successfully");
+        } else {
+            alert("Failed: " + result.message);
+        }
 
     } catch (err) {
         console.error(err);
@@ -168,7 +184,7 @@ async function savePlayerRtp() {
 }
 
 // ==========================
-// GLOBAL RTP
+// GLOBAL RTP API
 // ==========================
 
 async function saveGlobalRtp() {
@@ -179,8 +195,10 @@ async function saveGlobalRtp() {
     const rtpValue =
         document.getElementById('global-rtp-value')?.value;
 
-    if (rtpValue < 1 || rtpValue > 100)
-        return alert("Invalid value");
+    if (rtpValue < 1 || rtpValue > 100) {
+        alert("Invalid value");
+        return;
+    }
 
     try {
 
@@ -195,14 +213,15 @@ async function saveGlobalRtp() {
 
         const result = await res.json();
 
-        alert(result.success
-            ? "Global RTP Updated"
-            : "Error"
-        );
+        if (result.success) {
+            alert("Global RTP Updated Successfully");
+        } else {
+            alert("Error: " + result.message);
+        }
 
     } catch (err) {
         console.error(err);
-        alert("Server error");
+        alert("Server connection error");
     }
 }
 
