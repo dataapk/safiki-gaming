@@ -99,150 +99,319 @@ function initSidebar() {
 // ==========================
 // SIDEBAR NAVIGATION
 // ==========================
-
-    // ==========================
-    // DEFAULT LOAD (DASHBOARD)
-    // ==========================
-
-    hideAllSections();
-
-    const dashboard =
-        document.getElementById("dashboardSection");
-
-    if (dashboard) {
-
-        dashboard.style.display = "block";
-        dashboard.classList.add("active");
-
-    } else {
-        console.warn("Dashboard section missing");
-    }
-}
-
 // ==========================
-// RTP SYSTEM START
+// RTP FUNCTION START 
 // ==========================
-
-function toggleRtpPanel() {
+function toggleRtpPanel(){
 
     const panel =
         document.getElementById("rtpPanel");
 
-    if (!panel) return;
-
     panel.style.display =
-        panel.style.display === "block" ? "none" : "block";
+        panel.style.display === "block"
+        ? "none"
+        : "block";
+
 }
 
-function saveRtp() {
+function saveRtp(){
 
-    const rtp =
-        document.getElementById("rtpInput")?.value;
+    let rtp =
+        document.getElementById("rtpInput").value;
 
-    if (!rtp) {
-        alert("RTP value missing");
-        return;
-    }
+    document.getElementById("currentRtp")
+        .innerText = rtp + "%";
 
-    document.getElementById("currentRtp").innerText = rtp + "%";
-    document.getElementById("houseEdge").innerText = (100 - rtp) + "%";
+    document.getElementById("houseEdge")
+        .innerText = (100 - rtp) + "%";
 
     alert("RTP Updated");
+
+}
+// ==========================
+// RTP FUNCTION END
+// ==========================
+// ==========================
+//PLAYER CONTROL START
+// ==========================
+function togglePlayerPanel(){
+
+    const panel =
+        document.getElementById("playerPanel");
+
+    panel.style.display =
+        panel.style.display === "block"
+        ? "none"
+        : "block";
+
 }
 
+function savePlayerSettings(){
+
+    alert("Player Settings Saved");
+
+}
 // ==========================
-// PLAYER RTP API
+//PLAYER CONTROL END
 // ==========================
 
-async function savePlayerRtp() {
+// ==========================
+// ADMIN ACTIONS ENGINE
+// ==========================
 
-    const dbId =
-        document.getElementById('player-config')?.getAttribute('data-dbid');
+function addBalance(){
 
-    const gameType =
-        document.getElementById('game-select')?.value;
+    openAdminModal(
+        "Add Balance",
 
-    const rtpInput =
-        document.getElementById('rtp-value')?.value;
+        `
+        <input
+            type="text"
+            id="balanceUserId"
+            placeholder="User ID">
 
-    if (!dbId) {
-        alert("User not found");
-        return;
-    }
+        <input
+            type="number"
+            id="balanceAmount"
+            placeholder="Amount">
 
-    if (rtpInput < 1 || rtpInput > 100) {
-        alert("Invalid RTP value");
-        return;
-    }
+        <button onclick="confirmAddBalance()">
+            Add Balance
+        </button>
+        `
+    );
 
-    try {
-
-        const res = await fetch('/api/admin/update-rtp', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                db_id: dbId,
-                game: gameType,
-                rtp: parseFloat(rtpInput) / 100
-            })
-        });
-
-        const result = await res.json();
-
-        if (result.success) {
-            alert("RTP Updated Successfully");
-        } else {
-            alert("Failed: " + result.message);
-        }
-
-    } catch (err) {
-        console.error(err);
-        alert("Server error");
-    }
 }
 
-// ==========================
-// GLOBAL RTP API
-// ==========================
+function confirmAddBalance(){
 
-async function saveGlobalRtp() {
+    let userId =
+        document.getElementById("balanceUserId").value;
 
-    const gameType =
-        document.getElementById('game-select')?.value;
+    let amount =
+        document.getElementById("balanceAmount").value;
 
-    const rtpValue =
-        document.getElementById('global-rtp-value')?.value;
+    alert(
+        "Balance Added\nUser: " +
+        userId +
+        "\nAmount: " +
+        amount
+    );
 
-    if (rtpValue < 1 || rtpValue > 100) {
-        alert("Invalid value");
-        return;
-    }
+    closeAdminModal();
 
-    try {
-
-        const res = await fetch('/api/admin/update-global-rtp', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                game: gameType,
-                rtp: rtpValue
-            })
-        });
-
-        const result = await res.json();
-
-        if (result.success) {
-            alert("Global RTP Updated Successfully");
-        } else {
-            alert("Error: " + result.message);
-        }
-
-    } catch (err) {
-        console.error(err);
-        alert("Server connection error");
-    }
 }
 
+function deductBalance(){
+
+    openAdminModal(
+        "Deduct Balance",
+
+        `
+        <input
+            type="text"
+            id="deductUserId"
+            placeholder="User ID">
+
+        <input
+            type="number"
+            id="deductAmount"
+            placeholder="Amount">
+
+        <button onclick="confirmDeductBalance()">
+            Deduct Balance
+        </button>
+        `
+    );
+
+}
+
+function confirmDeductBalance(){
+
+    let userId =
+        document.getElementById("deductUserId").value;
+
+    let amount =
+        document.getElementById("deductAmount").value;
+
+    alert(
+        "Balance Deducted\nUser: " +
+        userId +
+        "\nAmount: " +
+        amount
+    );
+
+    closeAdminModal();
+
+}
+
+function suspendUser(){
+
+    openAdminModal(
+        "Suspend User",
+
+        `
+        <input
+            type="text"
+            id="suspendUserId"
+            placeholder="User ID">
+
+        <select id="suspendDuration">
+            <option>24 Hours</option>
+            <option>7 Days</option>
+            <option>30 Days</option>
+            <option>Permanent</option>
+        </select>
+
+        <button onclick="confirmSuspendUser()">
+            Suspend User
+        </button>
+        `
+    );
+
+}
+
+function confirmSuspendUser(){
+
+    let userId =
+        document.getElementById("suspendUserId").value;
+
+    let duration =
+        document.getElementById("suspendDuration").value;
+
+    alert(
+        "User Suspended\nUser: " +
+        userId +
+        "\nDuration: " +
+        duration
+    );
+
+    closeAdminModal();
+
+}
+
+function deleteUser(){
+
+    openAdminModal(
+        "Delete User",
+
+        `
+        <input
+            type="text"
+            id="deleteUserId"
+            placeholder="User ID">
+
+        <button onclick="confirmDeleteUser()">
+            Permanently Delete
+        </button>
+        `
+    );
+
+}
+
+function confirmDeleteUser(){
+
+    let userId =
+        document.getElementById("deleteUserId").value;
+
+    let confirmDelete =
+        confirm(
+            "Delete User ID: " + userId + " ?"
+        );
+
+    if(confirmDelete){
+
+        alert(
+            "User Deleted: " + userId
+        );
+
+        closeAdminModal();
+
+    }
+
+}
 // ==========================
-// RTP SYSTEM END
+//Notification: START
 // ==========================
+function sendNotification(){
+
+    let title =
+        document.getElementById("notifTitle").value;
+
+    let msg =
+        document.getElementById("notifMessage").value;
+
+    if(!title || !msg){
+
+        alert("Fill Notification Data");
+
+        return;
+
+    }
+
+    alert("Notification Sent");
+
+}
+// ==========================
+//Notification: END
+// ==========================
+function openModal(action, userId = null){
+
+    const modal =
+        document.getElementById("adminModal");
+
+    const title =
+        document.getElementById("modalTitle");
+
+    const body =
+        document.getElementById("modalBody");
+
+    modal.style.display = "block";
+
+    title.innerHTML = action;
+    body.innerHTML = "User ID : " + userId;
+
+}
+
+function toggleUserProfile() {
+
+    const panel =
+        document.getElementById(
+            "userDetailsPanel"
+        );
+
+    if(panel.style.display === "block") {
+
+        panel.style.display = "none";
+
+    } else {
+
+        panel.style.display = "block";
+
+    }
+
+}
+function toggleActionPanel(panelId) {
+
+    const panels =
+        document.querySelectorAll(
+            ".action-panel"
+        );
+
+    panels.forEach(panel => {
+
+        panel.style.display = "none";
+
+    });
+
+    const target =
+        document.getElementById(panelId);
+
+    if(target){
+
+        target.style.display = "block";
+
+    }
+
+}
+console.log("SAFIKI ADMIN PANEL LOADED");
