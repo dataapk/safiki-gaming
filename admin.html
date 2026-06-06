@@ -410,14 +410,12 @@
 <!-- PLAYER CONTROL -->
 <!-- ========================= -->
 
-<div id="playerControlPanel"
-     class="action-panel"
-     style="display:none;">
-
-    <h4>Player Control</h4>
-
-    <p>Coming Next Step</p>
-
+<div class="user-control-panel">
+    <h4>প্লেয়ার কাস্টমাইজেশন</h4>
+    <div id="player-config" data-id=""> <label>RTP সেট করুন (0.00 - 1.00):</label>
+        <input type="number" id="rtp-value" step="0.01" min="0" max="1" placeholder="0.95">
+        <button id="save-btn" onclick="savePlayerRtp()">সেভ পরিবর্তন</button>
+    </div>
 </div>
 
 <!-- ========================= -->
