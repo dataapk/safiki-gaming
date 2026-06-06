@@ -7,6 +7,17 @@ document.addEventListener("DOMContentLoaded", function () {
     initSidebar();
 
 });
+function initSidebar() {
+
+    console.log("SIDEBAR INIT RUNNING");
+
+    const menuItems =
+        document.querySelectorAll(".sidebar-menu li");
+
+    console.log(menuItems);
+
+    ...
+}
 // ==========================
 // SIDEBAR NAVIGATION
 // ==========================
