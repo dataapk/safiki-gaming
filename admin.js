@@ -418,26 +418,35 @@ function toggleActionPanel(panelId) {
 //Player win/lose control
 // ==========================
 async function savePlayerRtp() {
-    // এখন এটি সরাসরি db_id কে ধরবে
     const dbId = document.getElementById('player-config').getAttribute('data-dbid');
-    const rtpValue = document.getElementById('rtp-value').value;
+    const rtpInput = document.getElementById('rtp-value').value;
+    
+    // মানটি ১ থেকে ১০০ এর মধ্যে আছে কি না চেক করুন
+    if (rtpInput < 1 || rtpInput > 100) {
+        alert("দয়া করে ১ থেকে ১০০ এর মধ্যে একটি সংখ্যা দিন।");
+        return;
+    }
+
+    // ১০০ দিয়ে ভাগ করে দশমিক মান তৈরি (যেমন: ৯৫ দিলে ০.৯৫ হবে)
+    const rtpValue = parseFloat(rtpInput) / 100;
 
     try {
         const response = await fetch('/api/admin/update-rtp', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                db_id: dbId, // তোমার ডেটাবেসের ফিল্ডের নাম অনুযায়ী
-                rtp: parseFloat(rtpValue)
+                db_id: dbId,
+                rtp: rtpValue
             })
         });
 
         const result = await response.json();
         if (result.success) {
-            alert("সফল! db_id: " + dbId + "-এর RTP আপডেট হয়েছে।");
+            alert(`সফল! ইউজার ID: ${dbId}-এর জন্য RTP ${rtpInput}% সেট করা হয়েছে।`);
         }
     } catch (error) {
-        console.error("Error:", error);
+        console.error("Error updating RTP:", error);
+        alert("আপডেট করতে ব্যর্থ হয়েছে।");
     }
 }
 console.log("SAFIKI ADMIN PANEL LOADED");
