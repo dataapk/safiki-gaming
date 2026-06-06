@@ -412,9 +412,18 @@
 
 <div class="user-control-panel">
     <div id="player-config" data-dbid="">
-        <label>RTP সেট করুন (১ থেকে ১০০):</label>
+        
+        <label>গেম নির্বাচন করুন:</label>
+        <select id="game-select">
+            <option value="jhandi_munda">ঝান্ডি মুন্ডি (Jhandi Munda)</option>
+            <option value="teen_patti">তিন পাত্তি (Teen Patti)</option>
+            <option value="jhandi_wheel">ঝান্ডি হুইল (Jhandi Wheel)</option>
+        </select>
+
+        <label style="display:block; margin-top: 10px;">RTP সেট করুন (১ থেকে ১০০):</label>
         <input type="number" id="rtp-value" min="1" max="100" placeholder="95">
-        <button onclick="savePlayerRtp()">সেভ পরিবর্তন</button>
+        
+        <button onclick="savePlayerRtp()" style="margin-top: 10px; display: block;">সেভ পরিবর্তন</button>
     </div>
 </div>
 <!-- ========================= -->
