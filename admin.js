@@ -1,12 +1,10 @@
 // ==========================
 // SAFIKI ADMIN PANEL ENGINE
 // ==========================
-
 document.addEventListener("DOMContentLoaded", function () {
-
     initSidebar();
-
 });
+
 function initSidebar() {
 
     const menuItems =
@@ -35,14 +33,8 @@ function initSidebar() {
             const activeSection =
                 document.getElementById(target);
 
-            if(activeSection){
-
+            if (activeSection) {
                 activeSection.style.display = "block";
-
-                activeSection.scrollIntoView({
-                    behavior: "smooth"
-                });
-
             }
 
         });
