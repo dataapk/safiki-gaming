@@ -371,24 +371,6 @@ function openModal(action, userId = null){
 
 }
 
-function toggleUserProfile() {
-
-    const panel =
-        document.getElementById(
-            "userDetailsPanel"
-        );
-
-    if(panel.style.display === "block") {
-
-        panel.style.display = "none";
-
-    } else {
-
-        panel.style.display = "block";
-
-    }
-
-}
 function toggleActionPanel(panelId) {
 
     const panels =
