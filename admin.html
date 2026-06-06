@@ -171,55 +171,40 @@
 
     <br>
 
-<!-- ROW 4 QUICK ACCESS -->
+    <!-- ROW 4 QUICK ACCESS -->
 
-<h3>Quick Access</h3>
+    <h3>Quick Access</h3>
 
-<div class="stats-grid">
+    <div class="stats-grid">
 
-    <div class="stat-card"
-         data-target="usersSection">
+        <div class="stat-card">
+            <h3>User Data</h3>
+        </div>
 
-        <h3>User Data</h3>
+        <div class="stat-card">
+            <h3>Games</h3>
+        </div>
 
-    </div>
+        <div class="stat-card">
+            <h3>Finance</h3>
+        </div>
 
-    <div class="stat-card"
-         data-target="gamesSection">
+        <div class="stat-card">
+            <h3>Settings</h3>
+        </div>
 
-        <h3>Games</h3>
+        <div class="stat-card">
+            <h3>Notifications</h3>
+        </div>
 
-    </div>
-
-    <div class="stat-card"
-         data-target="financeSection">
-
-        <h3>Finance</h3>
-
-    </div>
-
-    <div class="stat-card"
-         data-target="settingsSection">
-
-        <h3>Settings</h3>
-
-    </div>
-
-    <div class="stat-card"
-         data-target="notificationsSection">
-
-        <h3>Notifications</h3>
-
-    </div>
-
-    <div class="stat-card"
-         data-target="securitySection">
-
-        <h3>Security</h3>
+        <div class="stat-card">
+            <h3>Security</h3>
+        </div>
 
     </div>
 
 </div>
+
 <!-- =================================== -->
 <!-- DASHBOARD SECTION END -->
 <!-- =================================== -->
@@ -425,25 +410,16 @@
 <!-- PLAYER CONTROL -->
 <!-- ========================= -->
 
-<div class="user-control-panel">
-    <div id="player-config" data-dbid="">
-        
-        <label>গেম নির্বাচন করুন:</label>
-        <select id="game-select">
-            <option value="jhandi_munda">ঝান্ডি মুন্ডি (Jhandi Munda)</option>
-            <option value="teen_patti">তিন পাত্তি (Teen Patti)</option>
-            <option value="jhandi_wheel">ঝান্ডি হুইল (Jhandi Wheel)</option>
-        </select>
+<div id="playerControlPanel"
+     class="action-panel"
+     style="display:none;">
 
-        <label style="display:block; margin-top: 10px;">RTP সেট করুন (১ থেকে ১০০):</label>
-        <input type="number" id="rtp-value" min="1" max="100" placeholder="95">
-        
-        <button onclick="savePlayerRtp()" style="margin-top: 10px; display: block;">সেভ পরিবর্তন</button>
-    </div>
+    <h4>Player Control</h4>
+
+    <p>Coming Next Step</p>
+
 </div>
-<!-- ========================= -->
-<!-- PLAYER CONTROL END-->
-<!-- ========================= -->
+
 <!-- ========================= -->
 <!-- REWARD PANEL -->
 <!-- ========================= -->
@@ -746,20 +722,16 @@
     <!-- GAME CONFIG -->
 
     <div class="stat-card">
-    <h3>Game Configuration</h3>
-    
-    <p>Select Game:</p>
-    <select id="game-select">
-        <option value="jhandi_munda">Jhandi Munda</option>
-        <option value="teen_patti">Teen Patti</option>
-        <option value="jhandi_wheel">Jhandi Wheel</option>
-    </select>
 
-    <p>Default RTP (%)</p>
-<input type="number" id="global-rtp-value" placeholder="1 - 100" min="1" max="100">
-    
-    <button onclick="saveGlobalRtp()">Save RTP</button>
-</div>
+        <h3>Game Configuration</h3>
+
+        <p>Default RTP (%)</p>
+
+        <input type="number" placeholder="95">
+
+        <button>Save RTP</button>
+
+    </div>
 
 </div>
 
