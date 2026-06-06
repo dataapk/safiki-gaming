@@ -53,28 +53,48 @@ function initSidebar() {
 
 function initQuickAccess() {
 
-    // সব Quick Access cards এবং admin sections নির্বাচন করা
-    const quickItems = document.querySelectorAll(".stats-grid .stat-card");
-    const sections = document.querySelectorAll(".admin-section");
+    const cards =
+        document.querySelectorAll(
+            ".stats-grid .stat-card"
+        );
 
-    quickItems.forEach(item => {
+    const sections =
+        document.querySelectorAll(
+            ".admin-section"
+        );
 
-        item.addEventListener("click", () => {
-            const target = item.textContent.trim(); // Quick Access card title অনুযায়ী target ধরব
+    cards.forEach(card => {
 
-            // সমস্ত Quick Access থেকে active class remove করা
-            quickItems.forEach(q => q.classList.remove("active"));
-            item.classList.add("active");
+        card.addEventListener("click", () => {
 
-            // সমস্ত section hide করা
-            sections.forEach(section => section.style.display = "none");
+            const target =
+                card.getAttribute(
+                    "data-target"
+                );
 
-            // target section show করা
-            const activeSection = document.getElementById(target);
+            sections.forEach(section => {
+
+                section.style.display =
+                    "none";
+
+            });
+
+            const activeSection =
+                document.getElementById(
+                    target
+                );
+
             if(activeSection){
-                activeSection.style.display = "block";
-                activeSection.scrollIntoView({ behavior: "smooth" });
+
+                activeSection.style.display =
+                    "block";
+
+                activeSection.scrollIntoView({
+                    behavior: "smooth"
+                });
+
             }
+
         });
 
     });
