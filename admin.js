@@ -5,7 +5,7 @@
 document.addEventListener("DOMContentLoaded", function () {
 
     initSidebar();
-    
+
 });
 function initSidebar() {
 
@@ -414,5 +414,4 @@ function toggleActionPanel(panelId) {
     }
 
 }
-
 console.log("SAFIKI ADMIN PANEL LOADED");
