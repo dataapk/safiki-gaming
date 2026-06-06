@@ -415,47 +415,85 @@ function toggleActionPanel(panelId) {
 
 }
 // ==========================
-//Player win/lose control
+// Player win/lose control
 // ==========================
 async function savePlayerRtp() {
+    // Get the unique user ID from the data attribute
     const dbId = document.getElementById('player-config').getAttribute('data-dbid');
-    const gameType = document.getElementById('game-select').value; // সিলেক্ট করা গেমের নাম
+    
+    // Get the selected game name from the dropdown
+    const gameType = document.getElementById('game-select').value;
+    
+    // Get the RTP percentage input value
     const rtpInput = document.getElementById('rtp-value').value;
 
+    // Validate if the user ID exists
     if (!dbId) {
-        alert("ইউজার আইডি পাওয়া যায়নি!");
+        alert("User ID not found!");
         return;
     }
     
+    // Validate if the RTP input is between 1 and 100
     if (rtpInput < 1 || rtpInput > 100) {
-        alert("দয়া করে ১ থেকে ১০০ এর মধ্যে একটি সংখ্যা দিন।");
+        alert("Please enter a value between 1 and 100.");
         return;
     }
 
+    // Convert percentage to decimal format for backend calculation
     const rtpValue = parseFloat(rtpInput) / 100;
 
     try {
+        // Send the updated data to the API endpoint
         const response = await fetch('/api/admin/update-rtp', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 db_id: dbId,
-                game: gameType, // গেমের নাম পাঠানো হচ্ছে
+                game: gameType,
                 rtp: rtpValue
             })
         });
 
         const result = await response.json();
+        
+        // Handle the server response
         if (result.success) {
-            alert(`${gameType}-এর জন্য RTP ${rtpInput}% সফলভাবে সেট হয়েছে!`);
+            alert(`RTP for ${gameType} set to ${rtpInput}% successfully!`);
         } else {
-            alert("আপডেট ব্যর্থ: " + result.message);
+            alert("Update failed: " + result.message);
         }
     } catch (error) {
         console.error("Error:", error);
-        alert("সার্ভার কানেকশন এরর!");
+        alert("Server connection error!");
     }
 }
+// ==========================
+// Player win/lose control END
+// ==========================
+// ==========================
+// GLOBAL RTP SETTING
+// ==========================
+
+<script>
+    // Function to save global RTP for a specific game
+    async function saveGlobalRtp() {
+        const gameType = document.getElementById('game-select').value;
+        const rtpValue = document.getElementById('global-rtp-value').value;
+
+        if (rtpValue < 1 || rtpValue > 100) {
+            alert("Please enter a value between 1 and 100");
+            return;
+        }
+
+        // Logic to send data to the backend
+        console.log("Saving Global RTP:", { game: gameType, rtp: rtpValue });
+        
+        // Add your fetch API logic here
+    }
+</script>
+// ==========================
+// GLOBAL RTP SETTING END
+// ==========================
 console.log("SAFIKI ADMIN PANEL LOADED");
 
 
