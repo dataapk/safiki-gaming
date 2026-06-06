@@ -34,7 +34,13 @@ function initSidebar() {
                 document.getElementById(target);
 
             if (activeSection) {
+
                 activeSection.style.display = "block";
+
+                activeSection.scrollIntoView({
+                    behavior: "smooth"
+                });
+
             }
 
         });
