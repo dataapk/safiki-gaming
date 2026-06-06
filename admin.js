@@ -1,86 +1,104 @@
 // ==========================
-// SAFIKI SPA ADMIN ENGINE (FINAL CLEAN)
+// SAFIKI ADMIN PANEL ENGINE
 // ==========================
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    initNavigation();
+    initSidebar();
 
-    console.log("SPA ADMIN READY");
 });
+function initSidebar() {
 
-// ==========================
-// NAVIGATION SYSTEM (SIDEBAR + QUICK ACCESS)
-// ==========================
-
-function initNavigation() {
-
-    const navItems =
-        document.querySelectorAll(".sidebar-menu li, .stats-grid .stat-card");
+    const menuItems =
+        document.querySelectorAll(".sidebar-menu li");
 
     const sections =
         document.querySelectorAll(".admin-section");
 
-    function hideAllSections() {
+    menuItems.forEach(item => {
 
-        sections.forEach(sec => {
-            sec.style.display = "none";
-            sec.classList.remove("active");
-        });
-
-    }
-
-    function switchSection(targetId) {
-
-        if (!targetId) return;
-
-        const target = document.getElementById(targetId);
-
-        if (!target) {
-            console.warn("Section not found:", targetId);
-            return;
-        }
-
-        hideAllSections();
-
-        target.style.display = "block";
-        target.classList.add("active");
-
-        target.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        });
-
-    }
-
-    function setActiveUI(clickedItem) {
-
-        document.querySelectorAll(
-            ".sidebar-menu li, .stats-grid .stat-card"
-        ).forEach(el => el.classList.remove("active"));
-
-        clickedItem.classList.add("active");
-
-    }
-
-    navItems.forEach(item => {
-
-        item.addEventListener("click", function () {
+        item.addEventListener("click", () => {
 
             const target =
-                this.getAttribute("data-target");
+                item.getAttribute("data-target");
 
-            if (!target) {
-                console.warn("Missing data-target:", this);
-                return;
+            menuItems.forEach(m =>
+                m.classList.remove("active")
+            );
+
+            item.classList.add("active");
+
+            sections.forEach(section => {
+                section.style.display = "none";
+            });
+
+            const activeSection =
+                document.getElementById(target);
+
+            if(activeSection){
+
+                activeSection.style.display = "block";
+
+                activeSection.scrollIntoView({
+                    behavior: "smooth"
+                });
+
             }
-
-            switchSection(target);
-            setActiveUI(this);
 
         });
 
     });
+
+}
+// ==========================
+// SIDEBAR NAVIGATION
+// ==========================
+
+function initSidebar() {
+
+    const menuItems = document.querySelectorAll(".sidebar-menu li");
+
+    const sections = document.querySelectorAll(".admin-section");
+
+    menuItems.forEach(item => {
+
+        item.addEventListener("click", () => {
+
+            menuItems.forEach(m =>
+                m.classList.remove("active")
+            );
+
+            item.classList.add("active");
+
+            const target = item.getAttribute("data-target");
+
+            sections.forEach(section => {
+
+                section.style.display = "none";
+
+            });
+
+            const activeSection =
+                document.getElementById(target);
+
+            if(activeSection){
+
+                activeSection.style.display = "block";
+
+                activeSection.scrollIntoView({
+                    behavior: "smooth"
+                });
+
+            }
+
+        });
+
+    });
+
+}
+// ==========================
+// SIDEBAR NAVIGATION
+// ==========================
 
     // ==========================
     // DEFAULT LOAD (DASHBOARD)
