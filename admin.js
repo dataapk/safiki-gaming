@@ -7,49 +7,84 @@ document.addEventListener("DOMContentLoaded", function () {
     initSidebar();
 
 });
+// ==========================
+// SIDEBAR NAVIGATION
+// ==========================
+
 function initSidebar() {
 
-    const menuItems =
-        document.querySelectorAll(".sidebar-menu li");
+    // সব sidebar menu items এবং admin sections নির্বাচন করা
+    const menuItems = document.querySelectorAll(".sidebar-menu li");
+    const sections = document.querySelectorAll(".admin-section");
 
-    const sections =
-        document.querySelectorAll(".admin-section");
-
+    // প্রতিটি menu item-এর জন্য click event যোগ করা
     menuItems.forEach(item => {
 
         item.addEventListener("click", () => {
+            const target = item.getAttribute("data-target");
 
-            const target =
-                item.getAttribute("data-target");
-
-            menuItems.forEach(m =>
-                m.classList.remove("active")
-            );
-
+            // সমস্ত menu item থেকে active class remove করা
+            menuItems.forEach(m => m.classList.remove("active"));
             item.classList.add("active");
 
-            sections.forEach(section => {
-                section.style.display = "none";
-            });
+            // সমস্ত section hide করা
+            sections.forEach(section => section.style.display = "none");
 
-            const activeSection =
-                document.getElementById(target);
-
+            // target section show করা
+            const activeSection = document.getElementById(target);
             if(activeSection){
-
                 activeSection.style.display = "block";
-
-                activeSection.scrollIntoView({
-                    behavior: "smooth"
-                });
-
+                activeSection.scrollIntoView({ behavior: "smooth" });
             }
-
         });
 
     });
 
 }
+
+// ==========================
+// SIDEBAR NAVIGATION END
+// ==========================
+
+
+// ==========================
+// QUICK ACCESS NAVIGATION
+// ==========================
+
+function initQuickAccess() {
+
+    // সব Quick Access cards এবং admin sections নির্বাচন করা
+    const quickItems = document.querySelectorAll(".stats-grid .stat-card");
+    const sections = document.querySelectorAll(".admin-section");
+
+    quickItems.forEach(item => {
+
+        item.addEventListener("click", () => {
+            const target = item.textContent.trim(); // Quick Access card title অনুযায়ী target ধরব
+
+            // সমস্ত Quick Access থেকে active class remove করা
+            quickItems.forEach(q => q.classList.remove("active"));
+            item.classList.add("active");
+
+            // সমস্ত section hide করা
+            sections.forEach(section => section.style.display = "none");
+
+            // target section show করা
+            const activeSection = document.getElementById(target);
+            if(activeSection){
+                activeSection.style.display = "block";
+                activeSection.scrollIntoView({ behavior: "smooth" });
+            }
+        });
+
+    });
+
+}
+
+// ==========================
+// QUICK ACCESS NAVIGATION END
+// ==========================
+
 // ==========================
 // SIDEBAR NAVIGATION
 // ==========================
@@ -97,7 +132,7 @@ function initSidebar() {
 
 }
 // ==========================
-// SIDEBAR NAVIGATION
+// SIDEBAR NAVIGATION END
 // ==========================
 // ==========================
 // RTP FUNCTION START 
