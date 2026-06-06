@@ -241,8 +241,6 @@
 
 <!-- USER DETAILS PANEL START -->
 
-<!-- =================================== -->
-
 <div id="userDetailsPanel" style="display:none;">
 
     <div class="profile-card">
@@ -252,7 +250,6 @@
 
             <h3>User Control Panel</h3>
 
-            <!-- FIXED: same function used for toggle -->
             <button onclick="toggleUserProfile()">✕</button>
 
         </div>
@@ -260,52 +257,60 @@
         <hr>
 
         <!-- USER INFO -->
+
         <p><strong>User ID:</strong> 1001</p>
+
         <p><strong>Username:</strong> Player One</p>
+
         <p><strong>Email:</strong> player@gmail.com</p>
+
         <p><strong>Status:</strong> Active</p>
+
+        <hr>
+
+        <!-- ACTION BUTTONS -->
+
+        <div class="action-buttons">
+
+            <button onclick="toggleActionPanel('addBalancePanel')">
+                Add Balance
+            </button>
+
+            <button onclick="toggleActionPanel('deductBalancePanel')">
+                Deduct Balance
+            </button>
+
+            <button onclick="toggleActionPanel('rtpPanel')">
+                RTP Settings
+            </button>
+
+            <button onclick="toggleActionPanel('playerControlPanel')">
+                Player Control
+            </button>
+
+            <button onclick="toggleActionPanel('rewardPanel')">
+                Send Reward
+            </button>
+
+            <button onclick="toggleActionPanel('notificationPanel')">
+                Send Notification
+            </button>
+
+            <button onclick="toggleActionPanel('suspendPanel')">
+                Suspend User
+            </button>
+
+            <button onclick="toggleActionPanel('deletePanel')">
+                Delete User
+            </button>
+
+        </div>
 
     </div>
 
 </div>
 
-    <!-- ACTION BUTTONS -->
-
-<div class="action-buttons">
-
-    <button onclick="toggleActionPanel('addBalancePanel')">
-        Add Balance
-    </button>
-
-    <button onclick="toggleActionPanel('deductBalancePanel')">
-        Deduct Balance
-    </button>
-
-    <button onclick="toggleActionPanel('rtpPanel')">
-        RTP Settings
-    </button>
-
-    <button onclick="toggleActionPanel('playerControlPanel')">
-        Player Control
-    </button>
-
-    <button onclick="toggleActionPanel('rewardPanel')">
-        Send Reward
-    </button>
-
-    <button onclick="toggleActionPanel('notificationPanel')">
-        Send Notification
-    </button>
-
-    <button onclick="toggleActionPanel('suspendPanel')">
-        Suspend User
-    </button>
-
-    <button onclick="toggleActionPanel('deletePanel')">
-        Delete User
-    </button>
-
-</div>
+<!-- USER DETAILS PANEL END -->
 
 <hr>
 
