@@ -419,15 +419,19 @@ function toggleActionPanel(panelId) {
 // ==========================
 async function savePlayerRtp() {
     const dbId = document.getElementById('player-config').getAttribute('data-dbid');
+    const gameType = document.getElementById('game-select').value; // সিলেক্ট করা গেমের নাম
     const rtpInput = document.getElementById('rtp-value').value;
+
+    if (!dbId) {
+        alert("ইউজার আইডি পাওয়া যায়নি!");
+        return;
+    }
     
-    // মানটি ১ থেকে ১০০ এর মধ্যে আছে কি না চেক করুন
     if (rtpInput < 1 || rtpInput > 100) {
         alert("দয়া করে ১ থেকে ১০০ এর মধ্যে একটি সংখ্যা দিন।");
         return;
     }
 
-    // ১০০ দিয়ে ভাগ করে দশমিক মান তৈরি (যেমন: ৯৫ দিলে ০.৯৫ হবে)
     const rtpValue = parseFloat(rtpInput) / 100;
 
     try {
@@ -436,17 +440,20 @@ async function savePlayerRtp() {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 db_id: dbId,
+                game: gameType, // গেমের নাম পাঠানো হচ্ছে
                 rtp: rtpValue
             })
         });
 
         const result = await response.json();
         if (result.success) {
-            alert(`সফল! ইউজার ID: ${dbId}-এর জন্য RTP ${rtpInput}% সেট করা হয়েছে।`);
+            alert(`${gameType}-এর জন্য RTP ${rtpInput}% সফলভাবে সেট হয়েছে!`);
+        } else {
+            alert("আপডেট ব্যর্থ: " + result.message);
         }
     } catch (error) {
-        console.error("Error updating RTP:", error);
-        alert("আপডেট করতে ব্যর্থ হয়েছে।");
+        console.error("Error:", error);
+        alert("সার্ভার কানেকশন এরর!");
     }
 }
 console.log("SAFIKI ADMIN PANEL LOADED");
