@@ -5,8 +5,7 @@
 document.addEventListener("DOMContentLoaded", function () {
 
     initSidebar();
-    bindDashboardCards();
-
+    
 });
 function initSidebar() {
 
