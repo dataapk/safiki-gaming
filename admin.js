@@ -412,4 +412,20 @@ function toggleActionPanel(panelId) {
     }
 
 }
+function toggleActionButtons() {
+
+    const panel =
+        document.getElementById("actionButtons");
+
+    if(panel.style.display === "block") {
+
+        panel.style.display = "none";
+
+    } else {
+
+        panel.style.display = "block";
+
+    }
+
+}
 console.log("SAFIKI ADMIN PANEL LOADED");
