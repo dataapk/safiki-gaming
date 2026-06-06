@@ -170,7 +170,10 @@
 
 </div>
 
-
+<!-- =================================== -->
+<!-- DASHBOARD SECTION END -->
+<!-- =================================== -->
+ 
 <!-- =================================== -->
 <!-- DASHBOARD SECTION END -->
 <!-- =================================== -->
@@ -193,11 +196,10 @@
             <tr>
 
                 <th>ID</th>
+                <th>Username</th>
+                <th>Email</th>
                 <th>Balance</th>
                 <th>Status</th>
-                <th>Total Deposit</th>
-                <th>Total Withdraw</th>
-                <th>Pending Withdraw</th>
                 <th>Action</th>
 
             </tr>
@@ -210,85 +212,100 @@
 
                 <td>1001</td>
 
+                <td>Player One</td>
+
+                <td>player@gmail.com</td>
+
                 <td>$50</td>
 
                 <td>Active</td>
 
-                <td>$500</td>
-
-                <td>$200</td>
-
-                <td>$25</td>
-
                 <td>
 
-                    <button
-                        class="view-user"
-                        onclick="toggleUserProfile()">
+    <button
+    class="view-user"
+    onclick="toggleUserDetails()">
 
-                        Details
+    Details
 
-                    </button>
+</button>
 
-                </td>
+</td>
 
             </tr>
 
         </tbody>
 
     </table>
+    <!-- =================================== -->
 
- <!-- USER DETAILS PANEL END -->
+<!-- USER DETAILS PANEL START -->
+
+<!-- =================================== -->
+
+<div id="userDetailsPanel" style="display:none;">
+
+    <div class="profile-card">
+
+        <!-- HEADER -->
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+
+            <h3>User Control Panel</h3>
+
+            <!-- FIXED: same function used for toggle -->
+            <button onclick="toggleUserProfile()">✕</button>
+
+        </div>
 
         <hr>
 
-        <!-- ACTION BUTTONS -->
-
-        <div class="action-buttons"
-     style="display:none;">
-
-            <button onclick="toggleActionPanel('addBalancePanel')">
-                Add Balance
-            </button>
-
-            <button onclick="toggleActionPanel('deductBalancePanel')">
-                Deduct Balance
-            </button>
-
-            <button onclick="toggleActionPanel('rtpPanel')">
-                RTP Settings
-            </button>
-
-            <button onclick="toggleActionPanel('playerControlPanel')">
-                Player Control
-            </button>
-            <button onclick="toggleUserProfile()">
-                User Details
-           </button>
-
-            <button onclick="toggleActionPanel('rewardPanel')">
-                Send Reward
-            </button>
-
-            <button onclick="toggleActionPanel('notificationPanel')">
-                Send Notification
-            </button>
-
-            <button onclick="toggleActionPanel('suspendPanel')">
-                Suspend User
-            </button>
-
-            <button onclick="toggleActionPanel('deletePanel')">
-                Delete User
-            </button>
-
-        </div>
+        <!-- USER INFO -->
+        <p><strong>User ID:</strong> 1001</p>
+        <p><strong>Username:</strong> Player One</p>
+        <p><strong>Email:</strong> player@gmail.com</p>
+        <p><strong>Status:</strong> Active</p>
 
     </div>
 
 </div>
 
-<!-- USER DETAILS PANEL END -->
+    <!-- ACTION BUTTONS -->
+
+<div class="action-buttons">
+
+    <button onclick="toggleActionPanel('addBalancePanel')">
+        Add Balance
+    </button>
+
+    <button onclick="toggleActionPanel('deductBalancePanel')">
+        Deduct Balance
+    </button>
+
+    <button onclick="toggleActionPanel('rtpPanel')">
+        RTP Settings
+    </button>
+
+    <button onclick="toggleActionPanel('playerControlPanel')">
+        Player Control
+    </button>
+
+    <button onclick="toggleActionPanel('rewardPanel')">
+        Send Reward
+    </button>
+
+    <button onclick="toggleActionPanel('notificationPanel')">
+        Send Notification
+    </button>
+
+    <button onclick="toggleActionPanel('suspendPanel')">
+        Suspend User
+    </button>
+
+    <button onclick="toggleActionPanel('deletePanel')">
+        Delete User
+    </button>
+
+</div>
 
 <hr>
 
