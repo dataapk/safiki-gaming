@@ -373,24 +373,21 @@ function openModal(action, userId = null){
 
 function toggleActionPanel(panelId) {
 
-    const panels =
-        document.querySelectorAll(
-            ".action-panel"
-        );
-
-    panels.forEach(panel => {
-
-        panel.style.display = "none";
-
-    });
-
     const target =
         document.getElementById(panelId);
 
-    if(target){
+    const isOpen =
+        target.style.display === "block";
 
+    const panels =
+        document.querySelectorAll(".action-panel");
+
+    panels.forEach(panel => {
+        panel.style.display = "none";
+    });
+
+    if (!isOpen) {
         target.style.display = "block";
-
     }
 
 }
