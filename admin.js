@@ -414,6 +414,32 @@ function toggleActionPanel(panelId) {
     }
 
 }
+// ==========================
+//Player win/lose control
+// ==========================
+async function savePlayerRtp() {
+    // এখন এটি সরাসরি db_id কে ধরবে
+    const dbId = document.getElementById('player-config').getAttribute('data-dbid');
+    const rtpValue = document.getElementById('rtp-value').value;
+
+    try {
+        const response = await fetch('/api/admin/update-rtp', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                db_id: dbId, // তোমার ডেটাবেসের ফিল্ডের নাম অনুযায়ী
+                rtp: parseFloat(rtpValue)
+            })
+        });
+
+        const result = await response.json();
+        if (result.success) {
+            alert("সফল! db_id: " + dbId + "-এর RTP আপডেট হয়েছে।");
+        }
+    } catch (error) {
+        console.error("Error:", error);
+    }
+}
 console.log("SAFIKI ADMIN PANEL LOADED");
 
 
