@@ -414,54 +414,5 @@ function toggleActionPanel(panelId) {
     }
 
 }
-// ==========================
-//DASHBOARD QUICK ACESS
-// ==========================
-function bindDashboardCards() {
 
-    const cards =
-        document.querySelectorAll(".stats-grid .stat-card");
-
-    const sections =
-        document.querySelectorAll(".admin-section");
-
-    cards.forEach(card => {
-
-        card.addEventListener("click", function () {
-
-            const target =
-                this.getAttribute("data-target");
-
-            if (!target) return;
-
-            // hide all sections
-            sections.forEach(sec => {
-                sec.style.display = "none";
-            });
-
-            // show target
-            const active =
-                document.getElementById(target);
-
-            if (active) {
-
-                active.style.display = "block";
-
-                active.scrollIntoView({
-                    behavior: "smooth"
-                });
-
-            }
-
-            // OPTIONAL: sync active state with sidebar
-            document.querySelectorAll(".sidebar-menu li")
-                .forEach(li => {
-                    li.classList.remove("active");
-                });
-
-        });
-
-    });
-
-}
 console.log("SAFIKI ADMIN PANEL LOADED");
