@@ -463,4 +463,162 @@ function toggleActionButtons() {
     }
 
 }
+/* ================================
+   USER DATA SECTIONEND
+==================================*/
+
+/* ================================
+   GAMES SECTION JS FILE START
+==================================*/
+
+let activeGameId = null;
+
+/* ================================
+   VIEW SWITCH SYSTEM
+==================================*/
+
+function switchToTableView() {
+
+    document.getElementById("gamesTableView").style.display = "block";
+    document.getElementById("gamesCardView").style.display = "none";
+
+}
+
+function switchToCardView() {
+
+    document.getElementById("gamesTableView").style.display = "none";
+    document.getElementById("gamesCardView").style.display = "block";
+
+}
+
+/* ================================
+   OPEN GAME SETTINGS PANEL
+==================================*/
+
+function openGameSettings(gameId) {
+
+    activeGameId = gameId;
+
+    const panel = document.getElementById("gameSettingsPanel");
+
+    panel.style.display = "block";
+
+    // DEMO DATA LOADER (backend replace হবে)
+    const gameName = getGameName(gameId);
+
+    document.getElementById("gs_id").innerText = gameId;
+    document.getElementById("gs_name").innerText = gameName;
+
+}
+
+/* ================================
+   GAME NAME MAP (DEMO)
+==================================*/
+
+function getGameName(id) {
+
+    const games = {
+        "G1001": "Jhandi Munda",
+        "G1002": "Teen Patti",
+        "G1003": "Wheel"
+    };
+
+    return games[id] || "Unknown Game";
+}
+
+/* ================================
+   RTP LIVE UPDATE
+==================================*/
+
+const rtpSlider = document.getElementById("gs_rtp");
+
+if (rtpSlider) {
+
+    rtpSlider.addEventListener("input", function () {
+
+        document.getElementById("gs_rtp_value").innerText =
+            this.value + "%";
+
+    });
+
+}
+
+/* ================================
+   STATUS TOGGLE SYSTEM
+==================================*/
+
+function toggleGameStatus() {
+
+    const btn = document.getElementById("gs_status_btn");
+
+    if (btn.innerText === "ACTIVE") {
+
+        btn.innerText = "INACTIVE";
+        btn.style.background = "red";
+
+    } else {
+
+        btn.innerText = "ACTIVE";
+        btn.style.background = "green";
+    }
+}
+
+/* ================================
+   API KEY GENERATOR
+==================================*/
+
+function generateApiKey() {
+
+    const key =
+        "API-" + Math.random().toString(36).substr(2, 10).toUpperCase();
+
+    document.getElementById("gs_apiKey").value = key;
+
+}
+
+/* ================================
+   SAVE SETTINGS (BACKEND READY)
+==================================*/
+
+function saveGameSettings() {
+
+    const data = {
+
+        gameId: activeGameId,
+
+        rtp: document.getElementById("gs_rtp").value,
+
+        status: document.getElementById("gs_status_btn").innerText,
+
+        minBet: document.getElementById("gs_minBet").value,
+
+        maxBet: document.getElementById("gs_maxBet").value,
+
+        apiKey: document.getElementById("gs_apiKey").value,
+
+        serverKey: document.getElementById("gs_serverKey").value
+
+    };
+
+    console.log("Saving Game Settings:", data);
+
+    alert("Game settings saved (frontend demo)");
+
+    // 👉 এখানে পরে NodeJS / Supabase API call বসবে
+
+}
+
+/* ================================
+   ADD GAME (PLACEHOLDER)
+==================================*/
+
+function openAddGame() {
+
+    alert("Add Game Panel will open (future modal or section)");
+
+}
+
+/* ================================
+   GAMES SECTION JS FILE END
+==================================*/
 console.log("SAFIKI ADMIN PANEL LOADED");
