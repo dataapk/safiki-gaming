@@ -1,9 +1,47 @@
 // ==========================
 // SAFIKI ADMIN PANEL ENGINE
 // ==========================
+
 document.addEventListener("DOMContentLoaded", function () {
+
+    // INIT SIDEBAR
     initSidebar();
+
+    // =========================
+    // GAME LOAD BUTTON LOGIC
+    // =========================
+
+    const btn = document.getElementById("loadGameBtn");
+
+    if (btn) {
+
+        btn.addEventListener("click", function () {
+
+            const game = document.getElementById("gameSelector").value;
+
+            if (!game) {
+                alert("Select a game first");
+                return;
+            }
+
+            const statsSection = document.getElementById("gameStatsSection");
+
+            if (statsSection) {
+                statsSection.style.display = "block";
+            }
+
+            console.log("Game selected:", game);
+
+        });
+
+    }
+
 });
+
+
+// ==========================
+// SIDEBAR SYSTEM
+// ==========================
 
 function initSidebar() {
 
