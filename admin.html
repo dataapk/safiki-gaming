@@ -621,43 +621,115 @@
      class="admin-section"
      style="display:none;">
 
-    <h2>Games</h2>
+    <!-- SECTION TITLE -->
+    <h2>Games Control Panel</h2>
 
-    <table>
+    <!-- TOP ACTION BAR -->
+    <div class="games-top-bar">
 
-        <thead>
+        <button onclick="openAddGame()">
+            + Add Game
+        </button>
 
-            <tr>
-                <th>Game ID</th>
-                <th>Game Name</th>
-                <th>RTP</th>
-                <th>Status</th>
-                <th>Action</th>
-            </tr>
+        <button onclick="toggleGameView()">
+            Toggle View
+        </button>
 
-        </thead>
+    </div>
 
-        <tbody>
+    <hr>
 
-            <tr>
+    <!-- ========================= -->
+    <!-- GAMES TABLE VIEW -->
+    <!-- ========================= -->
 
-                <td>G1001</td>
+    <div id="gamesTableView">
 
-                <td>Jhandi Munda</td>
+        <table class="games-table">
 
-                <td>95%</td>
+            <thead>
 
-                <td>Active</td>
+                <tr>
+                    <th>Game ID</th>
+                    <th>Game Name</th>
+                    <th>RTP</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
 
-                <td>
-                    <button>Edit</button>
-                </td>
+            </thead>
 
-            </tr>
+            <tbody>
 
-        </tbody>
+                <tr>
 
-    </table>
+                    <td>G1001</td>
+                    <td>Jhandi Munda</td>
+                    <td>95%</td>
+
+                    <td>
+                        <span class="status active">Active</span>
+                    </td>
+
+                    <td>
+                        <button onclick="editGame('G1001')">Edit</button>
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>G1002</td>
+                    <td>Teen Patti</td>
+                    <td>94%</td>
+
+                    <td>
+                        <span class="status active">Active</span>
+                    </td>
+
+                    <td>
+                        <button onclick="editGame('G1002')">Edit</button>
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>G1003</td>
+                    <td>Wheel</td>
+                    <td>92%</td>
+
+                    <td>
+                        <span class="status active">Active</span>
+                    </td>
+
+                    <td>
+                        <button onclick="editGame('G1003')">Edit</button>
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <!-- ========================= -->
+    <!-- GAME DETAILS PANEL -->
+    <!-- ========================= -->
+
+    <div id="gameDetailsPanel" style="display:none;">
+
+        <h3>Game Details</h3>
+
+        <div id="gameDetailsBox">
+
+            Click a game to view details
+
+        </div>
+
+    </div>
 
 </div>
 
