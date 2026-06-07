@@ -495,20 +495,27 @@ function switchToCardView() {
    OPEN GAME SETTINGS PANEL
 ==================================*/
 
-function openGameSettings(gameId) {
+let activeGameId = null;
 
-    activeGameId = gameId;
+function openGameSettings(gameId) {
 
     const panel = document.getElementById("gameSettingsPanel");
 
+    // 🔁 যদি একই game আবার click করে → CLOSE
+    if (activeGameId === gameId && panel.style.display === "block") {
+        panel.style.display = "none";
+        activeGameId = null;
+        return;
+    }
+
+    // 🟢 otherwise OPEN
+    activeGameId = gameId;
+
     panel.style.display = "block";
 
-    // DEMO DATA LOADER (backend replace হবে)
-    const gameName = getGameName(gameId);
-
+    // demo load
     document.getElementById("gs_id").innerText = gameId;
-    document.getElementById("gs_name").innerText = gameName;
-
+    document.getElementById("gs_name").innerText = getGameName(gameId);
 }
 
 /* ================================
