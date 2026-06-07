@@ -611,7 +611,7 @@
 <!-- =================================== -->
 <!-- USER DATA SECTION END -->
 <!-- =================================== -->
-    
+    =====================================================================================================
     
 <!-- =================================== -->
 <!-- GAMES SECTION START -->
@@ -744,6 +744,11 @@
 
     </div>
 
+
+<!-- =================================== -->
+<!-- CARD / GRID VIEW -->
+<!-- =================================== -->
+=======================================================================================================
     <hr>
 
 <!-- ========================= -->
@@ -757,8 +762,13 @@
     <!-- BASIC INFO -->
     <div class="setting-box">
 
-        <p>Game ID: <span id="gs_id">--</span></p>
-        <p>Game Name: <span id="gs_name">--</span></p>
+        <p>Game ID:
+            <span id="gs_id">--</span>
+        </p>
+
+        <p>Game Name:
+            <span id="gs_name">--</span>
+        </p>
 
     </div>
 
@@ -766,7 +776,7 @@
 
     <!-- GAME STATUS -->
     <button class="settings-toggle"
-            onclick="toggleSection('gameStatusSection')">
+            onclick="toggleSection('gameStatusSection', this)">
 
         ▶ Game Status
 
@@ -794,7 +804,7 @@
 
     <!-- RTP CONTROL -->
     <button class="settings-toggle"
-            onclick="toggleSection('rtpSection')">
+            onclick="toggleSection('rtpSection', this)">
 
         ▶ RTP Control
 
@@ -806,15 +816,15 @@
 
         <div class="setting-box">
 
-            <h4>RTP Control (1 - 100)</h4>
-
             <input type="range"
                    id="gs_rtp"
                    min="1"
                    max="100"
                    value="95">
 
-            <span id="gs_rtp_value">95%</span>
+            <span id="gs_rtp_value">
+                95%
+            </span>
 
         </div>
 
@@ -822,9 +832,9 @@
 
     <hr>
 
-    <!-- BET LIMIT -->
+    <!-- BET LIMITS -->
     <button class="settings-toggle"
-            onclick="toggleSection('betSection')">
+            onclick="toggleSection('betSection', this)">
 
         ▶ Bet Limits
 
@@ -835,8 +845,6 @@
          style="display:none;">
 
         <div class="setting-box">
-
-            <h4>Bet Limit (1 - 100)</h4>
 
             <input type="number"
                    id="gs_minBet"
@@ -852,9 +860,9 @@
 
     <hr>
 
-    <!-- API CONFIG -->
+    <!-- API CONFIGURATION -->
     <button class="settings-toggle"
-            onclick="toggleSection('apiSection')">
+            onclick="toggleSection('apiSection', this)">
 
         ▶ API Configuration
 
@@ -866,14 +874,14 @@
 
         <div class="setting-box">
 
-            <h4>Game API Key</h4>
-
             <input type="text"
                    id="gs_apiKey"
                    placeholder="Auto / Generate">
 
             <button onclick="generateApiKey()">
+
                 Generate
+
             </button>
 
         </div>
@@ -882,9 +890,9 @@
 
     <hr>
 
-    <!-- SERVER KEY -->
+    <!-- SERVER / SUPERVISOR -->
     <button class="settings-toggle"
-            onclick="toggleSection('serverSection')">
+            onclick="toggleSection('serverSection', this)">
 
         ▶ Server / Supervisor
 
@@ -895,8 +903,6 @@
          style="display:none;">
 
         <div class="setting-box">
-
-            <h4>Server / Supervisor Key</h4>
 
             <input type="text"
                    id="gs_serverKey"
@@ -910,7 +916,7 @@
 
     <!-- BACKEND CONNECTION -->
     <button class="settings-toggle"
-            onclick="toggleSection('backendSection')">
+            onclick="toggleSection('backendSection', this)">
 
         ▶ Backend Connection
 
@@ -922,31 +928,37 @@
 
         <div class="setting-box">
 
-            <h4>Backend Connection</h4>
-
             <p>
                 Status:
                 <span id="connectionStatus">
+
                     🟢 Connected
+
                 </span>
             </p>
 
             <p>
                 Environment:
                 <span id="connectionEnv">
+
                     Production
+
                 </span>
             </p>
 
             <p>
                 Last Sync:
                 <span id="lastSyncTime">
+
                     --
+
                 </span>
             </p>
 
             <button onclick="testConnection()">
+
                 Test Connection
+
             </button>
 
         </div>
@@ -957,10 +969,16 @@
 
     <!-- SAVE SETTINGS -->
     <button onclick="saveGameSettings()">
+
         Save Settings
+
     </button>
 
 </div>
+
+<!-- ========================= -->
+<!-- INLINE GAME SETTINGS PANEL END -->
+<!-- ========================= -->
     
 <!-- =================================== -->
 <!-- FINANCE SECTION START -->
