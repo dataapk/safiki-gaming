@@ -739,38 +739,28 @@ function openAddGame() {
 /* ================================
    GAMES SECTION JS FILE END
 ==================================*/
+/* ================================
+      FINANCE START 
+==================================*/
 
-// ============================
-// FINANCE SECTION start
-// ============================
+document.querySelectorAll("[data-target]").forEach(menu => {
 
-function openFinanceSection() {
+    menu.addEventListener("click", function () {
 
-    // hide all sections
-    document.querySelectorAll(".admin-section")
-        .forEach(sec => {
-            sec.style.display = "none";
-        });
+        const targetId =
+            this.getAttribute("data-target");
 
-    // show finance section
-    const financeSection = document.getElementById("financeSection");
+        document.querySelectorAll(".admin-section")
+            .forEach(section => {
+                section.style.display = "none";
+            });
 
-    if (financeSection) {
-        financeSection.style.display = "block";
-    }
+        const targetSection =
+            document.getElementById(targetId);
 
-}
-
-
-// ============================
-// AUTO BIND (data-target safe version)
-// ============================
-
-document.querySelectorAll("[data-target='financeSection']").forEach(item => {
-
-    item.addEventListener("click", function () {
-
-        openFinanceSection();
+        if (targetSection) {
+            targetSection.style.display = "block";
+        }
 
     });
 
