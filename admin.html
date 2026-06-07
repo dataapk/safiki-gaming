@@ -276,69 +276,17 @@
     <!-- =================================== -->
 <!-- PROFILE PANEL -->
 <!-- =================================== -->
-
 <div id="profilePanel"
      class="action-panel"
      style="display:none;">
 
-    <h3>Player Profile Overview</h3>
-
-    <!-- PROFILE CARDS -->
-
-    <div class="profile-grid">
-
-        <div class="profile-card">
-            <label>Full Name</label>
-            <span id="playerFullName">--</span>
-        </div>
-
-        <div class="profile-card">
-            <label>Email</label>
-            <span id="playerEmail">--</span>
-        </div>
-
-        <div class="profile-card">
-            <label>Country</label>
-            <span id="playerCountry">--</span>
-        </div>
-
-        <div class="profile-card">
-            <label>Address</label>
-            <span id="playerAddress">--</span>
-        </div>
-
-        <div class="profile-card">
-            <label>Account Level</label>
-            <span id="playerLevel">Bronze</span>
-        </div>
-
-        <div class="profile-card">
-            <label>Total XP</label>
-            <span id="playerTotalXP">0</span>
-        </div>
-
-        <div class="profile-card">
-            <label>Today XP</label>
-            <span id="playerTodayXP">0</span>
-        </div>
-
-        <div class="profile-card">
-            <label>Registration Date</label>
-            <span id="playerRegisterDate">--</span>
-        </div>
-
-        <div class="profile-card">
-            <label>Last Login</label>
-            <span id="playerLastLogin">--</span>
-        </div>
-
-    </div>
-
-    <hr>
-
-    <!-- PROFILE SUB MENU -->
+    <h3>Player Profile</h3>
 
     <div class="action-buttons">
+
+        <button onclick="toggleActionPanel('personalInfoPanel')">
+            Personal Information
+        </button>
 
         <button onclick="toggleActionPanel('depositHistoryPanel')">
             Deposit History
