@@ -621,30 +621,30 @@
      class="admin-section"
      style="display:none;">
 
-    <!-- SECTION TITLE -->
+    <!-- TITLE -->
     <h2>Games Control Panel</h2>
 
     <!-- TOP ACTION BAR -->
     <div class="games-top-bar">
 
-    <button onclick="openAddGame()">
-    + Add Game
-</button>
+        <button onclick="openAddGame()">
+            + Add Game
+        </button>
 
-<button onclick="switchToTableView()">
-    Table View
-</button>
+        <button onclick="switchToTableView()">
+            Table View
+        </button>
 
-<button onclick="switchToCardView()">
-    Card / Grid View
-</button>
+        <button onclick="switchToCardView()">
+            Card / Grid View
+        </button>
 
     </div>
 
     <hr>
 
     <!-- ========================= -->
-    <!-- GAMES TABLE VIEW -->
+    <!-- TABLE VIEW -->
     <!-- ========================= -->
 
     <div id="gamesTableView">
@@ -652,7 +652,6 @@
         <table class="games-table">
 
             <thead>
-
                 <tr>
                     <th>Game ID</th>
                     <th>Game Name</th>
@@ -660,57 +659,44 @@
                     <th>Status</th>
                     <th>Action</th>
                 </tr>
-
             </thead>
 
             <tbody>
 
                 <tr>
-
                     <td>G1001</td>
                     <td>Jhandi Munda</td>
                     <td>95%</td>
-
+                    <td><span class="status active">Active</span></td>
                     <td>
-                        <span class="status active">Active</span>
+                        <button onclick="openGameSettings('G1001')">
+                            Settings
+                        </button>
                     </td>
-
-                    <td>
-                        <button onclick="editGame('G1001')">Edit</button>
-                    </td>
-
                 </tr>
 
                 <tr>
-
                     <td>G1002</td>
                     <td>Teen Patti</td>
                     <td>94%</td>
-
+                    <td><span class="status active">Active</span></td>
                     <td>
-                        <span class="status active">Active</span>
+                        <button onclick="openGameSettings('G1002')">
+                            Settings
+                        </button>
                     </td>
-
-                    <td>
-                        <button onclick="editGame('G1002')">Edit</button>
-                    </td>
-
                 </tr>
 
                 <tr>
-
                     <td>G1003</td>
                     <td>Wheel</td>
                     <td>92%</td>
-
+                    <td><span class="status active">Active</span></td>
                     <td>
-                        <span class="status active">Active</span>
+                        <button onclick="openGameSettings('G1003')">
+                            Settings
+                        </button>
                     </td>
-
-                    <td>
-                        <button onclick="editGame('G1003')">Edit</button>
-                    </td>
-
                 </tr>
 
             </tbody>
@@ -720,18 +706,143 @@
     </div>
 
     <!-- ========================= -->
-    <!-- GAME DETAILS PANEL -->
+    <!-- CARD / GRID VIEW -->
     <!-- ========================= -->
 
-    <div id="gameDetailsPanel" style="display:none;">
+    <div id="gamesCardView" style="display:none;">
 
-        <h3>Game Details</h3>
+        <div class="games-grid">
 
-        <div id="gameDetailsBox">
+            <div class="game-card">
+                <h3>Jhandi Munda</h3>
+                <p>RTP: 95%</p>
+                <span class="status active">Active</span>
+                <button onclick="openGameSettings('G1001')">
+                    Settings
+                </button>
+            </div>
 
-            Click a game to view details
+            <div class="game-card">
+                <h3>Teen Patti</h3>
+                <p>RTP: 94%</p>
+                <span class="status active">Active</span>
+                <button onclick="openGameSettings('G1002')">
+                    Settings
+                </button>
+            </div>
+
+            <div class="game-card">
+                <h3>Wheel</h3>
+                <p>RTP: 92%</p>
+                <span class="status active">Active</span>
+                <button onclick="openGameSettings('G1003')">
+                    Settings
+                </button>
+            </div>
 
         </div>
+
+    </div>
+
+    <hr>
+
+    <!-- ========================= -->
+    <!-- INLINE GAME SETTINGS PANEL -->
+    <!-- ========================= -->
+
+    <div id="gameSettingsPanel" style="display:none;">
+
+        <h3>Game Settings</h3>
+
+        <!-- BASIC INFO -->
+        <div class="setting-box">
+            <p>Game ID: <span id="gs_id">--</span></p>
+            <p>Game Name: <span id="gs_name">--</span></p>
+        </div>
+
+        <hr>
+
+        <!-- RTP CONTROL -->
+        <div class="setting-box">
+
+            <h4>RTP Control (1 - 100)</h4>
+
+            <input type="range"
+                   id="gs_rtp"
+                   min="1"
+                   max="100"
+                   value="95">
+
+            <span id="gs_rtp_value">95%</span>
+
+        </div>
+
+        <hr>
+
+        <!-- STATUS CONTROL -->
+        <div class="setting-box">
+
+            <h4>Status Control</h4>
+
+            <button id="gs_status_btn" onclick="toggleGameStatus()">
+                ACTIVE
+            </button>
+
+        </div>
+
+        <hr>
+
+        <!-- BET LIMIT CONTROL -->
+        <div class="setting-box">
+
+            <h4>Bet Limit (1 - 100)</h4>
+
+            <input type="number"
+                   id="gs_minBet"
+                   placeholder="Min Bet">
+
+            <input type="number"
+                   id="gs_maxBet"
+                   placeholder="Max Bet">
+
+        </div>
+
+        <hr>
+
+        <!-- API KEY -->
+        <div class="setting-box">
+
+            <h4>Game API Key</h4>
+
+            <input type="text"
+                   id="gs_apiKey"
+                   placeholder="Auto / Generate">
+
+            <button onclick="generateApiKey()">
+                Generate
+            </button>
+
+        </div>
+
+        <hr>
+
+        <!-- SUPERVISOR / SERVER KEY -->
+        <div class="setting-box">
+
+            <h4>Server / Supervisor Key</h4>
+
+            <input type="text"
+                   id="gs_serverKey"
+                   placeholder="NodeJS / Backend Key">
+
+        </div>
+
+        <hr>
+
+        <!-- SAVE BUTTON -->
+        <button onclick="saveGameSettings()">
+            Save Settings
+        </button>
 
     </div>
 
