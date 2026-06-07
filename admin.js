@@ -570,15 +570,19 @@ function toggleGameStatus() {
 
     if (!btn) return;
 
-    if (btn.innerText.includes("ACTIVE")) {
+    if (btn.classList.contains("status-active")) {
+
+        btn.classList.remove("status-active");
+        btn.classList.add("status-inactive");
 
         btn.innerHTML = "🔴 INACTIVE";
-        btn.style.background = "red";
 
     } else {
 
+        btn.classList.remove("status-inactive");
+        btn.classList.add("status-active");
+
         btn.innerHTML = "🟢 ACTIVE";
-        btn.style.background = "green";
 
     }
 
