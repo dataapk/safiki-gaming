@@ -320,31 +320,15 @@ table tr:hover {
     border-radius: 12px;
 }
 /* GRID WRAPPER */
-.settings-grid {
-
+.settings-buttons-row {
     display: flex;
-
     flex-wrap: wrap;
-
     gap: 10px;
-
 }
-/* BUTTON */
+
 .settings-toggle {
-
-    display: inline-flex;
-    align-items: center;
-
     width: auto;
-
-    padding: 10px 14px;
-
-    border: none;
-    border-radius: 6px;
-
-    cursor: pointer;
-    font-weight: 600;
-
     white-space: nowrap;
-
+    padding: 10px 14px;
+    display: inline-flex;
 }
