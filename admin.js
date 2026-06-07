@@ -568,7 +568,8 @@ function toggleGameStatus() {
     const btn =
         document.getElementById("gameStatusBtn");
 
-    if (!btn) return;
+    console.log("Current Class:",
+        btn.className);
 
     if (btn.classList.contains("status-active")) {
 
@@ -585,6 +586,9 @@ function toggleGameStatus() {
         btn.innerHTML = "🟢 ACTIVE";
 
     }
+
+    console.log("New Class:",
+        btn.className);
 
 }
 /* ================================
