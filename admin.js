@@ -740,4 +740,40 @@ function openAddGame() {
    GAMES SECTION JS FILE END
 ==================================*/
 
+// ============================
+// FINANCE SECTION start
+// ============================
+
+function openFinanceSection() {
+
+    // hide all sections
+    document.querySelectorAll(".admin-section")
+        .forEach(sec => {
+            sec.style.display = "none";
+        });
+
+    // show finance section
+    const financeSection = document.getElementById("financeSection");
+
+    if (financeSection) {
+        financeSection.style.display = "block";
+    }
+
+}
+
+
+// ============================
+// AUTO BIND (data-target safe version)
+// ============================
+
+document.querySelectorAll("[data-target='financeSection']").forEach(item => {
+
+    item.addEventListener("click", function () {
+
+        openFinanceSection();
+
+    });
+
+});
+
 console.log("SAFIKI ADMIN PANEL LOADED");
