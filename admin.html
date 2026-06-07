@@ -273,11 +273,247 @@
 
 </div>
 <!-- USER DETAILS PANEL END -->
+    <!-- =================================== -->
+<!-- PROFILE PANEL -->
+<!-- =================================== -->
 
+<div id="profilePanel"
+     class="action-panel"
+     style="display:none;">
+
+    <h3>Player Profile Overview</h3>
+
+    <!-- PROFILE CARDS -->
+
+    <div class="profile-grid">
+
+        <div class="profile-card">
+            <label>Full Name</label>
+            <span id="playerFullName">--</span>
+        </div>
+
+        <div class="profile-card">
+            <label>Email</label>
+            <span id="playerEmail">--</span>
+        </div>
+
+        <div class="profile-card">
+            <label>Country</label>
+            <span id="playerCountry">--</span>
+        </div>
+
+        <div class="profile-card">
+            <label>Address</label>
+            <span id="playerAddress">--</span>
+        </div>
+
+        <div class="profile-card">
+            <label>Account Level</label>
+            <span id="playerLevel">Bronze</span>
+        </div>
+
+        <div class="profile-card">
+            <label>Total XP</label>
+            <span id="playerTotalXP">0</span>
+        </div>
+
+        <div class="profile-card">
+            <label>Today XP</label>
+            <span id="playerTodayXP">0</span>
+        </div>
+
+        <div class="profile-card">
+            <label>Registration Date</label>
+            <span id="playerRegisterDate">--</span>
+        </div>
+
+        <div class="profile-card">
+            <label>Last Login</label>
+            <span id="playerLastLogin">--</span>
+        </div>
+
+    </div>
+
+    <hr>
+
+    <!-- PROFILE SUB MENU -->
+
+    <div class="action-buttons">
+
+        <button onclick="toggleActionPanel('depositHistoryPanel')">
+            Deposit History
+        </button>
+
+        <button onclick="toggleActionPanel('withdrawHistoryPanel')">
+            Withdraw History
+        </button>
+
+        <button onclick="toggleActionPanel('gamingHistoryPanel')">
+            Gaming History
+        </button>
+
+    </div>
+
+</div>
+
+<!-- =================================== -->
+<!-- DEPOSIT HISTORY -->
+<!-- =================================== -->
+
+<div id="depositHistoryPanel"
+     class="action-panel"
+     style="display:none;">
+
+    <h3>Deposit History</h3>
+
+    <table class="history-table">
+
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Amount</th>
+                <th>Method</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+
+        <tbody id="depositHistoryTable">
+
+            <tr>
+                <td>--</td>
+                <td>--</td>
+                <td>--</td>
+                <td>--</td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<!-- =================================== -->
+<!-- WITHDRAW HISTORY -->
+<!-- =================================== -->
+
+<div id="withdrawHistoryPanel"
+     class="action-panel"
+     style="display:none;">
+
+    <h3>Withdraw History</h3>
+
+    <table class="history-table">
+
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Amount</th>
+                <th>Method</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+
+        <tbody id="withdrawHistoryTable">
+
+            <tr>
+                <td>--</td>
+                <td>--</td>
+                <td>--</td>
+                <td>--</td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<!-- =================================== -->
+<!-- GAMING HISTORY -->
+<!-- =================================== -->
+
+<div id="gamingHistoryPanel"
+     class="action-panel"
+     style="display:none;">
+
+    <h3>Gaming History</h3>
+
+    <select id="gameSelector">
+
+        <option>Jhandi Munda</option>
+        <option>Teen Patti</option>
+        <option>Wheel</option>
+
+    </select>
+
+    <br><br>
+
+    <!-- GAME STATS -->
+
+    <div class="profile-grid">
+
+        <div class="profile-card">
+            <label>Total Bets</label>
+            <span id="totalBets">0</span>
+        </div>
+
+        <div class="profile-card">
+            <label>Total Win</label>
+            <span id="totalWin">0</span>
+        </div>
+
+        <div class="profile-card">
+            <label>Total Loss</label>
+            <span id="totalLoss">0</span>
+        </div>
+
+        <div class="profile-card">
+            <label>Biggest Win</label>
+            <span id="biggestWin">0</span>
+        </div>
+
+        <div class="profile-card">
+            <label>Biggest Loss</label>
+            <span id="biggestLoss">0</span>
+        </div>
+
+    </div>
+
+    <br>
+
+    <table class="history-table">
+
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Game</th>
+                <th>Bet Amount</th>
+                <th>Result</th>
+            </tr>
+        </thead>
+
+        <tbody id="gameHistoryTable">
+
+            <tr>
+                <td>--</td>
+                <td>--</td>
+                <td>--</td>
+                <td>--</td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<!-- ======================= -->
+<!-- PROFILE PANEL END-->
+<!-- ======================= -->
 <hr>
 
 <!-- ========================= -->
-<!-- ADD BALANCE PANEL -->
+<!-- ADD BALANCE PANEL START-->
 <!-- ========================= -->
 
 <div id="addBalancePanel"
