@@ -319,6 +319,7 @@ table tr:hover {
     padding: 20px;
     border-radius: 12px;
 }
+
 /* GRID WRAPPER */
 .settings-buttons-row {
     display: flex;
