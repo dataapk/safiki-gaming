@@ -578,6 +578,34 @@ function toggleGameStatus() {
         btn.style.background = "green";
     }
 }
+/* ================================
+   DEMO TEST CONNECTION
+==================================*/
+function testConnection() {
+
+    const status =
+        document.getElementById("connectionStatus");
+
+    const sync =
+        document.getElementById("lastSyncTime");
+
+    status.innerHTML = "🟡 Checking...";
+
+    setTimeout(() => {
+
+        status.innerHTML = "🟢 Connected";
+
+        sync.innerHTML =
+            new Date().toLocaleString();
+
+    }, 1000);
+
+}
+
+/* ================================
+   DEMO TEST CONNECTION END
+==================================*/
+
 
 /* ================================
    API KEY GENERATOR
