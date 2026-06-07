@@ -373,12 +373,14 @@ function openModal(action, userId = null){
 
 function toggleActionPanel(panelId, btn = null) {
 
-    const panels = document.querySelectorAll(".action-panel");
-    const buttons = document.querySelectorAll(".profile-toggle-btn");
-
     const target = document.getElementById(panelId);
 
     const isOpen = target && target.style.display === "block";
+
+    // IMPORTANT: only close SUB PANELS, not profilePanel
+    const panels = document.querySelectorAll(".sub-panel");
+
+    const buttons = document.querySelectorAll(".profile-toggle-btn");
 
     // close if already open
     if (isOpen) {
@@ -387,22 +389,22 @@ function toggleActionPanel(panelId, btn = null) {
         return;
     }
 
-    // hide all panels
+    // hide only sub panels
     panels.forEach(panel => {
         panel.style.display = "none";
     });
 
-    // remove active from all buttons
+    // remove active state
     buttons.forEach(b => {
         b.classList.remove("active");
     });
 
-    // show selected panel
+    // open selected
     if (target) {
         target.style.display = "block";
     }
 
-    // set active button
+    // active button
     if (btn) {
         btn.classList.add("active");
     }
