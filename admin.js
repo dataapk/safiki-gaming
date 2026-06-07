@@ -565,18 +565,23 @@ if (rtpSlider) {
 
 function toggleGameStatus() {
 
-    const btn = document.getElementById("gs_status_btn");
+    const btn =
+        document.getElementById("gameStatusBtn");
 
-    if (btn.innerText === "ACTIVE") {
+    if (!btn) return;
 
-        btn.innerText = "INACTIVE";
+    if (btn.innerText.includes("ACTIVE")) {
+
+        btn.innerHTML = "🔴 INACTIVE";
         btn.style.background = "red";
 
     } else {
 
-        btn.innerText = "ACTIVE";
+        btn.innerHTML = "🟢 ACTIVE";
         btn.style.background = "green";
+
     }
+
 }
 /* ================================
    DEMO TEST CONNECTION
