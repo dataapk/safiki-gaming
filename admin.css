@@ -319,16 +319,13 @@ table tr:hover {
     padding: 20px;
     border-radius: 12px;
 }
-/* =========================
-   GAME STATUS BUTTON
-========================= */
-
+/* GRID WRAPPER */
 .settings-grid {
 
     display: grid;
 
     grid-template-columns:
-        repeat(3, 1fr);
+        repeat(auto-fit, minmax(180px, 1fr));
 
     gap: 10px;
 
@@ -336,14 +333,14 @@ table tr:hover {
 
 }
 
+/* BUTTON */
 .settings-toggle {
 
-    display: inline-flex;
+    display: flex;
+    justify-content: center;
     align-items: center;
 
-    width: auto;
-    min-width: 180px;
-    max-width: fit-content;
+    width: 100%;
 
     padding: 10px 14px;
 
@@ -352,7 +349,5 @@ table tr:hover {
 
     cursor: pointer;
     font-weight: 600;
-
-    margin: 5px 0;
 
 }
