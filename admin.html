@@ -757,20 +757,44 @@
 
     <h3>Game Settings</h3>
 
-    <!-- BASIC INFO -->
-    <div class="setting-box">
+<!-- BASIC INFO -->
+<div class="setting-box">
+    <p>Game ID: <span id="gs_id">--</span></p>
+    <p>Game Name: <span id="gs_name">--</span></p>
+</div>
 
-        <p>Game ID:
-            <span id="gs_id">--</span>
-        </p>
+<hr>
 
-        <p>Game Name:
-            <span id="gs_name">--</span>
-        </p>
+<!-- 🔥 GAME WRAPPER -->
+<div class="settings-buttons-row">
 
-    </div>
+    <button class="settings-toggle" onclick="toggleSection('gameStatusSection', this)">
+        ▶ Game Status
+    </button>
 
-    <hr>
+    <button class="settings-toggle" onclick="toggleSection('rtpSection', this)">
+        ▶ RTP Control
+    </button>
+
+    <button class="settings-toggle" onclick="toggleSection('betSection', this)">
+        ▶ Bet Limits
+    </button>
+
+    <button class="settings-toggle" onclick="toggleSection('apiSection', this)">
+        ▶ API Configuration
+    </button>
+
+    <button class="settings-toggle" onclick="toggleSection('serverSection', this)">
+        ▶ Server / Supervisor
+    </button>
+
+    <button class="settings-toggle" onclick="toggleSection('backendSection', this)">
+        ▶ Backend Connection
+    </button>
+
+</div>
+
+<hr>
 
     <!-- GAME STATUS -->
     <button class="settings-toggle"
