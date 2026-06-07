@@ -612,7 +612,7 @@
 <!-- USER DATA SECTION END -->
 <!-- =================================== -->
    
-    <!-- =================================== -->
+<!-- =================================== -->
 <!-- GAMES SECTION START -->
 <!-- =================================== -->
 
@@ -745,7 +745,7 @@
 
 
 <!-- =================================== -->
-<!-- CARD / GRID VIEW -->
+<!-- GAMES SECTION -->
 <!-- =================================== -->
     <hr>
 
@@ -757,52 +757,57 @@
 
     <h3>Game Settings</h3>
 
-<!-- BASIC INFO -->
-<div class="setting-box">
-    <p>Game ID: <span id="gs_id">--</span></p>
-    <p>Game Name: <span id="gs_name">--</span></p>
-</div>
+    <!-- BASIC INFO -->
+    <div class="setting-box">
+        <p>Game ID: <span id="gs_id">--</span></p>
+        <p>Game Name: <span id="gs_name">--</span></p>
+    </div>
 
-<hr>
+    <hr>
 
-<!-- 🔥 GAME WRAPPER -->
-<div class="settings-buttons-row">
+    <!-- ========================= -->
+    <!-- ACCORDION BUTTON ROW (HORIZONTAL) -->
+    <!-- ========================= -->
 
-    <button class="settings-toggle" onclick="toggleSection('gameStatusSection', this)">
-        ▶ Game Status
-    </button>
+    <div class="settings-buttons-row">
 
-    <button class="settings-toggle" onclick="toggleSection('rtpSection', this)">
-        ▶ RTP Control
-    </button>
+        <button class="settings-toggle"
+                onclick="toggleSection('gameStatusSection', this)">
+            ▶ Game Status
+        </button>
 
-    <button class="settings-toggle" onclick="toggleSection('betSection', this)">
-        ▶ Bet Limits
-    </button>
+        <button class="settings-toggle"
+                onclick="toggleSection('rtpSection', this)">
+            ▶ RTP Control
+        </button>
 
-    <button class="settings-toggle" onclick="toggleSection('apiSection', this)">
-        ▶ API Configuration
-    </button>
+        <button class="settings-toggle"
+                onclick="toggleSection('betSection', this)">
+            ▶ Bet Limits
+        </button>
 
-    <button class="settings-toggle" onclick="toggleSection('serverSection', this)">
-        ▶ Server / Supervisor
-    </button>
+        <button class="settings-toggle"
+                onclick="toggleSection('apiSection', this)">
+            ▶ API Configuration
+        </button>
 
-    <button class="settings-toggle" onclick="toggleSection('backendSection', this)">
-        ▶ Backend Connection
-    </button>
+        <button class="settings-toggle"
+                onclick="toggleSection('serverSection', this)">
+            ▶ Server / Supervisor
+        </button>
 
-</div>
+        <button class="settings-toggle"
+                onclick="toggleSection('backendSection', this)">
+            ▶ Backend Connection
+        </button>
 
-<hr>
+    </div>
 
+    <hr>
+
+    <!-- ========================= -->
     <!-- GAME STATUS -->
-    <button class="settings-toggle"
-            onclick="toggleSection('gameStatusSection', this)">
-
-        ▶ Game Status
-
-    </button>
+    <!-- ========================= -->
 
     <div id="gameStatusSection"
          class="settings-content"
@@ -824,13 +829,9 @@
 
     <hr>
 
+    <!-- ========================= -->
     <!-- RTP CONTROL -->
-    <button class="settings-toggle"
-            onclick="toggleSection('rtpSection', this)">
-
-        ▶ RTP Control
-
-    </button>
+    <!-- ========================= -->
 
     <div id="rtpSection"
          class="settings-content"
@@ -844,9 +845,7 @@
                    max="100"
                    value="95">
 
-            <span id="gs_rtp_value">
-                95%
-            </span>
+            <span id="gs_rtp_value">95%</span>
 
         </div>
 
@@ -854,13 +853,9 @@
 
     <hr>
 
+    <!-- ========================= -->
     <!-- BET LIMITS -->
-    <button class="settings-toggle"
-            onclick="toggleSection('betSection', this)">
-
-        ▶ Bet Limits
-
-    </button>
+    <!-- ========================= -->
 
     <div id="betSection"
          class="settings-content"
@@ -882,13 +877,9 @@
 
     <hr>
 
+    <!-- ========================= -->
     <!-- API CONFIGURATION -->
-    <button class="settings-toggle"
-            onclick="toggleSection('apiSection', this)">
-
-        ▶ API Configuration
-
-    </button>
+    <!-- ========================= -->
 
     <div id="apiSection"
          class="settings-content"
@@ -901,9 +892,7 @@
                    placeholder="Auto / Generate">
 
             <button onclick="generateApiKey()">
-
                 Generate
-
             </button>
 
         </div>
@@ -912,13 +901,9 @@
 
     <hr>
 
+    <!-- ========================= -->
     <!-- SERVER / SUPERVISOR -->
-    <button class="settings-toggle"
-            onclick="toggleSection('serverSection', this)">
-
-        ▶ Server / Supervisor
-
-    </button>
+    <!-- ========================= -->
 
     <div id="serverSection"
          class="settings-content"
@@ -936,13 +921,9 @@
 
     <hr>
 
+    <!-- ========================= -->
     <!-- BACKEND CONNECTION -->
-    <button class="settings-toggle"
-            onclick="toggleSection('backendSection', this)">
-
-        ▶ Backend Connection
-
-    </button>
+    <!-- ========================= -->
 
     <div id="backendSection"
          class="settings-content"
@@ -952,35 +933,21 @@
 
             <p>
                 Status:
-                <span id="connectionStatus">
-
-                    🟢 Connected
-
-                </span>
+                <span id="connectionStatus">🟢 Connected</span>
             </p>
 
             <p>
                 Environment:
-                <span id="connectionEnv">
-
-                    Production
-
-                </span>
+                <span id="connectionEnv">Production</span>
             </p>
 
             <p>
                 Last Sync:
-                <span id="lastSyncTime">
-
-                    --
-
-                </span>
+                <span id="lastSyncTime">--</span>
             </p>
 
             <button onclick="testConnection()">
-
                 Test Connection
-
             </button>
 
         </div>
@@ -991,9 +958,7 @@
 
     <!-- SAVE SETTINGS -->
     <button onclick="saveGameSettings()">
-
         Save Settings
-
     </button>
 
 </div>
