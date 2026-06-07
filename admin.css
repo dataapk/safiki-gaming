@@ -319,3 +319,30 @@ table tr:hover {
     padding: 20px;
     border-radius: 12px;
 }
+/* =========================
+   GAME STATUS BUTTON
+========================= */
+
+.status-active {
+
+    background: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+
+}
+
+.status-inactive {
+
+    background: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+
+}
