@@ -371,25 +371,41 @@ function openModal(action, userId = null){
 
 }
 
-function toggleActionPanel(panelId) {
+function toggleActionPanel(panelId, btn = null) {
 
-    const target =
-        document.getElementById(panelId);
+    const panels = document.querySelectorAll(".action-panel");
+    const buttons = document.querySelectorAll(".profile-toggle-btn");
 
-    const isOpen =
-        target.style.display === "block";
+    const target = document.getElementById(panelId);
 
-    const panels =
-        document.querySelectorAll(".action-panel");
+    const isOpen = target && target.style.display === "block";
 
+    // close if already open
+    if (isOpen) {
+        target.style.display = "none";
+        if (btn) btn.classList.remove("active");
+        return;
+    }
+
+    // hide all panels
     panels.forEach(panel => {
         panel.style.display = "none";
     });
 
-    if (!isOpen) {
+    // remove active from all buttons
+    buttons.forEach(b => {
+        b.classList.remove("active");
+    });
+
+    // show selected panel
+    if (target) {
         target.style.display = "block";
     }
 
+    // set active button
+    if (btn) {
+        btn.classList.add("active");
+    }
 }
 function toggleActionButtons() {
 
