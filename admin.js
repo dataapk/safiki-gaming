@@ -739,31 +739,6 @@ function openAddGame() {
 /* ================================
    GAMES SECTION JS FILE END
 ==================================*/
-/* ================================
-      FINANCE START 
-==================================*/
 
-document.querySelectorAll("[data-target]").forEach(menu => {
-
-    menu.addEventListener("click", function () {
-
-        const targetId =
-            this.getAttribute("data-target");
-
-        document.querySelectorAll(".admin-section")
-            .forEach(section => {
-                section.style.display = "none";
-            });
-
-        const targetSection =
-            document.getElementById(targetId);
-
-        if (targetSection) {
-            targetSection.style.display = "block";
-        }
-
-    });
-
-});
 
 console.log("SAFIKI ADMIN PANEL LOADED");
