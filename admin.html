@@ -809,40 +809,74 @@
 
         <hr>
 
-        <!-- API KEY -->
-        <div class="setting-box">
+ <!-- API KEY -->
+<div class="setting-box">
 
-            <h4>Game API Key</h4>
+    <h4>Game API Key</h4>
 
-            <input type="text"
-                   id="gs_apiKey"
-                   placeholder="Auto / Generate">
+    <input type="text"
+           id="gs_apiKey"
+           placeholder="Auto / Generate">
 
-            <button onclick="generateApiKey()">
-                Generate
-            </button>
+    <button onclick="generateApiKey()">
+        Generate
+    </button>
 
-        </div>
+</div>
 
-        <hr>
+<hr>
 
-        <!-- SUPERVISOR / SERVER KEY -->
-        <div class="setting-box">
+<!-- SUPERVISOR / SERVER KEY -->
+<div class="setting-box">
 
-            <h4>Server / Supervisor Key</h4>
+    <h4>Server / Supervisor Key</h4>
 
-            <input type="text"
-                   id="gs_serverKey"
-                   placeholder="NodeJS / Backend Key">
+    <input type="text"
+           id="gs_serverKey"
+           placeholder="NodeJS / Backend Key">
 
-        </div>
+</div>
 
-        <hr>
+<hr>
 
-        <!-- SAVE BUTTON -->
-        <button onclick="saveGameSettings()">
-            Save Settings
-        </button>
+<!-- BACKEND CONNECTION -->
+<div class="setting-box">
+
+    <h4>Backend Connection</h4>
+
+    <p>
+        Status:
+        <span id="connectionStatus">
+            🟢 Connected
+        </span>
+    </p>
+
+    <p>
+        Environment:
+        <span id="connectionEnv">
+            Production
+        </span>
+    </p>
+
+    <p>
+        Last Sync:
+        <span id="lastSyncTime">
+            --
+        </span>
+    </p>
+
+    <button onclick="testConnection()">
+        Test Connection
+    </button>
+
+</div>
+
+<hr>
+
+<!-- SAVE BUTTON -->
+<button onclick="saveGameSettings()">
+    Save Settings
+</button>
 
     </div>
 
