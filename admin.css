@@ -333,3 +333,6 @@ table tr:hover {
     padding: 10px 14px;
     display: inline-flex;
 }
+button[onclick="saveGameSettings()"]{
+    margin-top: 25px;
+}
