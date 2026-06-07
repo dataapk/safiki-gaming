@@ -280,27 +280,31 @@
      class="action-panel"
      style="display:none;">
 
-    <h3>Player Profile</h3>
+<h3>Player Profile</h3>
 
-    <div class="action-buttons">
+<div class="action-buttons">
 
-        <button onclick="toggleActionPanel('personalInfoPanel')">
-            Personal Information
-        </button>
+    <button class="profile-toggle-btn"
+            onclick="toggleActionPanel('personalInfoPanel', this)">
+        Personal Information
+    </button>
 
-        <button onclick="toggleActionPanel('depositHistoryPanel')">
-            Deposit History
-        </button>
+    <button class="profile-toggle-btn"
+            onclick="toggleActionPanel('depositHistoryPanel', this)">
+        Deposit History
+    </button>
 
-        <button onclick="toggleActionPanel('withdrawHistoryPanel')">
-            Withdraw History
-        </button>
+    <button class="profile-toggle-btn"
+            onclick="toggleActionPanel('withdrawHistoryPanel', this)">
+        Withdraw History
+    </button>
 
-        <button onclick="toggleActionPanel('gamingHistoryPanel')">
-            Gaming History
-        </button>
+    <button class="profile-toggle-btn"
+            onclick="toggleActionPanel('gamingHistoryPanel', this)">
+        Gaming History
+    </button>
 
-    </div>
+</div>
 
 </div>
 
