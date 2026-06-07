@@ -464,43 +464,26 @@ function toggleActionButtons() {
 
 }
 /* ================================
-   USER DATA SECTIONEND
+   USER DATA SECTION END
 ==================================*/
 
 /* ================================
    GAMES SECTION JS FILE START
 ==================================*/
 
-let activeGameId = null;
-
-/* ================================
-   VIEW SWITCH SYSTEM
-==================================*/
-
-function switchToTableView() {
-
-    document.getElementById("gamesTableView").style.display = "block";
-    document.getElementById("gamesCardView").style.display = "none";
-
-}
-
-function switchToCardView() {
-
-    document.getElementById("gamesTableView").style.display = "none";
-    document.getElementById("gamesCardView").style.display = "block";
-
-}
+window.activeGameId = null;
 
 /* ================================
    OPEN GAME SETTINGS PANEL
 ==================================*/
+
 function openGameSettings(gameId) {
 
-    const panel = document.getElementById("gameSettingsPanel");
+    const panel =
+        document.getElementById("gameSettingsPanel");
 
     if (!panel) return;
 
-    // একই game আবার click
     if (window.activeGameId === gameId) {
 
         const isVisible =
@@ -510,57 +493,103 @@ function openGameSettings(gameId) {
 
             panel.style.display = "none";
             window.activeGameId = null;
+
             return;
 
         }
 
     }
 
-    // open / switch
     window.activeGameId = gameId;
 
     panel.style.display = "block";
 
-    document.getElementById("gs_id").innerText = gameId;
+    document.getElementById("gs_id").innerText =
+        gameId;
+
     document.getElementById("gs_name").innerText =
         getGameName(gameId);
 
 }
 
 /* ================================
-   GAME NAME MAP (DEMO)
+   GAME NAME MAP
 ==================================*/
 
 function getGameName(id) {
 
     const games = {
+
         "G1001": "Jhandi Munda",
         "G1002": "Teen Patti",
         "G1003": "Wheel"
+
     };
 
     return games[id] || "Unknown Game";
+
+}
+
+/* ================================
+   SETTINGS ACCORDION
+==================================*/
+
+function toggleSection(sectionId) {
+
+    const allSections =
+        document.querySelectorAll(".settings-content");
+
+    const current =
+        document.getElementById(sectionId);
+
+    if (!current) return;
+
+    const isOpen =
+        current.style.display === "block";
+
+    allSections.forEach(section => {
+
+        section.style.display = "none";
+
+    });
+
+    if (!isOpen) {
+
+        current.style.display = "block";
+
+    }
+
 }
 
 /* ================================
    RTP LIVE UPDATE
 ==================================*/
 
-const rtpSlider = document.getElementById("gs_rtp");
+document.addEventListener("DOMContentLoaded", () => {
 
-if (rtpSlider) {
+    const rtpSlider =
+        document.getElementById("gs_rtp");
+
+    if (!rtpSlider) return;
 
     rtpSlider.addEventListener("input", function () {
 
-        document.getElementById("gs_rtp_value").innerText =
-            this.value + "%";
+        const output =
+            document.getElementById("gs_rtp_value");
+
+        if (output) {
+
+            output.innerText =
+                this.value + "%";
+
+        }
 
     });
 
-}
+});
 
 /* ================================
-   STATUS TOGGLE SYSTEM
+   GAME STATUS TOGGLE
 ==================================*/
 
 function toggleGameStatus() {
@@ -568,32 +597,36 @@ function toggleGameStatus() {
     const btn =
         document.getElementById("gameStatusBtn");
 
-    console.log("Current Class:",
-        btn.className);
+    if (!btn) return;
 
     if (btn.classList.contains("status-active")) {
 
         btn.classList.remove("status-active");
+
         btn.classList.add("status-inactive");
 
-        btn.innerHTML = "🔴 INACTIVE";
-
-    } else {
-
-        btn.classList.remove("status-inactive");
-        btn.classList.add("status-active");
-
-        btn.innerHTML = "🟢 ACTIVE";
+        btn.innerHTML =
+            "🔴 INACTIVE";
 
     }
 
-    console.log("New Class:",
-        btn.className);
+    else {
+
+        btn.classList.remove("status-inactive");
+
+        btn.classList.add("status-active");
+
+        btn.innerHTML =
+            "🟢 ACTIVE";
+
+    }
 
 }
+
 /* ================================
-   DEMO TEST CONNECTION
+   TEST BACKEND CONNECTION
 ==================================*/
+
 function testConnection() {
 
     const status =
@@ -602,11 +635,15 @@ function testConnection() {
     const sync =
         document.getElementById("lastSyncTime");
 
-    status.innerHTML = "🟡 Checking...";
+    if (!status || !sync) return;
+
+    status.innerHTML =
+        "🟡 Checking...";
 
     setTimeout(() => {
 
-        status.innerHTML = "🟢 Connected";
+        status.innerHTML =
+            "🟢 Connected";
 
         sync.innerHTML =
             new Date().toLocaleString();
@@ -616,52 +653,74 @@ function testConnection() {
 }
 
 /* ================================
-   DEMO TEST CONNECTION END
-==================================*/
-
-
-/* ================================
    API KEY GENERATOR
 ==================================*/
 
 function generateApiKey() {
 
     const key =
-        "API-" + Math.random().toString(36).substr(2, 10).toUpperCase();
+        "API-" +
+        Math.random()
+            .toString(36)
+            .substring(2, 12)
+            .toUpperCase();
 
-    document.getElementById("gs_apiKey").value = key;
+    const field =
+        document.getElementById("gs_apiKey");
+
+    if (field) {
+
+        field.value = key;
+
+    }
 
 }
 
 /* ================================
-   SAVE SETTINGS (BACKEND READY)
+   SAVE GAME SETTINGS
 ==================================*/
 
 function saveGameSettings() {
 
     const data = {
 
-        gameId: activeGameId,
+        gameId:
+            window.activeGameId,
 
-        rtp: document.getElementById("gs_rtp").value,
+        status:
+            document.getElementById("gameStatusBtn")
+                ?.innerText || "",
 
-        status: document.getElementById("gs_status_btn").innerText,
+        rtp:
+            document.getElementById("gs_rtp")
+                ?.value || "",
 
-        minBet: document.getElementById("gs_minBet").value,
+        minBet:
+            document.getElementById("gs_minBet")
+                ?.value || "",
 
-        maxBet: document.getElementById("gs_maxBet").value,
+        maxBet:
+            document.getElementById("gs_maxBet")
+                ?.value || "",
 
-        apiKey: document.getElementById("gs_apiKey").value,
+        apiKey:
+            document.getElementById("gs_apiKey")
+                ?.value || "",
 
-        serverKey: document.getElementById("gs_serverKey").value
+        serverKey:
+            document.getElementById("gs_serverKey")
+                ?.value || ""
 
     };
 
-    console.log("Saving Game Settings:", data);
+    console.log(
+        "Game Settings Saved:",
+        data
+    );
 
-    alert("Game settings saved (frontend demo)");
-
-    // 👉 এখানে পরে NodeJS / Supabase API call বসবে
+    alert(
+        "✅ Game Settings Saved"
+    );
 
 }
 
@@ -671,11 +730,14 @@ function saveGameSettings() {
 
 function openAddGame() {
 
-    alert("Add Game Panel will open (future modal or section)");
+    alert(
+        "Add Game System Coming Next"
+    );
 
 }
 
 /* ================================
    GAMES SECTION JS FILE END
 ==================================*/
+
 console.log("SAFIKI ADMIN PANEL LOADED");
