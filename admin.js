@@ -494,27 +494,37 @@ function switchToCardView() {
 /* ================================
    OPEN GAME SETTINGS PANEL
 ==================================*/
-
 function openGameSettings(gameId) {
 
     const panel = document.getElementById("gameSettingsPanel");
 
-    if (!panel) return; // safety check
+    if (!panel) return;
 
-    // toggle logic
-    if (window.activeGameId === gameId && panel.style.display === "block") {
+    // একই game আবার click
+    if (window.activeGameId === gameId) {
 
-        panel.style.display = "none";
-        window.activeGameId = null;
-        return;
+        const isVisible =
+            window.getComputedStyle(panel).display !== "none";
+
+        if (isVisible) {
+
+            panel.style.display = "none";
+            window.activeGameId = null;
+            return;
+
+        }
+
     }
 
+    // open / switch
     window.activeGameId = gameId;
 
     panel.style.display = "block";
 
     document.getElementById("gs_id").innerText = gameId;
-    document.getElementById("gs_name").innerText = getGameName(gameId);
+    document.getElementById("gs_name").innerText =
+        getGameName(gameId);
+
 }
 
 /* ================================
