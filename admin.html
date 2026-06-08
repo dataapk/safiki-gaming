@@ -957,7 +957,6 @@
 <!-- ========================= -->
 </div>
     
-
 <!-- =================================== -->
 <!-- FINANCE SECTION START -->
 <!-- =================================== -->
@@ -968,22 +967,18 @@
 
     <h2>Finance Overview</h2>
 
-    <!-- MAIN FINANCE BUTTONS -->
+    <!-- MAIN BUTTONS -->
 
     <div class="settings-buttons-row">
 
         <button class="deposit-btn"
                 onclick="toggleFinanceSection('depositFinancePanel')">
-
             Deposit Section
-
         </button>
 
         <button class="withdraw-btn"
                 onclick="toggleFinanceSection('withdrawFinancePanel')">
-
             Withdraw Section
-
         </button>
 
     </div>
@@ -999,23 +994,23 @@
 
         <div class="settings-buttons-row">
 
-            <button>
+            <button onclick="toggleDepositMenu('walletManagementPanel')">
                 Wallet Management
             </button>
 
-            <button>
+            <button onclick="toggleDepositMenu('depositSettingsPanel')">
                 Deposit Settings
             </button>
 
-            <button>
+            <button onclick="toggleDepositMenu('pendingDepositsPanel')">
                 Pending Deposits
             </button>
 
-            <button>
+            <button onclick="toggleDepositMenu('depositHistoryPanel')">
                 Deposit History
             </button>
 
-            <button>
+            <button onclick="toggleDepositMenu('depositReportsPanel')">
                 Deposit Reports
             </button>
 
@@ -1023,43 +1018,80 @@
 
         <hr>
 
-        <h3>Wallet Management</h3>
+        <!-- WALLET MANAGEMENT -->
 
-        <div class="setting-box">
+        <div id="walletManagementPanel"
+             style="display:none;">
 
-            <button>
-                BTC
-            </button>
+            <h3>Wallet Management</h3>
 
-            <button>
-                ETH
-            </button>
+            <div class="settings-buttons-row">
 
-            <button>
-                BNB
-            </button>
+                <button>BTC</button>
 
-            <button>
-                USDT TRC20
-            </button>
+                <button>ETH</button>
 
-            <button>
-                + Add New Coin
-            </button>
+                <button>BNB</button>
+
+                <button>USDT TRC20</button>
+
+                <button>+ Add New Coin</button>
+
+            </div>
 
         </div>
 
-        <hr>
+        <!-- DEPOSIT SETTINGS -->
 
-        <div class="setting-box">
+        <div id="depositSettingsPanel"
+             style="display:none;">
 
-            <button>
-                Auto Deposit ON
-            </button>
+            <h3>Deposit Settings</h3>
 
-            <button>
-                Manual Deposit OFF
-            </button>
+            <div class="settings-buttons-row">
+
+                <button onclick="toggleAutoDeposit()">
+                    Auto Deposit ON
+                </button>
+
+                <button onclick="toggleManualDeposit()">
+                    Manual Deposit OFF
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- PENDING DEPOSITS -->
+
+        <div id="pendingDepositsPanel"
+             style="display:none;">
+
+            <h3>Pending Deposits</h3>
+
+            <p>No Pending Deposits</p>
+
+        </div>
+
+        <!-- DEPOSIT HISTORY -->
+
+        <div id="depositHistoryPanel"
+             style="display:none;">
+
+            <h3>Deposit History</h3>
+
+            <p>Deposit History Data Here</p>
+
+        </div>
+
+        <!-- DEPOSIT REPORTS -->
+
+        <div id="depositReportsPanel"
+             style="display:none;">
+
+            <h3>Deposit Reports</h3>
+
+            <p>Deposit Reports Data Here</p>
 
         </div>
 
@@ -1074,23 +1106,23 @@
 
         <div class="settings-buttons-row">
 
-            <button>
+            <button onclick="toggleWithdrawMenu('withdrawSettingsPanel')">
                 Withdraw Settings
             </button>
 
-            <button>
+            <button onclick="toggleWithdrawMenu('pendingWithdrawPanel')">
                 Pending Withdrawals
             </button>
 
-            <button>
+            <button onclick="toggleWithdrawMenu('withdrawHistoryPanel')">
                 Withdraw History
             </button>
 
-            <button>
+            <button onclick="toggleWithdrawMenu('approvalRulesPanel')">
                 Approval Rules
             </button>
 
-            <button>
+            <button onclick="toggleWithdrawMenu('withdrawReportsPanel')">
                 Withdraw Reports
             </button>
 
@@ -1098,27 +1130,76 @@
 
         <hr>
 
-        <div class="setting-box">
+        <!-- WITHDRAW SETTINGS -->
 
-            <button>
-                Auto Withdraw ON
-            </button>
+        <div id="withdrawSettingsPanel"
+             style="display:none;">
 
-            <button>
-                Manual Withdraw OFF
-            </button>
+            <h3>Withdraw Settings</h3>
 
-        </div>
+            <div class="settings-buttons-row">
 
-        <hr>
+                <button onclick="toggleAutoWithdraw()">
+                    Auto Withdraw ON
+                </button>
 
-        <div class="setting-box">
+                <button onclick="toggleManualWithdraw()">
+                    Manual Withdraw OFF
+                </button>
+
+            </div>
+
+            <br>
 
             <input type="number"
                    placeholder="Min Withdraw">
 
             <input type="number"
                    placeholder="Max Withdraw">
+
+        </div>
+
+        <!-- PENDING WITHDRAW -->
+
+        <div id="pendingWithdrawPanel"
+             style="display:none;">
+
+            <h3>Pending Withdrawals</h3>
+
+            <p>No Pending Withdrawals</p>
+
+        </div>
+
+        <!-- WITHDRAW HISTORY -->
+
+        <div id="withdrawHistoryPanel"
+             style="display:none;">
+
+            <h3>Withdraw History</h3>
+
+            <p>Withdraw History Data Here</p>
+
+        </div>
+
+        <!-- APPROVAL RULES -->
+
+        <div id="approvalRulesPanel"
+             style="display:none;">
+
+            <h3>Approval Rules</h3>
+
+            <p>Approval Rules Settings Here</p>
+
+        </div>
+
+        <!-- WITHDRAW REPORTS -->
+
+        <div id="withdrawReportsPanel"
+             style="display:none;">
+
+            <h3>Withdraw Reports</h3>
+
+            <p>Withdraw Reports Data Here</p>
 
         </div>
 
