@@ -967,245 +967,189 @@
 
     <h2>Finance Overview</h2>
 
-    <!-- MAIN BUTTONS -->
+    <div class="finance-overview-grid">
 
-    <div class="settings-buttons-row">
+        <div class="stat-card">
+            <h3>Total Deposit</h3>
+            <span>$0.00</span>
+        </div>
+
+        <div class="stat-card">
+            <h3>Total Withdraw</h3>
+            <span>$0.00</span>
+        </div>
+
+        <div class="stat-card">
+            <h3>Pending Deposit</h3>
+            <span>0</span>
+        </div>
+
+        <div class="stat-card">
+            <h3>Pending Withdraw</h3>
+            <span>0</span>
+        </div>
+
+    </div>
+
+    <hr>
+        <div class="finance-main-buttons">
 
         <button class="deposit-btn"
                 onclick="toggleFinanceSection('depositFinancePanel')">
+
             Deposit Section
+
         </button>
 
         <button class="withdraw-btn"
                 onclick="toggleFinanceSection('withdrawFinancePanel')">
+
             Withdraw Section
+
         </button>
 
     </div>
 
     <hr>
+    <!-- ============================= -->
+<!-- DEPOSIT SECTION START -->
+<!-- ============================= -->
 
-    <!-- =================================== -->
-    <!-- DEPOSIT SECTION -->
-    <!-- =================================== -->
+<div id="depositFinancePanel"
+     style="display:none;">
 
-    <div id="depositFinancePanel"
-         style="display:none;">
+    <div class="settings-buttons-row">
 
-        <div class="settings-buttons-row">
+        <button onclick="toggleDepositMenu('paymentGatewayPanel')">
+            Payment Gateway
+        </button>
 
-            <button onclick="toggleDepositMenu('walletManagementPanel')">
-                Wallet Management
-            </button>
+        <button onclick="toggleDepositMenu('depositSettingsPanel')">
+            Deposit Settings
+        </button>
 
-            <button onclick="toggleDepositMenu('depositSettingsPanel')">
-                Deposit Settings
-            </button>
+        <button onclick="toggleDepositMenu('pendingDepositsPanel')">
+            Pending Deposits
+        </button>
 
-            <button onclick="toggleDepositMenu('pendingDepositsPanel')">
-                Pending Deposits
-            </button>
+        <button onclick="toggleDepositMenu('depositHistoryPanel')">
+            Deposit History
+        </button>
 
-            <button onclick="toggleDepositMenu('depositHistoryPanel')">
-                Deposit History
-            </button>
+        <button onclick="toggleDepositMenu('depositReportsPanel')">
+            Deposit Reports
+        </button>
 
-            <button onclick="toggleDepositMenu('depositReportsPanel')">
-                Deposit Reports
-            </button>
-
-        </div>
-
-        <hr>
-
-        <!-- WALLET MANAGEMENT -->
-
-        <div id="walletManagementPanel"
-             style="display:none;">
-
-            <h3>Wallet Management</h3>
-
-            <div class="settings-buttons-row">
-
-                <button>BTC</button>
-
-                <button>ETH</button>
-
-                <button>BNB</button>
-
-                <button>USDT TRC20</button>
-
-                <button>+ Add New Coin</button>
-
-            </div>
-
-        </div>
-
-        <!-- DEPOSIT SETTINGS -->
-
-        <div id="depositSettingsPanel"
-             style="display:none;">
-
-            <h3>Deposit Settings</h3>
-
-            <div class="settings-buttons-row">
-
-                <button onclick="toggleAutoDeposit()">
-                    Auto Deposit ON
-                </button>
-
-                <button onclick="toggleManualDeposit()">
-                    Manual Deposit OFF
-                </button>
-
-            </div>
-
-        </div>
-
-        <!-- PENDING DEPOSITS -->
-
-        <div id="pendingDepositsPanel"
-             style="display:none;">
-
-            <h3>Pending Deposits</h3>
-
-            <p>No Pending Deposits</p>
-
-        </div>
-
-        <!-- DEPOSIT HISTORY -->
-
-        <div id="depositHistoryPanel"
-             style="display:none;">
-
-            <h3>Deposit History</h3>
-
-            <p>Deposit History Data Here</p>
-
-        </div>
-
-        <!-- DEPOSIT REPORTS -->
-
-        <div id="depositReportsPanel"
-             style="display:none;">
-
-            <h3>Deposit Reports</h3>
-
-            <p>Deposit Reports Data Here</p>
-
-        </div>
+        <button onclick="toggleDepositMenu('depositLogsPanel')">
+            Transaction Logs
+        </button>
 
     </div>
 
-    <!-- =================================== -->
-    <!-- WITHDRAW SECTION -->
-    <!-- =================================== -->
+    <hr>
+    <!-- ============================= -->
+<!-- PAYMENT GATEWAY -->
+<!-- ============================= -->
 
-    <div id="withdrawFinancePanel"
-         style="display:none;">
+<div id="paymentGatewayPanel"
+     style="display:none;">
 
-        <div class="settings-buttons-row">
+    <h3>Payment Gateway</h3>
+        <div class="wallet-box">
 
-            <button onclick="toggleWithdrawMenu('withdrawSettingsPanel')">
-                Withdraw Settings
-            </button>
+        <h4>BTC</h4>
 
-            <button onclick="toggleWithdrawMenu('pendingWithdrawPanel')">
-                Pending Withdrawals
-            </button>
+        <input type="text"
+               placeholder="Wallet Address">
 
-            <button onclick="toggleWithdrawMenu('withdrawHistoryPanel')">
-                Withdraw History
-            </button>
+        <input type="text"
+               placeholder="Wallet Provider">
 
-            <button onclick="toggleWithdrawMenu('approvalRulesPanel')">
-                Approval Rules
-            </button>
+        <button>
+            Save Address
+        </button>
 
-            <button onclick="toggleWithdrawMenu('withdrawReportsPanel')">
-                Withdraw Reports
-            </button>
-
-        </div>
-
-        <hr>
-
-        <!-- WITHDRAW SETTINGS -->
-
-        <div id="withdrawSettingsPanel"
-             style="display:none;">
-
-            <h3>Withdraw Settings</h3>
-
-            <div class="settings-buttons-row">
-
-                <button onclick="toggleAutoWithdraw()">
-                    Auto Withdraw ON
-                </button>
-
-                <button onclick="toggleManualWithdraw()">
-                    Manual Withdraw OFF
-                </button>
-
-            </div>
-
-            <br>
-
-            <input type="number"
-                   placeholder="Min Withdraw">
-
-            <input type="number"
-                   placeholder="Max Withdraw">
-
-        </div>
-
-        <!-- PENDING WITHDRAW -->
-
-        <div id="pendingWithdrawPanel"
-             style="display:none;">
-
-            <h3>Pending Withdrawals</h3>
-
-            <p>No Pending Withdrawals</p>
-
-        </div>
-
-        <!-- WITHDRAW HISTORY -->
-
-        <div id="withdrawHistoryPanel"
-             style="display:none;">
-
-            <h3>Withdraw History</h3>
-
-            <p>Withdraw History Data Here</p>
-
-        </div>
-
-        <!-- APPROVAL RULES -->
-
-        <div id="approvalRulesPanel"
-             style="display:none;">
-
-            <h3>Approval Rules</h3>
-
-            <p>Approval Rules Settings Here</p>
-
-        </div>
-
-        <!-- WITHDRAW REPORTS -->
-
-        <div id="withdrawReportsPanel"
-             style="display:none;">
-
-            <h3>Withdraw Reports</h3>
-
-            <p>Withdraw Reports Data Here</p>
-
-        </div>
+        <button>
+            Active
+        </button>
 
     </div>
+        <div class="wallet-box">
+
+        <h4>ETH</h4>
+
+        <input type="text"
+               placeholder="Wallet Address">
+
+        <input type="text"
+               placeholder="Wallet Provider">
+
+        <button>
+            Save Address
+        </button>
+
+        <button>
+            Active
+        </button>
+
+    </div>
+        <div class="wallet-box">
+
+        <h4>BNB</h4>
+
+        <input type="text"
+               placeholder="Wallet Address">
+
+        <input type="text"
+               placeholder="Wallet Provider">
+
+        <button>
+            Save Address
+        </button>
+
+        <button>
+            Active
+        </button>
+
+    </div>
+        <div class="wallet-box">
+
+        <h4>USDT TRC20</h4>
+
+        <input type="text"
+               placeholder="Wallet Address">
+
+        <input type="text"
+               placeholder="Wallet Provider">
+
+        <button>
+            Save Address
+        </button>
+
+        <button>
+            Active
+        </button>
+
+    </div>
+        <button>
+        + Add New Coin
+    </button>
+
+    <button>
+        + Add More Currency Payment Gateway
+    </button>
 
 </div>
+
+<hr>
+    
+    
+    
+    
+    
+    
+    
+
 
 <!-- =================================== -->
 <!-- FINANCE SECTION END -->
