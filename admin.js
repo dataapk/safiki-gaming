@@ -746,7 +746,6 @@ FINANCE CONFIG
 
 const financeConfig = {
 
-```
 autoDeposit: true,
 manualDeposit: false,
 
