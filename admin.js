@@ -742,9 +742,42 @@ function openAddGame() {
 /* ================================
    FINANCE SECTION START
 ==================================*/
+/* ================================
+   FINANCE MAIN BUTTONS
+==================================*/
+
+.deposit-btn{
+
+    background: #28a745 !important;
+    color: #ffffff !important;
+    margin-right: 70px;
+
+}
+
+.deposit-btn:hover{
+
+    background: #218838 !important;
+
+}
+
+.withdraw-btn{
+
+    background: #dc3545 !important;
+    color: #ffffff !important;
+
+}
+
+.withdraw-btn:hover{
+
+    background: #c82333 !important;
+
+}
+/* ===================================
+   FINANCE SECTION JS START
+=================================== */
 
 /* ================================
-   OPEN / CLOSE FINANCE PANELS
+   OPEN / CLOSE MAIN FINANCE PANELS
 ==================================*/
 
 function toggleFinanceSection(sectionId){
@@ -782,7 +815,107 @@ function toggleFinanceSection(sectionId){
 }
 
 /* ================================
-   DEPOSIT MODE
+   DEPOSIT SUB MENUS
+==================================*/
+
+function toggleDepositMenu(panelId){
+
+    const panels = [
+
+        "walletManagementPanel",
+        "depositSettingsPanel",
+        "pendingDepositsPanel",
+        "depositHistoryPanel",
+        "depositReportsPanel"
+
+    ];
+
+    panels.forEach(id => {
+
+        if(id !== panelId){
+
+            const panel =
+                document.getElementById(id);
+
+            if(panel){
+
+                panel.style.display = "none";
+
+            }
+
+        }
+
+    });
+
+    const panel =
+        document.getElementById(panelId);
+
+    if(!panel) return;
+
+    if(panel.style.display === "block"){
+
+        panel.style.display = "none";
+
+    }else{
+
+        panel.style.display = "block";
+
+    }
+
+}
+
+/* ================================
+   WITHDRAW SUB MENUS
+==================================*/
+
+function toggleWithdrawMenu(panelId){
+
+    const panels = [
+
+        "withdrawSettingsPanel",
+        "pendingWithdrawPanel",
+        "withdrawHistoryPanel",
+        "approvalRulesPanel",
+        "withdrawReportsPanel"
+
+    ];
+
+    panels.forEach(id => {
+
+        if(id !== panelId){
+
+            const panel =
+                document.getElementById(id);
+
+            if(panel){
+
+                panel.style.display = "none";
+
+            }
+
+        }
+
+    });
+
+    const panel =
+        document.getElementById(panelId);
+
+    if(!panel) return;
+
+    if(panel.style.display === "block"){
+
+        panel.style.display = "none";
+
+    }else{
+
+        panel.style.display = "block";
+
+    }
+
+}
+
+/* ================================
+   FINANCE CONFIG
 ==================================*/
 
 let financeConfig = {
@@ -804,11 +937,6 @@ function toggleAutoDeposit(){
     financeConfig.autoDeposit =
         !financeConfig.autoDeposit;
 
-    console.log(
-        "Auto Deposit:",
-        financeConfig.autoDeposit
-    );
-
 }
 
 /* ================================
@@ -819,11 +947,6 @@ function toggleManualDeposit(){
 
     financeConfig.manualDeposit =
         !financeConfig.manualDeposit;
-
-    console.log(
-        "Manual Deposit:",
-        financeConfig.manualDeposit
-    );
 
 }
 
@@ -836,11 +959,6 @@ function toggleAutoWithdraw(){
     financeConfig.autoWithdraw =
         !financeConfig.autoWithdraw;
 
-    console.log(
-        "Auto Withdraw:",
-        financeConfig.autoWithdraw
-    );
-
 }
 
 /* ================================
@@ -852,12 +970,11 @@ function toggleManualWithdraw(){
     financeConfig.manualWithdraw =
         !financeConfig.manualWithdraw;
 
-    console.log(
-        "Manual Withdraw:",
-        financeConfig.manualWithdraw
-    );
-
 }
+
+/* ================================
+   SAVE FINANCE SETTINGS
+==================================*/
 
 function saveFinanceSettings(){
 
@@ -888,4 +1005,7 @@ function saveFinanceSettings(){
 
 }
 
+/* ===================================
+   FINANCE SECTION JS END
+=================================== */
 console.log("SAFIKI ADMIN PANEL LOADED");
