@@ -344,6 +344,7 @@ button[onclick="saveGameSettings()"]{
 
     background: #28a745 !important;
     color: #ffffff !important;
+    margin-right: 50px;
 
 }
 
