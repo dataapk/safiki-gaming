@@ -739,6 +739,182 @@ function openAddGame() {
 /* ================================
    GAMES SECTION JS FILE END
 ==================================*/
+/* ================================
+   FINANCE SECTION START
+==================================*/
+
+/* ================================
+   OPEN / CLOSE FINANCE PANELS
+==================================*/
+
+function toggleFinanceSection(sectionId){
+
+    const depositPanel =
+        document.getElementById(
+            "depositFinancePanel"
+        );
+
+    const withdrawPanel =
+        document.getElementById(
+            "withdrawFinancePanel"
+        );
+
+    const targetPanel =
+        document.getElementById(
+            sectionId
+        );
+
+    if(!targetPanel) return;
+
+    if(targetPanel.style.display === "block"){
+
+        targetPanel.style.display = "none";
+
+        return;
+
+    }
+
+    depositPanel.style.display = "none";
+    withdrawPanel.style.display = "none";
+
+    targetPanel.style.display = "block";
+
+}
+
+/* ================================
+   DEPOSIT MODE
+==================================*/
+
+let financeConfig = {
+
+    autoDeposit: true,
+    manualDeposit: false,
+
+    autoWithdraw: true,
+    manualWithdraw: false
+
+};
+
+/* ================================
+   AUTO DEPOSIT
+==================================*/
+
+function toggleAutoDeposit(){
+
+    financeConfig.autoDeposit =
+        !financeConfig.autoDeposit;
+
+    console.log(
+        "Auto Deposit:",
+        financeConfig.autoDeposit
+    );
+
+}
+
+/* ================================
+   MANUAL DEPOSIT
+==================================*/
+
+function toggleManualDeposit(){
+
+    financeConfig.manualDeposit =
+        !financeConfig.manualDeposit;
+
+    console.log(
+        "Manual Deposit:",
+        financeConfig.manualDeposit
+    );
+
+}
+
+/* ================================
+   AUTO WITHDRAW
+==================================*/
+
+function toggleAutoWithdraw(){
+
+    financeConfig.autoWithdraw =
+        !financeConfig.autoWithdraw;
+
+    console.log(
+        "Auto Withdraw:",
+        financeConfig.autoWithdraw
+    );
+
+}
+
+/* ================================
+   MANUAL WITHDRAW
+==================================*/
+
+function toggleManualWithdraw(){
+
+    financeConfig.manualWithdraw =
+        !financeConfig.manualWithdraw;
+
+    console.log(
+        "Manual Withdraw:",
+        financeConfig.manualWithdraw
+    );
+
+}
+
+/* ================================
+   SAVE FINANCE SETTINGS
+==================================*/
+
+function saveFinanceSettings(){
+
+    const financeData = {
+
+        autoDeposit:
+            financeConfig.autoDeposit,
+
+        manualDeposit:
+            financeConfig.manualDeposit,
+
+        autoWithdraw:
+            financeConfig.autoWithdraw,
+
+        manualWithdraw:
+            financeConfig.manualWithdraw
+
+    };
+
+    console.log(
+        "Finance Settings Saved:",
+        financeData
+    );
+
+    alert(
+        "✅ Finance Settings Saved"
+    );
+
+}
+
+/* ================================
+   FUTURE BACKEND API PLACEHOLDER
+==================================*/
+
+async function loadFinanceData(){
+
+    console.log(
+        "Loading Finance Data..."
+    );
+
+}
+
+async function syncFinanceData(){
+
+    console.log(
+        "Sync Finance Data..."
+    );
+
+}
+
+/* ================================
+   FINANCE SECTION END
+==================================*/
 
 
 console.log("SAFIKI ADMIN PANEL LOADED");
