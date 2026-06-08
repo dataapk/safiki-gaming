@@ -961,163 +961,103 @@
 
 
 <!-- =================================== -->
-
 <!-- FINANCE SECTION START -->
-
 <!-- =================================== -->
 
 <div id="financeSection"
      class="admin-section"
      style="display:none;">
 
+    <h2>Finance Overview</h2>
 
-<h2>Finance Overview</h2>
+    <div class="finance-cards">
 
-<!-- TOP SECTION CARDS -->
+        <div class="finance-card"
+             onclick="toggleFinanceSection('depositFinancePanel')">
 
-<div class="finance-cards">
+            <h3>Deposit Section</h3>
 
-    <div class="finance-card"
-         onclick="toggleFinanceSection('depositFinancePanel')">
+        </div>
 
-        <h3>Deposit Section</h3>
+        <div class="finance-card"
+             onclick="toggleFinanceSection('withdrawFinancePanel')">
 
-    </div>
+            <h3>Withdraw Section</h3>
 
-    <div class="finance-card"
-         onclick="toggleFinanceSection('withdrawFinancePanel')">
-
-        <h3>Withdraw Section</h3>
-
-    </div>
-
-</div>
-
-<hr>
-
-<!-- =================================== -->
-<!-- DEPOSIT SECTION -->
-<!-- =================================== -->
-
-<div id="depositFinancePanel"
-     style="display:none;">
-
-    <div class="settings-buttons-row">
-
-        <button class="settings-toggle">
-            Wallet Management
-        </button>
-
-        <button class="settings-toggle">
-            Deposit Settings
-        </button>
-
-        <button class="settings-toggle">
-            Pending Deposits
-        </button>
-
-        <button class="settings-toggle">
-            Deposit History
-        </button>
-
-        <button class="settings-toggle">
-            Reports
-        </button>
+        </div>
 
     </div>
 
     <hr>
 
-    <h3>Wallet Management</h3>
+    <!-- =================================== -->
+    <!-- DEPOSIT PANEL -->
+    <!-- =================================== -->
 
-    <div class="setting-box">
+    <div id="depositFinancePanel"
+         style="display:none;">
 
-        <h4>USDT TRC20</h4>
+        <h3>Deposit System</h3>
 
-        <input type="text"
-               placeholder="Wallet Address">
+        <div class="settings-buttons-row">
 
-        <button>Update Address</button>
+            <button>
+                Wallet Management
+            </button>
 
-        <button>Disable</button>
+            <button>
+                Deposit Settings
+            </button>
 
-    </div>
+            <button>
+                Pending Deposits
+            </button>
 
-    <hr>
+            <button>
+                Deposit History
+            </button>
 
-    <button>
-        + Add New Coin
-    </button>
-
-</div>
-
-<!-- =================================== -->
-<!-- WITHDRAW SECTION -->
-<!-- =================================== -->
-
-<div id="withdrawFinancePanel"
-     style="display:none;">
-
-    <div class="settings-buttons-row">
-
-        <button class="settings-toggle">
-            Withdraw Settings
-        </button>
-
-        <button class="settings-toggle">
-            Pending Withdrawals
-        </button>
-
-        <button class="settings-toggle">
-            Withdraw History
-        </button>
-
-        <button class="settings-toggle">
-            Approval Rules
-        </button>
-
-        <button class="settings-toggle">
-            Reports
-        </button>
+        </div>
 
     </div>
 
-    <hr>
+    <!-- =================================== -->
+    <!-- WITHDRAW PANEL -->
+    <!-- =================================== -->
 
-    <h3>Withdraw Settings</h3>
+    <div id="withdrawFinancePanel"
+         style="display:none;">
 
-    <div class="setting-box">
+        <h3>Withdraw System</h3>
 
-        <p>
-            Auto Withdraw
-            <button>ON</button>
-        </p>
+        <div class="settings-buttons-row">
 
-        <p>
-            Manual Withdraw
-            <button>OFF</button>
-        </p>
+            <button>
+                Withdraw Settings
+            </button>
 
-        <input type="number"
-               placeholder="Min Withdraw">
+            <button>
+                Pending Withdrawals
+            </button>
 
-        <input type="number"
-               placeholder="Max Withdraw">
+            <button>
+                Withdraw History
+            </button>
+
+            <button>
+                Approval Rules
+            </button>
+
+        </div>
 
     </div>
 
 </div>
 
-
-</div>
-
 <!-- =================================== -->
-
 <!-- FINANCE SECTION END -->
-
 <!-- =================================== -->
-
-
+    
  <!-- =================================== -->
 <!-- SETTINGS SECTION START -->
 <!-- =================================== -->
