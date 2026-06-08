@@ -1154,12 +1154,63 @@
         </button>
 
     </div>
-        <button>
-        + Add New Coin
-    </button>
+      <button onclick="toggleAddCoinForm()">
+    + Add New Coin
+</button>
+
+<button onclick="toggleAddGatewayForm()">
+    + Add More Currency Payment Gateway
+</button>
+
+<div id="addCoinForm"
+     style="display:none; margin-top:15px;">
+
+    <h4>Add New Coin</h4>
+
+    <input type="text"
+           placeholder="Coin Name">
+
+    <input type="text"
+           placeholder="Wallet Address">
+
+    <select>
+
+        <option>Select Network</option>
+
+        <option>TRC20</option>
+
+        <option>ERC20</option>
+
+        <option>BEP20</option>
+
+        <option>BTC</option>
+
+        <option>SOL</option>
+
+    </select>
+
+    <input type="text"
+           placeholder="Provider (Binance / Bybit / Trust Wallet)">
 
     <button>
-        + Add More Currency Payment Gateway
+        Save Coin
+    </button>
+
+</div>
+
+<div id="addGatewayForm"
+     style="display:none; margin-top:15px;">
+
+    <h4>Add Payment Gateway</h4>
+
+    <input type="text"
+           placeholder="Gateway Name">
+
+    <input type="text"
+           placeholder="Account Number / Wallet">
+
+    <button>
+        Save Gateway
     </button>
 
 </div>
