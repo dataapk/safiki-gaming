@@ -740,36 +740,6 @@ function openAddGame() {
    GAMES SECTION JS FILE END
 ==================================*/
 
-/* ================================
-   FINANCE MAIN BUTTONS
-==================================*/
-
-.deposit-btn{
-
-    background: #28a745 !important;
-    color: #ffffff !important;
-    margin-right: 70px;
-
-}
-
-.deposit-btn:hover{
-
-    background: #218838 !important;
-
-}
-
-.withdraw-btn{
-
-    background: #dc3545 !important;
-    color: #ffffff !important;
-
-}
-
-.withdraw-btn:hover{
-
-    background: #c82333 !important;
-
-}
 /* ===================================
    FINANCE SECTION JS START
 =================================== */
