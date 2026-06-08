@@ -957,50 +957,229 @@
 <!-- ========================= -->
 </div>
     
+
+
 <!-- =================================== -->
+
 <!-- FINANCE SECTION START -->
+
 <!-- =================================== -->
 
 <div id="financeSection"
      class="admin-section"
      style="display:none;">
 
-    <h2>Finance</h2>
+<h2>Finance Overview</h2>
 
-    <div class="finance-summary">
+<!-- TOP CARDS -->
+<div class="finance-cards">
 
-        <div class="stat-card">
-            <h3>Total Deposit</h3>
-            <span>$15,000</span>
-        </div>
+    <div class="finance-card"
+         onclick="showFinancePanel('depositPanel')">
 
-        <div class="stat-card">
-            <h3>Total Withdraw</h3>
-            <span>$8,500</span>
-        </div>
+        <h3>Deposit System</h3>
 
-        <div class="stat-card">
-            <h3>Pending Deposit</h3>
-            <span>12</span>
-        </div>
+        <p>Total Deposit</p>
 
-        <div class="stat-card">
-            <h3>Pending Withdraw</h3>
-            <span>8</span>
-        </div>
+        <span>$15,000</span>
 
     </div>
 
-    <br>
+    <div class="finance-card"
+         onclick="showFinancePanel('withdrawPanel')">
+
+        <h3>Withdraw System</h3>
+
+        <p>Total Withdraw</p>
+
+        <span>$8,500</span>
+
+    </div>
+
+</div>
+
+<hr>
+
+<!-- ========================== -->
+<!-- DEPOSIT PANEL -->
+<!-- ========================== -->
+
+<div id="depositPanel">
+
+    <div class="settings-buttons-row">
+
+        <button>Wallet Management</button>
+
+        <button>Deposit Settings</button>
+
+        <button>Pending Deposits</button>
+
+        <button>Deposit History</button>
+
+    </div>
+
+    <hr>
+
+    <h3>Wallet Management</h3>
+
+    <!-- USDT TRC20 -->
+
+    <div class="setting-box">
+
+        <h4>USDT TRC20</h4>
+
+        <input type="text"
+               placeholder="Wallet Address">
+
+        <br><br>
+
+        <button>Update Address</button>
+
+        <button>Disable</button>
+
+    </div>
+
+    <hr>
+
+    <!-- USDT BEP20 -->
+
+    <div class="setting-box">
+
+        <h4>USDT BEP20</h4>
+
+        <input type="text"
+               placeholder="Wallet Address">
+
+        <br><br>
+
+        <button>Update Address</button>
+
+        <button>Disable</button>
+
+    </div>
+
+    <hr>
+
+    <!-- BTC -->
+
+    <div class="setting-box">
+
+        <h4>BTC</h4>
+
+        <input type="text"
+               placeholder="Wallet Address">
+
+        <br><br>
+
+        <button>Update Address</button>
+
+        <button>Disable</button>
+
+    </div>
+
+    <hr>
+
+    <!-- ETH -->
+
+    <div class="setting-box">
+
+        <h4>ETH</h4>
+
+        <input type="text"
+               placeholder="Wallet Address">
+
+        <br><br>
+
+        <button>Update Address</button>
+
+        <button>Disable</button>
+
+    </div>
+
+    <hr>
+
+    <!-- BNB -->
+
+    <div class="setting-box">
+
+        <h4>BNB</h4>
+
+        <input type="text"
+               placeholder="Wallet Address">
+
+        <br><br>
+
+        <button>Update Address</button>
+
+        <button>Disable</button>
+
+    </div>
+
+    <hr>
+
+    <!-- ADD NEW ADDRESS -->
+
+    <h3>Add New Payment Address</h3>
+
+    <div class="setting-box">
+
+        <input type="text"
+               placeholder="Coin Name">
+
+        <input type="text"
+               placeholder="Network">
+
+        <input type="text"
+               placeholder="Wallet Address">
+
+        <br><br>
+
+        <button>Add Address</button>
+
+    </div>
+
+    <hr>
+
+    <!-- DEPOSIT SETTINGS -->
+
+    <h3>Deposit Settings</h3>
+
+    <div class="setting-box">
+
+        <p>
+            Auto Deposit
+            <button>ON</button>
+        </p>
+
+        <p>
+            Manual Deposit
+            <button>OFF</button>
+        </p>
+
+        <input type="number"
+               placeholder="Minimum Deposit">
+
+        <input type="number"
+               placeholder="Maximum Deposit">
+
+        <input type="number"
+               placeholder="Required Confirmations">
+
+    </div>
+
+    <hr>
+
+    <!-- PENDING DEPOSITS -->
+
+    <h3>Pending Deposits</h3>
 
     <table>
 
         <thead>
 
             <tr>
-                <th>User ID</th>
-                <th>Name</th>
-                <th>Type</th>
+                <th>User</th>
+                <th>Coin</th>
                 <th>Amount</th>
                 <th>Status</th>
             </tr>
@@ -1010,18 +1189,9 @@
         <tbody>
 
             <tr>
-                <td>1001</td>
-                <td>Player One</td>
-                <td>Deposit</td>
-                <td>$100</td>
-                <td>Pending</td>
-            </tr>
-
-            <tr>
-                <td>1002</td>
-                <td>Player Two</td>
-                <td>Withdraw</td>
-                <td>$50</td>
+                <td>Player001</td>
+                <td>USDT</td>
+                <td>100</td>
                 <td>Pending</td>
             </tr>
 
@@ -1029,11 +1199,66 @@
 
     </table>
 
+    <hr>
+
+    <!-- HISTORY -->
+
+    <h3>Deposit History</h3>
+
+    <table>
+
+        <thead>
+
+            <tr>
+                <th>User</th>
+                <th>Coin</th>
+                <th>Amount</th>
+                <th>Date</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr>
+                <td>Player001</td>
+                <td>USDT</td>
+                <td>100</td>
+                <td>2026-06-08</td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+    <hr>
+
+    <button>
+        Save Settings
+    </button>
+
 </div>
+
+<!-- WITHDRAW PANEL -->
+<div id="withdrawPanel"
+     style="display:none;">
+
+    <h3>Withdraw System</h3>
+
+    <p>
+        Withdraw module coming next...
+    </p>
+
+</div>
+
+
+</div>
+
 
 <!-- =================================== -->
 <!-- FINANCE SECTION END -->
 <!-- =================================== -->
+    
  <!-- =================================== -->
 <!-- SETTINGS SECTION START -->
 <!-- =================================== -->
