@@ -987,7 +987,6 @@ alert(
 
 
 }
-}
 
 /* =====================================
 FUTURE BACKEND PLACEHOLDER
