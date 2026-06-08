@@ -740,238 +740,281 @@ function openAddGame() {
    GAMES SECTION JS FILE END
 ==================================*/
 
-/* ===================================
-   FINANCE SECTION JS START
-=================================== */
+/* =====================================
+FINANCE CONFIG
+===================================== */
 
-/* ================================
-   OPEN / CLOSE MAIN FINANCE PANELS
-==================================*/
+const financeConfig = {
 
-function toggleFinanceSection(sectionId){
+```
+autoDeposit: true,
+manualDeposit: false,
 
-    const depositPanel =
-        document.getElementById(
-            "depositFinancePanel"
-        );
+autoWithdraw: false,
+manualWithdraw: true
 
-    const withdrawPanel =
-        document.getElementById(
-            "withdrawFinancePanel"
-        );
-
-    const targetPanel =
-        document.getElementById(
-            sectionId
-        );
-
-    if(!targetPanel) return;
-
-    if(targetPanel.style.display === "block"){
-
-        targetPanel.style.display = "none";
-
-        return;
-
-    }
-
-    depositPanel.style.display = "none";
-    withdrawPanel.style.display = "none";
-
-    targetPanel.style.display = "block";
-
-}
-
-/* ================================
-   DEPOSIT SUB MENUS
-==================================*/
-
-function toggleDepositMenu(panelId){
-
-    const panels = [
-
-        "walletManagementPanel",
-        "depositSettingsPanel",
-        "pendingDepositsPanel",
-        "depositHistoryPanel",
-        "depositReportsPanel"
-
-    ];
-
-    panels.forEach(id => {
-
-        if(id !== panelId){
-
-            const panel =
-                document.getElementById(id);
-
-            if(panel){
-
-                panel.style.display = "none";
-
-            }
-
-        }
-
-    });
-
-    const panel =
-        document.getElementById(panelId);
-
-    if(!panel) return;
-
-    if(panel.style.display === "block"){
-
-        panel.style.display = "none";
-
-    }else{
-
-        panel.style.display = "block";
-
-    }
-
-}
-
-/* ================================
-   WITHDRAW SUB MENUS
-==================================*/
-
-function toggleWithdrawMenu(panelId){
-
-    const panels = [
-
-        "withdrawSettingsPanel",
-        "pendingWithdrawPanel",
-        "withdrawHistoryPanel",
-        "approvalRulesPanel",
-        "withdrawReportsPanel"
-
-    ];
-
-    panels.forEach(id => {
-
-        if(id !== panelId){
-
-            const panel =
-                document.getElementById(id);
-
-            if(panel){
-
-                panel.style.display = "none";
-
-            }
-
-        }
-
-    });
-
-    const panel =
-        document.getElementById(panelId);
-
-    if(!panel) return;
-
-    if(panel.style.display === "block"){
-
-        panel.style.display = "none";
-
-    }else{
-
-        panel.style.display = "block";
-
-    }
-
-}
-
-/* ================================
-   FINANCE CONFIG
-==================================*/
-
-let financeConfig = {
-
-    autoDeposit: true,
-    manualDeposit: false,
-
-    autoWithdraw: true,
-    manualWithdraw: false
 
 };
 
-/* ================================
-   AUTO DEPOSIT
-==================================*/
+/* =====================================
+MAIN FINANCE SECTION TOGGLE
+===================================== */
+
+function toggleFinanceSection(panelId){
+
+
+const panels = [
+
+    "depositFinancePanel",
+    "withdrawFinancePanel"
+
+];
+
+panels.forEach(id => {
+
+    const panel = document.getElementById(id);
+
+    if(!panel) return;
+
+    if(id === panelId){
+
+        panel.style.display =
+            panel.style.display === "none" ||
+            panel.style.display === ""
+                ? "block"
+                : "none";
+
+    }else{
+
+        panel.style.display = "none";
+
+    }
+
+});
+
+
+}
+
+/* =====================================
+DEPOSIT MENU TOGGLE
+===================================== */
+
+function toggleDepositMenu(panelId){
+
+
+const panels = [
+
+    "paymentGatewayPanel",
+    "depositSettingsPanel",
+    "pendingDepositsPanel",
+    "depositHistoryPanel",
+    "depositReportsPanel",
+    "depositLogsPanel"
+
+];
+
+panels.forEach(id => {
+
+    const panel = document.getElementById(id);
+
+    if(!panel) return;
+
+    if(id === panelId){
+
+        panel.style.display =
+            panel.style.display === "none" ||
+            panel.style.display === ""
+                ? "block"
+                : "none";
+
+    }else{
+
+        panel.style.display = "none";
+
+    }
+
+});
+
+
+}
+
+/* =====================================
+WITHDRAW MENU TOGGLE
+===================================== */
+
+function toggleWithdrawMenu(panelId){
+
+
+const panels = [
+
+    "withdrawWalletPanel",
+    "withdrawSettingsPanel",
+    "pendingWithdrawPanel",
+    "withdrawHistoryPanel",
+    "approvalRulesPanel",
+    "withdrawReportsPanel",
+    "withdrawLogsPanel"
+
+];
+
+panels.forEach(id => {
+
+    const panel = document.getElementById(id);
+
+    if(!panel) return;
+
+    if(id === panelId){
+
+        panel.style.display =
+            panel.style.display === "none" ||
+            panel.style.display === ""
+                ? "block"
+                : "none";
+
+    }else{
+
+        panel.style.display = "none";
+
+    }
+
+});
+
+
+}
+
+/* =====================================
+AUTO DEPOSIT
+===================================== */
 
 function toggleAutoDeposit(){
 
-    financeConfig.autoDeposit =
-        !financeConfig.autoDeposit;
+```
+financeConfig.autoDeposit =
+    !financeConfig.autoDeposit;
+
+alert(
+    "Auto Deposit: " +
+    (financeConfig.autoDeposit ? "ON" : "OFF")
+);
+
 
 }
 
-/* ================================
-   MANUAL DEPOSIT
-==================================*/
+/* =====================================
+MANUAL DEPOSIT
+===================================== */
 
 function toggleManualDeposit(){
 
-    financeConfig.manualDeposit =
-        !financeConfig.manualDeposit;
+
+financeConfig.manualDeposit =
+    !financeConfig.manualDeposit;
+
+alert(
+    "Manual Deposit: " +
+    (financeConfig.manualDeposit ? "ON" : "OFF")
+);
+
 
 }
 
-/* ================================
-   AUTO WITHDRAW
-==================================*/
+/* =====================================
+AUTO WITHDRAW
+===================================== */
 
 function toggleAutoWithdraw(){
 
-    financeConfig.autoWithdraw =
-        !financeConfig.autoWithdraw;
+
+financeConfig.autoWithdraw =
+    !financeConfig.autoWithdraw;
+
+alert(
+    "Auto Withdraw: " +
+    (financeConfig.autoWithdraw ? "ON" : "OFF")
+);
+
 
 }
 
-/* ================================
-   MANUAL WITHDRAW
-==================================*/
+/* =====================================
+MANUAL WITHDRAW
+===================================== */
 
 function toggleManualWithdraw(){
 
-    financeConfig.manualWithdraw =
-        !financeConfig.manualWithdraw;
+
+financeConfig.manualWithdraw =
+    !financeConfig.manualWithdraw;
+
+alert(
+    "Manual Withdraw: " +
+    (financeConfig.manualWithdraw ? "ON" : "OFF")
+);
+
 
 }
 
-/* ================================
-   SAVE FINANCE SETTINGS
-==================================*/
+/* =====================================
+SAVE FINANCE SETTINGS
+===================================== */
 
 function saveFinanceSettings(){
 
-    const financeData = {
 
-        autoDeposit:
-            financeConfig.autoDeposit,
+const financeData = {
 
-        manualDeposit:
-            financeConfig.manualDeposit,
+    autoDeposit:
+        financeConfig.autoDeposit,
 
-        autoWithdraw:
-            financeConfig.autoWithdraw,
+    manualDeposit:
+        financeConfig.manualDeposit,
 
-        manualWithdraw:
-            financeConfig.manualWithdraw
+    autoWithdraw:
+        financeConfig.autoWithdraw,
 
-    };
+    manualWithdraw:
+        financeConfig.manualWithdraw
 
-    console.log(
-        "Finance Settings Saved:",
-        financeData
-    );
+};
 
-    alert(
-        "✅ Finance Settings Saved"
-    );
+console.log(
+    "Finance Settings Saved:",
+    financeData
+);
+
+alert(
+    "✅ Finance Settings Saved"
+);
+
 
 }
+
+/* =====================================
+FUTURE BACKEND PLACEHOLDER
+===================================== */
+
+// loadDepositHistory()
+
+// loadWithdrawHistory()
+
+// loadPendingDeposits()
+
+// loadPendingWithdrawals()
+
+// saveWalletAddress()
+
+// saveWithdrawWallet()
+
+// updateGateway()
+
+// syncFinanceReports()
+
+// connectBinance()
+
+// connectBybit()
+
+// connectWebhook()
+
 
 /* ===================================
    FINANCE SECTION JS END
