@@ -336,3 +336,32 @@ table tr:hover {
 button[onclick="saveGameSettings()"]{
     margin-top: 25px;
 }
+/* ================================
+   FINANCE MAIN BUTTONS
+==================================*/
+
+.deposit-btn{
+
+    background: #28a745 !important;
+    color: #ffffff !important;
+
+}
+
+.deposit-btn:hover{
+
+    background: #218838 !important;
+
+}
+
+.withdraw-btn{
+
+    background: #dc3545 !important;
+    color: #ffffff !important;
+
+}
+
+.withdraw-btn:hover{
+
+    background: #c82333 !important;
+
+}
