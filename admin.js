@@ -859,10 +859,6 @@ function toggleManualWithdraw(){
 
 }
 
-/* ================================
-   SAVE FINANCE SETTINGS
-==================================*/
-
 function saveFinanceSettings(){
 
     const financeData = {
@@ -889,35 +885,7 @@ function saveFinanceSettings(){
     alert(
         "✅ Finance Settings Saved"
     );
-    .deposit-btn{
-    margin-right: 50px;
-}
 
 }
-
-/* ================================
-   FUTURE BACKEND API PLACEHOLDER
-==================================*/
-
-async function loadFinanceData(){
-
-    console.log(
-        "Loading Finance Data..."
-    );
-
-}
-
-async function syncFinanceData(){
-
-    console.log(
-        "Sync Finance Data..."
-    );
-
-}
-
-/* ================================
-   FINANCE SECTION END
-==================================*/
-
 
 console.log("SAFIKI ADMIN PANEL LOADED");
