@@ -958,59 +958,76 @@
 </div>
     
 <!-- =================================== -->
-<!-- FINANCE SECTION START -->
+<!-- FINANCE OVERVIEW -->
 <!-- =================================== -->
 
-<div id="financeSection"
-     class="admin-section"
-     style="display:none;">
+<h2>Finance Overview</h2>
 
-    <h2>Finance Overview</h2>
+<div class="finance-overview-grid">
 
-    <div class="finance-overview-grid">
+    <div class="stat-card">
 
-        <div class="stat-card">
-            <h3>Total Deposit</h3>
-            <span>$0.00</span>
-        </div>
+        <h3>Total Deposit</h3>
 
-        <div class="stat-card">
-            <h3>Total Withdraw</h3>
-            <span>$0.00</span>
-        </div>
-
-        <div class="stat-card">
-            <h3>Pending Deposit</h3>
-            <span>0</span>
-        </div>
-
-        <div class="stat-card">
-            <h3>Pending Withdraw</h3>
-            <span>0</span>
-        </div>
+        <span class="finance-stat-value">
+            $0.00
+        </span>
 
     </div>
 
-    <hr>
-        <div class="finance-main-buttons">
+    <div class="stat-card">
 
-        <button class="deposit-btn"
-                onclick="toggleFinanceSection('depositFinancePanel')">
+        <h3>Total Withdraw</h3>
 
-            Deposit Section
-
-        </button>
-
-        <button class="withdraw-btn"
-                onclick="toggleFinanceSection('withdrawFinancePanel')">
-
-            Withdraw Section
-
-        </button>
+        <span class="finance-stat-value">
+            $0.00
+        </span>
 
     </div>
 
-    <hr>
+    <div class="stat-card">
+
+        <h3>Pending Deposit</h3>
+
+        <span class="finance-stat-value">
+            0
+        </span>
+
+    </div>
+
+    <div class="stat-card">
+
+        <h3>Pending Withdraw</h3>
+
+        <span class="finance-stat-value">
+            0
+        </span>
+
+    </div>
+
+</div>
+
+<hr>
+
+<div class="finance-main-buttons">
+
+    <button class="deposit-btn"
+            onclick="toggleFinanceSection('depositFinancePanel')">
+
+        Deposit Section
+
+    </button>
+
+    <button class="withdraw-btn"
+            onclick="toggleFinanceSection('withdrawFinancePanel')">
+
+        Withdraw Section
+
+    </button>
+
+</div>
+
+<hr>
     <!-- ============================= -->
 <!-- DEPOSIT SECTION START -->
 <!-- ============================= -->
