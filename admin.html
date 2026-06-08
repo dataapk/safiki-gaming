@@ -958,8 +958,6 @@
 </div>
     
 
-
-
 <!-- =================================== -->
 <!-- FINANCE SECTION START -->
 <!-- =================================== -->
@@ -970,34 +968,34 @@
 
     <h2>Finance Overview</h2>
 
-    <div class="finance-cards">
+    <!-- MAIN FINANCE BUTTONS -->
 
-        <div class="finance-card"
-             onclick="toggleFinanceSection('depositFinancePanel')">
+    <div class="settings-buttons-row">
 
-            <h3>Deposit Section</h3>
+        <button class="deposit-btn"
+                onclick="toggleFinanceSection('depositFinancePanel')">
 
-        </div>
+            Deposit Section
 
-        <div class="finance-card"
-             onclick="toggleFinanceSection('withdrawFinancePanel')">
+        </button>
 
-            <h3>Withdraw Section</h3>
+        <button class="withdraw-btn"
+                onclick="toggleFinanceSection('withdrawFinancePanel')">
 
-        </div>
+            Withdraw Section
+
+        </button>
 
     </div>
 
     <hr>
 
     <!-- =================================== -->
-    <!-- DEPOSIT PANEL -->
+    <!-- DEPOSIT SECTION -->
     <!-- =================================== -->
 
     <div id="depositFinancePanel"
          style="display:none;">
-
-        <h3>Deposit System</h3>
 
         <div class="settings-buttons-row">
 
@@ -1017,18 +1015,62 @@
                 Deposit History
             </button>
 
+            <button>
+                Deposit Reports
+            </button>
+
+        </div>
+
+        <hr>
+
+        <h3>Wallet Management</h3>
+
+        <div class="setting-box">
+
+            <button>
+                BTC
+            </button>
+
+            <button>
+                ETH
+            </button>
+
+            <button>
+                BNB
+            </button>
+
+            <button>
+                USDT TRC20
+            </button>
+
+            <button>
+                + Add New Coin
+            </button>
+
+        </div>
+
+        <hr>
+
+        <div class="setting-box">
+
+            <button>
+                Auto Deposit ON
+            </button>
+
+            <button>
+                Manual Deposit OFF
+            </button>
+
         </div>
 
     </div>
 
     <!-- =================================== -->
-    <!-- WITHDRAW PANEL -->
+    <!-- WITHDRAW SECTION -->
     <!-- =================================== -->
 
     <div id="withdrawFinancePanel"
          style="display:none;">
-
-        <h3>Withdraw System</h3>
 
         <div class="settings-buttons-row">
 
@@ -1047,6 +1089,36 @@
             <button>
                 Approval Rules
             </button>
+
+            <button>
+                Withdraw Reports
+            </button>
+
+        </div>
+
+        <hr>
+
+        <div class="setting-box">
+
+            <button>
+                Auto Withdraw ON
+            </button>
+
+            <button>
+                Manual Withdraw OFF
+            </button>
+
+        </div>
+
+        <hr>
+
+        <div class="setting-box">
+
+            <input type="number"
+                   placeholder="Min Withdraw">
+
+            <input type="number"
+                   placeholder="Max Withdraw">
 
         </div>
 
