@@ -840,9 +840,6 @@ function toggleDepositMenu(panelId){
 /* =====================================
    WITHDRAW MENU TOGGLE
 ===================================== */
-/* =====================================
-   add new coin and crypto
-===================================== */
 
 function toggleWithdrawMenu(panelId){
 
@@ -883,45 +880,6 @@ function toggleWithdrawMenu(panelId){
         }
 
     });
-
-}
-function toggleAddCoinForm(){
-
-    const form =
-        document.getElementById("addCoinForm");
-
-    if(
-        form.style.display === "none" ||
-        form.style.display === ""
-    ){
-
-        form.style.display = "block";
-
-    }else{
-
-        form.style.display = "none";
-
-    }
-
-}
-
-function toggleAddGatewayForm(){
-
-    const form =
-        document.getElementById("addGatewayForm");
-
-    if(
-        form.style.display === "none" ||
-        form.style.display === ""
-    ){
-
-        form.style.display = "block";
-
-    }else{
-
-        form.style.display = "none";
-
-    }
 
 }
 
