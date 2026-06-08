@@ -889,6 +889,9 @@ function saveFinanceSettings(){
     alert(
         "✅ Finance Settings Saved"
     );
+    .deposit-btn{
+    margin-right: 50px;
+}
 
 }
 
