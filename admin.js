@@ -791,6 +791,67 @@ function toggleFinanceSection(panelId){
     });
 
 }
+/* =====================================
+ADD COIN & PAYMENT GATEWAY
+INSERT NEW CODE BELOW THIS LINE
+===================================== */
+
+  /* =====================================
+   ADD COIN FORM TOGGLE
+===================================== */
+
+function toggleAddCoinForm(){
+
+    const form =
+        document.getElementById("addCoinForm");
+
+    if(!form){
+        return;
+    }
+
+    if(
+        form.style.display === "none" ||
+        form.style.display === ""
+    ){
+
+        form.style.display = "block";
+
+    }else{
+
+        form.style.display = "none";
+
+    }
+
+}
+
+
+/* =====================================
+   ADD PAYMENT GATEWAY FORM TOGGLE
+===================================== */
+
+function toggleAddGatewayForm(){
+
+    const form =
+        document.getElementById("addGatewayForm");
+
+    if(!form){
+        return;
+    }
+
+    if(
+        form.style.display === "none" ||
+        form.style.display === ""
+    ){
+
+        form.style.display = "block";
+
+    }else{
+
+        form.style.display = "none";
+
+    }
+
+}
 
 /* =====================================
    DEPOSIT MENU TOGGLE
