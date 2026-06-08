@@ -1343,24 +1343,477 @@
 <!-- ============================= -->
 <!-- DEPOSIT SECTION END -->
 <!-- ============================= -->
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    <!-- ============================= -->
+<!-- WITHDRAW SECTION START -->
+<!-- ============================= -->
 
+<div id="withdrawFinancePanel"
+     style="display:none;">
+
+    <div class="settings-buttons-row">
+
+        <button onclick="toggleWithdrawMenu('withdrawWalletPanel')">
+
+            Withdraw Wallets
+
+        </button>
+
+        <button onclick="toggleWithdrawMenu('withdrawSettingsPanel')">
+
+            Withdraw Settings
+
+        </button>
+
+        <button onclick="toggleWithdrawMenu('pendingWithdrawPanel')">
+
+            Pending Withdrawals
+
+        </button>
+
+        <button onclick="toggleWithdrawMenu('withdrawHistoryPanel')">
+
+            Withdraw History
+
+        </button>
+
+        <button onclick="toggleWithdrawMenu('approvalRulesPanel')">
+
+            Approval Rules
+
+        </button>
+
+        <button onclick="toggleWithdrawMenu('withdrawReportsPanel')">
+
+            Withdraw Reports
+
+        </button>
+
+        <button onclick="toggleWithdrawMenu('withdrawLogsPanel')">
+
+            Transaction Logs
+
+        </button>
+
+    </div>
+
+    <hr>
+    <!-- ============================= -->
+<!-- WITHDRAW WALLETS -->
+<!-- ============================= -->
+
+<div id="withdrawWalletPanel"
+     style="display:none;">
+
+    <h3>Withdraw Wallets</h3>
+        <div class="wallet-box">
+
+        <h4>BTC Withdraw Wallet</h4>
+
+        <input type="text"
+               placeholder="Wallet Address">
+
+        <input type="text"
+               placeholder="Wallet Provider">
+
+        <button>
+            Save Address
+        </button>
+
+        <button>
+            Active
+        </button>
+
+    </div>
+        <div class="wallet-box">
+
+        <h4>ETH Withdraw Wallet</h4>
+
+        <input type="text"
+               placeholder="Wallet Address">
+
+        <input type="text"
+               placeholder="Wallet Provider">
+
+        <button>
+            Save Address
+        </button>
+
+        <button>
+            Active
+        </button>
+
+    </div>
+        <div class="wallet-box">
+
+        <h4>BNB Withdraw Wallet</h4>
+
+        <input type="text"
+               placeholder="Wallet Address">
+
+        <input type="text"
+               placeholder="Wallet Provider">
+
+        <button>
+            Save Address
+        </button>
+
+        <button>
+            Active
+        </button>
+
+    </div>
+        <div class="wallet-box">
+
+        <h4>USDT TRC20 Withdraw Wallet</h4>
+
+        <input type="text"
+               placeholder="Wallet Address">
+
+        <input type="text"
+               placeholder="Wallet Provider">
+
+        <button>
+            Save Address
+        </button>
+
+        <button>
+            Active
+        </button>
+
+    </div>
+
+    <button>
+        + Add New Coin
+    </button>
+
+    <button>
+        + Add More Currency Gateway
+    </button>
+
+</div>
+
+<hr>
+    <!-- ============================= -->
+<!-- WITHDRAW SETTINGS -->
+<!-- ============================= -->
+
+<div id="withdrawSettingsPanel"
+     style="display:none;">
+
+    <h3>Withdraw Settings</h3>
+
+    <div class="setting-box">
+
+        <label>
+            Auto Withdraw
+        </label>
+
+        <button onclick="toggleAutoWithdraw()">
+            ON / OFF
+        </button>
+
+    </div>
+
+    <div class="setting-box">
+
+        <label>
+            Manual Withdraw
+        </label>
+
+        <button onclick="toggleManualWithdraw()">
+            ON / OFF
+        </button>
+
+    </div>
+
+    <div class="setting-box">
+
+        <input type="number"
+               placeholder="Minimum Withdraw">
+
+        <input type="number"
+               placeholder="Maximum Withdraw">
+
+    </div>
+
+    <div class="setting-box">
+
+        <input type="number"
+               placeholder="Auto Approval Limit">
+
+        <input type="number"
+               placeholder="Manual Review Limit">
+
+    </div>
+
+</div>
+
+<hr>
+    <!-- ============================= -->
+<!-- PENDING WITHDRAWALS -->
+<!-- ============================= -->
+
+<div id="pendingWithdrawPanel"
+     style="display:none;">
+
+    <h3>Pending Withdrawals</h3>
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>User ID</th>
+                <th>Coin</th>
+                <th>Amount</th>
+                <th>Status</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<hr>
+    <!-- ============================= -->
+<!-- WITHDRAW HISTORY -->
+<!-- ============================= -->
+
+<div id="withdrawHistoryPanel"
+     style="display:none;">
+
+    <h3>Withdraw History</h3>
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>User ID</th>
+                <th>Coin</th>
+                <th>Amount</th>
+                <th>Date</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<hr>
+    <!-- ============================= -->
+<!-- APPROVAL RULES -->
+<!-- ============================= -->
+
+<div id="approvalRulesPanel"
+     style="display:none;">
+
+    <h3>Approval Rules</h3>
+
+    <div class="setting-box">
+
+        <input type="number"
+               placeholder="Auto Approve Below">
+
+        <input type="number"
+               placeholder="Manual Approval Above">
+
+    </div>
+
+</div>
+
+<hr>
+    <!-- ============================= -->
+<!-- WITHDRAW REPORTS -->
+<!-- ============================= -->
+
+<div id="withdrawReportsPanel"
+     style="display:none;">
+
+    <h3>Withdraw Reports</h3>
+
+    <div class="finance-overview-grid">
+
+        <div class="stat-card">
+
+            <h4>Today</h4>
+            <span>$0</span>
+
+        </div>
+
+        <div class="stat-card">
+
+            <h4>Weekly</h4>
+            <span>$0</span>
+
+        </div>
+
+        <div class="stat-card">
+
+            <h4>Monthly</h4>
+            <span>$0</span>
+
+        </div>
+
+    </div>
+
+</div>
+
+<hr>
+    <!-- ============================= -->
+<!-- WITHDRAW LOGS -->
+<!-- ============================= -->
+
+<div id="withdrawLogsPanel"
+     style="display:none;">
+
+    <h3>Transaction Logs</h3>
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>TXID</th>
+                <th>User</th>
+                <th>Coin</th>
+                <th>Status</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+        </tbody>
+
+    </table>
+
+</div>
+    <!-- ============================= -->
+<!-- WITHDRAW SECTION END -->
+<!-- ============================= -->
+
+</div>
+
+<hr>
+    <!-- ============================= -->
+<!-- FINANCE SECURITY -->
+<!-- ============================= -->
+
+<div id="financeSecurityPanel">
+
+    <h3>Finance Security</h3>
+
+    <div class="setting-box">
+
+        <input type="password"
+               placeholder="Admin Finance PIN">
+
+    </div>
+
+    <div class="setting-box">
+
+        <input type="password"
+               placeholder="Withdraw Approval PIN">
+
+    </div>
+
+    <div class="setting-box">
+
+        <input type="text"
+               placeholder="API Secret Key">
+
+    </div>
+
+    <div class="setting-box">
+
+        <input type="text"
+               placeholder="Webhook Secret">
+
+    </div>
+
+    <div class="setting-box">
+
+        <input type="text"
+               placeholder="Allowed Server IP">
+
+    </div>
+
+</div>
+
+<hr>
+    <!-- ============================= -->
+<!-- AUDIT LOGS -->
+<!-- ============================= -->
+
+<div id="financeAuditPanel">
+
+    <h3>Audit Logs</h3>
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>Date</th>
+
+                <th>Admin</th>
+
+                <th>Action</th>
+
+                <th>Status</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<hr>
+    <!-- ============================= -->
+<!-- SAVE FINANCE SETTINGS -->
+<!-- ============================= -->
+
+<div class="finance-save-area">
+
+    <button onclick="saveFinanceSettings()">
+
+        Save Finance Settings
+
+    </button>
+
+</div>
+
+<hr>
+    </div>
 
 <!-- =================================== -->
 <!-- FINANCE SECTION END -->
 <!-- =================================== -->
-    
+
  <!-- =================================== -->
 <!-- SETTINGS SECTION START -->
 <!-- =================================== -->
