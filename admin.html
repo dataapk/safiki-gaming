@@ -1533,84 +1533,39 @@
 <div id="withdrawRequestPanel"
      style="display:none;">
 
-    <h3>Withdraw Requests</h3>
+<h3>Withdraw Requests</h3>
 
-    <table>
+<table>
 
-        <thead>
+    <thead>
+        <tr>
 
-            <tr>
+            <th>Request ID</th>
+            <th>User ID</th>
+            <th>Username</th>
+            <th>Amount</th>
+            <th>Coin</th>
+            <th>Network</th>
+            <th>Wallet Address</th>
+            <th>IP Address</th>
+            <th>Device</th>
+            <th>Date & Time</th>
+            <th>Status</th>
+            <th>Actions</th>
 
-                <th>Request ID</th>
+        </tr>
+    </thead>
 
-                <th>User ID</th>
+    <!-- DYNAMIC BODY -->
+    <tbody id="withdrawRequestTableBody">
 
-                <th>Username</th>
+    </tbody>
 
-                <th>Amount</th>
+</table>
 
-                <th>Coin</th>
 
-                <th>Network</th>
+</div>
 
-                <th>Wallet Address</th>
-
-                <th>IP Address</th>
-
-                <th>Device</th>
-
-                <th>Date & Time</th>
-
-                <th>Status</th>
-
-                <th>Actions</th>
-
-            </tr>
-
-        </thead>
-
-        <tbody>
-
-            <tr>
-
-                <td>#W001</td>
-
-                <td>1052</td>
-
-                <td>player123</td>
-
-                <td>250 USDT</td>
-
-                <td>USDT</td>
-
-                <td>TRC20</td>
-
-                <td>TKJ8XA9XXXXXXXXXXXX</td>
-
-                <td>103.xxx.xxx.xxx</td>
-
-                <td>Windows 11 / Chrome</td>
-
-                <td>2026-06-09 22:15</td>
-
-                <td>Pending</td>
-
-                <td>
-
-                    <button onclick="approveWithdraw('W001')">Approve</button>
-           
-
-        <button onclick="rejectWithdraw('W001')">
-            Reject
-        </button>
-
-                </td>
-
-            </tr>
-
-        </tbody>
-
-    </table>
 
 </div>
 
