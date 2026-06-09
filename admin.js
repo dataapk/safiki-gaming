@@ -1095,19 +1095,15 @@ function getRequest(id) {
 function approveWithdraw(id) {
 
     let req = getRequest(id);
-    if (!req) return;
 
-    // safety
-    if (req.status !== "pending") return;
+    if (!req) {
+        alert("Request Not Found");
+        return;
+    }
 
     req.status = "approved";
 
-    sendNotification(
-        req.userId,
-        "Your payment has been approved and will be released soon."
-    );
-
-    renderPanels();
+    alert("Approved Successfully");
 }
 
 // =============================
