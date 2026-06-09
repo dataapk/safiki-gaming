@@ -1059,6 +1059,7 @@ function saveFinanceSettings(){
 /* =====================================
    FINANCE SECTION JS END
 ===================================== */
+// WALLET ADD FEATURE
 function toggleEditWallet(formId){
 
     const form = document.getElementById(formId);
