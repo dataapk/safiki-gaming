@@ -1203,10 +1203,40 @@ function renderApprovedPanel() {
 
 function renderRejectedPanel() {
 
-    console.log("Rejected Panel Render");
+const tbody =
+    document.querySelector(
+        "#rejectedWithdrawPanel tbody"
+    );
+
+if (!tbody) return;
+
+tbody.innerHTML = "";
+
+window.withdrawRequests.forEach(req => {
+
+    if (req.status === "rejected") {
+
+        tbody.innerHTML += `
+            <tr>
+
+                <td>${req.userId}</td>
+
+                <td>${req.coin}</td>
+
+                <td>${req.amount}</td>
+
+                <td>
+                    🔴 Rejected
+                </td>
+
+            </tr>
+        `;
+
+    }
+
+});
 
 }
-
 
 // =====================
 // HISTORY PANEL
