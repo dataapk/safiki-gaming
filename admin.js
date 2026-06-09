@@ -1526,47 +1526,41 @@ referralPlayers.forEach(player => {
 // =====================
 // PAYOUT REQUESTS
 // =====================
-
 function renderAffiliatePayoutRequests() {
 
-```
-const tbody =
-    document.getElementById("affiliatePayoutRequestTableBody");
+    const tbody =
+        document.getElementById("affiliatePayoutRequestTableBody");
 
-if (!tbody) return;
+    if (!tbody) return;
 
-tbody.innerHTML = "";
+    tbody.innerHTML = "";
 
-affiliatePayoutRequests.forEach(req => {
+    affiliatePayoutRequests.forEach(req => {
 
-    tbody.innerHTML += `
+        tbody.innerHTML += `
+        <tr>
+            <td>${req.requestId}</td>
+            <td>${req.affiliateId}</td>
+            <td>${req.username}</td>
+            <td>${req.amount}</td>
+            <td>${req.status}</td>
 
-    <tr>
+            <td>
 
-        <td>${req.requestId}</td>
-        <td>${req.affiliateId}</td>
-        <td>${req.username}</td>
-        <td>${req.amount}</td>
-        <td>${req.status}</td>
+                <button onclick="approveAffiliatePayout('${req.requestId}')">
+                    Approve
+                </button>
 
-        <td>
+                <button onclick="rejectAffiliatePayout('${req.requestId}')">
+                    Reject
+                </button>
 
-            <button onclick="approveAffiliatePayout('${req.requestId}')">
-                Approve
-            </button>
+            </td>
 
-            <button onclick="rejectAffiliatePayout('${req.requestId}')">
-                Reject
-            </button>
+        </tr>
+        `;
 
-        </td>
-
-    </tr>
-
-    `;
-
-});
-
+    });
 
 }
 // =====================
