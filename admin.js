@@ -1173,18 +1173,84 @@ function renderPanels() {
     renderHistoryPanel();
 
 }
-
-
 // =====================
-// REQUEST PANEL
+// WITHDRAW REQUEST START
 // =====================
+
 
 function renderRequestPanel() {
 
-    console.log("Request Panel Render");
+
+const tbody =
+    document.querySelector(
+        "#withdrawRequestPanel tbody"
+    );
+
+if (!tbody) return;
+
+tbody.innerHTML = "";
+
+window.withdrawRequests.forEach(req => {
+
+    let statusText = "";
+    let actionButtons = "";
+
+    // STATUS CONTROL
+    if (req.status === "pending") {
+
+        statusText = "🟡 Pending";
+
+        actionButtons = `
+            <button onclick="approveWithdraw('${req.id}')">
+                Approve
+            </button>
+
+            <button onclick="rejectWithdraw('${req.id}')">
+                Reject
+            </button>
+        `;
+    }
+
+    else if (req.status === "approved") {
+
+        statusText = "🟢 Approved";
+
+        actionButtons = `
+            <span>Approved</span>
+        `;
+    }
+
+    else if (req.status === "rejected") {
+
+        statusText = "🔴 Rejected";
+
+        actionButtons = `
+            <span>Rejected</span>
+        `;
+    }
+
+    tbody.innerHTML += `
+        <tr>
+
+            <td>${req.id}</td>
+            <td>${req.userId}</td>
+            <td>${req.username}</td>
+            <td>${req.amount}</td>
+            <td>${req.coin}</td>
+
+            <td>${statusText}</td>
+
+            <td>${actionButtons}</td>
+
+        </tr>
+    `;
+});
 
 }
 
+// =====================
+// APPROVED PANEL
+// =====================
 
 // =====================
 // APPROVED PANEL
