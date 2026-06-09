@@ -1095,15 +1095,13 @@ function getRequest(id) {
 function approveWithdraw(id) {
 
     let req = getRequest(id);
+    if (!req) return;
 
-    if (!req) {
-        alert("Request Not Found");
-        return;
-    }
+    if (req.status !== "pending") return;
 
     req.status = "approved";
 
-    alert("Approved Successfully");
+    renderPanels();
 }
 
 // =============================
