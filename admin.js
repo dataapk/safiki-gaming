@@ -1076,117 +1076,138 @@ function toggleEditWallet(formId){
 
 }
 
-// =============================
-// RENDER ALL PANELS
-// =============================
-function renderPanels() {
+/* =============================
+WITHDRAW DATA STORE
+============================= */
 
-    renderRequestPanel();
-    renderApprovedPanel();
-    renderRejectedPanel();
-    renderHistoryPanel();
-}
-
-// =============================
-// NOTIFICATION SYSTEM
-// =============================
-function sendNotification(userId, message) {
-
-    console.log("Notification to user:", userId, message);
-
-}
-
-// =====================
-// DATA STORE
-// =====================
 window.withdrawRequests = window.withdrawRequests || [
-    {
-        id: "W001",
-        userId: 1052,
-        username: "player123",
-        amount: 250,
-        coin: "USDT",
-        status: "pending"
-    }
+{
+id: "W001",
+userId: 1052,
+username: "player123",
+amount: 250,
+coin: "USDT",
+status: "pending"
+}
 ];
 
+/* =============================
+FIND REQUEST
+============================= */
 
-// =====================
-// FIND REQUEST
-// =====================
 function getRequest(id) {
-    return window.withdrawRequests.find(r => r.id === id);
+return window.withdrawRequests.find(
+r => r.id === id
+);
 }
 
-// =====================
-// APPROVE WITHDRAW
-// =====================
+/* =============================
+APPROVE WITHDRAW
+============================= */
 
 function approveWithdraw(id) {
 
-    let req = getRequest(id);
-    if (!req) return;
 
-    req.status = "approved";
+let req = getRequest(id);
 
-    console.log("APPROVED:", req);
+if (!req) return;
 
-    renderUI();
+if (req.status !== "pending") return;
+
+req.status = "approved";
+
+renderPanels();
+
+
 }
 
+/* =============================
+REJECT WITHDRAW
+============================= */
 
-// REJECT
 function rejectWithdraw(id) {
 
-    let req = getRequest(id);
-    if (!req) return;
 
-    req.status = "rejected";
+let req = getRequest(id);
 
-    console.log("REJECTED:", req);
+if (!req) return;
 
-    renderUI();
+if (req.status === "completed") return;
+
+req.status = "rejected";
+
+renderPanels();
+
+
 }
 
+/* =============================
+SEND MONEY
+============================= */
 
-// SEND MONEY
 function sendMoney(id) {
 
-    let req = getRequest(id);
-    if (!req) return;
 
-    console.log("CURRENT STATUS:", req.status);
+let req = getRequest(id);
 
-    if (req.status !== "approved") {
-        alert("Not approved yet!");
-        return;
-    }
+if (!req) return;
 
-    req.status = "completed";
+if (req.status !== "approved") {
 
-    console.log("SENT SUCCESSFULLY:", req);
+    alert("Not approved yet!");
 
-    renderUI();
+    return;
 }
 
-// =====================
-// UI RENDER (TEST OUTPUT)
-// =====================
-function renderUI() {
+req.status = "completed";
 
-    console.clear();
+alert(
+    "Your payment has been sent successfully."
+);
 
-    withdrawRequests.forEach(r => {
-        console.log(
-            r.id,
-            r.userId,
-            r.username,
-            r.amount,
-            r.coin,
-            r.status
-        );
-    });
+renderPanels();
+
+
 }
-console.log("SAFIKI ADMIN PANEL LOADED");
+
+/* =============================
+RENDER ALL PANELS
+============================= */
+
+function renderPanels() {
 
 
+renderRequestPanel();
+
+renderApprovedPanel();
+
+renderRejectedPanel();
+
+renderHistoryPanel();
+
+
+}
+
+/* =============================
+OPTIONAL NOTIFICATION
+(DISABLED FOR NOW)
+============================= */
+
+function sendNotification(
+userId,
+message
+) {
+
+
+console.log(
+    "Notification:",
+    userId,
+    message
+);
+
+
+}
+
+console.log(
+"SAFIKI WITHDRAW SYSTEM LOADED"
+);
