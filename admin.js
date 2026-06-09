@@ -1365,44 +1365,39 @@ window.withdrawRequests.forEach(req => {
 // =====================
 function renderHistoryPanel() {
 
+const list =
+    document.getElementById("withdrawHistoryList");
 
-const tbody =
-    document.getElementById(
-        "withdrawHistoryTableBody"
-    );
+if (!list) return;
 
-if (!tbody) return;
+list.innerHTML = "";
 
-tbody.innerHTML = "";
+let total = 0;
+let today = 0;
 
-if (!window.withdrawHistory) return;
+const todayDate =
+    new Date().toISOString().split("T")[0];
 
 window.withdrawHistory.forEach(item => {
 
-    tbody.innerHTML += `
-        <tr>
+    total += Number(item.amount);
 
-            <td>${item.id}</td>
+    if (item.date.includes(todayDate)) {
+        today += Number(item.amount);
+    }
 
-            <td>${item.userId}</td>
-
-            <td>${item.username}</td>
-
-            <td>${item.amount}</td>
-
-            <td>${item.coin}</td>
-
-            <td>${item.status}</td>
-
-            <td>${item.date}</td>
-
-        </tr>
+    list.innerHTML += `
+        <p>
+            ${item.date} - ${item.amount} BDT (${item.status})
+        </p>
     `;
-
 });
 
-}
+document.getElementById("totalWithdraw").innerText = total;
+document.getElementById("todayWithdraw").innerText = today;
 
+
+}
 
 /* =============================
 OPTIONAL NOTIFICATION
