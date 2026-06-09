@@ -1609,7 +1609,7 @@ affiliatePayoutHistory.forEach(item => {
 
 function showAffiliatePanel(panelId) {
 
-```
+
 document.getElementById("referralPlayersPanel").style.display = "none";
 document.getElementById("commissionControlPanel").style.display = "none";
 document.getElementById("affiliatePayoutRequestPanel").style.display = "none";
