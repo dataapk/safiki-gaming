@@ -2034,36 +2034,38 @@
     <!-- ============================= -->
 <!-- AFFILIATE OVERVIEW -->
 <!-- ============================= -->
-
 <div id="affiliateOverviewPanel">
 
-    <h3>Affiliate Overview</h3>
+```
+<h3>Affiliate Center</h3>
 
-    <div class="affiliate-stats">
+<div class="affiliate-stats">
 
-        <div class="affiliate-card">
-            <h4>Total Referrals</h4>
-            <p id="totalReferrals">0</p>
-        </div>
-
-        <div class="affiliate-card">
-            <h4>Active Referrals</h4>
-            <p id="activeReferrals">0</p>
-        </div>
-
-        <div class="affiliate-card">
-            <h4>Commission Paid</h4>
-            <p id="commissionPaid">0 BDT</p>
-        </div>
-
-        <div class="affiliate-card">
-            <h4>Pending Commission</h4>
-            <p id="pendingCommission">0 BDT</p>
-        </div>
-
+    <div class="affiliate-card">
+        <h4>Total Referrals</h4>
+        <p id="totalReferrals">0</p>
     </div>
 
-    <hr>
+    <div class="affiliate-card">
+        <h4>Active Referrals</h4>
+        <p id="activeReferrals">0</p>
+    </div>
+
+    <div class="affiliate-card">
+        <h4>Commission Paid</h4>
+        <p id="commissionPaid">0 BDT</p>
+    </div>
+
+    <div class="affiliate-card">
+        <h4>Pending Commission</h4>
+        <p id="pendingCommission">0 BDT</p>
+    </div>
+
+</div>
+
+<hr>
+
+<div class="affiliate-action-buttons">
 
     <button onclick="showAffiliatePanel('referralPlayersPanel')">
         Referral Players
@@ -2082,6 +2084,145 @@
     </button>
 
 </div>
+
+<hr>
+
+<!-- REFERRAL PLAYERS -->
+
+<div id="referralPlayersPanel" style="display:none;">
+
+    <h4>Referral Players</h4>
+
+    <table>
+
+        <thead>
+            <tr>
+                <th>Referral ID</th>
+                <th>Player ID</th>
+                <th>Username</th>
+                <th>Deposit</th>
+                <th>Total Bet</th>
+                <th>Commission</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+
+        <tbody id="referralPlayersTableBody">
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<!-- COMMISSION CONTROL -->
+
+<div id="commissionControlPanel" style="display:none;">
+
+    <h4>Commission Control</h4>
+
+    <table>
+
+        <tbody>
+
+            <tr>
+                <td>Level 1 Commission (%)</td>
+                <td>
+                    <input type="number"
+                           id="level1Commission"
+                           value="10">
+                </td>
+            </tr>
+
+            <tr>
+                <td>Level 2 Commission (%)</td>
+                <td>
+                    <input type="number"
+                           id="level2Commission"
+                           value="5">
+                </td>
+            </tr>
+
+            <tr>
+                <td>Level 3 Commission (%)</td>
+                <td>
+                    <input type="number"
+                           id="level3Commission"
+                           value="2">
+                </td>
+            </tr>
+
+            <tr>
+                <td>Minimum Withdrawal</td>
+                <td>
+                    <input type="number"
+                           id="affiliateMinWithdraw"
+                           value="500">
+                </td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<!-- PAYOUT REQUESTS -->
+
+<div id="affiliatePayoutRequestPanel" style="display:none;">
+
+    <h4>Payout Requests</h4>
+
+    <table>
+
+        <thead>
+            <tr>
+                <th>Request ID</th>
+                <th>Affiliate ID</th>
+                <th>Username</th>
+                <th>Amount</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody id="affiliatePayoutRequestTableBody">
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<!-- PAYOUT HISTORY -->
+
+<div id="affiliatePayoutHistoryPanel" style="display:none;">
+
+    <h4>Payout History</h4>
+
+    <table>
+
+        <thead>
+            <tr>
+                <th>Transaction ID</th>
+                <th>Affiliate ID</th>
+                <th>Amount</th>
+                <th>Date</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+
+        <tbody id="affiliatePayoutHistoryTableBody">
+
+        </tbody>
+
+    </table>
+
+</div>
+
+
+</div>
+
      <!-- ============================= -->
 <!-- AFFILIATE CENTER END -->
 <!-- ============================= -->
