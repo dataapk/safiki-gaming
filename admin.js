@@ -1167,15 +1167,54 @@ RENDER ALL PANELS
 
 function renderPanels() {
 
+    renderRequestPanel();
+    renderApprovedPanel();
+    renderRejectedPanel();
+    renderHistoryPanel();
 
-renderRequestPanel();
+}
 
-renderApprovedPanel();
 
-renderRejectedPanel();
+// =====================
+// REQUEST PANEL
+// =====================
 
-renderHistoryPanel();
+function renderRequestPanel() {
 
+    console.log("Request Panel Render");
+
+}
+
+
+// =====================
+// APPROVED PANEL
+// =====================
+
+function renderApprovedPanel() {
+
+    console.log("Approved Panel Render");
+
+}
+
+
+// =====================
+// REJECTED PANEL
+// =====================
+
+function renderRejectedPanel() {
+
+    console.log("Rejected Panel Render");
+
+}
+
+
+// =====================
+// HISTORY PANEL
+// =====================
+
+function renderHistoryPanel() {
+
+    console.log("History Panel Render");
 
 }
 
