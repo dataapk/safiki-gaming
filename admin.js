@@ -737,11 +737,11 @@ function openAddGame() {
 }
 
 /* ================================
-   GAMES SECTION JS FILE END
+   GAMES SECTION  END
 ==================================*/
 
 /* =====================================
-   FINANCE CONFIG
+   FINANCE SECTION START
 ===================================== */
 
 const financeConfig = {
@@ -905,14 +905,13 @@ function toggleDepositMenu(panelId){
 function toggleWithdrawMenu(panelId){
 
     const panels = [
-        "withdrawWalletPanel",
-        "withdrawSettingsPanel",
-        "pendingWithdrawPanel",
-        "withdrawHistoryPanel",
-        "approvalRulesPanel",
-        "withdrawReportsPanel",
-        "withdrawLogsPanel"
-    ];
+    "withdrawRequestPanel",
+    "approvedWithdrawPanel",
+    "rejectedWithdrawPanel",
+    "withdrawHistoryPanel",
+    "withdrawReportsPanel",
+    "approvalRulesPanel"
+];
 
     panels.forEach(function(id){
 
