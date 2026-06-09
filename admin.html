@@ -1120,19 +1120,42 @@
 
     <h4>BNB</h4>
 
-    <input type="text"
-           placeholder="Wallet Address">
+    <p><strong>Network:</strong> BEP20</p>
 
-    <input type="text"
-           placeholder="Wallet Provider">
+    <p><strong>Provider:</strong> Binance</p>
 
-    <button>
-        Save Address
+    <p><strong>Wallet Address:</strong> bnb_wallet_here</p>
+
+    <button onclick="toggleEditWallet('bnbEditForm')">
+        Edit Address
     </button>
 
     <button>
         Active
     </button>
+
+    <div id="bnbEditForm"
+         style="display:none; margin-top:10px;">
+
+        <input type="text"
+               placeholder="Network">
+
+        <input type="text"
+               placeholder="Provider">
+
+        <input type="text"
+               placeholder="New Wallet Address">
+
+        <input type="password"
+               placeholder="Finance PIN Verification">
+
+        <button>
+            Update Address
+        </button>
+
+    </div>
+
+</div>
 
 </div>
         <div class="wallet-box">
