@@ -1171,6 +1171,103 @@ function sendNotification(userId, message) {
 
 }
 // APPROVE WITHDRAW END
+
+// =====================
+// DATA STORE
+// =====================
+let withdrawRequests = [
+    {
+        id: "W001",
+        userId: 1052,
+        username: "player123",
+        amount: 250,
+        coin: "USDT",
+        status: "pending"
+    }
+];
+
+
+// =====================
+// FIND REQUEST
+// =====================
+function getRequest(id) {
+    return withdrawRequests.find(r => r.id === id);
+}
+
+
+// =====================
+// APPROVE WITHDRAW
+// =====================
+function approveWithdraw(id) {
+
+    let req = getRequest(id);
+    if (!req) return;
+
+    if (req.status !== "pending") return;
+
+    req.status = "approved";
+
+    console.log("APPROVED:", req);
+
+    renderUI();
+}
+
+
+// =====================
+// REJECT WITHDRAW
+// =====================
+function rejectWithdraw(id) {
+
+    let req = getRequest(id);
+    if (!req) return;
+
+    req.status = "rejected";
+
+    console.log("REJECTED:", req);
+
+    renderUI();
+}
+
+
+// =====================
+// SEND MONEY (FINAL STEP)
+// =====================
+function sendMoney(id) {
+
+    let req = getRequest(id);
+    if (!req) return;
+
+    if (req.status !== "approved") {
+        alert("Not approved yet!");
+        return;
+    }
+
+    req.status = "completed";
+
+    console.log("SENT SUCCESSFULLY:", req);
+
+    renderUI();
+}
+
+
+// =====================
+// UI RENDER (TEST OUTPUT)
+// =====================
+function renderUI() {
+
+    console.clear();
+
+    withdrawRequests.forEach(r => {
+        console.log(
+            r.id,
+            r.userId,
+            r.username,
+            r.amount,
+            r.coin,
+            r.status
+        );
+    });
+}
 console.log("SAFIKI ADMIN PANEL LOADED");
 
 
