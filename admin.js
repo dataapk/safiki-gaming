@@ -1189,13 +1189,69 @@ function renderRequestPanel() {
 // =====================
 // APPROVED PANEL
 // =====================
-
 function renderApprovedPanel() {
 
-    console.log("Approved Panel Render");
+const tbody =
+    document.querySelector(
+        "#approvedWithdrawPanel tbody"
+    );
+
+if (!tbody) return;
+
+tbody.innerHTML = "";
+
+window.withdrawRequests.forEach(req => {
+
+    if (
+        req.status === "approved" ||
+        req.status === "completed"
+    ) {
+
+        let paymentStatus = "";
+        let actionButton = "";
+
+        if (req.status === "approved") {
+
+            paymentStatus =
+                "🟡 Waiting for Payment";
+
+            actionButton =
+                `<button onclick="sendMoney('${req.id}')">
+                    Send Money
+                </button>`;
+        }
+
+        if (req.status === "completed") {
+
+            paymentStatus =
+                "🟢 Payment Completed";
+
+            actionButton =
+                `<button disabled>
+                    Completed
+                </button>`;
+        }
+
+        tbody.innerHTML += `
+            <tr>
+
+                <td>${req.userId}</td>
+
+                <td>${req.coin}</td>
+
+                <td>${req.amount}</td>
+
+                <td>${paymentStatus}</td>
+
+                <td>${actionButton}</td>
+
+            </tr>
+        `;
+    }
+
+});
 
 }
-
 
 // =====================
 // REJECTED PANEL
