@@ -1499,7 +1499,7 @@
 
         <button onclick="toggleWithdrawMenu('withdrawWalletPanel')">
 
-            Withdraw Requests
+            Withdraw Request
 
         </button>
 
@@ -1538,156 +1538,97 @@
 
     <hr>
     <!-- ============================= -->
-<!-- WITHDRAW WALLETS -->
+<!-- WITHDRAW Request -->
 <!-- ============================= -->
 
 <div id="withdrawWalletPanel"
      style="display:none;">
 
-    <h3>Withdraw Wallets</h3>
-        <div class="wallet-box">
+    <h3>Withdraw Requests</h3>
 
-        <h4>BTC Withdraw Wallet</h4>
+    <table>
 
-        <input type="text"
-               placeholder="Wallet Address">
+        <thead>
 
-        <input type="text"
-               placeholder="Wallet Provider">
+            <tr>
 
-        <button>
-            Save Address
-        </button>
+                <th>Request ID</th>
 
-        <button>
-            Active
-        </button>
+                <th>User ID</th>
 
-    </div>
-        <div class="wallet-box">
+                <th>Username</th>
 
-        <h4>ETH Withdraw Wallet</h4>
+                <th>Amount</th>
 
-        <input type="text"
-               placeholder="Wallet Address">
+                <th>Coin</th>
 
-        <input type="text"
-               placeholder="Wallet Provider">
+                <th>Network</th>
 
-        <button>
-            Save Address
-        </button>
+                <th>Wallet Address</th>
 
-        <button>
-            Active
-        </button>
+                <th>IP Address</th>
 
-    </div>
-        <div class="wallet-box">
+                <th>Device</th>
 
-        <h4>BNB Withdraw Wallet</h4>
+                <th>Date & Time</th>
 
-        <input type="text"
-               placeholder="Wallet Address">
+                <th>Status</th>
 
-        <input type="text"
-               placeholder="Wallet Provider">
+                <th>Actions</th>
 
-        <button>
-            Save Address
-        </button>
+            </tr>
 
-        <button>
-            Active
-        </button>
+        </thead>
 
-    </div>
-        <div class="wallet-box">
+        <tbody>
 
-        <h4>USDT TRC20 Withdraw Wallet</h4>
+            <tr>
 
-        <input type="text"
-               placeholder="Wallet Address">
+                <td>#W001</td>
 
-        <input type="text"
-               placeholder="Wallet Provider">
+                <td>1052</td>
 
-        <button>
-            Save Address
-        </button>
+                <td>player123</td>
 
-        <button>
-            Active
-        </button>
+                <td>250 USDT</td>
 
-    </div>
+                <td>USDT</td>
 
-    <button>
-        + Add New Coin
-    </button>
+                <td>TRC20</td>
 
-    <button>
-        + Add More Currency Gateway
-    </button>
+                <td>TKJ8XA9XXXXXXXXXXXX</td>
+
+                <td>103.xxx.xxx.xxx</td>
+
+                <td>Windows 11 / Chrome</td>
+
+                <td>2026-06-09 22:15</td>
+
+                <td>Pending</td>
+
+                <td>
+
+                    <button>
+                        View User
+                    </button>
+
+                    <button>
+                        Approve
+                    </button>
+
+                    <button>
+                        Reject
+                    </button>
+
+                </td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
 
 </div>
-
-<hr>
-    <!-- ============================= -->
-<!-- WITHDRAW SETTINGS -->
-<!-- ============================= -->
-
-<div id="withdrawSettingsPanel"
-     style="display:none;">
-
-    <h3>Withdraw Settings</h3>
-
-    <div class="setting-box">
-
-        <label>
-            Auto Withdraw
-        </label>
-
-        <button onclick="toggleAutoWithdraw()">
-            ON / OFF
-        </button>
-
-    </div>
-
-    <div class="setting-box">
-
-        <label>
-            Manual Withdraw
-        </label>
-
-        <button onclick="toggleManualWithdraw()">
-            ON / OFF
-        </button>
-
-    </div>
-
-    <div class="setting-box">
-
-        <input type="number"
-               placeholder="Minimum Withdraw">
-
-        <input type="number"
-               placeholder="Maximum Withdraw">
-
-    </div>
-
-    <div class="setting-box">
-
-        <input type="number"
-               placeholder="Auto Approval Limit">
-
-        <input type="number"
-               placeholder="Manual Review Limit">
-
-    </div>
-
-</div>
-
 
     <!-- ============================= -->
 <!-- PENDING WITHDRAWALS -->
