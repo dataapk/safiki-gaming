@@ -1115,7 +1115,7 @@ function approveWithdraw(id) {
 
     req.status = "approved";
 
-    alert("Withdraw Approved");
+    alert("Withdraw Request Approved");
 
     renderPanels();
 }
