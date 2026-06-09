@@ -1167,13 +1167,18 @@ RENDER ALL PANELS
 
 function renderPanels() {
 
-    renderRequestPanel();
-    renderApprovedPanel();
-    renderRejectedPanel();
-    renderHistoryPanel();
-    renderAffiliateOverview();
+renderRequestPanel();
+renderApprovedPanel();
+renderRejectedPanel();
+renderHistoryPanel();
+
+renderAffiliateOverview();
+renderReferralPlayers();
+renderAffiliatePayoutRequests();
+renderAffiliatePayoutHistory();
 
 }
+
 // =====================
 // WITHDRAW REQUEST START
 // =====================
