@@ -1074,4 +1074,102 @@ function toggleEditWallet(formId){
     }
 
 }
+// APPROVE WITHDRAW START
+
+// =============================
+// WITHDRAW SYSTEM DATA
+// =============================
+let withdrawRequests = [];
+
+// =============================
+// FIND REQUEST
+// =============================
+function getRequest(id) {
+    return withdrawRequests.find(r => r.id === id);
+}
+
+// =============================
+// APPROVE WITHDRAW
+// =============================
+function approveWithdraw(id) {
+
+    let req = getRequest(id);
+    if (!req) return;
+
+    // safety
+    if (req.status !== "pending") return;
+
+    req.status = "approved";
+
+    sendNotification(
+        req.userId,
+        "Your payment has been approved and will be released soon."
+    );
+
+    renderPanels();
+}
+
+// =============================
+// SEND MONEY (FINAL STEP)
+// =============================
+function sendMoney(id) {
+
+    let req = getRequest(id);
+    if (!req) return;
+
+    // only allow approved
+    if (req.status !== "approved") {
+        alert("Not ready for payment!");
+        return;
+    }
+
+    // prevent double payment
+    if (req.status === "completed") {
+        alert("Already completed!");
+        return;
+    }
+
+    // select coin wallet automatically
+    let fromWallet = getAdminWallet(req.coin);
+
+    if (!fromWallet) {
+        alert("Wallet not found!");
+        return;
+    }
+
+    // simulate transfer
+    transfer(fromWallet, req.walletAddress, req.amount);
+
+    req.status = "completed";
+
+    sendNotification(
+        req.userId,
+        "Your payment has been sent successfully."
+    );
+
+    renderPanels();
+}
+
+// =============================
+// RENDER ALL PANELS
+// =============================
+function renderPanels() {
+
+    renderRequestPanel();
+    renderApprovedPanel();
+    renderRejectedPanel();
+    renderHistoryPanel();
+}
+
+// =============================
+// NOTIFICATION SYSTEM
+// =============================
+function sendNotification(userId, message) {
+
+    console.log("Notification to user:", userId, message);
+
+}
+// APPROVE WITHDRAW END
 console.log("SAFIKI ADMIN PANEL LOADED");
+
+
