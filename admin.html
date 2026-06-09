@@ -1202,23 +1202,44 @@
 </div>
         <div class="wallet-box">
 
-        <h4>USDT TRC20</h4>
+    <h4>USDT TRC20</h4>
+
+    <p><strong>Network:</strong> TRC20</p>
+
+    <p><strong>Provider:</strong> Binance</p>
+
+    <p><strong>Wallet Address:</strong> usdt_wallet_here</p>
+
+    <button onclick="toggleEditWallet('usdtEditForm')">
+        Edit Address
+    </button>
+
+    <button>
+        Active
+    </button>
+
+    <div id="usdtEditForm"
+         style="display:none; margin-top:10px;">
 
         <input type="text"
-               placeholder="Wallet Address">
+               placeholder="Network">
 
         <input type="text"
-               placeholder="Wallet Provider">
+               placeholder="Provider">
+
+        <input type="text"
+               placeholder="New Wallet Address">
+
+        <input type="password"
+               placeholder="Finance PIN Verification">
 
         <button>
-            Save Address
-        </button>
-
-        <button>
-            Active
+            Update Address
         </button>
 
     </div>
+
+</div>
         <button onclick="toggleAddCoinForm()">
     + Add New Coin
 </button>
