@@ -1197,12 +1197,11 @@ function getRequest(id) {
 // =====================
 // APPROVE WITHDRAW
 // =====================
+
 function approveWithdraw(id) {
 
     let req = getRequest(id);
     if (!req) return;
-
-    if (req.status !== "pending") return;
 
     req.status = "approved";
 
@@ -1212,9 +1211,7 @@ function approveWithdraw(id) {
 }
 
 
-// =====================
-// REJECT WITHDRAW
-// =====================
+// REJECT
 function rejectWithdraw(id) {
 
     let req = getRequest(id);
@@ -1228,13 +1225,13 @@ function rejectWithdraw(id) {
 }
 
 
-// =====================
-// SEND MONEY (FINAL STEP)
-// =====================
+// SEND MONEY
 function sendMoney(id) {
 
     let req = getRequest(id);
     if (!req) return;
+
+    console.log("CURRENT STATUS:", req.status);
 
     if (req.status !== "approved") {
         alert("Not approved yet!");
@@ -1247,7 +1244,6 @@ function sendMoney(id) {
 
     renderUI();
 }
-
 
 // =====================
 // UI RENDER (TEST OUTPUT)
