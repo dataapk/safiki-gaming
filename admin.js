@@ -1454,6 +1454,40 @@ function renderAffiliateOverview() {
     document.getElementById("pendingCommission").textContent =
         affiliateStats.pendingCommission + " BDT";
 }
+/* =====================
+SHOW AFFILIATE PANEL
+===================== */
+
+function showAffiliatePanel(panelId) {
+
+const panels = [
+
+    "referralPlayersPanel",
+    "commissionControlPanel",
+    "affiliatePayoutRequestPanel",
+    "affiliatePayoutHistoryPanel"
+
+];
+
+panels.forEach(id => {
+
+    const panel = document.getElementById(id);
+
+    if (panel) {
+        panel.style.display = "none";
+    }
+
+});
+
+const targetPanel =
+    document.getElementById(panelId);
+
+if (targetPanel) {
+    targetPanel.style.display = "block";
+}
+
+}
+
 // =====================
 // REFERRAL PLAYERS
 // =====================
