@@ -1297,12 +1297,46 @@ window.withdrawRequests.forEach(req => {
 // =====================
 // HISTORY PANEL
 // =====================
-
 function renderHistoryPanel() {
 
-    console.log("History Panel Render");
+
+const tbody =
+    document.getElementById(
+        "withdrawHistoryTableBody"
+    );
+
+if (!tbody) return;
+
+tbody.innerHTML = "";
+
+if (!window.withdrawHistory) return;
+
+window.withdrawHistory.forEach(item => {
+
+    tbody.innerHTML += `
+        <tr>
+
+            <td>${item.id}</td>
+
+            <td>${item.userId}</td>
+
+            <td>${item.username}</td>
+
+            <td>${item.amount}</td>
+
+            <td>${item.coin}</td>
+
+            <td>${item.status}</td>
+
+            <td>${item.date}</td>
+
+        </tr>
+    `;
+
+});
 
 }
+
 
 /* =============================
 OPTIONAL NOTIFICATION
