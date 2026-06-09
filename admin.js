@@ -1449,6 +1449,145 @@ function renderAffiliateOverview() {
     document.getElementById("pendingCommission").textContent =
         affiliateStats.pendingCommission + " BDT";
 }
+// =====================
+// REFERRAL PLAYERS
+// =====================
+
+function renderReferralPlayers() {
+
+```
+const tbody =
+    document.getElementById("referralPlayersTableBody");
+
+if (!tbody) return;
+
+tbody.innerHTML = "";
+
+referralPlayers.forEach(player => {
+
+    tbody.innerHTML += `
+
+    <tr>
+
+        <td>${player.referralId}</td>
+        <td>${player.playerId}</td>
+        <td>${player.username}</td>
+        <td>${player.deposit}</td>
+        <td>${player.totalBet}</td>
+        <td>${player.commission}</td>
+        <td>${player.status}</td>
+
+    </tr>
+
+    `;
+
+});
+
+}
+// =====================
+// PAYOUT REQUESTS
+// =====================
+
+function renderAffiliatePayoutRequests() {
+
+```
+const tbody =
+    document.getElementById("affiliatePayoutRequestTableBody");
+
+if (!tbody) return;
+
+tbody.innerHTML = "";
+
+affiliatePayoutRequests.forEach(req => {
+
+    tbody.innerHTML += `
+
+    <tr>
+
+        <td>${req.requestId}</td>
+        <td>${req.affiliateId}</td>
+        <td>${req.username}</td>
+        <td>${req.amount}</td>
+        <td>${req.status}</td>
+
+        <td>
+
+            <button onclick="approveAffiliatePayout('${req.requestId}')">
+                Approve
+            </button>
+
+            <button onclick="rejectAffiliatePayout('${req.requestId}')">
+                Reject
+            </button>
+
+        </td>
+
+    </tr>
+
+    `;
+
+});
+
+
+}
+// =====================
+// PAYOUT HISTORY
+// =====================
+
+function renderAffiliatePayoutHistory() {
+
+```
+const tbody =
+    document.getElementById("affiliatePayoutHistoryTableBody");
+
+if (!tbody) return;
+
+tbody.innerHTML = "";
+
+affiliatePayoutHistory.forEach(item => {
+
+    tbody.innerHTML += `
+
+    <tr>
+
+        <td>${item.transactionId}</td>
+        <td>${item.affiliateId}</td>
+        <td>${item.amount}</td>
+        <td>${item.date}</td>
+        <td>${item.status}</td>
+
+    </tr>
+
+    `;
+
+});
+
+
+}
+// =====================
+// SHOW AFFILIATE PANEL
+// =====================
+
+function showAffiliatePanel(panelId) {
+
+```
+document.getElementById("referralPlayersPanel").style.display = "none";
+document.getElementById("commissionControlPanel").style.display = "none";
+document.getElementById("affiliatePayoutRequestPanel").style.display = "none";
+document.getElementById("affiliatePayoutHistoryPanel").style.display = "none";
+
+document.getElementById(panelId).style.display = "block";
+
+
+}
+
+
+
+
+
+
+
+
 
 
 console.log(
