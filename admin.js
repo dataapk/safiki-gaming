@@ -1171,6 +1171,7 @@ function renderPanels() {
     renderApprovedPanel();
     renderRejectedPanel();
     renderHistoryPanel();
+    renderAffiliateOverview();
 
 }
 // =====================
@@ -1418,6 +1419,37 @@ console.log(
 
 
 }
+// =====================
+// AFFILIATE CENTER START
+// =====================
+
+window.affiliateStats = {
+
+    totalReferrals: 125,
+    activeReferrals: 84,
+    commissionPaid: 45000,
+    pendingCommission: 8500
+
+};
+// =====================
+// RENDER AFFILIATE OVERVIEW
+// =====================
+
+function renderAffiliateOverview() {
+
+    document.getElementById("totalReferrals").textContent =
+        affiliateStats.totalReferrals;
+
+    document.getElementById("activeReferrals").textContent =
+        affiliateStats.activeReferrals;
+
+    document.getElementById("commissionPaid").textContent =
+        affiliateStats.commissionPaid + " BDT";
+
+    document.getElementById("pendingCommission").textContent =
+        affiliateStats.pendingCommission + " BDT";
+}
+
 
 console.log(
 "SAFIKI WITHDRAW SYSTEM LOADED"
