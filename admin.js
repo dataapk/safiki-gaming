@@ -1136,7 +1136,6 @@ function rejectWithdraw(id) {
 
     renderPanels();
 }
-
 /* =============================
 SEND MONEY
 ============================= */
