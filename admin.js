@@ -1060,4 +1060,19 @@ function saveFinanceSettings(){
 /* =====================================
    FINANCE SECTION JS END
 ===================================== */
+function toggleEditWallet(formId){
+
+    const form = document.getElementById(formId);
+
+    if(form.style.display === "none"){
+
+        form.style.display = "block";
+
+    }else{
+
+        form.style.display = "none";
+
+    }
+
+}
 console.log("SAFIKI ADMIN PANEL LOADED");
