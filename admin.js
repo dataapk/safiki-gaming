@@ -1175,7 +1175,7 @@ function sendNotification(userId, message) {
 // =====================
 // DATA STORE
 // =====================
-let withdrawRequests = [
+window.withdrawRequests = window.withdrawRequests || [
     {
         id: "W001",
         userId: 1052,
@@ -1191,9 +1191,8 @@ let withdrawRequests = [
 // FIND REQUEST
 // =====================
 function getRequest(id) {
-    return withdrawRequests.find(r => r.id === id);
+    return window.withdrawRequests.find(r => r.id === id);
 }
-
 
 // =====================
 // APPROVE WITHDRAW
