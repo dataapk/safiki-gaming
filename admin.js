@@ -1104,21 +1104,20 @@ r => r.id === id
 /* =============================
 APPROVE WITHDRAW
 ============================= */
-
 function approveWithdraw(id) {
 
+    let req = getRequest(id);
 
-let req = getRequest(id);
+    if (!req) {
+        alert("Withdraw Request Not Found");
+        return;
+    }
 
-if (!req) return;
+    req.status = "approved";
 
-if (req.status !== "pending") return;
+    alert("Withdraw Approved");
 
-req.status = "approved";
-
-renderPanels();
-
-
+    renderPanels();
 }
 
 /* =============================
@@ -1147,27 +1146,23 @@ SEND MONEY
 
 function sendMoney(id) {
 
+    let req = getRequest(id);
 
-let req = getRequest(id);
+    if (!req) {
+        alert("Withdraw Request Not Found");
+        return;
+    }
 
-if (!req) return;
+    if (req.status !== "approved") {
+        alert("Not approved yet!");
+        return;
+    }
 
-if (req.status !== "approved") {
+    req.status = "completed";
 
-    alert("Not approved yet!");
+    alert("Your payment has been sent successfully.");
 
-    return;
-}
-
-req.status = "completed";
-
-alert(
-    "Your payment has been sent successfully."
-);
-
-renderPanels();
-
-
+    renderPanels();
 }
 
 /* =============================
