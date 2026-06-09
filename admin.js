@@ -1126,18 +1126,15 @@ REJECT WITHDRAW
 
 function rejectWithdraw(id) {
 
+    let req = getRequest(id);
 
-let req = getRequest(id);
+    if (!req) return;
 
-if (!req) return;
+    req.status = "rejected";
 
-if (req.status === "completed") return;
+    alert("Rejected: " + id);
 
-req.status = "rejected";
-
-renderPanels();
-
-
+    renderPanels();
 }
 
 /* =============================
