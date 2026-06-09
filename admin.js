@@ -1494,7 +1494,7 @@ if (targetPanel) {
 
 function renderReferralPlayers() {
 
-```
+
 const tbody =
     document.getElementById("referralPlayersTableBody");
 
@@ -1575,7 +1575,7 @@ affiliatePayoutRequests.forEach(req => {
 
 function renderAffiliatePayoutHistory() {
 
-```
+
 const tbody =
     document.getElementById("affiliatePayoutHistoryTableBody");
 
