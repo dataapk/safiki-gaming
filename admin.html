@@ -2089,6 +2089,18 @@
         Commission Control
     </button>
 
+    <button onclick="showAffiliatePanel('affiliateRevenuePanel')">
+        Revenue Analytics
+    </button>
+
+    <button onclick="showAffiliatePanel('affiliateWeeklySettlementPanel')">
+        Weekly Settlement
+    </button>
+
+    <button onclick="showAffiliatePanel('affiliateMonthlySettlementPanel')">
+        Monthly Settlement
+    </button>
+
     <button onclick="showAffiliatePanel('affiliatePayoutRequestPanel')">
         Payout Requests
     </button>
@@ -2098,7 +2110,6 @@
     </button>
 
 </div>
-
 <hr>
 
 <!-- REFERRAL PLAYERS -->
@@ -2228,6 +2239,121 @@
     </table>
 
 </div>
+    <!-- REVENUE ANALYTICS -->
+
+<div id="affiliateRevenuePanel" style="display:none;">
+
+    <h4>Revenue Analytics</h4>
+
+    <div class="affiliate-stats">
+
+        <div class="affiliate-card">
+            <h4>Today's Revenue ($)</h4>
+            <p id="todayRevenueAnalytics">0</p>
+        </div>
+
+        <div class="affiliate-card">
+            <h4>Weekly Revenue ($)</h4>
+            <p id="weeklyRevenueAnalytics">0</p>
+        </div>
+
+        <div class="affiliate-card">
+            <h4>Monthly Revenue ($)</h4>
+            <p id="monthlyRevenueAnalytics">0</p>
+        </div>
+
+        <div class="affiliate-card">
+            <h4>Lifetime Revenue ($)</h4>
+            <p id="lifetimeRevenueAnalytics">0</p>
+        </div>
+
+        <div class="affiliate-card">
+            <h4>Lifetime Commission ($)</h4>
+            <p id="lifetimeCommissionAnalytics">0</p>
+        </div>
+
+    </div>
+
+</div>
+    <!-- WEEKLY SETTLEMENT -->
+
+<div id="affiliateWeeklySettlementPanel" style="display:none;">
+
+    <h4>Weekly Settlement</h4>
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>Affiliate ID</th>
+
+                <th>Username</th>
+
+                <th>Week Range</th>
+
+                <th>Weekly Revenue ($)</th>
+
+                <th>Eligible Amount ($)</th>
+
+                <th>Settlement Status</th>
+
+                <th>Payment Status</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody id="affiliateWeeklySettlementTableBody">
+
+        </tbody>
+
+    </table>
+
+</div>
+    <!-- MONTHLY SETTLEMENT -->
+
+<div id="affiliateMonthlySettlementPanel" style="display:none;">
+
+    <h4>Monthly Settlement</h4>
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>Affiliate ID</th>
+
+                <th>Username</th>
+
+                <th>Month</th>
+
+                <th>Monthly Revenue ($)</th>
+
+                <th>Bonus Revenue ($)</th>
+
+                <th>Final Revenue ($)</th>
+
+                <th>Settlement Status</th>
+
+                <th>Payment Status</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody id="affiliateMonthlySettlementTableBody">
+
+        </tbody>
+
+    </table>
+
+</div>
+    
+    
+    
 
 <!-- PAYOUT HISTORY -->
 
