@@ -1578,6 +1578,43 @@ affiliatePayoutRequests.forEach(req => {
 
 
 }
+// =====================
+// COMMISION CONTROL START
+// =====================
+function saveAffiliateSettings() {
+
+    const settings = {
+
+        level1Commission:
+            document.getElementById("level1Commission").value,
+
+        level2Commission:
+            document.getElementById("level2Commission").value,
+
+        level3Commission:
+            document.getElementById("level3Commission").value,
+
+        affiliateMinWithdraw:
+            document.getElementById("affiliateMinWithdraw").value,
+
+        affiliateMinPayout:
+            document.getElementById("affiliateMinPayout").value,
+
+        affiliateSettlementCycle:
+            document.getElementById("affiliateSettlementCycle").value
+
+    };
+
+    localStorage.setItem(
+        "affiliateSettings",
+        JSON.stringify(settings)
+    );
+
+    alert("Affiliate Settings Saved Successfully");
+
+}
+
+
 
 // =====================
 // PAYOUT HISTORY
