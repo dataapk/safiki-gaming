@@ -1862,10 +1862,6 @@
 </div>
 
 
-    <!-- ============================= -->
-<!-- SAVE FINANCE SETTINGS -->
-<!-- ============================= -->
-
 <!-- =================================== -->
 <!-- FINANCE SECTION END -->
 <!-- =================================== -->
@@ -1873,92 +1869,133 @@
  <!-- =================================== -->
 <!-- SETTINGS SECTION START -->
 <!-- =================================== -->
+ 
+<!-- SETTINGS PANEL START -->
+<section id="settingsPanel" class="admin-panel" style="display:none;">
 
-<div id="settingsSection"
-     class="admin-section"
-     style="display:none;">
+    <header class="panel-header">
+        <h2>System Settings</h2>
+        <p>Configure your iGaming system behavior</p>
+    </header>
 
-    <h2>Settings</h2>
+    <!-- GENERAL SETTINGS -->
+    <div class="settings-section">
 
-    <!-- FRONTEND SETTINGS -->
+        <h3>General Settings</h3>
 
-    <div class="stat-card">
+        <div class="form-group">
+            <label>Website Name</label>
+            <input type="text" id="siteName" value="SAFIKI">
+        </div>
 
-        <h3>Frontend Settings</h3>
+        <div class="form-group">
+            <label>Website URL</label>
+            <input type="text" id="siteURL" value="https://yoursite.com">
+        </div>
 
-        <p>Website Name</p>
-        <input type="text" placeholder="SAFIKI">
-
-        <p>Website URL</p>
-        <input type="text" placeholder="https://yoursite.com">
-
-        <button>Save Frontend Settings</button>
-
-    </div>
-
-    <br>
-
-    <!-- BACKEND SETTINGS -->
-
-    <div class="stat-card">
-
-        <h3>Backend Settings</h3>
-
-        <p>Node.js Configuration</p>
-
-        <button>Open Node.js Settings</button>
-
-        <br><br>
-
-        <p>Supabase Configuration</p>
-
-        <button>Open Supabase Settings</button>
-
-        <br><br>
-
-        <button>+ Add New Backend Service</button>
+        <div class="form-group">
+            <label>Default Currency</label>
+            <select id="defaultCurrency">
+                <option value="USD">USD</option>
+                <option value="BDT">BDT</option>
+            </select>
+        </div>
 
     </div>
 
-    <br>
+    <!-- AFFILIATE SETTINGS -->
+    <div class="settings-section">
 
-    <!-- CURRENCY SETTINGS -->
+        <h3>Affiliate Settings</h3>
 
-    <div class="stat-card">
+        <div class="form-group">
+            <label>Level 1 Commission (%)</label>
+            <input type="number" id="level1Commission" value="10">
+        </div>
 
-        <h3>Currency Settings</h3>
+        <div class="form-group">
+            <label>Level 2 Commission (%)</label>
+            <input type="number" id="level2Commission" value="5">
+        </div>
 
-        <p>Default Currency</p>
-
-        <select>
-
-            <option>USD</option>
-            <option>BDT</option>
-            <option>INR</option>
-
-        </select>
-
-        <button>Save Currency</button>
+        <div class="form-group">
+            <label>Level 3 Commission (%)</label>
+            <input type="number" id="level3Commission" value="2">
+        </div>
 
     </div>
 
-    <br>
+    <!-- PAYOUT SETTINGS -->
+    <div class="settings-section">
 
-    <!-- GAME CONFIG -->
+        <h3>Payout Settings</h3>
 
-    <div class="stat-card">
+        <div class="form-group">
+            <label>Minimum Withdrawal ($)</label>
+            <input type="number" id="minWithdraw" value="20">
+        </div>
+
+        <div class="form-group">
+            <label>Minimum Payout ($)</label>
+            <input type="number" id="minPayout" value="20">
+        </div>
+
+        <div class="form-group">
+            <label>Settlement Cycle</label>
+            <select id="settlementCycle">
+                <option value="7">7 Days</option>
+                <option value="15">15 Days</option>
+                <option value="30">30 Days</option>
+            </select>
+        </div>
+
+    </div>
+
+    <!-- GAME ENGINE SETTINGS -->
+    <div class="settings-section">
 
         <h3>Game Configuration</h3>
 
-        <p>Default RTP (%)</p>
-
-        <input type="number" placeholder="95">
-
-        <button>Save RTP</button>
+        <div class="form-group">
+            <label>Default RTP (%)</label>
+            <input type="number" id="defaultRTP" value="95">
+        </div>
 
     </div>
 
-</div>
+    <!-- SYSTEM CONTROL -->
+    <div class="settings-section">
+
+        <h3>System Control</h3>
+
+        <div class="form-group">
+            <label>Backend Mode</label>
+            <select id="backendMode">
+                <option value="supabase">Supabase</option>
+                <option value="node">Node.js</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Real-Time Sync</label>
+            <select id="realtimeMode">
+                <option value="true">Enabled</option>
+                <option value="false">Disabled</option>
+            </select>
+        </div>
+
+    </div>
+
+    <!-- SAVE BUTTON -->
+    <div class="settings-actions">
+
+        <button id="saveSettingsBtn" class="save-btn">
+            Save Settings
+        </button>
+
+    </div>
+
+</section>
 
 <!-- =================================== -->
 <!-- SETTINGS SECTION END -->
