@@ -1877,18 +1877,113 @@
 
     <!-- LEFT SIDE -->
     <div class="settings-column">
+  <!-- ===================== -->
+<!-- GENERAL SETTINGS -->
+<!-- ===================== -->
+<div class="settings-coloum">
 
-        <!-- General Settings -->
-        <div class="settings-section">
-           
-        </div>
+    <h3>General Settings</h3>
 
-        <!-- Currency Settings -->
-        <div class="settings-section">
-            
-        </div>
+    <div class="form-group">
+        <label>Website Name</label>
+        <input type="text" id="siteName">
+    </div>
+
+    <div class="form-group">
+        <label>Website URL</label>
+        <input type="text" id="siteURL">
+    </div>
+
+    <div class="form-group">
+        <label>Admin Email</label>
+        <input type="email" id="adminEmail">
+    </div>
+
+    <div class="form-group">
+        <label>Support Email</label>
+        <input type="email" id="supportEmail">
+    </div>
+
+    <label class="switch">
+        <input type="checkbox" id="platformStatus">
+        <span>Platform Online</span>
+    </label>
+
+    <label class="switch">
+        <input type="checkbox" id="maintenanceMode">
+        <span>Maintenance Mode</span>
+    </label>
+
+</div>
+
+<!-- ===================== -->
+<!-- CURRENCY SETTINGS -->
+<!-- ===================== -->
+<div class="settings-section">
+
+    <h3>Currency Settings</h3>
+
+    <div class="form-group">
+        <label>Default Currency</label>
+
+        <select id="defaultCurrency">
+            <option value="USD">USD</option>
+            <option value="BDT">BDT</option>
+            <option value="EUR">EUR</option>
+        </select>
 
     </div>
+
+    <div class="form-group">
+        <label>Currency Symbol</label>
+        <input type="text" id="currencySymbol">
+    </div>
+
+    <div class="form-group">
+        <label>Decimal Precision</label>
+        <input type="number" id="decimalPrecision" value="2">
+    </div>
+
+</div>
+
+<!-- ===================== -->
+<!-- SYSTEM CONTROL -->
+<!-- ===================== -->
+<div class="settings-section">
+
+    <h3>System Control</h3>
+
+    <label class="switch">
+        <input type="checkbox" id="registrationEnabled">
+        <span>Registration Enabled</span>
+    </label>
+
+    <label class="switch">
+        <input type="checkbox" id="loginEnabled">
+        <span>Login Enabled</span>
+    </label>
+
+    <label class="switch">
+        <input type="checkbox" id="depositEnabled">
+        <span>Deposit Enabled</span>
+    </label>
+
+    <label class="switch">
+        <input type="checkbox" id="withdrawEnabled">
+        <span>Withdraw Enabled</span>
+    </label>
+
+    <label class="switch">
+        <input type="checkbox" id="affiliateEnabled">
+        <span>Affiliate Enabled</span>
+    </label>
+
+    <label class="switch">
+        <input type="checkbox" id="notificationEnabled">
+        <span>Notification Enabled</span>
+    </label>
+
+</div>
 
     <!-- RIGHT SIDE -->
     <!-- RIGHT SIDE -->
