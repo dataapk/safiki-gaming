@@ -1618,6 +1618,35 @@ DAILY INTO WEEKLY
     weeklyRevenueStore[playerId].days += 1;
 }
 /* =====================
+MONTHLY CALCULATOR LOGIC
+===================== */
+function calculateMonthlySummary(playerId) {
+
+    const data = monthlyRevenueStore[playerId];
+
+    if (!data) return 0;
+
+    return {
+        totalRevenue: data.totalRevenue,
+        days: data.days
+    };
+}
+/* =====================
+LIFETIME CALCULATOR LOGIC
+===================== */
+let lifetimeRevenueStore = {};
+
+function updateLifetime(playerId, revenue) {
+
+    if (!lifetimeRevenueStore[playerId]) {
+        lifetimeRevenueStore[playerId] = 0;
+    }
+
+    lifetimeRevenueStore[playerId] += revenue;
+}
+
+
+/* =====================
 SHOW AFFILIATE PANEL
 ===================== */
 
