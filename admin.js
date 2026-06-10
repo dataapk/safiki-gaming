@@ -1620,29 +1620,21 @@ DAILY INTO WEEKLY
 /* =====================
 MONTHLY CALCULATOR LOGIC
 ===================== */
-function calculateMonthlySummary(playerId) {
+function setMonthlyData(payload) {
 
-    const data = monthlyRevenueStore[playerId];
-
-    if (!data) return 0;
-
-    return {
-        totalRevenue: data.totalRevenue,
-        days: data.days
-    };
+    document.getElementById("monthlyRevenueAnalytics").textContent =
+        "$" + (payload.totalRevenue || 0);
 }
 /* =====================
 LIFETIME CALCULATOR LOGIC
 ===================== */
-let lifetimeRevenueStore = {};
+function setLifetimeData(payload) {
 
-function updateLifetime(playerId, revenue) {
+    document.getElementById("lifetimeRevenueAnalytics").textContent =
+        "$" + (payload.totalRevenue || 0);
 
-    if (!lifetimeRevenueStore[playerId]) {
-        lifetimeRevenueStore[playerId] = 0;
-    }
-
-    lifetimeRevenueStore[playerId] += revenue;
+    document.getElementById("lifetimeCommissionAnalytics").textContent =
+        "$" + (payload.totalCommission || 0);
 }
 
 
