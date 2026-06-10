@@ -1869,133 +1869,78 @@
  <!-- =================================== -->
 <!-- SETTINGS SECTION START -->
 <!-- =================================== -->
- 
-<!-- SETTINGS PANEL START -->
-<section id="settingsSection" class="admin-panel" style="display:none;">
+ <div class="settings-grid">
 
-    <header class="panel-header">
-        <h2>System Settings</h2>
-        <p>Configure your iGaming system behavior</p>
-    </header>
+    <!-- LEFT SIDE -->
+    <div class="settings-column">
 
-    <!-- GENERAL SETTINGS -->
+        <!-- General Settings -->
+        <div class="settings-section">
+            ...
+        </div>
+
+        <!-- Currency Settings -->
+        <div class="settings-section">
+            ...
+        </div>
+
+    </div>
+
+    <!-- RIGHT SIDE -->
     <div class="settings-section">
 
-        <h3>General Settings</h3>
+    <h3>Backend Configuration</h3>
 
-        <div class="form-group">
-            <label>Website Name</label>
-            <input type="text" id="siteName" value="SAFIKI">
-        </div>
-
-        <div class="form-group">
-            <label>Website URL</label>
-            <input type="text" id="siteURL" value="https://yoursite.com">
-        </div>
-
-        <div class="form-group">
-            <label>Default Currency</label>
-            <select id="defaultCurrency">
-                <option value="USD">USD</option>
-                <option value="BDT">BDT</option>
-            </select>
-        </div>
-
+    <div class="form-group">
+        <label>Supabase URL</label>
+        <input type="text" id="supabaseUrl">
     </div>
 
-    <!-- AFFILIATE SETTINGS -->
-    <div class="settings-section">
-
-        <h3>Affiliate Settings</h3>
-
-        <div class="form-group">
-            <label>Level 1 Commission (%)</label>
-            <input type="number" id="level1Commission" value="10">
-        </div>
-
-        <div class="form-group">
-            <label>Level 2 Commission (%)</label>
-            <input type="number" id="level2Commission" value="5">
-        </div>
-
-        <div class="form-group">
-            <label>Level 3 Commission (%)</label>
-            <input type="number" id="level3Commission" value="2">
-        </div>
-
+    <div class="form-group">
+        <label>Supabase API Key</label>
+        <input type="password" id="supabaseKey">
     </div>
 
-    <!-- PAYOUT SETTINGS -->
-    <div class="settings-section">
+    <label class="switch">
+        <input type="checkbox" id="supabaseEnabled">
+        <span>Enable Supabase</span>
+    </label>
 
-        <h3>Payout Settings</h3>
+    <hr>
 
-        <div class="form-group">
-            <label>Minimum Withdrawal ($)</label>
-            <input type="number" id="minWithdraw" value="20">
-        </div>
-
-        <div class="form-group">
-            <label>Minimum Payout ($)</label>
-            <input type="number" id="minPayout" value="20">
-        </div>
-
-        <div class="form-group">
-            <label>Settlement Cycle</label>
-            <select id="settlementCycle">
-                <option value="7">7 Days</option>
-                <option value="15">15 Days</option>
-                <option value="30">30 Days</option>
-            </select>
-        </div>
-
+    <div class="form-group">
+        <label>Node.js API URL</label>
+        <input type="text" id="nodeUrl">
     </div>
 
-    <!-- GAME ENGINE SETTINGS -->
-    <div class="settings-section">
-
-        <h3>Game Configuration</h3>
-
-        <div class="form-group">
-            <label>Default RTP (%)</label>
-            <input type="number" id="defaultRTP" value="95">
-        </div>
-
+    <div class="form-group">
+        <label>Node.js Secret Key</label>
+        <input type="password" id="nodeKey">
     </div>
 
-    <!-- SYSTEM CONTROL -->
-    <div class="settings-section">
+    <label class="switch">
+        <input type="checkbox" id="nodeEnabled">
+        <span>Enable Node.js</span>
+    </label>
 
-        <h3>System Control</h3>
+    <hr>
 
-        <div class="form-group">
-            <label>Backend Mode</label>
-            <select id="backendMode">
-                <option value="supabase">Supabase</option>
-                <option value="node">Node.js</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label>Real-Time Sync</label>
-            <select id="realtimeMode">
-                <option value="true">Enabled</option>
-                <option value="false">Disabled</option>
-            </select>
-        </div>
-
+    <div class="form-group">
+        <label>Socket.IO URL</label>
+        <input type="text" id="socketUrl">
     </div>
 
-    <!-- SAVE BUTTON -->
-    <div class="settings-actions">
-
-        <button id="saveSettingsBtn" class="save-btn">
-            Save Settings
-        </button>
-
+    <div class="form-group">
+        <label>Socket.IO Key</label>
+        <input type="password" id="socketKey">
     </div>
 
-</section>
+    <label class="switch">
+        <input type="checkbox" id="socketEnabled">
+        <span>Enable Socket.IO</span>
+    </label>
+
+</div>
 
 <!-- =================================== -->
 <!-- SETTINGS SECTION END -->
