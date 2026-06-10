@@ -1456,6 +1456,50 @@ function renderAffiliateOverview(data = affiliateStats) {
         "$" + (data.pendingCommission ?? 0);
 }
 /* =====================
+DAILY CALCULATION FUNCTION
+===================== */
+ function calculateDailyRevenue(player) {
+
+    const deposit = player.todayDeposit ?? 0;
+    const loss = player.todayLoss ?? 0;
+    const win = player.todayWin ?? 0;
+
+    // Net Revenue
+    const netRevenue = loss - win;
+
+    // Safety check
+    if (netRevenue <= 0) {
+        return {
+            revenue: 0,
+            commission: 0
+        };
+    }
+
+    // Tier logic (example)
+    let commissionRate = 0;
+
+    if (netRevenue <= 100) {
+        commissionRate = 0.35; // 35%
+    } 
+    else if (netRevenue <= 300) {
+        commissionRate = 0.45; // 45%
+    } 
+    else if (netRevenue <= 500) {
+        commissionRate = 0.50; // 50%
+    } 
+    else {
+        commissionRate = 0.60; // 60%
+    }
+
+    const revenue = netRevenue;
+    const commission = revenue * commissionRate;
+
+    return {
+        revenue: revenue,
+        commission: commission
+    };
+}
+/* =====================
 SHOW AFFILIATE PANEL
 ===================== */
 
@@ -1496,41 +1540,39 @@ if (targetPanel) {
 // =====================
 function renderReferralPlayers() {
 
-const tbody =
-    document.getElementById("referralPlayersTableBody");
+    const tbody =
+        document.getElementById("referralPlayersTableBody");
 
-if (!tbody) return;
+    if (!tbody) return;
 
-tbody.innerHTML = "";
+    tbody.innerHTML = "";
 
-referralPlayers.forEach(player => {
+    referralPlayers.forEach(player => {
 
-    tbody.innerHTML += `
+        const calc = calculateDailyRevenue(player);
 
-    <tr>
+        tbody.innerHTML += `
+        <tr>
 
-        <td>${player.affiliateId}</td>
+            <td>${player.affiliateId}</td>
+            <td>${player.playerId}</td>
+            <td>${player.username}</td>
 
-        <td>${player.playerId}</td>
+            <td>$${player.todayDeposit}</td>
+            <td>$${player.todayLoss}</td>
+            <td>$${player.todayWin}</td>
 
-        <td>${player.username}</td>
+            <!-- DAILY REVENUE -->
+            <td>$${calc.revenue.toFixed(2)}</td>
 
-        <td>$${player.todayDeposit}</td>
+            <!-- AFFILIATE COMMISSION -->
+            <td>$${calc.commission.toFixed(2)}</td>
 
-        <td>$${player.todayLoss}</td>
+            <td>${player.status}</td>
 
-        <td>$${player.todayWin}</td>
-
-        <td>$${player.revenueEarned}</td>
-
-        <td>${player.status}</td>
-
-    </tr>
-
-    `;
-
-});
-
+        </tr>
+        `;
+    });
 }
 // =====================
 // PAYOUT REQUESTS
