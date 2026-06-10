@@ -1425,34 +1425,35 @@ console.log(
 
 }
 // =====================
-// AFFILIATE CENTER START
+// AFFILIATE CENTER START (REAL-TIME READY)
 // =====================
 
-window.affiliateStats = {
-
-    totalReferrals: 125,
-    activeReferrals: 84,
-    commissionPaid: 45000,
-    pendingCommission: 8500
-
+let affiliateStats = {
+    totalReferrals: 0,
+    activeReferrals: 0,
+    commissionPaid: 0,
+    pendingCommission: 0
 };
+
 // =====================
 // RENDER AFFILIATE OVERVIEW
 // =====================
 
-function renderAffiliateOverview() {
+function renderAffiliateOverview(data = affiliateStats) {
+
+    if (!data) return;
 
     document.getElementById("totalReferrals").textContent =
-        affiliateStats.totalReferrals;
+        data.totalReferrals ?? 0;
 
     document.getElementById("activeReferrals").textContent =
-        affiliateStats.activeReferrals;
+        data.activeReferrals ?? 0;
 
     document.getElementById("commissionPaid").textContent =
-        affiliateStats.commissionPaid + " BDT";
+        "$" + (data.commissionPaid ?? 0);
 
     document.getElementById("pendingCommission").textContent =
-        affiliateStats.pendingCommission + " BDT";
+        "$" + (data.pendingCommission ?? 0);
 }
 /* =====================
 SHOW AFFILIATE PANEL
