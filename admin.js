@@ -1434,6 +1434,7 @@ let affiliateStats = {
     commissionPaid: 0,
     pendingCommission: 0
 };
+let weeklyRevenueStore = {};
 
 // =====================
 // RENDER AFFILIATE OVERVIEW
