@@ -1493,9 +1493,7 @@ if (targetPanel) {
 // =====================
 // REFERRAL PLAYERS
 // =====================
-
 function renderReferralPlayers() {
-
 
 const tbody =
     document.getElementById("referralPlayersTableBody");
@@ -1510,12 +1508,20 @@ referralPlayers.forEach(player => {
 
     <tr>
 
-        <td>${player.referralId}</td>
+        <td>${player.affiliateId}</td>
+
         <td>${player.playerId}</td>
+
         <td>${player.username}</td>
-        <td>${player.deposit}</td>
-        <td>${player.totalBet}</td>
-        <td>${player.commission}</td>
+
+        <td>$${player.todayDeposit}</td>
+
+        <td>$${player.todayLoss}</td>
+
+        <td>$${player.todayWin}</td>
+
+        <td>$${player.revenueEarned}</td>
+
         <td>${player.status}</td>
 
     </tr>
