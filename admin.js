@@ -1501,6 +1501,57 @@ DAILY CALCULATION FUNCTION
     };
 }
 /* =====================
+DAILY AUTO TRIGGER (ENGINE CORE)
+===================== */
+function runDailyAffiliateEngine() {
+
+    referralPlayers.forEach(player => {
+
+        const calc = calculateDailyRevenue(player);
+
+        // store daily revenue into player
+        player.todayRevenue = calc.revenue;
+        player.revenueEarned = calc.commission;
+
+        // push to weekly engine
+        addToWeeklyRevenue(player.playerId, calc.revenue);
+
+    });
+
+    console.log("DAILY ENGINE RUN COMPLETED");
+}
+
+// =====================
+// AUTO ENGINE START
+// =====================
+
+setInterval(() => {
+    runDailyAffiliateEngine();
+}, 24 * 60 * 60 * 1000);
+
+setInterval(() => {
+    runWeeklyCheck();
+}, 7 * 24 * 60 * 60 * 1000);
+// =====================
+// WEEKLY AUTO PUSH (7 DAY LOGIC)
+// =====================
+function runWeeklyCheck() {
+
+    Object.keys(weeklyRevenueStore).forEach(playerId => {
+
+        const payout = calculateWeeklyPayout(playerId);
+
+        if (payout.eligible) {
+
+            console.log("PAYOUT READY:", playerId, payout.payout);
+
+            // Here later: push to payout request system
+        }
+    });
+}
+
+
+/* =====================
 DAILY INTO WEEKLY
 ===================== */
  function addToWeeklyRevenue(playerId, dailyRevenue) {
