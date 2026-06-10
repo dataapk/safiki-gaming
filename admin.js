@@ -1456,6 +1456,57 @@ function renderAffiliateOverview(data = affiliateStats) {
     document.getElementById("pendingCommission").textContent =
         "$" + (data.pendingCommission ?? 0);
 }
+// =====================
+// DATA RENDER ENGINE
+// =====================
+function renderRevenueAnalytics(data) {
+
+    if (!data) return;
+
+    document.getElementById("todayRevenue").textContent =
+        "$" + (data.todayRevenue ?? 0);
+
+    document.getElementById("weeklyRevenue").textContent =
+        "$" + (data.weeklyRevenue ?? 0);
+
+    document.getElementById("monthlyRevenue").textContent =
+        "$" + (data.monthlyRevenue ?? 0);
+
+    document.getElementById("lifetimeRevenue").textContent =
+        "$" + (data.lifetimeRevenue ?? 0);
+}
+// =====================
+// TABLE RENDER ENGINE
+// =====================
+function renderRevenueTable(players) {
+
+    const tbody = document.getElementById("revenueAnalyticsTableBody");
+
+    if (!tbody) return;
+
+    tbody.innerHTML = "";
+
+    players.forEach(p => {
+
+        tbody.innerHTML += `
+        <tr>
+
+            <td>${p.affiliateId}</td>
+            <td>${p.playerId}</td>
+
+            <td>$${p.todayRevenue ?? 0}</td>
+            <td>$${p.weeklyRevenue ?? 0}</td>
+            <td>$${p.monthlyRevenue ?? 0}</td>
+
+            <td>${p.status}</td>
+
+        </tr>
+        `;
+    });
+}
+
+
+
 /* =====================
 DAILY CALCULATION FUNCTION
 ===================== */
