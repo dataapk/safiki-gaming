@@ -1254,9 +1254,6 @@ window.withdrawRequests.forEach(req => {
 
 }
 
-// =====================
-// APPROVED PANEL
-// =====================
 
 // =====================
 // APPROVED PANEL
