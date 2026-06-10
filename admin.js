@@ -1500,6 +1500,21 @@ DAILY CALCULATION FUNCTION
     };
 }
 /* =====================
+DAILY INTO WEEKLY
+===================== */
+ function addToWeeklyRevenue(playerId, dailyRevenue) {
+
+    if (!weeklyRevenueStore[playerId]) {
+        weeklyRevenueStore[playerId] = {
+            totalRevenue: 0,
+            days: 0
+        };
+    }
+
+    weeklyRevenueStore[playerId].totalRevenue += dailyRevenue;
+    weeklyRevenueStore[playerId].days += 1;
+}
+/* =====================
 SHOW AFFILIATE PANEL
 ===================== */
 
