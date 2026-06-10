@@ -1723,7 +1723,83 @@ function saveAffiliateSettings() {
     alert("Affiliate Settings Saved Successfully");
 
 }
+// ==========================
+// PAYOUT APPROVE FUNCTION
+// ==========================
+function approveAffiliatePayout(requestId) {
 
+    const request = affiliatePayoutRequests.find(r => r.requestId === requestId);
+
+    if (!request) return;
+
+    request.status = "Approved";
+
+    console.log("PAYOUT APPROVED:", requestId);
+
+    renderAffiliatePayoutRequests();
+}
+// ==========================
+// PAYOUT APPROVE FUNCTION
+// ==========================
+function approveAffiliatePayout(requestId) {
+
+    const request = affiliatePayoutRequests.find(r => r.requestId === requestId);
+
+    if (!request) return;
+
+    request.status = "Approved";
+
+    console.log("PAYOUT APPROVED:", requestId);
+
+    renderAffiliatePayoutRequests();
+}
+// ==========================
+//REJECT FUNCTION
+// ==========================
+function rejectAffiliatePayout(requestId) {
+
+    const request = affiliatePayoutRequests.find(r => r.requestId === requestId);
+
+    if (!request) return;
+
+    request.status = "Rejected";
+
+    console.log("PAYOUT REJECTED:", requestId);
+
+    renderAffiliatePayoutRequests();
+}
+// ==========================
+// SEND PAYMENT FUNCTION (CORE)
+// ==========================
+function sendAffiliatePayment(requestId) {
+
+    const request = affiliatePayoutRequests.find(r => r.requestId === requestId);
+
+    if (!request) return;
+
+    if (request.status !== "Approved") {
+        alert("Approve first before sending payment");
+        return;
+    }
+
+    // move to history
+    affiliatePayoutHistory.push({
+
+        transactionId: "TXN_" + Date.now(),
+        affiliateId: request.affiliateId,
+        amount: request.amount,
+        date: new Date().toLocaleDateString(),
+        status: "Paid"
+
+    });
+
+    request.status = "Paid";
+
+    console.log("PAYMENT SENT:", requestId);
+
+    renderAffiliatePayoutRequests();
+    renderAffiliatePayoutHistory();
+}
 
 
 // =====================
