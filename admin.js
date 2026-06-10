@@ -1464,6 +1464,9 @@ const panels = [
 
     "referralPlayersPanel",
     "commissionControlPanel",
+    "affiliateRevenuePanel",
+    "affiliateWeeklySettlementPanel",
+    "affiliateMonthlySettlementPanel",
     "affiliatePayoutRequestPanel",
     "affiliatePayoutHistoryPanel"
 
@@ -1479,8 +1482,7 @@ panels.forEach(id => {
 
 });
 
-const targetPanel =
-    document.getElementById(panelId);
+const targetPanel = document.getElementById(panelId);
 
 if (targetPanel) {
     targetPanel.style.display = "block";
@@ -1605,31 +1607,6 @@ affiliatePayoutHistory.forEach(item => {
 
 
 }
-// =====================
-// SHOW AFFILIATE PANEL
-// =====================
-
-function showAffiliatePanel(panelId) {
-
-
-document.getElementById("referralPlayersPanel").style.display = "none";
-document.getElementById("commissionControlPanel").style.display = "none";
-document.getElementById("affiliatePayoutRequestPanel").style.display = "none";
-document.getElementById("affiliatePayoutHistoryPanel").style.display = "none";
-
-document.getElementById(panelId).style.display = "block";
-
-
-}
-
-
-
-
-
-
-
-
-
 
 console.log(
 "SAFIKI WITHDRAW SYSTEM LOADED"
