@@ -11,6 +11,11 @@
 
 </head>
 <body>
+    <script>
+if (!localStorage.getItem("adminAuth")) {
+    window.location.replace("admin-login.html");
+}
+</script>
 
 <!-- SIDEBAR  start-->
 <div class="sidebar">FIN
