@@ -1,13 +1,31 @@
-<button onclick="adminLogout()" class="logout-btn">
-    Logout
-</button>
+<!-- =================================== -->
+<!-- LOGOUT BUTTON SECTION -->
+<!-- =================================== -->
+
+<div class="admin-logout-section" style="text-align:right; margin:10px 0;">
+    <button id="logoutBtn" class="logout-btn" style="
+        padding: 8px 16px;
+        background-color: #f44336;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    ">
+        Logout
+    </button>
+</div>
 
 <script>
-function adminLogout() {
+    // Logout function
+    function adminLogout() {
+        // Remove admin authentication token
+        localStorage.removeItem("adminAuth");
 
-    localStorage.removeItem("adminAuth");
+        // Redirect to admin login page
+        // Use replace() to avoid back button issue
+        window.location.replace("admin-login.html");
+    }
 
-    window.location.href = "admin-login.html";
-
-}
+    // Attach click event to logout button
+    document.getElementById("logoutBtn").addEventListener("click", adminLogout);
 </script>
