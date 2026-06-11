@@ -1,8 +1,13 @@
-<button onclick="logout()" class="logout-btn">
+<button onclick="adminLogout()" class="logout-btn">
     Logout
 </button>
 
-function logout() {
+<script>
+function adminLogout() {
+
     localStorage.removeItem("adminAuth");
-    window.location.href = "login.html";
+
+    window.location.href = "admin-login.html";
+
 }
+</script>
