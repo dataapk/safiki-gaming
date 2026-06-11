@@ -138,6 +138,16 @@ body {
 /* ============================= */
 /* USER PROFILE DASHBOARD GRID (FINAL FIX) */
 /* ============================= */
+ .user-search-bar{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:10px;
+}
+
+.user-search-bar input{
+    width:250px;
+}
 
 .user-profile-grid {
     display: grid;
