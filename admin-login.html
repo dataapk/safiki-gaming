@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <script>
+window.onload = function() {
+
+    if(localStorage.getItem("adminAuth") !== "true") {
+        window.location.href = "admin-login.html";
+    }
+
+};
+</script>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0f172a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-box {
+            background: #1e293b;
+            padding: 30px;
+            border-radius: 10px;
+            width: 300px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+
+        .login-box h2 {
+            color: white;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .login-box input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .login-box button {
+            width: 100%;
+            padding: 10px;
+            background: #22c55e;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .login-box button:hover {
+            background: #16a34a;
+        }
+
+        .error {
+            color: red;
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login-box">
+
+        <h2>Admin Login</h2>
+
+        <input type="text" id="adminUser" placeholder="Username">
+
+        <input type="password" id="adminPass" placeholder="Password">
+
+        <button onclick="loginAdmin()">Login</button>
+
+        <div class="error" id="errorMsg"></div>
+
+    </div>
+
+    function loginAdmin() {
+
+    const user = document.getElementById("adminUser").value;
+    const pass = document.getElementById("adminPass").value;
+
+    if(user === "admin" && pass === "1234") {
+
+        const token = "ADM_" + Date.now();
+
+        localStorage.setItem("adminAuth", token);
+
+        window.location.href = "admin.html";
+
+    } else {
+        alert("Invalid Login");
+    }
+}
+</body>
+</html>
