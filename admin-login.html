@@ -86,22 +86,33 @@ window.onload = function() {
 
     </div>
 
-    function loginAdmin() {
+   <script>
+  // Already logged in → redirect to dashboard
+  if(localStorage.getItem("adminAuth")){
+      window.location.href = "admin.html";
+  }
 
-    const user = document.getElementById("adminUser").value;
-    const pass = document.getElementById("adminPass").value;
+  // Login form submission
+  function loginAdmin() {
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
 
-    if(user === "admin" && pass === "1234") {
+      // Simple check (replace with real auth API)
+      if(username === "admin" && password === "123456") {
+          localStorage.setItem("adminAuth", "ADM_123456");
+          window.location.href = "admin.html";
+      } else {
+          alert("Invalid credentials");
+      }
 
-        const token = "ADM_" + Date.now();
+      return false; // prevent default form submit → stops refresh
+  }
+</script>
 
-        localStorage.setItem("adminAuth", token);
-
-        window.location.href = "admin.html";
-
-    } else {
-        alert("Invalid Login");
-    }
-}
+<form onsubmit="return loginAdmin()">
+  <input id="username" type="text" placeholder="Username">
+  <input id="password" type="password" placeholder="Password">
+  <button type="submit">Login</button>
+</form>
 </body>
 </html>
