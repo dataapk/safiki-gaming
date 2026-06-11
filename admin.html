@@ -2612,61 +2612,62 @@
 
 <div id="userSecurityControlPanel">
 
-    <h3>User Security Control</h3>
+<h3>User Security Control</h3>
 
-    <div class="form-group">
+<div class="form-group">
 
-        <label>Search User / Email / IP Address</label>
+    <label>Search User / Email / IP / Device Fingerprint</label>
 
-        <input type="text"
-               id="securityUserSearch"
-               placeholder="Enter User ID, Email or IP">
-
-    </div>
-
-    <button class="save-btn">
-        Search
-    </button>
-
-    <br><br>
-
-    <table>
-
-        <thead>
-
-            <tr>
-
-                <th>User ID</th>
-
-                <th>Username</th>
-
-                <th>IP Address</th>
-
-                <th>Device ID</th>
-
-                <th>Total Accounts</th>
-
-                <th>Status</th>
-
-            </tr>
-
-        </thead>
-
-        <tbody id="userSecurityTableBody">
-
-            <tr>
-
-                <td colspan="6">
-                    No records found
-                </td>
-
-            </tr>
-
-        </tbody>
-
-    </table>
+    <input type="text"
+           id="securityUserSearch"
+           placeholder="Enter User ID, Email, IP or Fingerprint">
 
 </div>
+
+<button class="save-btn">
+    Search
+</button>
+
+<br><br>
+
+<table>
+
+    <thead>
+
+        <tr>
+
+            <th>User ID</th>
+
+            <th>Username</th>
+
+            <th>IP Address</th>
+
+            <th>Device Fingerprint</th>
+
+            <th>Linked Accounts</th>
+
+            <th>Status</th>
+
+        </tr>
+
+    </thead>
+
+    <tbody id="userSecurityTableBody">
+
+        <tr>
+
+            <td colspan="6">
+                No records found
+            </td>
+
+        </tr>
+
+    </tbody>
+
+</table>
+
+</div>
+
 
     <!-- ADMIN LOGS -->
 
