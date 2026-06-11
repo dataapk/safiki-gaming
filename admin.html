@@ -2724,14 +2724,19 @@ if (!localStorage.getItem("adminAuth")) {
 <!-- LOGOUT BUTTON SECTION -->
 <!-- =================================== -->
 <script>
-    // Sidebar logout functionality
-    document.getElementById("logoutMenu").addEventListener("click", function() {
-        // Remove admin authentication token
+const logoutBtn = document.getElementById("logoutMenu");
+
+if (logoutBtn) {
+
+    logoutBtn.addEventListener("click", function() {
+
         localStorage.removeItem("adminAuth");
 
-        // Redirect to admin login page
         window.location.replace("admin-login.html");
+
     });
+
+}
 </script>
     
      <!-- =================================== -->
