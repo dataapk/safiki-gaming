@@ -1,327 +1,270 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- ======================================================
+     🟢 START: APP WRAPPER
+====================================================== -->
+<div class="app-wrapper">
 
-<head>
 
-    <!-- Basic Setup -->
+<!-- ======================================================
+     🟢 START: FIXED HEADER
+====================================================== -->
+<header class="app-header">
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>SAFIKI Gaming</title>
-
-    <meta name="description" content="SAFIKI Gaming Platform">
-    <meta name="author" content="SAFIKI Gaming">
-    <link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    <link rel="stylesheet" href="style.css">
-
-</head>
-
-<body>
-
-  <!-- ========================== HEADER START ========================== -->
-  <header class="top-nav">
-
-    <div class="header-left">
-      <button id="menu-toggle" class="menu-btn" type="button">☰ Menu</button>
+    <div class="header-logo">
+        Lucky Wheel
     </div>
-
-    <div class="logo">SAFIKI</div>
 
     <div class="header-actions">
-      <!-- Links for login / register -->
-      <a href="login.html" class="header-btn login-btn" id="loginLink">Login</a>
-      <a href="register.html" class="header-btn register-btn" id="signupLink">Register</a>
-      <span id="userSection" style="display:none;">
-        Welcome, <span id="userEmail"></span> | 
-        <a href="#" id="logoutBtn">Logout</a>
-      </span>
+
+        <div class="header-balance">
+            125.50 USDT
+        </div>
+
+        <button class="deposit-btn">
+            Deposit
+        </button>
+
+        <button class="notification-btn">
+            🔔
+        </button>
+
+        <button class="profile-btn">
+            👤
+        </button>
+
     </div>
 
-  </header>
-  <!-- ========================== HEADER END ========================== -->
+</header>
+<!-- ======================================================
+     🔴 END: FIXED HEADER
+====================================================== -->
 
-<!-- Dropdown Menu Start -->
 
-<div id="dropdown-menu" class="dropdown-menu">
+<!-- ======================================================
+     🟢 START: PAGE CONTENT
+====================================================== -->
+<main class="page-content">
 
-    <a href="jhandimunda.html">
-        <i class="fas fa-gamepad"></i>
-        Jhandi Munda
-    </a>
 
-    <a href="teenpatti.html">
-        <i class="fas fa-star"></i>
-        Teen Patti
-    </a>
-
-    <a href="refer.html">
-        <i class="fas fa-users"></i>
-        Refer & Earn
-    </a>
-
-    <a href="rewards.html">
-        <i class="fas fa-gift"></i>
-        Cash Back & Rewards
-    </a>
-
-    <a href="#">
-        <i class="fas fa-headset"></i>
-        Support
-    </a>
-
-</div>
-
-<!-- Dropdown Menu End -->
-
-<!-- HERO SECTION START -->
-
+<!-- ======================================================
+     🟢 START: HERO SECTION
+====================================================== -->
 <section class="hero-section">
 
-    <div class="hero-slider">
+    <div class="hero-title">
+        Welcome Back
+    </div>
 
-        <div class="hero-slide active">
+    <div class="hero-subtitle">
+        Play & Win Crypto Rewards
+    </div>
 
-            <img
-                src="image/banner.png"
-                alt="SAFIKI Gaming Banner"
-                class="hero-image">
+    <button class="hero-play-btn">
+        PLAY NOW
+    </button>
 
-        </div>
+</section>
+<!-- ======================================================
+     🔴 END: HERO SECTION
+====================================================== -->
 
+
+<!-- ======================================================
+     🟢 START: CATEGORY SECTION
+====================================================== -->
+<section class="category-section">
+
+    <div class="category-item active">
+        All
+    </div>
+
+    <div class="category-item">
+        Wheel
+    </div>
+
+    <div class="category-item">
+        Slots
+    </div>
+
+    <div class="category-item">
+        Crash
+    </div>
+
+    <div class="category-item">
+        Dice
+    </div>
+
+    <div class="category-item">
+        Lottery
     </div>
 
 </section>
+<!-- ======================================================
+     🔴 END: CATEGORY SECTION
+====================================================== -->
 
-<!-- Hero Banner End -->
-    
-    <!-- Promotion Section Start -->
 
-<section class="promotion-section">
+<!-- ======================================================
+     🟢 START: POPULAR GAME TITLE
+====================================================== -->
+<section class="popular-title">
 
-    <h2 class="promotion-title">
-        🎁 Special Offers
-    </h2>
-
-    <div class="promotion-slider">
-
-        <div class="promotion-slide active">
-            <img src="image/daily.png" alt="Daily Reward">
-        </div>
-
-        <div class="promotion-slide">
-            <img src="image/weekly.png" alt="Weekly Reward">
-        </div>
-
-        <div class="promotion-slide">
-            <img src="image/monthly.png" alt="Monthly Reward">
-        </div>
-
-        <div class="promotion-slide">
-            <img src="image/viprewards.png" alt="VIP Rewards">
-        </div>
-
-    </div>
-
-    <div class="slider-dots">
-
-        <span class="dot active"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-
-    </div>
+    Popular Games
 
 </section>
+<!-- ======================================================
+     🔴 END: POPULAR GAME TITLE
+====================================================== -->
 
-<!-- Promotion Section End -->
-    
-    <!-- Game Categories Start -->
 
-<section class="game-categories">
+<!-- ======================================================
+     🟢 START: POPULAR GAMES
+====================================================== -->
+<section class="popular-games">
 
-    <div class="category-item">
-
-        <img
-            src="image/jhandi.png"
-            alt="Jhandi Munda">
-
-        <span>Jhandi Munda</span>
-
-    </div>
-
-    <div class="category-item">
-
-        <img
-            src="image/teenpatti.png"
-            alt="Teen Patti">
-
-        <span>Teen Patti</span>
-
-    </div>
-
-    <div class="category-item">
-
-        <img
-            src="image/dice.png"
-            alt="Dice">
-
-        <span>Dice</span>
-
-    </div>
-
-    <div class="category-item">
-
-        <img
-            src="image/more.png"
-            alt="More Games">
-
-        <span>More Games</span>
-
-    </div>
-
-</section>
-
-<!-- Main Games Start -->
-
-<section class="main-games-section">
 
     <div class="game-card">
-        <img src="image/jhandimain.png">
-        <div class="game-title">Jhandi Munda</div>
-    </div>
 
-    <div class="game-card">
-        <img src="image/teenpattimain.png">
-        <div class="game-title">Teen Patti</div>
-    </div>
-
-</section>
-
-<!-- Main Games End -->
-    <!-- Recent Winners Start -->
-
-<section class="winner-section">
-
-    <h2 class="winner-title">
-
-        <span class="live-dot"></span>
-
-        LIVE WINNERS
-
-    </h2>
-
-    <div class="winner-box">
-
-        <div class="winner-track">
-
-            <div class="winner-item">
-                🎲 Player***123 won ৳2,500
-            </div>
-
-            <div class="winner-item">
-                🃏 Player***789 won ৳5,000
-            </div>
-
-            <div class="winner-item">
-                🎲 Player***456 won ৳1,200
-            </div>
-
+        <div class="game-icon">
+            🎰
         </div>
 
+        <div class="game-name">
+            Lucky Wheel
+        </div>
+
+        <button class="play-game-btn">
+            PLAY
+        </button>
+
     </div>
 
+
+    <div class="game-card">
+
+        <div class="game-icon">
+            🎰
+        </div>
+
+        <div class="game-name">
+            Mega Wheel
+        </div>
+
+        <button class="coming-btn">
+            Coming Soon
+        </button>
+
+    </div>
+
+
+    <div class="game-card">
+
+        <div class="game-icon">
+            🎰
+        </div>
+
+        <div class="game-name">
+            Crash
+        </div>
+
+        <button class="coming-btn">
+            Coming Soon
+        </button>
+
+    </div>
+
+
+    <div class="game-card">
+
+        <div class="game-icon">
+            🎰
+        </div>
+
+        <div class="game-name">
+            Slots
+        </div>
+
+        <button class="coming-btn">
+            Coming Soon
+        </button>
+
+    </div>
+
+
 </section>
+<!-- ======================================================
+     🔴 END: POPULAR GAMES
+====================================================== -->
 
-<!-- Recent Winners End -->
 
- <!-- =======================
-     FOOTER START
-======================= -->
+</main>
+<!-- ======================================================
+     🔴 END: PAGE CONTENT
+====================================================== -->
 
+
+<!-- ======================================================
+     🟢 START: PROFILE DRAWER
+====================================================== -->
+<div class="profile-menu">
+
+    <button>
+        Profile Information
+    </button>
+
+    <button>
+        Withdraw
+    </button>
+
+    <button>
+        Transaction History
+    </button>
+
+    <button>
+        Game History
+    </button>
+
+    <button>
+        Settings
+    </button>
+
+    <button>
+        Logout
+    </button>
+
+</div>
+<!-- ======================================================
+     🔴 END: PROFILE DRAWER
+====================================================== -->
+
+
+<!-- ======================================================
+     🟢 START: FIXED FOOTER
+====================================================== -->
 <footer class="bottom-nav">
-    <a href="index.html" class="footer-btn">
-        <i class="fas fa-house footer-icon"></i>
-        <span>Home</span>
-    </a>
-    <a href="games.html" class="footer-btn center-btn">
-        <i class="fas fa-gamepad footer-icon"></i>
-        <span>Games</span>
-    </a>
-    <a href="profile.html" class="footer-btn">
-        <i class="fas fa-user footer-icon"></i>
-        <span>Profile</span>
-    </a>
+
+    <button class="nav-item">
+        Menu
+    </button>
+
+    <button class="nav-item active">
+        Wheel
+    </button>
+
+    <button class="nav-item">
+        Search
+    </button>
+
+    <button class="nav-item">
+        Home
+    </button>
+
 </footer>
-    <!-- ==========================
-   PAYMENT GATEWAY SECTION
-========================== -->
-    <!-- HTML Structure -->
-<div class="payment-gateway-wrapper">
-    <h2 class="payment-title">Our Payment Gateway</h2>
-</div>
+<!-- ======================================================
+     🔴 END: FIXED FOOTER
+====================================================== -->
 
-<section class="image-section">
-    <img src="image/payment.png" class="payment-img">
-</section>
-<!-- SECTION FOOTER START -->
-<footer class="footer">
-  <div class="footer-left">
-    <h3 class="footer-title">About Us</h3>
-    <ul class="footer-links">
-      <li><a href="#" id="terms-btn">Terms & Conditions</a></li>
-      <li><a href="#" id="privacy-btn">Privacy Policy</a></li>
-      <li><a href="#" id="fair-btn">Probably Fair</a></li>
-      <li><a href="#" id="responsible-btn">Responsible Gambling</a></li>
-    </ul>
-  </div>
-  <div class="footer-right">
-    <h3 class="footer-title">Contact</h3>
-    <ul class="contact-links">
-      <li>Email: support@safiki.com</li>
-      <li>Email: help@safiki.com</li>
-    </ul>
-  </div>
-</footer>
 
-<!-- MODALS -->
-<div class="modal" id="terms-modal">
-  <div class="modal-content">
-    <span class="close" data-modal="terms-modal">&times;</span>
-    <h2>Terms & Conditions</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac venenatis urna.</p>
-  </div>
 </div>
-
-<div class="modal" id="privacy-modal">
-  <div class="modal-content">
-    <span class="close" data-modal="privacy-modal">&times;</span>
-    <h2>Privacy Policy</h2>
-    <p>We respect your privacy. All personal data will be handled according to applicable laws.</p>
-  </div>
-</div>
-
-<div class="modal" id="fair-modal">
-  <div class="modal-content">
-    <span class="close" data-modal="fair-modal">&times;</span>
-    <h2>Probably Fair</h2>
-    <p>All games offered are tested for fairness and transparency according to industry standards.</p>
-  </div>
-</div>
-
-<div class="modal" id="responsible-modal">
-  <div class="modal-content">
-    <span class="close" data-modal="responsible-modal">&times;</span>
-    <h2>Responsible Gambling</h2>
-    <p>We encourage responsible play. Please play within your limits and seek help if needed.</p>
-  </div>
-</div>
-<!-- =======================
-     FOOTER SCRIPT
-======================= -->
-<script src="script.js"></script>
-<link rel="stylesheet" href="style.css">
-</body>
-</html>
+<!-- ======================================================
+     🔴 END: APP WRAPPER
+====================================================== -->
