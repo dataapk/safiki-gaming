@@ -1,66 +1,41 @@
-
+HTML
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="bn">
 <head>
-
     <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-    <title>safiki gaming</title>
-
-
-    <!-- ======================================================
-         🟢 CONNECT CSS FILE
-    ======================================================= -->
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header and Footer Structure</title>
+    <!-- প্রফেশনাল আইকনের জন্য Font Awesome সিডিএন -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-
-
 </head>
-
-
 <body>
-<!-- ======================================================
-     🟢 START: APP WRAPPER
-====================================================== -->
-<div class="app-wrapper">
 
-
-<!-- ======================================================
-     🟢 START: FIXED HEADER
-====================================================== -->
-<!-- ======================================================
-     🟢 START: HEADER
-====================================================== -->
-
+<!-- হেডার সেকশন -->
 <header class="header">
     <div class="logo">◈</div>
-
     <nav class="nav-group">
         <div class="balance-container" onclick="toggleCurrencyMenu()">
             <div class="balance-box">
                 <span class="currency-icon">₮</span>
                 <span class="balance-text">0.08579204</span>
-                <span class="dropdown-arrow">▼</span>
+                <span class="dropdown-arrow"><i class="fas fa-chevron-down"></i></span>
             </div>
-            
             <div id="currencyDropdown" class="dropdown-menu">
                 <div class="dropdown-item">USDT</div>
                 <div class="dropdown-item">USDC</div>
                 <div class="dropdown-item">BTC</div>
-                <div class="dropdown-item">ETH</div>
             </div>
         </div>
-
         <div class="nav-icons">
-            <span class="icon">👛</span>
-            <span class="icon">🔔</span>
-            <span class="icon">👤</span>
+            <span class="icon"><i class="fas fa-wallet"></i></span>
+            <span class="icon"><i class="fas fa-bell"></i></span>
+            <span class="icon"><i class="fas fa-user-circle"></i></span>
         </div>
     </nav>
 </header>
+
+
 <!-- ======================================================
      🟢 END: HEADER
 ====================================================== -->
@@ -599,74 +574,25 @@
 <!-- ======================================================
      🟢 START: FIXED FOOTER
 ====================================================== -->
-<footer class="bottom-nav">
-
-    <button
-        id="menuBtn"
-        class="nav-item">
-
-        <div class="nav-icon">
-            ☰
-        </div>
-
-        <span>
-            Menu
-        </span>
-
-    </button>
-
-
-    <button
-        id="wheelNavBtn"
-        class="nav-item active">
-
-        <div class="nav-icon">
-            🎰
-        </div>
-
-        <span>
-            Wheel
-        </span>
-
-    </button>
-
-
-    <button
-        id="searchNavBtn"
-        class="nav-item">
-
-        <div class="nav-icon">
-            🔍
-        </div>
-
-        <span>
-            Search
-        </span>
-
-    </button>
-
-
-    <button
-        id="homeNavBtn"
-        class="nav-item">
-
-        <div class="nav-icon">
-            🏠
-        </div>
-
-        <span>
-            Home
-        </span>
-
-    </button>
-
+<footer class="footer">
+    <div class="footer-item">
+        <i class="fas fa-bars"></i>
+        <span>Menu</span>
+    </div>
+    <div class="footer-item">
+        <i class="fas fa-dharmachakra"></i>
+        <span>Wheel</span>
+    </div>
+    <div class="footer-item">
+        <i class="fas fa-search"></i>
+        <span>Search</span>
+    </div>
+    <div class="footer-item">
+        <i class="fas fa-home"></i>
+        <span>Home</span>
+    </div>
 </footer>
-<!-- ======================================================
-     🔴 END: FIXED FOOTER
-====================================================== -->
 
-
-</div>
-<!-- ======================================================
-     🔴 END: APP WRAPPER
-====================================================== -->
+<script src="script.js"></script>
+</body>
+</html>
