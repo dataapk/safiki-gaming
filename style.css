@@ -590,7 +590,7 @@ height:0;
 
     position: relative;
 
-    width: calc(100% - 10px);
+    width: calc(100% - 20px);
     margin: 5px auto;
 
     height: 320px;
@@ -615,16 +615,10 @@ height:0;
 
 .hero-slide {
 
-    position: absolute;
+    width:100%;
+    height:100%;
 
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-
-    opacity: 0;
-
-    transition: opacity 0.8s ease;
+    object-fit:cover;
 
 }
 
