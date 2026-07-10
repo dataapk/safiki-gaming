@@ -210,3 +210,91 @@ img, svg {
     font-weight: 500;
 }
 /* ক্যাটাগরি সেকশন ইন্ড */
+
+/* গেম সেকশন স্টার্ট */
+.game-section {
+    padding: 20px;
+}
+
+.section-header h2 {
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #fff;
+}
+
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* মোবাইলের জন্য ২ কলাম */
+    gap: 15px;
+}
+
+/* ট্যাবলেট এবং ডেস্কটপের জন্য */
+@media (min-width: 768px) {
+    .game-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.game-card {
+    background-color: #1a1a2e;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+/* হোভার অ্যানিমেশন */
+.game-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.game-image {
+    position: relative;
+    height: 120px;
+}
+
+.game-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* প্লে বাটন ওভারলে */
+.play-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.game-card:hover .play-overlay {
+    opacity: 1;
+}
+
+.play-btn {
+    background-color: #ffd700; /* হলুদ বাটন */
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.game-info {
+    padding: 10px;
+    text-align: center;
+}
+
+.game-info h3 {
+    font-size: 14px;
+    color: #ddd;
+}
+/* গেম সেকশন ইন্ড */
