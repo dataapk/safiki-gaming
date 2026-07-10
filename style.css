@@ -362,38 +362,114 @@ img, svg {
 /* লাইভ উইনার সেকশন ইন্ড */
 
 
-/* ফুটার ফিক্সড */
+/* --- ১. ফুটার মেনুবার স্টাইল --- */
 .main-footer {
     position: fixed;
     bottom: 0;
     width: 100%;
     background: #1a1a2e;
-    height: 70px;
+    height: 75px;
     display: flex;
-    align-items: center;
+    justify-content: center;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
+    z-index: 1000;
 }
 
 .footer-nav {
     display: flex;
     justify-content: space-around;
-    width: 100%;
     align-items: center;
+    width: 100%;
+    padding: 0 10px;
 }
 
-/* মাঝখানের সার্চ বাটন - রাউন্ডেড এবং উপরে উঠানো */
-.search-btn {
-    background: #00ff9d;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    margin-bottom: 40px; /* এটিকে উপরে তুলে দেওয়া */
+.footer-item {
+    width: 50px;
+    height: 50px;
+    background: #252545;
+    border-radius: 12px;
     display: flex;
     justify-content: center;
     align-items: center;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+    border: 1px solid #353565;
+}
+
+/* মাঝখানের সার্চ বাটন */
+.search-btn {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background: #00ff9d;
     color: #1a1a2e;
-    font-size: 24px;
+    margin-bottom: 40px;
     border: 5px solid #1a1a2e;
-    box-shadow: 0 -5px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 0 15px rgba(0, 255, 157, 0.3);
+}
+
+/* --- ২. ড্রপডাউন প্যানেল (হোম মেনু) --- */
+.dropdown-panel {
+    position: fixed;
+    bottom: 75px;
+    width: 100%;
+    background: #1a1a2e;
+    padding: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.3);
+}
+
+.download-card {
+    background: #252545;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.game-grid-small {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.mini-card {
+    background: #252545;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    color: #fff;
+    font-size: 12px;
+}
+
+/* --- ৩. সার্চ ওভারলে স্টাইল --- */
+.overlay-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #1a1a2e;
+    padding: 20px;
+    z-index: 2000;
+}
+
+.search-header {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.search-header input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    background: #252545;
+    color: #fff;
 }
