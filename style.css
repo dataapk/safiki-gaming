@@ -802,3 +802,147 @@ height:0;
 }
 
 }
+/* ======================================================
+   📂 CATEGORY SECTION
+====================================================== */
+
+.category-section{
+
+    width:100%;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    overflow-x:auto;
+
+    overflow-y:hidden;
+
+    padding:0 12px 10px;
+
+    scroll-behavior:smooth;
+
+    -webkit-overflow-scrolling:touch;
+
+}
+
+
+/* Hide Scrollbar */
+
+.category-section::-webkit-scrollbar{
+
+    display:none;
+
+}
+
+
+/* ======================================================
+   📂 CATEGORY ITEM
+====================================================== */
+
+.category-item{
+
+    flex:0 0 auto;
+
+    min-width:90px;
+
+    height:42px;
+
+    padding:0 16px;
+
+    border-radius:22px;
+
+    background:var(--bg-card);
+
+    border:1px solid var(--border);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:var(--text-soft);
+
+    font-size:13px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.25s ease;
+
+    white-space:nowrap;
+
+}
+
+
+/* ======================================================
+   🟢 ACTIVE
+====================================================== */
+
+.category-item.active{
+
+    background:linear-gradient(
+        180deg,
+        #1da1ff,
+        #0d7dd6
+    );
+
+    border-color:#1da1ff;
+
+    color:#ffffff;
+
+    box-shadow:
+        0 4px 14px rgba(29,161,255,.30);
+
+}
+
+
+/* ======================================================
+   🖱 HOVER
+====================================================== */
+
+.category-item:hover{
+
+    transform:translateY(-2px);
+
+}
+
+
+/* ======================================================
+   📱 MOBILE
+====================================================== */
+
+@media(max-width:480px){
+
+.category-item{
+
+    min-width:82px;
+
+    height:38px;
+
+    font-size:12px;
+
+}
+
+}
+
+
+/* ======================================================
+   💻 DESKTOP
+====================================================== */
+
+@media(min-width:1024px){
+
+.category-section{
+
+    justify-content:center;
+
+    overflow-x:hidden;
+
+}
+
+}
