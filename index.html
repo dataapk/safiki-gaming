@@ -195,19 +195,24 @@
 <!-- ======================================================
      🟢 START: FIXED FOOTER
 ====================================================== -->
-<footer class="main-footer">
-    <!-- সার্চ পেজ ওভারলে (সার্চে ক্লিক করলে এটি ওপেন হবে) -->
-    <div id="search-overlay" class="search-page">
-        <input type="text" id="game-search" placeholder="Search games...">
-        <div id="search-results"></div>
-    </div>
+<!-- ১. হোম মেনু ড্রপডাউন (এটিকে ফুটারের ঠিক উপরে পজিশন করব) -->
+<div id="home-dropdown" class="dropdown-content" style="display:none;">
+    <!-- এখানে তোমার কার্ডগুলো থাকবে -->
+</div>
 
-    <!-- ফুটার মেনু বার -->
+<!-- ২. সার্চ ওভারলে (সার্চ বাটনে ক্লিক করলে এটি পুরো স্ক্রিন জুড়ে আসবে) -->
+<div id="search-overlay" class="overlay" style="display:none;">
+    <input type="text" placeholder="Search your game...">
+    <div id="search-results"></div>
+</div>
+
+<!-- ৩. ফুটার মেনু বার (ফিক্সড) -->
+<footer class="main-footer">
     <div class="footer-nav">
         <div class="footer-item" id="btn-menu"><i class="fas fa-bars"></i><span>Menu</span></div>
         <div class="footer-item" id="btn-wheel"><i class="fas fa-circle-notch"></i><span>Wheel</span></div>
         
-        <!-- মাঝখানের রাউন্ডেড সার্চ বাটন -->
+        <!-- মাঝখানের সার্চ বাটন (সেন্টার) -->
         <div class="footer-item search-btn" id="btn-search">
             <i class="fas fa-search"></i>
         </div>
