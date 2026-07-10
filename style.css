@@ -302,53 +302,51 @@ img, svg {
 /* লাইভ উইনার সেকশন স্টার্ট */
 .live-winners-section {
     padding: 20px;
-    background-color: #1a1a2e;
     margin: 20px 10px;
+}
+
+.section-header {
+    margin-bottom: 10px;
+    padding-left: 5px;
+}
+
+.section-header h2 {
+    font-size: 18px;
+    color: #ffffff;
+}
+
+/* লিস্টের জন্য বক্সটি আলাদা করা হলো */
+.winners-list-container {
+    background-color: #1a1a2e;
     border-radius: 12px;
-    overflow: hidden; /* বাইরে কিছু দেখা যাবে না */
+    overflow: hidden;
     height: 300px; /* নির্দিষ্ট উচ্চতা */
+    border: 1px solid #252545;
 }
 
 .winners-list {
     display: flex;
     flex-direction: column;
-    animation: scrollUp 15s linear infinite; /* ১৫ সেকেন্ডে পুরো লুপ */
+    animation: scrollUp 15s linear infinite;
 }
 
-/* অ্যানিমেশন কি-ফ্রেম */
+/* অ্যানিমেশন কি-ফ্রেম একই থাকবে */
 @keyframes scrollUp {
     0% { transform: translateY(0); }
-    100% { transform: translateY(-50%); } /* অর্ধেক লিস্ট শেষ করে আবার লুপ হবে */
+    100% { transform: translateY(-50%); }
 }
 
 .winner-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 10px;
+    padding: 12px 15px;
     border-bottom: 1px solid #252545;
     font-size: 14px;
 }
 
-.winner-item span:first-child {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-/* প্রফেশনাল ছোট আইকন */
-.winner-item i {
-    color: #ffd700;
-    font-size: 12px;
-}
-
 .win-amount {
-    color: #00ff9d; /* উইনিং অ্যামাউন্ট সবুজ রঙে সুন্দর দেখাবে */
+    color: #00ff9d;
     font-weight: bold;
-}
-
-/* মাউস নিলে স্ক্রলিং থেমে যাবে */
-.live-winners-section:hover .winners-list {
-    animation-play-state: paused;
 }
 /* লাইভ উইনার সেকশন ইন্ড */
