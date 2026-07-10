@@ -195,26 +195,25 @@
 <!-- ======================================================
      🟢 START: FIXED FOOTER
 ====================================================== -->
-<footer class="footer">
-    <div class="footer-item">
-        <i class="fas fa-bars"></i>
-        <span>Menu</span>
+<footer class="main-footer">
+    <!-- সার্চ পেজ ওভারলে (সার্চে ক্লিক করলে এটি ওপেন হবে) -->
+    <div id="search-overlay" class="search-page">
+        <input type="text" id="game-search" placeholder="Search games...">
+        <div id="search-results"></div>
     </div>
-    <div class="footer-item">
-        <i class="fas fa-dharmachakra"></i>
-        <span>Wheel</span>
-    </div>
-    <div class="footer-item">
-    <i class="fas fa-rocket"></i>
-    <span>Crash</span>
-</div>
-    <div class="footer-item">
-        <i class="fas fa-search"></i>
-        <span>Search</span>
-    </div>
-    <div class="footer-item">
-        <i class="fas fa-home"></i>
-        <span>Home</span>
+
+    <!-- ফুটার মেনু বার -->
+    <div class="footer-nav">
+        <div class="footer-item" id="btn-menu"><i class="fas fa-bars"></i><span>Menu</span></div>
+        <div class="footer-item" id="btn-wheel"><i class="fas fa-circle-notch"></i><span>Wheel</span></div>
+        
+        <!-- মাঝখানের রাউন্ডেড সার্চ বাটন -->
+        <div class="footer-item search-btn" id="btn-search">
+            <i class="fas fa-search"></i>
+        </div>
+
+        <div class="footer-item" id="btn-crash"><i class="fas fa-rocket"></i><span>Crash</span></div>
+        <div class="footer-item" id="btn-home"><i class="fas fa-home"></i><span>Home</span></div>
     </div>
 </footer>
 
