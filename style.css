@@ -298,3 +298,57 @@ img, svg {
     color: #ddd;
 }
 /* গেম সেকশন ইন্ড */
+
+/* লাইভ উইনার সেকশন স্টার্ট */
+.live-winners-section {
+    padding: 20px;
+    background-color: #1a1a2e;
+    margin: 20px 10px;
+    border-radius: 12px;
+    overflow: hidden; /* বাইরে কিছু দেখা যাবে না */
+    height: 300px; /* নির্দিষ্ট উচ্চতা */
+}
+
+.winners-list {
+    display: flex;
+    flex-direction: column;
+    animation: scrollUp 15s linear infinite; /* ১৫ সেকেন্ডে পুরো লুপ */
+}
+
+/* অ্যানিমেশন কি-ফ্রেম */
+@keyframes scrollUp {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-50%); } /* অর্ধেক লিস্ট শেষ করে আবার লুপ হবে */
+}
+
+.winner-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 10px;
+    border-bottom: 1px solid #252545;
+    font-size: 14px;
+}
+
+.winner-item span:first-child {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* প্রফেশনাল ছোট আইকন */
+.winner-item i {
+    color: #ffd700;
+    font-size: 12px;
+}
+
+.win-amount {
+    color: #00ff9d; /* উইনিং অ্যামাউন্ট সবুজ রঙে সুন্দর দেখাবে */
+    font-weight: bold;
+}
+
+/* মাউস নিলে স্ক্রলিং থেমে যাবে */
+.live-winners-section:hover .winners-list {
+    animation-play-state: paused;
+}
+/* লাইভ উইনার সেকশন ইন্ড */
