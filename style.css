@@ -360,3 +360,40 @@ img, svg {
 /* মাউস হোভার করলে থামবে */
 .winners-list-container:hover .winners-list { animation-play-state: paused; }
 /* লাইভ উইনার সেকশন ইন্ড */
+
+
+/* ফুটার ফিক্সড */
+.main-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #1a1a2e;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.footer-nav {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    align-items: center;
+}
+
+/* মাঝখানের সার্চ বাটন - রাউন্ডেড এবং উপরে উঠানো */
+.search-btn {
+    background: #00ff9d;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-bottom: 40px; /* এটিকে উপরে তুলে দেওয়া */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #1a1a2e;
+    font-size: 24px;
+    border: 5px solid #1a1a2e;
+    box-shadow: 0 -5px 10px rgba(0,0,0,0.2);
+}
