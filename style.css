@@ -1,780 +1,804 @@
-/* =====================================
-   GLOBAL SETTINGS
-===================================== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* ======================================================
+   🌍 GLOBAL RESET
+====================================================== */
+
+*,
+*::before,
+*::after{
+
+    margin:0;
+    padding:0;
+
+    box-sizing:border-box;
+
+    -webkit-tap-highlight-color:transparent;
+
 }
 
-html, body {
-    width: 100%;
-    min-height: 100vh;
-    overflow-x: hidden;
-    background: #121212;
-    color: #ffffff;
-    font-family: Arial, sans-serif;
-    padding-bottom: 95px;
-}
+html{
 
-/* ==========================
-   HEADER / NAVIGATION
-=========================== */
-.top-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 6px 20px;
-    background: #1a1a1a;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.4);
-}
-
-.menu-btn {
-    display: flex;
-    align-items: center;
-    padding: 8px 16px;
-    background: linear-gradient(145deg, #8A2BE2, #5d1aa8);
-    border-radius: 12px;
-    color: #fff;
-    font-weight: 600;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-.menu-icon {
-    margin-right: 6px;
-    font-size: 18px;
-    line-height: 1;
-    vertical-align: middle;
-}
-
-.logo {
-    font-size: 24px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    color: #fff;
-    line-height: 1;
-}
-
-.header-actions {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-}
-
-.header-btn.login-btn {
-    background: linear-gradient(145deg, #6a0dad, #9b59b6);
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 14px;
-    font-weight: 700;
-    text-decoration: none;
-    box-shadow: 0 6px 18px rgba(155,89,182,0.4);
-    transition: all 0.3s ease;
-}
-.header-btn.login-btn:hover {
-    transform: translateY(-2px) scale(1.03);
-    box-shadow: 0 10px 22px rgba(155,89,182,0.5);
-}
-
-.header-btn.register-btn {
-    background: linear-gradient(145deg, #FFFF66, #FFD700);
-    color: #000;
-    padding: 10px 22px;
-    border-radius: 16px;
-    font-weight: 800;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.5), 0 0 8px rgba(0,0,0,0.3);
-    transition: all 0.3s ease;
-    animation: pulseRegister 2s infinite;
-}
-.header-btn.register-btn:hover {
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.6), 0 0 12px rgba(0,0,0,0.4);
-}
-
-@keyframes pulseRegister {
-    0%,100% { transform: scale(1); }
-    50% { transform: scale(1.04); }
-}
-
-@media(max-width:500px){
-    .top-nav {
-        padding: 4px 10px;
-    }
-    .menu-btn {
-        padding: 6px 12px;
-    }
-    .menu-icon {
-        font-size: 16px;
-    }
-    .logo {
-        font-size: 20px;
-    }
-    .header-btn.login-btn,
-    .header-btn.register-btn {
-        padding: 8px 14px;
-    }
-}
-/* =========================
-   DASHBOARD HEADER LAYOUT
-========================= */
-
-.header-after-login{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
     width:100%;
-    padding:10px 15px;
-    background:#202124;
-    position:relative;
+    height:100%;
+
+    scroll-behavior:smooth;
+
+    -webkit-text-size-adjust:100%;
+
 }
 
-.header-left{
-    width:60px;
-    display:flex;
-    justify-content:flex-start;
+body{
+
+    width:100%;
+    min-height:100vh;
+
+    overflow-x:hidden;
+
+    font-family:
+        Inter,
+        "Segoe UI",
+        sans-serif;
+
+    background:#08182f;
+
+    color:#ffffff;
+
+    user-select:none;
+
+    -webkit-user-select:none;
+
+    -webkit-touch-callout:none;
+
+    touch-action:manipulation;
+
 }
 
-.header-center{
-    flex:1;
-    display:flex;
-    justify-content:center;
-    position:relative;
+
+/* ======================================================
+   📦 ROOT VARIABLES
+====================================================== */
+
+:root{
+
+    /* =========================
+       COLORS
+    ========================= */
+
+    --bg-main:#08182f;
+
+    --bg-card:#102341;
+
+    --bg-soft:#17345d;
+
+    --bg-light:#20487d;
+
+    --primary:#1da1ff;
+
+    --primary-dark:#0d7dd6;
+
+    --accent:#00d47a;
+
+    --danger:#ff4242;
+
+    --warning:#ffc933;
+
+    --text:#ffffff;
+
+    --text-soft:#b9c8da;
+
+    --border:#2a4b74;
+
+    /* =========================
+       RADIUS
+    ========================= */
+
+    --radius-xs:6px;
+
+    --radius-sm:10px;
+
+    --radius-md:16px;
+
+    --radius-lg:24px;
+
+    --radius-xl:30px;
+
+    /* =========================
+       SHADOW
+    ========================= */
+
+    --shadow-sm:
+        0 2px 8px rgba(0,0,0,.25);
+
+    --shadow-md:
+        0 6px 18px rgba(0,0,0,.35);
+
+    --shadow-lg:
+        0 10px 28px rgba(0,0,0,.45);
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    --header-height:60px;
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    --footer-height:65px;
+
+    /* =========================
+       TRANSITION
+    ========================= */
+
+    --transition:.25s ease;
+
 }
 
-.header-right{
-    width:60px;
-    display:flex;
-    justify-content:flex-end;
-}
 
-.wallet-box{
-    display:flex;
-    align-items:center;
-    gap:8px;
-    background:#2b2b2b;
-    padding:8px 12px;
-    border-radius:12px;
-    color:#fff;
-    font-weight:600;
-}
+/* ======================================================
+   🖼 IMAGE
+====================================================== */
 
-.balance-arrow{
-    border:none;
-    background:none;
-    color:#fff;
-    cursor:pointer;
-}
+img{
 
-.profile-wrapper{
-    position:relative;
-}
-
-.profile-menu{
-    position:absolute;
-    top:55px;
-    right:0;
-    width:220px;
-    background:#2b2b2b;
-    border-radius:12px;
-    overflow:hidden;
-    box-shadow:0 5px 20px rgba(0,0,0,.5);
-    z-index:1000;
-}
-
-.profile-menu a{
     display:block;
-    padding:12px 15px;
-    color:#fff;
+
+    width:100%;
+
+    max-width:100%;
+
+    height:auto;
+
+    object-fit:cover;
+
+}
+
+
+/* ======================================================
+   🔘 BUTTON
+====================================================== */
+
+button{
+
+    border:none;
+
+    outline:none;
+
+    cursor:pointer;
+
+    background:none;
+
+    color:inherit;
+
+    font:inherit;
+
+}
+
+
+/* ======================================================
+   🔗 LINK
+====================================================== */
+
+a{
+
     text-decoration:none;
+
+    color:inherit;
+
 }
 
-.profile-menu a:hover{
-    background:#8A2BE2;
-}
-/* =====================================
-   DROPDOWN MENU
-===================================== */
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 70px;
-    left: 10px;
-    width: 240px;
-    background: #1f1f1f;
-    border-radius: 16px;
-    overflow: hidden;
-    border: 1px solid rgba(138,43,226,0.35);
-    box-shadow: 0 0 25px rgba(138,43,226,0.25);
-    z-index: 9999;
-}
-.dropdown-menu.active {
-    display: block;
-}
-.dropdown-menu a {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 14px 16px;
-    text-decoration: none;
-    color: #fff;
-    font-size: 14px;
-    transition: all .25s ease;
-    border-bottom: 1px solid rgba(255,255,255,.05);
-}
-.dropdown-menu a:last-child {
-    border-bottom: none;
-}
-.dropdown-menu a:hover {
-    background: rgba(138,43,226,.18);
-}
-.dropdown-menu a i {
-    width: 20px;
-    text-align: center;
-    color: inherit;
+
+/* ======================================================
+   📄 LIST
+====================================================== */
+
+ul,
+ol{
+
+    list-style:none;
+
 }
 
-/* =====================================
-   HERO SECTION
-===================================== */
-.hero-section {
-    width: 100%;
-    padding: 15px;
-}
-.hero-slider {
-    width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
-}
-.hero-slide {
-    width: 100%;
-}
-.hero-image {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 18px;
+
+/* ======================================================
+   📦 APP WRAPPER
+====================================================== */
+
+.app-wrapper{
+
+    width:100%;
+
+    min-height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    position:relative;
+
 }
 
-/* =====================================
-   PROMOTION SLIDER
-===================================== */
-.promotion-section {
-    padding: 12px 15px;
-}
-.promotion-title {
-    color: #fff;
-    font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 12px;
-}
-.promotion-slider {
-    display: flex;
-    gap: 10px;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    scrollbar-width: none;
-}
-.promotion-slider::-webkit-scrollbar {
-    display: none;
-}
-.promotion-slide {
-    flex: 0 0 calc(50% - 5px);
-    height: 120px;
-    border-radius: 16px;
-    overflow: hidden;
-    background: #1a1a1a;
-    border: 1px solid rgba(138, 43, 226, 0.35);
-    box-shadow: 0 0 12px rgba(138, 43, 226, 0.20);
-    transition: all 0.3s ease;
-}
-.promotion-slide:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 0 18px rgba(138, 43, 226, 0.35);
-}
-.promotion-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+
+/* ======================================================
+   📄 PAGE CONTENT
+====================================================== */
+
+.page-content{
+
+    flex:1;
+
+    width:100%;
+
+    padding-top:var(--header-height);
+
+    padding-bottom:var(--footer-height);
+
+    overflow-y:auto;
+
 }
 
-/* =====================================
-   GAME CATEGORIES
-===================================== */
-.game-categories {
-    display: flex;
-    justify-content: center;
-    flex-wrap: nowrap;
-    gap: 6px;
-    padding: 8px;
-}
-.category-item {
-    width: 75px;
-    height: 75px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background: #1f1f1f;
-    border-radius: 14px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border: 1px solid rgba(138, 43, 226, 0.25);
-}
-.category-item:hover {
-    transform: translateY(-4px) scale(1.05);
-    box-shadow: 0 0 15px rgba(138, 43, 226, 0.7);
-}
-.category-item img {
-    width: 70%;
-    height: 70%;
-    object-fit: contain;
-    margin-bottom: 4px;
-}
-.category-item span {
-    font-size: 10px;
-    font-weight: 600;
-    color: #fff;
-    line-height: 1.1;
+
+/* ======================================================
+   📱 SAFE AREA
+====================================================== */
+
+@supports(padding:max(0px)){
+
+.page-content{
+
+padding-bottom:
+
+max(
+var(--footer-height),
+env(safe-area-inset-bottom)
+);
+
 }
 
-/* =======================================
-   MAIN GAMES SECTION FINAL (Desktop + Mobile)
-======================================== */
-.main-games-section {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding: 15px;
 }
 
-/* General card styling */
-.main-games-section .game-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    border-radius: 20px;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+/* ======================================================
+   💻 DESKTOP
+====================================================== */
+
+@media(min-width:1024px){
+
+.app-wrapper{
+
+max-width:480px;
+
+margin:auto;
+
+min-height:100vh;
+
+box-shadow:
+
+0 0 35px rgba(0,0,0,.45);
+
 }
 
-/* General image styling */
-.main-games-section .game-card img {
-    object-fit: cover; /* পুরো কার্ড ফিট */
-    width: 100%;
-    border-radius: 16px;
 }
 
-/* Desktop specific */
-@media (min-width: 1024px) {
-    .main-games-section .game-card {
-        flex: 1 1 300px;   /* বড় কার্ড */
-        max-width: 600px;
-        height: 520px;      /* ডাবল হাইট */
-        margin-bottom: 0;
-    }
 
-    .main-games-section .game-card img {
-        width: 100%;    /* পুরো কার্ড জুড়ে ফিট */
-        height: 100%;   /* পুরো কার্ড জুড়ে ফিট */
-        object-fit: cover; /* ইমেজ পুরো স্কোয়ার ভরে আসবে */
-        border-radius: 16px; /* আগের মতো হালকা রাউন্ডেড */
-    }
+/* ======================================================
+   📱 TABLET
+====================================================== */
 
-    .main-games-section {
-        gap: 40px;          /* কার্ডের মধ্যে gap */
-        margin-top: 40px;   /* ক্যাটাগরি থেকে gap */
-    }
+@media(min-width:768px)
+and
+(max-width:1023px){
 
-    .main-games-section .game-card .game-title {
-        display: none;      /* নিচের টেক্সট রিমুভ */
-    }
+.app-wrapper{
+
+max-width:480px;
+
+margin:auto;
+
 }
 
-/* ==========================
-   MAIN GAMES SECTION - Category-style Hover + Click Green Glow
-========================== */
-@media (max-width: 768px) {
-
-    .main-games-section {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-        padding: 10px 0;
-    }
-
-    .main-games-section .game-card {
-        width: 90%;
-        height: auto;
-        position: relative;
-        border-radius: 16px;
-        overflow: hidden;
-        cursor: pointer;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        transition: all 0.3s ease; /* hover animation */
-        background: #1f1f1f;
-        border: 1px solid rgba(138, 43, 226, 0.25);
-       /* ==========================
-   MOBILE - Remove all tap/focus flash
-========================== */
-.main-games-section .game-card {
-    -webkit-tap-highlight-color: transparent; /* Safari/Chrome */
-    outline: none;                              /* remove focus outline */
-    -webkit-user-select: none;                  /* prevent selection flash */
-    -webkit-touch-callout: none;                /* prevent long-press callout */
-    }
-
-    .main-games-section .game-card img {
-        width: 98%;
-        height: auto;
-        object-fit: cover;
-        display: block;
-        border-radius: 16px;
-        transition: transform 0.25s ease;
-    }
-
-    /* Hover effect like category-item */
-    .main-games-section .game-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 0 15px rgba(138, 43, 226, 0.7);
-    }
-
-    /* Click effect - green glow at bottom */
-    .main-games-section .game-card:active::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 80%;
-        height: 6px;
-        background: rgba(57, 255, 20, 0.5); /* green glow */
-        filter: blur(6px);
-        border-radius: 4px;
-        pointer-events: none;
-    }
-
-    /* Hide text labels under images */
-    .main-games-section .game-card .game-title {
-        display: none;
-    }
-}
-/* =====================================
-   LIVE WINNERS
-===================================== */
-.winner-section {
-    padding: 15px;
-}
-.winner-title {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: #fff;
-    font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 12px;
-}
-.live-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: #39FF14;
-    box-shadow: 0 0 10px #39FF14;
-    animation: livePulse 1.5s infinite;
-}
-@keyframes livePulse {
-    0% { opacity: 1; }
-    50% { opacity: .4; }
-    100% { opacity: 1; }
-}
-.winner-box {
-    height: 180px;
-    overflow: hidden;
-    border-radius: 16px;
-    background: #1f1f1f;
-    border: 1px solid rgba(138,43,226,0.3);
-    box-shadow: 0 0 15px rgba(138,43,226,0.15);
-}
-.winner-track {
-    animation: winnerScroll 15s linear infinite;
-}
-.winner-item {
-    padding: 14px;
-    color: #fff;
-    font-size: 14px;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-}
-@keyframes winnerScroll {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-50%); }
-}
-/* ==========================
-   PAYMENT SECTION - PERFECT MOBILE FIT
-========================== */
-.image-section {
-    background-color: #1a1e29;
-    padding: 15px;
-   margin-left: 15px;  /* বক্সটি বাম দিক থেকে সরে আসবে */
-   margin-right: 15px; /* বক্সটি ডান দিক থেকে সরে আসবে */
-    border-radius: 18px;
-    text-align: center;
-    margin-top: 20px;
-   
 }
 
-/* পেমেন্ট গেটওয়ে সেকশনের জন্য বিশেষ স্টাইল */
-.payment-gateway-wrapper {
-    padding: 20px;
-    text-align: center;
+
+/* ======================================================
+   📱 SMALL PHONE
+====================================================== */
+
+@media(max-width:360px){
+
+html{
+
+font-size:14px;
+
 }
 
-.payment-title {
-    background-color: #6A0DAD !important; /* পার্পল ব্যাকগ্রাউন্ড */
-    color: #FFFFFF !important;            /* সাদা ফন্ট কালার */
-    padding: 20px 40px;
-    border-radius: 12px;
-    display: inline-block;
-    
-    /* থ্রিডি ইফেক্ট (গর্ত বা গভীরতার জন্য শ্যাডো) */
-    box-shadow: 0 8px 0 #4a077a, 0 8px 15px rgba(0, 0, 0, 0.5);
-    
-    /* বাটনটি যেন সুন্দর দেখায় */
-    font-size: 24px;
-    font-weight: bold;
-    text-transform: uppercase;
-    transition: transform 0.2s;
 }
 
-/* যখন মাউস উপরে নেবেন তখন সামান্য নড়াচড়া করবে (ঐচ্ছিক) */
-.payment-title:hover {
-    transform: translateY(2px);
-    box-shadow: 0 6px 0 #4a077a, 0 6px 10px rgba(0, 0, 0, 0.5);
+
+/* ======================================================
+   🚫 SCROLLBAR
+====================================================== */
+
+::-webkit-scrollbar{
+
+width:0;
+
+height:0;
+
+}
+/* ======================================================
+   📌 FIXED HEADER
+====================================================== */
+
+.app-header{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:var(--header-height);
+
+    background:rgba(8,24,47,.96);
+
+    backdrop-filter:blur(12px);
+
+    -webkit-backdrop-filter:blur(12px);
+
+    border-bottom:1px solid var(--border);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:0 14px;
+
+    z-index:9999;
+
 }
 
-/* ডেস্কটপের জন্য সাইজ (৫০% থাকবে) */
-.payment-img {
-    width: 40%;
-    height: auto;
-    object-fit: contain;
+
+/* ======================================================
+   🎰 LOGO
+====================================================== */
+
+.header-logo{
+
+    font-size:20px;
+
+    font-weight:700;
+
+    color:#ffd54a;
+
+    white-space:nowrap;
+
 }
 
-/* মোবাইলের জন্য সাইজ (স্ক্রিন ৭৬৮ পিক্সেলের ছোট হলে) */
-@media screen and (max-width: 767px) {
-    .payment-img {
-        width: 85%; /* মোবাইলে একটু বড় দেখালে সুবিধা হবে, চাইলে ৫০% রাখতে পারেন */
-    }
-    
-    .payment-title {
-        font-size: 15px; /* মোবাইলে শিরোনাম একটু ছোট করে দিলাম */
-    }
-}
-   /* PAYMENT SECTION END */
-/* =====================================
-   FOOTER
-===================================== */
-/* Footer */
-.footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding: 20px 40px;
-  background-color: #111;
-  color: #fff;
-  flex-wrap: nowrap; /* Prevent stacking */
+
+/* ======================================================
+   ⚡ RIGHT SIDE
+====================================================== */
+
+.header-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
 }
 
-.footer-left,
-.footer-right {
-  flex: 1 1 auto;
+
+/* ======================================================
+   💰 BALANCE
+====================================================== */
+
+.header-balance{
+
+    min-width:90px;
+
+    padding:5px 10px;
+
+    border-radius:20px;
+
+    background:#12345d;
+
+    border:1px solid #24558d;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    text-align:center;
+
+    color:#ffffff;
+
 }
 
-/* About Us Text - smaller font for mobile */
-.footer-left h3,
-.footer-left p {
-  font-size: 1rem; /* smaller font */
-  line-height: 1.4;
+
+/* ======================================================
+   ⬇️ DEPOSIT
+====================================================== */
+
+.deposit-btn{
+
+    width:34px;
+
+    height:34px;
+
+    border-radius:50%;
+
+    background:var(--accent);
+
+    color:#ffffff;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:16px;
+
+    box-shadow:var(--shadow-sm);
+
+    transition:var(--transition);
+
 }
 
-.footer-right h3,
-.footer-right ul {
-  font-size: 1rem;
-  line-height: 1.4;
+.deposit-btn:hover{
+
+    transform:scale(1.06);
+
 }
 
-.footer-title {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
+
+/* ======================================================
+   🔔 NOTIFICATION
+====================================================== */
+
+.notification-btn{
+
+    width:34px;
+
+    height:34px;
+
+    border-radius:50%;
+
+    background:#18385f;
+
+    color:#ffffff;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:16px;
+
+    transition:var(--transition);
+
 }
 
-.footer-links,
-.contact-links {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+
+/* ======================================================
+   👤 PROFILE
+====================================================== */
+
+.profile-btn{
+
+    width:36px;
+
+    height:36px;
+
+    border-radius:50%;
+
+    background:linear-gradient(
+        180deg,
+        #3f8cff,
+        #2468d8
+    );
+
+    color:#ffffff;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:17px;
+
+    box-shadow:var(--shadow-sm);
+
+    transition:var(--transition);
+
 }
 
-.footer-links li,
-.contact-links li {
-  margin-bottom: 6px;
+.profile-btn:hover{
+
+    transform:scale(1.05);
+
 }
 
-/* Link Style */
-.footer-links li a,
-.contact-links li {
-  text-decoration: none;
-  font-weight: 500;
-  color: #E6B800; /* deep yellow */
-  transition: transform 0.2s ease, color 0.2s ease;
+
+/* ======================================================
+   📱 MOBILE
+====================================================== */
+
+@media(max-width:480px){
+
+.header-logo{
+
+    font-size:17px;
+
 }
 
-.footer-links li a:hover {
-  color: #FFD633;
-  transform: scale(1.05);
+.header-balance{
+
+    min-width:74px;
+
+    font-size:11px;
+
+    padding:4px 8px;
+
 }
 
-/* Modal Styling */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 999;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.7);
+.deposit-btn,
+.notification-btn,
+.profile-btn{
+
+    width:32px;
+
+    height:32px;
+
 }
 
-.modal-content {
-  background-color: #111;
-  color: #fff;
-  margin: 10% auto;
-  padding: 20px;
-  border-radius: 8px;
-  width: 90%;
-  max-width: 500px;
-  position: relative;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
-.modal-content .close {
-  color: #E6B800;
-  font-size: 28px;
-  font-weight: bold;
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  cursor: pointer;
-  transition: transform 0.2s ease;
+
+/* ======================================================
+   💻 DESKTOP
+====================================================== */
+
+@media(min-width:1024px){
+
+.app-header{
+
+    max-width:480px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
 }
 
-.modal-content .close:hover {
-  transform: rotate(90deg);
+}
+/* ======================================================
+   🎯 HERO SECTION
+====================================================== */
+
+.hero-section{
+
+    width:100%;
+
+    margin:16px auto;
+
+    padding:22px 18px;
+
+    border-radius:22px;
+
+    background:linear-gradient(
+        135deg,
+        #1a4c8f,
+        #0f2d55
+    );
+
+    border:1px solid rgba(255,255,255,.08);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.35);
+
+    text-align:center;
+
+    position:relative;
+
+    overflow:hidden;
+
 }
 
-/* Responsive tweaks */
-@media(max-width:768px){
-  .footer {
-    flex-direction: row; /* Keep left-right alignment on mobile */
-    justify-content: space-between;
-    padding: 15px 20px;
-  }
 
-  .footer-left, .footer-right {
-    flex: 1 1 48%; /* almost half-half */
-  }
+/* ======================================================
+   ✨ GLOW EFFECT
+====================================================== */
 
-  /* Make text smaller for very small screens */
-  .footer-left h3,
-  .footer-left p,
-  .footer-right h3,
-  .footer-right ul {
-    font-size: 0.9rem;
-  }
-}
+.hero-section::before{
 
-/* =====================================
-   BOTTOM NAV / FOOTER BUTTONS
-===================================== */
-.bottom-nav {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 70px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background: #121212;
-    border-top: 1px solid rgba(255,255,255,0.08);
-    z-index: 999;
-}
-.footer-btn {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    color: #bdbdbd;
-    font-size: 11px;
-    font-weight: 600;
-    gap: 4px;
-    transition: all 0.3s ease;
-}
-.footer-icon {
-    font-size: 22px;
-    color: #fff;
-}
-.center-btn {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    background: #121212;
-    position: relative;
-    top: -18px;
-    border: 2px solid rgba(57,255,20,0.35);
-    box-shadow: 0 0 12px rgba(57,255,20,0.25);
-}
-.center-btn .footer-icon {
-    color: #39FF14;
-    font-size: 24px;
-}
-.center-btn span {
-    color: #fff;
-}
-@media (max-width:768px){
-    .bottom-nav{ height:65px; }
-    .center-btn{ width:65px; height:65px; }
+    content:"";
+
+    position:absolute;
+
+    top:-60px;
+    right:-60px;
+
+    width:180px;
+    height:180px;
+
+    border-radius:50%;
+
+    background:rgba(29,161,255,.18);
+
+    filter:blur(50px);
+
 }
 
-/* =====================================
-   MOBILE RESPONSIVE
-===================================== */
-@media (max-width: 768px){
-    .top-nav { padding: 12px 15px; }
-    .logo { font-size: 18px; }
-    .menu-btn, .login-btn { padding: 8px 12px; font-size: 14px; }
-    .hero-section { padding: 10px; }
-    .hero-image { border-radius: 14px; }
-    .game-categories { gap: 5px; padding: 6px; }
-    .games-container { flex-direction: column; align-items: center; }
+.hero-section::after{
+
+    content:"";
+
+    position:absolute;
+
+    bottom:-80px;
+    left:-80px;
+
+    width:200px;
+    height:200px;
+
+    border-radius:50%;
+
+    background:rgba(0,212,122,.12);
+
+    filter:blur(60px);
+
 }
 
-/* =====================================
-   DESKTOP FIX
-===================================== */
-@media (min-width: 769px){
-    .promotion-slide { height: 180px; }
-    .game-card img { height: 220px; object-fit: cover; }
+
+/* ======================================================
+   🏆 TITLE
+====================================================== */
+
+.hero-title{
+
+    position:relative;
+
+    z-index:2;
+
+    font-size:26px;
+
+    font-weight:700;
+
+    color:#ffffff;
+
+}
+
+
+/* ======================================================
+   📝 SUB TITLE
+====================================================== */
+
+.hero-subtitle{
+
+    position:relative;
+
+    z-index:2;
+
+    margin-top:10px;
+
+    font-size:14px;
+
+    line-height:22px;
+
+    color:var(--text-soft);
+
+}
+
+
+/* ======================================================
+   🎰 PLAY BUTTON
+====================================================== */
+
+.hero-play-btn{
+
+    position:relative;
+
+    z-index:2;
+
+    margin-top:20px;
+
+    width:170px;
+
+    height:48px;
+
+    border-radius:30px;
+
+    background:linear-gradient(
+        180deg,
+        #22d97d,
+        #12b463
+    );
+
+    color:#ffffff;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    letter-spacing:.5px;
+
+    box-shadow:
+        0 6px 18px rgba(0,212,122,.35);
+
+    transition:.25s ease;
+
+}
+
+.hero-play-btn:hover{
+
+    transform:scale(1.04);
+
+}
+
+.hero-play-btn:active{
+
+    transform:scale(.98);
+
+}
+
+
+/* ======================================================
+   📱 MOBILE
+====================================================== */
+
+@media(max-width:480px){
+
+.hero-section{
+
+    margin:12px;
+
+    padding:20px 14px;
+
+}
+
+.hero-title{
+
+    font-size:22px;
+
+}
+
+.hero-subtitle{
+
+    font-size:13px;
+
+}
+
+.hero-play-btn{
+
+    width:150px;
+
+    height:44px;
+
+    font-size:14px;
+
+}
+
+}
+
+
+/* ======================================================
+   💻 DESKTOP
+====================================================== */
+
+@media(min-width:1024px){
+
+.hero-section{
+
+    margin:18px;
+
+}
+
 }
