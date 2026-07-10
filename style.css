@@ -212,149 +212,18 @@ ol{
    📦 APP WRAPPER
 ====================================================== */
 
-.app-wrapper{
+/* ======================================================
+   🟢 HEADER SECTION
+====================================================== */
+
+
+.app-header {
 
     width:100%;
 
-    min-height:100vh;
+    height:60px;
 
-    display:flex;
-
-    flex-direction:column;
-
-    position:relative;
-
-}
-
-
-/* ======================================================
-   📄 PAGE CONTENT
-====================================================== */
-
-.page-content{
-
-    flex:1;
-
-    width:100%;
-
-    padding-top:var(--header-height);
-
-    padding-bottom:var(--footer-height);
-
-    overflow-y:auto;
-
-}
-
-
-/* ======================================================
-   📱 SAFE AREA
-====================================================== */
-
-@supports(padding:max(0px)){
-
-.page-content{
-
-padding-bottom:
-
-max(
-var(--footer-height),
-env(safe-area-inset-bottom)
-);
-
-}
-
-}
-
-
-/* ======================================================
-   💻 DESKTOP
-====================================================== */
-
-@media(min-width:1024px){
-
-.app-wrapper{
-
-max-width:480px;
-
-margin:auto;
-
-min-height:100vh;
-
-box-shadow:
-
-0 0 35px rgba(0,0,0,.45);
-
-}
-
-}
-
-
-/* ======================================================
-   📱 TABLET
-====================================================== */
-
-@media(min-width:768px)
-and
-(max-width:1023px){
-
-.app-wrapper{
-
-max-width:480px;
-
-margin:auto;
-
-}
-
-}
-
-
-/* ======================================================
-   📱 SMALL PHONE
-====================================================== */
-
-@media(max-width:360px){
-
-html{
-
-font-size:14px;
-
-}
-
-}
-
-
-/* ======================================================
-   🚫 SCROLLBAR
-====================================================== */
-
-::-webkit-scrollbar{
-
-width:0;
-
-height:0;
-
-}
-/* ======================================================
-   📌 FIXED HEADER
-====================================================== */
-
-.app-header{
-
-    position:fixed;
-
-    top:0;
-    left:0;
-
-    width:100%;
-    height:var(--header-height);
-
-    background:rgba(8,24,47,.96);
-
-    backdrop-filter:blur(12px);
-
-    -webkit-backdrop-filter:blur(12px);
-
-    border-bottom:1px solid var(--border);
+    padding:0 8px;
 
     display:flex;
 
@@ -362,35 +231,174 @@ height:0;
 
     justify-content:space-between;
 
-    padding:0 14px;
+    background:#0d2140;
 
-    z-index:9999;
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    z-index:1000;
 
 }
 
 
-/* ======================================================
-   🎰 LOGO
-====================================================== */
+/* ================= LOGO ================= */
 
-.header-logo{
 
-    font-size:20px;
+.header-logo {
+
+    display:flex;
+
+    align-items:center;
+
+    font-size:18px;
 
     font-weight:700;
 
-    color:#ffd54a;
+    color:#ffffff;
 
     white-space:nowrap;
 
 }
 
 
+
+/* ================= ACTION AREA ================= */
+
+
+.header-actions {
+
+    display:flex;
+
+    align-items:center;
+
+    gap:6px;
+
+}
+
+
+
 /* ======================================================
-   ⚡ RIGHT SIDE
+   CRYPTO BOX
 ====================================================== */
 
-.header-actions{
+
+.crypto-box {
+
+    position:relative;
+
+}
+
+
+
+.crypto-current {
+
+    height:38px;
+
+    min-width:125px;
+
+    padding:0 8px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:6px;
+
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#162f55;
+
+    color:white;
+
+    cursor:pointer;
+
+}
+
+
+
+.crypto-arrow {
+
+    font-size:11px;
+
+}
+
+
+
+.crypto-icon {
+
+    width:20px;
+
+    height:20px;
+
+    object-fit:contain;
+
+}
+
+
+
+.crypto-balance {
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+
+
+/* ======================================================
+   DROPDOWN
+====================================================== */
+
+
+.crypto-dropdown {
+
+    position:absolute;
+
+    top:45px;
+
+    right:0;
+
+
+    width:140px;
+
+
+    background:#12294b;
+
+
+    border-radius:10px;
+
+
+    padding:6px;
+
+
+    display:none;
+
+
+    box-shadow:0 8px 20px rgba(0,0,0,.4);
+
+}
+
+
+
+.crypto-dropdown.active {
+
+    display:block;
+
+}
+
+
+
+.crypto-option {
+
+
+    height:36px;
+
 
     display:flex;
 
@@ -398,51 +406,54 @@ height:0;
 
     gap:10px;
 
-}
+
+    padding:0 10px;
 
 
-/* ======================================================
-   💰 BALANCE
-====================================================== */
+    border-radius:8px;
 
-.header-balance{
 
-    min-width:90px;
-
-    padding:5px 10px;
-
-    border-radius:20px;
-
-    background:#12345d;
-
-    border:1px solid #24558d;
-
-    font-size:13px;
-
-    font-weight:600;
-
-    text-align:center;
-
-    color:#ffffff;
+    cursor:pointer;
 
 }
 
 
+
+.crypto-option:hover {
+
+    background:#203d66;
+
+}
+
+
+
+.crypto-option img {
+
+
+    width:20px;
+
+    height:20px;
+
+    object-fit:contain;
+
+}
+
+
+
 /* ======================================================
-   ⬇️ DEPOSIT
+   ICON BUTTONS
 ====================================================== */
 
-.deposit-btn{
 
-    width:34px;
+.wallet-btn,
+.notification-btn,
+.profile-btn {
 
-    height:34px;
 
-    border-radius:50%;
+    width:38px;
 
-    background:var(--accent);
+    height:38px;
 
-    color:#ffffff;
 
     display:flex;
 
@@ -450,141 +461,82 @@ height:0;
 
     justify-content:center;
 
-    font-size:16px;
 
-    box-shadow:var(--shadow-sm);
+    border:none;
 
-    transition:var(--transition);
+    border-radius:10px;
+
+
+    background:#162f55;
+
+
+    color:white;
+
+
+    cursor:pointer;
+
+    font-size:18px;
 
 }
 
-.deposit-btn:hover{
-
-    transform:scale(1.06);
-
-}
 
 
 /* ======================================================
-   🔔 NOTIFICATION
+   MOBILE
 ====================================================== */
 
-.notification-btn{
-
-    width:34px;
-
-    height:34px;
-
-    border-radius:50%;
-
-    background:#18385f;
-
-    color:#ffffff;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    font-size:16px;
-
-    transition:var(--transition);
-
-}
-
-
-/* ======================================================
-   👤 PROFILE
-====================================================== */
-
-.profile-btn{
-
-    width:36px;
-
-    height:36px;
-
-    border-radius:50%;
-
-    background:linear-gradient(
-        180deg,
-        #3f8cff,
-        #2468d8
-    );
-
-    color:#ffffff;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    font-size:17px;
-
-    box-shadow:var(--shadow-sm);
-
-    transition:var(--transition);
-
-}
-
-.profile-btn:hover{
-
-    transform:scale(1.05);
-
-}
-
-
-/* ======================================================
-   📱 MOBILE
-====================================================== */
 
 @media(max-width:480px){
 
-.header-logo{
 
-    font-size:17px;
+    .app-header {
 
-}
+        height:55px;
 
-.header-balance{
+        padding:0 5px;
 
-    min-width:74px;
-
-    font-size:11px;
-
-    padding:4px 8px;
-
-}
-
-.deposit-btn,
-.notification-btn,
-.profile-btn{
-
-    width:32px;
-
-    height:32px;
-
-}
-
-}
+    }
 
 
-/* ======================================================
-   💻 DESKTOP
-====================================================== */
 
-@media(min-width:1024px){
+    .header-logo {
 
-.app-header{
+        font-size:15px;
 
-    max-width:480px;
+    }
 
-    left:50%;
 
-    transform:translateX(-50%);
 
-}
+    .crypto-current {
+
+        min-width:105px;
+
+        height:34px;
+
+    }
+
+
+
+    .crypto-balance {
+
+        font-size:11px;
+
+    }
+
+
+
+    .wallet-btn,
+    .notification-btn,
+    .profile-btn {
+
+        width:34px;
+
+        height:34px;
+
+        font-size:15px;
+
+    }
+
 
 }
 /* ======================================================
