@@ -35,158 +35,32 @@
      🟢 START: HEADER
 ====================================================== -->
 
-<header class="app-header">
+<header class="header">
+    <div class="logo">◈</div>
 
-
-    <!-- LOGO -->
-
-    <div class="header-logo">
-
-        Lucky Wheel
-
-    </div>
-
-
-
-    <!-- HEADER ACTIONS -->
-
-    <div class="header-actions">
-
-
-
-        <!-- CRYPTO BALANCE BOX -->
-
-        <div class="crypto-box">
-
-
-            <button class="crypto-current">
-
-
-                <span class="crypto-arrow">
-                    ▼
-                </span>
-
-
-                <img 
-                    src="image/usdt.png"
-                    class="crypto-icon"
-                    alt="USDT"
-                >
-
-
-                <span class="crypto-balance">
-                    125.50 USDT
-                </span>
-
-
-            </button>
-
-
-
-            <!-- CRYPTO DROPDOWN -->
-
-            <div class="crypto-dropdown">
-
-
-                <div class="crypto-option" data-currency="USDT">
-
-
-                    <img 
-                        src="image/usdt.png"
-                        alt="USDT"
-                    >
-
-
-                    <span>
-                        USDT
-                    </span>
-
-
-                </div>
-
-
-
-                <div class="crypto-option" data-currency="BTC">
-
-
-                    <img 
-                        src="image/btc.png"
-                        alt="BTC"
-                    >
-
-
-                    <span>
-                        BTC
-                    </span>
-
-
-                </div>
-
-
+    <nav class="nav-group">
+        <div class="balance-container" onclick="toggleCurrencyMenu()">
+            <div class="balance-box">
+                <span class="currency-icon">₮</span>
+                <span class="balance-text">0.08579204</span>
+                <span class="dropdown-arrow">▼</span>
             </div>
-
-
+            
+            <div id="currencyDropdown" class="dropdown-menu">
+                <div class="dropdown-item">USDT</div>
+                <div class="dropdown-item">USDC</div>
+                <div class="dropdown-item">BTC</div>
+                <div class="dropdown-item">ETH</div>
+            </div>
         </div>
 
-
-
-
-
-        <!-- WALLET ICON -->
-
-        <button class="header-icon wallet-btn">
-
-
-            <img 
-                src="image/wallet.png"
-                alt="Wallet"
-            >
-
-
-        </button>
-
-
-
-
-
-        <!-- NOTIFICATION ICON -->
-
-        <button class="header-icon notification-btn">
-
-
-            <img 
-                src="image/notification.png"
-                alt="Notification"
-            >
-
-
-        </button>
-
-
-
-
-
-        <!-- PROFILE ICON -->
-
-        <button class="header-icon profile-btn">
-
-
-            <img 
-                src="image/profile.png"
-                alt="Profile"
-            >
-
-
-        </button>
-
-
-
-    </div>
-
-
-
+        <div class="nav-icons">
+            <span class="icon">👛</span>
+            <span class="icon">🔔</span>
+            <span class="icon">👤</span>
+        </div>
+    </nav>
 </header>
-
 <!-- ======================================================
      🟢 END: HEADER
 ====================================================== -->
