@@ -300,53 +300,63 @@ img, svg {
 /* গেম সেকশন ইন্ড */
 
 /* লাইভ উইনার সেকশন স্টার্ট */
-.live-winners-section {
-    padding: 20px;
-    margin: 20px 10px;
-}
-
-.section-header {
-    margin-bottom: 10px;
-    padding-left: 5px;
-}
+.live-winners-section { padding: 20px; margin: 20px 10px; }
 
 .section-header h2 {
     font-size: 18px;
     color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
 }
 
-/* লিস্টের জন্য বক্সটি আলাদা করা হলো */
+/* শিরোনামের পাশে গ্রিন ডট (জ্বলবে-নিভবে) */
+.live-indicator {
+    width: 10px;
+    height: 10px;
+    background-color: #00ff9d;
+    border-radius: 50%;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* স্ক্রলিং বক্স */
 .winners-list-container {
     background-color: #1a1a2e;
     border-radius: 12px;
     overflow: hidden;
-    height: 300px; /* নির্দিষ্ট উচ্চতা */
+    height: 250px; /* ৮-১০ জন উইনারের জন্য পারফেক্ট */
     border: 1px solid #252545;
 }
 
 .winners-list {
     display: flex;
     flex-direction: column;
-    animation: scrollUp 15s linear infinite;
+    /* গতি বাড়িয়ে ৮ সেকেন্ড করা হয়েছে */
+    animation: scrollUp 8s linear infinite; 
 }
 
-/* অ্যানিমেশন কি-ফ্রেম একই থাকবে */
 @keyframes scrollUp {
     0% { transform: translateY(0); }
-    100% { transform: translateY(-50%); }
+    100% { transform: translateY(-50%); } 
 }
 
 .winner-item {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     padding: 12px 15px;
     border-bottom: 1px solid #252545;
     font-size: 14px;
+    color: #fff;
 }
 
-.win-amount {
-    color: #00ff9d;
-    font-weight: bold;
-}
+.win-amount { color: #00ff9d; font-weight: bold; }
+
+/* মাউস হোভার করলে থামবে */
+.winners-list-container:hover .winners-list { animation-play-state: paused; }
 /* লাইভ উইনার সেকশন ইন্ড */
