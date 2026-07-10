@@ -195,30 +195,46 @@
 <!-- ======================================================
      🟢 START: FIXED FOOTER
 ====================================================== -->
-<!-- ১. হোম মেনু ড্রপডাউন (এটিকে ফুটারের ঠিক উপরে পজিশন করব) -->
-<div id="home-dropdown" class="dropdown-content" style="display:none;">
-    <!-- এখানে তোমার কার্ডগুলো থাকবে -->
+<!-- ১. হোম মেনু ড্রপডাউন (হোম বাটনে ক্লিক করলে এটি ফুটারের উপরে ওপেন হবে) -->
+<div id="home-dropdown" class="dropdown-panel" style="display: none;">
+    <div class="download-card">
+        <i class="fas fa-download"></i> <span>Download Official App</span>
+    </div>
+    <div class="game-grid-small">
+        <div class="mini-card"><i class="fas fa-circle-notch"></i><span>Wheel</span></div>
+        <div class="mini-card"><i class="fas fa-rocket"></i><span>Crash</span></div>
+        <div class="mini-card"><i class="fas fa-dice"></i><span>Dice</span></div>
+    </div>
+    <div class="menu-links">
+        <div class="link-item"><i class="fas fa-gift"></i> Promotions</div>
+        <div class="link-item"><i class="fas fa-users"></i> Refer & Earn</div>
+    </div>
 </div>
 
 <!-- ২. সার্চ ওভারলে (সার্চ বাটনে ক্লিক করলে এটি পুরো স্ক্রিন জুড়ে আসবে) -->
-<div id="search-overlay" class="overlay" style="display:none;">
-    <input type="text" placeholder="Search your game...">
-    <div id="search-results"></div>
+<div id="search-overlay" class="overlay-panel" style="display: none;">
+    <div class="search-header">
+        <input type="text" id="game-search-input" placeholder="Search for games...">
+        <button id="close-search">Cancel</button>
+    </div>
+    <div id="search-results-container">
+        <!-- এখানে সার্চ রেজাল্টগুলো অটোমেটিক শো করবে -->
+    </div>
 </div>
 
 <!-- ৩. ফুটার মেনু বার (ফিক্সড) -->
 <footer class="main-footer">
     <div class="footer-nav">
-        <div class="footer-item" id="btn-menu"><i class="fas fa-bars"></i><span>Menu</span></div>
-        <div class="footer-item" id="btn-wheel"><i class="fas fa-circle-notch"></i><span>Wheel</span></div>
+        <div class="footer-item" id="btn-menu"><i class="fas fa-bars"></i></div>
+        <div class="footer-item" id="btn-wheel"><i class="fas fa-circle-notch"></i></div>
         
-        <!-- মাঝখানের সার্চ বাটন (সেন্টার) -->
+        <!-- মাঝখানের সার্চ বাটন -->
         <div class="footer-item search-btn" id="btn-search">
             <i class="fas fa-search"></i>
         </div>
 
-        <div class="footer-item" id="btn-crash"><i class="fas fa-rocket"></i><span>Crash</span></div>
-        <div class="footer-item" id="btn-home"><i class="fas fa-home"></i><span>Home</span></div>
+        <div class="footer-item" id="btn-crash"><i class="fas fa-rocket"></i></div>
+        <div class="footer-item" id="btn-home"><i class="fas fa-home"></i></div>
     </div>
 </footer>
 
