@@ -43,62 +43,85 @@ img, svg {
     }
 }
 /* হেডার সেকশন স্টার্ট */
+/* পুরো হেডার লেআউট */
 .header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    background-color: #1a1a2e;
-    padding: 10px 20px;
-    height: 60px;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+    padding: 10px 15px;
+    background: #1a1a2e;
 }
 
-.nav-group {
+/* মেইন ডিপ বক্স */
+.wallet-wrapper {
     display: flex;
     align-items: center;
-    gap: 15px;
+    background: #0d0d16; /* একটু ডিপ কালার */
+    border-radius: 12px;
+    margin: 0 15px;
+    overflow: hidden; /* বাটন এবং কারেন্সি একই বক্সে রাখতে */
 }
 
-.balance-box {
-    background-color: #ffd700; /* আপনার অনুরোধ অনুযায়ী হলুদ রঙ */
-    color: #000;
-    padding: 6px 12px;
-    border-radius: 4px;
+.currency-trigger {
+    padding: 10px;
     display: flex;
     align-items: center;
     gap: 8px;
     cursor: pointer;
-    font-weight: bold;
-    font-size: 14px;
 }
 
-.nav-icons {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    font-size: 20px;
-    color: #ffffff;
+.balance-amount {
+    padding: 0 15px;
+    border-left: 1px solid #2d2d44; /* মাঝখানের দাগ */
+    color: #fff;
+    font-weight: bold;
+}
+
+.wallet-icon {
+    background: #ff9900; /* ইয়েলো/অরেঞ্জ হাইলাইট */
+    padding: 10px 20px;
+    color: #000;
+    cursor: pointer;
+}
+
+/* অন্যান্য আইকন বক্স */
+.icon-box, .profile-box {
+    background: #1a1a2e;
+    border: 1px solid #2d2d44;
+    padding: 10px;
+    border-radius: 8px;
+    margin-left: 10px;
 }
 
 .dropdown-menu {
-    display: none;
     position: absolute;
-    top: 50px;
-    right: 20px;
-    background-color: #252545;
-    border: 1px solid #333;
-    width: 150px;
-    border-radius: 5px;
-    padding: 5px 0;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    top: 65px; /* হেডারের ঠিক নিচে */
+    left: 15px;
+    width: 280px; /* ওয়ালেট বক্সের সমান চওড়া */
+    background: #1a1a2e;
+    border: 1px solid #2d2d44;
+    border-radius: 12px;
+    padding: 10px;
+    z-index: 1000;
 }
 
 .dropdown-item {
-    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
     color: #fff;
     cursor: pointer;
+    border-bottom: 1px solid #252538;
+}
+
+.dropdown-item img {
+    width: 24px;
+    height: 24px;
+}
+
+.dropdown-item span {
+    margin-left: auto; /* ব্যালেন্স ডান দিকে সরানোর জন্য */
+    color: #a0a0b0;
 }
 
 .dropdown-item:hover {
