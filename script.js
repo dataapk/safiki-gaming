@@ -20,24 +20,26 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // কারেন্সি সিলেক্ট লজিক (নতুন যোগ হলো)
-    currencyItems.forEach(item => {
-        item.addEventListener('click', function(e) {
-            e.preventDefault(); // লিঙ্ক ডিফল্ট কাজ বন্ধ করা
-            
-            // ১. বাটনের ভেতরের কন্টেন্ট আপডেট করা
-            // ধরে নিচ্ছি বাটনের ভেতরে img এবং span বা text আছে
-            const selectedImg = this.querySelector('img').src;
-            const selectedText = this.innerText; // কারেন্সির নাম
-            
-            // বাটনের ইমেজ এবং টেক্সট আপডেট
-            currencyBtn.querySelector('img').src = selectedImg;
-            // currencyBtn.querySelector('span').innerText = selectedText; // যদি টেক্সট থাকে
-            
-            // ২. ড্রপডাউন বন্ধ করা
-            currencyMenu.style.display = 'none';
-        });
+   // কারেন্সি সিলেক্ট লজিক
+currencyItems.forEach(item => {
+    item.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // ১. লোগো আপডেট
+        const selectedImgSrc = this.querySelector('img').src;
+        currencyBtn.querySelector('img').src = selectedImgSrc;
+        
+        // ২. ব্যালেন্স আপডেট (নতুন যোগ হলো)
+        // ধরলাম তোমার হেডারের বাটনের ভেতরে একটি span আছে যেখানে ব্যালেন্স দেখায়
+        const balanceSpan = currencyBtn.querySelector('.balance-text'); 
+        if(balanceSpan) {
+            const newBalance = this.getAttribute('data-balance');
+            balanceSpan.innerText = newBalance;
+        }
+        
+        currencyMenu.style.display = 'none';
     });
+});
     /* =====================================================
        ২. হেডার সেকশন লজিক
        ===================================================== */
