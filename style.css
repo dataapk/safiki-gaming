@@ -47,13 +47,12 @@ img, svg {
 
 /* হেডার মেইন কন্টেইনার */
 .header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 15px;
-    background: #1a1a2e;
-    position: sticky; /* অথবা fixed */
-    z-index: 1000;
+    position: fixed; /* স্ক্রল করলেও এটি নড়বে না */
+    top: 0;
+    left: 0;
+    width: 100%; /* পুরো স্ক্রিনজুড়ে থাকবে */
+    z-index: 9999; /* যেন এটি সবসময় সবার উপরে থাকে */
+    /* অন্যান্য স্টাইল যেমন background, padding যা আগে দিয়েছ তা একই থাকবে */
 }
 
 /* লোগো */
