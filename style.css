@@ -198,8 +198,8 @@ img, svg {
 .icon-box {
     background: #1a1a2e;
     border: 1px solid #2d2d44;
-    width: 35px;
-    height: 35px;
+    width: 40px;
+    height: 40px;
     margin-left: 5px; /* বাম দিকে জায়গা তৈরি করে এগুলোকে ডান দিকে পুশ করবে */
     margin-right: -5px;
     display: flex;
@@ -211,8 +211,8 @@ img, svg {
 .profile-box {
     background: #1a1a2e;
     border: 1px solid #2d2d44;
-    width: 35px;
-    height: 35px;
+    width: 40px;
+    height: 40px;
     margin-left: 5px; /* বাম দিকে জায়গা তৈরি করে এগুলোকে ডান দিকে পুশ করবে */
     
     display: flex;
@@ -225,7 +225,7 @@ img, svg {
 /* আইকনের রঙ ও সাইজ ঠিক করার জন্য */
 .icon-box i, .profile-box i {
     color: #ffffff; /* আইকনের রঙ */
-    font-size: 16px; /* আইকনের সাইজ */
+    font-size: 25px; /* আইকনের সাইজ */
 }
 
 /* মোবাইল ডিভাইসের জন্য অ্যাডজাস্টমেন্ট */
