@@ -201,7 +201,7 @@ img, svg {
     width: 35px;
     height: 35px;
     margin-left: 5px; /* বাম দিকে জায়গা তৈরি করে এগুলোকে ডান দিকে পুশ করবে */
-    margin-right: 5px;
+    margin-right: -10px;
     display: flex;
     justify-content: center;
     align-items: center;
