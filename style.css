@@ -45,23 +45,17 @@ img, svg {
 /* হেডার সেকশন স্টার্ট */
 /* --- হেডার এবং ওয়ালেট বক্সের সম্পূর্ণ CSS --- */
 /* ১. হেডারের জন্য একদম ফিক্সড মাপ */
+/* এটি ডেস্কটপ এবং মোবাইল সব ডিভাইসেই কাজ করবে */
 .header {
-    position: fixed;
-    top: 0;
-    left: 0;
     width: 100%;
-    height: 35px; /* তুমি যা মেপেছ তাই রাখলাম */
+    height: 35px !important; /* !important দিয়েছি যাতে মোবাইল সিএসএস একে ওভাররাইড না করে */
     background: #050508;
-    z-index: 1000;
-    
-    /* সবচাইতে জরুরি: প্যাডিংকে বক্সের ভেতরে রাখতে */
-    box-sizing: border-box; 
-    
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    
-    
+    padding: 0 10px !important; /* প্যাডিং জিরো করার জন্য বা শুধু ডানে-বামে রাখতে */
+    box-sizing: border-box;
+    margin: 0;
+    position: relative;
 }
 /* ২. ডান পাশের এলিমেন্টগুলোর জন্য কন্টেইনার */
 .header-actions {
@@ -79,15 +73,16 @@ img, svg {
 
 /* ৩. ওয়ালেট বক্স */
 .wallet-wrapper {
-    height: 35px; /* হেডারের থেকে ১৫px কম */
-    display: flex;
-    align-items: center;
-    justify-content: center; /* ভেতরের লেখা বা আইকন মাঝখানে রাখার জন্য */
-    padding: 0 12px; /* ডানে-বামে জায়গা */
+    height: 25px !important; /* হেডারের চেয়ে ১০ পিক্সেল কম যাতে স্লিম দেখায় */
+    padding: 0 10px;
+    margin-left: auto;
     background: #0d0d16;
     border: 1px solid #2d2d44;
     border-radius: 8px;
-    margin-left: auto; /* এটিই বক্সকে সবার ডানে নিয়ে যাবে */
+    display: flex;
+    align-items: center;
+    /* মোবাইল স্ক্রিনে বক্স যেন ছোট হয় */
+    max-width: 150px; 
 }
 .currency-trigger {
     padding: 10px;
