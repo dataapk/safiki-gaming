@@ -138,77 +138,50 @@ img, svg {
 }
 
 /* ড্রপডাউন মেনু */
-.dropdown-menu {
+.currency-dropdown {
+    display: none; 
     position: absolute;
-    top: 65px;
-    left: 15px;
-    width: 300px;
-    background: #1a1a2e;
+    top: 50px; /* হেডারের ঠিক নিচে */
+    left: 0;
+    background: #151520;
     border: 1px solid #2d2d44;
-    border-radius: 12px;
-    padding: 10px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    border-radius: 10px;
+    width: 200px; /* তোমার ইচ্ছামতো সাইজ */
+    overflow: hidden;
+    z-index: 1000;
 }
 
-/* ড্রপডাউন কন্ট্রোলস (টপ পজিশন) */
-.dropdown-controls {
-    padding: 5px 10px;
-    border-bottom: 1px solid #2d2d44;
-    display: flex;
-    justify-content: space-between;
-    font-size: 11px;
-    color: #888;
-    margin-bottom: 10px;
-}
-
-/* কারেন্সি লিস্ট আইটেম */
-/* কারেন্সি লিস্ট আইটেম */
-
+/* তোমার দেওয়া স্টাইল এখানে বসবে */
 .dropdown-item {
-
     display: flex;
-
     align-items: center;
-
     gap: 10px;
-
     padding: 10px;
-
     color: #fff;
-
+    text-decoration: none; /* আন্ডারলাইন সরানোর জন্য */
     cursor: pointer;
-
     transition: 0.3s;
-
 }
-
-
 
 .dropdown-item:hover {
-
     background: #252538;
-
 }
-
-
 
 .dropdown-item img {
-
     width: 20px;
-
     height: 20px;
-
 }
-
-
 
 .dropdown-item span {
-
-    margin-left: auto;
-
+    margin-left: auto; /* এটি ব্যালেন্সকে একদম ডানদিকে সরিয়ে দেবে */
     font-size: 13px;
-
+    color: #888; /* একটু হালকা কালার দিলে দেখতে ভালো লাগে */
 }
+
+
+
+/* ড্রপডাউন মেনু */
+
 
 /* ইউজার অ্যাকশন (ডান পাশের আইকন) */
 .header-actions i {
