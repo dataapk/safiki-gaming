@@ -14,34 +14,28 @@
 <header class="header">
     <div class="logo">◈</div>
     
-    <nav class="nav-group">
-        <!-- ওয়ালেট বক্স (বাম পাশে) -->
-        <div class="balance-container" onclick="toggleCurrencyMenu()">
-            <div class="balance-box">
-                <span class="currency-icon"><img src="usdt.png" alt="USDT"></span>
-                <span class="balance-text">0.08579204</span>
-                <span class="dropdown-arrow"><i class="fas fa-chevron-down"></i></span>
-            </div>
-            <!-- ড্রপডাউন মেনু -->
-            <div id="currencyDropdown" class="dropdown-menu">
-                <div class="dropdown-item" onclick="selectCurrency('USDT', 'usdt.png')">
-                    <img src="usdt.png" alt="USDT"> USDT
-                </div>
-                <div class="dropdown-item" onclick="selectCurrency('BTC', 'btc.png')">
-                    <img src="btc.png" alt="BTC"> BTC
-                </div>
-                <div class="dropdown-item" onclick="selectCurrency('ETH', 'eth.png')">
-                    <img src="eth.png" alt="ETH"> ETH
-                </div>
-            </div>
+    <!-- মেইন ওয়ালেট বক্স -->
+    <div class="wallet-wrapper">
+        <!-- ড্রপডাউন ট্রিগার অংশ -->
+        <div class="currency-trigger" onclick="toggleCurrencyMenu()">
+            <i class="fas fa-chevron-down"></i>
+            <img src="usdt.png" alt="USDT">
         </div>
+        
+        <!-- ব্যালেন্স টেক্সট -->
+        <div class="balance-amount">0.08579204</div>
+        
+        <!-- ওয়ালেট বাটন (ইয়েলো/অরেঞ্জ হাইলাইট) -->
+        <div class="wallet-icon">
+            <i class="fas fa-wallet"></i>
+        </div>
+    </div>
 
-        <!-- নোটিফিকেশন এবং প্রোফাইল (ডান দিকে) -->
-        <div class="user-actions">
-            <div class="notification-icon"><i class="fas fa-bell"></i></div>
-            <div class="profile-icon"><img src="profile.png" alt="User"></div>
-        </div>
-    </nav>
+    <!-- নোটিফিকেশন ও প্রোফাইল -->
+    <div class="user-actions">
+        <div class="icon-box"><i class="fas fa-bell"></i></div>
+        <div class="profile-box"><img src="profile.png" alt="User"></div>
+    </div>
 </header>
 
 <!-- হিরো সেকশন স্টার্ট -->
