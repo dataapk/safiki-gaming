@@ -72,7 +72,7 @@ img, svg {
     border: 1px solid #2d2d44;
     border-radius: 10px;
     height: 40px; /* হেডারের ভেতরে সুন্দরভাবে বসবে */
-    margin-left: 20px; /* নোটিফিকেশন থেকে ওয়ালেট বক্স বামে সরাবে */
+    margin-left: 15px; /* নোটিফিকেশন থেকে ওয়ালেট বক্স বামে সরাবে */
     margin-right: auto;
     overflow: hidden;
 }
@@ -201,7 +201,7 @@ img, svg {
     width: 35px;
     height: 35px;
     margin-left: 5px; /* বাম দিকে জায়গা তৈরি করে এগুলোকে ডান দিকে পুশ করবে */
-    margin-right: -10px;
+    margin-right: -5px;
     display: flex;
     justify-content: center;
     align-items: center;
