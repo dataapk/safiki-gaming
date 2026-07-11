@@ -18,13 +18,6 @@
 
     <div class="logo">◈</div>
 
-    
-
-    <!-- মেইন ওয়ালেট বক্স -->
-
-    <div class="wallet-wrapper">
-
-        <!-- ড্রপডাউন ট্রিগার অংশ -->
 
       <!-- ড্রপডাউন কন্টেইনার -->
 <div class="currency-dropdown-container">
@@ -59,14 +52,30 @@
 
 </div>
 
-        <!-- ওয়ালেট বাটন (ইয়েলো/অরেঞ্জ হাইলাইট) -->
-
-        <div class="wallet-icon">
-
+       <!-- মাঝখানের নতুন ওয়ালেট সেকশন -->
+    <div class="wallet-wrapper">
+        <div class="wallet-icon" id="wallet-btn">
             <i class="fas fa-wallet"></i>
-
         </div>
 
+        <!-- ওয়ালেট ড্রপডাউন মেনু -->
+        <div id="wallet-menu" class="wallet-menu">
+            <div class="wallet-tabs">
+                <button class="tab-link active" onclick="openTab(event, 'deposit')">Deposit</button>
+                <button class="tab-link" onclick="openTab(event, 'withdraw')">Withdraw</button>
+                <button class="tab-link" onclick="openTab(event, 'exchange')">Exchange</button>
+            </div>
+
+            <div id="deposit" class="tab-content" style="display:block;">
+                <p>Deposit options...</p>
+            </div>
+            <div id="withdraw" class="tab-content" style="display:none;">
+                <p>Withdrawal options...</p>
+            </div>
+            <div id="exchange" class="tab-content" style="display:none;">
+                <p>Exchange options...</p>
+            </div>
+        </div>
     </div>
    <!-- নোটিফিকেশন এবং প্রোফাইল সেকশন (শুধুমাত্র আইকন কোড) -->
 <div class="user-actions">
