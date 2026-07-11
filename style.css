@@ -158,6 +158,12 @@ img, svg {
     display: flex;
     align-items: center;
 }
+/* ড্রপডাউন মেনুর ভেতরের ইমেজ */
+.currency-menu .dropdown-item img {
+    width: 20px !important;  /* তোমার পছন্দমতো সাইজ */
+    height: 20px !important;
+    object-fit: contain;     /* ইমেজ যেন বিকৃত না হয় */
+}
 
 .currency-trigger {
     display: flex;
@@ -165,6 +171,12 @@ img, svg {
     gap: 8px;
     cursor: pointer;
     padding: 5px;
+}
+/* ট্রিগার বাটন বা কারেন্সি বাটনের ভেতরের ইমেজ */
+.currency-trigger img {
+    width: 20px !important;  /* ড্রপডাউনের ইমেজের সাথে একই সাইজ রাখো */
+    height: 20px !important;
+    object-fit: contain;
 }
 
 /* তোমার দেওয়া স্টাইল এখানে বসবে */
