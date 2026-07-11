@@ -74,7 +74,7 @@ img, svg {
     border: 1px solid #2d2d44;
     cursor: pointer;
     overflow: hidden;
-    margin: 5 25px;
+    margin: 5 15px;
 }
 
 .currency-trigger {
@@ -155,7 +155,7 @@ img, svg {
 /* ইউজার অ্যাকশন (ডান পাশের আইকন) */
 .user-actions {
     display: flex;
-    gap: 10px;
+    gap: 5px;
 }
 
 /* নোটিফিকেশন আইকন - স্কয়ার এবং রাউন্ডেড কোণা */
@@ -165,6 +165,7 @@ img, svg {
     border: 1px solid #2d2d44;
     width: 40px;
     height: 40px;
+    margin-left: 5px; /* বাম দিকে জায়গা তৈরি করে এগুলোকে ডান দিকে পুশ করবে */
     display: flex;
     justify-content: center;
     align-items: center;
