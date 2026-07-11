@@ -266,31 +266,47 @@ img, svg {
 
 /* HEADER WALLET SECTION  */
 
-.wallet-wrapper { position: relative; }
-
+/* কারেন্সি মেনুর সাথে মিল রেখে ওয়ালেট মেনুর স্টাইল */
 .wallet-menu {
     display: none;
     position: absolute;
+    top: 100%; /* বাটনের ঠিক নিচে */
     right: 0;
-    top: 40px;
-    background: #151520;
-    border: 1px solid #2d2d44;
+    background: #151520; /* তোমার আগের মেনুর কালার */
+    border: 1px solid #2d2d44; /* বর্ডার */
+    border-radius: 12px; /* রাউন্ডেড কর্নার */
     padding: 15px;
-    width: 300px;
-    border-radius: 10px;
+    width: 320px; /* তোমার পছন্দের উইথ */
     z-index: 1000;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
 
-.wallet-tabs { display: flex; gap: 10px; border-bottom: 1px solid #2d2d44; }
+/* ট্যাবের স্টাইল */
+.wallet-tabs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #2d2d44;
+}
 
 .tab-link {
-    background: none; border: none; color: #fff; padding: 5px; cursor: pointer;
+    padding: 8px 12px;
+    color: #888;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
 }
 
-.tab-link.active { border-bottom: 2px solid #3498db; }
+.tab-link.active {
+    color: #fff;
+    border-bottom: 2px solid #3498db;
+}
 
-.tab-content { margin-top: 15px; }
-
+.tab-content {
+    color: #fff;
+    font-size: 14px;
+}
 /* হেডার সেকশন ইন্ড */
 /* হিরো সেকশন স্টার্ট */
 .hero-section {
