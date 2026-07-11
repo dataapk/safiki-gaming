@@ -16,16 +16,24 @@
     <nav class="nav-group">
         <div class="balance-container" onclick="toggleCurrencyMenu()">
             <div class="balance-box">
-                <span class="currency-icon">₮</span>
+                <!-- এখানে ডিফল্ট আইকন হিসেবে USDT থাকবে -->
+                <span class="currency-icon"><img src="usdt.png" alt="USDT"></span>
                 <span class="balance-text">0.08579204</span>
                 <span class="dropdown-arrow"><i class="fas fa-chevron-down"></i></span>
             </div>
+            
+            <!-- ড্রপডাউন মেনু যেখানে ইমেজসহ অপশন থাকবে -->
             <div id="currencyDropdown" class="dropdown-menu">
-                <div class="dropdown-item">USDT</div>
-                <div class="dropdown-item">USDC</div>
-                <div class="dropdown-item">BTC</div>
+                <div class="dropdown-item" onclick="selectCurrency('USDT', 'usdt.png')">
+                    <img src="usdt.png" alt="USDT"> USDT
+                </div>
+                <div class="dropdown-item" onclick="selectCurrency('BTC', 'btc.png')">
+                    <img src="btc.png" alt="BTC"> BTC
+                </div>
+                <div class="dropdown-item" onclick="selectCurrency('ETH', 'eth.png')">
+                    <img src="eth.png" alt="ETH"> ETH
+                </div>
             </div>
-        </div>
         <div class="nav-icons">
             <span class="icon"><i class="fas fa-wallet"></i></span>
             <span class="icon"><i class="fas fa-bell"></i></span>
