@@ -26,13 +26,25 @@
 
         <!-- ড্রপডাউন ট্রিগার অংশ -->
 
-        <div class="currency-trigger" onclick="toggleCurrencyMenu()">
+      <!-- ড্রপডাউন কন্টেইনার -->
+<div class="currency-dropdown-container">
+    
+    <!-- বাটন অংশ (যেখানে ক্লিক করলে মেনু খুলবে) -->
+    <div class="currency-trigger" onclick="toggleCurrencyMenu()">
+        <img src="image/usdt.png" alt="USDT">
+        <i class="fas fa-chevron-down"></i>
+    </div>
 
-            <i class="fas fa-chevron-down"></i>
+    <!-- ড্রপডাউন মেনু -->
+    <div id="currencyDropdown" class="currency-dropdown">
+        <a href="#" class="dropdown-item"><img src="image/usdt.png" alt="USDT"> USDT <span>$1.00</span></a>
+        <a href="#" class="dropdown-item"><img src="image/btc.png" alt="BTC"> BTC <span>$65k</span></a>
+        <a href="#" class="dropdown-item"><img src="image/eth.png" alt="ETH"> ETH <span>$3.5k</span></a>
+        <a href="#" class="dropdown-item"><img src="image/sol.png" alt="SOL"> SOL <span>$140</span></a>
+        <a href="#" class="dropdown-item"><img src="image/doge.png" alt="DOGE"> DOGE <span>$0.12</span></a>
+    </div>
 
-            <img src="image/usdt.png" alt="USDT">
-
-        </div>
+</div>
 
         
 
