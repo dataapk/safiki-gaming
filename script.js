@@ -20,21 +20,24 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-   // কারেন্সি সিলেক্ট লজিক
+// কারেন্সি সিলেক্ট লজিক
 currencyItems.forEach(item => {
     item.addEventListener('click', function(e) {
         e.preventDefault();
         
-        // ১. লোগো আপডেট
+        // ১. ইমেজ আপডেট (এটা কাজ করছে)
         const selectedImgSrc = this.querySelector('img').src;
         currencyBtn.querySelector('img').src = selectedImgSrc;
         
-        // ২. ব্যালেন্স আপডেট (নতুন যোগ হলো)
-        // ধরলাম তোমার হেডারের বাটনের ভেতরে একটি span আছে যেখানে ব্যালেন্স দেখায়
+        // ২. ব্যালেন্স আপডেট লজিক
         const balanceSpan = currencyBtn.querySelector('.balance-text'); 
-        if(balanceSpan) {
-            const newBalance = this.getAttribute('data-balance');
-            balanceSpan.innerText = newBalance;
+        const newBalance = this.getAttribute('data-balance'); // HTML থেকে ডাটা আনছে
+        
+        if (balanceSpan) {
+            balanceSpan.innerText = newBalance; // নতুন ব্যালেন্স বসাচ্ছে
+            console.log("নতুন ব্যালেন্স সেট হয়েছে: " + newBalance); // কনসোলে চেক করো
+        } else {
+            console.error("error: .balance-text ক্লাসটি খুঁজে পাওয়া যায়নি!");
         }
         
         currencyMenu.style.display = 'none';
