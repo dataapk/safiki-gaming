@@ -150,6 +150,22 @@ img, svg {
     overflow: hidden;
     z-index: 1000;
 }
+.currency-dropdown.show {
+    display: block;
+}
+.currency-dropdown-container {
+    position: relative; /* ড্রপডাউনকে এর সাপেক্ষে পজিশন করতে সাহায্য করবে */
+    display: flex;
+    align-items: center;
+}
+
+.currency-trigger {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    padding: 5px;
+}
 
 /* তোমার দেওয়া স্টাইল এখানে বসবে */
 .dropdown-item {
