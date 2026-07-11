@@ -263,6 +263,34 @@ img, svg {
     } 
     .balance-text { font-size: 12px; }
 }
+
+/* HEADER WALLET SECTION  */
+
+.wallet-wrapper { position: relative; }
+
+.wallet-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 40px;
+    background: #151520;
+    border: 1px solid #2d2d44;
+    padding: 15px;
+    width: 300px;
+    border-radius: 10px;
+    z-index: 1000;
+}
+
+.wallet-tabs { display: flex; gap: 10px; border-bottom: 1px solid #2d2d44; }
+
+.tab-link {
+    background: none; border: none; color: #fff; padding: 5px; cursor: pointer;
+}
+
+.tab-link.active { border-bottom: 2px solid #3498db; }
+
+.tab-content { margin-top: 15px; }
+
 /* হেডার সেকশন ইন্ড */
 /* হিরো সেকশন স্টার্ট */
 .hero-section {
