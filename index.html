@@ -13,16 +13,16 @@
 <!-- হেডার সেকশন -->
 <header class="header">
     <div class="logo">◈</div>
+    
     <nav class="nav-group">
+        <!-- ওয়ালেট বক্স (বাম পাশে) -->
         <div class="balance-container" onclick="toggleCurrencyMenu()">
             <div class="balance-box">
-                <!-- এখানে ডিফল্ট আইকন হিসেবে USDT থাকবে -->
                 <span class="currency-icon"><img src="usdt.png" alt="USDT"></span>
                 <span class="balance-text">0.08579204</span>
                 <span class="dropdown-arrow"><i class="fas fa-chevron-down"></i></span>
             </div>
-            
-            <!-- ড্রপডাউন মেনু যেখানে ইমেজসহ অপশন থাকবে -->
+            <!-- ড্রপডাউন মেনু -->
             <div id="currencyDropdown" class="dropdown-menu">
                 <div class="dropdown-item" onclick="selectCurrency('USDT', 'usdt.png')">
                     <img src="usdt.png" alt="USDT"> USDT
@@ -34,10 +34,12 @@
                     <img src="eth.png" alt="ETH"> ETH
                 </div>
             </div>
-        <div class="nav-icons">
-            <span class="icon"><i class="fas fa-wallet"></i></span>
-            <span class="icon"><i class="fas fa-bell"></i></span>
-            <span class="icon"><i class="fas fa-user-circle"></i></span>
+        </div>
+
+        <!-- নোটিফিকেশন এবং প্রোফাইল (ডান দিকে) -->
+        <div class="user-actions">
+            <div class="notification-icon"><i class="fas fa-bell"></i></div>
+            <div class="profile-icon"><img src="profile.png" alt="User"></div>
         </div>
     </nav>
 </header>
