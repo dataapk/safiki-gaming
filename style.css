@@ -162,12 +162,27 @@ img, svg {
 }
 
 /* কারেন্সি লিস্ট আইটেম */
+.currency-dropdown {
+    display: none; 
+    position: absolute;
+    top: 50px; /* হেডারের ঠিক নিচে */
+    left: 0;
+    background: #151520;
+    border: 1px solid #2d2d44;
+    border-radius: 10px;
+    width: 200px; /* তোমার ইচ্ছামতো সাইজ */
+    overflow: hidden;
+    z-index: 1000;
+}
+
+/* তোমার দেওয়া স্টাইল এখানে বসবে */
 .dropdown-item {
     display: flex;
     align-items: center;
     gap: 10px;
     padding: 10px;
     color: #fff;
+    text-decoration: none; /* আন্ডারলাইন সরানোর জন্য */
     cursor: pointer;
     transition: 0.3s;
 }
@@ -182,8 +197,9 @@ img, svg {
 }
 
 .dropdown-item span {
-    margin-left: auto;
+    margin-left: auto; /* এটি ব্যালেন্সকে একদম ডানদিকে সরিয়ে দেবে */
     font-size: 13px;
+    color: #888; /* একটু হালকা কালার দিলে দেখতে ভালো লাগে */
 }
 
 /* ইউজার অ্যাকশন (ডান পাশের আইকন) */
