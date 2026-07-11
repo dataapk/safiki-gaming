@@ -195,13 +195,26 @@ img, svg {
 
 /* নোটিফিকেশন আইকন - স্কয়ার এবং রাউন্ডেড কোণা */
 /* নোটিফিকেশন এবং প্রোফাইল আইকন বক্সের স্টাইল */
-.icon-box, .profile-box {
+.icon-box {
     background: #1a1a2e;
     border: 1px solid #2d2d44;
     width: 35px;
     height: 35px;
     margin-left: 5px; /* বাম দিকে জায়গা তৈরি করে এগুলোকে ডান দিকে পুশ করবে */
     margin-right: -5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.profile-box {
+    background: #1a1a2e;
+    border: 1px solid #2d2d44;
+    width: 35px;
+    height: 35px;
+    margin-left: 5px; /* বাম দিকে জায়গা তৈরি করে এগুলোকে ডান দিকে পুশ করবে */
+    
     display: flex;
     justify-content: center;
     align-items: center;
