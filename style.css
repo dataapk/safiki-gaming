@@ -43,46 +43,41 @@ img, svg {
     }
 }
 /* হেডার সেকশন স্টার্ট */
-/* --- হেডার এবং ওয়ালেট বক্সের সম্পূর্ণ CSS --- */
-/* ১. হেডারের জন্য একদম ফিক্সড মাপ */
-/* এটি ডেস্কটপ এবং মোবাইল সব ডিভাইসেই কাজ করবে */
+
+/* ১. হেডার সবসময় উপরে আটকে থাকবে (Fixed) */
 .header {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 50px !important; /* !important দিয়েছি যাতে মোবাইল সিএসএস একে ওভাররাইড না করে */
+    height: 50px;           /* সঠিক হাইট */
     background: #050508;
+    z-index: 1000;          /* যাতে সবসময় উপরে থাকে */
     display: flex;
     align-items: center;
-    padding: 0 5px !important; /* প্যাডিং জিরো করার জন্য বা শুধু ডানে-বামে রাখতে */
-    box-sizing: border-box;
+    padding: 0 15px;
+    box-sizing: border-box; /* হাইট ফিক্স রাখার জন্য অপরিহার্য */
     margin: 0;
-    position: relative;
 }
-/* ২. ডান পাশের এলিমেন্টগুলোর জন্য কন্টেইনার */
+/* ২. নোটিফিকেশন ও ওয়ালেট বক্সের কন্টেইনার */
 .header-actions {
     display: flex;
     align-items: center;
-    gap: 10px; /* নোটিফিকেশন ও ওয়ালেটের মাঝের গ্যাপ */
-    height: 100%; /* হেডারের হাইট অনুযায়ী থাকবে */
+    gap: 15px;              /* নোটিফিকেশন ও ওয়ালেট বক্সের মাঝে গ্যাপ */
+    margin-left: auto;      /* সব ডান দিকে ঠেলে দিবে */
 }
 
-/* লোগো */
-.logo {
-    font-size: 24px;
-    color: #ff9900;
-}
 
-/* ৩. ওয়ালেট বক্স */
+/* ৩. ওয়ালেট বক্সের পজিশন */
 .wallet-wrapper {
-    height: 25px !important; /* হেডারের চেয়ে ১০ পিক্সেল কম যাতে স্লিম দেখায় */
-    padding: 0 10px;
-    margin-left: auto;
+    height: 40px;           /* হেডারের ভেতরে সুন্দরভাবে বসবে */
+    display: flex;
+    align-items: center;
     background: #0d0d16;
     border: 1px solid #2d2d44;
     border-radius: 8px;
-    display: flex;
-    align-items: center;
-    /* মোবাইল স্ক্রিনে বক্স যেন ছোট হয় */
-    max-width: 150px; 
+    padding: 0 10px;
+    white-space: nowrap;    /* বক্স যেন নিচে না নামে */
 }
 .currency-trigger {
     padding: 10px;
