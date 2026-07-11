@@ -401,14 +401,16 @@ img, svg {
 
 /* মাঝখানের সার্চ বাটন */
 .search-btn {
-    width: 55px;
-    height: 55px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     background: #ffcc00;
     color: #1a1a2e;
+    position: relative;
+    top: 15px; /* এই মানটি বাড়ালে বাটনটি নিচের দিকে নামবে */
     
     /* এই প্রপার্টিগুলো আপডেট করুন */
-    margin-bottom: 5px; /* এটি কমিয়ে দিন (৫ থেকে ১০ পিক্সেলের মধ্যে রাখুন) */
+    margin-bottom: 0px; /* এটি কমিয়ে দিন (৫ থেকে ১০ পিক্সেলের মধ্যে রাখুন) */
     transform: translateY(-20px); /* এটি সার্চ বাটনটিকে ফুটারের কিছুটা উপরে ভাসিয়ে রাখবে */
     
     border: 4px solid #1a1a2e; 
