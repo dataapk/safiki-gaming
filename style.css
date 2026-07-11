@@ -61,8 +61,7 @@ img, svg {
     align-items: center;
     justify-content: space-between;
     
-    /* প্যাডিং এখানে এমনভাবে দিলাম যেন এটি হেডারের সাইজ না বাড়ায় */
-    padding: 0 10px; 
+    
 }
 /* ২. ডান পাশের এলিমেন্টগুলোর জন্য কন্টেইনার */
 .header-actions {
