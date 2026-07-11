@@ -50,7 +50,7 @@ img, svg {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 15px;
+    padding: 13px 15px;
     background: #1a1a2e;
     position: sticky; 
     top: 0;           
