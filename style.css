@@ -80,18 +80,15 @@ img, svg {
 
 /* ৩. ওয়ালেট বক্স */
 .wallet-wrapper {
+    height: 35px; /* হেডারের থেকে ১৫px কম */
     display: flex;
     align-items: center;
+    justify-content: center; /* ভেতরের লেখা বা আইকন মাঝখানে রাখার জন্য */
+    padding: 0 12px; /* ডানে-বামে জায়গা */
     background: #0d0d16;
     border: 1px solid #2d2d44;
-    border-radius: 8px; /* কর্নার রাউন্ড */
-    
-    /* এখানে হাইট হেডারের চেয়ে সামান্য কম রাখতে হবে যাতে ফিক্সড দেখায় */
-    height: 25px; 
-    padding: 0 10px;
-    
-    /* মার্জিন জিরো করে দাও, কারণ আমরা .header-actions এর গ্যাপ দিয়ে কন্ট্রোল করছি */
-    margin: 0; 
+    border-radius: 8px;
+    margin-left: auto; /* এটিই বক্সকে সবার ডানে নিয়ে যাবে */
 }
 .currency-trigger {
     padding: 10px;
