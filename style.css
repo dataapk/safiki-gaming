@@ -367,13 +367,14 @@ img, svg {
     position: fixed;
     bottom: 0;
     width: 100%;
-    background: #71797E;
+    background: #1a1a2e; /* ওয়েবসাইটের মূল ব্যাকগ্রাউন্ড কালার */
     height: 60px;
     display: flex;
     justify-content: center;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
+    border-top-left-radius: 0px; /* রাউন্ডেড সরিয়ে দেওয়া হলো */
+    border-top-right-radius: 0px; /* রাউন্ডেড সরিয়ে দেওয়া হলো */
     z-index: 1000;
+    border-top: 1px solid #2d3748; /* সামান্য বর্ডার যাতে ফুটারটি আলাদা বোঝা যায় */
 }
 
 .footer-nav {
