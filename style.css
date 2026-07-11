@@ -52,7 +52,7 @@ img, svg {
     justify-content: space-between;
     padding: 10px 15px;
     background: #1a1a2e;
-    position: relative;
+    position: sticky; /* অথবা fixed */
     z-index: 1000;
 }
 
