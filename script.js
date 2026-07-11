@@ -73,3 +73,33 @@ currencyItems.forEach(item => {
         // অন্যান্য সেকশনের মেনু রিসেট এখানে যুক্ত করবে
     }
 });
+
+// WALLET SECTION START
+
+// ট্যাব পরিবর্তন করার ফাংশন
+function openTab(evt, tabName) {
+    // ১. সব কন্টেন্ট এরিয়া লুকিয়ে ফেলা
+    const contents = document.getElementsByClassName("tab-content");
+    for (let i = 0; i < contents.length; i++) {
+        contents[i].style.display = "none";
+    }
+
+    // ২. সব ট্যাব বাটন থেকে 'active' ক্লাস সরিয়ে ফেলা
+    const links = document.getElementsByClassName("tab-link");
+    for (let i = 0; i < links.length; i++) {
+        links[i].classList.remove("active");
+    }
+
+    // ৩. শুধুমাত্র সিলেক্ট করা ট্যাব এবং কন্টেন্ট দেখানো
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.classList.add("active");
+}
+
+// ওয়ালেট ড্রপডাউন মেনু টগল করার কোড
+document.getElementById('wallet-btn').addEventListener('click', (e) => {
+    e.stopPropagation(); // ক্লিক যেন মেনুর ভেতরেই আটকে থাকে
+    const menu = document.getElementById('wallet-menu');
+    menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+});
+
+
