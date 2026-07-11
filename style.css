@@ -401,14 +401,21 @@ img, svg {
 
 /* মাঝখানের সার্চ বাটন */
 .search-btn {
-    width: 65px;
-    height: 65px;
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
-    background: #00ff9d;
+    background: #ffcc00;
     color: #1a1a2e;
-    margin-bottom: 40px;
-    border: 5px solid #1a1a2e;
-    box-shadow: 0 0 15px rgba(0, 255, 157, 0.3);
+    
+    /* এই প্রপার্টিগুলো আপডেট করুন */
+    margin-bottom: 5px; /* এটি কমিয়ে দিন (৫ থেকে ১০ পিক্সেলের মধ্যে রাখুন) */
+    transform: translateY(-20px); /* এটি সার্চ বাটনটিকে ফুটারের কিছুটা উপরে ভাসিয়ে রাখবে */
+    
+    border: 4px solid #1a1a2e; 
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* --- ২. ড্রপডাউন প্যানেল (হোম মেনু) --- */
