@@ -72,7 +72,7 @@ img, svg {
     border: 1px solid #2d2d44;
     border-radius: 10px;
     height: 40px; /* হেডারের ভেতরে সুন্দরভাবে বসবে */
-    margin-left: 15px; /* নোটিফিকেশন থেকে ওয়ালেট বক্স বামে সরাবে */
+    margin-left: 25px; /* নোটিফিকেশন থেকে ওয়ালেট বক্স বামে সরাবে */
     margin-right: auto;
     overflow: hidden;
 }
