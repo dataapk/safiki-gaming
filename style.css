@@ -187,7 +187,8 @@ img, svg {
 /* হিরো সেকশন স্টার্ট */
 .hero-section {
     width: 95%; 
-    margin: 0 auto 20px auto; /* প্রথম মানটি (Top) ০ করে দিলাম */
+    /* আগে ছিল 0, এখন এখানে 10px বা 15px দাও */
+    margin: 15px auto 20px auto; 
     position: relative;
     overflow: hidden;
     border-radius: 15px;
