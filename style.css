@@ -44,57 +44,89 @@ img, svg {
 }
 /* হেডার সেকশন স্টার্ট */
 
-/* ১. হেডার সবসময় উপরে আটকে থাকবে (Fixed) */
-/* ১. মূল হেডার কন্টেইনার - ফিক্সড */
-/* হেডারের হাইট ৫০ পিক্সেল */
+/* ১. ফিক্সড হেডার */
 .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 50px;
     background: #050508;
     display: flex;
     align-items: center;
     padding: 0 15px;
     box-sizing: border-box;
+    z-index: 1000;
 }
 
-/* ওয়ালেট বক্স - অরেঞ্জ কালারের রাইট সাইড এবং ডার্ক ব্যাকগ্রাউন্ড */
+.logo {
+    font-size: 24px;
+    color: #ff9900;
+}
+
+/* ২. ওয়ালেট বক্স ডিজাইন */
 .wallet-wrapper {
-    height: 40px;
     display: flex;
     align-items: center;
-    background: #151520; /* বাম পাশের ডার্ক অংশ */
-    border-radius: 12px;
-    margin-left: auto;
+    background: #151520;
+    border: 1px solid #2d2d44;
+    border-radius: 10px;
+    height: 40px; /* হেডারের ভেতরে সুন্দরভাবে বসবে */
+    margin-left: auto; /* নোটিফিকেশন থেকে ওয়ালেট বক্স বামে সরাবে */
+    margin-right: 15px;
     overflow: hidden;
-    border: 1px solid #252535;
 }
 
-/* ক্রিপ্টো আইকন ও এরো চিহ্নের সাইজ ছোট করা */
-.crypto-info {
+.currency-trigger {
     display: flex;
     align-items: center;
     padding: 0 10px;
     gap: 8px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 12px;
 }
 
-.crypto-icon {
-    width: 20px;  /* আইকন যেন বড় না হয় */
+.currency-trigger img {
+    width: 20px;
     height: 20px;
 }
 
-.arrow-icon {
-    width: 10px;  /* এরো চিহ্ন একদম ছোট */
-    height: 10px;
+.balance-amount {
+    color: #fff;
+    font-size: 14px;
+    padding: 0 10px;
 }
 
-/* ওয়ালেট আইকন বক্স - অরেঞ্জ ব্যাকগ্রাউন্ড */
-.wallet-icon-btn {
-    background: #ff9900; /* তোমার কাঙ্ক্ষিত অরেঞ্জ কালার */
-    width: 50px;
+.wallet-icon {
+    background: #ff9900; /* কাঙ্ক্ষিত ইয়েলো/অরেঞ্জ কালার */
+    width: 45px;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #000;
+    font-size: 16px;
+}
+
+/* ৩. ইউজার অ্যাকশন (নোটিফিকেশন ও প্রোফাইল) */
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.icon-box, .profile-box {
+    width: 40px;
+    height: 40px;
+    background: #151520;
+    border: 1px solid #2d2d44;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    cursor: pointer;
 }
 
 /* মাঝখানের ভার্টিক্যাল দাগ */
@@ -155,9 +187,10 @@ img, svg {
 }
 
 /* ইউজার অ্যাকশন (ডান পাশের আইকন) */
-.user-actions {
-    display: flex;
-    gap: 5px;
+.header-actions i {
+    font-size: 18px;
+    color: #ffffff;
+    cursor: pointer;
 }
 
 /* নোটিফিকেশন আইকন - স্কয়ার এবং রাউন্ডেড কোণা */
