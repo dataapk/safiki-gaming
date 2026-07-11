@@ -2,6 +2,21 @@
 // ======================================================
 // 🚀 START : HEADER
 // ======================================================
+// ১. ড্রপডাউন ওপেন/ক্লোজ করার ফাংশন
+function toggleCurrencyMenu() {
+    document.getElementById("currencyDropdown").classList.toggle("show");
+}
+
+// ২. ড্রপডাউনের বাইরে ক্লিক করলে সেটি বন্ধ করার ফাংশন
+window.onclick = function(event) {
+    // যদি ক্লিকের টার্গেট 'currency-trigger' বা এর ভেতরের কিছু না হয়
+    if (!event.target.closest('.currency-trigger')) {
+        var dropdown = document.getElementById("currencyDropdown");
+        if (dropdown.classList.contains('show')) {
+            dropdown.classList.remove('show');
+        }
+    }
+}
 
 
 
