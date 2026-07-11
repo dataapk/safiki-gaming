@@ -72,8 +72,8 @@ img, svg {
     border: 1px solid #2d2d44;
     border-radius: 10px;
     height: 40px; /* হেডারের ভেতরে সুন্দরভাবে বসবে */
-    margin-left: auto; /* নোটিফিকেশন থেকে ওয়ালেট বক্স বামে সরাবে */
-    margin-right: 15px;
+    margin-left: 15px; /* নোটিফিকেশন থেকে ওয়ালেট বক্স বামে সরাবে */
+    margin-right: auto;
     overflow: hidden;
 }
 
@@ -198,8 +198,8 @@ img, svg {
 .icon-box, .profile-box {
     background: #1a1a2e;
     border: 1px solid #2d2d44;
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     margin-left: 5px; /* বাম দিকে জায়গা তৈরি করে এগুলোকে ডান দিকে পুশ করবে */
     display: flex;
     justify-content: center;
@@ -211,7 +211,7 @@ img, svg {
 /* আইকনের রঙ ও সাইজ ঠিক করার জন্য */
 .icon-box i, .profile-box i {
     color: #ffffff; /* আইকনের রঙ */
-    font-size: 18px; /* আইকনের সাইজ */
+    font-size: 16px; /* আইকনের সাইজ */
 }
 
 /* মোবাইল ডিভাইসের জন্য অ্যাডজাস্টমেন্ট */
