@@ -1,246 +1,70 @@
+/* =========================================================
+   ১. মূল ডোম লোড (মেইন ফাউন্ডেশন)
+   ========================================================= */
+document.addEventListener('DOMContentLoaded', () => {
 
-// ======================================================
-// 🚀 START : HEADER
-// ======================================================
-// ১. ড্রপডাউন ওপেন/ক্লোজ করার ফাংশন
-function toggleCurrencyMenu() {
-    document.getElementById("currencyDropdown").classList.toggle("show");
-}
+   /* =====================================================
+       ২. হেডার সেকশন লজিক
+       ===================================================== */
+    // ভেরিয়েবলস
+    const currencyBtn = document.getElementById('currency-btn'); // ট্রিগার বাটন
+    const currencyMenu = document.getElementById('currency-menu'); // ড্রপডাউন মেনু
+    const currencyItems = document.querySelectorAll('.dropdown-item'); // সব কারেন্সি লিস্ট
 
-// ২. ড্রপডাউনের বাইরে ক্লিক করলে সেটি বন্ধ করার ফাংশন
-window.onclick = function(event) {
-    // যদি ক্লিকের টার্গেট 'currency-trigger' বা এর ভেতরের কিছু না হয়
-    if (!event.target.closest('.currency-trigger')) {
-        var dropdown = document.getElementById("currencyDropdown");
-        if (dropdown.classList.contains('show')) {
-            dropdown.classList.remove('show');
-        }
-    }
-}
-
-
-
-
-
-// ======================================================
-// 🚀 END : HEADER
-// ======================================================
-// ======================================================
-// 📋 START : MENU DRAWER
-// ======================================================
-
-// =========================
-// DOM
-// =========================
-
-const menuBtn =
-document.getElementById("menuBtn");
-
-const menuDrawer =
-document.getElementById("menuDrawer");
-
-const menuCloseBtn =
-document.getElementById("menuCloseBtn");
-
-const footerButtons =
-document.querySelectorAll(".bottom-nav .nav-item");
-
-// =========================
-// OPEN
-// =========================
-
-function openMenuDrawer(){
-
-    if(!menuDrawer) return;
-
-    menuDrawer.classList.add("open");
-
-}
-
-// =========================
-// CLOSE
-// =========================
-
-function closeMenuDrawer(){
-
-    if(!menuDrawer) return;
-
-    menuDrawer.classList.remove("open");
-
-}
-
-// =========================
-// TOGGLE
-// =========================
-
-function toggleMenuDrawer(){
-
-    if(!menuDrawer) return;
-
-    menuDrawer.classList.toggle("open");
-
-}
-
-// =========================
-// MENU BUTTON
-// =========================
-
-if(menuBtn){
-
-    menuBtn.addEventListener(
-
-        "click",
-
-        function(e){
-
+    // কারেন্সি ড্রপডাউন টগল ইভেন্ট
+    if(currencyBtn) {
+        currencyBtn.addEventListener('click', (e) => {
             e.stopPropagation();
-
-            toggleMenuDrawer();
-
-        }
-
-    );
-
-}
-
-// =========================
-// CLOSE BUTTON
-// =========================
-
-if(menuCloseBtn){
-
-    menuCloseBtn.addEventListener(
-
-        "click",
-
-        function(){
-
-            closeMenuDrawer();
-
-        }
-
-    );
-
-}
-
-// =========================
-// CLICK OUTSIDE
-// =========================
-
-document.addEventListener(
-
-    "click",
-
-    function(e){
-
-        if(!menuDrawer) return;
-
-        if(!menuDrawer.contains(e.target) &&
-
-            !menuBtn.contains(e.target)){
-
-            closeMenuDrawer();
-
-        }
-
+            closeAllMenus();
+            currencyMenu.style.display = (currencyMenu.style.display === 'block') ? 'none' : 'block';
+        });
     }
 
-);
+    // কারেন্সি সিলেক্ট লজিক (নতুন যোগ হলো)
+    currencyItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+            e.preventDefault(); // লিঙ্ক ডিফল্ট কাজ বন্ধ করা
+            
+            // ১. বাটনের ভেতরের কন্টেন্ট আপডেট করা
+            // ধরে নিচ্ছি বাটনের ভেতরে img এবং span বা text আছে
+            const selectedImg = this.querySelector('img').src;
+            const selectedText = this.innerText; // কারেন্সির নাম
+            
+            // বাটনের ইমেজ এবং টেক্সট আপডেট
+            currencyBtn.querySelector('img').src = selectedImg;
+            // currencyBtn.querySelector('span').innerText = selectedText; // যদি টেক্সট থাকে
+            
+            // ২. ড্রপডাউন বন্ধ করা
+            currencyMenu.style.display = 'none';
+        });
+    });
+    /* =====================================================
+       ২. হেডার সেকশন লজিক
+       ===================================================== */
 
-// =========================
-// FOOTER BUTTONS
-// Home
-// Wheel
-// Search
-// =========================
-
-footerButtons.forEach(
-
-    button=>{
-
-        button.addEventListener(
-
-            "click",
-
-            function(){
-
-                if(this!==menuBtn){
-
-                    closeMenuDrawer();
-
-                }
-
-            }
-
-        );
-
+    // প্রোফাইল ইভেন্ট
+    if(profileIcon) {
+        profileIcon.addEventListener('click', (e) => {
+            e.stopPropagation();
+            console.log("প্রোফাইল মেনু সক্রিয়");
+        });
     }
 
-);
-
-// ======================================================
-// 📋 END : MENU DRAWER
-// ======================================================
-
+    /* =====================================================
+       ৩. অন্যান্য সেকশন (নিচে সিরিয়াল অনুযায়ী যোগ হবে)
+       ===================================================== */
+    // এখানে পরবর্তীতে ওয়ালেট, ট্রেডিং বা অন্য সেকশনের কোড আসবে...
 
 
+    /* =====================================================
+       ৪. গ্লোবাল ফাংশন ও হেল্পার (সবশেষে)
+       ===================================================== */
+    document.addEventListener('click', () => {
+        closeAllMenus();
+    });
 
-// ======================================================
-// 📋 START : MENU DRAWER
-// ======================================================
-
-
-
-
-
-// ======================================================
-// 📋 END : MENU DRAWER
-// ======================================================
-
-
-
-
-
-// ======================================================
-// 👤 START : PROFILE DRAWER
-// ======================================================
-
-
-
-
-
-// ======================================================
-// 👤 END : PROFILE DRAWER
-// ======================================================
-
-
-
-
-
-// ======================================================
-// 🔔 START : NOTIFICATION
-// ======================================================
-
-
-
-
-
-// ======================================================
-// 🔔 END : NOTIFICATION
-// ======================================================
-
-
-
-
-
-// ======================================================
-// 🎮 START : GAME CARD
-// ======================================================
-
-
-
-
-
-// ======================================================
-// 🎮 END : GAME CARD
-// ======================================================
+    function closeAllMenus() {
+        if(currencyMenu) currencyMenu.style.display = 'none';
+        // অন্যান্য সেকশনের মেনু রিসেট এখানে যুক্ত করবে
+    }
+});
