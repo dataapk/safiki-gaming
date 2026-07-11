@@ -155,19 +155,38 @@ img, svg {
     gap: 10px;
 }
 
-.icon-box, .profile-box {
+/* নোটিফিকেশন আইকন - স্কয়ার এবং রাউন্ডেড কোণা */
+.icon-box {
     background: #1a1a2e;
     border: 1px solid #2d2d44;
-    padding: 8px;
-    border-radius: 8px;
+    width: 40px;      /* উইড এবং হাইট সমান রেখে স্কয়ার করা হলো */
+    height: 40px;     /* উইড এবং হাইট সমান রেখে স্কয়ার করা হলো */
     display: flex;
+    justify-content: center;
     align-items: center;
+    border-radius: 8px; /* হালকা রাউন্ডেড কোণা */
+    margin-left: 10px;
+}
+
+/* প্রোফাইল আইকন - স্পষ্ট করার জন্য স্টাইল */
+.profile-box {
+    background: #1a1a2e;
+    border: 1px solid #2d2d44;
+    width: 40px;      /* আইকন বক্সের সাইজ সমান রাখা */
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px; /* এটিও স্কয়ার শেপে থাকবে */
+    overflow: hidden;   /* ইমেজ যেন বক্সের বাইরে না যায় */
+    margin-left: 10px;
 }
 
 .profile-box img {
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
+    width: 100%;      /* বক্সের সাইজ অনুযায়ী ইমেজ বড় হবে */
+    height: 100%;
+    object-fit: cover; /* ইমেজ যেন কেটে না যায় এবং স্পষ্ট থাকে */
+    display: block;
 }
 
 /* মোবাইল ডিভাইসের জন্য ছোটখাটো অ্যাডজাস্টমেন্ট */
