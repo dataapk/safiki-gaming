@@ -75,7 +75,9 @@ img, svg {
     cursor: pointer;
     overflow: hidden;
     /* হাইট কমানোর জন্য প্যাডিং কমাও */
-    padding: -5px 2px; /* ১০-এর জায়গায় ৫ করে দেখো (প্রথম মানটি ওপর-নিচ) */
+    padding: -10px 10px; /* ১০-এর জায়গায় ৫ করে দেখো (প্রথম মানটি ওপর-নিচ) */
+    margin-left: 15px;
+    margin-right: 5px;
     margin: 0px 8px;
 }
 
