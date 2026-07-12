@@ -505,49 +505,100 @@ img, svg {
 /* END CLOSE ALL SECTION  */
 
  /* START EXCHANGE SECTION  */ 
-.currency-select {
-    background: #252a46;
-    padding: 15px;
-    border-radius: 8px;
-    margin: 10px 0;
+/* এক্সচেঞ্জ বক্সের স্টাইল */
+#exchange-box {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+    margin-top: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.addr-header {
     display: flex;
     align-items: center;
-    border: 1px solid #3b4269;
+    margin-bottom: 20px;
+}
+
+.back-box {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    margin-right: 15px;
+}
+
+.back-box button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+/* কারেন্সি সিলেকশন ডিজাইন */
+.currency-select {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.currency-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.currency-info img {
+    width: 30px;
+    height: 30px;
 }
 
 .amount-box {
     display: flex;
-    background: #1a1e35;
-    border: 1px solid #3b4269;
-    border-radius: 8px;
-    padding: 10px;
+    gap: 10px;
+    margin: 10px 0;
 }
 
 .amount-box input {
-    background: transparent;
-    border: none;
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.max-btn {
+    padding: 5px 15px;
+    background: #007bff;
     color: white;
-    width: 100%;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 .swap-icon {
     text-align: center;
     margin: 10px 0;
-    color: #4e73df;
-    font-size: 20px;
+    font-size: 24px;
+    color: #666;
 }
 
 .exchange-action-btn {
     width: 100%;
-    padding: 15px;
-    background: #e67e22; /* তোমার এক্সচেঞ্জ বাটন কালার */
+    padding: 12px;
+    background: #28a745;
+    color: white;
     border: none;
     border-radius: 8px;
-    color: white;
+    font-size: 16px;
     font-weight: bold;
-    margin-top: 20px;
     cursor: pointer;
+    margin-top: 10px;
 }
+
 /* END EXCHANGE SECTION  */
 
 
