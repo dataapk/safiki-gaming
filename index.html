@@ -21,7 +21,7 @@
     <div class="main-control-box">
         <!-- কারেন্সি ড্রপডাউন (ছবিসহ) -->
         <div class="dropdown-wrapper">
-            <div class="currency-trigger" onclick="toggleDropdown('currency-menu')">
+            <div class="currency-trigger" onclick="headerDropdownMenu('currency-menu')">
                 <img src="image/usdt.png" id="selected-currency-img" alt="USDT" width="20">
                 <span id="selected-balance">$100.00</span>
                 <i class="fas fa-chevron-down"></i> <!-- Font Awesome -->
@@ -36,7 +36,7 @@
         </div>
 
         <!-- ওয়ালেট বাটন (Font Awesome) -->
-        <div class="wallet-trigger" onclick="toggleDropdown('wallet-menu')">
+        <div class="wallet-trigger" onclick="headerDropdownMenu('wallet-menu')">
             <i class="fas fa-wallet"></i> 
         </div>
         <div id="wallet-menu" class="dropdown-menu">
@@ -48,16 +48,25 @@
 
     <!-- ডানদিকের অংশ (Font Awesome) -->
     <div class="user-actions">
-        <div class="icon" onclick="toggleDropdown('notif-menu')"><i class="fas fa-bell"></i></div>
-        <div class="profile-icon" onclick="toggleDropdown('profile-menu')">
-            <i class="fas fa-user-circle"></i> <!-- Font Awesome -->
-        </div>
+    <!-- নোটিফিকেশন আইকন -->
+    <div class="icon" onclick="headerDropdownMenu('notif-menu')">
+        <i class="fas fa-bell"></i>
+    </div>
+        <!-- নোটিফিকেশন মেনু (এটা না থাকলে যোগ করে নিও) -->
+    <div id="notif-menu" class="dropdown-menu">
+        <div>No new notifications</div>
+    </div>
         
-        <!-- প্রোফাইল মেনু -->
-        <div id="profile-menu" class="dropdown-menu">
-            <div>Transaction History</div>
-            <div class="logout">Logout</div>
-        </div>
+        <!-- প্রোফাইল আইকন -->
+    <div class="profile-icon" onclick="headerDropdownMenu('profile-menu')">
+        <i class="fas fa-user-circle"></i>
+    </div>
+    
+    <!-- প্রোফাইল মেনু -->
+    <div id="profile-menu" class="dropdown-menu">
+        <div>Transaction History</div>
+        <div class="logout">Logout</div>
+    </div>
     </div>
 </header>
     <!-- ======================================================
