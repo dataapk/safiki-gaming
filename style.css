@@ -162,6 +162,17 @@ img, svg {
     align-items: center;
     gap: 8px;
 }
+.fav-btn {
+    cursor: pointer;
+    font-size: 18px;
+    margin-right: 10px; /* লোগোর সাথে কিছুটা গ্যাপ */
+    color: #888; /* ডিফল্ট রঙ */
+    transition: 0.3s;
+}
+
+.fav-btn.active {
+    color: #ff8c00; /* সিলেক্ট করলে হলুদ হয়ে যাবে */
+}
 
 
 /* মোবাইল ডিভাইসের জন্য অ্যাডজাস্টমেন্ট */
