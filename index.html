@@ -43,18 +43,21 @@
                 
     <!-- তোমার আগের লিস্টগুলো এর নিচেই থাকবে -->
                 
-    <div class="currency-option" onclick="selectCurrency('USDT', 'image/usdt.png', '$100.00')">
-        <img src="image/usdt.png" width="25">
-        <span class="name">USDT</span>
-        <span class="balance">$100.00</span>
-    </div>
+    <!-- USDT উদাহরণ -->
+<div class="currency-option" onclick="selectCurrency('USDT', 'image/usdt.png', '$100.00')">
+    <i class="far fa-heart fav-btn" onclick="toggleFavorite(this, event)"></i> <!-- এই আইকনটি যোগ করো -->
+    <img src="image/usdt.png" width="25">
+    <span class="name">USDT</span>
+    <span class="balance">$100.00</span>
+</div>
 
-    <!-- BTC -->
-    <div class="currency-option" onclick="selectCurrency('BTC', 'image/btc.png', '$1500.00')">
-        <img src="image/btc.png" width="25">
-        <span class="name">BTC</span>
-        <span class="balance">$1500.00</span>
-    </div>
+<!-- BTC উদাহরণ -->
+<div class="currency-option" onclick="selectCurrency('BTC', 'image/btc.png', '$1500.00')">
+    <i class="far fa-heart fav-btn" onclick="toggleFavorite(this, event)"></i> <!-- এই আইকনটি যোগ করো -->
+    <img src="image/btc.png" width="25">
+    <span class="name">BTC</span>
+    <span class="balance">$1500.00</span>
+</div>
 
     <!-- ETH -->
     <div class="currency-option" onclick="selectCurrency('ETH', 'image/eth.png', '$1200.00')">
