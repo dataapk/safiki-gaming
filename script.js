@@ -2,23 +2,23 @@
 const allMenus = document.querySelectorAll('.dropdown-menu');
 
 /* 2. Main Logic: Header Dropdown Handler */
-function headerDropdownMenu(id) {
-    // সমস্যা এখানে ছিল: allMenus আগে থেকে ডিফাইন করা ছিল না
-    const allMenus = document.querySelectorAll('.dropdown-menu'); 
-    const menu = document.getElementById(id);
+function headerDropdownMenu(id, event) {
+    if (event) event.stopPropagation(); // এটি দিলে আর বাইরের ক্লিক ইভেন্ট ফায়ার হবে না
     
-    // অন্য সব মেনু বন্ধ করা
+    const menu = document.getElementById(id);
+    const allMenus = document.querySelectorAll('.dropdown-menu');
+    
     allMenus.forEach(m => {
         if (m.id !== id) {
             m.style.display = 'none';
         }
     });
 
-    // বর্তমান মেনুটি টগল করা (নিশ্চিত করা যে মেনুটি নাল নয়)
     if (menu) {
         menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
     }
 }
+
 /* 3. Currency Selection: ইমেজ আপডেট করা */
 function selectCurrency(name, img, balance) {
     // ১. উপরের হেডার ইমেজ আপডেট
