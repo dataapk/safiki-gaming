@@ -101,11 +101,18 @@ img, svg {
     justify-content: center;
 }
 
+/* হেডারের সব অ্যাকশন বাটনকে নিশ্চিতভাবে উপরে আনো */
 .user-actions {
+    position: relative;
+    z-index: 9999;
     display: flex;
-    align-items: center;
-    gap: 20px;
-    font-size: 22px; /* আইকনের সাইজ */
+    gap: 10px; /* আইকনগুলোর মাঝখানে গ্যাপ */
+}
+
+.actions-box {
+    position: relative;
+    z-index: 10000; /* মেনুর চেয়েও উপরে */
+    cursor: pointer;
 }
 
 .profile-icon {
