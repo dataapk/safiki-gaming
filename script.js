@@ -17,9 +17,21 @@ function headerDropdownMenu(id) {
 }
 
 /* 3. Currency Selection: ইমেজ আপডেট করা */
-function selectCurrency(name, imgPath, balance) {
-    document.getElementById('selected-currency-img').src = imgPath;
-    // চাইলে এখানে ব্যালেন্সও আপডেট করতে পারো
+function selectCurrency(name, img, balance) {
+    // ১. উপরের হেডার ইমেজ আপডেট
+    const headerImg = document.getElementById('selected-currency-img');
+    if (headerImg) {
+        headerImg.src = img;
+        headerImg.alt = name;
+    }
+
+    // ২. উপরের হেডার ব্যালেন্স আপডেট
+    const headerBalance = document.getElementById('selected-balance');
+    if (headerBalance) {
+        headerBalance.innerText = balance;
+    }
+
+    // ৩. ড্রপডাউন মেনু ক্লোজ করা
     headerDropdownMenu('currency-menu');
 }
 
