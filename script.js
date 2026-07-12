@@ -3,6 +3,8 @@ const allMenus = document.querySelectorAll('.dropdown-menu');
 
 /* 2. Main Logic: Header Dropdown Handler */
 function headerDropdownMenu(id) {
+    // সমস্যা এখানে ছিল: allMenus আগে থেকে ডিফাইন করা ছিল না
+    const allMenus = document.querySelectorAll('.dropdown-menu'); 
     const menu = document.getElementById(id);
     
     // অন্য সব মেনু বন্ধ করা
@@ -12,10 +14,11 @@ function headerDropdownMenu(id) {
         }
     });
 
-    // বর্তমান মেনুটি টগল করা
-    menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+    // বর্তমান মেনুটি টগল করা (নিশ্চিত করা যে মেনুটি নাল নয়)
+    if (menu) {
+        menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+    }
 }
-
 /* 3. Currency Selection: ইমেজ আপডেট করা */
 function selectCurrency(name, img, balance) {
     // ১. উপরের হেডার ইমেজ আপডেট
