@@ -188,7 +188,6 @@ img, svg {
 
 .actions-box {
     background: #1a1a2e; /* আলাদা আলাদা বক্সের ব্যাকগ্রাউন্ড */
-    pointer-events: none;
     padding: 8px 12px;
     border-radius: 10px; /* বক্সের কোণাগুলো গোল করার জন্য */
     border: 1px solid #2d2d44;
@@ -197,6 +196,7 @@ img, svg {
     align-items: center;
     justify-content: center;
     transition: 0.3s;
+    pointer-events: auto; /* এটি বক্সকে ক্লিক নিতে সাহায্য করবে */
 }
 
 .actions-box:hover {
@@ -207,7 +207,7 @@ img, svg {
 .actions-box i {
     font-size: 18px;
     color: #fff;
-    pointer-events: auto; /* এটি বক্সকে ক্লিক নিতে সাহায্য করবে */
+    pointer-events: none; /* এটি বক্সকে ক্লিক নিতে সাহায্য করবে */
 }
 
 
