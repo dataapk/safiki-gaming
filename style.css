@@ -504,6 +504,52 @@ img, svg {
 }
 /* END CLOSE ALL SECTION  */
 
+ /* START EXCHANGE SECTION  */ 
+.currency-select {
+    background: #252a46;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    border: 1px solid #3b4269;
+}
+
+.amount-box {
+    display: flex;
+    background: #1a1e35;
+    border: 1px solid #3b4269;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.amount-box input {
+    background: transparent;
+    border: none;
+    color: white;
+    width: 100%;
+}
+
+.swap-icon {
+    text-align: center;
+    margin: 10px 0;
+    color: #4e73df;
+    font-size: 20px;
+}
+
+.exchange-action-btn {
+    width: 100%;
+    padding: 15px;
+    background: #e67e22; /* তোমার এক্সচেঞ্জ বাটন কালার */
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    margin-top: 20px;
+    cursor: pointer;
+}
+/* END EXCHANGE SECTION  */
+
 
 
 /* HEADER WALLET SECTION  */
