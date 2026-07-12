@@ -124,6 +124,45 @@ img, svg {
     background: #2d2d44;
     color: #00d2ff;
 }
+/* ক্রিপ্টো গ্রিড কন্টেইনার */
+.crypto-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* ৩টি সমান কলাম */
+    gap: 12px; /* বক্সের মাঝখানে দূরত্ব */
+    margin-top: 15px;
+}
+
+/* প্রতিটি কারেন্সি বক্সের স্টাইল */
+.crypto-item {
+    background: #252545; /* বক্সের রং */
+    aspect-ratio: 1 / 1; /* এটি বক্সকে একদম বর্গাকার বা স্কয়ার বানাবে */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px; /* বক্সের কোণাগুলো গোল করার জন্য */
+    cursor: pointer;
+    border: 1px solid #333;
+    transition: all 0.3s ease;
+    padding: 5px;
+    text-align: center;
+    font-size: 11px;
+    color: #fff;
+}
+
+/* হোভার ইফেক্ট */
+.crypto-item:hover {
+    border: 1px solid #00d2ff;
+    background: #2d2d44;
+}
+
+/* ইমেজ সাইজ */
+.crypto-item img {
+    width: 35px; /* লোগোর সাইজ */
+    height: 35px;
+    margin-bottom: 8px;
+    object-fit: contain;
+}
 /*  END AFTER CLICK WALLET DROPDOWN START */
 
 
