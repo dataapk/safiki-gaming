@@ -161,33 +161,26 @@ img, svg {
 /*  END AFTER CLICK WALLET DROPDOWN  */
 
 /* START ব্যাক অ্যাকশন বাটন বক্স */
-.back-action-btn {
+/* তোমার বর্তমান বাটনটিকে বক্সের মতো স্টাইল করার জন্য */
+button[onclick="goBack()"] {
+    display: block;
     width: 100%;
-    margin-top: 25px;
     padding: 12px;
+    margin-top: 15px;
     background: #252a46; /* বক্সের কালার */
     border: 1px solid #3b4269;
     border-radius: 8px;
-    color: #ffffff;
-    font-size: 15px;
+    color: white;
+    font-size: 16px;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px; /* আইকন এবং টেক্সটের মাঝখানে গ্যাপ */
     transition: all 0.3s ease;
 }
 
-/* হোভার ইফেক্ট */
-.back-action-btn:hover {
-    background: #3b4269;
-    border-color: #4e73df;
-}
-
-/* ক্লিক করার সময় কালার ইফেক্ট */
-.back-action-btn:active {
-    background: #4e73df; /* ক্লিক করলে নীল রং ধারণ করবে */
-    color: white;
+/* টাচ করলে বা ক্লিক করলে ইয়েলো ইফেক্ট */
+button[onclick="goBack()"]:active {
+    background: #f1c40f; /* হলুদ কালার */
+    color: #000;         /* টেক্সট কালার কালো হয়ে যাবে যাতে হলুদ ব্যাকগ্রাউন্ডে পরিষ্কার দেখা যায় */
+    border-color: #f1c40f;
 }
 /* END ব্যাক অ্যাকশন বাটন বক্স */
 
