@@ -89,32 +89,40 @@ img, svg {
     justify-content: center;
 }
 /* AFTER CLICK WALLET DROPDOWN START */
-.wallet-dropdown {
-    width: 300px; /* উইডথ কমিয়ে দিলাম */
-    padding: 15px;
-    background: #1a1a2e;
-    border-radius: 12px;
-    border: 1px solid #333;
-}
-
-.crypto-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* ৩টি কলাম */
-    gap: 10px;
-    margin-top: 15px;
-}
-
-.crypto-item {
-    background: #252545;
-    padding: 8px;
+/* মেইন বক্স ডিজাইন */
+.wallet-tabs-container {
+    display: flex;
+    background: #0f0f1a;
+    padding: 4px;
     border-radius: 8px;
-    text-align: center;
-    cursor: pointer;
-    border: 1px solid transparent;
+    margin-bottom: 15px;
+    border: 1px solid #2d2d44;
 }
 
-.crypto-item:hover {
-    border: 1px solid #00d2ff; /* হোভার করলে বর্ডার আসবে */
+/* বাটন এবং আইকনের স্টাইল */
+.tab-btn {
+    flex: 1;
+    display: flex; /* আইকন এবং টেক্সট পাশাপাশি রাখার জন্য */
+    align-items: center;
+    justify-content: center;
+    gap: 6px; /* আইকন ও টেক্সটের মাঝে গ্যাপ */
+    padding: 10px;
+    background: transparent;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.tab-btn i {
+    font-size: 12px; /* আইকনের সাইজ কন্ট্রোল করার জন্য */
+}
+
+.tab-btn.active {
+    background: #2d2d44;
+    color: #00d2ff;
 }
 /*  END AFTER CLICK WALLET DROPDOWN START */
 
