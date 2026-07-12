@@ -105,6 +105,32 @@ img, svg {
     width: 200px;
     z-index: 1000;
 }
+/* ড্রপডাউনের ভেতরে প্রতিটি কারেন্সি অপশন */
+.currency-option {
+    display: flex; /* এক লাইনে আনার জন্য */
+    align-items: center;
+    gap: 10px; /* আইকন, নাম ও ব্যালেন্সের মাঝে ফাঁকা */
+    padding: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+/* মাউস উপরে ধরলে হলুদ হাইলাইট */
+.currency-option:hover {
+    background-color: #ff8c00; /* হলুদ বা অরেঞ্জ শেড */
+    color: #fff;
+}
+
+/* টেক্সট ও ব্যালেন্স সুন্দর করার জন্য */
+.currency-option .name {
+    font-weight: bold;
+    flex-grow: 1; /* নামকে যতটুকু সম্ভব জায়গা নিতে দেওয়া */
+}
+
+.currency-option .balance {
+    font-size: 0.9em;
+    opacity: 0.8;
+}
 
 
 /* মোবাইল ডিভাইসের জন্য অ্যাডজাস্টমেন্ট */
