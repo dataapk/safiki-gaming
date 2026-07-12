@@ -162,25 +162,45 @@ img, svg {
 
 /* START ব্যাক অ্যাকশন বাটন বক্স */
 /* তোমার বর্তমান বাটনটিকে বক্সের মতো স্টাইল করার জন্য */
-button[onclick="goBack()"] {
-    display: block;
-    width: 100%;
-    padding: 12px;
-    margin-top: 15px;
+/* ব্যাক বাটন বক্সের স্টাইল */
+.back-box {
+    display: flex;
+    align-items: center;
     background: #252a46; /* বক্সের কালার */
     border: 1px solid #3b4269;
+    padding: 8px 15px;
     border-radius: 8px;
-    color: white;
-    font-size: 16px;
     cursor: pointer;
     transition: all 0.3s ease;
+    gap: 8px; /* আইকন এবং টেক্সটের গ্যাপ */
+    width: fit-content;
 }
 
-/* টাচ করলে বা ক্লিক করলে ইয়েলো ইফেক্ট */
-button[onclick="goBack()"]:active {
-    background: #f1c40f; /* হলুদ কালার */
-    color: #000;         /* টেক্সট কালার কালো হয়ে যাবে যাতে হলুদ ব্যাকগ্রাউন্ডে পরিষ্কার দেখা যায় */
+/* যখন ক্লিক করবে তখন হলুদ হবে */
+.back-box:active {
+    background: #f1c40f;
     border-color: #f1c40f;
+}
+
+.back-box:active button, 
+.back-box:active span {
+    color: #000; /* টেক্সট কালো হয়ে যাবে */
+}
+
+/* বাটনের স্টাইল */
+.back-box button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    padding: 0;
+    cursor: pointer;
+}
+
+.back-box span {
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
 }
 /* END ব্যাক অ্যাকশন বাটন বক্স */
 
