@@ -15,84 +15,53 @@
 <!-- হেডার সেকশন -->
 
 <header class="header">
+    <div class="logo">Logo</div>
 
-    <div class="logo">◈</div>
+    <!-- একীভূত বক্স (কারেন্সি + ওয়ালেট) -->
+    <div class="main-control-box">
+        <!-- কারেন্সি ড্রপডাউন -->
+        <div class="dropdown-wrapper">
+            <div class="currency-trigger" onclick="toggleDropdown('currency-menu')">
+                <img src="path/to/btc.png" id="selected-currency-img" alt="Currency">
+                <span id="selected-balance">$0.00</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div id="currency-menu" class="dropdown-menu">
+                <div onclick="selectCurrency('BTC', 'path/to/btc.png')">BTC</div>
+                <div onclick="selectCurrency('ETH', 'path/to/eth.png')">ETH</div>
+                <div onclick="selectCurrency('SOL', 'path/to/sol.png')">SOL</div>
+                <div onclick="selectCurrency('TRX', 'path/to/trx.png')">TRX</div>
+            </div>
+        </div>
 
-
-      <!-- ড্রপডাউন কন্টেইনার -->
-<div class="currency-dropdown-container">
-    
-    <!-- বাটন অংশ (যেখানে ক্লিক করলে মেনু খুলবে) -->
-<!-- হেডার কারেন্সি বাটন -->
-<div class="currency-trigger" id="currency-btn">
-    <i class="fas fa-chevron-down"></i>
-    <img src="image/usdt.png" alt="USDT">
-    <span class="balance-text">$65,000</span>
-    
-</div>
-
-<!-- কারেন্সি ড্রপডাউন মেনু -->
-<div id="currency-menu" class="currency-menu">
-    <a href="#" class="dropdown-item" data-balance="$65,000">
-        <img src="image/usdt.png" alt="USDT"> USDT <span>$65,000</span>
-    </a>
-    <a href="#" class="dropdown-item" data-balance="$650">
-        <img src="image/btc.png" alt="BTC"> BTC <span>$650</span>
-    </a>
-    <a href="#" class="dropdown-item" data-balance="$25">
-        <img src="image/eth.png" alt="ETH"> ETH <span>$25</span>
-    </a>
-    <a href="#" class="dropdown-item" data-balance="$140">
-        <img src="image/sol.png" alt="SOL"> SOL <span>$140</span>
-    </a>
-    <a href="#" class="dropdown-item" data-balance="$350">
-        <img src="image/doge.png" alt="DOGE"> DOGE <span>$350</span>
-    </a>
-    <a href="#" class="dropdown-item" data-balance="$1350">
-        <img src="image/trx.png" alt="TRX"> TRX <span>$350</span>
-    </a>
-    
-</div>
-
-</div>
-
-       <!-- মাঝখানের নতুন ওয়ালেট সেকশন -->
-    <div class="wallet-wrapper">
-        <div class="wallet-icon" id="wallet-btn">
+        <!-- ওয়ালেট বাটন (অরেঞ্জ ব্যাকগ্রাউন্ড) -->
+        <div class="wallet-trigger" onclick="toggleDropdown('wallet-menu')">
             <i class="fas fa-wallet"></i>
         </div>
-
-        <!-- ওয়ালেট ড্রপডাউন মেনু -->
-        <div id="wallet-menu" class="wallet-menu">
-            <div class="wallet-tabs">
-                <button class="tab-link active" onclick="openTab(event, 'deposit')">Deposit</button>
-                <button class="tab-link" onclick="openTab(event, 'withdraw')">Withdraw</button>
-                <button class="tab-link" onclick="openTab(event, 'exchange')">Exchange</button>
-            </div>
-
-            <div id="deposit" class="tab-content" style="display:block;">
-                <p>Deposit options...</p>
-            </div>
-            <div id="withdraw" class="tab-content" style="display:none;">
-                <p>Withdrawal options...</p>
-            </div>
-            <div id="exchange" class="tab-content" style="display:none;">
-                <p>Exchange options...</p>
-            </div>
+        <div id="wallet-menu" class="dropdown-menu">
+            <div onclick="openWalletTab('deposit')">Deposit</div>
+            <div onclick="openWalletTab('exchange')">Exchange</div>
+            <div onclick="openWalletTab('withdraw')">Withdraw</div>
         </div>
     </div>
-   <!-- নোটিফিকেশন এবং প্রোফাইল সেকশন (শুধুমাত্র আইকন কোড) -->
-<div class="user-actions">
-    <!-- নোটিফিকেশন আইকন -->
-    <div class="icon-box">
-        <i class="fas fa-bell"></i>
+
+    <!-- ডানদিকের অংশ (নোটিফিকেশন ও প্রোফাইল) -->
+    <div class="user-actions">
+        <div class="icon" onclick="toggleDropdown('notif-menu')"><i class="fas fa-bell"></i></div>
+        <div class="profile-img" onclick="toggleDropdown('profile-menu')">
+            <img src="path/to/profile.png" alt="Profile">
+        </div>
+        
+        <!-- প্রোফাইল মেনু -->
+        <div id="profile-menu" class="dropdown-menu">
+            <div>Transaction History</div>
+            <div class="logout">Logout</div>
+        </div>
     </div>
-    <!-- প্রোফাইল আইকন -->
-    <div class="profile-box">
-        <i class="fas fa-user"></i>
-    </div>
-</div>
 </header>
+    <!-- ======================================================
+     🔴 END: HEADER SECTION
+====================================================== -->
 
 <!-- হিরো সেকশন স্টার্ট -->
 <section class="hero-section">
