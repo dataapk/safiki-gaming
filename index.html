@@ -29,19 +29,25 @@
             <div id="currency-menu" class="dropdown-menu">
     <!-- আলাদা শেপ বা বার -->
     <!-- ড্রপডাউন হেডার বার -->
+<!-- ড্রপডাউন হেডার বার -->
 <div class="dropdown-header-bar">
+    <!-- বাম পাশে সর্টিং অপশনস -->
     <div class="left-controls">
-        <i class="fas fa-sort-amount-down"></i>
-        <i class="fas fa-sort-alpha-down"></i>
+        <i class="fas fa-sort-amount-down" onclick="sortAssets('amount')" title="Sort by Amount"></i>
+        <i class="fas fa-sort-alpha-down" onclick="sortAssets('alpha')" title="Sort A-Z"></i>
     </div>
-    <!-- এখানে onclick যোগ করা হয়েছে -->
+
+    <!-- মাঝখানে ফেভারিট অপশন -->
     <div class="middle-fav" onclick="filterFavorites()">
         <i class="far fa-heart" id="header-fav-icon"></i>
     </div>
+
+    <!-- ডান পাশে হাইড এমটি -->
     <div class="right-hide-empty">
-        <label>Hide Empty <input type="checkbox" id="hide-empty-check" onchange="filterAssets()"></label>
+        <label for="hide-empty-check">Hide Empty</label>
+        <input type="checkbox" id="hide-empty-check" onchange="filterAssets()">
     </div>
-</div>>
+</div>
                 
     <!-- তোমার আগের লিস্টগুলো এর নিচেই থাকবে -->
                 
