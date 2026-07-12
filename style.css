@@ -53,6 +53,13 @@ img, svg {
     background: #0f0f1a;
     color: #fff;
     height: 70px;
+    
+    /* আপডেট করা অংশ */
+    position: sticky;
+    top: 0;
+    z-index: 9999; /* যেন ড্রপডাউন মেনুও এর নিচে থাকে বা প্রয়োজনে ড্রপডাউনের জেড-ইনডেক্স অ্যাডজাস্ট করতে পারো */
+    width: 100%;
+    box-sizing: border-box; /* প্যাডিং যেন উইথ নষ্ট না করে */
 }
 
 .main-control-box {
