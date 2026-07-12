@@ -180,6 +180,30 @@ img, svg {
 .fav-btn.active {
     color: #ff8c00; /* সিলেক্ট করলে হলুদ হয়ে যাবে */
 }
+/* notification and profile  */
+.actions-box {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* আইকনগুলোর মাঝের দূরত্ব */
+    background: #1a1a2e; /* বক্সে ডার্ক ব্যাকগ্রাউন্ড */
+    padding: 8px 15px; /* বক্সের ভেতরের জায়গা */
+    border-radius: 20px; /* বক্সের চারপাশ গোল করা */
+    border: 1px solid #2d2d44; /* বক্সে সুন্দর বর্ডার */
+}
+
+/* আইকনগুলোর জন্য হালকা স্টাইল */
+.user-actions .icon, 
+.user-actions .profile-icon {
+    cursor: pointer;
+    font-size: 20px;
+    color: #fff;
+    transition: 0.3s;
+}
+
+.user-actions .icon:hover, 
+.user-actions .profile-icon:hover {
+    color: #ff8c00; /* হোভার করলে হলুদ রঙ */
+}
 
 
 /* মোবাইল ডিভাইসের জন্য অ্যাডজাস্টমেন্ট */
