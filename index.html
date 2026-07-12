@@ -105,12 +105,20 @@
         <div class="wallet-trigger" onclick="headerDropdownMenu('wallet-menu')">
             <i class="fas fa-wallet"></i> 
         </div>
-        <div id="wallet-menu" class="dropdown-menu">
-            <div onclick="openWalletTab('deposit')">Deposit</div>
-            <div onclick="openWalletTab('exchange')">Exchange</div>
-            <div onclick="openWalletTab('withdraw')">Withdraw</div>
-        </div>
+        <div id="wallet-menu" class="dropdown-menu wallet-dropdown">
+    <div class="wallet-header">Wallet Actions</div>
+    <div class="wallet-actions-grid">
+        <button class="wallet-btn" onclick="openWalletTab('deposit')">
+            <i class="fas fa-arrow-down"></i> Deposit
+        </button>
+        <button class="wallet-btn" onclick="openWalletTab('withdraw')">
+            <i class="fas fa-arrow-up"></i> Withdraw
+        </button>
+        <button class="wallet-btn" onclick="openWalletTab('exchange')">
+            <i class="fas fa-exchange-alt"></i> Exchange
+        </button>
     </div>
+</div>
 
   <!-- ডানদিকের অংশ (সংশোধিত) -->
 <div class="user-actions">
