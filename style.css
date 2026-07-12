@@ -43,216 +43,89 @@ img, svg {
     }
 }
 /* হেডার সেকশন স্টার্ট */
-
-/* ১. ফিক্সড হেডার */
+/* ১. মেইন হেডার কন্টেইনার */
 .header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 50px;
-    background: #050508;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    padding: 10px 15px;
-    box-sizing: border-box;
-    z-index: 1000;
-}
-
-.logo {
-    font-size: 24px;
-    color: #ff9900;
-}
-
-/* ২. ওয়ালেট বক্স ডিজাইন */
-.wallet-wrapper {
+    padding: 10px 20px;
+    background: #0f0f1a; /* তোমার ডার্ক থিম কালার */
+    color: #fff;
     position: relative;
-    display: flex;
-    align-items: center;
-    background: #151520;
-    border: 1px solid #2d2d44;
-    border-radius: 10px;
-    height: 40px; /* হেডারের ভেতরে সুন্দরভাবে বসবে */
-    margin-left: 35px; /* নোটিফিকেশন থেকে ওয়ালেট বক্স বামে সরাবে */
-    margin-right: 5PX;
-    overflow: hidden;
 }
 
+/* ২. একীভূত বক্স (কারেন্সি + ওয়ালেট) */
+.main-control-box {
+    display: flex;
+    align-items: center;
+    background: #151520; /* ইমেজের মতো ব্ল্যাক বক্স */
+    border: 1px solid #2d2d44;
+    border-radius: 12px;
+    padding: 2px;
+}
+
+/* কারেন্সি সেকশন */
 .currency-trigger {
     display: flex;
     align-items: center;
-    padding: 0 10px;
-    gap: 8px;
+    padding: 8px 15px;
     cursor: pointer;
-    color: #fff;
-    font-size: 12px;
+    gap: 10px;
 }
 
-.currency-trigger img {
-    width: 20px;
-    height: 20px;
+/* ওয়ালেট বাটন (অরেঞ্জ কালার) */
+.wallet-trigger {
+    background: linear-gradient(90deg, #ff8c00, #ff5722); /* অরেঞ্জ শেড */
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-left: 5px;
 }
 
-.balance-amount {
-    color: #fff;
-    font-size: 14px;
-    padding: 0 10px;
+/* ৩. ড্রপডাউন মেনু কমন স্টাইল */
+.dropdown-menu {
+    display: none; /* ডিফল্ট বন্ধ */
+    position: absolute;
+    top: 70px;
+    background: #151520;
+    border: 1px solid #2d2d44;
+    border-radius: 10px;
+    padding: 10px;
+    width: 200px;
+    z-index: 1000;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
 }
 
-.wallet-icon {
-    background: #ff9900; /* কাঙ্ক্ষিত ইয়েলো/অরেঞ্জ কালার */
-    width: 45px;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #000;
-    font-size: 16px;
+.dropdown-menu div {
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
 }
 
-/* ৩. ইউজার অ্যাকশন (নোটিফিকেশন ও প্রোফাইল) */
+.dropdown-menu div:hover {
+    background: #2d2d44;
+}
+
+/* ৪. ডানদিকের সেকশন */
 .user-actions {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
 }
 
-.icon-box, .profile-box {
+.profile-img img {
     width: 40px;
     height: 40px;
-    background: #151520;
-    border: 1px solid #2d2d44;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
+    border-radius: 50%;
     cursor: pointer;
 }
 
-/* মাঝখানের ভার্টিক্যাল দাগ */
-.vertical-line {
-    width: 1px;
-    height: 20px;
-    background: #333;
-    margin: 0 5px;
-}
-
-/* ড্রপডাউন মেনু */
-.currency-menu {
-    display: none; 
-    position: absolute;
-    top: 50px; /* হেডারের ঠিক নিচে */
-    left: 0;
-    background: #151520;
-    border: 1px solid #2d2d44;
-    border-radius: 10px;
-    width: 200px; /* তোমার ইচ্ছামতো সাইজ */
-    overflow: hidden;
-    z-index: 1000;
-}
-.currency-menu.show {
-    display: block;
-}
-.currency-menu-container {
-    position: relative; /* ড্রপডাউনকে এর সাপেক্ষে পজিশন করতে সাহায্য করবে */
-    display: flex;
-    align-items: center;
-}
-/* ড্রপডাউন মেনুর ভেতরের ইমেজ */
-.currency-menu .dropdown-item img {
-    width: 20px !important;  /* তোমার পছন্দমতো সাইজ */
-    height: 20px !important;
-    object-fit: contain;     /* ইমেজ যেন বিকৃত না হয় */
-}
-
-.currency-trigger {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    cursor: pointer;
-    padding: 5px;
-}
-/* ট্রিগার বাটন বা কারেন্সি বাটনের ভেতরের ইমেজ */
-.currency-trigger img {
-    width: 20px !important;  /* ড্রপডাউনের ইমেজের সাথে একই সাইজ রাখো */
-    height: 20px !important;
-    object-fit: contain;
-}
-
-/* তোমার দেওয়া স্টাইল এখানে বসবে */
-.dropdown-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px;
-    color: #fff;
-    text-decoration: none; /* আন্ডারলাইন সরানোর জন্য */
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.menu-item:hover {
-    background: #252538;
-}
-
-.menu-item img {
-    width: 20px;
-    height: 20px;
-}
-
-.menu-item span {
-    margin-left: auto; /* এটি ব্যালেন্সকে একদম ডানদিকে সরিয়ে দেবে */
-    font-size: 13px;
-    color: #888; /* একটু হালকা কালার দিলে দেখতে ভালো লাগে */
-}
-
-
-
-/* ড্রপডাউন মেনু */
-
-
-/* ইউজার অ্যাকশন (ডান পাশের আইকন) */
-.header-actions i {
-    font-size: 18px;
-    color: #ffffff;
+.icon {
+    font-size: 20px;
     cursor: pointer;
 }
 
-/* নোটিফিকেশন আইকন - স্কয়ার এবং রাউন্ডেড কোণা */
-/* নোটিফিকেশন এবং প্রোফাইল আইকন বক্সের স্টাইল */
-.icon-box {
-    background: #1a1a2e;
-    border: 1px solid #2d2d44;
-    width: 40px;
-    height: 40px;
-    margin-left: 5px; /* বাম দিকে জায়গা তৈরি করে এগুলোকে ডান দিকে পুশ করবে */
-    margin-right: -5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 8px;
-    cursor: pointer;
-}
-.profile-box {
-    background: #1a1a2e;
-    border: 1px solid #2d2d44;
-    width: 40px;
-    height: 40px;
-    margin-left: 5px; /* বাম দিকে জায়গা তৈরি করে এগুলোকে ডান দিকে পুশ করবে */
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 8px;
-    cursor: pointer;
-}
 
-/* আইকনের রঙ ও সাইজ ঠিক করার জন্য */
-.icon-box i, .profile-box i {
-    color: #ffffff; /* আইকনের রঙ */
-    font-size: 20px; /* আইকনের সাইজ */
-}
 
 /* মোবাইল ডিভাইসের জন্য অ্যাডজাস্টমেন্ট */
 @media (max-width: 480px) {
@@ -268,47 +141,7 @@ img, svg {
 /* HEADER WALLET SECTION  */
 
 /* কারেন্সি মেনুর সাথে মিল রেখে ওয়ালেট মেনুর স্টাইল */
-/* কারেন্সি মেনুর সাথে মিল রেখে ওয়ালেট মেনুর স্টাইল */
-.wallet-menu {
-    display: none;
-    position: absolute;
-    top: 100%; /* বাটনের ঠিক নিচে */
-    right: 0;
-    background: #151520; /* তোমার আগের মেনুর কালার */
-    border: 1px solid #2d2d44; /* বর্ডার */
-    border-radius: 12px; /* রাউন্ডেড কর্নার */
-    padding: 15px;
-    width: 320px; /* তোমার পছন্দের উইথ */
-    z-index: 1000;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-}
 
-/* ট্যাবের স্টাইল */
-.wallet-tabs {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 15px;
-    border-bottom: 1px solid #2d2d44;
-}
-
-.tab-link {
-    padding: 8px 12px;
-    color: #888;
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 14px;
-}
-
-.tab-link.active {
-    color: #fff;
-    border-bottom: 2px solid #3498db;
-}
-
-.tab-content {
-    color: #fff;
-    font-size: 14px;
-}
 /* হেডার সেকশন ইন্ড */
 /* হিরো সেকশন স্টার্ট */
 .hero-section {
