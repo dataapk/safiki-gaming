@@ -41,3 +41,9 @@ window.onclick = function(event) {
         allMenus.forEach(m => m.style.display = 'none');
     }
 }
+function toggleFavorite(element, event) {
+    event.stopPropagation(); // যাতে পুরো অপশনে ক্লিক না পড়ে
+    element.classList.toggle('fas'); // FontAwesome solid
+    element.classList.toggle('far'); // FontAwesome regular
+    element.classList.toggle('active'); // হলুদ করার জন্য ক্লাস
+}
