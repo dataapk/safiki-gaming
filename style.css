@@ -105,6 +105,16 @@ img, svg {
     width: 200px;
     z-index: 1000;
 }
+.dropdown-header-bar {
+    display: flex;
+    justify-content: space-between; /* তিন অংশ আলাদা করার জন্য */
+    align-items: center;
+    background-color: #ff8c00; /* হলুদ বা কমলা রঙের শেপ */
+    padding: 12px 20px;
+    color: #000; /* টেক্সট কালো রঙে */
+    font-weight: bold;
+    border-radius: 0 0 10px 10px; /* নিচের দিকে হালকা রাউন্ড শেপ */
+}
 /* ড্রপডাউনের ভেতরে প্রতিটি কারেন্সি অপশন */
 .currency-option {
     display: flex; /* এক লাইনে আনার জন্য */
