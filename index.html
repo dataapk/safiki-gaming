@@ -114,18 +114,21 @@
 
     <!-- ডানদিকের অংশ (Font Awesome) -->
     <div class="user-actions">
-    <!-- নোটিফিকেশন আইকন -->
-    <div class="icon" onclick="headerDropdownMenu('notif-menu')">
-        <i class="fas fa-bell"></i>
-    </div>
-        <!-- নোটিফিকেশন মেনু (এটা না থাকলে যোগ করে নিও) -->
-    <div id="notif-menu" class="dropdown-menu">
-        <div>No new notifications</div>
-    </div>
-        
+    <!-- ব্যাকগ্রাউন্ড বক্স শুরু -->
+    <div class="actions-box">
+        <!-- নোটিফিকেশন আইকন -->
+        <div class="icon" onclick="headerDropdownMenu('notif-menu')">
+            <i class="fas fa-bell"></i>
+        </div>
+        <!-- নোটিফিকেশন মেনু -->
+        <div id="notif-menu" class="dropdown-menu">
+            <div>No new notifications</div>
+        </div>
+
         <!-- প্রোফাইল আইকন -->
-    <div class="profile-icon" onclick="headerDropdownMenu('profile-menu')">
-        <i class="fas fa-user-circle"></i>
+        <div class="profile-icon" onclick="headerDropdownMenu('profile-menu')">
+            <i class="fas fa-user-circle"></i>
+        </div>
     </div>
     
     <!-- প্রোফাইল মেনু -->
