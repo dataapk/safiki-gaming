@@ -181,28 +181,31 @@ img, svg {
     color: #ff8c00; /* সিলেক্ট করলে হলুদ হয়ে যাবে */
 }
 /* notification and profile  */
-.actions-box {
+.user-actions {
     display: flex;
-    align-items: center;
-    gap: 15px; /* আইকনগুলোর মাঝের দূরত্ব */
-    background: #1a1a2e; /* বক্সে ডার্ক ব্যাকগ্রাউন্ড */
-    padding: 8px 15px; /* বক্সের ভেতরের জায়গা */
-    border-radius: 20px; /* বক্সের চারপাশ গোল করা */
-    border: 1px solid #2d2d44; /* বক্সে সুন্দর বর্ডার */
+    gap: 10px; /* দুটি বক্সের মাঝখানে সামান্য ফাঁকা রাখার জন্য */
 }
 
-/* আইকনগুলোর জন্য হালকা স্টাইল */
-.user-actions .icon, 
-.user-actions .profile-icon {
+.actions-box {
+    background: #1a1a2e; /* আলাদা আলাদা বক্সের ব্যাকগ্রাউন্ড */
+    padding: 8px 12px;
+    border-radius: 10px; /* বক্সের কোণাগুলো গোল করার জন্য */
+    border: 1px solid #2d2d44;
     cursor: pointer;
-    font-size: 20px;
-    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: 0.3s;
 }
 
-.user-actions .icon:hover, 
-.user-actions .profile-icon:hover {
-    color: #ff8c00; /* হোভার করলে হলুদ রঙ */
+.actions-box:hover {
+    background: #252545;
+    border-color: #ff8c00;
+}
+
+.actions-box i {
+    font-size: 18px;
+    color: #fff;
 }
 
 
