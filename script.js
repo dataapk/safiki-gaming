@@ -129,3 +129,27 @@ function toggleFavorite(element, event) {
     element.classList.toggle('far');
     element.classList.toggle('active');
 }
+// ৫. WALLET DROPDOWN DEPOSIT WITHDRAW
+function showTab(tabId) {
+    // ১. সব ট্যাবের কন্টেন্ট আগে হাইড করে দাও
+    const contents = document.querySelectorAll('.crypto-grid');
+    contents.forEach(content => {
+        content.style.display = 'none';
+    });
+    
+    // ২. সব বাটন থেকে 'active' ক্লাস সরিয়ে নাও
+    const buttons = document.querySelectorAll('.tab-btn');
+    buttons.forEach(button => {
+        button.classList.remove('active');
+    });
+
+    // ৩. যে বাটনে ক্লিক করা হয়েছে, শুধু সেটার কন্টেন্ট দেখাও এবং বাটনে 'active' ক্লাস যোগ করো
+    const targetTab = document.getElementById(tabId);
+    if (targetTab) {
+        targetTab.style.display = 'grid';
+    }
+    
+    if (event && event.currentTarget) {
+        event.currentTarget.classList.add('active');
+    }
+}
