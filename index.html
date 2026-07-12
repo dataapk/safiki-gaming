@@ -22,11 +22,12 @@
         <!-- কারেন্সি ড্রপডাউন (ছবিসহ) -->
         <div class="dropdown-wrapper">
             <div class="currency-trigger" onclick="toggleDropdown('currency-menu')">
-                <img src="images/btc.png" id="selected-currency-img" alt="BTC" width="20">
-                <span id="selected-balance">$0.00</span>
+                <img src="image/usdt.png" id="selected-currency-img" alt="USDT" width="20">
+                <span id="selected-balance">$100.00</span>
                 <i class="fas fa-chevron-down"></i> <!-- Font Awesome -->
             </div>
             <div id="currency-menu" class="dropdown-menu">
+                <div onclick="selectCurrency('USDT', 'image/usdt.png')">USDT</div>
                 <div onclick="selectCurrency('BTC', 'image/btc.png')">BTC</div>
                 <div onclick="selectCurrency('ETH', 'image/eth.png')">ETH</div>
                 <div onclick="selectCurrency('SOL', 'image/sol.png')">SOL</div>
