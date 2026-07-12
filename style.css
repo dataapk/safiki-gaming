@@ -134,20 +134,15 @@ img, svg {
 
 /* প্রতিটি কারেন্সি বক্সের স্টাইল */
 .crypto-item {
-    background: #252545; /* বক্সের রং */
-    aspect-ratio: 1 / 1; /* এটি বক্সকে একদম বর্গাকার বা স্কয়ার বানাবে */
+    background: #252545;
+    aspect-ratio: 1 / 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-radius: 10px; /* বক্সের কোণাগুলো গোল করার জন্য */
-    cursor: pointer;
-    border: 1px solid #333;
-    transition: all 0.3s ease;
-    padding: 5px;
-    text-align: center;
-    font-size: 11px;
-    color: #fff;
+    border-radius: 8px;
+    padding: 5px; /* প্যাডিং কমানো হলো */
+    font-size: 10px; /* ফন্ট সাইজ ছোট করলাম */
 }
 
 /* হোভার ইফেক্ট */
