@@ -130,6 +130,8 @@ function toggleFavorite(element, event) {
     element.classList.toggle('active');
 }
 // ৫. WALLET DROPDOWN DEPOSIT WITHDRAW
+// শুরুতে কোনো ট্যাবই সিলেক্ট করা নেই (অথবা ডিফল্ট হিসেবে 'deposit' রাখতে পারো)
+let currentTab = 'deposit';
 function showTab(tabId) {
     // ১. সব ট্যাবের কন্টেন্ট আগে হাইড করে দাও
     const contents = document.querySelectorAll('.crypto-grid');
@@ -151,5 +153,54 @@ function showTab(tabId) {
     
     if (event && event.currentTarget) {
         event.currentTarget.classList.add('active');
+    }
+}
+// বর্তমান ট্যাব আপডেট করে নিচ্ছি
+    currentTab = tabId; 
+    
+    // সব গ্রিড হাইড করা
+    document.querySelectorAll('.crypto-grid').forEach(grid => grid.style.display = 'none');
+    
+    // অ্যাড্রেস বক্স হাইড করা
+    document.getElementById('address-box').style.display = 'none';
+
+    // সিলেক্টেড ট্যাব শো করা
+    const targetTab = document.getElementById(tabId);
+    if (targetTab) {
+        targetTab.style.display = 'grid';
+    }
+    
+    // বাটন অ্যাক্টিভ করা
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    
+    // event-এর মাধ্যমে বাটন সিলেক্ট করা
+    if (event && event.currentTarget) {
+        event.currentTarget.classList.add('active');
+    }
+}
+
+function selectCrypto(coinName, address) {
+    // বর্তমান ট্যাব (deposit/withdraw/exchange) লুকিয়ে অ্যাড্রেস বক্স দেখানো
+    const activeGrid = document.getElementById(currentTab);
+    if (activeGrid) {
+        activeGrid.style.display = 'none';
+    }
+    
+    const addrBox = document.getElementById('address-box');
+    addrBox.style.display = 'grid'; // বা flex, যেমনটা তুমি ডিজাইন করেছ
+    
+    // ডাটা আপডেট
+    document.getElementById('coin-title').innerText = coinName;
+    document.getElementById('wallet-address').innerText = address;
+}
+
+function goBack() {
+    // অ্যাড্রেস বক্স হাইড করা
+    document.getElementById('address-box').style.display = 'none';
+    
+    // currentTab ভেরিয়েবল চেক করে আগের ট্যাবে ফিরে যাওয়া
+    const activeGrid = document.getElementById(currentTab);
+    if (activeGrid) {
+        activeGrid.style.display = 'grid';
     }
 }
