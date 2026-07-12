@@ -177,7 +177,7 @@ function showTab(tabId) {
     if (event && event.currentTarget) {
         event.currentTarget.classList.add('active');
     }
-}
+
 
 function selectCrypto(coinName, address) {
     // বর্তমান ট্যাব (deposit/withdraw/exchange) লুকিয়ে অ্যাড্রেস বক্স দেখানো
