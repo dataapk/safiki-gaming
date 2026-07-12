@@ -46,18 +46,20 @@ function openWalletTab(action) {
 }
 
 /* 5. Close on Outside Click (যে কোনো খালি জায়গায় ক্লিক করলে মেনু বন্ধ হবে) */
+/* সম্পূর্ণ আপডেট করা উইন্ডো অনক্লিক হ্যান্ডলার */
 window.onclick = function(event) {
-    // এখানে আমরা চেক করছি ক্লিকটি কি কোনো মেনু বা মেনুর ট্রিগারের ভেতরে হয়েছে কি না
-    // '.actions-box' হলো নতুন প্রোফাইল/নোটিফিকেশন এর জন্য
-    // '.wallet-trigger', '.icon', '.profile-icon' হলো আগের গুলোর জন্য
+    // ১. চেক করো ক্লিকটি কোনো ড্রপডাউন মেনুর ভেতরে হয়েছে কি না
+    const isClickInsideMenu = event.target.closest('.dropdown-menu');
     
-    if (!event.target.closest('.actions-box') && 
-        !event.target.closest('.dropdown-menu') &&
-        !event.target.closest('.wallet-trigger') &&
-        !event.target.closest('.icon') &&
-        !event.target.closest('.profile-icon')) {
-        
-        allMenus.forEach(m => m.style.display = 'none');
+    // ২. চেক করো ক্লিকটি মেনু খোলার বাটনের ওপর হয়েছে কি না 
+    // (যেকোনো এলিমেন্ট যেটাতে onclick ফাংশন আছে)
+    const isClickOnButton = event.target.onclick !== null || event.target.closest('[onclick]');
+
+    // ৩. যদি ক্লিক মেনুর ভেতরে না হয় এবং বাটনের ওপরও না হয়, তবেই সব মেনু বন্ধ হবে
+    if (!isClickInsideMenu && !isClickOnButton) {
+        allMenus.forEach(m => {
+            m.style.display = 'none';
+        });
     }
 }
 // ২. সর্টিং ফাংশন (Sort Amount & Alpha)
