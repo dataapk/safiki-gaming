@@ -121,6 +121,7 @@
 
     <!-- নিচে গ্রিড কন্টেন্ট -->
     <!-- ডিপোজিট সেকশন -->
+<!-- ডিপোজিট সেকশন -->
 <div id="deposit" class="crypto-grid">
     <div class="crypto-item" onclick="selectCrypto('USDT', 'TRX123456789ABCDEF')">
         <img src="image/usdt.png" alt="USDT"> USDT
@@ -136,21 +137,73 @@
     </div>
     <div class="crypto-item see-all"><span>+</span> See All</div>
 </div>
-            <div id="withdraw" class="crypto-grid" style="display:none;">
-    <div class="crypto-item" onclick="selectCrypto('USDT (Withdraw)', 'UserWithdrawAddr123')">
+
+<!-- অ্যাড্রেস বক্স (ডিপোজিট সেকশনের ঠিক পরেই এটি বসাবে) -->
+<div id="address-box" class="address-container" style="display:none;">
+    <div class="addr-header">
+        <button onclick="goBack()">←</button>
+        <h4 id="coin-title">Deposit</h4>
+    </div>
+
+    <select id="network-select" onchange="updateAddress()">
+        <option value="ERC20">Ethereum (ERC-20)</option>
+        <option value="TRC20">Tron (TRC-20)</option>
+        <option value="BEP20">BNB Smart Chain (BEP-20)</option>
+    </select>
+
+    <div class="qr-code-box">
+        <img src="image/qr-placeholder.png" alt="QR Code" id="qr-image">
+    </div>
+
+    <p>Deposit Address</p>
+    <div class="address-input-box">
+        <span id="wallet-address">Select a network</span>
+        <button onclick="copyAddress()">📋</button>
+    </div>
+
+    <div class="info-box">
+        <p>• Minimum = 5.00</p>
+        <p>• Please make sure to only send selected coin to this address.</p>
+    </div>
+</div>
+            <!-- উইথড্র সেকশন -->
+<div id="withdraw" class="crypto-grid" style="display:none;">
+    <div class="crypto-item" onclick="selectWithdraw('USDT')">
         <img src="image/usdt.png" alt="USDT"> USDT
     </div>
-    <div class="crypto-item" onclick="selectCrypto('BTC (Withdraw)', 'UserWithdrawAddr456')">
+    <div class="crypto-item" onclick="selectWithdraw('BTC')">
         <img src="image/btc.png" alt="BTC"> BTC
     </div>
-    <div class="crypto-item" onclick="selectCrypto('TRX (Withdraw)', 'UserWithdrawAddr789')">
-        <img src="image/trx.png" alt="TRX"> TRX</div>
-</div>
-            <div id="address-box" class="crypto-grid" style="display:none;">
-    <h4 id="coin-title">Select Coin</h4>
-    <div class="address-content">
-        <span id="wallet-address">Address will appear here...</span>
+    <div class="crypto-item" onclick="selectWithdraw('TRX')">
+        <img src="image/trx.png" alt="TRX"> TRX
     </div>
+</div>
+
+<!-- উইথড্র ইনপুট বক্স (এটি উইথড্রর জন্য আলাদা) -->
+<div id="withdraw-input-box" class="address-container" style="display:none;">
+    <div class="addr-header">
+        <button onclick="goBackFromWithdraw()">←</button>
+        <h4 id="withdraw-coin-title">Withdraw</h4>
+    </div>
+
+    <!-- নেটওয়ার্ক সিলেক্ট -->
+    <p>Select Network</p>
+    <select id="network-select-withdraw">
+        <option value="ERC20">Ethereum (ERC-20)</option>
+        <option value="TRC20">Tron (TRC-20)</option>
+    </select>
+
+    <!-- অ্যাড্রেস ইনপুট -->
+    <p>Withdrawal Address</p>
+    <input type="text" id="withdraw-address" placeholder="Enter your wallet address">
+
+    <!-- পাসওয়ার্ড ইনপুট -->
+    <p>Account Password</p>
+    <input type="password" id="withdraw-password" placeholder="Enter your password">
+
+    <!-- উইথড্র বাটন -->
+    <button class="withdraw-btn" onclick="processWithdraw()">Confirm Withdraw</button>
+</div>
     <div class="action-buttons">
         <button onclick="goBack()">Back</button>
         <button onclick="copyAddress()">Copy</button></div>
