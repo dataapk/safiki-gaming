@@ -300,6 +300,144 @@ img, svg {
     .balance-text { font-size: 12px; }
 }
 
+/* START DEPOSIT SECTION  */
+/* মেইন কন্টেইনার বক্স */
+.address-container {
+    background: #1a1e34; /* ডার্ক ব্যাকগ্রাউন্ড */
+    padding: 20px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 400px;
+    margin: 20px auto;
+    color: white;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+/* হেডার (ব্যাক বাটন ও টাইটেল) */
+.addr-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.addr-header button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+/* নেটওয়ার্ক সিলেকশন ড্রপডাউন */
+#network-select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    background: #252a46;
+    color: white;
+    border: 1px solid #3b4269;
+    margin-bottom: 20px;
+}
+
+/* কিউআর কোড বক্স */
+.qr-code-box {
+    background: white; /* কিউআর কোডের জন্য সাদা ব্যাকগ্রাউন্ড */
+    padding: 15px;
+    border-radius: 12px;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.qr-code-box img {
+    width: 180px; /* কিউআর কোডের সাইজ */
+    height: 180px;
+    display: block;
+}
+
+/* অ্যাড্রেস ইনপুট এরিয়া */
+.address-input-box {
+    background: #252a46;
+    padding: 12px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    border: 1px solid #3b4269;
+}
+
+#wallet-address {
+    font-size: 14px;
+    word-break: break-all;
+    margin-right: 10px;
+}
+
+/* ইনফো বক্স */
+.info-box {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #a0a0a0;
+    text-align: left;
+}
+/* END DEPOSIT SECTION  */
+
+/* START WITHDRAW SECTION  */
+/* উইথড্র কন্টেইনার বক্স */
+#withdraw-input-box {
+    background: #1a1e34;
+    padding: 25px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 400px;
+    margin: 20px auto;
+    color: white;
+    text-align: left; /* ইনপুট ফিল্ডগুলো সাধারণত বাম দিকে থাকলে সুন্দর লাগে */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+/* উইথড্র সেকশনের ইনপুট ফিল্ডগুলো */
+#withdraw-input-box input, 
+#withdraw-input-box select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    background: #252a46;
+    color: white;
+    border: 1px solid #3b4269;
+    box-sizing: border-box; /* যাতে প্যাডিং সাইজ ঠিক থাকে */
+}
+
+/* লেবেল টেক্সট */
+#withdraw-input-box p {
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #cccccc;
+}
+
+/* কনফার্ম বাটন */
+.withdraw-btn {
+    width: 100%;
+    padding: 14px;
+    background: #4e73df; /* বা তোমার পছন্দমতো ব্র্যান্ড কালার */
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.withdraw-btn:hover {
+    background: #3759c9;
+}
+
+
+/* END WITHDRAW SECTION  */
+
 /* HEADER WALLET SECTION  */
 
 /* কারেন্সি মেনুর সাথে মিল রেখে ওয়ালেট মেনুর স্টাইল */
