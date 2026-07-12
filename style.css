@@ -44,18 +44,6 @@ img, svg {
 }
 
 /* HEADER SECTION START */
-.actions-box {
-    background: #1a1a2e; /* আলাদা আলাদা বক্সের ব্যাকগ্রাউন্ড */
-    padding: 8px 12px;
-    border-radius: 10px; /* বক্সের কোণাগুলো গোল করার জন্য */
-    border: 1px solid #2d2d44;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.3s;
-    pointer-events: auto !important; /* এটি বক্সকে ক্লিক নিতে সাহায্য করবে */
-}
 
 .header {
     display: flex;
@@ -200,23 +188,33 @@ img, svg {
     color: #ff8c00; /* সিলেক্ট করলে হলুদ হয়ে যাবে */
 }
 /* notification and profile  */
+/* কন্টেইনার */
 .user-actions {
     display: flex;
-    gap: 10px; /* দুটি বক্সের মাঝখানে সামান্য ফাঁকা রাখার জন্য */
+    align-items: center;
+    gap: 15px;
+    position: relative;
 }
 
-
-
-.actions-box:hover {
-    background: #252545;
-    border-color: #ff8c00;
+/* আইকন বক্স */
+.actions-box {
+    background: #1a1a2e;
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: 1px solid #2d2d44;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+    position: relative;
 }
 
+/* আইকনকে ক্লিক ইভেন্ট থেকে মুক্ত রাখা */
 .actions-box i {
-    font-size: 18px;
-    color: #fff;
-    pointer-events: none; /* এটি বক্সকে ক্লিক নিতে সাহায্য করবে */
+    pointer-events: none; 
 }
+
 
 
 /* মোবাইল ডিভাইসের জন্য অ্যাডজাস্টমেন্ট */
