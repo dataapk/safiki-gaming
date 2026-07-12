@@ -158,7 +158,38 @@ img, svg {
     margin-bottom: 8px;
     object-fit: contain;
 }
-/*  END AFTER CLICK WALLET DROPDOWN START */
+/*  END AFTER CLICK WALLET DROPDOWN  */
+
+/* START ব্যাক অ্যাকশন বাটন বক্স */
+.back-action-btn {
+    width: 100%;
+    margin-top: 25px;
+    padding: 12px;
+    background: #252a46; /* বক্সের কালার */
+    border: 1px solid #3b4269;
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* আইকন এবং টেক্সটের মাঝখানে গ্যাপ */
+    transition: all 0.3s ease;
+}
+
+/* হোভার ইফেক্ট */
+.back-action-btn:hover {
+    background: #3b4269;
+    border-color: #4e73df;
+}
+
+/* ক্লিক করার সময় কালার ইফেক্ট */
+.back-action-btn:active {
+    background: #4e73df; /* ক্লিক করলে নীল রং ধারণ করবে */
+    color: white;
+}
+/* END ব্যাক অ্যাকশন বাটন বক্স */
 
 
 /* হেডারের সব অ্যাকশন বাটনকে নিশ্চিতভাবে উপরে আনো */
