@@ -17,7 +17,7 @@ function headerDropdownMenu(id) {
 }
 
 /* 3. Currency Selection: ইমেজ আপডেট করা */
-function selectCurrency(name, imgPath) {
+function selectCurrency(name, imgPath, balance) {
     document.getElementById('selected-currency-img').src = imgPath;
     // চাইলে এখানে ব্যালেন্সও আপডেট করতে পারো
     headerDropdownMenu('currency-menu');
