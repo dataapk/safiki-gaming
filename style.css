@@ -89,45 +89,38 @@ img, svg {
     justify-content: center;
 }
 /* হAFTER CLICK WALLET DROPDOWN START */
-.wallet-dropdown {
-    width: 250px; /* তোমার প্রয়োজনমতো সাইজ সেট করো */
-    padding: 10px;
-    border: 1px solid #333; /* সুন্দর বর্ডার */
-    border-radius: 12px;
-    background: #1a1a2e;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+.wallet-tabs {
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+    margin-bottom: 15px;
 }
 
-.wallet-header {
-    text-align: center;
-    font-weight: bold;
-    padding-bottom: 10px;
-    margin-bottom: 10px;
-    border-bottom: 1px solid #444; /* মেনুর ভেতরের ডিভাইডার */
-    color: #fff;
-}
-
-.wallet-actions-grid {
-    display: grid;
-    grid-template-columns: 1fr; /* লম্বালম্বিভাবে দেখাবে */
-    gap: 8px;
-}
-
-.wallet-btn {
+.tab-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px; /* আইকন এবং টেক্সটের মাঝখানে সামান্য গ্যাপ */
+    flex: 1;
+    padding: 8px;
     background: #2d2d44;
-    color: white;
     border: none;
-    padding: 10px;
-    border-radius: 6px;
+    color: white;
     cursor: pointer;
+    border-radius: 6px;
+    font-size: 14px;
     transition: 0.3s;
-    text-align: left;
 }
 
-.wallet-btn:hover {
+.tab-btn.active {
     background: #4e4e75;
+    border: 1px solid #00d2ff;
 }
 
+.tab-btn i {
+    font-size: 12px; /* আইকনের সাইজ ঠিক রাখা */
+}
+/*  END AFTER CLICK WALLET DROPDOWN START */
 
 
 /* হেডারের সব অ্যাকশন বাটনকে নিশ্চিতভাবে উপরে আনো */
