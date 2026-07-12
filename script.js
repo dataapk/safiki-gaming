@@ -130,75 +130,70 @@ function toggleFavorite(element, event) {
     element.classList.toggle('active');
 }
 // ৫. WALLET DROPDOWN DEPOSIT WITHDRAW
-// শুরুতে কোনো ট্যাবই সিলেক্ট করা নেই (অথবা ডিফল্ট হিসেবে 'deposit' রাখতে পারো)
-let currentTab = 'deposit';
+let currentTab = 'deposit'; // ডিফল্ট ট্যাব
+
 function showTab(tabId) {
-    // ১. সব ট্যাবের কন্টেন্ট আগে হাইড করে দাও
+    // ১. কারেন্ট ট্যাব আপডেট করা
+    currentTab = tabId; 
+    
+    // ২. সব গ্রিড হাইড করা
     const contents = document.querySelectorAll('.crypto-grid');
     contents.forEach(content => {
         content.style.display = 'none';
     });
     
-    // ২. সব বাটন থেকে 'active' ক্লাস সরিয়ে নাও
+    // ৩. অ্যাড্রেস বক্স হাইড করা
+    const addressBox = document.getElementById('address-box');
+    if (addressBox) {
+        addressBox.style.display = 'none';
+    }
+
+    // ৪. সব বাটন থেকে 'active' ক্লাস সরিয়ে নেওয়া
     const buttons = document.querySelectorAll('.tab-btn');
     buttons.forEach(button => {
         button.classList.remove('active');
     });
 
-    // ৩. যে বাটনে ক্লিক করা হয়েছে, শুধু সেটার কন্টেন্ট দেখাও এবং বাটনে 'active' ক্লাস যোগ করো
+    // ৫. নির্দিষ্ট ট্যাব (ডিপোজিট/উইথড্র/এক্সচেঞ্জ) শো করা
     const targetTab = document.getElementById(tabId);
     if (targetTab) {
         targetTab.style.display = 'grid';
     }
     
+    // ৬. ক্লিকের বাটনটিতে 'active' ক্লাস যোগ করা
     if (event && event.currentTarget) {
         event.currentTarget.classList.add('active');
     }
 }
-// বর্তমান ট্যাব আপডেট করে নিচ্ছি
-    currentTab = tabId; 
-    
-    // সব গ্রিড হাইড করা
-    document.querySelectorAll('.crypto-grid').forEach(grid => grid.style.display = 'none');
-    
-    // অ্যাড্রেস বক্স হাইড করা
-    document.getElementById('address-box').style.display = 'none';
-
-    // সিলেক্টেড ট্যাব শো করা
-    const targetTab = document.getElementById(tabId);
-    if (targetTab) {
-        targetTab.style.display = 'grid';
-    }
-    
-    // বাটন অ্যাক্টিভ করা
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    
-    // event-এর মাধ্যমে বাটন সিলেক্ট করা
-    if (event && event.currentTarget) {
-        event.currentTarget.classList.add('active');
-    }
-
 
 function selectCrypto(coinName, address) {
-    // বর্তমান ট্যাব (deposit/withdraw/exchange) লুকিয়ে অ্যাড্রেস বক্স দেখানো
+    // ১. বর্তমান ট্যাব (deposit/withdraw/exchange) লুকিয়ে ফেলা
     const activeGrid = document.getElementById(currentTab);
     if (activeGrid) {
         activeGrid.style.display = 'none';
     }
     
+    // ২. অ্যাড্রেস বক্স দেখানো
     const addrBox = document.getElementById('address-box');
-    addrBox.style.display = 'grid'; // বা flex, যেমনটা তুমি ডিজাইন করেছ
+    if (addrBox) {
+        addrBox.style.display = 'grid';
+    }
     
-    // ডাটা আপডেট
-    document.getElementById('coin-title').innerText = coinName;
-    document.getElementById('wallet-address').innerText = address;
+    // ৩. ডাটা আপডেট করা
+    const title = document.getElementById('coin-title');
+    const addr = document.getElementById('wallet-address');
+    if (title) title.innerText = coinName;
+    if (addr) addr.innerText = address;
 }
 
 function goBack() {
-    // অ্যাড্রেস বক্স হাইড করা
-    document.getElementById('address-box').style.display = 'none';
+    // ১. অ্যাড্রেস বক্স হাইড করা
+    const addrBox = document.getElementById('address-box');
+    if (addrBox) {
+        addrBox.style.display = 'none';
+    }
     
-    // currentTab ভেরিয়েবল চেক করে আগের ট্যাবে ফিরে যাওয়া
+    // ২. বর্তমান ট্যাবটি আবার শো করা
     const activeGrid = document.getElementById(currentTab);
     if (activeGrid) {
         activeGrid.style.display = 'grid';
