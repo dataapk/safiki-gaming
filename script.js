@@ -163,13 +163,7 @@ function showTab(tabId) {
         event.currentTarget.classList.add('active');
     }
 }
-// এক্সচেঞ্জ বক্সের জন্য এই অংশটুকু যোগ করলেই হবে
-    if (tabId === 'exchange-box') {
-        const exchangeBox = document.getElementById('exchange-box');
-        if (exchangeBox) {
-            exchangeBox.style.display = 'block';
-        }
-    }
+
 
 function selectCrypto(coinName, address) {
     // ১. বর্তমান ট্যাব (deposit/withdraw/exchange) লুকিয়ে ফেলা
