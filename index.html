@@ -120,15 +120,43 @@
     </div>
 
     <!-- নিচে গ্রিড কন্টেন্ট -->
-    <div id="deposit" class="crypto-grid">
-        <div class="crypto-item"><img src="usdt.png"> USDT</div>
-        <div class="crypto-item"><img src="btc.png"> BTC</div>
-        <div class="crypto-item"><img src="TRX.png"> TRX</div>
-        <div class="crypto-item"><img src="sol.png"> SOL</div>
-        <div class="crypto-item see-all"><span>+</span> See All</div>
+    <!-- ডিপোজিট সেকশন -->
+<div id="deposit" class="crypto-grid">
+    <div class="crypto-item" onclick="selectCrypto('USDT', 'TRX123456789ABCDEF')">
+        <img src="images/usdt.png" alt="USDT"> USDT
+    </div>
+    <div class="crypto-item" onclick="selectCrypto('BTC', 'BC1QXYZ987654')">
+        <img src="images/btc.png" alt="BTC"> BTC
+    </div>
+    <div class="crypto-item" onclick="selectCrypto('TRX', 'TRX987654321XYZ')">
+        <img src="images/TRX.png" alt="TRX"> TRX
+    </div>
+    <div class="crypto-item" onclick="selectCrypto('SOL', 'SOL123456789ABC')">
+        <img src="images/sol.png" alt="SOL"> SOL
+    </div>
+    <div class="crypto-item see-all"><span>+</span> See All</div>
+</div>
+            <div id="withdraw" class="crypto-grid" style="display:none;">
+    <div class="crypto-item" onclick="selectCrypto('USDT (Withdraw)', 'UserWithdrawAddr123')">
+        <img src="images/usdt.png" alt="USDT"> USDT
+    </div>
+    <div class="crypto-item" onclick="selectCrypto('BTC (Withdraw)', 'UserWithdrawAddr456')">
+        <img src="images/btc.png" alt="BTC"> BTC
+    </div>
+    <div class="crypto-item" onclick="selectCrypto('TRX (Withdraw)', 'UserWithdrawAddr789')">
+        <img src="images/TRX.png" alt="TRX"> TRX</div>
+</div>
+            <div id="address-box" class="crypto-grid" style="display:none;">
+    <h4 id="coin-title">Select Coin</h4>
+    <div class="address-content">
+        <span id="wallet-address">Address will appear here...</span>
+    </div>
+    <div class="action-buttons">
+        <button onclick="goBack()">Back</button>
+        <button onclick="copyAddress()">Copy</button>
     </div>
 </div>
-        </div>
+</div>
 
   <!-- ডানদিকের অংশ (সংশোধিত) -->
 <div class="user-actions">
