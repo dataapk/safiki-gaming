@@ -438,6 +438,30 @@ img, svg {
 
 /* END WITHDRAW SECTION  */
 
+/* CLOSE ALL SECTION  */
+.addr-header {
+    display: flex;
+    justify-content: space-between; /* ব্যাক বাটন বামে, ক্লোজ বাটন ডানে */
+    align-items: center;
+    padding: 10px 0;
+}
+
+.back-btn, .close-btn {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+.close-btn:hover {
+    color: #ff4d4d; /* হোভার করলে লাল রঙ হবে */
+}
+/* END CLOSE ALL SECTION  */
+
+
+
 /* HEADER WALLET SECTION  */
 
 /* কারেন্সি মেনুর সাথে মিল রেখে ওয়ালেট মেনুর স্টাইল */
