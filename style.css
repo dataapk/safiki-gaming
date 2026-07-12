@@ -88,37 +88,33 @@ img, svg {
     align-items: center;
     justify-content: center;
 }
-/* হAFTER CLICK WALLET DROPDOWN START */
-.wallet-tabs {
-    display: flex;
-    justify-content: space-between;
-    gap: 5px;
-    margin-bottom: 15px;
+/* AFTER CLICK WALLET DROPDOWN START */
+.wallet-dropdown {
+    width: 300px; /* উইডথ কমিয়ে দিলাম */
+    padding: 15px;
+    background: #1a1a2e;
+    border-radius: 12px;
+    border: 1px solid #333;
 }
 
-.tab-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px; /* আইকন এবং টেক্সটের মাঝখানে সামান্য গ্যাপ */
-    flex: 1;
+.crypto-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* ৩টি কলাম */
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.crypto-item {
+    background: #252545;
     padding: 8px;
-    background: #2d2d44;
-    border: none;
-    color: white;
+    border-radius: 8px;
+    text-align: center;
     cursor: pointer;
-    border-radius: 6px;
-    font-size: 14px;
-    transition: 0.3s;
+    border: 1px solid transparent;
 }
 
-.tab-btn.active {
-    background: #4e4e75;
-    border: 1px solid #00d2ff;
-}
-
-.tab-btn i {
-    font-size: 12px; /* আইকনের সাইজ ঠিক রাখা */
+.crypto-item:hover {
+    border: 1px solid #00d2ff; /* হোভার করলে বর্ডার আসবে */
 }
 /*  END AFTER CLICK WALLET DROPDOWN START */
 
