@@ -12,31 +12,31 @@
 
 <!-- মেইন ওয়ালেট বক্স -->
 <!-- মেইন ওয়ালেট বক্স -->
-<!-- হেডার সেকশন -->
+<!-- HEADER SECTION START -->
 
 <header class="header">
     <div class="logo">Logo</div>
 
-    <!-- একীভূত বক্স (কারেন্সি + ওয়ালেট) -->
+    <!-- একীভূত বক্স -->
     <div class="main-control-box">
-        <!-- কারেন্সি ড্রপডাউন -->
+        <!-- কারেন্সি ড্রপডাউন (ছবিসহ) -->
         <div class="dropdown-wrapper">
             <div class="currency-trigger" onclick="toggleDropdown('currency-menu')">
-                <img src="path/to/btc.png" id="selected-currency-img" alt="Currency">
+                <img src="images/btc.png" id="selected-currency-img" alt="BTC" width="20">
                 <span id="selected-balance">$0.00</span>
-                <i class="fas fa-chevron-down"></i>
+                <i class="fas fa-chevron-down"></i> <!-- Font Awesome -->
             </div>
             <div id="currency-menu" class="dropdown-menu">
-                <div onclick="selectCurrency('BTC', 'path/to/btc.png')">BTC</div>
-                <div onclick="selectCurrency('ETH', 'path/to/eth.png')">ETH</div>
-                <div onclick="selectCurrency('SOL', 'path/to/sol.png')">SOL</div>
-                <div onclick="selectCurrency('TRX', 'path/to/trx.png')">TRX</div>
+                <div onclick="selectCurrency('BTC', 'images/btc.png')">BTC</div>
+                <div onclick="selectCurrency('ETH', 'images/eth.png')">ETH</div>
+                <div onclick="selectCurrency('SOL', 'images/sol.png')">SOL</div>
+                <div onclick="selectCurrency('TRX', 'images/trx.png')">TRX</div>
             </div>
         </div>
 
-        <!-- ওয়ালেট বাটন (অরেঞ্জ ব্যাকগ্রাউন্ড) -->
+        <!-- ওয়ালেট বাটন (Font Awesome) -->
         <div class="wallet-trigger" onclick="toggleDropdown('wallet-menu')">
-            <i class="fas fa-wallet"></i>
+            <i class="fas fa-wallet"></i> 
         </div>
         <div id="wallet-menu" class="dropdown-menu">
             <div onclick="openWalletTab('deposit')">Deposit</div>
@@ -45,11 +45,11 @@
         </div>
     </div>
 
-    <!-- ডানদিকের অংশ (নোটিফিকেশন ও প্রোফাইল) -->
+    <!-- ডানদিকের অংশ (Font Awesome) -->
     <div class="user-actions">
         <div class="icon" onclick="toggleDropdown('notif-menu')"><i class="fas fa-bell"></i></div>
-        <div class="profile-img" onclick="toggleDropdown('profile-menu')">
-            <img src="path/to/profile.png" alt="Profile">
+        <div class="profile-icon" onclick="toggleDropdown('profile-menu')">
+            <i class="fas fa-user-circle"></i> <!-- Font Awesome -->
         </div>
         
         <!-- প্রোফাইল মেনু -->
