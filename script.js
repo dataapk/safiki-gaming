@@ -47,12 +47,8 @@ function openWalletTab(action) {
 
 /* 5. Close on Outside Click (যে কোনো খালি জায়গায় ক্লিক করলে মেনু বন্ধ হবে) */
 window.onclick = function(event) {
-    // যদি ক্লিকের উৎস ড্রপডাউনের ভেতরে না হয়, তবে সব বন্ধ করে দাও
-    if (!event.target.closest('.dropdown-wrapper') && 
-        !event.target.closest('.wallet-trigger') && 
-        !event.target.closest('.icon') &&
-        !event.target.closest('.profile-icon')) {
-        
+    // যদি ক্লিকের উৎস `.actions-box` বা `.dropdown-menu` এর ভেতরে হয়, তাহলে কিছুই করবে না
+    if (!event.target.closest('.actions-box') && !event.target.closest('.dropdown-menu')) {
         allMenus.forEach(m => m.style.display = 'none');
     }
 }
