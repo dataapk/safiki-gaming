@@ -116,23 +116,24 @@
 <div class="user-actions">
     
     <!-- নোটিফিকেশন আইকন -->
-    <div class="actions-box" onclick="headerDropdownMenu('notif-menu', event)">
-        <i class="fas fa-bell"></i>
-    </div>
-    <!-- মেনু বক্সের বাইরে -->
-    <div id="notif-menu" class="dropdown-menu">
-        <div>No new notifications</div>
-    </div>
+    <!-- ১. নোটিফিকেশন বাটন -->
+<div class="actions-box" onclick="headerDropdownMenu('notif-menu', event)">
+    <i class="fas fa-bell"></i>
+</div>
+<!-- নোটিফিকেশন মেনু (এটি বাটনের বাইরে থাকবে) -->
+<div id="notif-menu" class="dropdown-menu">
+    <div>No new notifications</div>
+</div>
 
-    <!-- প্রোফাইল আইকন -->
-    <div class="actions-box" onclick="headerDropdownMenu('profile-menu', event)">
-        <i class="fas fa-user-circle"></i>
-    </div>
-    <!-- মেনু বক্সের বাইরে -->
-    <div id="profile-menu" class="dropdown-menu">
-        <div>Transaction History</div>
-        <div class="logout">Logout</div>
-    </div>
+<!-- ২. প্রোফাইল বাটন -->
+<div class="actions-box" onclick="headerDropdownMenu('profile-menu', event)">
+    <i class="fas fa-user-circle"></i>
+</div>
+<!-- প্রোফাইল মেনু (এটিও বাটনের বাইরে থাকবে) -->
+<div id="profile-menu" class="dropdown-menu">
+    <div>Profile Settings</div>
+    <div>Logout</div>
+</div>
 
 </div>
 </header>
