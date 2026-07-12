@@ -133,34 +133,32 @@ function toggleFavorite(element, event) {
 let currentTab = 'deposit'; // ডিফল্ট ট্যাব
 
 function showTab(tabId) {
-    // ১. কারেন্ট ট্যাব আপডেট করা
-    currentTab = tabId; 
-    
-    // ২. সব গ্রিড হাইড করা
-    const contents = document.querySelectorAll('.crypto-grid');
-    contents.forEach(content => {
+    // ১. সব গ্রিড হাইড করা
+    document.querySelectorAll('.crypto-grid').forEach(content => {
         content.style.display = 'none';
     });
     
-    // ৩. অ্যাড্রেস বক্স হাইড করা
-    const addressBox = document.getElementById('address-box');
-    if (addressBox) {
-        addressBox.style.display = 'none';
-    }
+    // ২. সব বক্স হাইড করা (address-box, withdraw-box, exchange-box)
+    document.getElementById('address-box').style.display = 'none';
+    document.getElementById('withdraw-input-box').style.display = 'none';
+    document.getElementById('exchange-box').style.display = 'none';
 
-    // ৪. সব বাটন থেকে 'active' ক্লাস সরিয়ে নেওয়া
-    const buttons = document.querySelectorAll('.tab-btn');
-    buttons.forEach(button => {
+    // ৩. বাটন থেকে 'active' ক্লাস সরানো
+    document.querySelectorAll('.tab-btn').forEach(button => {
         button.classList.remove('active');
     });
 
-    // ৫. নির্দিষ্ট ট্যাব (ডিপোজিট/উইথড্র/এক্সচেঞ্জ) শো করা
-    const targetTab = document.getElementById(tabId);
-    if (targetTab) {
-        targetTab.style.display = 'grid';
+    // ৪. লজিক: কোনটা শো করতে হবে
+    if (tabId === 'exchange') {
+        document.getElementById('exchange-box').style.display = 'block';
+    } else {
+        const targetTab = document.getElementById(tabId);
+        if (targetTab) {
+            targetTab.style.display = 'grid';
+        }
     }
-    
-    // ৬. ক্লিকের বাটনটিতে 'active' ক্লাস যোগ করা
+
+    // ৫. বাটনে 'active' ক্লাস যোগ করা
     if (event && event.currentTarget) {
         event.currentTarget.classList.add('active');
     }
