@@ -27,27 +27,62 @@
                 <i class="fas fa-chevron-down"></i> <!-- Font Awesome -->
             </div>
             <div id="currency-menu" class="dropdown-menu">
-         <div class="currency-option" onclick="selectCurrency('USDT', 'image/usdt.png', '$100.00')">
-        <img src="image/usdt.png" width="20"> 
+    <!-- নতুন আপডেট করা হেডার অংশ (যেখানে ফেভারিট এবং হাইড এমটি থাকবে) -->
+    <div class="dropdown-header-controls">
+        <div class="filter-icons">
+            <i class="fas fa-sort-amount-down"></i>
+            <i class="fas fa-sort-alpha-down"></i>
+            <i class="far fa-heart"></i>
+        </div>
+        <div class="hide-empty-toggle">
+            <span>Hide Empty</span>
+            <input type="checkbox" id="hide-empty-check" onchange="filterAssets()">
+        </div>
+    </div>
+                
+    <!-- তোমার আগের লিস্টগুলো এর নিচেই থাকবে -->
+                
+    <div class="currency-option" onclick="selectCurrency('USDT', 'image/usdt.png', '$100.00')">
+        <img src="image/usdt.png" width="25">
         <span class="name">USDT</span>
         <span class="balance">$100.00</span>
     </div>
-                <div onclick="selectCurrency('BTC', 'image/btc.png', '$1500.00')">
-        <img src="image/btc.png" width="20"> BTC - $100.00
+
+    <!-- BTC -->
+    <div class="currency-option" onclick="selectCurrency('BTC', 'image/btc.png', '$1500.00')">
+        <img src="image/btc.png" width="25">
+        <span class="name">BTC</span>
+        <span class="balance">$1500.00</span>
     </div>
-                <div onclick="selectCurrency('ETH', 'image/eth.png', '$1200.00')">
-        <img src="image/eth.png" width="20"> ETH - $1200.00
+
+    <!-- ETH -->
+    <div class="currency-option" onclick="selectCurrency('ETH', 'image/eth.png', '$1200.00')">
+        <img src="image/eth.png" width="25">
+        <span class="name">ETH</span>
+        <span class="balance">$1200.00</span>
     </div>
-                <div onclick="selectCurrency('SOL', 'image/sol.png', '$1450.00')">
-        <img src="image/sol.png" width="20"> SOL - $1450.00
+
+    <!-- SOL -->
+    <div class="currency-option" onclick="selectCurrency('SOL', 'image/sol.png', '$1450.00')">
+        <img src="image/sol.png" width="25">
+        <span class="name">SOL</span>
+        <span class="balance">$1450.00</span>
     </div>
-                <div onclick="selectCurrency('TRX', 'image/trx.png', '$1300.00')">
-        <img src="image/trx.png" width="20"> TRX - $1300.00
+
+    <!-- TRX -->
+    <div class="currency-option" onclick="selectCurrency('TRX', 'image/trx.png', '$1300.00')">
+        <img src="image/trx.png" width="25">
+        <span class="name">TRX</span>
+        <span class="balance">$1300.00</span>
     </div>
-                <div onclick="selectCurrency('DOGE', 'image/doge.png', '$1400.00')">
-        <img src="image/doge.png" width="20"> DOGE - $1400.00
+
+    <!-- DOGE -->
+    <div class="currency-option" onclick="selectCurrency('DOGE', 'image/doge.png', '$1400.00')">
+        <img src="image/doge.png" width="25">
+        <span class="name">DOGE</span>
+        <span class="balance">$1400.00</span>
     </div>
-            </div>
+</div>
         </div>
 
         <!-- ওয়ালেট বাটন (Font Awesome) -->
