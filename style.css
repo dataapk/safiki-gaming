@@ -506,99 +506,43 @@ img, svg {
 
  /* START EXCHANGE SECTION  */ 
 /* এক্সচেঞ্জ বক্সের স্টাইল */
+/* এক্সচেঞ্জ বক্সের স্টাইল (উইথড্র বক্সের মতো করে দেওয়া হলো) */
 #exchange-box {
-    display: none;       /* শুরুতে বন্ধ থাকবে */
-    position: relative;  /* এটিই বক্সকে স্বাভাবিক জায়গায় রাখবে */
-    width: 100%;
-    margin: 0 auto;      /* মাঝখানে রাখার জন্য */
-    padding: 20px;
-    background: #fff;
-    /* খেয়াল করো: এখানে কোনো top বা bottom প্রপার্টি দেবে না */
-}
-
-.addr-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.back-box {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    font-size: 16px;
-    margin-right: 15px;
-}
-
-.back-box button {
-    background: none;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
-    margin-right: 5px;
-}
-
-/* কারেন্সি সিলেকশন ডিজাইন */
-.currency-select {
-    background: #f8f9fa;
-    padding: 15px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.currency-info {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.currency-info img {
-    width: 30px;
-    height: 30px;
-}
-
-.amount-box {
-    display: flex;
-    gap: 10px;
-    margin: 10px 0;
-}
-
-.amount-box input {
-    flex: 1;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-}
-
-.max-btn {
-    padding: 5px 15px;
-    background: #007bff;
+    background: #1a1e34;
+    padding: 25px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 400px;
+    margin: 20px auto; /* এটিই বক্সটিকে নিচে নামিয়ে আনবে */
     color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    text-align: left;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
-.swap-icon {
-    text-align: center;
-    margin: 10px 0;
-    font-size: 24px;
-    color: #666;
-}
-
-.exchange-action-btn {
+/* এক্সচেঞ্জের ভেতরের ইনপুট এবং সিলেক্টের স্টাইল */
+#exchange-box input, 
+#exchange-box select {
     width: 100%;
     padding: 12px;
-    background: #28a745;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    background: #252a46;
     color: white;
+    border: 1px solid #3b4269;
+    box-sizing: border-box;
+}
+
+/* এক্সচেঞ্জ বাটন */
+.exchange-action-btn {
+    width: 100%;
+    padding: 14px;
+    background: #4e73df;
     border: none;
     border-radius: 8px;
+    color: white;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-    margin-top: 10px;
 }
 
 /* END EXCHANGE SECTION  */
