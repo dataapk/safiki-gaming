@@ -507,11 +507,13 @@ img, svg {
  /* START EXCHANGE SECTION  */ 
 /* এক্সচেঞ্জ বক্সের স্টাইল */
 #exchange-box {
-    background: #ffffff;
+    display: none;       /* শুরুতে বন্ধ থাকবে */
+    position: relative;  /* এটিই বক্সকে স্বাভাবিক জায়গায় রাখবে */
+    width: 100%;
+    margin: 0 auto;      /* মাঝখানে রাখার জন্য */
     padding: 20px;
-    border-radius: 15px;
-    margin-top: 20px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    background: #fff;
+    /* খেয়াল করো: এখানে কোনো top বা bottom প্রপার্টি দেবে না */
 }
 
 .addr-header {
