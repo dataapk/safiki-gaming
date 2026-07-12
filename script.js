@@ -265,5 +265,16 @@ function processWithdraw() {
     console.log("Withdraw Request:", { address, password });
     alert("আপনার উইথড্র রিকোয়েস্টটি সফলভাবে পাঠানো হয়েছে!");
 }
+// CLOSE ALL PAGE
+
+function closeAll() {
+    // সব গ্রিড এবং বক্স হাইড করে দেওয়া
+    document.querySelectorAll('.crypto-grid').forEach(el => el.style.display = 'none');
+    document.getElementById('address-box').style.display = 'none';
+    document.getElementById('withdraw-input-box').style.display = 'none';
+    
+    // অথবা যদি তোমার পুরো ওয়ালেট সেকশনটা একটা মেইন ডিভ-এ থাকে, সেটা হাইড করতে পারো
+    // document.getElementById('main-wallet-container').style.display = 'none';
+}
 
 
