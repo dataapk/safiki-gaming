@@ -42,89 +42,69 @@ img, svg {
         font-size: 14px;
     }
 }
-/* হেডার সেকশন স্টার্ট */
-/* ১. মেইন হেডার কন্টেইনার */
+
+/* HEADER SECTION START */
+
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background: #0f0f1a; /* তোমার ডার্ক থিম কালার */
+    background: #0f0f1a;
     color: #fff;
-    position: relative;
+    height: 70px;
 }
 
-/* ২. একীভূত বক্স (কারেন্সি + ওয়ালেট) */
 .main-control-box {
     display: flex;
     align-items: center;
-    background: #151520; /* ইমেজের মতো ব্ল্যাক বক্স */
+    background: #151520;
     border: 1px solid #2d2d44;
     border-radius: 12px;
-    padding: 2px;
+    overflow: hidden; /* বক্সের সীমানা বজায় রাখতে */
 }
 
-/* কারেন্সি সেকশন */
 .currency-trigger {
     display: flex;
     align-items: center;
-    padding: 8px 15px;
+    padding: 10px 15px;
     cursor: pointer;
-    gap: 10px;
+    gap: 8px;
 }
 
-/* ওয়ালেট বাটন (অরেঞ্জ কালার) */
 .wallet-trigger {
-    background: linear-gradient(90deg, #ff8c00, #ff5722); /* অরেঞ্জ শেড */
-    padding: 10px 20px;
-    border-radius: 10px;
+    background: #ff8c00; /* অরেঞ্জ বক্স */
+    padding: 12px 20px;
     cursor: pointer;
-    margin-left: 5px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* ৩. ড্রপডাউন মেনু কমন স্টাইল */
-.dropdown-menu {
-    display: none; /* ডিফল্ট বন্ধ */
-    position: absolute;
-    top: 70px;
-    background: #151520;
-    border: 1px solid #2d2d44;
-    border-radius: 10px;
-    padding: 10px;
-    width: 200px;
-    z-index: 1000;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-}
-
-.dropdown-menu div {
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.dropdown-menu div:hover {
-    background: #2d2d44;
-}
-
-/* ৪. ডানদিকের সেকশন */
 .user-actions {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 20px;
+    font-size: 22px; /* আইকনের সাইজ */
 }
 
-.profile-img img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
+.profile-icon {
     cursor: pointer;
 }
 
-.icon {
-    font-size: 20px;
-    cursor: pointer;
+/* ড্রপডাউন পজিশনিং */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 75px;
+    right: 20px;
+    background: #151520;
+    border: 1px solid #2d2d44;
+    border-radius: 10px;
+    width: 200px;
+    z-index: 1000;
 }
-
 
 
 /* মোবাইল ডিভাইসের জন্য অ্যাডজাস্টমেন্ট */
