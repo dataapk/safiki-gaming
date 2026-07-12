@@ -283,22 +283,29 @@ function closeAll() {
     // অথবা যদি তোমার পুরো ওয়ালেট সেকশনটা একটা মেইন ডিভ-এ থাকে, সেটা হাইড করতে পারো
     // document.getElementById('main-wallet-container').style.display = 'none';
 }
-// এক্সচেঞ্জ বাটন ক্লিক করলে বক্স দেখানোর জন্য
+// এক্সচেঞ্জ বক্স ওপেন করার জন্য
 function openExchange() {
-    // এক্সচেঞ্জ বক্সটি ওপেন করবে
-    document.getElementById('exchange-box').style.display = 'block';
+    // সব বক্স হাইড করা
+    document.querySelectorAll('.crypto-grid').forEach(el => el.style.display = 'none');
+    document.getElementById('address-box').style.display = 'none';
+    document.getElementById('withdraw-input-box').style.display = 'none';
     
-    // মেনু বক্সটি বন্ধ করে দেবে (যদি থাকে)
-    document.getElementById('main-menu').style.display = 'none'; 
+    // মেইন মেনু হাইড করা (যদি থাকে)
+    const mainMenu = document.getElementById('main-menu');
+    if (mainMenu) mainMenu.style.display = 'none';
+    
+    // এক্সচেঞ্জ বক্স দেখানো
+    document.getElementById('exchange-box').style.display = 'block';
 }
 
-// ব্যাক বাটনে ক্লিক করলে এক্সচেঞ্জ বক্স বন্ধ করার জন্য
+// এক্সচেঞ্জ থেকে ফিরে আসার জন্য
 function goBackFromExchange() {
-    // এক্সচেঞ্জ বক্সটি বন্ধ করবে
     document.getElementById('exchange-box').style.display = 'none';
     
-    // আবার মেইন মেনু ফিরিয়ে আনবে
-    document.getElementById('main-menu').style.display = 'block';
+    // আবার মেইন মেনু দেখানো
+    const mainMenu = document.getElementById('main-menu');
+    if (mainMenu) mainMenu.style.display = 'block';
+    
+    // ডিফল্ট ট্যাবটি আবার শো করা (যেমন: deposit)
+    document.getElementById('deposit').style.display = 'grid';
 }
-
-
