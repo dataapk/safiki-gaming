@@ -106,21 +106,26 @@
             <i class="fas fa-wallet"></i> 
         </div>
         <div id="wallet-menu" class="dropdown-menu wallet-dropdown">
-    <!-- ট্যাব বাটনসমূহ -->
+    <!-- ট্যাব বাটনসমূহ: আইকন ও টেক্সট পাশাপাশি -->
     <div class="wallet-tabs">
-        <button class="tab-btn active" onclick="showTab('deposit')">Deposit</button>
-        <button class="tab-btn" onclick="showTab('withdraw')">Withdraw</button>
-        <button class="tab-btn" onclick="showTab('exchange')">Exchanger</button>
+        <button class="tab-btn active" onclick="showTab('deposit')">
+            <i class="fas fa-arrow-down"></i> <span>Deposit</span>
+        </button>
+        <button class="tab-btn" onclick="showTab('withdraw')">
+            <i class="fas fa-arrow-up"></i> <span>Withdraw</span>
+        </button>
+        <button class="tab-btn" onclick="showTab('exchange')">
+            <i class="fas fa-exchange-alt"></i> <span>Exchanger</span>
+        </button>
     </div>
 
-    <!-- ক্রিপ্টো গ্রিড (এখানেই তোমার png ফাইলগুলো বসবে) -->
+    <!-- ক্রিপ্টো গ্রিড -->
     <div id="deposit" class="crypto-grid">
         <div class="crypto-item"><img src="usdt.png" alt="USDT"> USDT</div>
         <div class="crypto-item"><img src="btc.png" alt="BTC"> BTC</div>
         <div class="crypto-item"><img src="TRX.png" alt="TRX"> TRX</div>
         <div class="crypto-item"><img src="sol.png" alt="SOL"> SOL</div>
-        <!-- আরও যোগ করতে চাইলে এখানে আরও div দাও -->
-        <div class="crypto-item see-all">+ See All</div>
+        <div class="crypto-item see-all"><span>+</span> See All</div>
     </div>
 </div>
         </div>
