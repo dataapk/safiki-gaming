@@ -233,4 +233,37 @@ function selectCrypto(coinName, address) {
     document.getElementById('wallet-address').innerText = address;
 }
 
+// উইথড্র সেকশন সিলেক্ট করার ফাংশন
+function selectWithdraw(coinName) {
+    // ১. উইথড্র মেইন গ্রিড লুকানো
+    document.getElementById('withdraw').style.display = 'none';
+    
+    // ২. উইথড্র ইনপুট বক্স দেখানো
+    document.getElementById('withdraw-input-box').style.display = 'block';
+    
+    // ৩. টাইটেল আপডেট
+    document.getElementById('withdraw-coin-title').innerText = coinName + " Withdraw";
+}
+
+// উইথড্র থেকে ব্যাক করার ফাংশন
+function goBackFromWithdraw() {
+    document.getElementById('withdraw-input-box').style.display = 'none';
+    document.getElementById('withdraw').style.display = 'grid';
+}
+
+// উইথড্র কনফার্ম বাটন ফাংশন
+function processWithdraw() {
+    const address = document.getElementById('withdraw-address').value;
+    const password = document.getElementById('withdraw-password').value;
+    
+    if (address === "" || password === "") {
+        alert("দয়া করে অ্যাড্রেস এবং পাসওয়ার্ড পূরণ করুন!");
+        return;
+    }
+    
+    // এখানে তোমার উইথড্র রিকোয়েস্ট পাঠানোর এপিআই কল বা লজিক বসাবে
+    console.log("Withdraw Request:", { address, password });
+    alert("আপনার উইথড্র রিকোয়েস্টটি সফলভাবে পাঠানো হয়েছে!");
+}
+
 
