@@ -199,3 +199,38 @@ function goBack() {
         activeGrid.style.display = 'grid';
     }
 }
+// ১. অ্যাড্রেস বক্স হাইড করা
+// নেটওয়ার্ক অনুযায়ী অ্যাড্রেস ডাটাবেস (সহজ ভার্সন)
+const cryptoData = {
+    'USDT': {
+        'ERC20': '0x4FB74...0450252',
+        'TRC20': 'TX12345...67890',
+        'BEP20': '0xB1234...99999'
+    }
+    // অন্য কারেন্সিগুলো এখানে এভাবে যোগ করবে
+};
+
+function updateAddress() {
+    const network = document.getElementById('network-select').value;
+    const addressSpan = document.getElementById('wallet-address');
+    
+    // এখানে নেটওয়ার্ক অনুযায়ী অ্যাড্রেস আপডেট হবে
+    addressSpan.innerText = cryptoData['USDT'][network]; 
+}
+
+function copyAddress() {
+    const address = document.getElementById('wallet-address').innerText;
+    navigator.clipboard.writeText(address);
+    alert("Address Copied!");
+}
+
+function selectCrypto(coinName, address) {
+    document.querySelectorAll('.crypto-grid').forEach(g => g.style.display = 'none');
+    const addrBox = document.getElementById('address-box');
+    addrBox.style.display = 'block';
+    
+    document.getElementById('coin-title').innerText = coinName + " Deposit";
+    document.getElementById('wallet-address').innerText = address;
+}
+
+
