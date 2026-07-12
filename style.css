@@ -513,7 +513,7 @@ img, svg {
     border-radius: 15px;
     width: 90%;
     max-width: 400px;
-    margin: 20px auto; /* এটিই বক্সটিকে নিচে নামিয়ে আনবে */
+    margin-top: 150px !important; /* হেডারকে ঢেকে ফেলে তাই জোর করে নিচে নামানো */
     color: white;
     text-align: left;
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
