@@ -121,78 +121,280 @@
 
     <!-- নিচে গ্রিড কন্টেন্ট -->
     <!-- ডিপোজিট সেকশন -->
-<!-- উইথড্র ইনপুট বক্স (সংশোধিত) -->
-<div id="withdraw-input-box" class="address-container" style="display:none;">
-    <!-- আপডেট করা হেডার -->
-    <div class="addr-header">
-        <div class="back-box" onclick="goBackFromWithdraw()">
-            <button>←</button>
-            <span>Back</span>
-        </div>
-        <h4 id="withdraw-coin-title">Withdraw</h4>
+
+<div id="deposit" class="crypto-grid">
+
+    <div class="crypto-item" onclick="selectCrypto('USDT', 'TRX123456789ABCDEF')">
+
+        <img src="image/usdt.png" alt="USDT"> USDT
+
     </div>
 
-    <!-- নেটওয়ার্ক সিলেক্ট -->
-    <p>Select Network</p>
-    <select id="network-select-withdraw">
+    <div class="crypto-item" onclick="selectCrypto('BTC', 'BC1QXYZ987654')">
+
+        <img src="image/btc.png" alt="BTC"> BTC
+
+    </div>
+
+    <div class="crypto-item" onclick="selectCrypto('TRX', 'TRX987654321XYZ')">
+
+        <img src="image/trx.png" alt="TRX"> TRX
+
+    </div>
+
+    <div class="crypto-item" onclick="selectCrypto('SOL', 'SOL123456789ABC')">
+
+        <img src="image/sol.png" alt="SOL"> SOL
+
+    </div>
+
+    <div class="crypto-item see-all"><span>+</span> See All</div>
+
+</div>
+
+
+
+<!-- অ্যাড্রেস বক্স (ডিপোজিট সেকশনের ঠিক পরেই এটি বসাবে) -->
+
+<div id="address-box" class="address-container" style="display:none;">
+
+    <!-- আপডেট করা হেডার -->
+
+    <div class="addr-header">
+
+        <div class="back-box" onclick="goBack()">
+
+            <button>←</button>
+
+            <span>Back</span>
+
+        </div>
+
+        <h4 id="coin-title">Deposit</h4>
+
+    </div>
+
+
+
+    <select id="network-select" onchange="updateAddress()">
+
         <option value="ERC20">Ethereum (ERC-20)</option>
+
         <option value="TRC20">Tron (TRC-20)</option>
+
+        <option value="BEP20">BNB Smart Chain (BEP-20)</option>
+
     </select>
 
+
+
+    <div class="qr-code-box">
+
+        <img src="image/qr-placeholder.png" alt="QR Code" id="qr-image">
+
+    </div>
+
+
+
+    <p>Deposit Address</p>
+
+    <div class="address-input-box">
+
+        <span id="wallet-address">Select a network</span>
+
+        <button onclick="copyAddress()">📋</button>
+
+    </div>
+
+
+
+    <div class="info-box">
+
+        <p>• Minimum = 5.00</p>
+
+        <p>• Please make sure to only send selected coin to this address.</p>
+
+    </div>
+
+</div>
+
+            <!-- উইথড্র সেকশন -->
+
+<div id="withdraw" class="crypto-grid" style="display:none;">
+
+    <div class="crypto-item" onclick="selectWithdraw('USDT')">
+
+        <img src="image/usdt.png" alt="USDT"> USDT
+
+    </div>
+
+    <div class="crypto-item" onclick="selectWithdraw('BTC')">
+
+        <img src="image/btc.png" alt="BTC"> BTC
+
+    </div>
+
+    <div class="crypto-item" onclick="selectWithdraw('TRX')">
+
+        <img src="image/trx.png" alt="TRX"> TRX
+
+    </div>
+
+</div>
+
+
+
+<!-- উইথড্র ইনপুট বক্স (এটি উইথড্রর জন্য আলাদা) -->
+
+<div id="withdraw-input-box" class="address-container" style="display:none;">
+
+    <!-- আপডেট করা হেডার -->
+
+    <div class="addr-header">
+
+        <div class="back-box" onclick="goBackFromWithdraw()">
+
+            <button>←</button>
+
+            <span>Back</span>
+
+        </div>
+
+        <h4 id="withdraw-coin-title">Withdraw</h4>
+
+    </div>
+
+    </div>
+
+
+
+    <!-- নেটওয়ার্ক সিলেক্ট -->
+
+    <p>Select Network</p>
+
+    <select id="network-select-withdraw">
+
+        <option value="ERC20">Ethereum (ERC-20)</option>
+
+        <option value="TRC20">Tron (TRC-20)</option>
+
+    </select>
+
+
+
     <!-- অ্যাড্রেস ইনপুট -->
+
     <p>Withdrawal Address</p>
+
     <input type="text" id="withdraw-address" placeholder="Enter your wallet address">
 
+
+
     <!-- পাসওয়ার্ড ইনপুট -->
+
     <p>Account Password</p>
+
     <input type="password" id="withdraw-password" placeholder="Enter your password">
 
+
+
     <!-- উইথড্র বাটন -->
-    <button class="withdraw-btn" onclick="processWithdraw()">Confirm Withdraw</button>
+
+    <button class="withdraw-btn" onclick="processWithdraw()">Confirm Withdraw</button></div>
+
 </div>
 
-<!-- এক্সচেঞ্জ বক্স (সংশোধিত) -->
-<div id="exchange-box" class="address-container" style="display:none;">
-    <!-- হেডার -->
-    <div class="addr-header">
-        <div class="back-box" onclick="goBackFromExchange()">
-            <button>←</button>
-            <span>Back</span>
-        </div>
-        <h4>Exchanger</h4>
     </div>
+
+    </div>
+
+   
+
+        <div id="exchange-box" class="address-container" style="display:none;">
+
+    <!-- হেডার: ঠিক ডিপোজিটের মতো ব্যাক বক্স -->
+
+    <div class="addr-header">
+
+        <div class="back-box" onclick="goBackFromExchange()">
+
+            <button>←</button>
+
+            <span>Back</span>
+
+        </div>
+
+        <h4>Exchanger</h4>
+
+    </div>
+
+
 
     <!-- টপ কারেন্সি সিলেকশন -->
+
     <div class="currency-select">
+
         <div class="currency-info">
-            <img src="btc-icon.png" alt="BTC">
+
+            <img src="btc-icon.png" alt="BTC"> <!-- আইকন যোগ করবে -->
+
             <span>Bitcoin</span>
+
         </div>
+
     </div>
+
+
 
     <!-- অ্যামাউন্ট ইনপুট -->
+
     <div class="amount-box">
+
         <input type="number" placeholder="0.0001">
+
         <button class="max-btn">Max</button>
+
     </div>
+
+
 
     <!-- সোয়াপ আইকন -->
+
     <div class="swap-icon">
-        <i class="fas fa-sync-alt"></i>
+
+        <i class="fas fa-sync-alt"></i> <!-- এখানে তোমার সোয়াপ আইকনটি থাকবে -->
+
     </div>
+
+
 
     <!-- টু কারেন্সি সিলেকশন -->
+
     <div class="currency-select">
+
         <div class="currency-info">
+
             <img src="usdt-icon.png" alt="USDT">
+
             <span>Tether</span>
+
         </div>
+
     </div>
 
+
+
     <!-- এক্সচেঞ্জ বাটন -->
-    <button class="exchange-action-btn">Exchange</button>
+
+    <button class="exchange-action-btn">Exchange</button></div>
+
 </div>
 
+</div>            
+
+</div>
+
+    </div>
   <!-- ডানদিকের অংশ (সংশোধিত) -->
 <div class="user-actions">
     
