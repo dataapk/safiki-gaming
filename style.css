@@ -94,16 +94,17 @@ img, svg {
 }
 
 /* ড্রপডাউন পজিশনিং */
+/* ১. ড্রপডাউন মেনু - ফুল পেজ ভিউ */
 .dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 75px;
-    right: 20px;
-    background: #151520;
-    border: 1px solid #2d2d44;
-    border-radius: 10px;
-    width: 200px;
+    position: absolute; /* তোমার লেআউটের জন্য absolute ভালো, তবে পুরো পেজ নিতে চাইলে এটি ব্যবহার করো */
+    width: 100%;        /* পুরো পেজের প্রস্থ */
+    height: 100vh;      /* পুরো স্ক্রিনের উচ্চতা */
+    left: 0;
+    top: 60px;          /* হেডারের নিচ থেকে শুরু */
+    background: #1a1a2e;
     z-index: 1000;
+    display: none;      /* শুরুতে হাইড থাকবে */
+    overflow-y: auto;   /* অনেক কারেন্সি হলে স্ক্রল করা যাবে */
 }
 .dropdown-header-bar {
     display: flex;
@@ -113,7 +114,7 @@ img, svg {
     padding: 12px 20px;
     color: #000; /* টেক্সট কালো রঙে */
     font-weight: bold;
-    border-radius: 0 0 10px 10px; /* নিচের দিকে হালকা রাউন্ড শেপ */
+    border-radius: 5px 5px 0 0; /* নিচের দিকে হালকা রাউন্ড শেপ */
 }
 /* ড্রপডাউনের ভেতরে প্রতিটি কারেন্সি অপশন */
 .currency-option {
