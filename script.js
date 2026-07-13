@@ -2,8 +2,9 @@
 const allMenus = document.querySelectorAll('.dropdown-menu');
 
 /* --- API & Global Variables --- */
-let currentPrices = {};
-let timeLeft = 30;
+let currentPrices = {
+    "ada": 0, "btc": 0, "eth": 0, "usdt": 1, "doge": 0, "trx": 0 // ডিফল্ট ভ্যালু
+};
 
 // API থেকে লাইভ রেট আনার ফাংশন
 async function fetchLiveRates() {
@@ -20,10 +21,17 @@ async function fetchLiveRates() {
             "trx": data.tron.usd
         };
         console.log("Rates Updated:", currentPrices);
+        
+        // রেট আপডেট হলে সাথে সাথে ক্যালকুলেশন আপডেট করে দেবে
+        calculateExchange(); 
     } catch (error) {
         console.error("Error fetching rates:", error);
     }
 }
+
+// ৬০ সেকেন্ড পর পর রেট আপডেট করার লজিক
+setInterval(fetchLiveRates, 60000);
+fetchLiveRates(); // প্রথমবার পেজ লোড হওয়ার সাথে সাথে কল হবে
 
 /* 2. Main Logic: Header Dropdown Handler */
 function headerDropdownMenu(id, event) {
@@ -469,10 +477,26 @@ window.onload = function() {
 
 // ক্যালকুলেশন ফাংশন (এটি তোমার আগের লজিকের সাথে যুক্ত থাকবে)
 function calculateExchange() {
-    const fromAmount = document.getElementById('from-amount').value;
-    // এখানে রেট অনুযায়ী ক্যালকুলেশন করে to-amount ফিল্ডে বসাবে
-    console.log("Calculating exchange for: " + fromAmount);
+    const fromVal = parseFloat(document.getElementById('from-amount').value) || 0;
+    const fromCurr = document.getElementById('from-currency').value;
+    const toCurr = document.getElementById('to-currency').value;
+
+    // রেট বের করা (উপরে সিলেক্ট করা কয়েন এবং নিচে সিলেক্ট করা কয়েন)
+    const fromPrice = currentPrices[fromCurr];
+    const toPrice = currentPrices[toCurr];
+    
+    // কনভার্সন ফর্মুলা: (fromAmount * fromPrice) / toPrice
+    const result = (fromVal * fromPrice) / toPrice;
+
+    // নিচে রেজাল্ট বসানো
+    const toAmountDisplay = document.getElementById('to-amount');
+    toAmountDisplay.innerText = result.toFixed(8);
 }
+
+// ইনপুট বা ড্রপডাউনে কিছু পরিবর্তন হলে ক্যালকুলেশন কল হবে
+document.getElementById('from-amount').addEventListener('input', calculateExchange);
+document.getElementById('from-currency').addEventListener('change', calculateExchange);
+document.getElementById('to-currency').addEventListener('change', calculateExchange);
 // এই ফাংশনটি তোমার জাভাস্ক্রিপ্ট ফাইলে যোগ করো
 function updateIcons() {
     // FROM কারেন্সির জন্য
