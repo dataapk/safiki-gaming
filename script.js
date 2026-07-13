@@ -459,19 +459,30 @@ function validateExchange(amount, minLimit) {
 
 // ৪. এক্সচেঞ্জ প্রসেসিং ফাংশন
 function processExchange() {
+    // ১. প্রয়োজনীয় ডেটা সংগ্রহ
+    const fromCurrency = document.getElementById('from-currency').value;
     const amount = parseFloat(document.getElementById('from-amount').value);
-    const minAmount = 31.40; // মিনিমাম অ্যামাউন্ট লিমিট
+    const currencyName = fromCurrency.toUpperCase();
+    
+    // লাইভ রেট ও মিনিমাম লিমিট ক্যালকুলেশন
+    const price = currentPrices[fromCurrency] || 1;
+    const minAmount = 10 / price; 
 
+    // ২. ভ্যালিডেশন চেক (যদি অ্যামাউন্ট ভুল বা কম হয়)
     if (!amount || amount < minAmount) {
-        alert("Exchange failed: Minimum amount is " + minAmount + " ADA");
-        return;
+        // মেসেজে একটু স্পেস দেওয়ার জন্য ${currencyName} এর আগে স্পেস রাখা হয়েছে
+        alert(`Exchange failed: Minimum amount is ${minAmount.toFixed(4)} ${currencyName}`);
+        return; // এখানেই থেমে যাবে, এক্সচেঞ্জ হবে না
     }
     
+    // ৩. যদি ভ্যালিডেশন পাস করে (সব ঠিক থাকে), তবে নিচের লজিক চলবে
     // এখানে তোমার এক্সচেঞ্জ হওয়ার আসল এপিআই বা ডাটাবেজ কোডটি বসাবে
-    alert("Exchange successful for " + amount + " units!");
-    console.log("Exchange processed");
+    
+    alert("Exchange successful for " + amount + " " + currencyName + "!");
+    console.log("Exchange processed for " + amount + " " + currencyName);
+    
+    // এখানে তোমার ব্যালেন্স আপডেটের কোড বা অন্যান্য ফাংশন কল করতে পারো
 }
-
 // ৫. রেট আপডেট ও টাইমার ফাংশন (প্রতি ৩০ সেকেন্ড)
 function startRateTimer() {
     setInterval(() => {
