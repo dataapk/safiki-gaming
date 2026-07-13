@@ -301,3 +301,12 @@ function goBackFromExchange() {
     // ডিফল্ট ট্যাবটি আবার শো করা (যেমন: deposit)
     document.getElementById('deposit').style.display = 'grid';
 }
+// প্রতি ৬০ সেকেন্ডে রেট আপডেট করার লজিক
+setInterval(() => {
+    fetch('/get-live-rates') // তোমার ব্যাকএন্ড API
+    .then(response => response.json())
+    .then(data => {
+        // নতুন রেট অনুযায়ী UI আপডেট করা
+        document.querySelector('.output-row span').innerText = data.newRate;
+    });
+}, 60000);
