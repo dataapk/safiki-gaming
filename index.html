@@ -254,49 +254,56 @@
 </div>
 
 <!-- START EXCHANGE SECTION DROPDOWN (এটি ঠিক করা হয়েছে) -->
+<!-- এক্সচেঞ্জ সেকশন (শুধু HTML) -->
 <div id="exchange-box" class="exchanger-box" style="display:none;">
+    
     <!-- হেডার -->
     <div class="exchanger-header">
         <h3><i class="fas fa-chevron-left"></i> Exchanger</h3>
-        <button class="close-btn" onclick="closeExchange()">×</button>
+        <button class="close-btn" onclick="closeExchange()">&times;</button>
     </div>
 
-    <!-- কারেন্সি সিলেকশন (From) -->
-    <div class="currency-group">
-        <select class="currency-select">
-            <option>Cardano</option>
-            <!-- আরও অপশন -->
-        </select>
-        <div class="input-row">
-            <input type="number" placeholder="0.00">
-            <button class="max-btn">Max</button>
+    <!-- FROM সেকশন -->
+    <div class="exchanger-item">
+        <label>From</label>
+        <div class="crypto-select-wrapper">
+            <img id="from-icon" src="image/btc.png" width="24" height="24">
+            <select id="from-currency" onchange="updateIcons(); calculateExchange();">
+                <option value="btc">Bitcoin (BTC)</option>
+                <option value="eth">Ethereum (ETH)</option>
+                <option value="usdt">USDT</option>
+                <option value="sol">Solana (SOL)</option>
+                <option value="doge">Dogecoin (DOGE)</option>
+                <option value="trx">Tron (TRX)</option>
+            </select>
+            <button class="max-btn" onclick="setMax()">Max</button>
         </div>
-        <small class="error-msg">Amount is higher than balance</small>
+        <input type="number" id="from-amount" placeholder="0.00" oninput="calculateExchange()">
     </div>
 
-    <!-- অদলবদল আইকন -->
-    <div class="swap-icon"><i class="fas fa-sync-alt"></i> To</div>
+    <!-- সোয়াপ বাটন -->
+    <div class="swap-icon" onclick="swapCoins()">⇅</div>
 
-    <!-- কারেন্সি সিলেকশন (To) -->
-    <div class="currency-group">
-        <select class="currency-select">
-            <option>Bitcoin</option>
-        </select>
-        <div class="output-row">
-            <span>0.00007098</span>
+    <!-- TO সেকশন -->
+    <div class="exchanger-item">
+        <label>To</label>
+        <div class="crypto-select-wrapper">
+            <img id="to-icon" src="image/eth.png" width="24" height="24">
+            <select id="to-currency" onchange="updateIcons(); calculateExchange();">
+                <option value="btc">Bitcoin (BTC)</option>
+                <option value="eth" selected>Ethereum (ETH)</option>
+                <option value="usdt">USDT</option>
+                <option value="sol">Solana (SOL)</option>
+                <option value="doge">Dogecoin (DOGE)</option>
+                <option value="trx">Tron (TRX)</option>
+            </select>
         </div>
+        <input type="number" id="to-amount" readonly placeholder="0.00">
     </div>
 
-    <!-- ইনফরমেশন সেকশন -->
-    <p class="rate-info">Rate updated every 60 sec</p>
-    <div class="info-table">
-        <div><span>Balance</span> <span>0.00174269 ADA</span></div>
-        <div><span>Min amount</span> <span>31.40 ADA</span></div>
-        <div><span>Max amount</span> <span>1,256,036.82 ADA</span></div>
-    </div>
-
-    <!-- বাটন -->
-    <button class="exchange-btn">Exchange</button></div>
+    <!-- এক্সচেঞ্জ বাটন -->
+    <button class="exchange-submit-btn" onclick="processExchange()">Exchange Now</button>
+</div>
 <!-- এই ডিভগুলো তোমার মেনু বা প্যারেন্ট সেকশন ক্লোজ করবে, যা আগে মিসিং ছিল -->
 </div> 
 </div>
