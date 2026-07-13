@@ -333,15 +333,7 @@ function goBackFromExchange() {
     // ডিফল্ট ট্যাবটি আবার শো করা (যেমন: deposit)
     document.getElementById('deposit').style.display = 'grid';
 }
-// প্রতি ৬০ সেকেন্ডে রেট আপডেট করার লজিক
-setInterval(() => {
-    fetch('/get-live-rates') // তোমার ব্যাকএন্ড API
-    .then(response => response.json())
-    .then(data => {
-        // নতুন রেট অনুযায়ী UI আপডেট করা
-        document.querySelector('.output-row span').innerText = data.newRate;
-    });
-}, 60000);
+
 // ১. এক্সচেঞ্জ বক্স ক্লোজ করার ফাংশন
 function closeExchange() {
     document.getElementById('exchange-box').style.display = 'none';
@@ -475,22 +467,32 @@ window.onload = function() {
     startRateTimer();
 };
 
-// ক্যালকুলেশন ফাংশন (এটি তোমার আগের লজিকের সাথে যুক্ত থাকবে)
+// ক্যালকুলেশন ফাংশন (৫% ফি সহ আপডেট করা হয়েছে)
 function calculateExchange() {
     const fromVal = parseFloat(document.getElementById('from-amount').value) || 0;
     const fromCurr = document.getElementById('from-currency').value;
     const toCurr = document.getElementById('to-currency').value;
 
-    // রেট বের করা (উপরে সিলেক্ট করা কয়েন এবং নিচে সিলেক্ট করা কয়েন)
-    const fromPrice = currentPrices[fromCurr];
-    const toPrice = currentPrices[toCurr];
+    // রেট বের করা
+    const fromPrice = currentPrices[fromCurr] || 0;
+    const toPrice = currentPrices[toCurr] || 0;
     
     // কনভার্সন ফর্মুলা: (fromAmount * fromPrice) / toPrice
-    const result = (fromVal * fromPrice) / toPrice;
+    const grossResult = (fromVal * fromPrice) / toPrice;
 
-    // নিচে রেজাল্ট বসানো
+    /* 
+       --- ৫% এক্সচেঞ্জ ফি ক্যালকুলেশন ---
+       নিচে ৫% ফি কেটে নেওয়ার লজিকটি দেওয়া হলো।
+       আমরা মোট রেজাল্ট থেকে ৫% বাদ দিচ্ছি (অর্থাৎ ৯৫% রেজাল্ট দেখাচ্ছি)।
+    */
+    const feePercentage = 0.05; 
+    const netResult = grossResult * (1 - feePercentage);
+
+    // নিচে রেজাল্ট বসানো (ইউজার শুধু ফি কাটার পরের অ্যামাউন্টটিই দেখতে পাবে)
     const toAmountDisplay = document.getElementById('to-amount');
-    toAmountDisplay.innerText = result.toFixed(8);
+    if (toAmountDisplay) {
+        toAmountDisplay.innerText = netResult.toFixed(8);
+    }
 }
 
 // ইনপুট বা ড্রপডাউনে কিছু পরিবর্তন হলে ক্যালকুলেশন কল হবে
