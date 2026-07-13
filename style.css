@@ -600,23 +600,21 @@ img, svg {
 }
 /* RATE UPDATE SUMMARY SECTION */
 .info-box {
-    background: #1a1e30; /* তোমার ছবির ডার্ক ব্যাকগ্রাউন্ডের সাথে মিল রেখে */
-    padding: 15px;
-    border-radius: 10px;
-    margin-bottom: 15px;
-    color: #ffffff;
-    font-size: 14px;
+    display: block !important;
+    background-color: #1a1e30 !important; /* গাঢ় নীল/কালো ব্যাকগ্রাউন্ড */
+    padding: 15px !important;
+    margin: 10px 0 !important;
+    border-radius: 8px !important;
+    color: #ffffff !important; /* টেক্সট সাদা */
+    border: 1px solid #333 !important;
+    z-index: 9999 !important;
 }
 
 .info-row {
-    display: flex;
-    justify-content: space-between;
-    padding: 8px 0;
-    border-bottom: 1px solid #2c3e50; /* হালকা দাগের জন্য */
-}
-
-.info-row:last-child {
-    border-bottom: none; /* শেষের দাগটি সরিয়ে দেওয়া */
+    display: flex !important;
+    justify-content: space-between !important;
+    padding: 5px 0 !important;
+    color: #ffffff !important;
 }
 
 /* এক্সচেঞ্জ বাটন */
