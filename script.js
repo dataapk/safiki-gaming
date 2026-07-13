@@ -480,6 +480,8 @@ function calculateExchange() {
     
     // কনভার্সন ফর্মুলা: (fromAmount * fromPrice) / toPrice
     const grossResult = (fromVal * fromPrice) / toPrice;
+    // ক্যালকুলেশন ফাংশনের একদম শেষে এটি দাও:
+    updateStats(fromCurrency, toCurrency, fromValue);
 
     /* 
        --- ৫% এক্সচেঞ্জ ফি ক্যালকুলেশন ---
@@ -494,6 +496,14 @@ function calculateExchange() {
     if (toAmountDisplay) {
         toAmountDisplay.innerText = netResult.toFixed(8);
     }
+}
+function updateStats(fromCurr, toCurr, fromVal, calculatedMax) {
+    // এখানে তোমার ব্যালেন্স এবং লিমিটগুলো আপডেট হচ্ছে
+    document.getElementById('user-balance').innerText = userBalance + " " + fromCurr.toUpperCase();
+    document.getElementById('min-amount').innerText = "31.40 " + fromCurr.toUpperCase();
+    
+    // নিচে ম্যাক্স অ্যামাউন্ট হিসেবে ক্যালকুলেটেড ভ্যালু বা তোমার লজিক অনুযায়ী মান বসাও
+    document.getElementById('max-amount').innerText = calculatedMax + " " + fromCurr.toUpperCase();
 }
 
 // ইনপুট বা ড্রপডাউনে কিছু পরিবর্তন হলে ক্যালকুলেশন কল হবে
