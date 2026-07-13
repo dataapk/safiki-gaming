@@ -243,59 +243,40 @@
 
 
 <!-- উইথড্র ইনপুট বক্স (এটি উইথড্রর জন্য আলাদা) -->
-
-<div id="withdraw-input-box" class="address-container" style="display:none;">
-
-    <!-- আপডেট করা হেডার -->
-
-    <div class="addr-header">
-
-        <div class="back-box" onclick="goBackFromWithdraw()">
-
-            <button>←</button>
-
-            <span>Back</span>
-
+<!-- উইথড্র ইনপুট বক্স (এটি উইথড্রর জন্য আলাদা) -->
+    <div id="withdraw-input-box" class="address-container" style="display:none;">
+        <div class="addr-header">
+            <div class="back-box" onclick="goBackFromWithdraw()">
+                <button>←</button>
+                <span>Back</span>
+            </div>
+            <h4 id="withdraw-coin-title">Withdraw</h4>
         </div>
 
-        <h4 id="withdraw-coin-title">Withdraw</h4>
+        <p>Select Network</p>
+        <select id="network-select-withdraw">
+            <option value="ERC20">Ethereum (ERC-20)</option>
+            <option value="TRC20">Tron (TRC-20)</option>
+        </select>
 
-    </div>
+        <p>Withdrawal Address</p>
+        <input type="text" id="withdraw-address" placeholder="Enter your wallet address">
 
+        <p>Account Password</p>
+        <input type="password" id="withdraw-password" placeholder="Enter your password">
 
-    <!-- নেটওয়ার্ক সিলেক্ট -->
+        <button class="withdraw-btn" onclick="processWithdraw()">Confirm Withdraw</button>
+    </div> <!-- এখানে সঠিক ক্লোজিং নিশ্চিত করা হয়েছে -->
 
-    <p>Select Network</p>
-
-    <select id="network-select-withdraw">
-
-        <option value="ERC20">Ethereum (ERC-20)</option>
-
-        <option value="TRC20">Tron (TRC-20)</option>
-
-    </select>
-
-
-
-    <!-- অ্যাড্রেস ইনপুট -->
-
-    <p>Withdrawal Address</p>
-
-    <input type="text" id="withdraw-address" placeholder="Enter your wallet address">
-
-
-
-    <!-- পাসওয়ার্ড ইনপুট -->
-
-    <p>Account Password</p>
-
-    <input type="password" id="withdraw-password" placeholder="Enter your password">
-
-
-
-    <!-- উইথড্র বাটন -->
-
-    <button class="withdraw-btn" onclick="processWithdraw()">Confirm Withdraw</button></div>
+    <!-- START EXCHANGE SECTION DROPDOWN -->
+    <div id="exchange-box" class="exchanger-box" style="display:none;">
+        <!-- হেডার -->
+        <div class="exchanger-header">
+            <h3><i class="fas fa-chevron-left"></i> Exchanger</h3>
+            <button class="close-btn">&times;</button>
+        </div>
+        <!-- বাকি কোড এখানে থাকবে -->
+    </div> <!-- এক্সচেঞ্জ বক্সের জন্য আলাদা ক্লোজিং -->
 
             <!-- START EXCHANGE SECTION DROPDOWN -->
             
