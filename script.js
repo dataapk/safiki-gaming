@@ -310,3 +310,77 @@ setInterval(() => {
         document.querySelector('.output-row span').innerText = data.newRate;
     });
 }, 60000);
+// ১. এক্সচেঞ্জ বক্স ক্লোজ করার ফাংশন
+function closeExchange() {
+    document.getElementById('exchange-box').style.display = 'none';
+    console.log("Exchange box closed");
+}
+
+// ২. সোয়াপ (Swap) কয়েন ফাংশন
+function swapCoins() {
+    const fromSelect = document.getElementById('from-currency');
+    const toSelect = document.getElementById('to-currency');
+    
+    // ভ্যালু অদলবদল
+    let temp = fromSelect.value;
+    fromSelect.value = toSelect.value;
+    toSelect.value = temp;
+    
+    // আইকন ও ক্যালকুলেশন আপডেট
+    updateIcons();
+    calculateExchange();
+    console.log("Coins swapped");
+}
+
+// ৩. ম্যাক্স (Max) ব্যালেন্স সেট করার ফাংশন
+function setMax() {
+    // এখানে তোমার ব্যালেন্সের ভেরিয়েবলটি বসাবে
+    const userBalance = 0.00174269; 
+    document.getElementById('from-amount').value = userBalance;
+    calculateExchange();
+    console.log("Max balance set");
+}
+
+// ৪. এক্সচেঞ্জ প্রসেসিং ফাংশন
+function processExchange() {
+    const amount = parseFloat(document.getElementById('from-amount').value);
+    const minAmount = 31.40; // মিনিমাম অ্যামাউন্ট লিমিট
+
+    if (!amount || amount < minAmount) {
+        alert("Exchange failed: Minimum amount is " + minAmount + " ADA");
+        return;
+    }
+    
+    // এখানে তোমার এক্সচেঞ্জ হওয়ার আসল এপিআই বা ডাটাবেজ কোডটি বসাবে
+    alert("Exchange successful for " + amount + " units!");
+    console.log("Exchange processed");
+}
+
+// ৫. রেট আপডেট ও টাইমার ফাংশন (প্রতি ৩০ সেকেন্ড)
+function startRateTimer() {
+    let timeLeft = 30;
+    const timerDisplay = document.getElementById('rate-timer');
+    
+    setInterval(() => {
+        timeLeft--;
+        if (timerDisplay) timerDisplay.innerText = timeLeft;
+        
+        if (timeLeft <= 0) {
+            console.log("Rate updated!");
+            // এখানে নতুন রেট ফেচ করার লজিক বসাবে
+            timeLeft = 30;
+        }
+    }, 1000);
+}
+
+// পেজ লোড হওয়ার সাথে সাথে টাইমার শুরু করা
+window.onload = function() {
+    startRateTimer();
+};
+
+// ক্যালকুলেশন ফাংশন (এটি তোমার আগের লজিকের সাথে যুক্ত থাকবে)
+function calculateExchange() {
+    const fromAmount = document.getElementById('from-amount').value;
+    // এখানে রেট অনুযায়ী ক্যালকুলেশন করে to-amount ফিল্ডে বসাবে
+    console.log("Calculating exchange for: " + fromAmount);
+}
