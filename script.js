@@ -375,6 +375,29 @@ function setMax() {
     
     console.log("Max balance set to:", userBalance);
 }
+// ১. কারেন্সি অনুযায়ী রেট ও লিমিট আপডেট করার ফাংশন
+function updateStatLimits() {
+    const fromCurrency = document.getElementById('from-currency').value;
+    const price = currentPrices[fromCurrency] || 1;
+    
+    // লিমিট (ডলারে)
+    const minUSD = 5;
+    const maxUSD = 20000;
+    
+    const minAmount = minUSD / price;
+    const maxAmount = maxUSD / price;
+    
+    const currencyLabel = fromCurrency.toUpperCase();
+    
+    // UI-তে ভ্যালু বসানো
+    const minEl = document.getElementById('stat-min');
+    const maxEl = document.getElementById('stat-max');
+    
+    if(minEl) minEl.innerText = `${minAmount.toFixed(4)} ${currencyLabel}`;
+    if(maxEl) maxEl.innerText = `${maxAmount.toFixed(2)} ${currencyLabel}`;
+    
+    console.log("Stat Limits updated for:", currencyLabel);
+}
 function checkMinimumLimit() {
     // ১. ইউজার বর্তমানে কোন কয়েন সিলেক্ট করে রেখেছে সেটা ধরা
     const fromCurrency = document.getElementById('from-currency').value; 
