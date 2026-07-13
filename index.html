@@ -299,47 +299,58 @@
 
     <button class="withdraw-btn" onclick="processWithdraw()">Confirm Withdraw</button></div>
 
-        <div id="exchange-box" class="address-container" style="display:none;">
-    <div class="addr-header">
-        <div class="back-box" onclick="goBackFromExchange()">
-            <button>←</button>
-            <span>Back</span>
+            <!-- START EXCHANGE SECTION DROPDOWN -->
+            
+<div class="exchanger-box">
+    <!-- হেডার -->
+    <div class="exchanger-header">
+        <h3><i class="fas fa-chevron-left"></i> Exchanger</h3>
+        <button class="close-btn">&times;</button>
+    </div>
+
+    <!-- কারেন্সি সিলেকশন (From) -->
+    <div class="currency-group">
+        <select class="currency-select">
+            <option>Cardano</option>
+            <!-- আরও অপশন -->
+        </select>
+        <div class="input-row">
+            <input type="number" placeholder="0.00">
+            <button class="max-btn">Max</button>
         </div>
-        <h4>Exchanger</h4>
+        <small class="error-msg">Amount is higher than balance</small>
     </div>
 
-    <div class="currency-select">
-        <div class="currency-info">
-            <img src="btc-icon.png" alt="BTC">
-            <span>Bitcoin</span>
+    <!-- অদলবদল আইকন -->
+    <div class="swap-icon"><i class="fas fa-sync-alt"></i> To</div>
+
+    <!-- কারেন্সি সিলেকশন (To) -->
+    <div class="currency-group">
+        <select class="currency-select">
+            <option>Bitcoin</option>
+        </select>
+        <div class="output-row">
+            <span>0.00007098</span>
         </div>
     </div>
 
-    <div class="amount-box">
-        <input type="number" placeholder="0.0001">
-        <button class="max-btn">Max</button>
+    <!-- ইনফরমেশন সেকশন -->
+    <p class="rate-info">Rate updated every 60 sec</p>
+    <div class="info-table">
+        <div><span>Balance</span> <span>0.00174269 ADA</span></div>
+        <div><span>Min amount</span> <span>31.40 ADA</span></div>
+        <div><span>Max amount</span> <span>1,256,036.82 ADA</span></div>
     </div>
 
-    <div class="swap-icon">
-        <i class="fas fa-sync-alt"></i>
-    </div>
-
-    <div class="currency-select">
-        <div class="currency-info">
-            <img src="usdt-icon.png" alt="BTC"> <!-- এখানে icon ঠিক করে নিও -->
-            <span>Tether</span>
-        </div>
-    </div>
-
-    <button class="exchange-action-btn">Exchange</button>
+    <!-- বাটন -->
+    <button class="exchange-btn">Exchange</button>
 </div>
-    </div>
-    </div
   <!-- ডানদিকের অংশ (সংশোধিত) -->
-<div class="user-actions">
+
     
     <!-- নোটিফিকেশন আইকন -->
     <!-- ১. নোটিফিকেশন বাটন -->
+    <div class="user-actions">
 <div class="actions-box" onclick="headerDropdownMenu('notif-menu', event)">
     <i class="fas fa-bell"></i>
 </div>
