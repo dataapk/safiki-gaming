@@ -516,99 +516,172 @@ img, svg {
 /* এক্সচেঞ্জ বক্সের স্টাইল (উইথড্র বক্সের মতো করে দেওয়া হলো) */
 /* এক্সচেঞ্জার বক্সের মূল কন্টেইনার */
 .exchanger-box {
-    background: #121626;
+
+    background: #121626; /* ডার্ক ব্যাকগ্রাউন্ড */
+
     border-radius: 20px;
+
     padding: 20px;
+
     width: 100%;
+
     max-width: 400px;
+
     margin: 20px auto;
+
     color: #ffffff;
+
     font-family: 'Segoe UI', sans-serif;
+
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+
     border: 1px solid #2d344d;
+
 }
 
-/* কারেন্সি গ্রুপ - এখানে লোগো এবং ড্রপডাউন সুন্দর বক্স আকারে থাকবে */
+
+
+/* হেডার */
+
+.exchanger-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 20px;
+
+}
+
+
+
+/* কারেন্সি গ্রুপ ও ড্রপডাউন */
+
 .currency-group {
+
     background: #1a1e34;
+
     padding: 15px;
+
     border-radius: 12px;
+
     margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    border: 1px solid #2d344d;
-    transition: 0.3s;
+
 }
 
-.currency-group:hover {
-    border-color: #4a5578;
-}
 
-/* লোগোর জন্য ছোট বক্স */
-.currency-logo {
-    width: 35px;
-    height: 35px;
-    margin-right: 10px;
-    background: #2d344d;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
-/* ড্রপডাউন ড্রপডাউন মেনু ঠিক করা যাতে সাদা না দেখায় */
 .currency-select {
+
     width: 100%;
+
     background: transparent;
+
     color: #fff;
+
     border: none;
+
     font-size: 16px;
+
+    margin-bottom: 10px;
+
     cursor: pointer;
-    font-weight: bold;
+
 }
 
-/* ড্রপডাউনের অপশন কালার ফিক্স */
-.currency-select option {
-    background-color: #1a1e34;
-    color: #ffffff;
-}
 
-/* ইনপুট ফিল্ড */
+
+/* ইনপুট ফিল্ড ও ম্যাক্স বাটন */
+
 .input-row {
+
     display: flex;
+
     align-items: center;
+
     gap: 10px;
-    margin-top: 10px;
+
 }
+
+
 
 .input-row input {
+
     background: transparent;
+
     border: none;
+
     color: #fff;
+
     font-size: 18px;
+
     flex: 1;
-    outline: none;
+
 }
 
-/* ম্যাক্স বাটনে ক্লিক করলে ইয়েলো কালার করার জন্য এই ক্লাসটি JS-এ ব্যবহার করবে */
-.text-yellow {
-    color: #f1c40f !important;
-}
+
 
 .max-btn {
+
     background: #2d344d;
+
     color: #b0b7cf;
+
     border: none;
+
     padding: 5px 15px;
+
     border-radius: 8px;
+
     cursor: pointer;
-    font-size: 12px;
+
 }
 
-.max-btn:hover {
-    background: #3d4a75;
-    color: #fff;
+
+
+/* সোয়াপ বাটন (টু বাটন) */
+
+.swap-icon {
+
+    text-align: center;
+
+    margin: 10px 0;
+
+    color: #8b94a5;
+
+    font-size: 14px;
+
 }
+
+
+
+/* ইনফরমেশন টেবিল */
+
+.info-table {
+
+    margin: 20px 0;
+
+    font-size: 14px;
+
+}
+
+
+
+.info-table div {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 8px 0;
+
+    border-bottom: 1px solid #2d344d;
+
+} 
+
+
 /* RATE UPDATE SUMMARY SECTION */
 .info-box {
     display: block !important;
