@@ -1,15 +1,5 @@
 /* 1. DOM Elements Selection */
 const allMenus = document.querySelectorAll('.dropdown-menu');
-// ১. এখানে সব এলিমেন্ট সিলেক্ট করা আছে (যেগুলো অলরেডি তোমার কোডে আছে)
-const amountInput = document.getElementById('amount-input'); // তোমার ইনপুট ফিল্ডের আইডিটি এখানে দাও
-const exchangeBtn = document.querySelector('.exchange-btn');
-
-// ২. এখানে ইভেন্ট লিসেনারটি বসাও (এটিই সেরা জায়গা)
-amountInput.addEventListener('input', function() {
-    const amount = parseFloat(this.value);
-    // এখানে আমাদের ওই ভ্যালিডেশন লজিকটি কল করো
-    validateExchange(amount, 31.40); 
-});
 
 /* --- API & Global Variables --- */
 let currentPrices = {
