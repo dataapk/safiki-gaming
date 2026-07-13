@@ -221,61 +221,44 @@
             <!-- উইথড্র সেকশন -->
 
 <div id="withdraw" class="crypto-grid" style="display:none;">
-
     <div class="crypto-item" onclick="selectWithdraw('USDT')">
-
         <img src="image/usdt.png" alt="USDT"> USDT
-
     </div>
-
     <div class="crypto-item" onclick="selectWithdraw('BTC')">
-
         <img src="image/btc.png" alt="BTC"> BTC
-
     </div>
-
     <div class="crypto-item" onclick="selectWithdraw('TRX')">
-
-        <img src="image/trx.png" alt="TRX"> TRX</div>
-
+        <img src="image/trx.png" alt="TRX"> TRX
+    </div>
 </div>
 
-
-
-<!-- উইথড্র ইনপুট বক্স (এটি উইথড্রর জন্য আলাদা) -->
-<!-- উইথড্র ইনপুট বক্স (এটি উইথড্রর জন্য আলাদা) -->
-    <div id="withdraw-input-box" class="address-container" style="display:none;">
-        <div class="addr-header">
-            <div class="back-box" onclick="goBackFromWithdraw()">
-                <button>←</button>
-                <span>Back</span>
-            </div>
-            <h4 id="withdraw-coin-title">Withdraw</h4>
+<!-- উইথড্র ইনপুট বক্স -->
+<div id="withdraw-input-box" class="address-container" style="display:none;">
+    <div class="addr-header">
+        <div class="back-box" onclick="goBackFromWithdraw()">
+            <button>←</button>
+            <span>Back</span>
         </div>
+        <h4 id="withdraw-coin-title">Withdraw</h4>
+    </div>
+    <p>Select Network</p>
+    <select id="network-select-withdraw">
+        <option value="ERC20">Ethereum (ERC-20)</option>
+        <option value="TRC20">Tron (TRC-20)</option>
+    </select>
+    <p>Withdrawal Address</p>
+    <input type="text" id="withdraw-address" placeholder="Enter your wallet address">
+    <p>Account Password</p>
+    <input type="password" id="withdraw-password" placeholder="Enter your password">
+    <button class="withdraw-btn" onclick="processWithdraw()">Confirm Withdraw</button>
+</div>
 
-        <p>Select Network</p>
-        <select id="network-select-withdraw">
-            <option value="ERC20">Ethereum (ERC-20)</option>
-            <option value="TRC20">Tron (TRC-20)</option>
-        </select>
-
-        <p>Withdrawal Address</p>
-        <input type="text" id="withdraw-address" placeholder="Enter your wallet address">
-
-        <p>Account Password</p>
-        <input type="password" id="withdraw-password" placeholder="Enter your password">
-
-        <button class="withdraw-btn" onclick="processWithdraw()">Confirm Withdraw</button>
-    </div> <!-- এখানে সঠিক ক্লোজিং নিশ্চিত করা হয়েছে -->
-
-
-            <!-- START EXCHANGE SECTION DROPDOWN -->
-            
-<div class="exchanger-box">
+<!-- START EXCHANGE SECTION DROPDOWN (এটি ঠিক করা হয়েছে) -->
+<div id="exchange-box" class="exchanger-box" style="display:none;">
     <!-- হেডার -->
     <div class="exchanger-header">
         <h3><i class="fas fa-chevron-left"></i> Exchanger</h3>
-        <button class="close-btn">&times;</button>
+        <button class="close-btn" onclick="closeExchange()">×</button>
     </div>
 
     <!-- কারেন্সি সিলেকশন (From) -->
