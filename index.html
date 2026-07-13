@@ -264,41 +264,39 @@
 
     <!-- FROM -->
     <div class="select-group">
-        <select id="from-currency" onchange="updateIcons(); calculateExchange();">
-            <option value="ada">Cardano (ADA)</option>
-            <option value="btc">Bitcoin (BTC)</option>
-            <option value="eth">Ethereum (ETH)</option>
-            <option value="usdt">USDT</option>
-            <option value="doge">Dogecoin (DOGE)</option>
-            <option value="trx">Tron (TRX)</option>
+        <select id="from-currency" onchange="updateIcons()">
+            <option value="ada" data-icon="image/ada.png">Cardano (ADA)</option>
+            <option value="btc" data-icon="image/btc.png">Bitcoin (BTC)</option>
+            <option value="eth" data-icon="image/eth.png">Ethereum (ETH)</option>
+            <option value="usdt" data-icon="image/usdt.png">USDT</option>
+            <option value="doge" data-icon="image/doge.png">Dogecoin (DOGE)</option>
         </select>
     </div>
     <div class="input-group">
         <input type="number" id="from-amount" placeholder="0.00" oninput="calculateExchange()">
         <button class="max-btn" onclick="setMax()">Max</button>
     </div>
+    <p class="error-text" id="balance-error" style="display:none;">Amount is higher than balance</p>
 
     <!-- SWAP -->
     <div class="swap-icon" onclick="swapCoins()">⇄</div>
-    
+    <p class="to-label">To</p>
+
     <!-- TO -->
     <div class="select-group">
-        <select id="to-currency" onchange="updateIcons(); calculateExchange();">
-            <option value="btc">Bitcoin (BTC)</option>
-            <option value="ada" selected>Cardano (ADA)</option>
-            <option value="eth">Ethereum (ETH)</option>
-            <option value="usdt">USDT</option>
-            <option value="doge">Dogecoin (DOGE)</option>
-            <option value="trx">Tron (TRX)</option>
+        <select id="to-currency" onchange="updateIcons()">
+            <option value="btc" data-icon="image/btc.png">Bitcoin (BTC)</option>
+            <option value="ada" data-icon="image/ada.png">Cardano (ADA)</option>
         </select>
     </div>
     <div class="input-group">
         <input type="number" id="to-amount" readonly placeholder="0.00000000">
     </div>
 
-    <!-- রেট এবং ইনফো সেকশন -->
-    <p class="rate-update">Rate updated every <span id="timer">30</span> sec</p>
+    <!-- RATE INFO -->
+    <p class="rate-update">Rate updated every 60 sec</p>
 
+    <!-- STATS -->
     <div class="stats-box">
         <div class="stat-row"><span>Balance</span> <span id="stat-balance">0.00174269 ADA</span></div>
         <div class="stat-row"><span>Min amount</span> <span id="stat-min">31.24 ADA</span></div>
@@ -310,7 +308,7 @@
 <!-- এই ডিভগুলো তোমার মেনু বা প্যারেন্ট সেকশন ক্লোজ করবে, যা আগে মিসিং ছিল -->
 </div> 
 </div>
-    </div>
+   
 <!-- END EXCHANGE SECTION DROPDOWN -->
             
   
