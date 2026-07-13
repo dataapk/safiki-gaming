@@ -133,16 +133,20 @@ img, svg {
 }
 
 /* প্রতিটি কারেন্সি বক্সের স্টাইল */
+/* প্রতিটি কারেন্সি বক্সের স্টাইল */
 .crypto-item {
     background: #252545;
-    aspect-ratio: 1 / 1;
+    /* aspect-ratio সরিয়ে দিয়েছি যাতে এটি বর্গাকার না হয়ে কন্টেন্টের সাথে অ্যাডজাস্ট হয় */
+    height: auto; 
+    min-height: 80px; /* হাইট কমিয়ে দিয়েছি */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border-radius: 8px;
-    padding: 5px; /* প্যাডিং কমানো হলো */
-    font-size: 10px; /* ফন্ট সাইজ ছোট করলাম */
+    padding: 10px 5px; /* প্যাডিং ঠিক করা হয়েছে */
+    font-size: 11px;
+    cursor: pointer;
 }
 
 /* হোভার ইফেক্ট */
