@@ -1,5 +1,15 @@
 /* 1. DOM Elements Selection */
 const allMenus = document.querySelectorAll('.dropdown-menu');
+// ১. এখানে সব এলিমেন্ট সিলেক্ট করা আছে (যেগুলো অলরেডি তোমার কোডে আছে)
+const amountInput = document.getElementById('amount-input'); // তোমার ইনপুট ফিল্ডের আইডিটি এখানে দাও
+const exchangeBtn = document.querySelector('.exchange-btn');
+
+// ২. এখানে ইভেন্ট লিসেনারটি বসাও (এটিই সেরা জায়গা)
+amountInput.addEventListener('input', function() {
+    const amount = parseFloat(this.value);
+    // এখানে আমাদের ওই ভ্যালিডেশন লজিকটি কল করো
+    validateExchange(amount, 31.40); 
+});
 
 /* --- API & Global Variables --- */
 let currentPrices = {
@@ -420,8 +430,8 @@ function checkMinimumLimit() {
     const message = `Minimum amount is ${minAmount.toFixed(decimals)} ${currencyName} (approx $5)`;
     
     // ৬. HTML-এ মেসেজটি বসানো
-    const statMinElement = document.getElementById('stat-min');
-    statMinElement.innerText = message;
+    //const statMinElement = document.getElementById('stat-min');
+    //statMinElement.innerText = message;
     
     // ৭. ইউজার ইনপুট চেক করা (যদি ৫ ডলারের কম টাইপ করে, তবে লেখাটা লাল হয়ে যাবে)
     const amountInput = parseFloat(document.getElementById('from-amount').value) || 0;
@@ -430,6 +440,37 @@ function checkMinimumLimit() {
         statMinElement.style.color = "red"; // এলার্ট দেওয়ার জন্য লাল
     } else {
         statMinElement.style.color = "#ffffff"; // ঠিক থাকলে সাধারণ রঙ (সাদা বা তোমার ইচ্ছামতো)
+    }
+}
+
+function validateExchange(amount, minLimit) {
+    const minAmountElement = document.getElementById('min-amount');
+    const exchangeBtn = document.querySelector('.exchange-btn'); // তোমার এক্সচেঞ্জ বাটন
+
+    // মিনিমাম অ্যামাউন্ট ১০ ডলার হতে হবে (তোমার শর্ত অনুযায়ী)
+    const MIN_LIMIT = 10.00; 
+
+    if (amount < MIN_LIMIT) {
+        // ১০ ডলারের কম হলে:
+        minAmountElement.innerText = "Min: " + MIN_LIMIT + " USD (Required)";
+        minAmountElement.style.color = "red"; // টেক্সট লাল করে দিবে
+        minAmountElement.style.fontWeight = "bold";
+        
+        // বাটন ডিজেবল করে দেওয়া যাতে ভুল ট্রানজ্যাকশন না হয়
+        exchangeBtn.disabled = true;
+        exchangeBtn.style.opacity = "0.5";
+        
+        return false; // লজিক আটকে দিবে
+    } else {
+        // ১০ ডলারের বেশি হলে:
+        minAmountElement.innerText = "Min: " + minLimit + " ADA"; // অরিজিনাল ভ্যালু ফিরে আসবে
+        minAmountElement.style.color = "#ffffff"; // রঙ ঠিক করে দিবে
+        
+        // বাটন আবার সচল করে দেওয়া
+        exchangeBtn.disabled = false;
+        exchangeBtn.style.opacity = "1";
+        
+        return true; // সব ঠিক আছে
     }
 }
 
