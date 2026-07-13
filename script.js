@@ -384,3 +384,23 @@ function calculateExchange() {
     // এখানে রেট অনুযায়ী ক্যালকুলেশন করে to-amount ফিল্ডে বসাবে
     console.log("Calculating exchange for: " + fromAmount);
 }
+// এই ফাংশনটি তোমার জাভাস্ক্রিপ্ট ফাইলে যোগ করো
+function updateIcons() {
+    // FROM কারেন্সির জন্য
+    const fromSelect = document.getElementById('from-currency');
+    const fromIcon = document.getElementById('from-icon');
+    const fromOption = fromSelect.options[fromSelect.selectedIndex];
+    if (fromOption) {
+        fromIcon.src = fromOption.getAttribute('data-img');
+    }
+
+    // TO কারেন্সির জন্য
+    const toSelect = document.getElementById('to-currency');
+    const toIcon = document.getElementById('to-icon');
+    const toOption = toSelect.options[toSelect.selectedIndex];
+    if (toOption) {
+        toIcon.src = toOption.getAttribute('data-img');
+    }
+    
+    console.log("Icons updated successfully");
+}
