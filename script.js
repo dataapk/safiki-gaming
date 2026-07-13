@@ -3,7 +3,7 @@ const allMenus = document.querySelectorAll('.dropdown-menu');
 
 /* --- API & Global Variables --- */
 let currentPrices = {
-    "ada": 0, "btc": 0, "eth": 0, "usdt": 1, "doge": 0, "trx": 0 // ডিফল্ট ভ্যালু
+    "ada": 200, "btc": 100, "eth": 0, "usdt": 1, "doge": 0, "trx": 0 // ডিফল্ট ভ্যালু
 };
 let timeLeft = 30; // এখানে এটি ডিফাইন করে দাও
 
