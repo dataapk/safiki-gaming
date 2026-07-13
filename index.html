@@ -267,14 +267,16 @@
         <!-- আইকন এবং ড্রপডাউন একসাথে রাখার জন্য flex যোগ করা হয়েছে -->
         <div style="display: flex; align-items: center; margin-bottom: 5px;">
             <img id="from-icon" src="image/ada.png" width="24" height="24" style="margin-right: 10px;">
-            <select id="from-currency" class="currency-select" onchange="updateIcons();" style="border:none; background:transparent; outline:none; color:inherit; width: 100%;">
-                <option value="ada" data-img="image/ada.png">Cardano (ADA)</option>
-                <option value="btc" data-img="image/btc.png">Bitcoin (BTC)</option>
-                <option value="eth" data-img="image/eth.png">Ethereum (ETH)</option>
-                <option value="usdt" data-img="image/usdt.png">USDT</option>
-                <option value="doge" data-img="image/doge.png">Dogecoin (DOGE)</option>
-                <option value="trx" data-img="image/trx.png">Tron (TRX)</option>
-            </select>
+            <select id="from-currency" class="currency-select" 
+        onchange="updateIcons(); updateStatLimits(); checkMinimumLimit();" 
+        style="border:none; background:transparent; outline:none; color:inherit; width: 100%;">
+    <option value="ada" data-img="image/ada.png">Cardano (ADA)</option>
+    <option value="btc" data-img="image/btc.png">Bitcoin (BTC)</option>
+    <option value="eth" data-img="image/eth.png">Ethereum (ETH)</option>
+    <option value="usdt" data-img="image/usdt.png">USDT</option>
+    <option value="doge" data-img="doge.png">Dogecoin (DOGE)</option>
+    <option value="trx" data-img="image/trx.png">Tron (TRX)</option>
+</select>
         </div>
         <div class="input-row">
             <input type="number" id="from-amount" placeholder="0.00">
