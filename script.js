@@ -515,7 +515,7 @@ function calculateExchange() {
        //--- ৫% এক্সচেঞ্জ ফি ক্যালকুলেশন ---
        //নিচে ৫% ফি কেটে নেওয়ার লজিকটি দেওয়া হলো।
        //আমরা মোট রেজাল্ট থেকে ৫% বাদ দিচ্ছি (অর্থাৎ ৯৫% রেজাল্ট দেখাচ্ছি)।
-    */
+   
     const feePercentage = 0.05; 
     const netResult = grossResult * (1 - feePercentage);
 
