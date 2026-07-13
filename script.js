@@ -5,6 +5,7 @@ const allMenus = document.querySelectorAll('.dropdown-menu');
 let currentPrices = {
     "ada": 0, "btc": 0, "eth": 0, "usdt": 1, "doge": 0, "trx": 0 // ডিফল্ট ভ্যালু
 };
+let timeLeft = 30; // এখানে এটি ডিফাইন করে দাও
 
 // API থেকে লাইভ রেট আনার ফাংশন
 async function fetchLiveRates() {
