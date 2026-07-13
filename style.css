@@ -559,38 +559,39 @@ img, svg {
 
 /* কারেন্সি গ্রুপ ও ড্রপডাউন */
 
+/* কারেন্সি বক্সের স্টাইল - লোগো ও নাম ঠিক রাখা */
 .currency-group {
-
-    background: #1a1e34;
-
+    background: #0b0e1a; /* আরও ডিপ ব্ল্যাক */
     padding: 15px;
-
     border-radius: 12px;
-
     margin-bottom: 15px;
-
+    border: 1px solid #2d344d;
+    display: flex;
+    flex-direction: column; /* সবকিছু উপরে নিচে সাজানোর জন্য */
 }
-
-
+/* কারেন্সি হেডার - লোগো ও ড্রপডাউন এক লাইনে থাকবে */
+.currency-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
 
 .currency-select {
-
-    width: 100%;
-
     background: transparent;
-
     color: #fff;
-
     border: none;
-
     font-size: 16px;
-
-    margin-bottom: 10px;
-
     cursor: pointer;
-
+    font-weight: 600;
 }
-
+/* লোগোর সাইজ ও পজিশন */
+.currency-logo {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+}
 
 
 /* ইনপুট ফিল্ড ও ম্যাক্স বাটন */
@@ -607,18 +608,15 @@ img, svg {
 
 
 
+/* ইনপুট ফিল্ডের স্টাইল - সাদা আউটলাইন বন্ধ করার জন্য */
 .input-row input {
-
     background: transparent;
-
     border: none;
-
     color: #fff;
-
-    font-size: 18px;
-
-    flex: 1;
-
+    font-size: 20px;
+    width: 100%;
+    outline: none; /* ক্লিক করলে সাদা বক্স হবে না */
+    padding: 5px 0;
 }
 
 
