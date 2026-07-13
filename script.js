@@ -376,20 +376,36 @@ function setMax() {
     console.log("Max balance set to:", userBalance);
 }
 function checkMinimumLimit() {
-    const fromCurrency = document.getElementById('from-currency').value;
-    const amount = parseFloat(document.getElementById('from-amount').value);
-    const minUSD = 5; 
-    const price = currentPrices[fromCurrency] || 1; 
-    const minRequired = minUSD / price;
+    // ১. ইউজার বর্তমানে কোন কয়েন সিলেক্ট করে রেখেছে সেটা ধরা
+    const fromCurrency = document.getElementById('from-currency').value; 
+    const currencyName = fromCurrency.toUpperCase(); // ada কে ADA, btc কে BTC বানাবে
+    
+    // ২. লাইভ রেট নেওয়া (রেট না পেলে ১ ধরবে)
+    const price = currentPrices[fromCurrency] || 1;
+    
+    // ৩. ৫ ডলারের হিসেবে মিনিমাম লিমিট ক্যালকুলেট করা
+    const minAmount = 10 / price;
+    
+    // ৪. দশমিকের পর কয় ঘর দেখাবে তার লজিক (বিটিসি-র দাম বেশি, তাই দশমিকের পর বেশি ঘর লাগবে)
+    let decimals = 4; // সাধারণ কয়েনের জন্য
+    if (fromCurrency === 'btc' || fromCurrency === 'eth') {
+        decimals = 6; // BTC বা ETH এর জন্য ৬ ঘর
+    }
 
-    const errorMsg = document.getElementById('balance-error');
-    if (amount > 0 && amount < minRequired) {
-        errorMsg.style.display = 'block';
-        errorMsg.innerText = `Minimum amount is ${minRequired.toFixed(4)} ${fromCurrency.toUpperCase()} (approx $${minUSD})`;
-        return false;
+    // ৫. ডায়নামিক মেসেজ তৈরি করা (সব কয়েনের জন্য কাজ করবে)
+    const message = `Minimum amount is ${minAmount.toFixed(decimals)} ${currencyName} (approx $5)`;
+    
+    // ৬. HTML-এ মেসেজটি বসানো
+    const statMinElement = document.getElementById('stat-min');
+    statMinElement.innerText = message;
+    
+    // ৭. ইউজার ইনপুট চেক করা (যদি ৫ ডলারের কম টাইপ করে, তবে লেখাটা লাল হয়ে যাবে)
+    const amountInput = parseFloat(document.getElementById('from-amount').value) || 0;
+    
+    if (amountInput > 0 && amountInput < minAmount) {
+        statMinElement.style.color = "red"; // এলার্ট দেওয়ার জন্য লাল
     } else {
-        errorMsg.style.display = 'none';
-        return true;
+        statMinElement.style.color = "#ffffff"; // ঠিক থাকলে সাধারণ রঙ (সাদা বা তোমার ইচ্ছামতো)
     }
 }
 
