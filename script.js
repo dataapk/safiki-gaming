@@ -358,11 +358,22 @@ function swapCoins() {
 
 // ৩. ম্যাক্স (Max) ব্যালেন্স সেট করার ফাংশন
 function setMax() {
-    // এখানে তোমার ব্যালেন্সের ভেরিয়েবলটি বসাবে
+    // এখানে তুমি তোমার ব্যালেন্স ডাটাবেস বা API থেকে নিতে পারো
+    // বর্তমানে একটি উদাহরণ হিসেবে ব্যালেন্স দিচ্ছি
     const userBalance = 0.00174269; 
-    document.getElementById('from-amount').value = userBalance;
-    calculateExchange();
-    console.log("Max balance set");
+    
+    const amountInput = document.getElementById('from-amount');
+    
+    // ব্যালেন্স ইনপুট বক্সে বসানো
+    amountInput.value = userBalance;
+    
+    // অটোমেটিক চেক ও ক্যালকুলেশন চালানো
+    checkMinimumLimit(); 
+    if (typeof calculateExchange === 'function') {
+        calculateExchange();
+    }
+    
+    console.log("Max balance set to:", userBalance);
 }
 function checkMinimumLimit() {
     const fromCurrency = document.getElementById('from-currency').value;
