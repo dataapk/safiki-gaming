@@ -1,6 +1,30 @@
 /* 1. DOM Elements Selection */
 const allMenus = document.querySelectorAll('.dropdown-menu');
 
+/* --- API & Global Variables --- */
+let currentPrices = {};
+let timeLeft = 30;
+
+// API থেকে লাইভ রেট আনার ফাংশন
+async function fetchLiveRates() {
+    try {
+        const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=cardano,bitcoin,ethereum,tether,dogecoin,tron&vs_currencies=usd');
+        const data = await response.json();
+        
+        currentPrices = {
+            "ada": data.cardano.usd,
+            "btc": data.bitcoin.usd,
+            "eth": data.ethereum.usd,
+            "usdt": data.tether.usd,
+            "doge": data.dogecoin.usd,
+            "trx": data.tron.usd
+        };
+        console.log("Rates Updated:", currentPrices);
+    } catch (error) {
+        console.error("Error fetching rates:", error);
+    }
+}
+
 /* 2. Main Logic: Header Dropdown Handler */
 function headerDropdownMenu(id, event) {
     if (event) event.stopPropagation(); // এটি দিলে আর বাইরের ক্লিক ইভেন্ট ফায়ার হবে না
