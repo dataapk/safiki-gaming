@@ -400,38 +400,31 @@ function updateStatLimits() {
     console.log("Stat Limits updated for:", currencyLabel);
 }
 function checkMinimumLimit() {
-    // ১. ইউজার বর্তমানে কোন কয়েন সিলেক্ট করে রেখেছে সেটা ধরা
     const fromCurrency = document.getElementById('from-currency').value; 
-    const currencyName = fromCurrency.toUpperCase(); // ada কে ADA, btc কে BTC বানাবে
-    
-    // ২. লাইভ রেট নেওয়া (রেট না পেলে ১ ধরবে)
+    const currencyName = fromCurrency.toUpperCase();
     const price = currentPrices[fromCurrency] || 1;
-    
-    // ৩. ৫ ডলারের হিসেবে মিনিমাম লিমিট ক্যালকুলেট করা
     const minAmount = 10 / price;
     
-    // ৪. দশমিকের পর কয় ঘর দেখাবে তার লজিক (বিটিসি-র দাম বেশি, তাই দশমিকের পর বেশি ঘর লাগবে)
-    let decimals = 4; // সাধারণ কয়েনের জন্য
+    let decimals = 4;
     if (fromCurrency === 'btc' || fromCurrency === 'eth') {
-        decimals = 6; // BTC বা ETH এর জন্য ৬ ঘর
+        decimals = 6;
     }
 
-    // ৫. ডায়নামিক মেসেজ তৈরি করা (সব কয়েনের জন্য কাজ করবে)
-    const message = `Minimum amount is ${minAmount.toFixed(decimals)} ${currencyName} (approx $5)`;
+    const message = `Min: ${minAmount.toFixed(decimals)} ${currencyName} ($10)`;
+    const minAmountElement = document.getElementById('min-amount');
     
-    // ৬. HTML-এ মেসেজটি বসানো
-    //const statMinElement = document.getElementById('stat-min');
-    //statMinElement.innerText = message;
-    
-    // ৭. ইউজার ইনপুট চেক করা (যদি ৫ ডলারের কম টাইপ করে, তবে লেখাটা লাল হয়ে যাবে)
-    const amountInput = parseFloat(document.getElementById('from-amount').value) || 0;
-    
-    if (amountInput > 0 && amountInput < minAmount) {
-        statMinElement.style.color = "red"; // এলার্ট দেওয়ার জন্য লাল
-    } else {
-        statMinElement.style.color = "#ffffff"; // ঠিক থাকলে সাধারণ রঙ (সাদা বা তোমার ইচ্ছামতো)
-    }
-}
+    if (minAmountElement) {
+        minAmountElement.innerText = message;
+        
+        const amountInput = parseFloat(document.getElementById('from-amount').value) || 0;
+        
+        if (amountInput > 0 && amountInput < minAmount) {
+            minAmountElement.style.color = "red"; 
+        } else {
+            minAmountElement.style.color = "#ffffff"; 
+        }
+    } 
+} // এটা ফাংশন বন্ধ করল
 
 function validateExchange(amount, minLimit) {
     const minAmountElement = document.getElementById('min-amount');
