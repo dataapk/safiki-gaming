@@ -364,6 +364,23 @@ function setMax() {
     calculateExchange();
     console.log("Max balance set");
 }
+function checkMinimumLimit() {
+    const fromCurrency = document.getElementById('from-currency').value;
+    const amount = parseFloat(document.getElementById('from-amount').value);
+    const minUSD = 5; 
+    const price = currentPrices[fromCurrency] || 1; 
+    const minRequired = minUSD / price;
+
+    const errorMsg = document.getElementById('balance-error');
+    if (amount > 0 && amount < minRequired) {
+        errorMsg.style.display = 'block';
+        errorMsg.innerText = `Minimum amount is ${minRequired.toFixed(4)} ${fromCurrency.toUpperCase()} (approx $${minUSD})`;
+        return false;
+    } else {
+        errorMsg.style.display = 'none';
+        return true;
+    }
+}
 
 // ৪. এক্সচেঞ্জ প্রসেসিং ফাংশন
 function processExchange() {
@@ -382,23 +399,21 @@ function processExchange() {
 
 // ৫. রেট আপডেট ও টাইমার ফাংশন (প্রতি ৩০ সেকেন্ড)
 function startRateTimer() {
-    let timeLeft = 30;
-    const timerDisplay = document.getElementById('rate-timer');
-    
     setInterval(() => {
         timeLeft--;
+        const timerDisplay = document.getElementById('rate-timer');
         if (timerDisplay) timerDisplay.innerText = timeLeft;
         
         if (timeLeft <= 0) {
-            console.log("Rate updated!");
-            // এখানে নতুন রেট ফেচ করার লজিক বসাবে
+            fetchLiveRates();
             timeLeft = 30;
         }
     }, 1000);
 }
 
-// পেজ লোড হওয়ার সাথে সাথে টাইমার শুরু করা
+// পেজ লোড হওয়ার সময় সব ইনিশিয়ালাইজ করা
 window.onload = function() {
+    fetchLiveRates();
     startRateTimer();
 };
 
