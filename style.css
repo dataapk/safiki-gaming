@@ -339,34 +339,29 @@ img, svg {
 }
 /* নতুন নোটিফিকেশন সিএসএস */
 /* ১. নোটিফিকেশন মেনুকে হেডার বা ড্রপডাউন মেনু ক্লাস থেকে আলাদা করা */
+/* মেনু যখন বন্ধ থাকবে */
 #notif-menu.dropdown-menu {
     position: fixed !important; 
     top: 60px !important;       
-    
-    /* বাম পাশের গ্যাপ ঠিক রাখলাম */
-    left: 5px !important;       
-    
-    /* ডান পাশের গ্যাপ ৫ পিক্সেল ফিক্সড করে দিচ্ছি */
-    right: 5px !important;      
-    
-    /* উইথ অটোমেটিক বাম এবং ডানের গ্যাপ অনুযায়ী সেট হবে */
-    width: auto !important;     
-    
-    /* হাইট */
+    left: 5% !important;        
+    width: 90% !important;      
     height: 70vh !important;    
-    
     background: #1a1a2e !important;
     border: 1px solid #333 !important;
     border-radius: 12px !important;
     padding: 15px !important;
     box-shadow: 0 10px 30px rgba(0,0,0,0.8) !important;
     z-index: 9999 !important;
-    
-    display: none !important;
+    display: none !important; /* শুরুতে বন্ধ থাকবে */
     flex-direction: column !important;
     overflow-y: auto !important; 
     box-sizing: border-box !important;
     margin: 0 !important;
+}
+
+/* যখন আমরা 'show' ক্লাস যোগ করবো, তখন মেনুটা flex হবে */
+#notif-menu.dropdown-menu.show {
+    display: flex !important;
 }
 /* প্রতিটি নোটিফিকেশন আইটেমের স্টাইল */
 .notif-box-item {
