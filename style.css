@@ -822,40 +822,32 @@ img, svg {
     margin-left: 5px;
 }
 
-.info-box {
-
-    display: block !important;
-
-    background-color: #1a1e30 !important; /* গাঢ় নীল/কালো ব্যাকগ্রাউন্ড */
-
-    padding: 15px !important;
-
-    margin: 10px 0 !important;
-
-    border-radius: 8px !important;
-
-    color: #ffffff !important; /* টেক্সট সাদা */
-
-    border: 1px solid #333 !important;
-
-    z-index: 9999 !important;
-
+.exchange-info-box {
+    margin-top: 15px;
+    padding: 10px;
+    background: #0b0e1a;
+    border-radius: 8px;
 }
 
 
 
 .info-row {
-
-    display: flex !important;
-
-    justify-content: space-between !important;
-
-    padding: 5px 0 !important;
-
-    color: #ffffff !important;
-
+    display: flex;
+    justify-content: space-between; /* টেক্সট বামে, অ্যামাউন্ট ও ইমেজ ডানে */
+    align-items: center;
+    padding: 8px 0;
 }
 
+.info-value {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* আইকন এবং অ্যামাউন্টের মধ্যে দূরত্ব */
+}
+
+/* আইকন শুরুতে রাখার জন্য */
+.info-value img {
+    order: -1; 
+}
 
 
 /* এক্সচেঞ্জ বাটন */
