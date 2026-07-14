@@ -518,7 +518,7 @@ img, svg {
 /* এক্সচেঞ্জার বক্সের মূল কন্টেইনার */
 
 .exchanger-box {
-background: #121626; /* ডার্ক ব্যাকগ্রাউন্ড */
+background: #1111cf; /* ডার্ক ব্যাকগ্রাউন্ড */
 border-radius: 20px;
 height: 75
 padding: 20px;
@@ -543,7 +543,7 @@ border: 1px solid #2d344d;
 
     background: #0b0e1a; /* আরও ডিপ ব্ল্যাক */
 
-    padding: 15px;
+    padding: 10px;
 
     border-radius: 5px;
 
@@ -565,9 +565,9 @@ border: 1px solid #2d344d;
 
     align-items: center;
 
-    gap: 10px;
+    gap: 5px;
 
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 
 }
 
@@ -577,7 +577,7 @@ border: 1px solid #2d344d;
 .currency-select-box {
     display: flex;
     align-items: center;
-    background: #1a1d2e;
+    background: #cf119f;
     padding: 10px;
     border-radius: 8px;
     margin-bottom: 8px;
@@ -586,7 +586,7 @@ border: 1px solid #2d344d;
 .amount-input-box {
     display: flex;
     align-items: center;
-    background: #0b0e1a;
+    background: #112dcf;
     padding: 10px;
     border-radius: 8px;
     border: 1px solid #2d344d;
@@ -613,37 +613,15 @@ border: 1px solid #2d344d;
 
 }
 
-
-
-
-
 /* ইনপুট ফিল্ড ও ম্যাক্স বাটন */
 
-
-
 .input-row {
-
-
-
     display: flex;
-
-
 
     align-items: center;
 
-
-
     gap: 10px;
-
-
-
 }
-
-
-
-
-
-
 
 /* ইনপুট ফিল্ডের স্টাইল - সাদা আউটলাইন বন্ধ করার জন্য */
 
@@ -653,7 +631,7 @@ border: 1px solid #2d344d;
 
     border: none;
 
-    color: #fff;
+    color: #cf111a;
 
     font-size: 20px;
 
@@ -665,14 +643,8 @@ border: 1px solid #2d344d;
 
 }
 
-
-
-
-
-
-
 #max-btn {
-    background: #2d344d;
+    background: #bf7f30;
     color: white;
     border: none;
     padding: 5px 10px;
@@ -680,46 +652,22 @@ border: 1px solid #2d344d;
     cursor: pointer;
 }
 /* সোয়াপ বাটন (টু বাটন) */
-
-
-
 .swap-icon {
-
-
 
     text-align: center;
 
-
-
     margin: 10px 0;
 
+    color: #ede609;
 
-
-    color: #8b94a5;
-
-
-
-    font-size: 14px;
-
-
-
+    font-size: 16px;
 }
-
-
 
 /* ইনফরমেশন টেবিল */
 
 .info-table {
-
-
-
     margin: 20px 0;
-
-
-
     font-size: 14px;
-
-
 }
 
 .info-table div {
@@ -737,7 +685,7 @@ border: 1px solid #2d344d;
 /* RATE UPDATE SUMMARY SECTION */
 
 .timer-section {
-    background: #0b0e1a;
+    background: #1ced09;
     border: 1px solid #2d344d;
     padding: 10px;
     border-radius: 8px;
@@ -808,15 +756,10 @@ border: 1px solid #2d344d;
 
 }
 
-
-
 .exchange-btn:hover {
-
-    background: #d35400;
+   background: #d35400;
 
 }
-
-
 
 /* এরর মেসেজ */
 
