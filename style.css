@@ -339,41 +339,35 @@ img, svg {
 }
 /* নতুন নোটিফিকেশন সিএসএস */
 /* ১. নোটিফিকেশন মেনুকে হেডার বা ড্রপডাউন মেনু ক্লাস থেকে আলাদা করা */
+/* এটি তোমার নোটিফিকেশন বক্সকে বিটসলারের স্টাইলে রূপান্তর করবে */
 #notif-menu.dropdown-menu {
+    display: none; /* জাভাস্ক্রিপ্ট দিয়ে ওপেন হবে */
     position: absolute !important;
-    top: 60px !important; 
-    right: 5% !important;
-    left: 5% !important;
-    width: 90% !important;
-    
-    /* মূল পরিবর্তন এখানে */
-    height: auto !important;         /* কনটেন্ট অনুযায়ী বক্সের হাইট হবে */
-    max-height: 70vh !important;     /* নোটিফিকেশন বাড়তে বাড়তে ৭০% হাইট পর্যন্ত যাবে */
-    overflow-y: auto;                /* বেশি মেসেজ হলে ভেতর থেকে স্ক্রল হবে */
-    
+    top: 60px !important;       /* হেডারের নিচ থেকে শুরু হবে */
+    right: 3% !important;       /* ডান পাশে হালকা গ্যাপ */
+    left: 3% !important;        /* বাম পাশে হালকা গ্যাপ (টোটাল ৯৪% উইথ) */
+    width: 94% !important;      /* ইমেজ অনুযায়ী উইথ */
+    height: auto !important;    /* নোটিফিকেশন যত বাড়বে বক্স তত বড় হবে */
+    max-height: 70vh !important;/* সর্বোচ্চ উচ্চতা */
+    overflow-y: auto;           /* বেশি মেসেজ হলে স্ক্রল আসবে */
     background: #1a1a2e !important;
     border: 1px solid #333 !important;
     border-radius: 12px !important;
-    padding: 10px !important;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.5) !important;
-    z-index: 1000 !important;
-    
-    /* লেআউট ঠিক করার জন্য */
-    display: flex;
-    flex-direction: column;
+    padding: 15px !important;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.6) !important;
+    z-index: 9999 !important;
+    flex-direction: column;     /* মেসেজগুলো উপরে-নিচে সাজাবে */
 }
 
-/* প্রতিটি নোটিফিকেশন আইটেম */
+/* বিটসলারের মতো মেসেজ আইটেম ডিজাইন */
 .notif-box-item {
-    background: #252545;
-    padding: 15px;
-    margin-bottom: 10px;
-    border-radius: 8px;
-    color: #cbd5e0;
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-    border: 1px solid #32325d;
+    background: #252545 !important;
+    padding: 15px 20px !important;
+    margin-bottom: 10px !important;
+    border-radius: 8px !important;
+    color: #e2e8f0 !important;
+    font-size: 14px !important;
+    border-left: 4px solid #4a5568 !important; /* বাম পাশে বর্ডার */
 }
 
 
