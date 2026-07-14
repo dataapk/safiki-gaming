@@ -343,12 +343,14 @@ img, svg {
     position: fixed !important; 
     top: 60px !important;       
     
-    /* বাম পাশে ৫ পিক্সেল গ্যাপ ঠিক আছে */
-    left: 10px !important;  
-    right: 10px !important; 
+    /* বাম পাশের গ্যাপ ঠিক রাখলাম */
+    left: 5px !important;       
     
-    /* উইথ এমনভাবে সেট করছি যেন ডান পাশেও ৫ পিক্সেল গ্যাপ থাকে */
-    width: calc(100% - 10px) !important; 
+    /* ডান পাশের গ্যাপ ৫ পিক্সেল ফিক্সড করে দিচ্ছি */
+    right: 5px !important;      
+    
+    /* উইথ অটোমেটিক বাম এবং ডানের গ্যাপ অনুযায়ী সেট হবে */
+    width: auto !important;     
     
     /* হাইট */
     height: 70vh !important;    
@@ -364,7 +366,6 @@ img, svg {
     flex-direction: column !important;
     overflow-y: auto !important; 
     box-sizing: border-box !important;
-    
     margin: 0 !important;
 }
 /* প্রতিটি নোটিফিকেশন আইটেমের স্টাইল */
