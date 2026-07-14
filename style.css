@@ -599,7 +599,7 @@ border: 1px solid #2d344d;
 }
 .currency-select-box img {
     margin-right: 5px; /* লোগোর ডানপাশে ১০ পিক্সেল ফাঁকা জায়গা হবে */
-    margin-left: auto;   /* লোগোর বামপাশে ২ পিক্সেল ফাঁকা জায়গা হবে */
+    margin-left: 5px;   /* লোগোর বামপাশে ২ পিক্সেল ফাঁকা জায়গা হবে */
     display: block;
 }
 /* ইনপুট বক্স (ম্যাক্স বাটনসহ) */
