@@ -2,10 +2,51 @@
 const allMenus = document.querySelectorAll('.dropdown-menu');
 
 /* --- API & Global Variables --- */
-let currentPrices = {
-    "ada": 200, "btc": 100, "eth": 0, "usdt": 1, "doge": 0, "trx": 0 // ডিফল্ট ভ্যালু
+/* --- গ্লোবাল ভেরিয়েবলসমূহ (এটি তোমার ফাইলের শুরুতে একবারই থাকবে) --- */
+
+// ১. এটি মার্কেট রেট (ক্যালকুলেশনের জন্য)
+let currentPrices = { 
+    "ada": 1.5, 
+    "btc": 65000, 
+    "usdt": 1.0 
+};
+
+// ২. এটি ইউজারের ব্যক্তিগত ব্যালেন্স (ম্যাক্স বাটনের জন্য)
+let userBalances = { 
+    "ada": 1500.50, 
+    "btc": 0.05, 
+    "eth": 1.2, 
+    "usdt": 2000.00, 
+    "doge": 5000.00, 
+    "trx": 3000.00 
 };
 let timeLeft = 30; // এখানে এটি ডিফাইন করে দাও
+/* --- ব্যালেন্স এবং কারেন্সি আপডেট ডিসপ্লে --- */
+function updateDisplayedBalance() {
+    // ১. ইউজার বর্তমানে কোন কারেন্সি সিলেক্ট করে আছে তা নেওয়া
+    const fromCurrency = document.getElementById('from-currency').value;
+    
+    // ২. আমাদের গ্লোবাল ডাটাবেস থেকে ব্যালেন্স খুঁজে নেওয়া
+    const balance = userBalances[fromCurrency] || 0;
+    
+    // ৩. স্ক্রিনের যে এলিমেন্টে ব্যালেন্স দেখাবে সেটি খুঁজে বের করা
+    // ধরে নিলাম তোমার এইচটিএমএল-এ <span id="user-balance">...</span> নামে একটা জায়গা আছে
+    const balanceDisplay = document.getElementById('user-balance');
+    
+    if (balanceDisplay) {
+        // ব্যালেন্সটি টেক্সট হিসেবে বসানো
+        balanceDisplay.innerText = `Balance: ${balance} ${fromCurrency.toUpperCase()}`;
+    }
+}
+
+/* --- ইভেন্ট লিসেনার: কারেন্সি পাল্টালেই যেন ব্যালেন্স আপডেট হয় --- */
+document.getElementById('from-currency').addEventListener('change', function() {
+    updateDisplayedBalance(); // ব্যালেন্স টেক্সট আপডেট করবে
+    // এখানে চাইলে তুমি প্রাইস ক্যালকুলেশন ফাংশনটিও কল করতে পারো
+    if (typeof calculateExchange === 'function') {
+        calculateExchange();
+    }
+});
 
 // API থেকে লাইভ রেট আনার ফাংশন
 async function fetchLiveRates() {
@@ -359,49 +400,27 @@ function swapCoins() {
 
 // ৩. ম্যাক্স (Max) ব্যালেন্স সেট করার ফাংশন
 function setMax() {
-    // এখানে তুমি তোমার ব্যালেন্স ডাটাবেস বা API থেকে নিতে পারো
-    // বর্তমানে একটি উদাহরণ হিসেবে ব্যালেন্স দিচ্ছি
-    // তোমার ব্যালেন্স ডাটাবেস
-const userBalances = {
-    "ada": 1500.50,
-    "btc": 0.05,
-    "eth": 1.2,
-    "usdt": 2000.00,
-    "doge": 5000.00,
-    "trx": 3000.00
-}; 
-    
-    // বর্তমান সিলেক্ট করা কারেন্সিটি নেওয়া হচ্ছে
+    // ১. ইউজার বর্তমানে কোন কারেন্সি সিলেক্ট করে আছে তা নেওয়া
     const fromCurrency = document.getElementById('from-currency').value;
     
-    // ডাটাবেস থেকে ব্যালেন্স নেওয়া (না থাকলে ০ ধরে নিবে)
+    // ২. গ্লোবাল ডাটাবেস থেকে ব্যালেন্স নেওয়া
+    // '|| 0' দেওয়ার মানে হলো, যদি ব্যালেন্স না পাওয়া যায় তবে এটি ০ ধরে নেবে
     const balance = userBalances[fromCurrency] || 0;
     
+    // ৩. ইনপুট বক্সে ব্যালেন্সটি বসানো
     const amountInput = document.getElementById('from-amount');
-    
-    // ব্যালেন্স ইনপুট বক্সে বসানো
     amountInput.value = balance;
     
-    // অটোমেটিক চেক ও ক্যালকুলেশন চালানো
-    checkMinimumLimit(); 
+    // ৪. ব্যালেন্স পরিবর্তনের সাথে সাথে এক্সচেঞ্জ ক্যালকুলেশন আপডেট করা
+    if (typeof checkMinimumLimit === 'function') {
+        checkMinimumLimit();
+    }
+    
     if (typeof calculateExchange === 'function') {
         calculateExchange();
     }
-    
-    console.log("Max balance set to:", userBalance);
-}
-function updateDisplayedBalance() {
-    const fromCurrency = document.getElementById('from-currency').value;
-    const balance = userBalances[fromCurrency] || 0;
-    const balanceDisplay = document.getElementById('user-balance');
-    
-    if (balanceDisplay) {
-        balanceDisplay.innerText = `${balance} ${fromCurrency.toUpperCase()}`;
-    }
 }
 
-// কারেন্সি সিলেক্ট বক্স পরিবর্তন করলে যাতে ব্যালেন্স আপডেট হয়
-document.getElementById('from-currency').addEventListener('change', updateDisplayedBalance);
 
 // ১. কারেন্সি অনুযায়ী রেট ও লিমিট আপডেট করার ফাংশন
 function updateStatLimits() {
