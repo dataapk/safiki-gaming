@@ -343,15 +343,17 @@ img, svg {
 /* ১. ড্রপডাউনের মূল কন্টেইনারটা পুরো স্ক্রিন দখল করবে */
 /* পুরো নোটিফিকেশন কন্টেইনারের সাইজ সেট করা */
 #notif-menu.dropdown-menu {
+    /* আগের পজিশন সব সরিয়ে দিয়ে নতুন করে দিচ্ছি */
     position: absolute !important;
     top: 60px !important;       
     
-    /* উইথ এর জন্য সব দরজা বন্ধ করে দিচ্ছি যাতে সে ৯৫% এর বেশি বা কম না হয় */
-    left: 2.5% !important;      
-    right: 2.5% !important;
-    width: 95vw !important;     /* vw মানে ভিউপোর্ট উইথ, এটা একদম স্ক্রিনের সমান হবে */
+    /* এটি বক্সকে একদম মাঝখানে বসাবে */
+    left: 50% !important; 
+    transform: translateX(-50%) !important; 
+    
+    /* এখন ফিক্সড উইথ */
+    width: 95vw !important;     
     max-width: 95vw !important;
-    min-width: 95vw !important;
     
     /* হাইট */
     height: 70vh !important;    
@@ -363,13 +365,10 @@ img, svg {
     box-shadow: 0 10px 30px rgba(0,0,0,0.8) !important;
     z-index: 9999 !important;
     
-    /* লেআউট */
+    /* কন্টেন্ট সাজানো */
     display: flex !important;
     flex-direction: column !important;
     overflow-y: auto !important; 
-    
-    /* সবশেষে, অন্য কোনো প্যারেন্ট যদি একে ছোট করে রাখে তা যেন না পারে */
-    margin: 0 !important;
     box-sizing: border-box !important;
 }
 
