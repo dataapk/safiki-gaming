@@ -523,6 +523,16 @@ window.onload = function() {
     fetchLiveRates();
     startRateTimer();
 };
+// ৩. আপডেট ফাংশন
+function updateUI() {
+    const select = document.getElementById('from-currency');
+    const icon = document.getElementById('from-icon');
+    const selectedOption = select.options[select.selectedIndex];
+    
+    if (selectedOption) {
+        icon.src = selectedOption.getAttribute('data-img');
+        icon.style.display = 'block';
+    }
 
 // ক্যালকুলেশন ফাংশন (৫% ফি সহ আপডেট করা হয়েছে)
 function calculateExchange() {
