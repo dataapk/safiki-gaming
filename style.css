@@ -343,11 +343,13 @@ img, svg {
     position: absolute !important;
     top: 60px !important;       
     
-    /* বক্সকে ডানে-বামে না সরিয়ে একদম মাঝখানে বসানোর জন্য */
-    left: 50% !important; 
-    transform: translateX(-50%) !important;
+    /* বাম দিক থেকে কিছুটা সরিয়ে নিখুঁত করার জন্য */
+    left: 2.5% !important; 
     
-    /* এবার উইথ ৯৫% ফিক্সড */
+    /* transform সরিয়ে দিচ্ছি কারণ এটি অনেক সময় পজিশন নিয়ে ঝামেলা করে */
+    transform: none !important;
+    
+    /* ৯৫% উইথ ফিক্সড */
     width: 95% !important; 
     
     /* হাইট ৭০% */
@@ -360,13 +362,13 @@ img, svg {
     box-shadow: 0 10px 30px rgba(0,0,0,0.8) !important;
     z-index: 9999 !important;
     
-    /* কন্টেন্ট সাজানো */
     display: flex !important;
     flex-direction: column !important;
     overflow-y: auto !important; 
-    
-    /* বক্সের সাইজ ঠিক রাখার জন্য */
     box-sizing: border-box !important;
+    
+    /* যদি কোথাও মার্জিন থাকে তা দূর করার জন্য */
+    margin: 0 !important;
 }
 /* প্রতিটি নোটিফিকেশন আইটেমের স্টাইল */
 .notif-box-item {
