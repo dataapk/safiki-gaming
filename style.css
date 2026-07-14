@@ -793,13 +793,7 @@ img, svg {
 
 
 
-
-
-
-
 /* ইনফরমেশন টেবিল */
-
-
 
 .info-table {
 
@@ -812,42 +806,39 @@ img, svg {
     font-size: 14px;
 
 
-
 }
-
-
-
-
-
-
 
 .info-table div {
 
-
-
     display: flex;
-
-
 
     justify-content: space-between;
 
-
-
     padding: 8px 0;
 
-
-
     border-bottom: 1px solid #2d344d;
-
-
-
 } 
 
 
-
-
-
 /* RATE UPDATE SUMMARY SECTION */
+
+.timer-section {
+    background: #0b0e1a;
+    border: 1px solid #2d344d;
+    padding: 10px;
+    border-radius: 8px;
+    margin: 10px 0;
+    text-align: center;
+    color: #8b94a5;
+    font-size: 13px;
+}
+
+.mini-logo {
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    margin-left: 5px;
+}
 
 .info-box {
 
