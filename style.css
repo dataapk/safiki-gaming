@@ -578,7 +578,7 @@ border: 1px solid #2d344d;
 .currency-select-box {
     display: flex;
     align-items: center;
-    background: #cf119f;
+    background: #272d45;
     padding: 15px; /* প্যাডিং বাড়িয়ে বক্সটি বড় করলাম */
     border-radius: 8px;
     margin-bottom: 8px;
@@ -592,8 +592,8 @@ border: 1px solid #2d344d;
     background-color: #1a1e34 !important; /* এখানে তোমার পছন্দের ডার্ক রঙ দাও */
     color: white !important;
     padding: 10px;
-    width: 90%;
-    min-height: 50px; /* হাইট বাড়িয়ে দিলাম */
+    width: 80%;
+    min-height: 40px; /* হাইট বাড়িয়ে দিলাম */
     border: none;
     border-radius: 5px;
 }
