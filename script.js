@@ -361,12 +361,26 @@ function swapCoins() {
 function setMax() {
     // এখানে তুমি তোমার ব্যালেন্স ডাটাবেস বা API থেকে নিতে পারো
     // বর্তমানে একটি উদাহরণ হিসেবে ব্যালেন্স দিচ্ছি
-    const userBalance = 0.00174269; 
+    // তোমার ব্যালেন্স ডাটাবেস
+const userBalances = {
+    "ada": 1500.50,
+    "btc": 0.05,
+    "eth": 1.2,
+    "usdt": 2000.00,
+    "doge": 5000.00,
+    "trx": 3000.00
+}; 
+    
+    // বর্তমান সিলেক্ট করা কারেন্সিটি নেওয়া হচ্ছে
+    const fromCurrency = document.getElementById('from-currency').value;
+    
+    // ডাটাবেস থেকে ব্যালেন্স নেওয়া (না থাকলে ০ ধরে নিবে)
+    const balance = userBalances[fromCurrency] || 0;
     
     const amountInput = document.getElementById('from-amount');
     
     // ব্যালেন্স ইনপুট বক্সে বসানো
-    amountInput.value = userBalance;
+    amountInput.value = balance;
     
     // অটোমেটিক চেক ও ক্যালকুলেশন চালানো
     checkMinimumLimit(); 
@@ -376,6 +390,19 @@ function setMax() {
     
     console.log("Max balance set to:", userBalance);
 }
+function updateDisplayedBalance() {
+    const fromCurrency = document.getElementById('from-currency').value;
+    const balance = userBalances[fromCurrency] || 0;
+    const balanceDisplay = document.getElementById('user-balance');
+    
+    if (balanceDisplay) {
+        balanceDisplay.innerText = `${balance} ${fromCurrency.toUpperCase()}`;
+    }
+}
+
+// কারেন্সি সিলেক্ট বক্স পরিবর্তন করলে যাতে ব্যালেন্স আপডেট হয়
+document.getElementById('from-currency').addEventListener('change', updateDisplayedBalance);
+
 // ১. কারেন্সি অনুযায়ী রেট ও লিমিট আপডেট করার ফাংশন
 function updateStatLimits() {
     const fromCurrency = document.getElementById('from-currency').value;
