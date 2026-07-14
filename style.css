@@ -596,7 +596,7 @@ border: 1px solid #2d344d;
     flex: 1;
     background: transparent;
     border: none;
-    color: white;
+    color: #cf119f;
     margin: 0 10px;
 }
 /* লোগোর সাইজ ও পজিশন */
@@ -625,23 +625,7 @@ border: 1px solid #2d344d;
 
 /* ইনপুট ফিল্ডের স্টাইল - সাদা আউটলাইন বন্ধ করার জন্য */
 
-.input-row input {
 
-    background: transparent;
-
-    border: none;
-
-    color: #cf111a;
-
-    font-size: 20px;
-
-    width: 100%;
-
-    outline: none; /* ক্লিক করলে সাদা বক্স হবে না */
-
-    padding: 5px 0;
-
-}
 
 #max-btn {
     background: #bf7f30;
