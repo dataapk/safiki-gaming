@@ -345,9 +345,16 @@ img, svg {
 #notif-menu.dropdown-menu {
     position: absolute !important;
     top: 60px !important;       
-    left: 2.5% !important;      /* ৯৫% উইথ করার জন্য দুই পাশে ২.৫% গ্যাপ */
-    width: 95% !important;      /* তোমার চাহিদা অনুযায়ী ৯৫% উইথ */
-    height: 70vh !important;    /* তোমার চাহিদা অনুযায়ী ৭০% হাইট */
+    
+    /* উইথ এর জন্য সব দরজা বন্ধ করে দিচ্ছি যাতে সে ৯৫% এর বেশি বা কম না হয় */
+    left: 2.5% !important;      
+    right: 2.5% !important;
+    width: 95vw !important;     /* vw মানে ভিউপোর্ট উইথ, এটা একদম স্ক্রিনের সমান হবে */
+    max-width: 95vw !important;
+    min-width: 95vw !important;
+    
+    /* হাইট */
+    height: 70vh !important;    
     
     background: #1a1a2e !important;
     border: 1px solid #333 !important;
@@ -356,10 +363,14 @@ img, svg {
     box-shadow: 0 10px 30px rgba(0,0,0,0.8) !important;
     z-index: 9999 !important;
     
-    /* কন্টেন্টের জন্য স্ক্রলিং */
+    /* লেআউট */
     display: flex !important;
     flex-direction: column !important;
     overflow-y: auto !important; 
+    
+    /* সবশেষে, অন্য কোনো প্যারেন্ট যদি একে ছোট করে রাখে তা যেন না পারে */
+    margin: 0 !important;
+    box-sizing: border-box !important;
 }
 
 /* প্রতিটি নোটিফিকেশন আইটেমের স্টাইল */
