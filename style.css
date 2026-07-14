@@ -344,7 +344,8 @@ img, svg {
     top: 60px !important;       
     
     /* বাম পাশে ৫ পিক্সেল গ্যাপ ঠিক আছে */
-    left: 5px !important;       
+    left: 10px !important;  
+    right: 10px !important; 
     
     /* উইথ এমনভাবে সেট করছি যেন ডান পাশেও ৫ পিক্সেল গ্যাপ থাকে */
     width: calc(100% - 10px) !important; 
