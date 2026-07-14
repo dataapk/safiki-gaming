@@ -38,6 +38,14 @@ function updateDisplayedBalance() {
         balanceDisplay.innerText = `Balance: ${balance} ${fromCurrency.toUpperCase()}`;
     }
 }
+function updateLogo() {
+    const fromCurrency = document.getElementById('from-currency').value;
+    const logoElement = document.getElementById('from-currency-logo');
+    
+    // কারেন্সি অনুযায়ী লোগোর পাথ সেট করা
+    // ধরে নিলাম তোমার লোগো গুলো 'assets/icons/' ফোল্ডারে আছে
+    logoElement.src = `assets/icons/${fromCurrency}.png`; 
+}
 
 /* --- ইভেন্ট লিসেনার: কারেন্সি পাল্টালেই যেন ব্যালেন্স আপডেট হয় --- */
 document.getElementById('from-currency').addEventListener('change', function() {
