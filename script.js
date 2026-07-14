@@ -566,6 +566,23 @@ document.getElementById('from-currency').addEventListener('change', calculateExc
 document.getElementById('to-currency').addEventListener('change', calculateExchange);
 // এই ফাংশনটি তোমার জাভাস্ক্রিপ্ট ফাইলে যোগ করো
 function updateIcons() {
+    // সিলেক্ট করা কারেন্সি থেকে ইমেজ সোর্স বের করা
+    const selectElement = document.getElementById("from-currency");
+    const selectedOption = selectElement.options[selectElement.selectedIndex];
+    const iconSrc = selectedOption.getAttribute("data-img");
+
+    // ১. আইকনগুলো আপডেট করা
+    document.getElementById("from-icon").src = iconSrc;
+    document.getElementById("input-icon").src = iconSrc;
+    
+    // ইনফো বক্সের ইমেজগুলো আপডেট করা
+    document.getElementById("balance-icon").src = iconSrc;
+    document.getElementById("min-icon").src = iconSrc;
+    document.getElementById("max-icon").src = iconSrc;
+
+    // ২. কারেন্সি পরিবর্তন হলে এখানে ব্যালেন্স বা লিমিট আপডেট ফাংশন কল করবে
+    updateStatLimits(); 
+}
     // FROM কারেন্সির জন্য
     const fromSelect = document.getElementById('from-currency');
     const fromIcon = document.getElementById('from-icon');
