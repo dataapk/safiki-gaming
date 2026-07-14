@@ -405,6 +405,10 @@ function checkMinimumLimit() {
     const price = currentPrices[fromCurrency] || 1;
     const minAmount = 10 / price;
     
+    // ব্যালেন্স চেক করার জন্য (তোমার আইডি 'user-balance' ধরে নিচ্ছি)
+    const userBalance = parseFloat(document.getElementById('user-balance')?.innerText || 0);
+    const amountInput = parseFloat(document.getElementById('from-amount').value) || 0;
+    
     let decimals = 4;
     if (fromCurrency === 'btc' || fromCurrency === 'eth') {
         decimals = 6;
@@ -412,20 +416,36 @@ function checkMinimumLimit() {
 
     const message = `Min: ${minAmount.toFixed(decimals)} ${currencyName} ($10)`;
     const minAmountElement = document.getElementById('min-amount');
+    const errorBox = document.getElementById('error-message'); // এইচটিএমএল-এ এই আইডিটি থাকতে হবে
     
     if (minAmountElement) {
         minAmountElement.innerText = message;
         
-        const amountInput = parseFloat(document.getElementById('from-amount').value) || 0;
-        
+        // ১. মিনিমাম লিমিট কালার লজিক
         if (amountInput > 0 && amountInput < minAmount) {
             minAmountElement.style.color = "red"; 
         } else {
             minAmountElement.style.color = "#ffffff"; 
         }
-    } 
-} // এটা ফাংশন বন্ধ করল
+    }
 
+    // ২. ব্যালেন্স ভ্যালিডেশন লজিক (লাল হাইলাইট)
+    if (errorBox) {
+        if (amountInput > userBalance) {
+            document.getElementById('from-amount').style.borderColor = "red";
+            errorBox.style.display = "block";
+            errorBox.innerText = "Amount is higher than balance";
+        } else if (amountInput > 0 && amountInput < minAmount) {
+            document.getElementById('from-amount').style.borderColor = "red";
+            errorBox.style.display = "block";
+            errorBox.innerText = "Amount is below minimum";
+        } else {
+            document.getElementById('from-amount').style.borderColor = "#2d344d";
+            errorBox.style.display = "none";
+        }
+    }
+}
+// CLOSE 
 function validateExchange(amount, minLimit) {
     const minAmountElement = document.getElementById('min-amount');
     const exchangeBtn = document.querySelector('.exchange-btn'); // তোমার এক্সচেঞ্জ বাটন
