@@ -343,17 +343,16 @@ img, svg {
 /* ১. ড্রপডাউনের মূল কন্টেইনারটা পুরো স্ক্রিন দখল করবে */
 /* পুরো নোটিফিকেশন কন্টেইনারের সাইজ সেট করা */
 #notif-menu.dropdown-menu {
-    /* আগের পজিশন সব সরিয়ে দিয়ে নতুন করে দিচ্ছি */
     position: absolute !important;
     top: 60px !important;       
     
-    /* এটি বক্সকে একদম মাঝখানে বসাবে */
-    left: 50% !important; 
-    transform: translateX(-50%) !important; 
+    /* ডানে এবং বামে ৫ পিক্সেল গ্যাপ রেখে উইথ সেট করা */
+    left: 5px !important; 
+    right: 5px !important;
     
-    /* এখন ফিক্সড উইথ */
-    width: 95vw !important;     
-    max-width: 95vw !important;
+    /* অটোমেটিক উইথ ক্যালকুলেশন (পুরো স্ক্রিন - ডানে ৫ পিক্সেল - বামে ৫ পিক্সেল) */
+    width: calc(100% - 10px) !important;
+    max-width: calc(100% - 10px) !important;
     
     /* হাইট */
     height: 70vh !important;    
@@ -370,6 +369,7 @@ img, svg {
     flex-direction: column !important;
     overflow-y: auto !important; 
     box-sizing: border-box !important;
+    margin: 0 !important;
 }
 
 /* প্রতিটি নোটিফিকেশন আইটেমের স্টাইল */
