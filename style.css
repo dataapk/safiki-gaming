@@ -341,29 +341,37 @@ img, svg {
 /* ১. নোটিফিকেশন মেনুকে হেডার বা ড্রপডাউন মেনু ক্লাস থেকে আলাদা করা */
 /* এটি তোমার নোটিফিকেশন বক্সকে বিটসলারের স্টাইলে রূপান্তর করবে */
 /* ১. ড্রপডাউনের মূল কন্টেইনারটা পুরো স্ক্রিন দখল করবে */
+/* পুরো নোটিফিকেশন কন্টেইনারের সাইজ সেট করা */
 #notif-menu.dropdown-menu {
     position: absolute !important;
-    top: 60px !important;       /* হেডারের নিচে */
-    left: 3% !important;        /* ডানে-বামে ৩% জায়গা ফাঁকা */
-    width: 94% !important;      /* ৯৪% উইথ */
-    max-height: 70vh !important;
-    overflow-y: auto !important;
+    top: 60px !important;       
+    left: 2.5% !important;      /* ৯৫% উইথ করার জন্য দুই পাশে ২.৫% গ্যাপ */
+    width: 95% !important;      /* তোমার চাহিদা অনুযায়ী ৯৫% উইথ */
+    height: 70vh !important;    /* তোমার চাহিদা অনুযায়ী ৭০% হাইট */
+    
     background: #1a1a2e !important;
     border: 1px solid #333 !important;
     border-radius: 12px !important;
-    padding: 10px !important;
+    padding: 15px !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8) !important;
     z-index: 9999 !important;
-    display: none;              /* জাভাস্ক্রিপ্ট দিয়ে ওপেন হবে */
+    
+    /* কন্টেন্টের জন্য স্ক্রলিং */
+    display: flex !important;
+    flex-direction: column !important;
+    overflow-y: auto !important; 
 }
 
-/* ২. মেসেজের জন্য ছোট ছোট বক্স */
+/* প্রতিটি নোটিফিকেশন আইটেমের স্টাইল */
 .notif-box-item {
     background: #252545 !important;
-    padding: 15px !important;
-    margin-bottom: 10px !important;
+    padding: 18px !important;
+    margin-bottom: 12px !important;
     border-radius: 8px !important;
-    color: #fff !important;
-    border-left: 4px solid #f39c12 !important; /* বিটসলারের মতো বর্ডার */
+    color: #ffffff !important;
+    font-size: 15px !important;
+    border-left: 5px solid #f39c12 !important; /* বিটসলারের মতো বর্ডার */
+    flex-shrink: 0; /* বক্সগুলো ছোট হবে না */
 }
 /* মোবাইল ডিভাইসের জন্য অ্যাডজাস্টমেন্ট */
 @media (max-width: 480px) {
