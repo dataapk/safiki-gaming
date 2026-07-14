@@ -618,3 +618,20 @@ function updatecurrencyIcons() {
     
     console.log("Icons updated successfully");
 }
+// ২. NOTIFICATIONA START
+function addNotification(message) {
+    const menu = document.getElementById('notif-menu');
+    
+    // "No new notifications" টেক্সট থাকলে তা রিমুভ করা
+    if (menu.innerHTML.includes('No new notifications')) {
+        menu.innerHTML = '';
+    }
+    
+    // নতুন মেসেজ বক্স তৈরি
+    const notifItem = document.createElement('div');
+    notifItem.className = 'notif-box-item';
+    notifItem.innerHTML = `<span>${message}</span>`;
+    
+    // prepend ব্যবহার করার ফলে নতুন মেসেজ সবার উপরে থাকবে
+    menu.prepend(notifItem);
+}
