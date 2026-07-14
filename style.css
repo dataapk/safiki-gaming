@@ -340,14 +340,20 @@ img, svg {
 /* নতুন নোটিফিকেশন সিএসএস */
 /* ১. নোটিফিকেশন মেনুকে হেডার বা ড্রপডাউন মেনু ক্লাস থেকে আলাদা করা */
 #notif-menu.dropdown-menu {
-    position: absolute !important; /* হেডার বা অন্য কিছুর হাইট যেন না পায় */
-    top: 50px !important;          /* তোমার হেডারের হাইট অনুযায়ী এই মানটা একটু এদিক-সেদিক হতে পারে */
-    right: 10px !important;        /* ডানে সরিয়ে আনা */
-    left: auto !important;         /* বাম দিকের কোনো উইথ যেন না থাকে */
-    width: 300px !important;       /* ফিক্সড উইথ */
-    height: auto !important;       /* হাইট ১০০% হওয়া থেকে আটকানো */
-    min-height: 50px !important;   /* মিনিমাম হাইট */
-    bottom: auto !important;       /* নিচে যেন না নামে */
+    position: absolute !important; 
+    top: 60px !important;           /* হেডারের উচ্চতা অনুযায়ী একটু অ্যাডজাস্ট করে নিও */
+    right: 5% !important;           /* ৯৪% উইথ হলে ডানে ৫% গ্যাপ */
+    left: 5% !important;            /* বামে ৫% গ্যাপ, টোটাল ৯০% উইথ হবে */
+    width: 90% !important;          /* উইথ ৯০% */
+    height: 30vh !important;        /* হাইট স্ক্রিনের উচ্চতার ৩০% */
+    min-height: 100px;              /* খুব ছোট স্ক্রিনে যাতে বক্সটা একদম হারিয়ে না যায় */
+    background: #1a1a2e !important;
+    border: 1px solid #333 !important;
+    border-radius: 12px !important; /* চার কোণায় হালকা রাউন্ড শেপ */
+    padding: 15px !important;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4) !important;
+    z-index: 1000 !important;
+    overflow-y: auto;               /* নোটিফিকেশন বেশি হলে স্ক্রল করার জন্য */
 }
 
 .notif-item {
