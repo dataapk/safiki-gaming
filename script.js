@@ -77,53 +77,48 @@ setInterval(fetchLiveRates, 60000);
 fetchLiveRates(); // প্রথমবার পেজ লোড হওয়ার সাথে সাথে কল হবে
 
 /* 2. Main Logic: Header Dropdown Handler */
+/* হেডার এবং নোটিফিকেশনের সব ড্রপডাউন হ্যান্ডেল করার জন্য সম্মিলিত ফাংশন */
 function headerDropdownMenu(id, event) {
     if (event) event.stopPropagation();
     
     const menu = document.getElementById(id);
     const allMenus = document.querySelectorAll('.dropdown-menu');
     
-    // অন্য সব মেনুর ক্লাস 'show' সরিয়ে দিন
+    // ১. অন্য সব মেনু থেকে 'show' ক্লাস সরিয়ে ফেলা
     allMenus.forEach(m => {
         if (m.id !== id) {
             m.classList.remove('show');
         }
     });
 
-    // বর্তমান মেনুর 'show' ক্লাস টগল করুন
+    // ২. নির্দিষ্ট মেনুটিতে 'show' ক্লাস টগল করা
     if (menu) {
         menu.classList.toggle('show');
     }
 }
 
-    if (menu) {
-        // এখানে চেক করছি মেনু কি এখন দেখা যাচ্ছে কি না
-        if (menu.style.display === 'flex') {
-            menu.style.display = 'none';
-        } else {
-            menu.style.display = 'flex'; // 'block' এর বদলে 'flex' ব্যবহার করলাম
-        }
-    }
-}
-
-/* 3. Currency Selection: ইমেজ আপডেট করা */
+/* কারেন্সি সিলেকশন ফাংশন (যেটা আগে ছিল) */
 function selectCurrency(name, img, balance) {
-    // ১. উপরের হেডার ইমেজ আপডেট
     const headerImg = document.getElementById('selected-currency-img');
     if (headerImg) {
         headerImg.src = img;
         headerImg.alt = name;
     }
 
-    // ২. উপরের হেডার ব্যালেন্স আপডেট
     const headerBalance = document.getElementById('selected-balance');
     if (headerBalance) {
         headerBalance.innerText = balance;
     }
 
-    // ৩. ড্রপডাউন মেনু ক্লোজ করা
+    // ড্রপডাউন মেনু ক্লোজ করা
     headerDropdownMenu('currency-menu');
 }
+
+// এটি যোগ করলে যেকোনো জায়গায় ক্লিক করলে মেনু ক্লোজ হয়ে যাবে (ঐচ্ছিক কিন্তু ইউজার ফ্রেন্ডলি)
+document.addEventListener('click', function() {
+    const allMenus = document.querySelectorAll('.dropdown-menu');
+    allMenus.forEach(m => m.classList.remove('show'));
+});
 
 /* 4. Wallet Actions: ট্যাব ওপেন করা */
 function openWalletTab(action) {
