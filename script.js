@@ -497,8 +497,9 @@ function startRateTimer() {
     }, 1000);
 }
 
-// পেজ লোড হওয়ার সময় সব ইনিশিয়ালাইজ করা
+// পেজ লোড হওয়ার সময়
 window.onload = function() {
+    timeLeft = 30; // এখানে মানটি নিশ্চিত করো
     fetchLiveRates();
     startRateTimer();
 };
