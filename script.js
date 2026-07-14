@@ -78,19 +78,31 @@ fetchLiveRates(); // প্রথমবার পেজ লোড হওয়া�
 
 /* 2. Main Logic: Header Dropdown Handler */
 function headerDropdownMenu(id, event) {
-    if (event) event.stopPropagation(); // এটি দিলে আর বাইরের ক্লিক ইভেন্ট ফায়ার হবে না
+    if (event) event.stopPropagation();
     
     const menu = document.getElementById(id);
     const allMenus = document.querySelectorAll('.dropdown-menu');
     
+    // অন্য সব মেনুর ক্লাস 'show' সরিয়ে দিন
     allMenus.forEach(m => {
         if (m.id !== id) {
-            m.style.display = 'none';
+            m.classList.remove('show');
         }
     });
 
+    // বর্তমান মেনুর 'show' ক্লাস টগল করুন
     if (menu) {
-        menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+        menu.classList.toggle('show');
+    }
+}
+
+    if (menu) {
+        // এখানে চেক করছি মেনু কি এখন দেখা যাচ্ছে কি না
+        if (menu.style.display === 'flex') {
+            menu.style.display = 'none';
+        } else {
+            menu.style.display = 'flex'; // 'block' এর বদলে 'flex' ব্যবহার করলাম
+        }
     }
 }
 
