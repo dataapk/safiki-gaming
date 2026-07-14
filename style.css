@@ -362,7 +362,7 @@ img, svg {
     box-shadow: 0 10px 30px rgba(0,0,0,0.8) !important;
     z-index: 9999 !important;
     
-    display: flex !important;
+    display: none !important;
     flex-direction: column !important;
     overflow-y: auto !important; 
     box-sizing: border-box !important;
