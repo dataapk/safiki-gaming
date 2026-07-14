@@ -271,21 +271,22 @@
     </div>
 
     <!-- কারেন্সি সিলেকশন (From) -->
-    <div class="currency-group">
-        <!-- আইকন এবং ড্রপডাউন একসাথে রাখার জন্য flex যোগ করা হয়েছে -->
-        <div style="display: flex; align-items: center; margin-bottom: 5px;">
-            <img id="from-icon" src="image/ada.png" width="24" height="24" style="margin-right: 10px;">
-            <select id="from-currency" class="currency-select" 
-        onchange="updateIcons(); updateStatLimits(); checkMinimumLimit();" 
-        style="border:none; background:transparent; outline:none; color:inherit; width: 100%;">
-    <option value="ada" data-img="image/ada.png">Cardano (ADA)</option>
-    <option value="btc" data-img="image/btc.png">Bitcoin (BTC)</option>
-    <option value="eth" data-img="image/eth.png">Ethereum (ETH)</option>
-    <option value="usdt" data-img="image/usdt.png">USDT</option>
-    <option value="doge" data-img="doge.png">Dogecoin (DOGE)</option>
-    <option value="trx" data-img="image/trx.png">Tron (TRX)</option>
-</select>
+   <!-- কারেন্সি সিলেকশন (From) -->
+<div class="currency-group">
+    <div class="currency-wrapper">
+        <img id="from-icon" src="" alt="icon" style="display: none;">
+        <select id="from-currency" class="currency-select" onchange="updateUI();">
+            <!-- অপশনগুলো জাভাস্ক্রিপ্ট থেকে অটোমেটিক আসবে -->
+        </select>
+    </div>
+
+    <div id="input-container">
+        <input type="number" id="amount-input" placeholder="0.00" oninput="checkMinimumLimit();">
+        <div id="error-message">
+            Amount is higher than balance
         </div>
+    </div>
+</div>
         <div class="input-row">
             <input type="number" id="from-amount" placeholder="0.00">
             <button class="max-btn" onclick="setMax()">Max</button>
