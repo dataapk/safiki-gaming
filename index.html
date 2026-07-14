@@ -261,7 +261,7 @@
     <button class="withdraw-btn" onclick="processWithdraw()">Confirm Withdraw</button>
 </div>
 
-<!-- START EXCHANGE SECTION DROPDOWN (এটি ঠিক করা হয়েছে) -->
+
 <!-- START EXCHANGE SECTION DROPDOWN (এটি ঠিক করা হয়েছে) -->
 <div id="exchange-box" class="exchanger-box" style="display:none;">
     <!-- হেডার -->
@@ -309,6 +309,10 @@
                 <option value="trx" data-img="image/trx.png">Tron (TRX)</option>
             </select>
         </div>
+        <!-- রেট আপডেট ও টাইমার সেকশন -->
+<div class="timer-section" id="rate-timer-box">
+    <div class="timer-text">Rate updated every <span id="timer-count">30</span> sec</div>
+</div>
         <div class="output-row">
             <span id="to-amount">0.00000000</span>
         </div>
