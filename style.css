@@ -518,49 +518,16 @@ img, svg {
 /* এক্সচেঞ্জার বক্সের মূল কন্টেইনার */
 
 .exchanger-box {
-
-
-
-    background: #121626; /* ডার্ক ব্যাকগ্রাউন্ড */
-
-
-
-    border-radius: 20px;
-
-
-
-    padding: 20px;
-
-
-
-    width: 100%;
-
-
-
-    max-width: 400px;
-
-
-
-    margin: 20px auto;
-
-
-
-    color: #ffffff;
-
-
-
-    font-family: 'Segoe UI', sans-serif;
-
-
-
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-
-
-
-    border: 1px solid #2d344d;
-
-
-
+background: #121626; /* ডার্ক ব্যাকগ্রাউন্ড */
+border-radius: 20px;
+padding: 20px;
+ width: 80%;
+ max-width: 400px;
+margin: 20px auto;
+color: #ffffff;
+font-family: 'Segoe UI', sans-serif;
+box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+border: 1px solid #2d344d;
 }
 
 /* হেডার */
@@ -569,17 +536,6 @@ img, svg {
     justify-content: space-between;
    align-items: center;
     margin-bottom: 20px;
-}
-
-/* কারেন্সি গ্রুপ ও ড্রপডাউন */
-#exchange-box {
-    width: 95%;             /* স্ক্রিনের সাথে ফিট হবে */
-    max-width: 500px;       /* ডেস্কটপে যেন অনেক বড় না হয় */
-    max-height: 80vh;       /* স্ক্রিনের উচ্চতার সর্বোচ্চ ৮০% জায়গা নেবে */
-    overflow-y: auto;       /* কন্টেন্ট বেশি হলে স্ক্রল আসবে */
-    margin: 0 auto;         /* সেন্টারে রাখার জন্য */
-    padding: 15px;
-    box-sizing: border-box;
 }
 
 .currency-group {
