@@ -94,7 +94,15 @@ function headerDropdownMenu(id, event) {
 
     // নির্দিষ্ট মেনুটির স্টেট টগল করা
     if (menu) {
-        menu.classList.toggle('show');
+        // যদি মেনুটি নোটিফিকেশন হয়, তবে flex ব্যবহার করব, অন্যথায় block
+        const displayType = (id === 'notif-menu') ? 'flex' : 'block';
+        
+        // যদি মেনু অলরেডি দেখা যায়, তাহলে বন্ধ হবে, নতুবা খুলবে
+        if (menu.style.display === displayType) {
+            menu.style.display = 'none';
+        } else {
+            menu.style.display = displayType;
+        }
     }
 }
 
