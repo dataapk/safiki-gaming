@@ -276,7 +276,11 @@
 <div class="currency-group">
     
     <!-- ১. উপরের বক্স: কারেন্সি সিলেকশন -->
-    <div class="currency-header-box">
+   <!-- মূল কারেন্সি গ্রুপ কন্টেইনার -->
+<div class="currency-group">
+
+    <!-- ১. উপরের বক্স: কারেন্সি ড্রপডাউন -->
+    <div class="currency-select-box">
         <img id="from-icon" src="image/usdt.png" width="24" height="24">
         <select id="from-currency" class="currency-select" onchange="updateIcons(); updateStatLimits(); checkMinimumLimit();">
             <option value="usdt" data-img="image/usdt.png" selected>USDT</option>
@@ -288,10 +292,17 @@
         </select>
     </div>
 
-        <div class="currency-input-box">
+    <!-- ২. নিচের বক্স: ইনপুট এবং ম্যাক্স বাটন -->
+    <div class="amount-input-box">
+        <img id="input-icon" src="image/usdt.png" width="20" height="20">
         <input type="number" id="from-amount" placeholder="0.00" oninput="checkMinimumLimit();">
-            <button class="max-btn" onclick="setMax()">Max</button>
-        </div>
+        <button type="button" id="max-btn" onclick="setMaxAmount();">Max</button>
+    </div>
+
+    <!-- এরর মেসেজ (সবার নিচে) -->
+    <div id="error-message" style="display: none; color: #ff4d4d; font-size: 12px; margin-top: 5px;"></div>
+
+</div>
         <small class="error-msg" id="balance-error" style="display:none;">Amount is higher than balance</small>
     </div>
 
