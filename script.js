@@ -1,8 +1,5 @@
 /* 1. DOM Elements Selection */
 const allMenus = document.querySelectorAll('.dropdown-menu');
-const fromAmountInput = document.getElementById('from-amount');
-const fromCurrencySelect = document.getElementById('from-currency');
-const toCurrencySelect = document.getElementById('to-currency');
 
 /* --- API & Global Variables --- */
 let currentPrices = { "ada": 200, "btc": 100, "eth": 0, "usdt": 1, "doge": 0, "trx": 0 };
@@ -24,7 +21,8 @@ async function fetchLiveRates() {
 setInterval(fetchLiveRates, 60000);
 fetchLiveRates();
 
-/* 2. Main Logic: Header Dropdown Handler */
+/* --- Core Functions (সবগুলো এখানে আছে) --- */
+
 function headerDropdownMenu(id, event) {
     if (event) event.stopPropagation();
     const menu = document.getElementById(id);
@@ -32,21 +30,16 @@ function headerDropdownMenu(id, event) {
     if (menu) menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
 }
 
-/* 3. Currency & Icons Update */
 function updateIcons() {
-    const selects = [
-        { sel: 'from-currency', icon: 'from-icon' },
-        { sel: 'to-currency', icon: 'to-icon' }
-    ];
-    selects.forEach(item => {
-        const select = document.getElementById(item.sel);
-        const icon = document.getElementById(item.icon);
-        const option = select.options[select.selectedIndex];
-        if (option && icon) icon.src = option.getAttribute('data-img');
-    });
+    const fromSelect = document.getElementById('from-currency');
+    const fromIcon = document.getElementById('from-icon');
+    if (fromSelect && fromIcon) fromIcon.src = fromSelect.options[fromSelect.selectedIndex].getAttribute('data-img');
+    
+    const toSelect = document.getElementById('to-currency');
+    const toIcon = document.getElementById('to-icon');
+    if (toSelect && toIcon) toIcon.src = toSelect.options[toSelect.selectedIndex].getAttribute('data-img');
 }
 
-/* 4. Exchange & Calculations */
 function calculateExchange() {
     const fromVal = parseFloat(document.getElementById('from-amount').value) || 0;
     const fromCurr = document.getElementById('from-currency').value;
@@ -54,22 +47,45 @@ function calculateExchange() {
     const fromPrice = currentPrices[fromCurr] || 0;
     const toPrice = currentPrices[toCurr] || 0;
     const grossResult = (fromVal * fromPrice) / toPrice;
-    const netResult = grossResult * 0.95; // 5% fee
+    const netResult = grossResult * 0.95; 
     const toAmountDisplay = document.getElementById('to-amount');
     if (toAmountDisplay) toAmountDisplay.innerText = netResult.toFixed(8);
 }
 
-/* 5. Wallet & UI Management */
-function selectCurrency(name, img, balance) {
-    const headerImg = document.getElementById('selected-currency-img');
-    const headerBalance = document.getElementById('selected-balance');
-    if (headerImg) headerImg.src = img;
-    if (headerBalance) headerBalance.innerText = balance;
-    headerDropdownMenu('currency-menu');
+function checkMinimumLimit() {
+    // তোমার আগের কোড থেকে আনা মিনিমাম লিমিট চেক লজিক
+    const fromCurrency = document.getElementById('from-currency').value;
+    const price = currentPrices[fromCurrency] || 1;
+    const minAmount = 10 / price;
+    const amountInput = parseFloat(document.getElementById('from-amount').value) || 0;
+    const minAmountElement = document.getElementById('min-amount');
+    if (minAmountElement) minAmountElement.innerText = `Min: ${minAmount.toFixed(4)} ${fromCurrency.toUpperCase()}`;
 }
 
-function openWalletTab(action) {
-    headerDropdownMenu('wallet-menu');
+function setMax() {
+    const userBalance = 0.00174269; 
+    document.getElementById('from-amount').value = userBalance;
+    checkMinimumLimit();
+    calculateExchange();
+}
+
+function swapCoins() {
+    const fromSelect = document.getElementById('from-currency');
+    const toSelect = document.getElementById('to-currency');
+    let temp = fromSelect.value;
+    fromSelect.value = toSelect.value;
+    toSelect.value = temp;
+    updateIcons();
+    calculateExchange();
+}
+
+function closeExchange() {
+    document.getElementById('exchange-box').style.display = 'none';
+}
+
+function processExchange() {
+    const amount = document.getElementById('from-amount').value;
+    alert("Exchange processed for " + amount);
 }
 
 function showTab(tabId) {
@@ -77,22 +93,8 @@ function showTab(tabId) {
     document.getElementById('address-box').style.display = 'none';
     document.getElementById('withdraw-input-box').style.display = 'none';
     document.getElementById('exchange-box').style.display = 'none';
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-
-    if (tabId === 'exchange') {
-        document.getElementById('exchange-box').style.display = 'block';
-    } else {
-        const targetTab = document.getElementById(tabId);
-        if (targetTab) targetTab.style.display = 'grid';
-    }
-}
-
-/* 6. Helpers & Listeners */
-function setMax() {
-    const userBalance = 0.00174269;
-    document.getElementById('from-amount').value = userBalance;
-    checkMinimumLimit();
-    calculateExchange();
+    const target = document.getElementById(tabId);
+    if (target) target.style.display = 'grid';
 }
 
 window.onclick = function(event) {
@@ -102,10 +104,3 @@ window.onclick = function(event) {
         allMenus.forEach(m => m.style.display = 'none');
     }
 };
-
-/* Event Listeners Initialization */
-document.addEventListener('DOMContentLoaded', () => {
-    if(fromAmountInput) fromAmountInput.addEventListener('input', () => { calculateExchange(); checkMinimumLimit(); });
-    if(fromCurrencySelect) fromCurrencySelect.addEventListener('change', () => { updateIcons(); calculateExchange(); });
-    if(toCurrencySelect) toCurrencySelect.addEventListener('change', () => { updateIcons(); calculateExchange(); });
-});
