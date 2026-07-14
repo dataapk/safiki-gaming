@@ -641,22 +641,32 @@ img, svg {
 
 
 
-.currency-select {
-
-    background: transparent;
-
-    color: #fff;
-
-    border: none;
-
-    font-size: 16px;
-
-    cursor: pointer;
-
-    font-weight: 600;
-
+/* ড্রপডাউন বক্স */
+.currency-select-box {
+    display: flex;
+    align-items: center;
+    background: #1a1d2e;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+/* ইনপুট বক্স (ম্যাক্স বাটনসহ) */
+.amount-input-box {
+    display: flex;
+    align-items: center;
+    background: #0b0e1a;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #2d344d;
 }
 
+#from-amount {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: white;
+    margin: 0 10px;
+}
 /* লোগোর সাইজ ও পজিশন */
 
 .currency-logo {
@@ -729,42 +739,14 @@ img, svg {
 
 
 
-.max-btn {
-
-
-
+#max-btn {
     background: #2d344d;
-
-
-
-    color: #b0b7cf;
-
-
-
+    color: white;
     border: none;
-
-
-
-    padding: 5px 15px;
-
-
-
-    border-radius: 8px;
-
-
-
+    padding: 5px 10px;
+    border-radius: 4px;
     cursor: pointer;
-
-
-
 }
-
-
-
-
-
-
-
 /* সোয়াপ বাটন (টু বাটন) */
 
 
