@@ -288,18 +288,8 @@
         </select>
     </div>
 
-    <!-- ২. নিচের বক্স: ইনপুট এবং ম্যাক্স বাটন -->
-    <div class="currency-input-box">
+        <div class="currency-input-box">
         <input type="number" id="from-amount" placeholder="0.00" oninput="checkMinimumLimit();">
-        <button type="button" id="max-btn" onclick="setMaxAmount();">MAX</button>
-    </div>
-
-    <!-- এরর মেসেজ (নিচে) -->
-    <div id="error-message" style="display: none; margin-top: 5px; font-size: 12px;"></div>
-
-</div>
-        <div class="input-row">
-            <input type="number" id="from-amount" placeholder="0.00">
             <button class="max-btn" onclick="setMax()">Max</button>
         </div>
         <small class="error-msg" id="balance-error" style="display:none;">Amount is higher than balance</small>
