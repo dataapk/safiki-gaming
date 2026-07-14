@@ -563,49 +563,24 @@ img, svg {
 
 }
 
-
-
-
-
-
-
 /* হেডার */
-
-
-
 .exchanger-header {
-
-
-
     display: flex;
-
-
-
     justify-content: space-between;
-
-
-
-    align-items: center;
-
-
-
+   align-items: center;
     margin-bottom: 20px;
-
-
-
 }
 
-
-
-
-
-
-
 /* কারেন্সি গ্রুপ ও ড্রপডাউন */
-
-
-
-/* কারেন্সি বক্সের স্টাইল - লোগো ও নাম ঠিক রাখা */
+#exchange-box {
+    width: 95%;             /* স্ক্রিনের সাথে ফিট হবে */
+    max-width: 500px;       /* ডেস্কটপে যেন অনেক বড় না হয় */
+    max-height: 80vh;       /* স্ক্রিনের উচ্চতার সর্বোচ্চ ৮০% জায়গা নেবে */
+    overflow-y: auto;       /* কন্টেন্ট বেশি হলে স্ক্রল আসবে */
+    margin: 0 auto;         /* সেন্টারে রাখার জন্য */
+    padding: 15px;
+    box-sizing: border-box;
+}
 
 .currency-group {
 
