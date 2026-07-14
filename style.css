@@ -337,7 +337,31 @@ img, svg {
 .actions-box i {
     pointer-events: none; 
 }
+/* নতুন নোটিফিকেশন সিএসএস */
+#notif-menu {
+    display: none; 
+    position: absolute;
+    top: 60px; 
+    right: 10px;
+    width: 90%; 
+    max-width: 350px;
+    background: #1a1a2e; 
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    z-index: 1000;
+}
 
+.notif-item {
+    background: #252545;
+    padding: 10px 15px;
+    margin-bottom: 8px; 
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 14px;
+    border-left: 4px solid #f39c12; 
+}
 
 
 /* মোবাইল ডিভাইসের জন্য অ্যাডজাস্টমেন্ট */
