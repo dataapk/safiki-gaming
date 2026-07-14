@@ -38,14 +38,7 @@ function updateDisplayedBalance() {
         balanceDisplay.innerText = `Balance: ${balance} ${fromCurrency.toUpperCase()}`;
     }
 }
-function updateLogo() {
-    const fromCurrency = document.getElementById('from-currency').value;
-    const logoElement = document.getElementById('from-currency-logo');
-    
-    // কারেন্সি অনুযায়ী লোগোর পাথ সেট করা
-    // ধরে নিলাম তোমার লোগো গুলো 'assets/icons/' ফোল্ডারে আছে
-    logoElement.src = `assets/icons/${fromCurrency}.png`; 
-}
+
 
 /* --- ইভেন্ট লিসেনার: কারেন্সি পাল্টালেই যেন ব্যালেন্স আপডেট হয় --- */
 document.getElementById('from-currency').addEventListener('change', function() {
@@ -597,16 +590,25 @@ document.getElementById('from-amount').addEventListener('input', calculateExchan
 document.getElementById('from-currency').addEventListener('change', calculateExchange);
 document.getElementById('to-currency').addEventListener('change', calculateExchange);
 // এই ফাংশনটি তোমার জাভাস্ক্রিপ্ট ফাইলে যোগ করো
-function updateIcons() {
-    // FROM কারেন্সির জন্য
+function updatecurrencyIcons() {
+    // ১. FROM কারেন্সির জন্য (ড্রপডাউনের পাশে)
     const fromSelect = document.getElementById('from-currency');
     const fromIcon = document.getElementById('from-icon');
     const fromOption = fromSelect.options[fromSelect.selectedIndex];
+    
     if (fromOption) {
-        fromIcon.src = fromOption.getAttribute('data-img');
+        const imageUrl = fromOption.getAttribute('data-img');
+        fromIcon.src = imageUrl;
+
+        // ২. নতুন সংযোজন: ইনপুট বক্সের পাশের লোগো আপডেট করা
+        // ধরে নিচ্ছি তোমার ইনপুট বক্সের পাশের লোগোর ID 'input-from-icon'
+        const inputFromIcon = document.getElementById('input-from-icon');
+        if (inputFromIcon) {
+            inputFromIcon.src = imageUrl;
+        }
     }
 
-    // TO কারেন্সির জন্য
+    // ৩. TO কারেন্সির জন্য
     const toSelect = document.getElementById('to-currency');
     const toIcon = document.getElementById('to-icon');
     const toOption = toSelect.options[toSelect.selectedIndex];
