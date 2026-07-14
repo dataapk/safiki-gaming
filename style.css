@@ -339,22 +339,18 @@ img, svg {
 }
 /* নতুন নোটিফিকেশন সিএসএস */
 /* ১. নোটিফিকেশন মেনুকে হেডার বা ড্রপডাউন মেনু ক্লাস থেকে আলাদা করা */
-/* এটি তোমার নোটিফিকেশন বক্সকে বিটসলারের স্টাইলে রূপান্তর করবে */
-/* ১. ড্রপডাউনের মূল কন্টেইনারটা পুরো স্ক্রিন দখল করবে */
-/* পুরো নোটিফিকেশন কন্টেইনারের সাইজ সেট করা */
 #notif-menu.dropdown-menu {
     position: absolute !important;
     top: 60px !important;       
     
-    /* ডানে এবং বামে ৫ পিক্সেল গ্যাপ রেখে উইথ সেট করা */
-    left: 5px !important; 
-    right: 5px !important;
+    /* বক্সকে ডানে-বামে না সরিয়ে একদম মাঝখানে বসানোর জন্য */
+    left: 50% !important; 
+    transform: translateX(-50%) !important;
     
-    /* অটোমেটিক উইথ ক্যালকুলেশন (পুরো স্ক্রিন - ডানে ৫ পিক্সেল - বামে ৫ পিক্সেল) */
-    width: calc(100% - 10px) !important;
-    max-width: calc(100% - 10px) !important;
+    /* এবার উইথ ৯৫% ফিক্সড */
+    width: 95% !important; 
     
-    /* হাইট */
+    /* হাইট ৭০% */
     height: 70vh !important;    
     
     background: #1a1a2e !important;
@@ -368,10 +364,10 @@ img, svg {
     display: flex !important;
     flex-direction: column !important;
     overflow-y: auto !important; 
+    
+    /* বক্সের সাইজ ঠিক রাখার জন্য */
     box-sizing: border-box !important;
-    margin: 0 !important;
 }
-
 /* প্রতিটি নোটিফিকেশন আইটেমের স্টাইল */
 .notif-box-item {
     background: #252545 !important;
