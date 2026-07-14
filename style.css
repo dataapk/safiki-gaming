@@ -340,13 +340,14 @@ img, svg {
 /* নতুন নোটিফিকেশন সিএসএস */
 /* ১. নোটিফিকেশন মেনুকে হেডার বা ড্রপডাউন মেনু ক্লাস থেকে আলাদা করা */
 #notif-menu.dropdown-menu {
-    /* fixed ব্যবহার করার ফলে এটি হেডারের ছোট বক্সের ভেতরে আটকাবে না */
     position: fixed !important; 
-    top: 60px !important;       /* হেডারের নিচ থেকে শুরু হবে */
+    top: 60px !important;       
     
-    /* স্ক্রিন অনুযায়ী উইথ ফিক্সড করা */
-    left: 2.5% !important;      /* বামে ২.৫% গ্যাপ */
-    width: 95% !important;      /* ৯৫% উইথ */
+    /* বাম পাশে ৫ পিক্সেল গ্যাপ ঠিক আছে */
+    left: 5px !important;       
+    
+    /* উইথ এমনভাবে সেট করছি যেন ডান পাশেও ৫ পিক্সেল গ্যাপ থাকে */
+    width: calc(100% - 10px) !important; 
     
     /* হাইট */
     height: 70vh !important;    
@@ -363,7 +364,6 @@ img, svg {
     overflow-y: auto !important; 
     box-sizing: border-box !important;
     
-    /* মার্জিন জিরো করে দেওয়া যাতে কোনো জায়গা না নেয় */
     margin: 0 !important;
 }
 /* প্রতিটি নোটিফিকেশন আইটেমের স্টাইল */
