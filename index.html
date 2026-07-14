@@ -359,15 +359,20 @@
   
     <!-- নোটিফিকেশন আইকন -->
     
-    <div class="user-actions">
-<div class="actions-box" onclick="headerDropdownMenu('notif-menu', event)">
-    <i class="fas fa-bell"></i>
+<div class="user-actions">
+    <!-- আইকন -->
+    <div class="actions-box" onclick="headerDropdownMenu('notif-menu', event)">
+        <i class="fas fa-bell"></i>
+    </div>
+    
+    <!-- পুরো স্ক্রিনজুড়ে আসা কন্টেইনার -->
+    <div id="notif-menu" class="dropdown-menu">
+        <div class="notif-container" id="notif-list">
+            <!-- এখানে মেসেজগুলো আসবে -->
+            <div class="notif-box-item">No new notifications</div>
+        </div>
+    </div>   
 </div>
-<!-- নোটিফিকেশন মেনু (এটি বাটনের বাইরে থাকবে) -->
-<div id="notif-menu" class="dropdown-menu">
-    <div>No new notifications</div>
-</div>
-
 <!-- ২. প্রোফাইল বাটন -->
 <div class="actions-box" onclick="headerDropdownMenu('profile-menu', event)">
     <i class="fas fa-user-circle"></i>
