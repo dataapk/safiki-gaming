@@ -677,7 +677,7 @@ function confirmLogout() {
 }
 function performLogout() {
     // এখানে তোমার হোম পেজের পাথ দাও (যেমন '/')
-    window.location.href = '/'; 
+    window.location.href = "https://dataapk.github.io/safiki-gaming/; 
 }
 // --- Outside Click Handler ---
 window.addEventListener('click', (event) => {
