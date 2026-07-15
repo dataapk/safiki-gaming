@@ -360,27 +360,31 @@
     <!-- পুরো স্ক্রিনজুড়ে আসা কন্টেইনার -->
 <!-- ================= USER ACTIONS ================= -->
 <!-- নোটিফিকেশন আইকন -->
- <!-- নোটিফিকেশন আইকন -->
-    
-    <div class="user-actions">
-<div class="actions-box" onclick="headerDropdownMenu('notif-menu', event)">
-    <i class="fas fa-bell"></i>
-</div>
-<!-- নোটিফিকেশন মেনু (এটি বাটনের বাইরে থাকবে) -->
-<div id="notif-menu" class="dropdown-menu">
-    <div>No new notifications</div>
+ 
+<div class="user-actions">
+    <div class="actions-box" onclick="toggleNotifMenu(event)">
+        <i class="fas fa-bell"></i>
+    </div>
+    <div id="notif-popup" class="custom-popup">
+        <div class="notif-container" id="notif-list">
+            <div class="notif-box-item">No new notifications</div>
+        </div>
+    </div>   
 </div>
 
 <!-- ২. প্রোফাইল বাটন -->
-<div class="actions-box" onclick="headerDropdownMenu('profile-menu', event)">
-    <i class="fas fa-user-circle"></i>
-</div>
-<!-- প্রোফাইল মেনু (এটিও বাটনের বাইরে থাকবে) -->
-<div id="profile-menu" class="dropdown-menu">
-    <div>Profile Settings</div>
-    <div>Logout</div>
-</div>
-
+<div class="user-actions">
+    <div class="actions-box" onclick="toggleProfileMenu(event)">
+        <i class="fas fa-user-circle"></i>
+    </div>
+    <div id="profile-popup" class="custom-popup">
+        <div class="menu-item"><i class="fas fa-user"></i> Personal Profile</div>
+        <div class="menu-item"><i class="fas fa-cog"></i> Settings</div>
+        <div class="menu-item"><i class="fas fa-history"></i> Transaction History</div>
+        <div class="menu-item logout-btn" onclick="confirmLogout()">
+            <i class="fas fa-sign-out-alt"></i> Logout
+        </div>
+    </div>
 </div>
 </header>
 
