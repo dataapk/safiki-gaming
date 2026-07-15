@@ -353,27 +353,40 @@ img, svg {
 #notif-popup {
     display: none;
     position: absolute;
-    top: 65px; 
-    
-    /* পজিশনিং লজিক */
-    /* আমরা নোটিফিকেশন আইকনটি যে পজিশনে আছে তার সাপেক্ষে এটি সেট করব */
-    right: 35px; /* এটি আইকনের অ্যালাইনমেন্ট অনুযায়ী অ্যাডজাস্ট করবে */
-    width: 320px; 
-    
-    /* বক্সটি যাতে বাম দিকে বেশি জায়গা নেয় (৮০% বামে, ২০% ডানে) */
-    /* এখানে transform ব্যবহার করার দরকার নেই, শুধু ডান দিক থেকে দূরত্ব নির্ধারণ করলেই হবে */
-    
+    top: 65px;
+    right: 10px; /* ডান দিকে ফিক্সড */
+    width: 320px;
     height: 70vh;
     background: #0f121d;
     border: 1px solid #00d4ff;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.5);
     z-index: 9999;
+    
+    /* মেইন কন্টেইনার ফ্লেক্স করা */
+    display: flex;
     flex-direction: column;
     padding: 15px;
-    overflow-y: auto; 
-    overflow-x: hidden;
     box-sizing: border-box;
+}
+
+/* নোটিফিকেশন লিস্ট এরিয়া - এটি স্ক্রল হবে */
+.notif-container {
+    flex: 1; /* এটি বাকি সমস্ত জায়গা নিয়ে নেবে */
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* নিচে যে ১, ২, ৩ এর লাইনটা থাকবে */
+.notif-pagination {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center; /* মাঝখানে রাখার জন্য */
+    gap: 15px;
+    color: #00d4ff;
+    font-size: 16px;
+    padding: 10px 0;
+    border-top: 1px solid #333; /* উপরে একটা হালকা দাগ */
 }
 
 /* মোবাইল বা রেসপন্সিভ এরিয়ার জন্য */
