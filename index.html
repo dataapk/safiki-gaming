@@ -358,63 +358,107 @@
             
     
     <!-- পুরো স্ক্রিনজুড়ে আসা কন্টেইনার -->
-<!-- Notification -->
+<!-- ================= USER ACTIONS ================= -->
 <div class="user-actions">
-    <div class="actions-box" onclick="toggleNotifMenu(event)">
-        <i class="fas fa-bell"></i>
+
+    <!-- ================= Notification ================= -->
+    <div class="action-wrapper">
+
+        <div class="actions-box" onclick="toggleNotifMenu(event)">
+            <i class="fas fa-bell"></i>
+        </div>
+
+        <div id="notif-popup" class="custom-popup">
+
+            <div class="popup-arrow"></div>
+
+            <div class="notif-container">
+
+                <div class="notif-header">
+                    <h3>Notifications</h3>
+                </div>
+
+                <div class="notif-list" id="notif-list">
+
+                    <div class="notif-item">
+                        <div class="notif-date">
+                            15 Jul
+                        </div>
+
+                        <div class="notif-content">
+                            Welcome to our website.
+                        </div>
+                    </div>
+
+                    <div class="notif-item">
+                        <div class="notif-date">
+                            14 Jul
+                        </div>
+
+                        <div class="notif-content">
+                            Your bonus has been added.
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="notif-pagination">
+
+                    <button class="page-btn">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+
+                    <button class="active">1</button>
+
+                    <button>2</button>
+
+                    <button>3</button>
+
+                    <button class="page-btn">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
     </div>
 
-    <div id="notif-popup" class="custom-popup">
+    <!-- ================= Profile ================= -->
+    <div class="action-wrapper">
 
-        <!-- Top Arrow -->
-        <div class="popup-arrow"></div>
+        <div class="actions-box" onclick="toggleProfileMenu(event)">
+            <i class="fas fa-user-circle"></i>
+        </div>
 
-        <div class="notif-container">
+        <div id="profile-popup" class="custom-popup">
 
-            <!-- Header -->
-            <div class="notif-header">
-                <h3>Notifications</h3>
-            </div>
+            <div class="popup-arrow"></div>
 
-            <!-- Notification List -->
-            <div class="notif-list" id="notif-list">
+            <div class="notif-container">
 
-                <div class="notif-item">
-                    <div class="notif-date">
-                        15 Jul
-                    </div>
-
-                    <div class="notif-content">
-                        Welcome to our website.
-                    </div>
+                <div class="menu-item">
+                    <i class="fas fa-user"></i>
+                    Personal Profile
                 </div>
 
-                <div class="notif-item">
-                    <div class="notif-date">
-                        14 Jul
-                    </div>
-
-                    <div class="notif-content">
-                        Your bonus has been added.
-                    </div>
+                <div class="menu-item">
+                    <i class="fas fa-cog"></i>
+                    Settings
                 </div>
 
-            </div>
+                <div class="menu-item">
+                    <i class="fas fa-history"></i>
+                    Transaction History
+                </div>
 
-            <!-- Pagination -->
-            <div class="notif-pagination">
-
-                <button class="page-btn">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-
-                <button class="active">1</button>
-                <button>2</button>
-                <button>3</button>
-
-                <button class="page-btn">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
+                <div class="menu-item logout-btn"
+                     onclick="confirmLogout()">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </div>
 
             </div>
 
@@ -424,38 +468,20 @@
 
 </div>
 
-<!-- প্রোফাইল বাটন -->
-<div class="user-actions">
-    <div class="actions-box" onclick="toggleProfileMenu(event)">
-        <i class="fas fa-user-circle"></i>
-    </div>
-    <div id="profile-popup" class="custom-popup">
-        <div class="menu-item">
-            <i class="fas fa-user"></i> Personal Profile
-        </div>
-        <div class="menu-item">
-            <i class="fas fa-cog"></i> Settings
-        </div>
-        <div class="menu-item">
-            <i class="fas fa-history"></i> Transaction History
-        </div>
-        <div class="menu-item logout-btn" onclick="confirmLogout()">
-            <i class="fas fa-sign-out-alt"></i> Logout
-        </div>
-    </div>
-</div>
-
-<!-- লগআউট কনফার্মেশন মডাল -->
+<!-- Logout Modal -->
 <div id="logout-modal" class="modal-overlay" style="display:none;">
+
     <div class="modal-content">
+
         <p>Are you sure you want to logout?</p>
+
         <button onclick="logout()">Confirm</button>
+
         <button onclick="closeLogoutModal()">Cancel</button>
+
     </div>
-</div>
 
 </div>
-</header>
 
     <!-- ======================================================
      🔴 END: HEADER SECTION
