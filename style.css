@@ -351,33 +351,25 @@ img, svg {
 }
 /* নতুন নোটিফিকেশন সিএসএস */
 #notif-popup {
-    display: none; /* শুরুতে বন্ধ থাকবে */
+    display: none; /* জাভাস্ক্রিপ্ট আগের মতোই কাজ করবে */
     position: absolute;
-    top: 70px;
-    left: 10px;
-    right: 10px;
-    max-width: 400px;
-    margin: 0 auto;
-    height: 70vh;
-    background: #0f121d; 
+    top: 60px;
+    right: 10px; /* ডান পাশে ১০ পিক্সেল গ্যাপ */
+    width: 320px; /* নির্দিষ্ট চওড়া */
+    height: 70vh; /* স্ক্রিনের ৭০% উচ্চতা */
+    background: #0f121d;
     border: 1px solid #00d4ff;
-    border-radius: 12px;
-    box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
-    overflow-y: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
     z-index: 9999;
-    padding: 15px;
     flex-direction: column;
-}
-    
-    /* থিম কালার */
-    background: #0f121d; 
-    border: 1px solid #00d4ff; /* সায়ান বর্ডার */
-    border-radius: 12px;
-    box-shadow: 0 0 20px rgba(0, 212, 255, 0.2); /* সায়ান গ্লো ইফেক্ট */
-    
-    overflow-y: auto;
-    z-index: 9999;
     padding: 15px;
+    
+    /* নিচের প্রপার্টিগুলো অ্যারো চিহ্ন এবং স্ক্রল সমস্যা ফিক্স করবে */
+    overflow-y: auto; 
+    overflow-x: hidden; 
+    box-sizing: border-box; /* উইডথ যাতে বর্ডারের কারণে বাইরে না যায় */
+}
     
     /* স্লাইড অ্যানিমেশন */
     opacity: 0;
@@ -392,20 +384,23 @@ img, svg {
     transform: translateY(0);
 }
 
+/* নোটিফিকেশন আইটেমগুলো লম্বালম্বিভাবে নিচে নামবে */
 .notif-container {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    width: 100%;
 }
 
 /* প্রতিটি নোটিফিকেশন আইটেম */
 .notif-box-item {
-    padding: 15px;
-    background: #1a1e2b; /* একটু হালকা ডার্ক শেড */
-    border-left: 4px solid #00d4ff; /* বাম পাশে সায়ান ডিভাইডার */
+    padding: 12px;
+    margin-bottom: 10px;
+    background: #1a1e2b;
+    border-bottom: 1px solid #333;
     border-radius: 5px;
     font-size: 14px;
-    color: #e0e0e0;
+    color: #fff;
+    word-wrap: break-word; /* লেখা বেশি হলে নিচে নামবে, ডানে যাবে না */
 }
 
 /* নোটিফিকেশনের ক্ষেত্রে লেটেস্টটা উপরে আসার লজিক */
