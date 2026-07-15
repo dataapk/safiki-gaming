@@ -240,7 +240,7 @@ img, svg {
 }
 
 .profile-icon {
-    cursor: pointer;
+    cursor: pointer; 
 }
 
 /* ড্রপডাউন পজিশনিং */
@@ -386,9 +386,7 @@ img, svg {
     white-space: nowrap; /* লেখা এক লাইনে রাখতে */
 }
 
-/* পেজিনেশন পাশাপাশি করার জন্য */
-/* পেজিনেশন এরিয়াটি বক্সের একদম নিচে সুন্দরভাবে বসানোর জন্য */
-/* পেজিনেশন বক্সের জন্য */
+
 /* পেজিনেশন এরিয়াটি বক্সের একদম নিচে সুন্দরভাবে বসানোর জন্য */
 .pagination {
     display: flex !important;         /* পাশাপাশি রাখার জন্য বাধ্যতামূলক */
@@ -456,8 +454,8 @@ img, svg {
     display: none;
     position: absolute;
     top: 60px; 
-    right: 20px;
-    width: 250px; /* তোমার চাওয়া অনুযায়ী উইডথ */
+    right: 5px;
+    width: 150px; /* তোমার চাওয়া অনুযায়ী উইডথ */
     background: #0a0606;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
@@ -473,7 +471,8 @@ img, svg {
 }
 
 .menu-item:hover {
-    background: #f1f1f1;
+    background: #252c38;
+    color: #ffd700; /* হোভার করলে গোল্ড কালার হবে */
 }
 
 /* Logout Modal Overlay */
