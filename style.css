@@ -386,25 +386,32 @@ img, svg {
 }
 
 /* পেজিনেশন পাশাপাশি করার জন্য */
+/* পেজিনেশন এরিয়াটি বক্সের একদম নিচে সুন্দরভাবে বসানোর জন্য */
 .pagination {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    margin-top: 10px;
-    color: #ffd700;
+    display: flex !important;         /* পাশাপাশি রাখার জন্য বাধ্যতামূলক */
+    flex-direction: row !important;  /* সব এলিমেন্ট ডানে-বামে সারিবদ্ধ করবে */
+    justify-content: center !important; /* একদম মাঝখানে (মিডিল) পজিশন করবে */
+    align-items: center !important;
+    gap: 10px;                       /* এলিমেন্টগুলোর মাঝে গ্যাপ */
+    width: 100%;                     /* কন্টেইনারের পুরো জায়গা নেবে */
+    padding: 10px 0;                 /* বক্সের ভেতর একটু জায়গা ছাড়বে */
+    margin-top: auto;                /* এটি ব্যবহার করলে পেজিনেশন বক্সের নিচে নেমে যাবে */
 }
 
-.page-info {
-    display: flex;
-    gap: 8px; /* নাম্বারগুলো পাশাপাশি আনতে */
-    font-weight: bold;
+/* নাম্বারগুলোর স্টাইল */
+.page-numbers {
+    display: flex;                   /* নাম্বারগুলো পাশাপাশি রাখার জন্য */
+    gap: 8px;                        /* নাম্বারগুলোর মাঝে গ্যাপ */
+    color: #fff;                     /* কালার */
+    cursor: pointer;
 }
+
+/* বাটনগুলোর স্টাইল */
 .page-btn {
     background: none;
     border: 1px solid #ffd700;
     color: #ffd700;
-    padding: 2px 10px;
+    padding: 2px 8px;
     border-radius: 4px;
     cursor: pointer;
 }
