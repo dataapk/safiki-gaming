@@ -405,27 +405,27 @@
     <div class="actions-box" onclick="toggleProfileMenu(event)">
         <i class="fas fa-user-circle"></i>
     </div>
+    
     <div id="profile-popup" class="custom-popup">
         <div class="menu-item"><i class="fas fa-user"></i> Personal Profile</div>
         <div class="menu-item"><i class="fas fa-cog"></i> Settings</div>
         <div class="menu-item"><i class="fas fa-history"></i> Transaction History</div>
-        <div class="menu-item logout-btn" onclick="confirmLogout()">
+        
+        <!-- আপডেট করা লগআউট বাটন (এখানে ফাংশনটি যুক্ত আছে) -->
+        <div class="menu-item logout-btn" onclick="showLogoutPopup()">
             <i class="fas fa-sign-out-alt"></i> Logout
         </div>
-        <!-- Logout Confirmation Popup -->
-<!-- Updated Logout Confirmation Popup -->
-<div id="logout-confirm-popup">
-    <div class="logout-box">
-        <p>Are you sure you want to log out?</p>
-        <div class="logout-actions">
-            <!-- Changed function to performLogout -->
-            <button class="confirm-btn" onclick="performLogout()">Confirm</button>
-            <button class="cancel-btn" onclick="closeLogoutPopup()">Cancel</button>
+        
+        <!-- লগআউট কনফার্মেশন পপআপ -->
+        <div id="logout-confirm-popup">
+            <div class="logout-box">
+                <p>Are you sure you want to log out?</p>
+                <div class="logout-actions">
+                    <button class="confirm-btn" onclick="performLogout()">Confirm</button>
+                    <button class="cancel-btn" onclick="closeLogoutPopup()">Cancel</button>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
-    </div>
-</div>
 </header>
 
 
