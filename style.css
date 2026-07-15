@@ -348,19 +348,26 @@ img, svg {
     overflow-y: auto;
 }
 
+/* কন্টেইনারটিকে মেইন বক্সের ভেতরে পুরো জায়গা নিতে বলছি */
 .notif-container {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    width: 100%; /* কন্টেইনার পুরো বক্সের উইডথ নেবে */
+    padding: 0 10px; /* ডানে-বামে ১০ পিক্সেল গ্যাপ রাখা হলো */
+    box-sizing: border-box; /* গ্যাপটা যাতে উইডথের ভেতর থাকে */
 }
 
+/* আইটেমগুলোকে কন্টেইনারের সাথে মিল রেখে বড় করা */
 .notif-box-item {
     padding: 12px;
-    background: #161a23; /* তোমার ক্যাসিনো সাইটের সেই ডার্ক কালার */
-    border: 1px solid #333; /* ঘর ঘর শেপের জন্য হালকা বর্ডার */
-    border-radius: 8px; /* ঘরের কোণা সামান্য গোল */
+    background: #161a23;
+    border: 1px solid #333;
+    border-radius: 8px;
     font-size: 14px;
-    color: #fff; /* টেক্সট কালার সাদা */
+    color: #fff;
+    width: 100%; /* এটি কন্টেইনারের পুরো জায়গা দখল করবে */
+    box-sizing: border-box; /* সাইজ যেন বর্ডারসহ ঠিক থাকে */
 }
 
 /* নোটিফিকেশনের ক্ষেত্রে লেটেস্টটা উপরে আসার লজিক */
