@@ -662,22 +662,38 @@ function toggleProfileMenu(event) {
 }
 
 // লগআউট কনফার্মেশন
+// --- Logout Confirmation Functions ---
+function showLogoutPopup() {
+    document.getElementById('logout-confirm-popup').style.display = 'flex';
+}
+
+function closeLogoutPopup() {
+    document.getElementById('logout-confirm-popup').style.display = 'none';
+}
+
 function confirmLogout() {
-    document.getElementById('logout-modal').style.display = 'flex';
+    // Add your logout logic here
+    window.location.href = 'logout.php'; 
 }
 
-function closeLogoutModal() {
-    document.getElementById('logout-modal').style.display = 'none';
-}
+// --- Outside Click Handler ---
+window.addEventListener('click', (event) => {
+    const notifPopup = document.getElementById('notif-popup');
+    const profilePopup = document.getElementById('profile-popup');
+    const logoutModal = document.getElementById('logout-confirm-popup');
 
-function logout() {
-    // এখানে তোমার লগআউট লজিক (যেমন: window.location.href = '/logout')
-    alert("Logged out successfully!");
-    closeLogoutModal();
-}
+    // Close notifications if clicking outside
+    if (notifPopup && !notifPopup.contains(event.target) && !event.target.closest('.notif-icon-class')) {
+        notifPopup.style.display = 'none';
+    }
 
-// বাইরে ক্লিক করলে মেনু বন্ধ হওয়া
-window.addEventListener('click', () => {
-    document.getElementById('notif-popup').style.display = 'none';
-    document.getElementById('profile-popup').style.display = 'none';
+    // Close profile menu if clicking outside
+    if (profilePopup && !profilePopup.contains(event.target) && !event.target.closest('.profile-icon-class')) {
+        profilePopup.style.display = 'none';
+    }
+    
+    // Optional: Close logout modal if clicking the background overlay
+    if (event.target === logoutModal) {
+        closeLogoutPopup();
+    }
 });
