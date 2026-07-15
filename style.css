@@ -359,15 +359,62 @@ img, svg {
 }
 
 /* আইটেমগুলোকে কন্টেইনারের সাথে মিল রেখে বড় করা */
+/* নোটিফিকেশন আইটেমের স্টাইল */
 .notif-box-item {
+    display: flex;
+    align-items: center; /* ডেট এবং টেক্সট ভার্টিক্যালি সেন্টারে রাখতে */
+    gap: 15px; /* ডেট এবং বক্সের মাঝে গ্যাপ */
+    margin-bottom: 10px;
+}
+
+/* ডেটের স্টাইল (বক্সের বাইরে বাম পাশে) */
+.notif-date {
+    font-size: 12px;
+    color: #ffd700; /* ডেট হলুদ রঙের হলে সুন্দর লাগবে */
+    min-width: 70px; /* ডেটের জন্য নির্দিষ্ট জায়গা */
+    text-align: right;
+}
+
+/* মেইন বক্স (ঘর শেপ) */
+.notif-text {
+    flex-grow: 1; /* এটি বাকি পুরো জায়গাটা দখল করবে */
     padding: 12px;
     background: #161a23;
     border: 1px solid #333;
     border-radius: 8px;
-    font-size: 14px;
     color: #fff;
-    width: 100%; /* এটি কন্টেইনারের পুরো জায়গা দখল করবে */
-    box-sizing: border-box; /* সাইজ যেন বর্ডারসহ ঠিক থাকে */
+    font-size: 14px;
+}
+
+/* পেজিনেশন এরিয়া স্টাইল */
+.pagination {
+    display: flex;
+    justify-content: center; /* একদম মাঝখানে আনার জন্য */
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #333; /* উপরে একটি হালকা রেখা */
+    color: #ffd700;
+}
+
+.page-btn {
+    background: none;
+    border: 1px solid #ffd700;
+    color: #ffd700;
+    padding: 2px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.page-btn:hover {
+    background: #ffd700;
+    color: #0a0606;
+}
+
+.page-info {
+    font-weight: bold;
+    letter-spacing: 5px; /* নম্বরগুলোর মাঝে একটু গ্যাপ */
 }
 #close-notif {
     background: none;
