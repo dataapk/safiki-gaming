@@ -474,9 +474,14 @@ img, svg {
 
 /* মেনুর লেখার কালার আলাদা রাখতে চাইলে (ঐচ্ছিক) */
 #profile-popup .menu-item {
-    color: #ffffff; /* টেক্সট কালার সাদা */
+    padding: 20px 25px;       /* আগের চেয়ে প্যাডিং বাড়ানো হয়েছে (২০px উপরে-নিচে, ২৫px ডানে-বামে) */
+    cursor: pointer;
+    color: #ffffff;
+    transition: 0.3s;
+    font-size: 15px;          /* ফন্ট সাইজ একটু বড় করে দিলাম যেন ক্লিয়ার দেখা যায় */
     display: flex;
-    align-items: center; /* আইকন এবং টেক্সট সোজা রাখতে */
+    align-items: center;
+    border-bottom: 1px solid #2a303c;
 }
 
 .menu-item:hover {
