@@ -360,44 +360,42 @@
     <!-- পুরো স্ক্রিনজুড়ে আসা কন্টেইনার -->
 <!-- ================= USER ACTIONS ================= -->
 <!-- নোটিফিকেশন আইকন -->
- 
 <div class="user-actions">
     <div class="actions-box" onclick="toggleNotifMenu(event)">
         <i class="fas fa-bell"></i>
     </div>
-    <div id="notif-popup">
-    <!-- ক্রস বাটন -->
-    <button id="close-notif" onclick="document.getElementById('notif-popup').style.display='none'">×</button>
     
-    <div class="notif-container">
-        <!-- একটি নোটিফিকেশন আইটেম -->
-        <div class="notif-box-item">
-            <span class="notif-date">15-07-2026</span>
-            <span class="notif-text">আপনার প্রোফাইল আপডেট হয়েছে।</span>
-        </div>
+    <!-- পপআপ শুরু -->
+    <div id="notif-popup" class="custom-popup" style="display:none;">
+        <!-- ক্রস বাটন -->
+        <button id="close-notif" onclick="document.getElementById('notif-popup').style.display='none'">×</button>
         
-        <!-- আরেকটি উদাহরণ -->
-        <div class="notif-box-item">
-            <span class="notif-date">14-07-2026</span>
-            <span class="notif-text">নতুন একটি মেসেজ এসেছে।</span>
+        <div class="notif-container">
+            <!-- নোটিফিকেশন আইটেম -->
+            <div class="notif-box-item">
+                <span class="notif-date">15-07-2026</span>
+                <span class="notif-text">আপনার প্রোফাইল আপডেট হয়েছে।</span>
+            </div>
+            
+            <div class="notif-box-item">
+                <span class="notif-date">14-07-2026</span>
+                <span class="notif-text">নতুন একটি মেসেজ এসেছে।</span>
+            </div>
         </div>
-    </div>
 
-    <!-- পেজিনেশন এরিয়া (সবার নিচে) -->
-    <!-- পপআপ বক্সের একদম শেষ দিকে এটি রাখবে -->
-<div class="pagination">
-    <button class="page-btn">&lt;</button>
-    <div class="page-numbers">
-        <span>1</span>
-        <span>2</span>
-        <span>3</span>
-        <span>4</span>
-        <span>5</span>
-    </div>
-    <button class="page-btn">&gt;</button>
-</div>
-</div>
-</div>   
+        <!-- পেজিনেশন এরিয়া -->
+        <div class="pagination">
+            <button class="page-btn">&lt;</button>
+            <div class="page-numbers">
+                <span>1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>4</span>
+                <span>5</span>
+            </div>
+            <button class="page-btn">&gt;</button>
+        </div>
+    </div> <!-- পপআপ শেষ -->
 </div>
 
 <!-- ২. প্রোফাইল বাটন -->
