@@ -474,7 +474,9 @@ img, svg {
 
 /* মেনুর লেখার কালার আলাদা রাখতে চাইলে (ঐচ্ছিক) */
 #profile-popup .menu-item {
-    padding: 15px 25px;       /* আগের চেয়ে প্যাডিং বাড়ানো হয়েছে (২০px উপরে-নিচে, ২৫px ডানে-বামে) */
+    padding: 10px 25px; 
+    /* আগের চেয়ে প্যাডিং বাড়ানো হয়েছে (২০px উপরে-নিচে, ২৫px ডানে-বামে) */
+    height: 40px;
     cursor: pointer;
     color: #ffffff;
     transition: 0.3s;
