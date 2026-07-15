@@ -9,13 +9,25 @@
 html, body {
     width: 100%;
     height: 100%;
+    margin: 0;
+    padding: 0;
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    background-color: #0f121d; /* প্রফেশনাল ডার্ক গেমিং থিম */
+    background-color: #0f121d;
     color: #ffffff;
-    overflow-x: hidden; /* অনুভূমিক স্ক্রল বন্ধ করার জন্য */
-    touch-action: manipulation; /* জুম সমস্যা নিয়ন্ত্রণ করার জন্য */
+    
+    /* নিচের লাইনগুলো বাউন্স এবং মুভমেন্ট বন্ধ করার জন্য মূল চাবিকাঠি */
+    overflow: hidden; 
+    overscroll-behavior: none;
+    position: fixed; /* এটি মোবাইলকে পুরোপুরি স্ট্যাটিক করে দিবে */
+    top: 0;
+    left: 0;
 }
-
+.main-content {
+    height: 100vh;
+    overflow-y: auto; /* শুধু কন্টেন্ট এরিয়া স্ক্রল হবে */
+    -webkit-overflow-scrolling: touch; /* আইফোনে স্মুথ স্ক্রলিংয়ের জন্য */
+    overscroll-behavior-y: contain; /* বাউন্স বন্ধ করার জন্য */
+}
 /* রেসপন্সিভ কন্টেইনার */
 .container {
     width: 100%;
