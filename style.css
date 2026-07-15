@@ -350,19 +350,24 @@ img, svg {
     pointer-events: none; 
 }
 /* নতুন নোটিফিকেশন সিএসএস */
-/* ১. নোটিফিকেশন মেনুকে হেডার বা ড্রপডাউন মেনু ক্লাস থেকে আলাদা করা */
-/* মেনু যখন বন্ধ থাকবে */
-/* ১. নোটিফিকেশন পপআপের স্টাইল */
-/* নোটিফিকেশন পপআপের মেইন কনটেইনার */
 #notif-popup {
-    display: none; /* জাভাস্ক্রিপ্ট দিয়ে কন্ট্রোল হবে */
+    display: none; /* শুরুতে বন্ধ থাকবে */
     position: absolute;
-    top: 70px; /* হেডারের ঠিক নিচে */
-    left: 10px; /* বাম পাশে ১০ পিক্সেল গ্যাপ */
-    right: 10px; /* ডান পাশে ১০ পিক্সেল গ্যাপ */
-    max-width: 400px; /* মোবাইল/ডেস্কটপে সাইজ ফিক্সড */
-    margin: 0 auto; /* একদম মিডিল পজিশনে আসবে */
-    height: 70vh; /* স্ক্রিনের ৭০% উচ্চতা */
+    top: 70px;
+    left: 10px;
+    right: 10px;
+    max-width: 400px;
+    margin: 0 auto;
+    height: 70vh;
+    background: #0f121d; 
+    border: 1px solid #00d4ff;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+    overflow-y: auto;
+    z-index: 9999;
+    padding: 15px;
+    flex-direction: column;
+}
     
     /* থিম কালার */
     background: #0f121d; 
