@@ -330,8 +330,8 @@ img, svg {
     top: 65px; /* হেডারের ঠিক নিচে */
     
     /* এই তিনটি লাইন বক্সকে ঠিক আইকনের সেন্টারে আনবে */
-    left: 30%; 
-    transform: translateX(-70%); 
+    left: 25%; 
+    transform: translateX(-75%); 
     
     width: 320px; /* বক্সের সাইজ */
     
