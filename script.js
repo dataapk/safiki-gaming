@@ -675,7 +675,10 @@ function confirmLogout() {
     // Add your logout logic here
     window.location.href = 'logout.php'; 
 }
-
+function performLogout() {
+    // এখানে তোমার হোম পেজের পাথ দাও (যেমন '/')
+    window.location.href = '/'; 
+}
 // --- Outside Click Handler ---
 window.addEventListener('click', (event) => {
     const notifPopup = document.getElementById('notif-popup');
