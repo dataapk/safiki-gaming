@@ -424,9 +424,20 @@
                     <button class="confirm-btn" onclick="performLogout()">Confirm</button>
                     <button class="cancel-btn" onclick="closeLogoutPopup()">Cancel</button>
                 </div>
+   <!-- আমাদের নতুন কন্ডিশনাল কন্টেইনার -->
+<div id="header-auth-container">
+    <!-- এটি লগইন করা থাকলে দেখাবে (User Menu) -->
+    <div id="user-actions-area" style="display: none; display: flex; align-items: center; gap: 15px;">
+        <!-- এখানে তোমার আগের নোটিফিকেশন ও প্রোফাইল কোডগুলো মুভ করে নিয়ে আসো -->
+    </div>
+
+    <!-- এটি লগইন না থাকলে দেখাবে (Guest Menu) -->
+    <div id="guest-actions-area" style="display: none; display: flex; gap: 10px; align-items: center;">
+        <button class="login-btn">Login</button>
+        <button class="signup-btn">Sign Up</button>
     </div>
 </div>
-            
+
 </header>
 
 
