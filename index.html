@@ -358,22 +358,71 @@
             
     
     <!-- পুরো স্ক্রিনজুড়ে আসা কন্টেইনার -->
-<!-- নোটিফিকেশন আইকন -->
+<!-- Notification -->
 <div class="user-actions">
     <div class="actions-box" onclick="toggleNotifMenu(event)">
         <i class="fas fa-bell"></i>
     </div>
+
     <div id="notif-popup" class="custom-popup">
-        <div class="notif-container" id="notif-list">
-            <div class="notif-box-item">No new notifications</div>
+
+        <!-- Top Arrow -->
+        <div class="popup-arrow"></div>
+
+        <div class="notif-container">
+
+            <!-- Header -->
+            <div class="notif-header">
+                <h3>Notifications</h3>
+            </div>
+
+            <!-- Notification List -->
+            <div class="notif-list" id="notif-list">
+
+                <div class="notif-item">
+                    <div class="notif-date">
+                        15 Jul
+                    </div>
+
+                    <div class="notif-content">
+                        Welcome to our website.
+                    </div>
+                </div>
+
+                <div class="notif-item">
+                    <div class="notif-date">
+                        14 Jul
+                    </div>
+
+                    <div class="notif-content">
+                        Your bonus has been added.
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Pagination -->
             <div class="notif-pagination">
-    <span>&lt;</span> <!-- বাম পাশের অ্যারো -->
-    <span>1</span>
-    <span>2</span>
-    <span>3</span>
-    <span>&gt;</span></div> <!-- ডান পাশের অ্যারো -->
-         </div>
-         </div> 
+
+                <button class="page-btn">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+
+                <button class="active">1</button>
+                <button>2</button>
+                <button>3</button>
+
+                <button class="page-btn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
 
 <!-- প্রোফাইল বাটন -->
 <div class="user-actions">
