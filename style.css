@@ -388,24 +388,26 @@ img, svg {
 /* পেজিনেশন পাশাপাশি করার জন্য */
 /* পেজিনেশন এরিয়াটি বক্সের একদম নিচে সুন্দরভাবে বসানোর জন্য */
 /* পেজিনেশন বক্সের জন্য */
+/* পেজিনেশন এরিয়াটি বক্সের একদম নিচে সুন্দরভাবে বসানোর জন্য */
 .pagination {
-    display: flex !important;
-    flex-direction: row !important;
-    justify-content: center !important; /* এটা দিয়ে পাশাপাশি মিডিলে আসবে */
+    display: flex !important;         /* পাশাপাশি রাখার জন্য বাধ্যতামূলক */
+    flex-direction: row !important;  /* সব এলিমেন্ট ডানে-বামে সারিবদ্ধ করবে */
+    justify-content: center !important; /* একদম মাঝখানে (মিডিল) পজিশন করবে */
     align-items: center !important;
-    width: 100% !important;
-    padding: 15px 0 !important; /* নিচে জায়গা তৈরি করবে */
-    background: transparent !important;
-    position: static !important; /* কোনো পজিশন চেঞ্জ হবে না */
+    gap: 10px;                       /* এলিমেন্টগুলোর মাঝে গ্যাপ */
+    width: 100%;                     /* কন্টেইনারের পুরো জায়গা নেবে */
+    padding: 10px 0;                 /* বক্সের ভেতর একটু জায়গা ছাড়বে */
+    margin-top: auto;                /* এটি ব্যবহার করলে পেজিনেশন বক্সের নিচে নেমে যাবে */
 }
 
-/* নাম্বারগুলোর জন্য */
+/* নাম্বারগুলোর স্টাইল */
 .page-numbers {
-    display: flex !important;
-    flex-direction: row !important;
-    gap: 10px !important;
-    margin: 0 10px !important; /* বাটন থেকে একটু গ্যাপ */
+    display: flex;                   /* নাম্বারগুলো পাশাপাশি রাখার জন্য */
+    gap: 8px;                        /* নাম্বারগুলোর মাঝে গ্যাপ */
+    color: #fff;                     /* কালার */
+    cursor: pointer;
 }
+
 /* বাটনগুলোর স্টাইল */
 .page-btn {
     background: none;
