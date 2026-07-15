@@ -353,15 +353,13 @@ img, svg {
 #notif-popup {
     display: none; 
     position: absolute;
-    top: 60px;
+    top: 60px; 
     
-    /* পরিবর্তন এখানে: */
-    left: 10px;    /* বাম পাশে ১০ পিক্সেল গ্যাপ */
-    right: 10px;   /* ডান পাশে ১০ পিক্সেল গ্যাপ */
-    width: auto;   /* ফিক্সড উইডথ সরিয়ে auto দাও, যাতে স্ক্রিন অনুযায়ী জায়গা নেয় */
-    max-width: 400px; /* যাতে ডেস্কটপে খুব বেশি বড় না হয়ে যায় */
-    margin: 0 auto; /* এটা বক্সটিকে সেন্টারে রাখবে */
+    /* নিচের লাইনগুলো দিয়ে আমরা কন্ট্রোল করছি */
+    right: 10px;        /* স্ক্রিনের ডান দিক থেকে ১০ পিক্সেল গ্যাপ */
+    width: 320px;       /* উইডথ একদম ফিক্সড করে দিলাম */
     
+    /* আগের left বা margin এর ঝামেলা বাদ */
     height: 70vh;
     background: #0f121d;
     border: 1px solid #00d4ff;
@@ -371,8 +369,8 @@ img, svg {
     flex-direction: column;
     padding: 15px;
     overflow-y: auto; 
-    overflow-x: hidden; 
-    box-sizing: border-box; 
+    overflow-x: hidden;
+    box-sizing: border-box;
 }
     
     /* স্লাইড অ্যানিমেশন */
