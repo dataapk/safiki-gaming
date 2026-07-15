@@ -643,48 +643,31 @@ function updatecurrencyIcons() {
 }
 // ২. NOTIFICATIONA  profile menu START
 // নোটিফিকেশনের জন্য আলাদা ফাংশন
-// পেজ লোড হওয়ার সাথে সাথে যেন পপআপগুলো বন্ধ থাকে
-window.addEventListener('DOMContentLoaded', (event) => {
-    document.getElementById('notif-popup').style.display = 'none';
-    document.getElementById('profile-popup').style.display = 'none';
-});
-
-// নোটিফিকেশন টগল ফাংশন
+// নোটিফিকেশনের জন্য আলাদা ফাংশন
 function toggleNotifMenu(event) {
     event.stopPropagation();
     const menu = document.getElementById('notif-popup');
     const profile = document.getElementById('profile-popup');
-    
-    // প্রোফাইল মেনু বন্ধ করো
-    if(profile) profile.style.display = 'none';
-    
-    // নোটিফিকেশন মেনু টগল করো
-    if (menu.style.display === 'flex') {
-        menu.style.display = 'none';
-    } else {
-        menu.style.display = 'flex';
-    }
+    profile.style.display = 'none'; // অন্য মেনু বন্ধ
+    menu.style.display = (menu.style.display === 'flex') ? 'none' : 'flex';
 }
 
-// প্রোফাইল টগল ফাংশন
+// প্রোফাইলের জন্য আলাদা ফাংশন
 function toggleProfileMenu(event) {
     event.stopPropagation();
     const menu = document.getElementById('profile-popup');
     const notif = document.getElementById('notif-popup');
-    
-    // নোটিফিকেশন মেনু বন্ধ করো
-    if(notif) notif.style.display = 'none';
-    
-    // প্রোফাইল মেনু টগল করো
-    if (menu.style.display === 'block') {
-        menu.style.display = 'none';
-    } else {
-        menu.style.display = 'block';
-    }
+    notif.style.display = 'none'; // অন্য মেনু বন্ধ
+    menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
 }
+
 // লগআউট কনফার্মেশন
 function confirmLogout() {
     document.getElementById('logout-modal').style.display = 'flex';
+}
+
+function closeLogoutModal() {
+    document.getElementById('logout-modal').style.display = 'none';
 }
 
 function logout() {
@@ -692,9 +675,9 @@ function logout() {
     alert("Logged out successfully!");
     closeLogoutModal();
 }
-// পেজের যেকোনো জায়গায় ক্লিক করলে মেনু বন্ধ হয়ে যাবে
-document.addEventListener('click', function() {
+
+// বাইরে ক্লিক করলে মেনু বন্ধ হওয়া
+window.addEventListener('click', () => {
     document.getElementById('notif-popup').style.display = 'none';
     document.getElementById('profile-popup').style.display = 'none';
 });
-
