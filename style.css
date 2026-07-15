@@ -16,7 +16,8 @@ html, body {
     color: #ffffff;
     
     /* নিচের লাইনগুলো বাউন্স এবং মুভমেন্ট বন্ধ করার জন্য মূল চাবিকাঠি */
-    overflow: hidden; 
+    overflow-y: auto; /* hidden এর বদলে auto বা scroll দাও */
+    margin: 0;
     overscroll-behavior: none;
     position: fixed; /* এটি মোবাইলকে পুরোপুরি স্ট্যাটিক করে দিবে */
     top: 0;
