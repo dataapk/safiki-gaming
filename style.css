@@ -387,31 +387,25 @@ img, svg {
 
 /* পেজিনেশন পাশাপাশি করার জন্য */
 /* পেজিনেশন এরিয়াটি বক্সের একদম নিচে সুন্দরভাবে বসানোর জন্য */
+/* পেজিনেশন বক্সের জন্য */
 .pagination {
     display: flex !important;
     flex-direction: row !important;
-    justify-content: center !important; /* মিডিলে আনার মেইন কমান্ড */
+    justify-content: center !important; /* এটা দিয়ে পাশাপাশি মিডিলে আসবে */
     align-items: center !important;
-    gap: 15px !important;
-    
-    /* বাড়তি কোনো মার্জিন বা প্যাডিং থাকলে তা রিসেট করছি */
-    margin: 10px auto !important; 
-    padding: 0 !important;
-    
-    /* বক্সের উইডথ অনুযায়ী সেন্টার নিশ্চিত করছি */
     width: 100% !important;
-    position: relative !important;
-    left: 0 !important;
+    padding: 15px 0 !important; /* নিচে জায়গা তৈরি করবে */
+    background: transparent !important;
+    position: static !important; /* কোনো পজিশন চেঞ্জ হবে না */
 }
 
-/* নাম্বারগুলোর কন্টেইনারকেও সেন্টারে আনছি */
+/* নাম্বারগুলোর জন্য */
 .page-numbers {
     display: flex !important;
     flex-direction: row !important;
-    justify-content: center !important;
-    gap: 8px !important;
+    gap: 10px !important;
+    margin: 0 10px !important; /* বাটন থেকে একটু গ্যাপ */
 }
-
 /* বাটনগুলোর স্টাইল */
 .page-btn {
     background: none;
