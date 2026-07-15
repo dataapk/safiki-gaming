@@ -702,24 +702,25 @@ window.addEventListener('click', (event) => {
 });
 // --- Outside Click Handler ---
 // হেডার আপডেট করার মূল ফাংশন
+// ১. লগইন/লগআউট স্ট্যাটাস অনুযায়ী হেডার আপডেট করার ফাংশন
 function updateHeaderAuth() {
     const isLoggedIn = localStorage.getItem('userLoggedIn');
+    
+    // ইউজার মেনু এবং গেস্ট মেনু সিলেক্ট করছি
     const userArea = document.getElementById('user-actions-area');
     const guestArea = document.getElementById('guest-actions-area');
 
-    if (isLoggedIn === 'true') {
-        if (userArea) userArea.style.display = 'flex';
-        if (guestArea) guestArea.style.display = 'none';
-    } else {
-        if (userArea) userArea.style.display = 'none';
-        if (guestArea) guestArea.style.display = 'flex';
+    if (userArea && guestArea) {
+        if (isLoggedIn === 'true') {
+            // ইউজার লগইন থাকলে
+            userArea.style.display = 'flex';
+            guestArea.style.display = 'none';
+        } else {
+            // ইউজার লগইন না থাকলে
+            userArea.style.display = 'none';
+            guestArea.style.display = 'flex';
+        }
     }
-}
-
-// লগআউট ফাংশন
-function performLogout() {
-    localStorage.removeItem('userLoggedIn');
-    window.location.href = "https://dataapk.github.io/safiki-gaming/";
 }
 
 // পেজ লোড হওয়ার সাথে সাথে চেক করবে
