@@ -348,7 +348,7 @@ img, svg {
 
 .notif-box-item {
     padding: 12px;
-    background: #f9f9f9;
+    background: #4a3d3d;
     border-bottom: 1px solid #eee;
     border-radius: 5px;
     font-size: 14px;
@@ -364,7 +364,7 @@ img, svg {
     top: 60px; 
     right: 20px;
     width: 250px; /* তোমার চাওয়া অনুযায়ী উইডথ */
-    background: #ffffff;
+    background: #0a0606;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     z-index: 9999;
