@@ -365,11 +365,15 @@
     <div class="actions-box" onclick="toggleNotifMenu(event)">
         <i class="fas fa-bell"></i>
     </div>
-    <div id="notif-popup" class="custom-popup">
-        <div class="notif-container" id="notif-list">
-            <div class="notif-box-item">No new notifications</div>
-        </div>
-    </div>   
+    <div id="notif-popup">
+    <!-- ক্রস বাটন -->
+    <button id="close-notif" onclick="document.getElementById('notif-popup').style.display='none'">×</button>
+    
+    <div class="notif-container">
+        <!-- তোমার অন্যান্য নোটিফিকেশন আইটেমগুলো এখানে থাকবে -->
+        <div class="notif-box-item">No new notifications</div>
+    </div>
+</div>   
 </div>
 
 <!-- ২. প্রোফাইল বাটন -->
