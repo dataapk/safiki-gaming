@@ -401,6 +401,7 @@
 </div>
 
 <!-- ২. প্রোফাইল বাটন -->
+<!-- ১. প্রোফাইল পপআপের বাইরের অংশ -->
 <div class="user-actions">
     <div class="actions-box" onclick="toggleProfileMenu(event)">
         <i class="fas fa-user-circle"></i>
@@ -411,33 +412,37 @@
         <div class="menu-item"><i class="fas fa-cog"></i> Settings</div>
         <div class="menu-item"><i class="fas fa-history"></i> Transactions</div>
         
-        <!-- আপডেট করা লগআউট বাটন (এখানে ফাংশনটি যুক্ত আছে) -->
         <div class="menu-item logout-btn" onclick="showLogoutPopup()">
             <i class="fas fa-sign-out-alt"></i> Logout
         </div>
-        
-        <!-- লগআউট কনফার্মেশন পপআপ -->
-        <div id="logout-confirm-popup">
-            <div class="logout-box">
-                <p>Are you sure you want to log out?</p>
-                <div class="logout-actions">
-                    <button class="confirm-btn" onclick="performLogout()">Confirm</button>
-                    <button class="cancel-btn" onclick="closeLogoutPopup()">Cancel</button>
-                </div>
-   <!-- আমাদের নতুন কন্ডিশনাল কন্টেইনার -->
+    </div>
+</div>
+
+<!-- ২. লগআউট কনফার্মেশন পপআপ (এটি মেইন কন্টেইনারের বাইরে থাকা ভালো) -->
+<div id="logout-confirm-popup" style="display: none;">
+    <div class="logout-box">
+        <p>Are you sure you want to log out?</p>
+        <div class="logout-actions">
+            <button class="confirm-btn" onclick="performLogout()">Confirm</button>
+            <button class="cancel-btn" onclick="closeLogoutPopup()">Cancel</button>
+        </div>
+    </div>
+</div>
+
+<!-- ৩. আমাদের নতুন কন্ডিশনাল কন্টেইনার (এটিই হেডার কন্ট্রোল করবে) -->
 <div id="header-auth-container">
-    <!-- এটি লগইন করা থাকলে দেখাবে (User Menu) -->
+    <!-- এটি লগইন করা থাকলে দেখাবে -->
     <div id="user-actions-area" style="display: none; display: flex; align-items: center; gap: 15px;">
-        <!-- এখানে তোমার আগের নোটিফিকেশন ও প্রোফাইল কোডগুলো মুভ করে নিয়ে আসো -->
+        <!-- এখানে নোটিফিকেশন ও প্রোফাইল বাটনগুলো থাকবে -->
     </div>
 
-    <!-- এটি লগইন না থাকলে দেখাবে (Guest Menu) -->
+    <!-- এটি লগইন না থাকলে দেখাবে -->
     <div id="guest-actions-area" style="display: none; display: flex; gap: 10px; align-items: center;">
-        <button class="login-btn">Login</button>
-        <button class="signup-btn">Sign Up</button></div>
+        <button class="login-btn" onclick="openLogin()">Login</button>
+        <button class="signup-btn" onclick="openSignup()">Sign Up</button>
     </div>
 </div>
-</div>
+
 </header>
 
 
