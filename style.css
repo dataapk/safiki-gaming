@@ -327,24 +327,27 @@ img, svg {
 #notif-popup {
     display: none;
     position: absolute;
-    top: 65px; /* হেডারের ঠিক নিচে */
+    top: 65px; 
     
-    /* এই তিনটি লাইন বক্সকে ঠিক আইকনের সেন্টারে আনবে */
+    /* তোমার পজিশনিং সেটিং - অপরিবর্তিত */
     left: 25%; 
     transform: translateX(-75%); 
     
-    width: 320px; /* বক্সের সাইজ */
-    
-    /* অন্যান্য স্টাইল */
+    width: 320px; 
     height: 70vh;
     background: #0a0606;
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    
+    /* নতুন স্টাইল যোগ করা হলো */
+    border: 1px solid #ffd700; /* ১ পিক্সেল হলুদ বর্ডার */
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.2), 0 5px 15px rgba(0,0,0,0.5); /* হলুদ গ্লো + আগের শ্যাডো */
+    
     z-index: 9999;
     padding: 15px;
     box-sizing: border-box;
     overflow-y: auto;
 }
+
 .notif-container {
     display: flex;
     flex-direction: column;
@@ -353,10 +356,11 @@ img, svg {
 
 .notif-box-item {
     padding: 12px;
-    background: #4a3d3d;
-    border-bottom: 1px solid #eee;
-    border-radius: 5px;
+    background: #161a23; /* তোমার ক্যাসিনো সাইটের সেই ডার্ক কালার */
+    border: 1px solid #333; /* ঘর ঘর শেপের জন্য হালকা বর্ডার */
+    border-radius: 8px; /* ঘরের কোণা সামান্য গোল */
     font-size: 14px;
+    color: #fff; /* টেক্সট কালার সাদা */
 }
 
 /* নোটিফিকেশনের ক্ষেত্রে লেটেস্টটা উপরে আসার লজিক */
