@@ -369,7 +369,26 @@ img, svg {
     width: 100%; /* এটি কন্টেইনারের পুরো জায়গা দখল করবে */
     box-sizing: border-box; /* সাইজ যেন বর্ডারসহ ঠিক থাকে */
 }
+#close-notif {
+    background: none;
+    border: none;
+    color: #ffd700; /* হলুদ রঙ (তোমার বর্ডারের সাথে মিল রেখে) */
+    font-size: 24px;
+    cursor: pointer;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    line-height: 1;
+}
 
+#close-notif:hover {
+    color: #fff; /* মাউস নিলে রঙ সাদা হবে */
+}
+
+/* ক্রস বাটনের জন্য জায়গা রাখতে মেইন বক্সের টপ প্যাডিং বাড়ানো */
+#notif-popup {
+    padding-top: 40px !important; /* বাটনটি যাতে লেখার ওপর না পড়ে */
+}
 /* নোটিফিকেশনের ক্ষেত্রে লেটেস্টটা উপরে আসার লজিক */
 /* ডাইনামিকালি রেন্ডার করার সময় নতুন এলিমেন্ট .prepend() করলে এটি কাজ করবে */
 
