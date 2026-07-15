@@ -323,571 +323,35 @@ img, svg {
     color: #ff8c00; /* সিলেক্ট করলে হলুদ হয়ে যাবে */
 }
 /* notification and profile  */
-/*=========================================
-    NOTIFICATION DROPDOWN SYSTEM
-=========================================*/
-
-.user-actions{
-    position:relative;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-/*=========================
-      Notification Button
-=========================*/
-
-.actions-box{
-    width:46px;
-    height:46px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    border-radius:14px;
-
-    cursor:pointer;
-
-    background:#1b2335;
-
-    border:1px solid rgba(255,255,255,.08);
-
-    transition:.30s ease;
-
-    position:relative;
-
-    overflow:hidden;
-}
-
-.actions-box::before{
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    background:linear-gradient(
-    135deg,
-    rgba(255,255,255,.18),
-    transparent 60%
-    );
-
-    opacity:0;
-
-    transition:.3s;
-}
-
-.actions-box:hover{
-
-    transform:translateY(-2px);
-
-    background:#24324d;
-
-    box-shadow:
-    0 10px 25px rgba(0,0,0,.35);
-}
-
-.actions-box:hover::before{
-    opacity:1;
-}
-
-.actions-box i{
-
-    font-size:19px;
-
-    color:#ffffff;
-
-    transition:.3s;
-}
-
-.actions-box:hover i{
-
-    color:#ffd84d;
-
-    transform:rotate(-8deg);
-}
-
-/*=========================
-       Popup Container
-=========================*/
-
-.custom-popup{
-
-    position:absolute;
-
-    top:62px;
-
-    right:0;
-
-    width:360px;
-
-    opacity:0;
-
-    visibility:hidden;
-
-    transform:
-    translateY(-18px)
-    scale(.96);
-
-    transition:
-    opacity .35s ease,
-    transform .35s ease,
-    visibility .35s;
-
-    z-index:99999;
-}
-
-/* Active */
-
-.custom-popup.show{
-
-    opacity:1;
-
-    visibility:visible;
-
-    transform:
-    translateY(0)
-    scale(1);
-}
-
-/*=========================
-       Arrow
-=========================*/
-
-.popup-arrow{
-
-    position:absolute;
-
-    top:-10px;
-
-    right:18px;
-
-    width:20px;
-
-    height:20px;
-
-    background:#1b2335;
-
-    transform:rotate(45deg);
-
-    border-left:1px solid rgba(255,255,255,.08);
-
-    border-top:1px solid rgba(255,255,255,.08);
-
-    z-index:2;
-}
-
-/*=========================
-       Main Box
-=========================*/
-
-.notif-container{
-
-    position:relative;
-
-    background:#1b2335;
-
-    border-radius:18px;
-
-    overflow:hidden;
-
-    border:1px solid rgba(255,255,255,.08);
-
-    box-shadow:
-    0 25px 60px rgba(0,0,0,.45);
-
-    backdrop-filter:blur(16px);
-
-    animation:popupFade .35s ease;
-}
-
-/*=========================
-        Header
-=========================*/
-
-.notif-header{
-
-    padding:16px 20px;
-
-    background:#202b42;
-
-    border-bottom:1px solid rgba(255,255,255,.08);
-}
-
-.notif-header h3{
-
-    margin:0;
-
-    color:#fff;
-
-    font-size:17px;
-
-    font-weight:600;
-
-    letter-spacing:.3px;
-}
-
-/*=========================
-        List
-=========================*/
-
-.notif-list{
-
-    max-height:350px;
-
-    overflow-y:auto;
-
-    padding:12px;
-}
-
-/*=========================
-       Notification Card
-=========================*/
-
-.notif-item{
-
-    display:flex;
-
-    gap:12px;
-
-    align-items:flex-start;
-
-    padding:14px;
-
-    margin-bottom:12px;
-
-    border-radius:14px;
-
-    background:#24324d;
-
-    border:1px solid rgba(255,255,255,.05);
-
-    transition:.30s ease;
-}
-
-.notif-item:last-child{
-
-    margin-bottom:0;
-}
-
-.notif-item:hover{
-
-    background:#2b3d5d;
-
-    transform:translateX(5px);
-
-    border-color:#4f84ff;
-}
-
-/*=========================
-        Date
-=========================*/
-
-.notif-date{
-
-    min-width:64px;
-
-    text-align:center;
-
-    background:#4f84ff;
-
-    color:#fff;
-
-    border-radius:10px;
-
-    padding:8px 6px;
-
-    font-size:12px;
-
-    font-weight:700;
-
-    line-height:1.4;
-
-    box-shadow:
-    0 8px 18px rgba(79,132,255,.35);
-}
-
-/*=========================
-       Content
-=========================*/
-
-.notif-content{
-
-    flex:1;
-
-    color:#e8ecf7;
-
-    font-size:14px;
-
-    line-height:1.6;
-
-    word-break:break-word;
-}
-
-/*=========================
-      Empty Message
-=========================*/
-
-.notif-empty{
-
-    text-align:center;
-
-    color:#9aa8c7;
-
-    padding:35px 15px;
-
-    font-size:15px;
-}
-
-/*=========================
-      Pagination
-=========================*/
-
-.notif-pagination{
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    gap:8px;
-
-    padding:15px;
-
-    border-top:1px solid rgba(255,255,255,.08);
-
-    background:#202b42;
-}
-
-.notif-pagination button{
-
-    width:36px;
-
-    height:36px;
-
-    border:none;
-
-    border-radius:10px;
-
-    background:#2b3d5d;
-
-    color:#fff;
-
-    cursor:pointer;
-
-    font-size:14px;
-
-    transition:.30s ease;
-}
-
-.notif-pagination button:hover{
-
-    background:#4f84ff;
-
-    transform:translateY(-2px);
-}
-
-.notif-pagination button.active{
-
-    background:#4f84ff;
-
-    color:#fff;
-
-    font-weight:bold;
-
-    box-shadow:
-    0 8px 20px rgba(79,132,255,.35);
-}
-
-/*=========================
-      Scrollbar
-=========================*/
-
-.notif-list::-webkit-scrollbar{
-
-    width:8px;
-}
-
-.notif-list::-webkit-scrollbar-track{
-
-    background:#1b2335;
-}
-
-.notif-list::-webkit-scrollbar-thumb{
-
-    background:#445d8d;
-
-    border-radius:20px;
-}
-
-.notif-list::-webkit-scrollbar-thumb:hover{
-
-    background:#5d7ec1;
-}
-
-/*=========================
-       Animation
-=========================*/
-
-@keyframes popupFade{
-
-    from{
-
-        opacity:0;
-
-        transform:
-        translateY(-20px)
-        scale(.95);
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:
-        translateY(0)
-        scale(1);
-    }
-}
-
-/*=========================
-      Responsive
-=========================*/
-
-@media(max-width:768px){
-
-.custom-popup{
-
-    width:330px;
-
-    right:-10px;
-}
-
-}
-
-@media(max-width:480px){
-
-.custom-popup{
-
-    width:300px;
-
-    right:-20px;
-}
-
-.popup-arrow{
-
-    right:28px;
-}
-
-.notif-item{
-
-    padding:12px;
-}
-
-.notif-date{
-
-    min-width:55px;
-
-    font-size:11px;
-}
-
-.notif-content{
-
-    font-size:13px;
-}
-
-.notif-pagination button{
-
-    width:32px;
-
-    height:32px;
-
-    font-size:13px;
-}
-
-}
-/* ২. প্রোফাইল পপআপের স্টাইল */
-/* প্রোফাইল পপআপ স্টাইল */
-#profile-popup {
-    display: none;
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    width: 220px;
-    background: #1a1e2b; /* একটু ডার্ক শেড */
-    border: 1px solid #333;
-    border-radius: 8px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-    z-index: 9999;
-    padding: 5px 0;
-}
-
-.menu-item {
+/* কন্টেইনার */
+.user-actions {
     display: flex;
     align-items: center;
-    padding: 12px 15px;
-    cursor: pointer;
-    color: #ffffff;
-    font-size: 14px;
-    transition: all 0.3s ease;
-    border-bottom: 1px solid #2a2f3f; /* হালকা ডিভাইডার */
-}
-/* শেষ আইটেমের ডিভাইডার দরকার নেই */
-.menu-item:last-child {
-    border-bottom: none;
-}
-/* আইকন স্টাইল */
-.menu-item i {
-    margin-right: 12px;
-    width: 20px;
-    text-align: center;
-    color: #888;
-}
-/* হোভার ইফেক্ট (ইয়েলো থিম) */
-.menu-item:hover {
-    background: #2a2f3f;
-    color: #ffd700; /* ইয়েলো গোল্ডেন কালার */
-}
-.menu-item:hover i {
-    color: #ffd700;
-}
-/* লগআউট বাটন আলাদা স্টাইল */
-.logout-btn {
-    color: #ff4d4d;
+    gap: 15px;
+    position: relative;
 }
 
-.logout-btn:hover {
-    background: #2a2f3f;
-    color: #ff4d4d;
-}
-/* ৩. লগআউট কনফার্মেশন মডাল (পপআপের উপরে থাকবে) */
-.modal-overlay {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0,0,0,0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 10000;
-}
-
-.modal-content {
-    background: white;
-    padding: 25px;
+/* আইকন বক্স */
+.actions-box {
+    background: #1a1a2e;
+    padding: 10px 15px;
     border-radius: 10px;
-    text-align: center;
-    width: 300px;
+    border: 1px solid #2d2d44;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+    position: relative;
 }
 
-.modal-content button {
-    margin: 5px;
-    padding: 8px 15px;
-    cursor: pointer;
+/* আইকনকে ক্লিক ইভেন্ট থেকে মুক্ত রাখা */
+.actions-box i {
+    pointer-events: none; 
 }
+
+
+
 /* মোবাইল ডিভাইসের জন্য অ্যাডজাস্টমেন্ট */
 @media (max-width: 480px) {
     .header { 
@@ -1066,36 +530,104 @@ img, svg {
 /* এক্সচেঞ্জার বক্সের মূল কন্টেইনার */
 
 .exchanger-box {
-background: #0b0e1a; /* ডার্ক ব্যাকগ্রাউন্ড */
-border-radius: 20px;
-height: 75
-padding: 20px;
- width: 95%;
- max-width: 400px;
-margin: 20px auto;
-color: #112dcf;
-font-family: 'Segoe UI', sans-serif;
-box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-border: 1px solid #2d344d;
+
+
+
+    background: #121626; /* ডার্ক ব্যাকগ্রাউন্ড */
+
+
+
+    border-radius: 20px;
+
+
+
+    padding: 20px;
+
+
+
+    width: 100%;
+
+
+
+    max-width: 400px;
+
+
+
+    margin: 20px auto;
+
+
+
+    color: #ffffff;
+
+
+
+    font-family: 'Segoe UI', sans-serif;
+
+
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+
+
+
+    border: 1px solid #2d344d;
+
+
+
 }
 
+
+
+
+
+
+
 /* হেডার */
+
+
+
 .exchanger-header {
+
+
+
     display: flex;
+
+
+
     justify-content: space-between;
-   align-items: center;
-    margin-bottom: 5px;
+
+
+
+    align-items: center;
+
+
+
+    margin-bottom: 20px;
+
+
+
 }
+
+
+
+
+
+
+
+/* কারেন্সি গ্রুপ ও ড্রপডাউন */
+
+
+
+/* কারেন্সি বক্সের স্টাইল - লোগো ও নাম ঠিক রাখা */
 
 .currency-group {
 
     background: #0b0e1a; /* আরও ডিপ ব্ল্যাক */
 
-    padding: 10px;
+    padding: 15px;
 
-    border-radius: 5px;
+    border-radius: 12px;
 
-    margin-bottom: 5px;
+    margin-bottom: 15px;
 
     border: 1px solid #2d344d;
 
@@ -1113,58 +645,30 @@ border: 1px solid #2d344d;
 
     align-items: center;
 
-    gap: 5px;
+    gap: 10px;
 
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 
 }
 
-/* ড্রপডাউন বক্স */
-/* কারেন্সি সিলেক্ট বক্সের ভেতরকার সাব-বক্সটিকে কন্ট্রোল করার জন্য */
-.currency-select-box {
-    display: flex;
-    align-items: center;
-    background: #272d45;
-    padding: 15px; /* প্যাডিং বাড়িয়ে বক্সটি বড় করলাম */
-    border-radius: 8px;
-    margin-bottom: 8px;
-    width: 100%; /* উইডথ ফুল করে দিলাম */
-    box-sizing: border-box;
-}
 
-/* যদি ওই সাদা সাব-বক্সটি কোনো নির্দিষ্ট আইডি বা ক্লাসের হয় (যেমন: .currency-dropdown) */
-.currency-select-box .currency-dropdown, 
-.currency-select-box select { 
-    background-color: #1a1e34 !important; /* এখানে তোমার পছন্দের ডার্ক রঙ দাও */
-    color: white !important;
-    padding: 10px;
-    width: 80%;
-    min-height: 40px; /* হাইট বাড়িয়ে দিলাম */
-    border: none;
-    border-radius: 5px;
-}
-.currency-select-box img {
-    margin-right: 5px; /* লোগোর ডানপাশে ১০ পিক্সেল ফাঁকা জায়গা হবে */
-    margin-left: 5px;   /* লোগোর বামপাশে ২ পিক্সেল ফাঁকা জায়গা হবে */
-    display: block;
-}
-/* ইনপুট বক্স (ম্যাক্স বাটনসহ) */
-.amount-input-box {
-    display: flex;
-    align-items: center;
-    background: #272d45;
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid #2d344d;
-}
 
-#from-amount {
-    flex: 1;
+.currency-select {
+
     background: transparent;
+
+    color: #fff;
+
     border: none;
-    color: #cf119f;
-    margin: 0 10px;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    font-weight: 600;
+
 }
+
 /* লোগোর সাইজ ও পজিশন */
 
 .currency-logo {
@@ -1176,109 +680,221 @@ border: 1px solid #2d344d;
     display: flex;
 
     align-items: center;
-   
 
 }
+
+
+
+
 
 /* ইনপুট ফিল্ড ও ম্যাক্স বাটন */
 
+
+
 .input-row {
+
+
+
     display: flex;
+
+
 
     align-items: center;
 
+
+
     gap: 10px;
+
+
+
 }
+
+
+
+
+
+
 
 /* ইনপুট ফিল্ডের স্টাইল - সাদা আউটলাইন বন্ধ করার জন্য */
 
+.input-row input {
 
+    background: transparent;
 
-#max-btn {
-    background: #bf7f30;
-    color: white;
     border: none;
-    padding: 5px 10px;
-    border-radius: 4px;
-    cursor: pointer;
+
+    color: #fff;
+
+    font-size: 20px;
+
+    width: 100%;
+
+    outline: none; /* ক্লিক করলে সাদা বক্স হবে না */
+
+    padding: 5px 0;
+
 }
+
+
+
+
+
+
+
+.max-btn {
+
+
+
+    background: #2d344d;
+
+
+
+    color: #b0b7cf;
+
+
+
+    border: none;
+
+
+
+    padding: 5px 15px;
+
+
+
+    border-radius: 8px;
+
+
+
+    cursor: pointer;
+
+
+
+}
+
+
+
+
+
+
+
 /* সোয়াপ বাটন (টু বাটন) */
+
+
+
 .swap-icon {
+
+
 
     text-align: center;
 
+
+
     margin: 10px 0;
 
-    color: #ede609;
 
-    font-size: 16px;
+
+    color: #8b94a5;
+
+
+
+    font-size: 14px;
+
+
+
 }
+
+
+
+
+
+
 
 /* ইনফরমেশন টেবিল */
 
+
+
 .info-table {
+
+
+
     margin: 20px 0;
+
+
+
     font-size: 14px;
+
+
+
 }
+
+
+
+
+
+
 
 .info-table div {
 
+
+
     display: flex;
+
+
 
     justify-content: space-between;
 
+
+
     padding: 8px 0;
 
+
+
     border-bottom: 1px solid #2d344d;
+
+
+
 } 
+
+
+
 
 
 /* RATE UPDATE SUMMARY SECTION */
 
-.timer-section {
-    background: #1ced09;
-    border: 1px solid #2d344d;
-    padding: 10px;
-    border-radius: 8px;
-    margin: 10px 0;
-    text-align: center;
-    color: #8b94a5;
-    font-size: 13px;
-}
+.info-box {
 
-.mini-logo {
-    width: 16px;
-    height: 16px;
-    vertical-align: middle;
-    margin-left: 5px;
-}
+    display: block !important;
 
-.exchange-info-box {
-    margin-top: 15px;
-    padding: 10px;
-    background: #0b0e1a;
-    border-radius: 8px;
+    background-color: #1a1e30 !important; /* গাঢ় নীল/কালো ব্যাকগ্রাউন্ড */
+
+    padding: 15px !important;
+
+    margin: 10px 0 !important;
+
+    border-radius: 8px !important;
+
+    color: #ffffff !important; /* টেক্সট সাদা */
+
+    border: 1px solid #333 !important;
+
+    z-index: 9999 !important;
+
 }
 
 
 
 .info-row {
-    display: flex;
-    justify-content: space-between; /* টেক্সট বামে, অ্যামাউন্ট ও ইমেজ ডানে */
-    align-items: center;
-    padding: 8px 0;
+
+    display: flex !important;
+
+    justify-content: space-between !important;
+
+    padding: 5px 0 !important;
+
+    color: #ffffff !important;
+
 }
 
-.info-value {
-    display: flex;
-    align-items: center;
-    gap: 8px; /* আইকন এবং অ্যামাউন্টের মধ্যে দূরত্ব */
-}
-
-/* আইকন শুরুতে রাখার জন্য */
-.info-value img {
-    order: -1; 
-}
 
 
 /* এক্সচেঞ্জ বাটন */
@@ -1307,10 +923,15 @@ border: 1px solid #2d344d;
 
 }
 
+
+
 .exchange-btn:hover {
-   background: #d35400;
+
+    background: #d35400;
 
 }
+
+
 
 /* এরর মেসেজ */
 
