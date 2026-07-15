@@ -325,19 +325,29 @@ img, svg {
 /* notification and profile  */
 /* ১. নোটিফিকেশন পপআপের স্টাইল */
 #notif-popup {
+    /* আগের পজিশনিংগুলো রাখো */
     display: none;
     position: absolute;
-    top: 60px; /* হেডারের উচ্চতা অনুযায়ী অ্যাডজাস্ট করে নিও */
-    right: 20px;
-    width: 350px; /* নোটিফিকেশন বক্সের চওড়া */
-    height: 70vh; /* তোমার চাওয়া অনুযায়ী স্ক্রিনের 70% উচ্চতা */
-    background: #fff;
+    top: 65px; 
+    
+    /* আইকনের ডান দিকের গ্যাপ অনুযায়ী এটা সেট করো */
+    right: 30px; 
+    
+    /* এটি বক্সটিকে ডানে-বামে অ্যালাইন করবে */
+    /* বক্সের উইডথ ৩২০ পিক্সেল ধরলে, আমরা এটিকে এমনভাবে সরাচ্ছি যাতে আইকনটি ২০% এরিয়ায় থাকে */
+    transform-origin: top right;
+    
+    width: 320px;
+    /* বাকি সব একই থাকবে */
+    height: 70vh;
+    background: #0a0606;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    overflow-y: auto; /* কন্টেন্ট বেশি হলে স্ক্রল হবে */
     z-index: 9999;
     flex-direction: column;
     padding: 15px;
+    overflow-y: auto;
+    box-sizing: border-box;
 }
 
 .notif-container {
