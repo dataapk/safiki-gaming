@@ -351,15 +351,14 @@ img, svg {
 }
 /* নতুন নোটিফিকেশন সিএসএস */
 #notif-popup {
-    display: none; 
+    display: none;
     position: absolute;
-    top: 60px; 
+    top: 65px; /* হেডারের একটু নিচে */
     
-    /* নিচের লাইনগুলো দিয়ে আমরা কন্ট্রোল করছি */
-    right: 10px;        /* স্ক্রিনের ডান দিক থেকে ১০ পিক্সেল গ্যাপ */
-    width: 320px;       /* উইডথ একদম ফিক্সড করে দিলাম */
+    /* আইকনের সাথে পজিশন মিল করার কৌশল */
+    right: 10px; /* ডান পাশ থেকে ১০ পিক্সেল গ্যাপ */
+    width: 300px; /* বক্সের সাইজ একটু কমিয়ে দিলাম যাতে বামে বেশি না যায় */
     
-    /* আগের left বা margin এর ঝামেলা বাদ */
     height: 70vh;
     background: #0f121d;
     border: 1px solid #00d4ff;
@@ -368,9 +367,18 @@ img, svg {
     z-index: 9999;
     flex-direction: column;
     padding: 15px;
-    overflow-y: auto; 
+    overflow-y: auto;
     overflow-x: hidden;
     box-sizing: border-box;
+}
+
+/* মোবাইল স্ক্রিনের জন্য ছোট করে দেওয়া */
+@media (max-width: 480px) {
+    #notif-popup {
+        width: 90vw; /* স্ক্রিনের ৯০% জায়গা নেবে */
+        right: 5vw;  /* ডান দিক থেকে ৫% গ্যাপ */
+        left: 5vw;   /* বাম দিক থেকেও ৫% গ্যাপ */
+    }
 }
     
     /* স্লাইড অ্যানিমেশন */
