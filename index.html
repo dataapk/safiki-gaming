@@ -364,30 +364,29 @@
     <!-- ================= Notification ================= -->
     <div class="action-wrapper">
 
+        <!-- Notification Button -->
         <div class="actions-box" onclick="toggleNotifMenu(event)">
+            <i class="fas fa-bell"></i>
+            <span id="notif-badge" class="notif-badge">0</span>
+        </div>
 
-    <i class="fas fa-bell"></i>
-
-    <span id="notif-badge" class="notif-badge">0</span>
-
-</div>
-
+        <!-- Notification Popup -->
         <div id="notif-popup" class="custom-popup">
 
             <div class="popup-arrow"></div>
 
             <div class="notif-container">
 
+                <!-- Header -->
                 <div class="notif-header">
                     <h3>Notifications</h3>
                 </div>
 
-                <div class="notif-list" id="notif-list">
+                <!-- Notification List -->
+                <div id="notif-list" class="notif-list">
 
                     <div class="notif-item">
-                        <div class="notif-date">
-                            15 Jul
-                        </div>
+                        <div class="notif-date">15 Jul</div>
 
                         <div class="notif-content">
                             Welcome to our website.
@@ -395,9 +394,7 @@
                     </div>
 
                     <div class="notif-item">
-                        <div class="notif-date">
-                            14 Jul
-                        </div>
+                        <div class="notif-date">14 Jul</div>
 
                         <div class="notif-content">
                             Your bonus has been added.
@@ -406,6 +403,7 @@
 
                 </div>
 
+                <!-- Pagination -->
                 <div class="notif-pagination">
 
                     <button class="page-btn">
@@ -413,9 +411,7 @@
                     </button>
 
                     <button class="active">1</button>
-
                     <button>2</button>
-
                     <button>3</button>
 
                     <button class="page-btn">
@@ -429,14 +425,18 @@
         </div>
 
     </div>
+    <!-- END Notification -->
+
 
     <!-- ================= Profile ================= -->
     <div class="action-wrapper">
 
+        <!-- Profile Button -->
         <div class="actions-box" onclick="toggleProfileMenu(event)">
             <i class="fas fa-user-circle"></i>
         </div>
 
+        <!-- Profile Popup -->
         <div id="profile-popup" class="custom-popup">
 
             <div class="popup-arrow"></div>
@@ -445,23 +445,25 @@
 
                 <div class="menu-item">
                     <i class="fas fa-user"></i>
-                    Personal Profile
+                    <span>Personal Profile</span>
                 </div>
 
                 <div class="menu-item">
                     <i class="fas fa-cog"></i>
-                    Settings
+                    <span>Settings</span>
                 </div>
 
                 <div class="menu-item">
                     <i class="fas fa-history"></i>
-                    Transaction History
+                    <span>Transaction History</span>
                 </div>
 
                 <div class="menu-item logout-btn"
                      onclick="confirmLogout()">
+
                     <i class="fas fa-sign-out-alt"></i>
-                    Logout
+                    <span>Logout</span>
+
                 </div>
 
             </div>
@@ -469,19 +471,28 @@
         </div>
 
     </div>
+    <!-- END Profile -->
 
 </div>
+<!-- END USER ACTIONS -->
 
-<!-- Logout Modal -->
-<div id="logout-modal" class="modal-overlay" style="display:none;">
+
+<!-- ================= Logout Modal ================= -->
+<div id="logout-modal"
+     class="modal-overlay"
+     style="display:none;">
 
     <div class="modal-content">
 
         <p>Are you sure you want to logout?</p>
 
-        <button onclick="logout()">Confirm</button>
+        <button onclick="logout()">
+            Confirm
+        </button>
 
-        <button onclick="closeLogoutModal()">Cancel</button>
+        <button onclick="closeLogoutModal()">
+            Cancel
+        </button>
 
     </div>
 
