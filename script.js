@@ -641,4 +641,42 @@ function updatecurrencyIcons() {
     
     console.log("Icons updated successfully");
 }
-// ২. NOTIFICATIONA START
+// ২. NOTIFICATIONA  profile menu START
+// নোটিফিকেশনের জন্য আলাদা ফাংশন
+function toggleNotifMenu(event) {
+    event.stopPropagation();
+    const menu = document.getElementById('notif-popup');
+    const profile = document.getElementById('profile-popup');
+    profile.style.display = 'none'; // অন্য মেনু বন্ধ
+    menu.style.display = (menu.style.display === 'flex') ? 'none' : 'flex';
+}
+
+// প্রোফাইলের জন্য আলাদা ফাংশন
+function toggleProfileMenu(event) {
+    event.stopPropagation();
+    const menu = document.getElementById('profile-popup');
+    const notif = document.getElementById('notif-popup');
+    notif.style.display = 'none'; // অন্য মেনু বন্ধ
+    menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+}
+
+// লগআউট কনফার্মেশন
+function confirmLogout() {
+    document.getElementById('logout-modal').style.display = 'flex';
+}
+
+function closeLogoutModal() {
+    document.getElementById('logout-modal').style.display = 'none';
+}
+
+function logout() {
+    // এখানে তোমার লগআউট লজিক (যেমন: window.location.href = '/logout')
+    alert("Logged out successfully!");
+    closeLogoutModal();
+}
+
+// বাইরে ক্লিক করলে মেনু বন্ধ হওয়া
+window.addEventListener('click', () => {
+    document.getElementById('notif-popup').style.display = 'none';
+    document.getElementById('profile-popup').style.display = 'none';
+});
