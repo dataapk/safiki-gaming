@@ -387,36 +387,59 @@ img, svg {
 /* ডাইনামিকালি রেন্ডার করার সময় নতুন এলিমেন্ট .prepend() করলে এটি কাজ করবে */
 
 /* ২. প্রোফাইল পপআপের স্টাইল */
+/* প্রোফাইল পপআপ স্টাইল */
 #profile-popup {
     display: none;
     position: absolute;
-    top: 60px; 
+    top: 60px;
     right: 20px;
-    width: 250px; /* তোমার চাওয়া অনুযায়ী উইডথ */
-    background: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    width: 220px;
+    background: #1a1e2b; /* একটু ডার্ক শেড */
+    border: 1px solid #333;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
     z-index: 9999;
-    padding: 10px 0;
+    padding: 5px 0;
 }
 
 .menu-item {
-    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
     cursor: pointer;
-    transition: 0.3s;
-    font-size: 15px;
+    color: #ffffff;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid #2a2f3f; /* হালকা ডিভাইডার */
 }
-
+/* শেষ আইটেমের ডিভাইডার দরকার নেই */
+.menu-item:last-child {
+    border-bottom: none;
+}
+/* আইকন স্টাইল */
+.menu-item i {
+    margin-right: 12px;
+    width: 20px;
+    text-align: center;
+    color: #888;
+}
+/* হোভার ইফেক্ট (ইয়েলো থিম) */
 .menu-item:hover {
-    background: #f1f1f1;
+    background: #2a2f3f;
+    color: #ffd700; /* ইয়েলো গোল্ডেন কালার */
 }
-
+.menu-item:hover i {
+    color: #ffd700;
+}
+/* লগআউট বাটন আলাদা স্টাইল */
 .logout-btn {
-    color: red;
-    font-weight: bold;
-    border-top: 1px solid #eee;
+    color: #ff4d4d;
 }
 
+.logout-btn:hover {
+    background: #2a2f3f;
+    color: #ff4d4d;
+}
 /* ৩. লগআউট কনফার্মেশন মডাল (পপআপের উপরে থাকবে) */
 .modal-overlay {
     position: fixed;
