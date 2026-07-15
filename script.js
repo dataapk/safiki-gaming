@@ -701,24 +701,28 @@ window.addEventListener('click', (event) => {
     }
 });
 // --- Outside Click Handler ---
-<script>
-    function checkUserStatus() {
-        const isLogged = localStorage.getItem('userLoggedIn');
-        const userArea = document.getElementById('user-actions-area');
-        const guestArea = document.getElementById('guest-actions-area');
+// হেডার আপডেট করার মূল ফাংশন
+function updateHeaderAuth() {
+    const isLoggedIn = localStorage.getItem('userLoggedIn');
+    const userArea = document.getElementById('user-actions-area');
+    const guestArea = document.getElementById('guest-actions-area');
 
-        // লগইন করা থাকলে
-        if (isLogged === 'true') {
-            if(userArea) userArea.style.display = 'flex'; // বা তোমার আগের যে ডিসপ্লে স্টাইল ছিল
-            if(guestArea) guestArea.style.display = 'none';
-        } 
-        // লগইন না করা থাকলে
-        else {
-            if(userArea) userArea.style.display = 'none';
-            if(guestArea) guestArea.style.display = 'flex';
-        }
+    if (isLoggedIn === 'true') {
+        if (userArea) userArea.style.display = 'flex';
+        if (guestArea) guestArea.style.display = 'none';
+    } else {
+        if (userArea) userArea.style.display = 'none';
+        if (guestArea) guestArea.style.display = 'flex';
     }
+}
 
-    // পেজ লোড হওয়ার সাথে সাথে এটি চেক করবে
-    document.addEventListener("DOMContentLoaded", checkUserStatus);
-</script>
+// লগআউট ফাংশন
+function performLogout() {
+    localStorage.removeItem('userLoggedIn');
+    window.location.href = "https://dataapk.github.io/safiki-gaming/";
+}
+
+// পেজ লোড হওয়ার সাথে সাথে চেক করবে
+document.addEventListener("DOMContentLoaded", function() {
+    updateHeaderAuth();
+});
