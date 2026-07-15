@@ -327,26 +327,24 @@ img, svg {
 #notif-popup {
     display: none;
     position: absolute;
-    top: 65px; /* হেডারের উচ্চতা অনুযায়ী */
+    top: 65px; /* হেডারের ঠিক নিচে */
     
-    /* এই প্রপার্টিগুলো নোটিফিকেশন আইকনের সাথে লক করে দিবে */
-    right: 10px; /* তোমার হেডারের নোটিফিকেশন আইকন যেখানে আছে তার থেকে ১০ পিক্সেল দূরে */
+    /* এই তিনটি লাইন বক্সকে ঠিক আইকনের সেন্টারে আনবে */
+    left: 50%; 
+    transform: translateX(-50%); 
     
-    width: 320px; /* বক্সের সাইজ ফিক্স করে দিচ্ছি */
+    width: 320px; /* বক্সের সাইজ */
     
-    /* এটি বক্সকে তার নিজের পজিশন থেকে আর নড়তে দেবে না */
-    transform: none; 
-    
+    /* অন্যান্য স্টাইল */
+    height: 70vh;
     background: #0a0606;
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
     z-index: 9999;
-    flex-direction: column;
     padding: 15px;
-    overflow-y: auto;
     box-sizing: border-box;
+    overflow-y: auto;
 }
-
 .notif-container {
     display: flex;
     flex-direction: column;
