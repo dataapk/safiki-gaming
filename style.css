@@ -362,42 +362,44 @@ img, svg {
 /* নোটিফিকেশন আইটেমের স্টাইল */
 .notif-box-item {
     display: flex;
-    align-items: center; /* ডেট এবং টেক্সট ভার্টিক্যালি সেন্টারে রাখতে */
-    gap: 15px; /* ডেট এবং বক্সের মাঝে গ্যাপ */
-    margin-bottom: 10px;
+    align-items: center; /* ডেট এবং টেক্সট সোজা রাখতে */
+    gap: 3px; /* ডেট এবং বক্সের মাঝে মাত্র ৩ পিক্সেল গ্যাপ */
+    margin-bottom: 8px;
 }
 
-/* ডেটের স্টাইল (বক্সের বাইরে বাম পাশে) */
 .notif-date {
-    font-size: 12px;
-    color: #ffd700; /* ডেট হলুদ রঙের হলে সুন্দর লাগবে */
-    min-width: 70px; /* ডেটের জন্য নির্দিষ্ট জায়গা */
-    text-align: right;
+    font-size: 11px;
+    color: #ffd700;
+    min-width: 55px; /* ডেটের উইডথ কমিয়ে দিয়েছি */
+    text-align: left;
 }
 
-/* মেইন বক্স (ঘর শেপ) */
 .notif-text {
-    flex-grow: 1; /* এটি বাকি পুরো জায়গাটা দখল করবে */
-    padding: 12px;
+    flex-grow: 1;
+    padding: 8px 12px; /* হাইট কমাতে প্যাডিং কমানো হয়েছে */
     background: #161a23;
     border: 1px solid #333;
-    border-radius: 8px;
+    border-radius: 5px;
     color: #fff;
-    font-size: 14px;
+    font-size: 13px;
+    white-space: nowrap; /* লেখা এক লাইনে রাখতে */
 }
 
-/* পেজিনেশন এরিয়া স্টাইল */
+/* পেজিনেশন পাশাপাশি করার জন্য */
 .pagination {
     display: flex;
-    justify-content: center; /* একদম মাঝখানে আনার জন্য */
+    justify-content: center;
     align-items: center;
-    gap: 15px;
-    margin-top: 20px;
-    padding-top: 10px;
-    border-top: 1px solid #333; /* উপরে একটি হালকা রেখা */
+    gap: 10px;
+    margin-top: 10px;
     color: #ffd700;
 }
 
+.page-info {
+    display: flex;
+    gap: 8px; /* নাম্বারগুলো পাশাপাশি আনতে */
+    font-weight: bold;
+}
 .page-btn {
     background: none;
     border: 1px solid #ffd700;
