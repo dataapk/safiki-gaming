@@ -25,7 +25,7 @@ html, body {
 }
 .main-content {
     height: 100vh;
-    overflow-y: auto; /* শুধু কন্টেন্ট এরিয়া স্ক্রল হবে */
+    overflow: hidden; /* মেইন পেজটি লক করে দিবে */
     -webkit-overflow-scrolling: touch; /* আইফোনে স্মুথ স্ক্রলিংয়ের জন্য */
     overscroll-behavior-y: contain; /* বাউন্স বন্ধ করার জন্য */
 }
