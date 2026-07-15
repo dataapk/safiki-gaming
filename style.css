@@ -463,11 +463,20 @@ img, svg {
     padding: 10px 0;
 }
 
-.menu-item {
-    padding: 12px 20px;
-    cursor: pointer;
-    transition: 0.3s;
-    font-size: 15px;
+/* প্রোফাইল পপআপের ভেতরের আইকনগুলোর জন্য ফিক্সড কালার */
+#profile-popup .menu-item i {
+    color: #ffd700 !important; /* গোল্ডেন কালার সব সময় থাকবে */
+    margin-right: 12px;
+    width: 20px;
+    text-align: center;
+    transition: color 0.3s ease; /* স্মুথ ট্রানজিশনের জন্য */
+}
+
+/* মেনুর লেখার কালার আলাদা রাখতে চাইলে (ঐচ্ছিক) */
+#profile-popup .menu-item {
+    color: #ffffff; /* টেক্সট কালার সাদা */
+    display: flex;
+    align-items: center; /* আইকন এবং টেক্সট সোজা রাখতে */
 }
 
 .menu-item:hover {
