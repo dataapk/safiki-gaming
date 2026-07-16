@@ -78,20 +78,26 @@ img, svg {
 .main-control-box {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     background: #151520;
     border: 1px solid #2d2d44;
     border-radius: 12px;
-    overflow: hidden; /* বক্সের সীমানা বজায় রাখতে */
+
+    width: 100%;
+    min-width: 0;
+
+    overflow: visible;
 }
 #member-controls,
 #user-actions-area {
     display: none;
 }
 
-#guest-actions-area {
+#guest-actions-area{
     display: flex;
     align-items: center;
     gap: 10px;
+    flex-shrink: 0;
 }
 .currency-trigger {
     display: flex;
