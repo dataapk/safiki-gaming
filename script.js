@@ -919,10 +919,14 @@ console.log(checkbox.checked);
         return;
     }
 
-    if (!agreeTerms) {
-        alert("Please accept the Terms & Conditions.");
-        return;
-    }
+    console.log("agreeTerms =", agreeTerms);
+
+if (!agreeTerms) {
+    alert("Please accept the Terms & Conditions.");
+    console.log(document.getElementById("agreeTerms"));
+    console.log(document.getElementById("agreeTerms").checked);
+    return;
+}
 
     // Create Account
     const { data, error } = await supabaseClient.auth.signUp({
