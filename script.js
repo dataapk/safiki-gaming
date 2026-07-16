@@ -847,10 +847,40 @@ document.addEventListener("keydown", function (e) {
 
 /* Placeholder (পরের ধাপে Supabase যুক্ত করব) */
 
-function loginUser() {
-    alert("Supabase Login will be connected in Step 4.");
-}
+// ==============================
+// LOGIN USER
+// ==============================
 
+async function loginUser() {
+
+    const email = document.getElementById("loginEmail").value.trim();
+    const password = document.getElementById("loginPassword").value;
+
+    if (!email || !password) {
+        alert("Please enter your email and password.");
+        return;
+    }
+
+    const { data, error } = await supabaseClient.auth.signInWithPassword({
+        email: email,
+        password: password
+    });
+
+    if (error) {
+        alert(error.message);
+        return;
+    }
+
+    alert("✅ Login Successful!");
+
+    closeAuth();
+
+    console.log("Logged In User:", data.user);
+
+}
+// ==============================
+// LOGIN USER
+// ==============================
 function signupUser() {
     alert("Supabase Signup will be connected in Step 4.");
 }
