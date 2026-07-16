@@ -423,7 +423,124 @@
 </div>
 
 </header>
+<!-- ================= LOGIN POPUP ================= -->
 
+<div id="loginModal" class="auth-modal">
+
+    <div class="auth-box">
+
+        <button class="close-auth" onclick="closeAuth()">&times;</button>
+
+        <div class="auth-left">
+
+            <h1>WELCOME BACK</h1>
+
+            <p>Login to continue your gaming journey.</p>
+
+            <ul>
+                <li>✔ Secure Crypto Gaming</li>
+                <li>✔ Instant Deposit</li>
+                <li>✔ Fast Withdraw</li>
+                <li>✔ 24/7 Support</li>
+            </ul>
+
+        </div>
+
+        <div class="auth-right">
+
+            <h2>Login</h2>
+
+            <input type="email" id="loginEmail" placeholder="Email">
+
+            <input type="password" id="loginPassword" placeholder="Password">
+
+            <label class="remember-box">
+                <input type="checkbox" id="rememberMe">
+                Remember Me
+            </label>
+
+            <button class="auth-btn" onclick="loginUser()">
+                LOGIN
+            </button>
+
+            <a href="#" class="forgot-link">Forgot Password?</a>
+
+            <p class="switch-text">
+                Don't have an account?
+                <span onclick="switchSignup()">Sign Up</span>
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================= SIGNUP POPUP ================= -->
+
+<div id="signupModal" class="auth-modal">
+
+    <div class="auth-box">
+
+        <button class="close-auth" onclick="closeAuth()">&times;</button>
+
+        <div class="auth-left">
+
+            <div class="bonus-card">
+
+                <h4>🎁 WELCOME BONUS</h4>
+
+                <h1>$150</h1>
+
+                <h3>+ 200 FREE SPINS</h3>
+
+                <p>Create your account today and claim your rewards.</p>
+
+            </div>
+
+        </div>
+
+        <div class="auth-right">
+
+            <h2>Create Account</h2>
+
+            <input type="text" id="signupUsername" placeholder="Username">
+
+            <input type="email" id="signupEmail" placeholder="Email">
+
+            <input type="password" id="signupPassword" placeholder="Password">
+
+            <input type="password" id="signupConfirm" placeholder="Confirm Password">
+
+            <input type="text" id="referralCode" placeholder="Referral Code (Optional)">
+
+            <label class="remember-box">
+
+                <input type="checkbox">
+
+                I agree to Terms & Conditions
+
+            </label>
+
+            <button class="auth-btn" onclick="signupUser()">
+
+                CREATE ACCOUNT
+
+            </button>
+
+            <p class="switch-text">
+
+                Already have an account?
+
+                <span onclick="switchLogin()">Login</span>
+
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
     <!-- ======================================================
      🔴 END: HEADER SECTION
 ====================================================== -->
