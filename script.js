@@ -702,23 +702,28 @@ async function updateHeaderAuth() {
 
     const { data } = await supabaseClient.auth.getUser();
 
-    console.log("Supabase User:", data.user);
+    const user = data.user;
 
     const memberControls = document.getElementById("member-controls");
-
-    console.log("memberControls:", memberControls);
-
     const guestArea = document.getElementById("guest-actions-area");
+    const userArea = document.getElementById("user-actions-area");
 
-    console.log("guestArea:", guestArea);
+   console.log("Supabase User:", user);
+
+// ===== DEBUG =====
+// আপাতত সবসময় Header দেখাও
+if (memberControls) memberControls.style.display = "flex";
+if (userArea) userArea.style.display = "flex";
+if (guestArea) guestArea.style.display = "none";
+    } else {
+
+        if (memberControls) memberControls.style.display = "none";
+        if (userArea) userArea.style.display = "none";
+        if (guestArea) guestArea.style.display = "flex";
+
+    }
+
 }
-
-document.addEventListener("DOMContentLoaded", function () {
-
-    updateHeaderAuth();
-
-});
-
 
 // =========================
 // Logout Popup
@@ -1027,9 +1032,10 @@ if (!agreeTerms) {
 
 }
 // ==============================
-// UPDATE HEADER UI after login
+// PAGE LOAD
 // ==============================
+document.addEventListener("DOMContentLoaded", function () {
 
-// window.addEventListener("DOMContentLoaded", async () => {
-//     await updateHeaderAuth();
-// });
+    updateHeaderAuth();
+
+});
