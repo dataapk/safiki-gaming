@@ -696,33 +696,34 @@ window.addEventListener('click', (event) => {
 // Header Login Status
 // =========================
 
-function updateHeaderAuth() {
+async function updateHeaderAuth() {
 
-    const isLoggedIn = localStorage.getItem("userLoggedIn");
+    const { data } = await supabaseClient.auth.getUser();
+
+    const user = data.user;
 
     const userArea = document.getElementById("user-actions-area");
     const guestArea = document.getElementById("guest-actions-area");
     const memberControls = document.getElementById("member-controls");
 
-    if (isLoggedIn === "true") {
+    if (user) {
 
-        userArea.style.display = "flex";
-        guestArea.style.display = "none";
+        if (userArea) userArea.style.display = "flex";
 
-        if(memberControls){
-            memberControls.style.display = "flex";
-        }
+        if (guestArea) guestArea.style.display = "none";
+
+        if (memberControls) memberControls.style.display = "flex";
 
     } else {
 
-        userArea.style.display = "none";
-        guestArea.style.display = "flex";
+        if (userArea) userArea.style.display = "none";
 
-        if(memberControls){
-            memberControls.style.display = "none";
-        }
+        if (guestArea) guestArea.style.display = "flex";
+
+        if (memberControls) memberControls.style.display = "none";
 
     }
+
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -884,7 +885,8 @@ localStorage.setItem(
 );
 
 // Header Update
-updateHeaderAuth();
+// Header Update
+await updateHeaderAuth();
 
 closeAuth();
 
@@ -1042,3 +1044,6 @@ if (!agreeTerms) {
 // UPDATE HEADER UI after login
 // ==============================
 
+window.addEventListener("DOMContentLoaded", async () => {
+    await updateHeaderAuth();
+});
