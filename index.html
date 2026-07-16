@@ -463,7 +463,9 @@
                 LOGIN
             </button>
 
-            <a href="#" class="forgot-link">Forgot Password?</a>
+            <a href="#" class="forgot-link" onclick="openForgotPassword(event)">
+    Forgot Password?
+</a>
 
             <p class="switch-text">
                 Don't have an account?
@@ -528,11 +530,44 @@
 
             </button>
 
+            <!-- ================= FORGOT PASSWORD ================= -->
+
+<div id="forgotModal" class="auth-modal">
+
+    <div class="auth-box" style="max-width:500px; min-height:350px;">
+
+        <button class="close-auth" onclick="closeAuth()">&times;</button>
+
+        <div class="auth-right" style="width:100%;">
+
+            <h2>Reset Password</h2>
+
+            <p style="color:#bbb; margin-bottom:20px;">
+                Enter your registered email address.
+            </p>
+
+            <input
+                type="email"
+                id="resetEmail"
+                placeholder="Enter your Email">
+
+            <button
+                class="auth-btn"
+                onclick="sendResetLink()">
+
+                SEND RESET LINK
+
+            </button>
+
             <p class="switch-text">
 
-                Already have an account?
+                Remember your password?
 
-                <span onclick="switchLogin()">Login</span>
+                <span onclick="switchLogin()">
+
+                    Login
+
+                </span>
 
             </p>
 
