@@ -1755,12 +1755,14 @@ img, svg {
 
     .auth-box{
         flex-direction:column;
-        min-height:auto;
+        width:95%;
+        max-height:90vh;
+        overflow-y:auto;
     }
 
     .auth-left{
         width:100%;
-        padding:30px;
+        padding:20px;
     }
 
     .auth-right{
@@ -1769,8 +1771,14 @@ img, svg {
 
     .auth-left h1{
         font-size:30px;
+        margin-top:35px;
     }
-
+    .close-auth{
+        position:absolute;
+        top:15px;
+        right:15px;
+        z-index:9999;
+    }
     .bonus-card h1{
         font-size:48px;
     }
