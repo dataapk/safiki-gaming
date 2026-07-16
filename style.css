@@ -83,7 +83,11 @@ img, svg {
     border-radius: 12px;
     overflow: hidden; /* বক্সের সীমানা বজায় রাখতে */
 }
-
+#member-controls,
+#user-actions-area,
+#guest-actions-area {
+    display: none;
+}
 .currency-trigger {
     display: flex;
     align-items: center;
