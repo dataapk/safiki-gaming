@@ -715,14 +715,7 @@ async function updateHeaderAuth() {
 if (memberControls) memberControls.style.display = "flex";
 if (userArea) userArea.style.display = "flex";
 if (guestArea) guestArea.style.display = "none";
-    } else {
-
-        if (memberControls) memberControls.style.display = "none";
-        if (userArea) userArea.style.display = "none";
-        if (guestArea) guestArea.style.display = "flex";
-
-    }
-
+   
 }
 
 // =========================
