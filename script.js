@@ -793,10 +793,16 @@ function openSignup() {
     document.body.style.overflow = "hidden";
 }
 
-function closeAuth() {
-    document.getElementById("loginModal").style.display = "none";
-    document.getElementById("signupModal").style.display = "none";
-    document.body.style.overflow = "auto";
+function closeAuth(){
+
+    document.getElementById("loginModal").style.display="none";
+
+    document.getElementById("signupModal").style.display="none";
+
+    document.getElementById("forgotModal").style.display="none";
+
+    document.body.style.overflow="auto";
+
 }
 
 function switchSignup() {
@@ -842,4 +848,19 @@ function loginUser() {
 
 function signupUser() {
     alert("Supabase Signup will be connected in Step 4.");
+}
+function openForgotPassword(e){
+
+    e.preventDefault();
+
+    document.getElementById("loginModal").style.display="none";
+
+    document.getElementById("forgotModal").style.display="flex";
+
+}
+
+function sendResetLink(){
+
+    alert("Supabase Password Reset will be connected in Step 5.");
+
 }
