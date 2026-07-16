@@ -1788,11 +1788,11 @@ img, svg {
     border: none;
     outline: none;
     cursor: pointer;
-    padding: 11px 24px;
-    border-radius: 14px;
-    font-size: 14px;
+    padding: 9px 18px;      /* আগে ছিল 11px 24px */
+    border-radius: 12px;    /* আগে 14px */
+    font-size: 12px;        /* আগে 14px */
     font-weight: 700;
-    letter-spacing: .5px;
+    letter-spacing: .3px;
     transition: .35s ease;
     font-family: inherit;
 }
@@ -1819,9 +1819,9 @@ img, svg {
 
     color:#f7b500;
 
-    transform:translateY(-2px);
+    transform: translateY(-1px);
 
-    box-shadow:0 0 18px rgba(247,181,0,.25);
+    box-shadow: 0 0 12px rgba(247,181,0,.20);
 
 }
 
@@ -1839,11 +1839,11 @@ img, svg {
 
 .signup-btn:hover{
 
-    transform:translateY(-3px) scale(1.04);
+    transform: translateY(-2px) scale(1.02);
 
     box-shadow:
-    0 0 20px rgba(255,215,0,.55),
-    0 0 40px rgba(247,181,0,.35);
+    0 0 15px rgba(255,215,0,.40),
+    0 0 28px rgba(247,181,0,.25);
 
 }
 
