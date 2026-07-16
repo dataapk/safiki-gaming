@@ -777,3 +777,69 @@ function loginSuccess() {
     window.location.href = "index.html";
 
 }
+/* ===========================
+   LOGIN SIGN UP FORM JS
+=========================== */
+
+function openLogin() {
+    document.getElementById("loginModal").style.display = "flex";
+    document.getElementById("signupModal").style.display = "none";
+    document.body.style.overflow = "hidden";
+}
+
+function openSignup() {
+    document.getElementById("signupModal").style.display = "flex";
+    document.getElementById("loginModal").style.display = "none";
+    document.body.style.overflow = "hidden";
+}
+
+function closeAuth() {
+    document.getElementById("loginModal").style.display = "none";
+    document.getElementById("signupModal").style.display = "none";
+    document.body.style.overflow = "auto";
+}
+
+function switchSignup() {
+    document.getElementById("loginModal").style.display = "none";
+    document.getElementById("signupModal").style.display = "flex";
+}
+
+function switchLogin() {
+    document.getElementById("signupModal").style.display = "none";
+    document.getElementById("loginModal").style.display = "flex";
+}
+
+/* বাইরে ক্লিক করলে Popup বন্ধ হবে */
+window.addEventListener("click", function (e) {
+
+    const login = document.getElementById("loginModal");
+    const signup = document.getElementById("signupModal");
+
+    if (e.target === login) {
+        closeAuth();
+    }
+
+    if (e.target === signup) {
+        closeAuth();
+    }
+
+});
+
+/* ESC চাপলে Popup বন্ধ হবে */
+document.addEventListener("keydown", function (e) {
+
+    if (e.key === "Escape") {
+        closeAuth();
+    }
+
+});
+
+/* Placeholder (পরের ধাপে Supabase যুক্ত করব) */
+
+function loginUser() {
+    alert("Supabase Login will be connected in Step 4.");
+}
+
+function signupUser() {
+    alert("Supabase Signup will be connected in Step 4.");
+}
