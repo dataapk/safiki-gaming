@@ -810,9 +810,14 @@ function switchSignup() {
     document.getElementById("signupModal").style.display = "flex";
 }
 
-function switchLogin() {
-    document.getElementById("signupModal").style.display = "none";
-    document.getElementById("loginModal").style.display = "flex";
+function switchLogin(){
+
+    document.getElementById("signupModal").style.display="none";
+
+    document.getElementById("forgotModal").style.display="none";
+
+    document.getElementById("loginModal").style.display="flex";
+
 }
 
 /* বাইরে ক্লিক করলে Popup বন্ধ হবে */
