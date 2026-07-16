@@ -1658,13 +1658,33 @@ img, svg {
     box-shadow:0 0 10px rgba(212,175,55,.4);
 }
 
-.remember-box{
-    color:#ccc;
-    font-size:14px;
-    display:flex;
-    align-items:center;
-    gap:8px;
-    margin:5px 0 20px;
+.remember-box input[type="checkbox"]{
+    appearance:none;
+    -webkit-appearance:none;
+    width:18px;
+    height:18px;
+    min-width:18px;
+    border:2px solid #d4af37;
+    border-radius:50%;
+    background:#111;
+    cursor:pointer;
+    position:relative;
+    transition:.3s;
+}
+
+.remember-box input[type="checkbox"]:checked{
+    background:#d4af37;
+}
+
+.remember-box input[type="checkbox"]:checked::after{
+    content:"✓";
+    position:absolute;
+    color:#111;
+    font-size:12px;
+    font-weight:bold;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-55%);
 }
 
 .auth-btn{
