@@ -401,20 +401,22 @@
 <!-- ২. প্রোফাইল বাটন -->
 <!-- ১. প্রোফাইল পপআপের বাইরের অংশ -->
 <!-- ================= কন্ডিশনাল এরিয়া ================= -->
-    <div id="user-actions-area" style="display: none; display: flex; align-items: center; gap: 15px;">
-        <div class="actions-box" onclick="toggleNotifMenu(event)">
-            <i class="fas fa-bell"></i>
-        </div>
-        <div class="actions-box" onclick="toggleProfileMenu(event)">
-            <i class="fas fa-user-circle"></i>
-        </div>
+
+<div id="user-actions-area" style="display: none; align-items: center; gap: 15px;">
+    <div class="actions-box" onclick="toggleNotifMenu(event)">
+        <i class="fas fa-bell"></i>
     </div>
 
-    <div id="guest-actions-area" style="display: none; display: flex; gap: 10px; align-items: center;">
-        <button class="login-btn" onclick="openLogin()">Login</button>
-        <button class="signup-btn" onclick="openSignup()">Sign Up</button>
+    <div class="actions-box" onclick="toggleProfileMenu(event)">
+        <i class="fas fa-user-circle"></i>
     </div>
-</div> <!-- .main-control-box এর সমাপ্তি -->
+</div>
+
+<div id="guest-actions-area" style="display: none; gap: 10px; align-items: center;">
+    <button class="login-btn" onclick="openLogin()">Login</button>
+    <button class="signup-btn" onclick="openSignup()">Sign Up</button>
+</div>!-- .main-control-box এর সমাপ্তি -->
+    
 
 <!-- পপআপগুলো সব মেইন কন্ট্রোল বক্সের বাইরে কিন্তু হেডারের ভেতরে -->
 <div id="profile-popup" class="custom-popup" style="display:none;">
