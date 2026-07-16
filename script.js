@@ -883,17 +883,16 @@ async function loginUser() {
 // Login Status Save
 localStorage.setItem("userLoggedIn", "true");
 
-// চাইলে User Name-ও Save করতে পারো
 localStorage.setItem(
     "userName",
     data.user.user_metadata.first_name || "Player"
 );
 
-// Header Update
-// Header Update
-//await updateHeaderAuth();
-
+// প্রথমে Modal বন্ধ
 closeAuth();
+
+// তারপর Header Update
+await updateHeaderAuth();
 
 console.log("Logged In User:", data.user);
 }
