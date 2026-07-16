@@ -739,22 +739,33 @@ function closeLogoutPopup() {
 // Logout
 // =========================
 
-function performLogout() {
+async function performLogout() {
 
-    // Login Status Remove
+    // Supabase Logout
+    const { error } = await supabaseClient.auth.signOut();
+
+    if (error) {
+        alert(error.message);
+        return;
+    }
+
+    // Local Storage Remove
     localStorage.removeItem("userLoggedIn");
-localStorage.removeItem("userName");
+    localStorage.removeItem("userName");
+
+    // Close Popup
+    closeLogoutPopup();
 
     // Header Update
-    updateHeaderAuth();
-
-    // Popup Close
-    closeLogoutPopup();
+    await updateHeaderAuth();
 
     // Redirect Home
     window.location.href = "https://dataapk.github.io/safiki-gaming/";
 
 }
+// =========================
+// Logout
+// =========================
 function loginSuccess() {
 
     localStorage.setItem("userLoggedIn", "true");
