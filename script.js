@@ -875,7 +875,7 @@ localStorage.setItem(
 
 // Header Update
 // Header Update
-await updateHeaderAuth();
+//await updateHeaderAuth();
 
 closeAuth();
 
@@ -1033,6 +1033,6 @@ if (!agreeTerms) {
 // UPDATE HEADER UI after login
 // ==============================
 
-window.addEventListener("DOMContentLoaded", async () => {
-    await updateHeaderAuth();
-});
+// window.addEventListener("DOMContentLoaded", async () => {
+//     await updateHeaderAuth();
+// });
