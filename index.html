@@ -261,50 +261,46 @@
     <button class="withdraw-btn" onclick="processWithdraw()">Confirm Withdraw</button>
 </div>
 
-
-<!-- START EXCHANGE SECTION DROPDOWN -->
+<!-- START EXCHANGE SECTION DROPDOWN (এটি ঠিক করা হয়েছে) -->
+<!-- START EXCHANGE SECTION DROPDOWN (এটি ঠিক করা হয়েছে) -->
 <div id="exchange-box" class="exchanger-box" style="display:none;">
-    
     <!-- হেডার -->
     <div class="exchanger-header">
         <h3><i class="fas fa-chevron-left"></i> Exchanger</h3>
         <button class="close-btn" onclick="closeExchange()">×</button>
     </div>
 
-    <!-- FROM SECTION -->
+    <!-- কারেন্সি সিলেকশন (From) -->
     <div class="currency-group">
-        <!-- কারেন্সি সিলেক্ট -->
-        <div class="currency-select-box">
-            <img id="from-icon" src="image/usdt.png" width="24" height="24">
-            <select id="from-currency" class="currency-select" onchange="updatecurrencyIcons(); updateStatLimits(); checkMinimumLimit();">
-                <option value="usdt" data-img="image/usdt.png" selected>USDT</option>
-                <option value="ada" data-img="image/ada.png">Cardano (ADA)</option>
-                <option value="btc" data-img="image/btc.png">Bitcoin (BTC)</option>
-                <option value="eth" data-img="image/eth.png">Ethereum (ETH)</option>
-                <option value="doge" data-img="image/doge.png">Dogecoin (DOGE)</option>
-                <option value="trx" data-img="image/trx.png">Tron (TRX)</option>
-            </select>
+        <!-- আইকন এবং ড্রপডাউন একসাথে রাখার জন্য flex যোগ করা হয়েছে -->
+        <div style="display: flex; align-items: center; margin-bottom: 5px;">
+            <img id="from-icon" src="image/ada.png" width="24" height="24" style="margin-right: 10px;">
+            <select id="from-currency" class="currency-select" 
+        onchange="updateIcons(); updateStatLimits(); checkMinimumLimit();" 
+        style="border:none; background:transparent; outline:none; color:inherit; width: 100%;">
+    <option value="ada" data-img="image/ada.png">Cardano (ADA)</option>
+    <option value="btc" data-img="image/btc.png">Bitcoin (BTC)</option>
+    <option value="eth" data-img="image/eth.png">Ethereum (ETH)</option>
+    <option value="usdt" data-img="image/usdt.png">USDT</option>
+    <option value="doge" data-img="doge.png">Dogecoin (DOGE)</option>
+    <option value="trx" data-img="image/trx.png">Tron (TRX)</option>
+</select>
         </div>
-        <!-- ইনপুট ও ম্যাক্স -->
-        <div class="amount-input-box">
-            <img id="input-icon" src="image/usdt.png" width="20" height="20">
-            <input type="number" id="from-amount" placeholder="0.00" oninput="checkMinimumLimit();">
-            <button type="button" id="max-btn" onclick="setMax();">Max</button>
+        <div class="input-row">
+            <input type="number" id="from-amount" placeholder="0.00">
+            <button class="max-btn" onclick="setMax()">Max</button>
         </div>
-        <!-- এরর মেসেজ -->
-        <div id="error-message" style="display: none; color: #ff4d4d; font-size: 12px; margin-top: 5px;"></div>
+        <small class="error-msg" id="balance-error" style="display:none;">Amount is higher than balance</small>
     </div>
 
     <!-- অদলবদল আইকন -->
-    <div class="swap-icon" onclick="swapCoins()" style="cursor: pointer; text-align: center; margin: 10px 0;">
-        <i class="fas fa-sync-alt"></i> To
-    </div>
+    <div class="swap-icon" onclick="swapCoins()" style="cursor: pointer;"><i class="fas fa-sync-alt"></i> To</div>
 
-    <!-- TO SECTION -->
+    <!-- কারেন্সি সিলেকশন (To) -->
     <div class="currency-group">
-        <div class="currency-select-box">
-            <img id="to-icon" src="image/btc.png" width="24" height="24">
-            <select id="to-currency" class="currency-select" onchange="updateIcons();">
+        <div style="display: flex; align-items: center; margin-bottom: 5px;">
+            <img id="to-icon" src="image/btc.png" width="24" height="24" style="margin-right: 10px;">
+            <select id="to-currency" class="currency-select" onchange="updateIcons();" style="border:none; background:transparent; outline:none; color:inherit; width: 100%;">
                 <option value="btc" data-img="image/btc.png">Bitcoin (BTC)</option>
                 <option value="ada" data-img="image/ada.png">Cardano (ADA)</option>
                 <option value="eth" data-img="image/eth.png">Ethereum (ETH)</option>
@@ -313,47 +309,31 @@
                 <option value="trx" data-img="image/trx.png">Tron (TRX)</option>
             </select>
         </div>
-        <div class="output-row" style="padding: 10px; background: #0b0e1a; border-radius: 8px; margin-top: 5px;">
+        <div class="output-row">
             <span id="to-amount">0.00000000</span>
         </div>
     </div>
-
-    <!-- ইনফরমেশন সেকশন -->
-    <div class="rate-info" style="font-size: 12px; margin: 10px 0;">
-        Rate updated in <span id="rate-timer">30</span> seconds
-    </div>
-
     <!-- ইনফো বক্স সেকশন -->
-<div class="exchange-info-box">
+<div class="info-box">
     <div class="info-row">
         <span>Balance:</span>
-        <span class="info-value">
-            <img id="balance-icon" src="image/usdt.png" width="18" height="18">
-            <span id="user-balance">0.00</span>
-        </span>
+        <span id="user-balance">0.00</span>
     </div>
     <div class="info-row">
         <span>Min amount:</span>
-        <span class="info-value">
-            <img id="min-icon" src="image/usdt.png" width="18" height="18">
-            <span id="min-amount">31.40</span>
-        </span>
+        <span id="min-amount">31.40</span>
     </div>
     <div class="info-row">
         <span>Max amount:</span>
-        <span class="info-value">
-            <img id="max-icon" src="image/usdt.png" width="18" height="18">
-            <span id="max-amount">1,256,036.82</span>
-        </span>
+        <span id="max-amount">1,256,036.82</span>
     </div>
 </div>
 
-    <!-- এক্সচেঞ্জ বাটন -->
-    <button class="exchange-btn" onclick="processExchange()" style="width: 100%; padding: 12px; 
-    border: none; border-radius: 8px; background: #e67e22; color: white; cursor: pointer;">Exchange</button></div>
-
+    <!-- বাটন -->
+    <button class="exchange-btn" onclick="processExchange()">Exchange</button></div>
+<!-- এই ডিভগুলো তোমার মেনু বা প্যারেন্ট সেকশন ক্লোজ করবে, যা আগে মিসিং ছিল -->
+</div> 
 </div>
- </div>
 <!-- END EXCHANGE SECTION DROPDOWN -->
             
     
