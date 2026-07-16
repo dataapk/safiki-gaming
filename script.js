@@ -702,21 +702,27 @@ function updateHeaderAuth() {
 
     const userArea = document.getElementById("user-actions-area");
     const guestArea = document.getElementById("guest-actions-area");
-
-    if (!userArea || !guestArea) return;
+    const memberControls = document.getElementById("member-controls");
 
     if (isLoggedIn === "true") {
 
         userArea.style.display = "flex";
         guestArea.style.display = "none";
 
+        if(memberControls){
+            memberControls.style.display = "flex";
+        }
+
     } else {
 
         userArea.style.display = "none";
         guestArea.style.display = "flex";
 
-    }
+        if(memberControls){
+            memberControls.style.display = "none";
+        }
 
+    }
 }
 
 document.addEventListener("DOMContentLoaded", function () {
