@@ -1982,6 +1982,10 @@ img, svg {
     margin-bottom:15px;
 }
 
-.name-row input{
-    width:100%;
+.name-row input:first-child{
+    flex:2;
+}
+
+.name-row input:last-child{
+    flex:1;
 }
