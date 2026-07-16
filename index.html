@@ -511,39 +511,64 @@
 
         <div class="auth-right">
 
-            <h2>Create Account</h2>
+    <h2>Create Account</h2>
 
-            <input type="text" id="signupUsername" placeholder="Username">
+    <div class="name-row">
+        <input type="text" id="firstName" placeholder="First Name">
+        <input type="text" id="lastName" placeholder="Last Name">
+    </div>
 
-            <input type="email" id="signupEmail" placeholder="Email">
+    <input type="email" id="signupEmail" placeholder="Email">
 
-            <input type="password" id="signupPassword" placeholder="Password">
+    <div class="password-box">
+        <input type="password" id="signupPassword" placeholder="Password">
+        <i class="fas fa-eye" onclick="togglePassword('signupPassword', this)"></i>
+    </div>
 
-            <input type="password" id="signupConfirm" placeholder="Confirm Password">
+    <div class="password-box">
+        <input type="password" id="signupConfirm" placeholder="Confirm Password">
+        <i class="fas fa-eye" onclick="togglePassword('signupConfirm', this)"></i>
+    </div>
 
-            <input type="text" id="referralCode" placeholder="Referral Code (Optional)">
+    <input type="text" id="referralCode" placeholder="Referral Code (Optional)">
 
-            <label class="remember-box">
+    <label class="remember-box">
 
-                <input type="checkbox">
+        <input type="checkbox" id="agreeTerms" required>
 
-                I agree to Terms & Conditions
+        <span>
+            I confirm that I am <strong>18+</strong> and have read and accepted the
+            <a href="terms.html" target="_blank">Terms &amp; Conditions</a>
+            and
+            <a href="privacy.html" target="_blank">Privacy Policy</a>.
+        </span>
 
-            </label>
+    </label>
 
-            <button class="auth-btn" onclick="signupUser()">
-    CREATE ACCOUNT
-</button>
+    <button class="auth-btn" onclick="signupUser()">
+        CREATE ACCOUNT
+    </button>
 
-<p class="switch-text">
-    Already have an account?
-    <span onclick="switchLogin()">Login</span>
-</p>
+    <div class="auth-divider">
+        <span>OR</span>
+    </div>
 
-</div> <!-- auth-right -->
-</div> <!-- auth-box -->
-</div> <!-- signupModal -->
+    <button class="google-btn" onclick="googleAuth()">
+        <img src="image/google.png" alt="Google">
+        Continue with Google
+    </button>
 
+    <p class="switch-text">
+        Already have an account?
+        <span onclick="switchLogin()">Login</span>
+    </p>
+
+</div>
+<!-- auth-right -->
+</div>
+<!-- auth-box -->
+</div>
+<!-- signupModal -->
 
 <!-- ================= FORGOT PASSWORD ================= -->
 
