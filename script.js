@@ -762,5 +762,12 @@ function performLogout() {
     window.location.href = "https://dataapk.github.io/safiki-gaming/";
 
 }
-localStorage.setItem("userLoggedIn", "true");
-updateHeaderAuth();
+function loginSuccess() {
+
+    localStorage.setItem("userLoggedIn", "true");
+
+    updateHeaderAuth();
+
+    window.location.href = "index.html";
+
+}
