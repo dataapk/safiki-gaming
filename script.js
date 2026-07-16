@@ -878,12 +878,11 @@ localStorage.setItem(
 closeAuth();
 
 console.log("Logged In User:", data.user);
+}
 // ==============================
 // LOGIN USER
 // ==============================
-function signupUser() {
-    alert("Supabase Signup will be connected in Step 4.");
-}
+
 function openForgotPassword(e){
 
     e.preventDefault();
