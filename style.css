@@ -84,9 +84,14 @@ img, svg {
     overflow: hidden; /* বক্সের সীমানা বজায় রাখতে */
 }
 #member-controls,
-#user-actions-area,
-#guest-actions-area {
+#user-actions-area {
     display: none;
+}
+
+#guest-actions-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 .currency-trigger {
     display: flex;
