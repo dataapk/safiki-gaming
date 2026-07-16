@@ -903,7 +903,44 @@ console.log(checkbox.checked);
     const firstName = document.getElementById("firstName").value.trim();
     const lastName = document.getElementById("lastName").value.trim();
     const email = document.getElementById("signupEmail").value.trim();
+    const allowedDomains = [
+    "@gmail.com",
+    "@yahoo.com",
+    "@outlook.com",
+    "@hotmail.com"
+];
+
+const isValidDomain = allowedDomains.some(domain =>
+    email.toLowerCase().endsWith(domain)
+);
+
+if (!isValidDomain) {
+    alert("Please use a valid Gmail, Yahoo, Outlook or Hotmail email.");
+    return;
+}
+    
     const password = document.getElementById("signupPassword").value;
+    // Password must be at least 8 characters,
+// contain one uppercase letter,
+// one lowercase letter,
+// one number,
+// and one special character.
+
+const passwordPattern =
+/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.#^()_\-+=])[A-Za-z\d@$!%*?&.#^()_\-+=]{8,}$/;
+
+if (!passwordPattern.test(password)) {
+
+    alert(
+        "Password must be at least 8 characters and include:\n\n" +
+        "• One uppercase letter\n" +
+        "• One lowercase letter\n" +
+        "• One number\n" +
+        "• One special character"
+    );
+
+    return;
+}
     const confirmPassword = document.getElementById("signupConfirm").value;
     const referralCode = document.getElementById("referralCode").value.trim();
     const agreeTerms = document.getElementById("agreeTerms").checked;
