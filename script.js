@@ -875,9 +875,9 @@ async function loginUser() {
 
     closeAuth();
 
-    console.log("Logged In User:", data.user);
+updateHeaderUI(data.user);
 
-}
+console.log("Logged In User:", data.user);
 // ==============================
 // LOGIN USER
 // ==============================
@@ -1027,3 +1027,32 @@ if (!agreeTerms) {
     closeAuth();
 
 }
+// ==============================
+// UPDATE HEADER UI after login
+// ==============================
+
+function updateHeaderUI(user) {
+
+    const guestArea = document.getElementById("guest-actions-area");
+    const memberArea = document.getElementById("member-controls");
+
+    if (user) {
+
+        guestArea.style.display = "none";
+        memberArea.style.display = "flex";
+
+    } else {
+
+        guestArea.style.display = "flex";
+        memberArea.style.display = "none";
+
+    }
+
+}
+    window.addEventListener("DOMContentLoaded", async () => {
+
+    const { data } = await supabaseClient.auth.getUser();
+
+    updateHeaderUI(data.user);
+
+});
