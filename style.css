@@ -1578,7 +1578,7 @@ img, svg {
 .auth-box{
     width:950px;
     max-width:95%;
-    min-height:560px;
+    min-height:460px;
     display:flex;
     overflow:hidden;
     border-radius:18px;
