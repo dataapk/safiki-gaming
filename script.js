@@ -661,24 +661,13 @@ function toggleProfileMenu(event) {
     menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
 }
 
-// লগআউট কনফার্মেশন
-// --- Logout Confirmation Functions ---
-function showLogoutPopup() {
-    document.getElementById('logout-confirm-popup').style.display = 'flex';
-}
 
-function closeLogoutPopup() {
-    document.getElementById('logout-confirm-popup').style.display = 'none';
-}
 
 function confirmLogout() {
     // Add your logout logic here
     window.location.href = 'logout.php'; 
 }
-function performLogout() {
-    // এখানে তোমার হোম পেজের পাথ দাও (যেমন '/')
-    window.location.href = "https://dataapk.github.io/safiki-gaming/; 
-}
+
 // --- Outside Click Handler ---
 window.addEventListener('click', (event) => {
     const notifPopup = document.getElementById('notif-popup');
@@ -703,27 +692,75 @@ window.addEventListener('click', (event) => {
 // --- Outside Click Handler ---
 // হেডার আপডেট করার মূল ফাংশন
 // ১. লগইন/লগআউট স্ট্যাটাস অনুযায়ী হেডার আপডেট করার ফাংশন
-function updateHeaderAuth() {
-    const isLoggedIn = localStorage.getItem('userLoggedIn');
-    
-    // ইউজার মেনু এবং গেস্ট মেনু সিলেক্ট করছি
-    const userArea = document.getElementById('user-actions-area');
-    const guestArea = document.getElementById('guest-actions-area');
+// =========================
+// Header Login Status
+// =========================
 
-    if (userArea && guestArea) {
-        if (isLoggedIn === 'true') {
-            // ইউজার লগইন থাকলে
-            userArea.style.display = 'flex';
-            guestArea.style.display = 'none';
-        } else {
-            // ইউজার লগইন না থাকলে
-            userArea.style.display = 'none';
-            guestArea.style.display = 'flex';
-        }
+function updateHeaderAuth() {
+
+    const isLoggedIn = localStorage.getItem("userLoggedIn");
+
+    const userArea = document.getElementById("user-actions-area");
+    const guestArea = document.getElementById("guest-actions-area");
+
+    if (!userArea || !guestArea) return;
+
+    if (isLoggedIn === "true") {
+
+        userArea.style.display = "flex";
+        guestArea.style.display = "none";
+
+    } else {
+
+        userArea.style.display = "none";
+        guestArea.style.display = "flex";
+
     }
+
 }
 
-// পেজ লোড হওয়ার সাথে সাথে চেক করবে
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
+
     updateHeaderAuth();
+
 });
+
+
+// =========================
+// Logout Popup
+// =========================
+
+function showLogoutPopup() {
+
+    document.getElementById("logout-confirm-popup").style.display = "flex";
+
+}
+
+function closeLogoutPopup() {
+
+    document.getElementById("logout-confirm-popup").style.display = "none";
+
+}
+
+
+// =========================
+// Logout
+// =========================
+
+function performLogout() {
+
+    // Login Status Remove
+    localStorage.removeItem("userLoggedIn");
+
+    // Header Update
+    updateHeaderAuth();
+
+    // Popup Close
+    closeLogoutPopup();
+
+    // Redirect Home
+    window.location.href = "https://dataapk.github.io/safiki-gaming/";
+
+}
+localStorage.setItem("userLoggedIn", "true");
+updateHeaderAuth();
