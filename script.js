@@ -711,8 +711,6 @@ async function updateHeaderAuth() {
     const guestArea = document.getElementById("guest-actions-area");
 
     console.log("guestArea:", guestArea);
-
-    ...
 }
 
 document.addEventListener("DOMContentLoaded", function () {
