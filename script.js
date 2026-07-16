@@ -698,32 +698,21 @@ window.addEventListener('click', (event) => {
 
 async function updateHeaderAuth() {
 
+    console.log("updateHeaderAuth() Running");
+
     const { data } = await supabaseClient.auth.getUser();
 
-    const user = data.user;
+    console.log("Supabase User:", data.user);
 
-    const userArea = document.getElementById("user-actions-area");
-    const guestArea = document.getElementById("guest-actions-area");
     const memberControls = document.getElementById("member-controls");
 
-    if (user) {
+    console.log("memberControls:", memberControls);
 
-        if (userArea) userArea.style.display = "flex";
+    const guestArea = document.getElementById("guest-actions-area");
 
-        if (guestArea) guestArea.style.display = "none";
+    console.log("guestArea:", guestArea);
 
-        if (memberControls) memberControls.style.display = "flex";
-
-    } else {
-
-        if (userArea) userArea.style.display = "none";
-
-        if (guestArea) guestArea.style.display = "flex";
-
-        if (memberControls) memberControls.style.display = "none";
-
-    }
-
+    ...
 }
 
 document.addEventListener("DOMContentLoaded", function () {
