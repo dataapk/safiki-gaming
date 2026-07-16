@@ -888,3 +888,65 @@ function togglePassword(inputId, icon){
     }
 
 }
+// ==============================
+// SIGN UP USER
+// ==============================
+
+async function signupUser() {
+
+    const firstName = document.getElementById("firstName").value.trim();
+    const lastName = document.getElementById("lastName").value.trim();
+    const email = document.getElementById("signupEmail").value.trim();
+    const password = document.getElementById("signupPassword").value;
+    const confirmPassword = document.getElementById("signupConfirm").value;
+    const referralCode = document.getElementById("referralCode").value.trim();
+    const agreeTerms = document.getElementById("agreeTerms").checked;
+
+    // Validation
+    if (!firstName || !lastName || !email || !password || !confirmPassword) {
+        alert("Please fill in all required fields.");
+        return;
+    }
+
+    if (password !== confirmPassword) {
+        alert("Passwords do not match.");
+        return;
+    }
+
+    if (!agreeTerms) {
+        alert("Please accept the Terms & Conditions.");
+        return;
+    }
+
+    // Create Account
+    const { data, error } = await supabaseClient.auth.signUp({
+
+        email: email,
+
+        password: password,
+
+        options: {
+
+            data: {
+                first_name: firstName,
+                last_name: lastName,
+                referral_code: referralCode
+            }
+
+        }
+
+    });
+
+    if (error) {
+
+        alert(error.message);
+
+        return;
+
+    }
+
+    alert("🎉 Account created successfully!");
+
+    closeAuth();
+
+}
