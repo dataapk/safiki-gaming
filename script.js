@@ -724,6 +724,7 @@ if (user) {
     if (userArea) userArea.style.display = "none";
     if (guestArea) guestArea.style.display = "flex";
 
+   }
 }
 
 // =========================
