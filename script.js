@@ -893,7 +893,13 @@ function togglePassword(inputId, icon){
 // ==============================
 
 async function signupUser() {
+     console.log("Signup Clicked");
 
+const checkbox = document.getElementById("agreeTerms");
+
+console.log(checkbox);
+
+console.log(checkbox.checked);
     const firstName = document.getElementById("firstName").value.trim();
     const lastName = document.getElementById("lastName").value.trim();
     const email = document.getElementById("signupEmail").value.trim();
