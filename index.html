@@ -339,46 +339,9 @@
     
     <!-- পুরো স্ক্রিনজুড়ে আসা কন্টেইনার -->
 <!-- ================= USER ACTIONS ================= -->
-<!-- নোটিফিকেশন আইকন -->
 
-    <!-- পপআপ শুরু -->
-    <div id="notif-popup" class="custom-popup" style="display:none;">
-        <!-- ক্রস বাটন -->
-        <button id="close-notif" onclick="document.getElementById('notif-popup').style.display='none'">×</button>
-        
-        <div class="notif-container">
-            <!-- নোটিফিকেশন আইটেম -->
-            <div class="notif-box-item">
-                <span class="notif-date">15-07-2026</span>
-                <span class="notif-text">আপনার প্রোফাইল আপডেট হয়েছে।</span>
-            </div>
-            
-            <div class="notif-box-item">
-                <span class="notif-date">14-07-2026</span>
-                <span class="notif-text">নতুন একটি মেসেজ এসেছে।</span>
-            </div>
-        </div>
+<div id="user-actions-area" style="display:none; align-items:center; gap:15px;">
 
-        <!-- পেজিনেশন এরিয়া -->
-        <div class="pagination">
-            <button class="page-btn">&lt;</button>
-            <div class="page-numbers">
-                <span>1</span>
-                <span>2</span>
-                <span>3</span>
-                <span>4</span>
-                <span>5</span>
-            </div>
-            <button class="page-btn">&gt;</button>
-        </div>
-    </div> <!-- পপআপ শেষ -->
-</div>
-
-<!-- ২. প্রোফাইল বাটন -->
-<!-- ১. প্রোফাইল পপআপের বাইরের অংশ -->
-<!-- ================= কন্ডিশনাল এরিয়া ================= -->
-
-<div id="user-actions-area" style="display: none; align-items: center; gap: 15px;">
     <div class="actions-box" onclick="toggleNotifMenu(event)">
         <i class="fas fa-bell"></i>
     </div>
@@ -386,33 +349,72 @@
     <div class="actions-box" onclick="toggleProfileMenu(event)">
         <i class="fas fa-user-circle"></i>
     </div>
+
 </div>
 
-<div id="guest-actions-area" style="display: none; gap: 10px; align-items: center;">
+<div id="guest-actions-area" style="display:none; gap:10px; align-items:center;">
+
     <button class="login-btn" onclick="openLogin()">Login</button>
+
     <button class="signup-btn" onclick="openSignup()">Sign Up</button>
-</div>
-    
 
-<!-- পপআপগুলো সব মেইন কন্ট্রোল বক্সের বাইরে কিন্তু হেডারের ভেতরে -->
-<div id="profile-popup" class="custom-popup" style="display:none;">
-    <div class="menu-item"><i class="fas fa-user"></i> Profile</div>
-    <div class="menu-item"><i class="fas fa-cog"></i> Settings</div>
-    <div class="menu-item"><i class="fas fa-history"></i> Transactions</div>
-    <div class="menu-item logout-btn" onclick="showLogoutPopup()">
-        <i class="fas fa-sign-out-alt"></i> Logout
-    </div>
 </div>
 
-<!-- লগআউট কনফার্মেশন -->
-<div id="logout-confirm-popup" style="display: none;">
-    <div class="logout-box">
-        <p>Are you sure you want to log out?</p>
-        <div class="logout-actions">
-            <button class="confirm-btn" onclick="performLogout()">Confirm</button>
-            <button class="cancel-btn" onclick="closeLogoutPopup()">Cancel</button>
+<!-- Notification Popup -->
+<div id="notif-popup" class="custom-popup" style="display:none;">
+
+    <button id="close-notif" onclick="document.getElementById('notif-popup').style.display='none'">×</button>
+
+    <div class="notif-container">
+
+        <div class="notif-box-item">
+            <span class="notif-date">15-07-2026</span>
+            <span class="notif-text">আপনার প্রোফাইল আপডেট হয়েছে।</span>
         </div>
+
+        <div class="notif-box-item">
+            <span class="notif-date">14-07-2026</span>
+            <span class="notif-text">নতুন একটি মেসেজ এসেছে।</span>
+        </div>
+
     </div>
+
+</div>
+
+<!-- Profile Popup -->
+<div id="profile-popup" class="custom-popup" style="display:none;">
+
+    <div class="menu-item"><i class="fas fa-user"></i> Profile</div>
+
+    <div class="menu-item"><i class="fas fa-cog"></i> Settings</div>
+
+    <div class="menu-item"><i class="fas fa-history"></i> Transactions</div>
+
+    <div class="menu-item logout-btn" onclick="showLogoutPopup()">
+
+        <i class="fas fa-sign-out-alt"></i> Logout
+
+    </div>
+
+</div>
+
+<!-- Logout Popup -->
+<div id="logout-confirm-popup" style="display:none;">
+
+    <div class="logout-box">
+
+        <p>Are you sure you want to log out?</p>
+
+        <div class="logout-actions">
+
+            <button class="confirm-btn" onclick="performLogout()">Confirm</button>
+
+            <button class="cancel-btn" onclick="closeLogoutPopup()">Cancel</button>
+
+        </div>
+
+    </div>
+
 </div>
 
 </header>
