@@ -455,9 +455,17 @@
             <input type="password" id="loginPassword" placeholder="Password">
 
             <label class="remember-box">
-                <input type="checkbox" id="rememberMe">
-                Remember Me
-            </label>
+
+    <input type="checkbox" id="agreeTerms" required>
+
+    <span>
+        I confirm that I am <strong>18+</strong> and have read, understood, and accepted the
+        <a href="terms.html" target="_blank">Terms &amp; Conditions</a>
+        and
+        <a href="privacy.html" target="_blank">Privacy Policy</a>.
+    </span>
+
+</label>
 
             <button class="auth-btn" onclick="loginUser()">
                 LOGIN
