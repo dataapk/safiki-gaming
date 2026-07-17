@@ -660,8 +660,30 @@ function toggleProfileMenu(event) {
     notif.style.display = 'none'; // অন্য মেনু বন্ধ
     menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
 }
+// ==============================
+// PROFILE SUB  START
+// ==============================
+function toggleProfileSubmenu(event) {
 
+    event.stopPropagation();
 
+    const submenu = document.getElementById("profile-submenu");
+    const arrow = document.querySelector(".profile-arrow");
+
+    if (submenu.style.display === "block") {
+
+        submenu.style.display = "none";
+        arrow.classList.remove("rotate");
+
+    } else {
+
+        submenu.style.display = "block";
+        arrow.classList.add("rotate");
+
+    }
+
+}
+// প্রোফাইলের জন্য আলাদা ফাংশন
 
 function confirmLogout() {
     // Add your logout logic here
