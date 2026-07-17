@@ -256,9 +256,9 @@ img, svg {
 
     position:absolute;
     top:60px;
-    right:5px;
+    right:8px;
 
-    width:260px;
+    width:290px;
 
     background:#151520;
     border:1px solid #2d2d44;
@@ -272,12 +272,12 @@ img, svg {
 #profile-popup .menu-item{
 
     display:flex;
-
+    align-items:center;
     justify-content:space-between;
 
-    align-items:center;
+    padding:13px 18px;
 
-    padding:12px 16px;
+    font-size:15px;
 
     cursor:pointer;
 
@@ -301,8 +301,11 @@ img, svg {
 }
 
 #profile-submenu{
+
     display:none;
-    padding-left:18px;
+
+    padding-left:22px;
+
 }
 
 .submenu-item{
