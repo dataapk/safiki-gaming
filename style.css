@@ -1840,9 +1840,9 @@ img, svg {
 }
 
     .auth-right{
-        width: 100%;
-        padding: 20px;
-    }
+    width: 100%;
+    padding: 10px 15px 15px;
+}
 
     .close-auth{
         position: absolute;
