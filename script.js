@@ -895,6 +895,11 @@ function openTransaction() {
     // ৩. জেড-ইনডেক্স জোর করে বাড়িয়ে দাও
     transSection.style.zIndex = "99999"; 
 }
+function closeTransaction() {
+    document.getElementById('transaction-history-section').style.display = 'none';
+    // চাইলে এখানে আবার প্রোফাইল পপআপটিও খুলে দিতে পারো
+    // document.getElementById('profile-popup').style.display = 'block';
+}
 async function fetchTransactions(type = 'deposits', filter = 'latest') {
     const container = document.getElementById('trans-list-container');
     container.innerHTML = '<p>Loading...</p>';
