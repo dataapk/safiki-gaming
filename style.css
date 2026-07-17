@@ -248,10 +248,38 @@ img, svg {
     z-index: 10000; /* মেনুর চেয়েও উপরে */
     cursor: pointer;
 }
-
+/* ১.START PROFILE CSS */
 .profile-icon {
     cursor: pointer; 
 }
+/* ===== Profile Dropdown ===== */
+
+.profile-toggle{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    cursor:pointer;
+}
+
+.profile-arrow{
+    font-size:12px;
+    transition:.3s ease;
+}
+
+.profile-arrow.rotate{
+    transform:rotate(180deg);
+}
+
+#profile-submenu{
+    display:none;
+    padding-left:18px;
+}
+
+.submenu-item{
+    font-size:14px;
+    padding:10px 12px;
+}
+/*END PROFILE CSS */
 
 /* ড্রপডাউন পজিশনিং */
 /* ১. ড্রপডাউন মেনু - ফুল পেজ ভিউ */
