@@ -885,15 +885,15 @@ function openSecuritySettings() {
 
 // ট্রানজেকশন লোড করার মেইন ফাংশন
 function openTransaction() {
-    // মেনু পপআপটি যদি ওপেন থাকে তা বন্ধ করে দেওয়া (অপশনাল, তুমি চাইলে এটাও সরাতে পারো)
-    const profilePopup = document.getElementById('profile-popup');
-    if(profilePopup) profilePopup.style.display = 'none';
-
-    // ট্রানজেকশন পেজটি ওপেন করা
+    // ১. প্রোফাইল পপআপটিকে পুরোপুরি হাইড করো
+    document.getElementById('profile-popup').style.display = 'none';
+    
+    // ২. ট্রানজেকশন কন্টেইনারটিকে দেখাও
     const transSection = document.getElementById('transaction-history-section');
-    if(transSection) {
-        transSection.style.display = 'block';
-    }
+    transSection.style.display = 'block'; 
+    
+    // ৩. জেড-ইনডেক্স জোর করে বাড়িয়ে দাও
+    transSection.style.zIndex = "99999"; 
 }
 async function fetchTransactions(type = 'deposits', filter = 'latest') {
     const container = document.getElementById('trans-list-container');
