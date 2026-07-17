@@ -663,6 +663,7 @@ function toggleProfileMenu(event) {
 // ==============================
 // PROFILE SUB  START
 // ==============================
+
 function toggleProfileSubmenu(event) {
 
     event.stopPropagation();
@@ -704,7 +705,13 @@ function openAccountInfo() {
 
 }
 
+/* ---------- CLOSE ---------- */
 
+function closeAccountInfo(){
+
+    document.getElementById("account-info-section").style.display="none";
+
+}
 
 // Load User Information from Supabase
 async function loadAccountInfo(){
