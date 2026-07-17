@@ -256,8 +256,7 @@ img, svg {
 
     position:absolute;
     top:60px;
-    right:12px;
-
+    right:-120px;
     width:290px;
 
     background:#151520;
@@ -277,7 +276,7 @@ img, svg {
 
     padding:13px 18px;
 
-    font-size:15px;
+    font-size:12px;
 
     cursor:pointer;
 
