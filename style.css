@@ -279,6 +279,265 @@ img, svg {
     font-size:14px;
     padding:10px 12px;
 }
+/* =====================================
+   Account Information Section
+===================================== */
+
+
+#account-info-section {
+
+    display: none;
+
+    width: 100%;
+
+    max-width: 650px;
+
+    margin: 30px auto;
+
+    padding: 25px;
+
+    background: #ffffff;
+
+    border-radius: 16px;
+
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+
+}
+
+
+
+/* Header */
+
+.account-header h2 {
+
+    font-size: 24px;
+
+    font-weight: 700;
+
+    margin-bottom: 25px;
+
+    color: #222;
+
+}
+
+
+
+/* Card */
+
+.account-card {
+
+    background: #fafafa;
+
+    padding: 20px;
+
+    border-radius: 14px;
+
+}
+
+
+
+/* Each Row */
+
+.account-row {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    margin-bottom: 15px;
+
+}
+
+
+
+.account-row label {
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: #555;
+
+}
+
+
+
+/* Inputs */
+
+.account-row input {
+
+    width: 100%;
+
+    padding: 12px 14px;
+
+    border-radius: 10px;
+
+    border: 1px solid #ddd;
+
+    outline: none;
+
+    font-size: 15px;
+
+    background: white;
+
+}
+
+
+
+.account-row input:focus {
+
+    border-color: #2563eb;
+
+}
+
+
+
+/* Read Only */
+
+.account-row input[readonly] {
+
+    background: #f1f5f9;
+
+    cursor: not-allowed;
+
+}
+
+
+
+/* Email Box */
+
+.email-box {
+
+    display: flex;
+
+    gap: 10px;
+
+    align-items: center;
+
+}
+
+
+
+.email-box input {
+
+    flex: 1;
+
+}
+
+
+
+/* Buttons */
+
+.account-card button {
+
+    padding: 11px 18px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #2563eb;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+
+}
+
+
+
+.account-card button:hover {
+
+    background: #1d4ed8;
+
+}
+
+
+
+/* Save Button */
+
+.save-btn {
+
+    width: 100%;
+
+    margin-top: 15px;
+
+    background: #16a34a !important;
+
+}
+
+
+
+.save-btn:hover {
+
+    background: #15803d !important;
+
+}
+
+
+
+/* Divider */
+
+.account-card hr {
+
+    border: none;
+
+    border-top: 1px solid #e5e7eb;
+
+    margin: 20px 0;
+
+}
+
+
+
+/* Read Only Text */
+
+.account-row small {
+
+    color:#64748b;
+
+}
+
+
+
+/* Mobile Responsive */
+
+@media(max-width:600px){
+
+
+    #account-info-section {
+
+        margin:15px;
+
+        padding:18px;
+
+    }
+
+
+
+    .email-box {
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+    }
+
+
+    .account-header h2 {
+
+        font-size:20px;
+
+    }
+
+
+}
 /*END PROFILE CSS */
 
 /* ড্রপডাউন পজিশনিং */
