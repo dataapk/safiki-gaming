@@ -1217,7 +1217,130 @@ select{
 /* ===============================
    END ACCOUNT INFORMATION CSS
 ================================ */
+
+
+
 /*END PROFILE CSS */
+
+/* ===============================
+   START TRANSACTION CSS
+================================ */
+
+/* ট্রানজেকশন কন্টেইনার মেইন পপআপ */
+.transaction-container {
+    position: absolute;
+    top: 60px; /* হেডার থেকে ঠিক নিচেই পজিশন হবে */
+    right: 20px;
+    width: 380px;
+    background: #0b0e1a;
+    border: 1px solid #2b2f40;
+    border-radius: 12px;
+    padding: 15px;
+    color: white;
+    z-index: 1000;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+/* হেডার */
+.trans-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.close-trans {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* টপ ট্যাব ডিজাইন */
+.trans-tabs {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 15px;
+}
+
+.tab-btn {
+    background: #161b2e;
+    border: none;
+    padding: 8px 12px;
+    color: #888;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.tab-btn.active {
+    background: #e67e22;
+    color: white;
+}
+
+/* কন্ট্রোল বার (কারেন্সি ও ফিল্টার) */
+.trans-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.currency-select, .filter-btn {
+    background: #161b2e;
+    color: #fff;
+    border: 1px solid #2b2f40;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+}
+
+.filter-btn.active {
+    border-color: #e67e22;
+}
+
+/* ট্রানজেকশন লিস্ট আইটেম */
+.trans-list {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.trans-item {
+    background: #121626;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border-left: 3px solid #e67e22;
+}
+
+.item-left {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.item-right {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    color: #777;
+}
+
+.status .paid {
+    color: #2ecc71;
+}
+
+/* কাস্টম স্ক্রলবার */
+.trans-list::-webkit-scrollbar {
+    width: 5px;
+}
+.trans-list::-webkit-scrollbar-thumb {
+    background: #2b2f40;
+}
+
+/* ===============================
+   END TRANSACTION CSS
+================================ */
 
 /* ড্রপডাউন পজিশনিং */
 /* ১. ড্রপডাউন মেনু - ফুল পেজ ভিউ */
