@@ -428,80 +428,65 @@
 
 <!-- ================= PROFILE POPUP ================= -->
 
-<div id="profile-popup" class="custom-popup" style="display:none;">
+<!-- Profile Popup -->
+<div id="profile-popup" style="display:none;">
 
-
-    <!-- Profile Main -->
-
-    <div class="menu-item profile-toggle"
-    onclick="toggleProfileSubmenu(event)">
-  <span> <i class="fas fa-user"></i> Profile</span>
- <i class="fas fa-chevron-down profile-arrow"></i>
- </div>
- <!-- Profile Dropdown SUB MENU -->
-    
-    <!-- Account Information -->
-<div id="profile-submenu" style="display:none;">
-
-    <div class="menu-item submenu-item" onclick="openAccountInfo()">
+    <!-- Profile -->
+    <div class="menu-item profile-toggle" onclick="toggleProfileSubmenu(event)">
 
         <div class="menu-left">
-            <i class="fas fa-id-card"></i>
-            <span>Account Information</span>
+            <i class="fas fa-user"></i>
+            <span>Profile</span>
         </div>
 
-        <i class="fas fa-chevron-right submenu-arrow"></i>
+        <i class="fas fa-chevron-down profile-arrow"></i>
 
     </div>
-     
-          <!-- KYC -->
 
-        <div class="menu-item submenu-item"
-        onclick="openKYCVerification()">
+    <!-- Profile Submenu -->
+    <div id="profile-submenu">
 
-            <i class="fas fa-shield-alt"></i>
-            KYC Verification
+        <div class="menu-item submenu-item" onclick="openAccountInfo()">
+
+            <div class="menu-left">
+                <i class="fas fa-id-card"></i>
+                <span>Account Information</span>
+            </div>
 
         </div>
- </div>
 
-   <!-- Settings -->
+        <div class="menu-item submenu-item" onclick="openKYC()">
 
+            <div class="menu-left">
+                <i class="fas fa-shield-alt"></i>
+                <span>KYC Verification</span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Transactions -->
     <div class="menu-item">
 
-        <i class="fas fa-cog"></i>
-        Settings
-
-    </div>
-  <!-- Security -->
-
-    <div class="menu-item submenu-item"
-    onclick="openSecuritySettings()">
-
-        <i class="fas fa-lock"></i>
-        Security
+        <div class="menu-left">
+            <i class="fas fa-history"></i>
+            <span>Transactions</span>
+        </div>
 
     </div>
 
- <!-- Transaction History -->
+    <!-- Logout -->
+    <div class="menu-item logout-btn" onclick="showLogoutPopup()">
 
-    <div class="menu-item submenu-item">
-
-        <i class="fas fa-history"></i>
-        Transactions
+        <div class="menu-left">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Logout</span>
+        </div>
 
     </div>
 
-  <!-- Logout -->
 
-    <div class="menu-item logout-btn"
-    onclick="showLogoutPopup()">
-
-
-        <i class="fas fa-sign-out-alt"></i>
-        Logout
-  </div>
-</div>
 
 <!-- ================= ACCOUNT INFORMATION PAGE ================= -->
 
