@@ -683,6 +683,23 @@ function toggleProfileSubmenu(event) {
     }
 
 }
+function openAccountInfo() {
+
+    alert("Account Information - Coming Soon");
+
+}
+
+function openKYCVerification() {
+
+    alert("KYC Verification - Coming Soon");
+
+}
+
+function openSecuritySettings() {
+
+    alert("Security Settings - Coming Soon");
+
+}
 // প্রোফাইলের জন্য আলাদা ফাংশন
 
 function confirmLogout() {
