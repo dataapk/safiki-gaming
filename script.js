@@ -882,7 +882,19 @@ function openSecuritySettings() {
 
 }
 // প্রোফাইলের জন্য আলাদা ফাংশন
+
 // ট্রানজেকশন লোড করার মেইন ফাংশন
+function openTransaction() {
+    // মেনু পপআপটি যদি ওপেন থাকে তা বন্ধ করে দেওয়া (অপশনাল, তুমি চাইলে এটাও সরাতে পারো)
+    const profilePopup = document.getElementById('profile-popup');
+    if(profilePopup) profilePopup.style.display = 'none';
+
+    // ট্রানজেকশন পেজটি ওপেন করা
+    const transSection = document.getElementById('transaction-history-section');
+    if(transSection) {
+        transSection.style.display = 'block';
+    }
+}
 async function fetchTransactions(type = 'deposits', filter = 'latest') {
     const container = document.getElementById('trans-list-container');
     container.innerHTML = '<p>Loading...</p>';
