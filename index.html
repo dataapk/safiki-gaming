@@ -488,83 +488,215 @@
 
 
 
-<!-- ================= ACCOUNT INFORMATION PAGE ================= -->
+<!-- ================= ACCOUNT INFORMATION ================= -->
 
 <div id="account-info-section" style="display:none;">
 
+    <!-- Header -->
     <div class="account-header">
 
-        <h2>
-            <i class="fas fa-user-circle"></i>
-            Account Information
-        </h2>
+        <div class="account-profile">
 
-        <button class="close-account-btn" onclick="closeAccountInfo()">
+            <div class="profile-photo-box">
+
+                <img id="profile-photo"
+                     src="images/default-user.png"
+                     alt="Profile">
+
+                <button class="change-photo-btn"
+                        onclick="changeProfilePhoto()">
+                    <i class="fas fa-camera"></i>
+                </button>
+
+            </div>
+
+            <div class="profile-details">
+
+                <h3 id="header-user-id">
+                    SFK950001
+                </h3>
+
+                <p id="header-referral-code">
+                    RFSFK950001
+                </p>
+
+            </div>
+
+        </div>
+
+        <button class="close-account-btn"
+                onclick="closeAccountInfo()">
+
             <i class="fas fa-times"></i>
+
         </button>
 
     </div>
 
+
+    <!-- Card -->
     <div class="account-card">
 
-        <!-- Profile Photo -->
-        <div class="account-row">
 
-            <label>Profile Photo</label>
+        <!-- Full Name -->
+        <div class="info-item">
 
-            <button onclick="changeProfilePhoto()">
-                Change Photo
+            <div>
+
+                <label>Full Name</label>
+
+                <p id="display-fullname">
+                    MD Ayan Ali
+                </p>
+
+            </div>
+
+            <button onclick="editFullName()">
+
+                Edit
+
             </button>
 
         </div>
 
         <hr>
 
-        <!-- Full Name -->
-        <div class="account-row">
-
-            <label>Full Name</label>
-
-            <input
-                type="text"
-                id="user-fullname"
-                placeholder="Enter your full name">
-
-        </div>
-
-        <hr>
-
-        <!-- User ID -->
-        <div class="account-row">
-
-            <label>User ID</label>
-
-            <input
-                type="text"
-                id="user-id"
-                readonly>
-
-            <small>🔒 Read Only</small>
-
-        </div>
-
-        <hr>
 
         <!-- Email -->
-        <div class="account-row">
+        <div class="info-item">
 
-            <label>Email Address</label>
+            <div>
 
-            <div class="email-box">
+                <label>Email</label>
 
-                <input
-                    type="email"
-                    id="user-email"
-                    readonly>
+                <p id="display-email">
+                    user@email.com
+                </p>
 
-                <button onclick="openChangeEmail()">
-                    Change
-                </button>
+            </div>
+
+            <button onclick="openChangeEmail()">
+
+                Change
+
+            </button>
+
+        </div>
+
+        <hr>
+
+
+        <!-- Mobile -->
+        <div class="info-item">
+
+            <div>
+
+                <label>Mobile Number</label>
+
+                <p id="display-mobile">
+
+                    Not Added
+
+                </p>
+
+            </div>
+
+            <button onclick="editMobile()">
+
+                Edit
+
+            </button>
+
+        </div>
+
+        <hr>
+
+
+        <!-- Address -->
+        <div class="info-item">
+
+            <div>
+
+                <label>Address</label>
+
+                <p id="display-address">
+
+                    Not Added
+
+                </p>
+
+            </div>
+
+            <button onclick="editAddress()">
+
+                Edit
+
+            </button>
+
+        </div>
+
+        <hr>
+
+
+        <!-- Hidden Address Form -->
+
+        <div id="address-edit-box" style="display:none;">
+
+            <div class="input-group">
+
+                <label>Address Line</label>
+
+                <input type="text"
+                       id="address-line">
+
+            </div>
+
+
+            <div class="two-column">
+
+                <div>
+
+                    <label>Village / Area</label>
+
+                    <input type="text"
+                           id="address-village">
+
+                </div>
+
+                <div>
+
+                    <label>District</label>
+
+                    <input type="text"
+                           id="address-district">
+
+                </div>
+
+            </div>
+
+
+            <div class="two-column">
+
+                <div>
+
+                    <label>Postal Code</label>
+
+                    <input type="text"
+                           id="postal-code">
+
+                </div>
+
+                <div>
+
+                    <label>Country</label>
+
+                    <select id="country">
+
+                        <option>Bangladesh</option>
+
+                    </select>
+
+                </div>
 
             </div>
 
@@ -572,74 +704,30 @@
 
         <hr>
 
-        <!-- Mobile -->
-        <div class="account-row">
-
-            <label>Mobile Number (Optional)</label>
-
-            <input
-                type="tel"
-                id="user-mobile"
-                placeholder="+8801XXXXXXXXX">
-
-        </div>
-
-        <hr>
-
-        <!-- Address -->
-        <div class="account-row">
-
-            <label>Address</label>
-
-            <textarea
-                id="user-address"
-                rows="3"
-                placeholder="Enter your full address"></textarea>
-
-            <button onclick="updateAddress()">
-                Edit Address
-            </button>
-
-        </div>
-
-        <hr>
-
-        <!-- Referral -->
-        <div class="account-row">
-
-            <label>Referral Code</label>
-
-            <input
-                type="text"
-                id="user-referral"
-                readonly>
-
-            <small>🔒 Read Only</small>
-
-        </div>
-
-        <hr>
 
         <!-- Member Since -->
-        <div class="account-row">
 
-            <label>Member Since</label>
+        <div class="info-item no-button">
 
-            <input
-                type="text"
-                id="member-since"
-                readonly>
+            <div>
 
-            <small>🔒 Read Only</small>
+                <label>Member Since</label>
+
+                <p id="member-since">
+
+                    17 July 2026
+
+                </p>
+
+            </div>
 
         </div>
 
-        <hr>
 
         <!-- Save -->
-        <button
-            class="save-btn"
-            onclick="saveAccountInfo()">
+
+        <button class="save-btn"
+                onclick="saveAccountInfo()">
 
             Save Changes
 
