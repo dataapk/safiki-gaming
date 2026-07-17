@@ -308,9 +308,21 @@ img, svg {
 
 }
 
+.menu-left{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
 .submenu-item{
-    font-size:14px;
-    padding:10px 12px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.submenu-arrow{
+    font-size:12px;
+    color:#bfa14a;
 }
 /* =====================================
    Account Information Section
