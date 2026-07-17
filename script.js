@@ -794,7 +794,66 @@ function updateMobile(){
     alert("Mobile Update Flow Opening...");
 
 }
+/* ---------- FULL NAME ---------- */
 
+function editFullName(){
+
+    let current=document.getElementById("display-fullname").innerText;
+
+    let value=prompt("Enter Full Name",current);
+
+    if(value!==null && value.trim()!=""){
+
+        document.getElementById("display-fullname").innerText=value;
+
+    }
+
+}
+
+
+/* ---------- EMAIL ---------- */
+
+function openChangeEmail(){
+
+    alert("Email Verification Module Coming Soon");
+
+}
+
+
+/* ---------- MOBILE ---------- */
+
+function editMobile(){
+
+    let current=document.getElementById("display-mobile").innerText;
+
+    let value=prompt("Enter Mobile Number",current);
+
+    if(value!==null && value.trim()!=""){
+
+        document.getElementById("display-mobile").innerText=value;
+
+    }
+
+}
+
+
+/* ---------- ADDRESS ---------- */
+
+function editAddress(){
+
+    let box=document.getElementById("address-edit-box");
+
+    if(box.style.display==="block"){
+
+        box.style.display="none";
+
+    }else{
+
+        box.style.display="block";
+
+    }
+
+}
 
 
 // Save Account Information
@@ -803,7 +862,7 @@ function saveAccountInfo(){
     alert("Account Information Saved");
 
 }
-// END  Account Information
+// END  Account Information====================================================================
 function openKYCVerification() {
 
     alert("KYC Verification - Coming Soon");
