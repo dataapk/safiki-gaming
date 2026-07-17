@@ -415,14 +415,11 @@ img, svg {
 ================================= */
 
 
-/* ===================================
-   ACCOUNT INFORMATION POPUP DESIGN
-=================================== */
+/* =========================================
+   ACCOUNT INFORMATION
+========================================= */
 
-
-#account-info-section {
-
-    display:none;
+#account-info-section{
 
     position:fixed;
 
@@ -430,330 +427,371 @@ img, svg {
 
     left:50%;
 
-    transform:translate(-50%, -50%);
+    transform:translate(-50%,-50%);
 
-    width:95%;
-
-    max-width:520px;
+    width:700px;
+    max-width:95%;
 
     max-height:90vh;
 
     overflow-y:auto;
 
-    background:#111111;
+    background:#111;
 
-    border:2px solid #d8b12c;
+    border:2px solid #d4af37;
 
     border-radius:18px;
 
-    padding:25px;
+    box-shadow:0 0 35px rgba(212,175,55,.25);
 
-    z-index:9999;
-
-    color:white;
-
-    box-shadow:
-    0 0 25px rgba(216,177,44,0.35);
-
-    animation:accountPopup 0.3s ease;
+    z-index:99999;
 
 }
 
 
+/* Header */
 
-/* Close Button */
+.account-header{
 
-#account-info-section::before {
+    display:flex;
 
-    content:"×";
+    justify-content:space-between;
 
-    position:absolute;
+    align-items:center;
 
-    top:-45px;
+    padding:18px 24px;
 
-    right:0;
+    border-bottom:1px solid rgba(212,175,55,.25);
 
-    width:38px;
+    background:linear-gradient(135deg,#0d0d0d,#1b1b1b,#2d1f05);
 
-    height:38px;
+}
 
-    background:#d8b12c;
-
-    color:#111;
-
-    border-radius:50%;
+.account-header h2{
 
     display:flex;
 
     align-items:center;
 
-    justify-content:center;
+    gap:10px;
 
-    font-size:28px;
-
-    font-weight:bold;
-
-}
-
-
-
-/* Header */
-
-
-.account-header {
-
-    text-align:center;
-
-    border-bottom:1px solid #d8b12c;
-
-    padding-bottom:15px;
-
-    margin-bottom:20px;
-
-}
-
-
-
-.account-header h2 {
+    margin:0;
 
     color:#ffd700;
 
-    font-size:26px;
+    font-size:24px;
 
-    font-weight:800;
+}
+
+.account-header h2 i{
+
+    color:#ffd700;
 
 }
 
 
+/* Close */
+
+.close-account-btn{
+
+    width:38px;
+
+    height:38px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#222;
+
+    color:#ffd700;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.close-account-btn:hover{
+
+    background:#d4af37;
+
+    color:#111;
+
+}
 
 
 /* Card */
 
+.account-card{
 
-.account-card {
-
-    background:#151515;
-
-    border-radius:14px;
-
-    padding:18px;
+    padding:24px;
 
 }
 
 
+/* Row */
 
-/* Rows */
-
-
-.account-row {
-
-    margin-bottom:18px;
-
-}
-
-
-
-.account-row label {
-
-    display:block;
-
-    color:#ddd;
-
-    font-size:14px;
-
-    margin-bottom:8px;
-
-}
-
-
-
-/* Input */
-
-
-.account-row input {
-
-    width:100%;
-
-    height:45px;
-
-    background:#111;
-
-    color:white;
-
-    border:1px solid #333;
-
-    border-radius:10px;
-
-    padding:0 14px;
-
-    font-size:15px;
-
-}
-
-
-
-.account-row input:focus {
-
-    border-color:#d8b12c;
-
-    outline:none;
-
-}
-
-
-
-
-/* Read Only */
-
-.account-row small {
-
-    color:#d8b12c;
-
-}
-
-
-
-
-/* Email Box */
-
-
-.email-box {
+.account-row{
 
     display:flex;
 
+    flex-direction:column;
+
     gap:10px;
-
-}
-
-
-
-.email-box button {
-
-
-    background:#d8b12c;
-
-    color:#111;
-
-    border:none;
-
-    border-radius:10px;
-
-    padding:0 15px;
-
-    font-weight:bold;
-
-}
-
-
-
-/* Normal Buttons */
-
-
-.account-card button {
-
-
-    background:#d8b12c;
-
-    color:#111;
-
-    border:none;
-
-    border-radius:10px;
-
-    padding:12px 20px;
-
-    font-weight:700;
-
-    cursor:pointer;
-
-}
-
-
-
-/* Save Button */
-
-
-.save-btn {
-
-    width:100%;
-
-    margin-top:15px;
-
-    background:#ffd700 !important;
-
-    color:#111 !important;
-
-    font-size:16px;
-
-}
-
-
-
-/* Divider */
-
-
-.account-card hr {
-
-    border:none;
-
-    border-top:1px solid #333;
 
     margin:18px 0;
 
 }
 
 
+/* Label */
 
-/* Animation */
+.account-row label{
 
+    font-size:15px;
 
-@keyframes accountPopup {
+    font-weight:600;
 
-
-    from {
-
-        opacity:0;
-
-        transform:
-        translate(-50%,-45%);
-
-    }
-
-
-    to {
-
-        opacity:1;
-
-        transform:
-        translate(-50%,-50%);
-
-    }
+    color:#fff;
 
 }
 
 
+/* Inputs */
 
-/* Mobile */
+.account-row input,
+
+.account-row textarea{
+
+    width:100%;
+
+    background:#1b1b1b;
+
+    border:1px solid #444;
+
+    border-radius:10px;
+
+    padding:13px 15px;
+
+    color:#fff;
+
+    font-size:15px;
+
+    transition:.3s;
+
+}
+
+.account-row input:focus,
+
+.account-row textarea:focus{
+
+    outline:none;
+
+    border-color:#d4af37;
+
+    box-shadow:0 0 12px rgba(212,175,55,.35);
+
+}
 
 
-@media(max-width:600px){
+/* Textarea */
+
+.account-row textarea{
+
+    resize:vertical;
+
+    min-height:90px;
+
+}
 
 
-    #account-info-section {
+/* Read Only */
 
-        width:92%;
+.account-row input[readonly]{
 
-        padding:18px;
+    background:#181818;
 
-    }
+    color:#cfcfcf;
+
+    cursor:not-allowed;
+
+}
 
 
-    .email-box {
+/* Small */
 
-        flex-direction:column;
+.account-row small{
 
-    }
+    color:#9c9c9c;
 
+    font-size:12px;
+
+}
+
+
+/* Email Box */
+
+.email-box{
+
+    display:flex;
+
+    gap:10px;
+
+    align-items:center;
+
+}
+
+.email-box input{
+
+    flex:1;
+
+}
+
+
+/* Buttons */
+
+.account-row button,
+
+.save-btn{
+
+    background:linear-gradient(90deg,#d4af37,#ffd700);
+
+    color:#111;
+
+    border:none;
+
+    border-radius:10px;
+
+    padding:12px 18px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.account-row button:hover,
+
+.save-btn:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 0 18px rgba(212,175,55,.45);
+
+}
+
+
+/* Save */
+
+.save-btn{
+
+    width:100%;
+
+    margin-top:25px;
+
+    padding:14px;
+
+    font-size:16px;
+
+}
+
+
+/* Divider */
+
+.account-card hr{
+
+    border:none;
+
+    border-top:1px solid rgba(212,175,55,.18);
+
+    margin:22px 0;
+
+}
+
+
+/* Scroll */
+
+#account-info-section::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+#account-info-section::-webkit-scrollbar-thumb{
+
+    background:#d4af37;
+
+    border-radius:10px;
+
+}
+
+
+/* =========================
+   Mobile
+========================= */
+
+@media(max-width:768px){
+
+#account-info-section{
+
+    width:95%;
+
+    max-height:92vh;
+
+}
+
+.account-header{
+
+    padding:14px 18px;
+
+}
+
+.account-header h2{
+
+    font-size:20px;
+
+}
+
+.account-card{
+
+    padding:18px;
+
+}
+
+.email-box{
+
+    flex-direction:column;
+
+}
+
+.email-box button{
+
+    width:100%;
+
+}
+
+.account-row{
+
+    margin:14px 0;
+
+}
+
+.account-row input,
+
+.account-row textarea{
+
+    padding:11px 13px;
+
+}
+
+.save-btn{
+
+    padding:13px;
+
+}
 
 }
 /*END PROFILE CSS */
