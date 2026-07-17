@@ -396,11 +396,145 @@
     </div>
 
     <!-- Profile Dropdown -->
+<!-- Profile Dropdown -->
 <div id="profile-submenu" style="display:none;">
 
+    <!-- এটা তোমার আগের code, একই জায়গায় থাকবে -->
     <div class="menu-item submenu-item" onclick="openAccountInfo()">
         <i class="fas fa-id-card"></i> Account Information
     </div>
+
+</div>
+
+
+<!-- ================================= -->
+<!-- Account Information Page/Section -->
+<!-- এটা profile dropdown এর নিচে বসবে -->
+<!-- ================================= -->
+
+<div id="account-info-section" style="display:none;">
+
+    <div class="account-header">
+        <h2>
+            <i class="fas fa-user-circle"></i>
+            Account Information
+        </h2>
+    </div>
+
+
+    <div class="account-card">
+
+
+        <!-- Profile Photo -->
+
+        <div class="account-row">
+
+            <label>
+                Profile Photo
+            </label>
+
+            <button>
+                Change Photo
+            </button>
+
+        </div>
+
+
+        <hr>
+
+
+        <!-- User ID -->
+
+        <div class="account-row">
+
+            <label>
+                User ID
+            </label>
+
+            <input 
+            type="text"
+            id="user-id"
+            readonly>
+
+            <small>
+                🔒 Read Only
+            </small>
+
+        </div>
+
+
+        <hr>
+
+
+        <!-- Email -->
+
+        <div class="account-row">
+
+            <label>
+                Email
+            </label>
+
+
+            <div class="email-box">
+
+                <input 
+                type="email"
+                id="user-email"
+                readonly>
+
+
+                <button onclick="openChangeEmail()">
+                    Change Email
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <hr>
+
+
+        <!-- Mobile -->
+
+        <div class="account-row">
+
+            <label>
+                Mobile Number (Optional)
+            </label>
+
+
+            <input
+            type="tel"
+            id="user-mobile"
+            placeholder="+8801XXXXXXXXX">
+
+
+            <button onclick="updateMobile()">
+                Add / Update
+            </button>
+
+
+        </div>
+
+
+        <hr>
+
+
+        <!-- Save -->
+
+        <button 
+        class="save-btn"
+        onclick="saveAccountInfo()">
+
+            Save Changes
+
+        </button>
+
+
+    </div>
+
+</div>
 
     <div class="menu-item submenu-item" onclick="openKYCVerification()">
         <i class="fas fa-shield-alt"></i> KYC Verification
