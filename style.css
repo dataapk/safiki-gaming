@@ -274,12 +274,11 @@ img, svg {
     align-items:center;
     justify-content:space-between;
 
-    padding:13px 18px;
+    padding:10px 14px;
 
-    font-size:12px;
+    font-size:13px;
 
     cursor:pointer;
-
 }
 /* ===== Profile Dropdown ===== */
 
@@ -300,28 +299,28 @@ img, svg {
 }
 
 #profile-submenu{
-
     display:none;
-
-    padding-left:22px;
-
+    padding-left:0;
 }
 
 .menu-left{
     display:flex;
     align-items:center;
-    gap:10px;
+    gap:8px;
 }
 
 .submenu-item{
     display:flex;
     justify-content:space-between;
     align-items:center;
+
+    padding:10px 14px;
 }
 
 .submenu-arrow{
-    font-size:12px;
+    font-size:10px;
     color:#bfa14a;
+    margin-left:6px;
 }
 /* =====================================
    Account Information Section
