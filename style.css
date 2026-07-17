@@ -2027,7 +2027,8 @@ img, svg {
 .password-box{
     position:relative;
     width:100%;
-    margin-bottom:15px;
+    margin-top:6px;
+    margin-bottom:6px;
 }
 
 .password-box input{
