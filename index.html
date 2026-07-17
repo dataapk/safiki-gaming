@@ -435,42 +435,26 @@
 
     <div class="menu-item profile-toggle"
     onclick="toggleProfileSubmenu(event)">
+  <span> <i class="fas fa-user"></i> Profile</span>
+ <i class="fas fa-chevron-down profile-arrow"></i>
+ </div>
+ <!-- Profile Dropdown SUB MENU -->
+    
+    <!-- Account Information -->
+<div id="profile-submenu" style="display:none;">
 
+    <div class="menu-item submenu-item" onclick="openAccountInfo()">
 
-        <span>
-            <i class="fas fa-user"></i>
-            Profile
-        </span>
-
-
-        <i class="fas fa-chevron-down profile-arrow"></i>
-
-
-    </div>
-
-
-
-
-    <!-- Profile Dropdown SUB MENU -->
-
-    <div id="profile-submenu" style="display:none;">
-
-
-
-        <!-- Account Information -->
-
-        <div class="menu-item submenu-item"
-        onclick="openAccountInfo()">
-
+        <div class="menu-left">
             <i class="fas fa-id-card"></i>
-            Account Information
-
+            <span>Account Information</span>
         </div>
 
+        <i class="fas fa-chevron-right submenu-arrow"></i>
 
-
-
-        <!-- KYC -->
+    </div>
+     
+          <!-- KYC -->
 
         <div class="menu-item submenu-item"
         onclick="openKYCVerification()">
@@ -479,16 +463,9 @@
             KYC Verification
 
         </div>
+ </div>
 
-
-
-    </div>
-
-
-
-
-
-    <!-- Settings -->
+   <!-- Settings -->
 
     <div class="menu-item">
 
@@ -496,11 +473,7 @@
         Settings
 
     </div>
-
-
-
-
-    <!-- Security -->
+  <!-- Security -->
 
     <div class="menu-item submenu-item"
     onclick="openSecuritySettings()">
@@ -510,10 +483,7 @@
 
     </div>
 
-
-
-
-    <!-- Transaction History -->
+ <!-- Transaction History -->
 
     <div class="menu-item submenu-item">
 
@@ -522,11 +492,7 @@
 
     </div>
 
-
-
-
-
-    <!-- Logout -->
+  <!-- Logout -->
 
     <div class="menu-item logout-btn"
     onclick="showLogoutPopup()">
@@ -534,17 +500,8 @@
 
         <i class="fas fa-sign-out-alt"></i>
         Logout
-
-
-    </div>
-
-
-
+  </div>
 </div>
-
-
-
-
 
 <!-- ================= ACCOUNT INFORMATION PAGE ================= -->
 
@@ -561,17 +518,10 @@
             Account Information
 
         </h2>
+  </div>
 
-
-    </div>
-
-
-
-
-    <div class="account-card">
-
-
-        <div class="account-row">
+  <div class="account-card">
+  <div class="account-row">
 
 
             <label>
@@ -582,19 +532,10 @@
             <button>
                 Change Photo
             </button>
+     </div>
+  <hr>
 
-
-        </div>
-
-
-
-
-        <hr>
-
-
-
-
-        <div class="account-row">
+  <div class="account-row">
 
 
             <label>
