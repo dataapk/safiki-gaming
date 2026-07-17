@@ -351,132 +351,289 @@
         <i class="fas fa-bell"></i>
     </div>
 
+
     <div class="actions-box" onclick="toggleProfileMenu(event)">
         <i class="fas fa-user-circle"></i>
     </div>
 
 </div>
 
+
 <div id="guest-actions-area" style="display:none; gap:10px; align-items:center;">
 
-    <button class="login-btn" onclick="openLogin()">Login</button>
+    <button class="login-btn" onclick="openLogin()">
+        Login
+    </button>
 
-    <button class="signup-btn" onclick="openSignup()">Sign Up</button>
+
+    <button class="signup-btn" onclick="openSignup()">
+        Sign Up
+    </button>
 
 </div>
 
-<!-- Notification Popup -->
+
+
+
+<!-- ================= NOTIFICATION POPUP ================= -->
+
 <div id="notif-popup" class="custom-popup" style="display:none;">
 
-    <button id="close-notif" onclick="document.getElementById('notif-popup').style.display='none'">×</button>
+
+    <button id="close-notif"
+    onclick="document.getElementById('notif-popup').style.display='none'">
+        ×
+    </button>
+
 
     <div class="notif-container">
 
-        <div class="notif-box-item">
-            <span class="notif-date">15-07-2026</span>
-            <span class="notif-text">আপনার প্রোফাইল আপডেট হয়েছে।</span>
-        </div>
 
         <div class="notif-box-item">
-            <span class="notif-date">14-07-2026</span>
-            <span class="notif-text">নতুন একটি মেসেজ এসেছে।</span>
+
+            <span class="notif-date">
+                15-07-2026
+            </span>
+
+
+            <span class="notif-text">
+                আপনার প্রোফাইল আপডেট হয়েছে।
+            </span>
+
         </div>
+
+
+
+        <div class="notif-box-item">
+
+            <span class="notif-date">
+                14-07-2026
+            </span>
+
+
+            <span class="notif-text">
+                নতুন একটি মেসেজ এসেছে।
+            </span>
+
+        </div>
+
 
     </div>
 
 </div>
 
-<!-- Profile Popup -->
+
+
+
+
+<!-- ================= PROFILE POPUP ================= -->
+
 <div id="profile-popup" class="custom-popup" style="display:none;">
 
-    <!-- Profile -->
-    <div class="menu-item profile-toggle" onclick="toggleProfileSubmenu(event)">
-        <span><i class="fas fa-user"></i> Profile</span>
+
+    <!-- Profile Main -->
+
+    <div class="menu-item profile-toggle"
+    onclick="toggleProfileSubmenu(event)">
+
+
+        <span>
+            <i class="fas fa-user"></i>
+            Profile
+        </span>
+
+
         <i class="fas fa-chevron-down profile-arrow"></i>
+
+
     </div>
 
-    <!-- Profile Dropdown -->
-<!-- Profile Dropdown -->
-<div id="profile-submenu" style="display:none;">
 
-    <!-- এটা তোমার আগের code, একই জায়গায় থাকবে -->
-    <div class="menu-item submenu-item" onclick="openAccountInfo()">
-        <i class="fas fa-id-card"></i> Account Information
+
+
+    <!-- Profile Dropdown SUB MENU -->
+
+    <div id="profile-submenu" style="display:none;">
+
+
+
+        <!-- Account Information -->
+
+        <div class="menu-item submenu-item"
+        onclick="openAccountInfo()">
+
+            <i class="fas fa-id-card"></i>
+            Account Information
+
+        </div>
+
+
+
+
+        <!-- KYC -->
+
+        <div class="menu-item submenu-item"
+        onclick="openKYCVerification()">
+
+            <i class="fas fa-shield-alt"></i>
+            KYC Verification
+
+        </div>
+
+
+
     </div>
 
-</div>
-<!-- Profile Popup END -->
+
+
+
+
+    <!-- Settings -->
+
+    <div class="menu-item">
+
+        <i class="fas fa-cog"></i>
+        Settings
+
+    </div>
+
+
+
+
+    <!-- Security -->
+
+    <div class="menu-item submenu-item"
+    onclick="openSecuritySettings()">
+
+        <i class="fas fa-lock"></i>
+        Security
+
+    </div>
+
+
+
+
+    <!-- Transaction History -->
+
+    <div class="menu-item submenu-item">
+
+        <i class="fas fa-history"></i>
+        Transaction History
+
+    </div>
+
+
+
+
+
+    <!-- Logout -->
+
+    <div class="menu-item logout-btn"
+    onclick="showLogoutPopup()">
+
+
+        <i class="fas fa-sign-out-alt"></i>
+        Logout
+
+
+    </div>
+
+
+
 </div>
 
-<!-- ================================= -->
-<!-- Account Information Page/Section -->
-<!-- এটা profile dropdown এর নিচে বসবে -->
-<!-- ================================= -->
+
+
+
+
+<!-- ================= ACCOUNT INFORMATION PAGE ================= -->
+
 
 <div id="account-info-section" style="display:none;">
 
+
     <div class="account-header">
+
         <h2>
+
             <i class="fas fa-user-circle"></i>
+
             Account Information
+
         </h2>
+
+
     </div>
+
+
 
 
     <div class="account-card">
 
 
-        <!-- Profile Photo -->
-
         <div class="account-row">
+
 
             <label>
                 Profile Photo
             </label>
 
+
             <button>
                 Change Photo
             </button>
 
+
         </div>
+
+
 
 
         <hr>
 
 
-        <!-- User ID -->
+
 
         <div class="account-row">
+
 
             <label>
                 User ID
             </label>
+
 
             <input 
             type="text"
             id="user-id"
             readonly>
 
+
             <small>
                 🔒 Read Only
             </small>
 
+
         </div>
+
+
 
 
         <hr>
 
 
-        <!-- Email -->
+
 
         <div class="account-row">
+
 
             <label>
                 Email
             </label>
 
 
+
             <div class="email-box">
+
 
                 <input 
                 type="email"
@@ -485,20 +642,27 @@
 
 
                 <button onclick="openChangeEmail()">
+
                     Change Email
+
                 </button>
+
 
             </div>
 
+
         </div>
+
+
 
 
         <hr>
 
 
-        <!-- Mobile -->
+
 
         <div class="account-row">
+
 
             <label>
                 Mobile Number (Optional)
@@ -511,18 +675,23 @@
             placeholder="+8801XXXXXXXXX">
 
 
+
             <button onclick="updateMobile()">
+
                 Add / Update
+
             </button>
 
 
         </div>
 
 
+
+
         <hr>
 
 
-        <!-- Save -->
+
 
         <button 
         class="save-btn"
@@ -533,32 +702,11 @@
         </button>
 
 
+
     </div>
+
 
 </div>
-
-    <div class="menu-item submenu-item" onclick="openKYCVerification()">
-        <i class="fas fa-shield-alt"></i> KYC Verification
-    </div>
-
-    <div class="menu-item submenu-item" onclick="openSecuritySettings()">
-        <i class="fas fa-lock"></i> Security
-    </div>
-
-</div>
-
-    <div class="menu-item"><i class="fas fa-cog"></i> Settings</div>
-
-    <div class="menu-item"><i class="fas fa-history"></i> Transactions</div>
-
-    <div class="menu-item logout-btn" onclick="showLogoutPopup()">
-
-        <i class="fas fa-sign-out-alt"></i> Logout
-
-    </div>
-
-</div>
-
 <!-- Logout Popup -->
 <div id="logout-confirm-popup" style="display:none;">
 
