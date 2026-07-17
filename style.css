@@ -1853,56 +1853,56 @@ img, svg {
         height: 36px;
     }
 
-    .auth-left h1{
-    font-size:22px;
-    margin-top:15px;
-    margin-bottom:4px;
-    line-height:1.1;
-}
-
-    .auth-left h2{
-    font-size:18px;
-    margin-bottom:4px;
-    line-height:1.2;
-}
-
-    .bonus-card{
-        padding: 14px;
-        margin: 10px 0;
-    }
-
-    .bonus-card h1{
-    font-size:34px;
+   .auth-left h1{
+    font-size:20px;
+    margin-top:6px;
     margin-bottom:2px;
-    line-height:1;
+    line-height:1.05;
 }
 
-    .bonus-card h3{
+.auth-left h2{
     font-size:16px;
     margin-bottom:2px;
     line-height:1.1;
 }
 
-    .bonus-card p{
-    font-size:12px;
-    line-height:1.25;
+.bonus-card{
+    padding:8px;
+    margin:4px 0;
+}
+
+.bonus-card h1{
+    font-size:28px;
+    margin-bottom:0;
+    line-height:1;
+}
+
+.bonus-card h3{
+    font-size:15px;
+    margin:2px 0;
+    line-height:1.1;
+}
+
+.bonus-card p{
+    font-size:11px;
+    line-height:1.2;
     margin:0;
 }
 
-    .auth-right h2{
-        font-size: 24px;
-        margin-bottom: 10px;
-    }
+.auth-right h2{
+    font-size:24px;
+    margin-bottom:8px;
+}
 
-    .auth-right input{
-        padding: 12px;
-        margin-bottom: 6px;
-    }
+.auth-right input{
+    padding:10px 12px;
+    margin-bottom:5px;
+}
 
-    .auth-btn{
-        padding: 12px;
-        margin-top: 8px;
-    }
+.auth-btn{
+    padding:11px;
+    margin-top:6px;
+}
 
     .switch-text{
         margin-top: 14px;
