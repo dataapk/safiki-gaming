@@ -1225,6 +1225,18 @@ select{
 /* ===============================
    START TRANSACTION CSS
 ================================ */
+#profile-popup {
+    z-index: 1000; /* প্রোফাইল মেনু নিচে থাকবে */
+}
+
+#transaction-history-section {
+    z-index: 99999; /* ট্রানজেকশন পপআপ সবার উপরে থাকবে */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
 
 /* ট্রানজেকশন কন্টেইনার - ফুল বক্স স্টাইল */
 .transaction-container {
