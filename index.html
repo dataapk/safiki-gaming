@@ -389,7 +389,28 @@
 <!-- Profile Popup -->
 <div id="profile-popup" class="custom-popup" style="display:none;">
 
-    <div class="menu-item"><i class="fas fa-user"></i> Profile</div>
+    <!-- Profile -->
+    <div class="menu-item profile-toggle" onclick="toggleProfileSubmenu(event)">
+        <span><i class="fas fa-user"></i> Profile</span>
+        <i class="fas fa-chevron-down profile-arrow"></i>
+    </div>
+
+    <!-- Profile Dropdown -->
+    <div id="profile-submenu" style="display:none;">
+
+        <div class="menu-item submenu-item">
+            <i class="fas fa-id-card"></i> Account Information
+        </div>
+
+        <div class="menu-item submenu-item">
+            <i class="fas fa-shield-alt"></i> KYC Verification
+        </div>
+
+        <div class="menu-item submenu-item">
+            <i class="fas fa-lock"></i> Security
+        </div>
+
+    </div>
 
     <div class="menu-item"><i class="fas fa-cog"></i> Settings</div>
 
