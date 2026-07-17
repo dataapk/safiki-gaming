@@ -1891,12 +1891,12 @@ img, svg {
 
 .auth-right h2{
     font-size:24px;
-    margin-bottom:8px;
+    margin-bottom:12px;
 }
 
 .auth-right input{
     padding:10px 12px;
-    margin-bottom:5px;
+    margin-bottom:3px;
 }
 
 .auth-btn{
@@ -2032,7 +2032,9 @@ img, svg {
 
 .password-box input{
     width:100%;
-    padding:14px 45px 14px 15px;
+    height:44px;
+    padding:0 45px 0 15px;
+    box-sizing:border-box;
 }
 
 .password-box i{
