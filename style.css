@@ -863,7 +863,30 @@ img, svg {
 /* ===============================
    TWO COLUMN
 ================================ */
+.inline-row{
 
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:15px;
+
+}
+
+.inline-row label{
+
+    width:130px;
+
+}
+
+.inline-row input,
+.inline-row select{
+
+    flex:1;
+
+}
 .two-column{
 
     display:grid;
