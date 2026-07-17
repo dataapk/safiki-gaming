@@ -466,15 +466,41 @@
 
     </div>
 
-    <!-- Transactions -->
-    <div class="menu-item">
-
-        <div class="menu-left">
-            <i class="fas fa-history"></i>
-            <span>Transactions</span>
-        </div>
-
+   <!-- Transaction History Section -->
+<div id="transaction-history-section" class="transaction-container" style="display:none;">
+    <div class="trans-header">
+        <h3>Transaction History</h3>
+        <button class="close-trans" onclick="closeTransaction()">×</button>
     </div>
+
+    <!-- টপ ট্যাব -->
+    <div class="trans-tabs">
+        <button class="tab-btn active" onclick="switchTransTab('deposits')">Deposits</button>
+        <button class="tab-btn" onclick="switchTransTab('withdrawals')">Withdrawals</button>
+        <button class="tab-btn" onclick="switchTransTab('exchanges')">Exchanges</button>
+        <button class="tab-btn" onclick="switchTransTab('promo')">Promo</button>
+    </div>
+
+    <!-- কন্ট্রোল বার -->
+    <div class="trans-controls">
+        <select id="currency-filter" class="currency-select">
+            <option value="all">All Currency</option>
+            <option value="USDT">USDT</option>
+            <option value="BTC">BTC</option>
+        </select>
+        
+        <div class="filter-btns">
+            <button class="filter-btn" onclick="filterBy('archived')">Archived</button>
+            <button class="filter-btn active" onclick="filterBy('latest')">Latest</button>
+        </div>
+    </div>
+
+    <!-- ট্রানজেকশন লিস্ট এরিয়া (সুপারবেজ থেকে ডেটা এখানে আসবে) -->
+    <div id="trans-list-container" class="trans-list">
+        <!-- এখানে জাভাস্ক্রিপ্ট ডেটা লোড করবে -->
+    </div>
+</div>
+    
 
     <!-- Logout -->
     <div class="menu-item logout-btn" onclick="showLogoutPopup()">
