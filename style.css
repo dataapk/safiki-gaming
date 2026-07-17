@@ -284,23 +284,28 @@ img, svg {
 ===================================== */
 
 
+/* =================================
+   Account Information Dropdown Panel
+================================= */
+
+
 #account-info-section {
 
-    display: none;
+    display:none;
 
-    width: 100%;
+    width:100%;
 
-    max-width: 650px;
+    margin-top:20px;
 
-    margin: 30px auto;
+    background:#ffffff;
 
-    padding: 25px;
+    border-radius:0;
 
-    background: #ffffff;
+    padding:25px;
 
-    border-radius: 16px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
 
-    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    animation: slideDownAccount 0.3s ease;
 
 }
 
@@ -308,113 +313,93 @@ img, svg {
 
 /* Header */
 
-.account-header h2 {
+.account-header {
 
-    font-size: 24px;
+    width:100%;
 
-    font-weight: 700;
+    padding-bottom:15px;
 
-    margin-bottom: 25px;
-
-    color: #222;
+    border-bottom:1px solid #e5e7eb;
 
 }
 
 
 
-/* Card */
+.account-header h2 {
+
+    margin:0;
+
+    font-size:22px;
+
+    font-weight:700;
+
+}
+
+
+
+/* Main Card */
 
 .account-card {
 
-    background: #fafafa;
+    width:100%;
 
-    padding: 20px;
+    max-width:900px;
 
-    border-radius: 14px;
+    margin:20px auto;
+
+    padding:20px;
+
+    background:#f8fafc;
+
+    border-radius:15px;
 
 }
 
 
 
-/* Each Row */
+
+/* Rows */
 
 .account-row {
 
-    display: flex;
+    width:100%;
 
-    flex-direction: column;
+    display:flex;
 
-    gap: 10px;
+    flex-direction:column;
 
-    margin-bottom: 15px;
-
-}
-
-
-
-.account-row label {
-
-    font-size: 14px;
-
-    font-weight: 600;
-
-    color: #555;
+    gap:10px;
 
 }
 
 
 
-/* Inputs */
 
 .account-row input {
 
-    width: 100%;
+    width:100%;
 
-    padding: 12px 14px;
+    height:45px;
 
-    border-radius: 10px;
+    padding:10px 14px;
 
-    border: 1px solid #ddd;
+    border-radius:8px;
 
-    outline: none;
-
-    font-size: 15px;
-
-    background: white;
+    border:1px solid #d1d5db;
 
 }
 
 
 
-.account-row input:focus {
-
-    border-color: #2563eb;
-
-}
-
-
-
-/* Read Only */
-
-.account-row input[readonly] {
-
-    background: #f1f5f9;
-
-    cursor: not-allowed;
-
-}
-
-
-
-/* Email Box */
+/* Email Section */
 
 .email-box {
 
-    display: flex;
+    display:flex;
 
-    gap: 10px;
+    gap:10px;
 
-    align-items: center;
+    width:100%;
 
 }
 
@@ -422,7 +407,7 @@ img, svg {
 
 .email-box input {
 
-    flex: 1;
+    flex:1;
 
 }
 
@@ -432,107 +417,73 @@ img, svg {
 
 .account-card button {
 
-    padding: 11px 18px;
+    width:auto;
 
-    border: none;
+    padding:10px 18px;
 
-    border-radius: 10px;
+    border:none;
 
-    background: #2563eb;
+    border-radius:8px;
 
-    color: white;
-
-    cursor: pointer;
-
-    font-weight: 600;
-
-    transition: 0.3s;
+    cursor:pointer;
 
 }
 
 
 
-.account-card button:hover {
-
-    background: #1d4ed8;
-
-}
-
-
-
-/* Save Button */
+/* Save */
 
 .save-btn {
 
-    width: 100%;
+    width:100% !important;
 
-    margin-top: 15px;
-
-    background: #16a34a !important;
+    margin-top:15px;
 
 }
 
 
 
-.save-btn:hover {
+/* Animation */
 
-    background: #15803d !important;
-
-}
+@keyframes slideDownAccount {
 
 
+    from {
 
-/* Divider */
+        opacity:0;
 
-.account-card hr {
+        transform:translateY(-20px);
 
-    border: none;
-
-    border-top: 1px solid #e5e7eb;
-
-    margin: 20px 0;
-
-}
+    }
 
 
+    to {
 
-/* Read Only Text */
+        opacity:1;
 
-.account-row small {
+        transform:translateY(0);
 
-    color:#64748b;
+    }
 
 }
 
 
 
-/* Mobile Responsive */
+/* Mobile */
 
 @media(max-width:600px){
 
 
     #account-info-section {
 
-        margin:15px;
-
-        padding:18px;
+        padding:15px;
 
     }
-
 
 
     .email-box {
 
         flex-direction:column;
-
-        align-items:stretch;
-
-    }
-
-
-    .account-header h2 {
-
-        font-size:20px;
 
     }
 
