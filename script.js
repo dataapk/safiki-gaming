@@ -683,12 +683,127 @@ function toggleProfileSubmenu(event) {
     }
 
 }
+// Open Account Information Page
 function openAccountInfo() {
 
-    alert("Account Information - Coming Soon");
+    // Hide other pages if needed
+    const accountSection = document.getElementById("account-info-section");
+
+    if(accountSection){
+
+        accountSection.style.display = "block";
+
+        // Load user data
+        loadAccountInfo();
+
+    } else {
+
+        console.log("Account Information section not found");
+
+    }
 
 }
 
+
+
+// Load User Information from Supabase
+async function loadAccountInfo(){
+
+    try {
+
+        const {
+            data: {
+                user
+            },
+            error
+
+        } = await supabase.auth.getUser();
+
+
+        if(error){
+
+            console.log(error);
+            return;
+
+        }
+
+
+        if(user){
+
+
+            // Email
+            const emailBox = document.getElementById("user-email");
+
+            if(emailBox){
+
+                emailBox.value = user.email || "";
+
+            }
+
+
+
+            // User ID
+            const userIdBox = document.getElementById("user-id");
+
+            if(userIdBox){
+
+                userIdBox.value = user.id || "";
+
+            }
+
+
+            // Mobile (from metadata)
+            const mobileBox = document.getElementById("user-mobile");
+
+            if(mobileBox){
+
+                mobileBox.value =
+                user.user_metadata?.phone || "";
+
+            }
+
+
+        }
+
+
+    } catch(error){
+
+        console.log(
+            "Load Account Error:",
+            error
+        );
+
+    }
+
+}
+
+
+
+// Change Email Button
+function openChangeEmail(){
+
+    alert("Change Email Flow Opening...");
+
+}
+
+
+
+// Update Mobile Number
+function updateMobile(){
+
+    alert("Mobile Update Flow Opening...");
+
+}
+
+
+
+// Save Account Information
+function saveAccountInfo(){
+
+    alert("Account Information Saved");
+
+}
+// END  Account Information
 function openKYCVerification() {
 
     alert("KYC Verification - Coming Soon");
