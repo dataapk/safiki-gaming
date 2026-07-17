@@ -252,75 +252,166 @@ img, svg {
 .profile-icon {
     cursor: pointer; 
 }
+/* ===========================
+   PROFILE POPUP
+=========================== */
+
 #profile-popup{
 
     position:absolute;
     top:60px;
-    right:-120px;
-    width:290px;
+    right:15px;
+
+    width:300px;
 
     background:#151520;
+
     border:1px solid #2d2d44;
+
     border-radius:12px;
 
     overflow:hidden;
 
+    box-shadow:0 10px 30px rgba(0,0,0,.35);
+
     z-index:9999;
 
 }
+
+
+/* ===========================
+   MENU ITEM
+=========================== */
+
 #profile-popup .menu-item{
 
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
 
-    padding:10px 14px;
-
-    font-size:13px;
+    padding:13px 16px;
 
     cursor:pointer;
-}
-/* ===== Profile Dropdown ===== */
 
-.profile-toggle{
+    transition:.25s;
+
+}
+
+#profile-popup .menu-item:hover{
+
+    background:#1d1d2b;
+
+}
+
+
+/* ===========================
+   LEFT SIDE
+=========================== */
+
+.menu-left{
+
     display:flex;
-    justify-content:space-between;
+
     align-items:center;
-    cursor:pointer;
+
+    gap:10px;
+
 }
+
+
+/* ===========================
+   ICON
+=========================== */
+
+.menu-left i{
+
+    width:18px;
+
+    text-align:center;
+
+    font-size:14px;
+
+    color:#d4af37;
+
+}
+
+
+/* ===========================
+   TEXT
+=========================== */
+
+.menu-left span{
+
+    font-size:14px;
+
+    color:#fff;
+
+    font-weight:500;
+
+}
+
+
+/* ===========================
+   PROFILE ARROW
+=========================== */
 
 .profile-arrow{
-    font-size:12px;
-    transition:.3s ease;
+
+    font-size:11px;
+
+    color:#bfa14a;
+
+    transition:.25s;
+
 }
 
 .profile-arrow.rotate{
+
     transform:rotate(180deg);
+
 }
+
+
+/* ===========================
+   SUBMENU
+=========================== */
 
 #profile-submenu{
+
     display:none;
-    padding-left:0;
+
+    background:#11111b;
+
 }
 
-.menu-left{
-    display:flex;
-    align-items:center;
-    gap:8px;
-}
+
+/* ===========================
+   SUBMENU ITEM
+=========================== */
 
 .submenu-item{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
 
-    padding:10px 14px;
+    padding-left:34px !important;
+
 }
 
-.submenu-arrow{
-    font-size:10px;
-    color:#bfa14a;
-    margin-left:6px;
+
+/* ===========================
+   LOGOUT
+=========================== */
+
+.logout-btn{
+
+    border-top:1px solid #2d2d44;
+
+}
+
+.logout-btn .menu-left i{
+
+    color:#ff5b5b;
+
 }
 /* =====================================
    Account Information Section
