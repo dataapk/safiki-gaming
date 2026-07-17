@@ -1668,7 +1668,7 @@ img, svg {
     display:flex;
     align-items:center;
     gap:8px;
-    margin:15px 0;
+    margin:8px 0;
     font-size:13px;
     color:#ccc;
     line-height:1.4;
@@ -1891,12 +1891,12 @@ img, svg {
 
     .auth-right h2{
         font-size: 24px;
-        margin-bottom: 18px;
+        margin-bottom: 10px;
     }
 
     .auth-right input{
         padding: 12px;
-        margin-bottom: 12px;
+        margin-bottom: 6px;
     }
 
     .auth-btn{
