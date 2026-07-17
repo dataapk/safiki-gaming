@@ -1133,7 +1133,39 @@ select{
 
 }
 
+.country-select{
 
+    position:relative;
+
+    flex:1;
+
+}
+
+.country-select select{
+
+    width:100%;
+
+    padding-right:38px;
+
+}
+
+.country-select i{
+
+    position:absolute;
+
+    right:14px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    color:#d6b35d;
+
+    font-size:12px;
+
+    pointer-events:none;
+
+}
 /* ===============================
    SMALL MOBILE
 ================================ */
