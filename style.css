@@ -441,7 +441,7 @@ img, svg {
 
     max-width:96%;
 
-    max-height:calc(100vh - 90px);
+    height:86vh;
 
     overflow-y:auto;
 
