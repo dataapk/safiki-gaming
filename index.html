@@ -490,6 +490,8 @@
 
 <!-- ================= ACCOUNT INFORMATION ================= -->
 
+<!-- ================= ACCOUNT INFORMATION ================= -->
+
 <div id="account-info-section" style="display:none;">
 
     <!-- Header -->
@@ -501,24 +503,38 @@
 
                 <img id="profile-photo"
                      src="images/default-user.png"
-                     alt="Profile">
+                     alt="Profile Photo">
 
-                <button class="change-photo-btn"
+                <button class="photo-edit-btn"
                         onclick="changeProfilePhoto()">
+
                     <i class="fas fa-camera"></i>
+
                 </button>
 
             </div>
 
-            <div class="profile-details">
+            <div class="profile-header-info">
 
-                <h3 id="header-user-id">
-                    SFK950001
-                </h3>
+                <h3>Account Information</h3>
 
-                <p id="header-referral-code">
-                    RFSFK950001
-                </p>
+                <div class="header-meta">
+
+                    <p>
+                        <span>User ID :</span>
+                        <strong id="header-user-id">
+                            SFK950001
+                        </strong>
+                    </p>
+
+                    <p>
+                        <span>Member Since :</span>
+                        <strong id="member-since">
+                            17 July 2026
+                        </strong>
+                    </p>
+
+                </div>
 
             </div>
 
@@ -534,123 +550,146 @@
     </div>
 
 
-    <!-- Card -->
+    <!-- Body -->
+
     <div class="account-card">
 
 
         <!-- Full Name -->
-        <div class="info-item">
 
-            <div>
+        <div class="info-box">
+
+            <div class="info-title">
 
                 <label>Full Name</label>
 
-                <p id="display-fullname">
-                    MD Ayan Ali
-                </p>
+                <button
+                    class="mini-edit-btn"
+                    onclick="editFullName()">
+
+                    Edit
+
+                </button>
 
             </div>
 
-            <button onclick="editFullName()">
+            <div
+                class="info-value"
+                id="display-fullname">
 
-                Edit
+                MD Ayan Ali
 
-            </button>
+            </div>
 
         </div>
 
-        <hr>
 
 
         <!-- Email -->
-        <div class="info-item">
 
-            <div>
+        <div class="info-box">
 
-                <label>Email</label>
+            <div class="info-title">
 
-                <p id="display-email">
-                    user@email.com
-                </p>
+                <label>Email Address</label>
+
+                <button
+                    class="mini-edit-btn"
+                    onclick="openChangeEmail()">
+
+                    Edit
+
+                </button>
 
             </div>
 
-            <button onclick="openChangeEmail()">
+            <div
+                class="info-value"
+                id="display-email">
 
-                Change
+                user@email.com
 
-            </button>
+            </div>
 
         </div>
 
-        <hr>
 
 
         <!-- Mobile -->
-        <div class="info-item">
 
-            <div>
+        <div class="info-box">
+
+            <div class="info-title">
 
                 <label>Mobile Number</label>
 
-                <p id="display-mobile">
+                <button
+                    class="mini-edit-btn"
+                    onclick="editMobile()">
 
-                    Not Added
+                    Edit
 
-                </p>
+                </button>
 
             </div>
 
-            <button onclick="editMobile()">
+            <div
+                class="info-value"
+                id="display-mobile">
 
-                Edit
+                Not Added
 
-            </button>
+            </div>
 
         </div>
 
-        <hr>
 
 
         <!-- Address -->
-        <div class="info-item">
 
-            <div>
+        <div class="info-box">
+
+            <div class="info-title">
 
                 <label>Address</label>
 
-                <p id="display-address">
+                <button
+                    class="mini-edit-btn"
+                    onclick="editAddress()">
 
-                    Not Added
+                    Edit
 
-                </p>
+                </button>
 
             </div>
 
-            <button onclick="editAddress()">
+            <div
+                class="info-value"
+                id="display-address">
 
-                Edit
+                Not Added
 
-            </button>
+            </div>
 
         </div>
 
-        <hr>
 
 
         <!-- Hidden Address Form -->
 
-        <div id="address-edit-box" style="display:none;">
+        <div
+            id="address-edit-box"
+            style="display:none;">
 
             <div class="input-group">
 
                 <label>Address Line</label>
 
-                <input type="text"
-                       id="address-line">
+                <input
+                    type="text"
+                    id="address-line">
 
             </div>
-
 
             <div class="two-column">
 
@@ -658,8 +697,9 @@
 
                     <label>Village / Area</label>
 
-                    <input type="text"
-                           id="address-village">
+                    <input
+                        type="text"
+                        id="address-village">
 
                 </div>
 
@@ -667,13 +707,13 @@
 
                     <label>District</label>
 
-                    <input type="text"
-                           id="address-district">
+                    <input
+                        type="text"
+                        id="address-district">
 
                 </div>
 
             </div>
-
 
             <div class="two-column">
 
@@ -681,8 +721,9 @@
 
                     <label>Postal Code</label>
 
-                    <input type="text"
-                           id="postal-code">
+                    <input
+                        type="text"
+                        id="postal-code">
 
                 </div>
 
@@ -702,32 +743,13 @@
 
         </div>
 
-        <hr>
-
-
-        <!-- Member Since -->
-
-        <div class="info-item no-button">
-
-            <div>
-
-                <label>Member Since</label>
-
-                <p id="member-since">
-
-                    17 July 2026
-
-                </p>
-
-            </div>
-
-        </div>
 
 
         <!-- Save -->
 
-        <button class="save-btn"
-                onclick="saveAccountInfo()">
+        <button
+            class="save-btn"
+            onclick="saveAccountInfo()">
 
             Save Changes
 
