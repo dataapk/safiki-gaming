@@ -490,149 +490,165 @@
 
 <!-- ================= ACCOUNT INFORMATION PAGE ================= -->
 
-
 <div id="account-info-section" style="display:none;">
-
 
     <div class="account-header">
 
         <h2>
-
             <i class="fas fa-user-circle"></i>
-
             Account Information
-
         </h2>
-  </div>
 
-  <div class="account-card">
-  <div class="account-row">
+        <button class="close-account-btn" onclick="closeAccountInfo()">
+            <i class="fas fa-times"></i>
+        </button>
 
+    </div>
 
-            <label>
-                Profile Photo
-            </label>
+    <div class="account-card">
 
+        <!-- Profile Photo -->
+        <div class="account-row">
 
-            <button>
+            <label>Profile Photo</label>
+
+            <button onclick="changeProfilePhoto()">
                 Change Photo
             </button>
-     </div>
-  <hr>
-
-  <div class="account-row">
-
-
-            <label>
-                User ID
-            </label>
-
-
-            <input 
-            type="text"
-            id="user-id"
-            readonly>
-
-
-            <small>
-                🔒 Read Only
-            </small>
-
 
         </div>
 
+        <hr>
 
+        <!-- Full Name -->
+        <div class="account-row">
 
+            <label>Full Name</label>
+
+            <input
+                type="text"
+                id="user-fullname"
+                placeholder="Enter your full name">
+
+        </div>
 
         <hr>
 
-
-
-
+        <!-- User ID -->
         <div class="account-row">
 
+            <label>User ID</label>
 
-            <label>
-                Email
-            </label>
+            <input
+                type="text"
+                id="user-id"
+                readonly>
 
+            <small>🔒 Read Only</small>
 
+        </div>
+
+        <hr>
+
+        <!-- Email -->
+        <div class="account-row">
+
+            <label>Email Address</label>
 
             <div class="email-box">
 
-
-                <input 
-                type="email"
-                id="user-email"
-                readonly>
-
+                <input
+                    type="email"
+                    id="user-email"
+                    readonly>
 
                 <button onclick="openChangeEmail()">
-
-                    Change Email
-
+                    Change
                 </button>
-
 
             </div>
 
-
         </div>
-
-
-
 
         <hr>
 
-
-
-
+        <!-- Mobile -->
         <div class="account-row">
 
-
-            <label>
-                Mobile Number (Optional)
-            </label>
-
+            <label>Mobile Number (Optional)</label>
 
             <input
-            type="tel"
-            id="user-mobile"
-            placeholder="+8801XXXXXXXXX">
-
-
-
-            <button onclick="updateMobile()">
-
-                Add / Update
-
-            </button>
-
+                type="tel"
+                id="user-mobile"
+                placeholder="+8801XXXXXXXXX">
 
         </div>
 
+        <hr>
 
+        <!-- Address -->
+        <div class="account-row">
 
+            <label>Address</label>
+
+            <textarea
+                id="user-address"
+                rows="3"
+                placeholder="Enter your full address"></textarea>
+
+            <button onclick="updateAddress()">
+                Edit Address
+            </button>
+
+        </div>
 
         <hr>
 
+        <!-- Referral -->
+        <div class="account-row">
 
+            <label>Referral Code</label>
 
+            <input
+                type="text"
+                id="user-referral"
+                readonly>
 
-        <button 
-        class="save-btn"
-        onclick="saveAccountInfo()">
+            <small>🔒 Read Only</small>
+
+        </div>
+
+        <hr>
+
+        <!-- Member Since -->
+        <div class="account-row">
+
+            <label>Member Since</label>
+
+            <input
+                type="text"
+                id="member-since"
+                readonly>
+
+            <small>🔒 Read Only</small>
+
+        </div>
+
+        <hr>
+
+        <!-- Save -->
+        <button
+            class="save-btn"
+            onclick="saveAccountInfo()">
 
             Save Changes
 
         </button>
 
-
-
     </div>
 
-
 </div>
+    
 <!-- Logout Popup -->
 <div id="logout-confirm-popup" style="display:none;">
 
