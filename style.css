@@ -1834,9 +1834,9 @@ img, svg {
         border-radius: 16px;
     }
 
-    .auth-left{
+  .auth-left{
     width:100%;
-    padding:12px 18px;
+    padding:4px 18px 2px;
 }
 
     .auth-right{
@@ -1867,8 +1867,8 @@ img, svg {
 }
 
 .bonus-card{
-    padding:8px;
-    margin:4px 0;
+    padding:6px;
+    margin:2px 0;
 }
 
 .bonus-card h1{
