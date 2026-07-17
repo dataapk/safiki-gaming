@@ -418,60 +418,68 @@ img, svg {
 /* =========================================
    ACCOUNT INFORMATION
 ========================================= */
-/* =====================================================
-   ACCOUNT INFORMATION MODULE
+/* =========================================================
+   ACCOUNT INFORMATION
    PART 1
-===================================================== */
+========================================================= */
 
-/* Popup */
+/* ===============================
+   MAIN POPUP
+================================ */
 
 #account-info-section{
 
     position:fixed;
-    top:50%;
+
+    top:70px;
+
     left:50%;
-    transform:translate(-50%,-50%);
+
+    transform:translateX(-50%);
 
     width:720px;
-    max-width:95%;
 
-    max-height:90vh;
+    max-width:96%;
+
+    max-height:calc(100vh - 90px);
 
     overflow-y:auto;
 
-    background:#111318;
+    background:#13151c;
 
-    border:2px solid #d4af37;
+    border:1px solid rgba(255,214,102,.25);
 
     border-radius:18px;
 
-    box-shadow:0 0 40px rgba(212,175,55,.20);
+    box-shadow:0 20px 60px rgba(0,0,0,.45);
 
-    z-index:999999;
+    z-index:9998;
 
 }
 
 
-/* Scroll */
+/* ===============================
+   SCROLLBAR
+================================ */
 
 #account-info-section::-webkit-scrollbar{
 
-    width:7px;
+    width:6px;
 
 }
 
 #account-info-section::-webkit-scrollbar-thumb{
 
-    background:#d4af37;
+    background:#d6b35d;
 
     border-radius:20px;
 
 }
 
 
-/* ======================================
+/* ===============================
    HEADER
-====================================== */
+================================ */
 
 .account-header{
 
@@ -479,18 +487,20 @@ img, svg {
 
     justify-content:space-between;
 
-    align-items:flex-start;
+    align-items:center;
 
-    padding:22px 24px;
+    padding:20px 22px;
 
-    background:linear-gradient(180deg,#191919,#101010);
+    border-bottom:1px solid rgba(255,255,255,.08);
 
-    border-bottom:1px solid rgba(212,175,55,.25);
+    background:#181b23;
 
 }
 
 
-/* Left */
+/* ===============================
+   LEFT HEADER
+================================ */
 
 .account-profile{
 
@@ -498,82 +508,82 @@ img, svg {
 
     align-items:center;
 
-    gap:18px;
+    gap:16px;
 
 }
 
 
-/* ======================================
-   PROFILE IMAGE
-====================================== */
+/* ===============================
+   PROFILE PHOTO
+================================ */
 
 .profile-photo-box{
 
     position:relative;
 
-    width:82px;
+    width:74px;
 
-    height:82px;
+    height:74px;
+
+    flex-shrink:0;
 
 }
 
 .profile-photo-box img{
 
-    width:82px;
+    width:100%;
 
-    height:82px;
-
-    border-radius:50%;
+    height:100%;
 
     object-fit:cover;
 
-    border:3px solid #d4af37;
+    border-radius:50%;
+
+    border:3px solid #d6b35d;
 
 }
 
 
-/* Camera Button */
+/* Camera */
 
-.change-photo-btn{
+.photo-edit-btn{
 
     position:absolute;
 
-    bottom:-3px;
+    right:-2px;
 
-    right:-3px;
+    bottom:-2px;
 
-    width:30px;
+    width:28px;
 
-    height:30px;
+    height:28px;
 
     border:none;
 
     border-radius:50%;
 
-    background:#d4af37;
+    background:#d6b35d;
 
     color:#111;
 
     cursor:pointer;
 
-    transition:.3s;
+    transition:.25s;
 
 }
 
-.change-photo-btn:hover{
+.photo-edit-btn:hover{
 
     transform:scale(1.08);
 
-    background:#ffd700;
-
 }
 
 
-/* ======================================
-   USER DETAILS
-====================================== */
+/* ===============================
+   USER INFO
+================================ */
 
-.profile-details{
+.profile-header-info{
 
     display:flex;
 
@@ -583,11 +593,11 @@ img, svg {
 
 }
 
-.profile-details h3{
+.profile-header-info h3{
 
     margin:0;
 
-    color:#ffffff;
+    color:#fff;
 
     font-size:20px;
 
@@ -595,85 +605,115 @@ img, svg {
 
 }
 
-.profile-details p{
+.header-meta{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:5px;
+
+}
+
+.header-meta p{
 
     margin:0;
 
-    color:#d4af37;
+    color:#bfbfbf;
 
-    font-size:14px;
+    font-size:13px;
+
+}
+
+.header-meta span{
+
+    color:#8f939c;
+
+}
+
+.header-meta strong{
+
+    color:#ffd666;
 
     font-weight:600;
-
-    letter-spacing:.5px;
 
 }
 
 
-/* ======================================
+/* ===============================
    CLOSE BUTTON
-====================================== */
+================================ */
 
 .close-account-btn{
 
-    width:38px;
+    width:36px;
 
-    height:38px;
+    height:36px;
 
     border:none;
 
     border-radius:50%;
 
-    background:#1b1b1b;
+    background:#222630;
 
-    color:#d4af37;
+    color:#d6b35d;
 
     cursor:pointer;
 
-    transition:.3s;
+    transition:.25s;
 
 }
 
 .close-account-btn:hover{
 
-    background:#d4af37;
+    background:#d6b35d;
 
     color:#111;
 
-    transform:rotate(90deg);
-
 }
 
+/* ================= PART 1 END ================= */
+/* =========================================================
+   ACCOUNT INFORMATION
+   PART 2
+========================================================= */
 
-/* ======================================
-   MAIN CARD
-====================================== */
+
+/* ===============================
+   CARD
+================================ */
 
 .account-card{
 
-    padding:22px 24px;
+    padding:18px 22px 24px;
 
 }
 
 
-/* Divider */
+/* ===============================
+   INFO BOX
+================================ */
 
-.account-card hr{
+.info-box{
 
-    border:none;
+    padding:14px 0;
 
-    border-top:1px solid rgba(255,255,255,.08);
+    border-bottom:1px solid rgba(255,255,255,.06);
 
-    margin:18px 0;
+}
+
+.info-box:last-child{
+
+    border-bottom:none;
 
 }
 
 
-/* ======================================
-   INFO ITEM
-====================================== */
+/* ===============================
+   TITLE ROW
+================================ */
 
-.info-item{
+.info-title{
 
     display:flex;
 
@@ -681,78 +721,71 @@ img, svg {
 
     align-items:center;
 
-    gap:20px;
+    margin-bottom:8px;
 
 }
 
-.info-item.no-button{
+.info-title label{
 
-    justify-content:flex-start;
+    font-size:14px;
 
-}
+    font-weight:600;
 
-.info-item label{
-
-    display:block;
-
-    color:#bfbfbf;
-
-    font-size:13px;
-
-    margin-bottom:6px;
-
-}
-
-.info-item p{
+    color:#d7d7d7;
 
     margin:0;
 
-    color:#ffffff;
-
-    font-size:15px;
-
-    font-weight:500;
-
 }
 
 
-/* Edit Buttons */
+/* ===============================
+   MINI EDIT BUTTON
+================================ */
 
-.info-item button{
-
-    min-width:90px;
-
-    height:38px;
+.mini-edit-btn{
 
     border:none;
 
-    border-radius:8px;
+    background:transparent;
 
-    background:#d4af37;
+    color:#d6b35d;
 
-    color:#111;
+    font-size:12px;
 
     font-weight:600;
 
     cursor:pointer;
 
-    transition:.3s;
+    padding:3px 8px;
+
+    border-radius:6px;
+
+    transition:.25s;
 
 }
 
-.info-item button:hover{
+.mini-edit-btn:hover{
 
-    background:#ffd700;
-
-    transform:translateY(-2px);
+    background:rgba(214,179,93,.12);
 
 }
 
-/* ==================== PART 1 END ==================== */
-/* =====================================================
-   ACCOUNT INFORMATION MODULE
-   PART 2
-===================================================== */
+
+/* ===============================
+   VALUE
+================================ */
+
+.info-value{
+
+    color:#ffffff;
+
+    font-size:15px;
+
+    line-height:1.7;
+
+    word-break:break-word;
+
+}
 
 
 /* ===============================
@@ -763,13 +796,13 @@ img, svg {
 
     display:none;
 
-    margin-top:20px;
+    margin-top:18px;
 
-    padding:20px;
+    padding:18px;
 
-    background:#171717;
+    background:#181b23;
 
-    border:1px solid rgba(212,175,55,.18);
+    border:1px solid rgba(255,255,255,.08);
 
     border-radius:12px;
 
@@ -782,61 +815,47 @@ img, svg {
 
 .input-group{
 
-    display:flex;
-
-    flex-direction:column;
-
     margin-bottom:16px;
 
 }
 
 .input-group label{
 
+    display:block;
+
     color:#bfbfbf;
 
     font-size:13px;
 
-    margin-bottom:8px;
+    margin-bottom:7px;
 
 }
 
-.input-group input,
-
-.two-column input,
-
-.two-column select{
+.input-group input{
 
     width:100%;
 
-    height:46px;
-
-    padding:0 14px;
+    height:44px;
 
     background:#111318;
 
-    border:1px solid #2f2f2f;
+    border:1px solid #2d313d;
 
     border-radius:10px;
 
-    color:#ffffff;
+    padding:0 14px;
+
+    color:#fff;
 
     font-size:14px;
 
-    transition:.25s;
-
 }
 
-.input-group input:focus,
-
-.two-column input:focus,
-
-.two-column select:focus{
+.input-group input:focus{
 
     outline:none;
 
-    border-color:#d4af37;
-
-    box-shadow:0 0 8px rgba(212,175,55,.25);
+    border-color:#d6b35d;
 
 }
 
@@ -851,267 +870,58 @@ img, svg {
 
     grid-template-columns:1fr 1fr;
 
-    gap:16px;
+    gap:14px;
 
-    margin-bottom:16px;
-
-}
-
-.two-column div{
-
-    display:flex;
-
-    flex-direction:column;
+    margin-bottom:15px;
 
 }
 
 .two-column label{
 
+    display:block;
+
     color:#bfbfbf;
 
     font-size:13px;
 
-    margin-bottom:8px;
+    margin-bottom:7px;
 
 }
-
-
-/* ===============================
-   SAVE BUTTON
-================================ */
-
-.save-btn{
-
-    width:100%;
-
-    height:48px;
-
-    margin-top:25px;
-
-    border:none;
-
-    border-radius:10px;
-
-    background:linear-gradient(135deg,#d4af37,#f6cf52);
-
-    color:#111;
-
-    font-size:15px;
-
-    font-weight:700;
-
-    cursor:pointer;
-
-    transition:.3s;
-
-}
-
-.save-btn:hover{
-
-    transform:translateY(-2px);
-
-    box-shadow:0 0 18px rgba(212,175,55,.30);
-
-}
-
-
-/* ===============================
-   HOVER EFFECT
-================================ */
-
-.info-item{
-
-    transition:.25s;
-
-}
-
-.info-item:hover{
-
-    background:rgba(255,255,255,.02);
-
-    border-radius:8px;
-
-    padding:8px 10px;
-
-}
-
-
-/* ===============================
-   SELECT
-================================ */
-
-select{
-
-    appearance:none;
-
-    -webkit-appearance:none;
-
-    cursor:pointer;
-
-}
-
-
-/* ===============================
-   MOBILE
-================================ */
-
-@media(max-width:768px){
-
-#account-info-section{
-
-    width:95%;
-
-    max-height:92vh;
-
-}
-
-.account-header{
-
-    flex-direction:column;
-
-    align-items:flex-start;
-
-    gap:20px;
-
-}
-
-.close-account-btn{
-
-    position:absolute;
-
-    top:18px;
-
-    right:18px;
-
-}
-
-.account-profile{
-
-    width:100%;
-
-}
-
-.profile-photo-box{
-
-    width:72px;
-
-    height:72px;
-
-}
-
-.profile-photo-box img{
-
-    width:72px;
-
-    height:72px;
-
-}
-
-.profile-details h3{
-
-    font-size:18px;
-
-}
-
-.profile-details p{
-
-    font-size:13px;
-
-}
-
-.account-card{
-
-    padding:18px;
-
-}
-
-.info-item{
-
-    flex-direction:column;
-
-    align-items:flex-start;
-
-}
-
-.info-item button{
-
-    width:100%;
-
-}
-
-.two-column{
-
-    grid-template-columns:1fr;
-
-    gap:14px;
-
-}
-
-.save-btn{
-
-    height:46px;
-
-}
-
-}
-
-
-/* ===============================
-   SMALL MOBILE
-================================ */
-
-@media(max-width:480px){
-
-.profile-details h3{
-
-    font-size:16px;
-
-}
-
-.profile-details p{
-
-    font-size:12px;
-
-}
-
-.account-header{
-
-    padding:18px;
-
-}
-
-.account-card{
-
-    padding:15px;
-
-}
-
-.info-item p{
-
-    font-size:14px;
-
-}
-
-.input-group input,
 
 .two-column input,
 
 .two-column select{
 
+    width:100%;
+
     height:44px;
 
-    font-size:13px;
+    background:#111318;
 
-}
+    border:1px solid #2d313d;
 
-.save-btn{
+    border-radius:10px;
+
+    padding:0 14px;
+
+    color:#fff;
 
     font-size:14px;
 
 }
 
+.two-column input:focus,
+
+.two-column select:focus{
+
+    outline:none;
+
+    border-color:#d6b35d;
+
 }
 
+
+/* ================= PART 2 END ================= */
 /* ===============================
    END ACCOUNT INFORMATION CSS
 ================================ */
