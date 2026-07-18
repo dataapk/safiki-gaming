@@ -1774,9 +1774,9 @@ select{
 
     width: 720px;
 
-    max-width: 94%;
+    max-width: 98%;
 
-    height: 80vh;
+   height: calc(100vh - 70px);
 
     overflow-y: auto;
 
@@ -2076,6 +2076,67 @@ select{
 .trans-list::-webkit-scrollbar-thumb {
     background: #2b2f40;
 }
+
+/* ===============================
+   START TRANSACTION PAGINATION CSS
+================================ */
+.trans-pagination{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-top:20px;
+
+    padding-top:15px;
+
+    border-top:1px solid #2b2f40;
+
+}
+
+.page-btn{
+
+    background:#e67e22;
+
+    color:#fff;
+
+    border:none;
+
+    padding:10px 18px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-size:14px;
+
+}
+
+.page-btn:disabled{
+
+    background:#444;
+
+    color:#888;
+
+    cursor:not-allowed;
+
+}
+
+#page-number{
+
+    color:#fff;
+
+    font-weight:600;
+
+}
+
+
+
+/* ===============================
+    TRANSACTION PAGINATION CSS
+================================ */
 
 /* ===============================
    END TRANSACTION CSS
