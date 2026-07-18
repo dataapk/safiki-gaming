@@ -885,7 +885,7 @@ function saveAccountInfo(){
 // END  Account Information==========
 
 // START OPEN KYC VERIFICATIONM=======
-async function openKYC() {
+async function openKYCVerification() {
 
     // Hide other sections
     document.getElementById("account-info-section").style.display = "none";
