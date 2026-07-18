@@ -2132,6 +2132,214 @@ select{
 /* ===============================
    END TRANSACTION CSS
 ================================ */
+/* =========================================
+   SETTINGS SECTION
+========================================= */
+
+#settings-section{
+    position:fixed;
+    top:70px;
+    left:50%;
+    transform:translateX(-50%);
+    width:720px;
+    max-width:94%;
+    height:80vh;
+    overflow-y:auto;
+    background:#13151c;
+    border:1px solid rgba(255,214,102,.25);
+    border-radius:18px;
+    box-shadow:0 20px 60px rgba(0,0,0,.45);
+    z-index:9998;
+    display:none;
+    padding:20px;
+    box-sizing:border-box;
+}
+
+/* Header */
+
+.settings-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:18px;
+    padding-bottom:12px;
+    border-bottom:1px solid #2b2f40;
+}
+
+.settings-header h3{
+    margin:0 auto;
+    color:#fff;
+    font-size:22px;
+    font-weight:600;
+}
+
+.close-settings{
+    width:40px;
+    height:40px;
+    border:none;
+    border-radius:50%;
+    background:#20263a;
+    color:#fff;
+    font-size:24px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.close-settings:hover{
+    background:#e67e22;
+}
+
+/* Tabs */
+
+.settings-tabs{
+    display:flex;
+    gap:8px;
+    margin:20px 0;
+}
+
+.settings-tab-btn{
+    flex:1;
+    padding:10px;
+    background:#161b2e;
+    border:1px solid #2b2f40;
+    border-radius:8px;
+    color:#bfbfbf;
+    cursor:pointer;
+    font-size:13px;
+    transition:.3s;
+}
+
+.settings-tab-btn.active,
+.settings-tab-btn:hover{
+    background:#e67e22;
+    color:#fff;
+}
+
+/* Content */
+
+.settings-tab-content{
+    margin-top:15px;
+}
+
+/* Card */
+
+.settings-card{
+    background:#181d2b;
+    border:1px solid #2b2f40;
+    border-radius:12px;
+    padding:18px;
+    margin-bottom:18px;
+}
+
+.settings-card h4{
+    color:#fff;
+    margin:0 0 15px;
+}
+
+.settings-card p{
+    color:#cfcfcf;
+    margin-bottom:15px;
+}
+
+/* Input */
+
+.settings-card input{
+    width:100%;
+    padding:12px;
+    margin-bottom:12px;
+    background:#0f1422;
+    border:1px solid #2b2f40;
+    border-radius:8px;
+    color:#fff;
+    font-size:14px;
+    box-sizing:border-box;
+}
+
+.settings-card input:focus{
+    outline:none;
+    border-color:#e67e22;
+}
+
+/* Button */
+
+.settings-save-btn{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    background:#e67e22;
+    color:#fff;
+    font-size:14px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.settings-save-btn:hover{
+    background:#ff8c2a;
+}
+
+/* Status */
+
+.verified-status{
+    color:#2ecc71;
+    font-weight:600;
+}
+
+/* Active Sessions */
+
+.session-item{
+    background:#181d2b;
+    border:1px solid #2b2f40;
+    border-radius:12px;
+    padding:16px;
+    margin-bottom:15px;
+    color:#ddd;
+    line-height:1.8;
+}
+
+.destroy-btn{
+    margin-top:12px;
+    padding:8px 16px;
+    border:none;
+    border-radius:6px;
+    background:#e74c3c;
+    color:#fff;
+    cursor:pointer;
+}
+
+.destroy-btn:hover{
+    background:#c0392b;
+}
+
+/* Self Exclusion */
+
+.exclude-btn{
+    width:100%;
+    padding:12px;
+    margin-bottom:10px;
+    background:#20263a;
+    border:1px solid #2b2f40;
+    border-radius:8px;
+    color:#fff;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.exclude-btn:hover{
+    background:#e67e22;
+}
+
+/* Scroll */
+
+#settings-section::-webkit-scrollbar{
+    width:6px;
+}
+
+#settings-section::-webkit-scrollbar-thumb{
+    background:#444;
+    border-radius:10px;
+}
+/* END SETTINFG SECTION */
 
 /* ড্রপডাউন পজিশনিং */
 /* ১. ড্রপডাউন মেনু - ফুল পেজ ভিউ */
