@@ -1297,65 +1297,61 @@
 
 <div class="trans-controls">
 
-    <!-- Currency Dropdown -->
+   <!-- Currency Dropdown -->
 
-    <div class="currency-dropdown">
+<div class="currency-dropdown">
 
-       <button
-    class="currency-btn"
-    onclick="toggleTransactionCurrencyDropdown()">
+    <button
+        class="currency-btn"
+        onclick="toggleTransactionCurrencyDropdown()">
 
-            <span id="selected-currency">
-                All Currency
-            </span>
+        <span id="selected-transaction-currency">
+            All Currency
+        </span>
 
-            <i class="fas fa-chevron-down"></i>
+        <i class="fas fa-chevron-down"></i>
 
-        </button>
+    </button>
 
+    <div
+        id="transaction-currency-menu"
+        class="currency-menu">
 
-        <div 
-            id="currency-menu"
-            class="currency-menu">
+        <div
+            class="currency-option"
+            onclick="selectTransactionCurrency('all')">
 
-            <div 
-                class="currency-option"
-                onclick="selectCurrency('all')">
+            All Currency
 
-                All Currency
+        </div>
 
-            </div>
+        <div
+            class="currency-option"
+            onclick="selectTransactionCurrency('USDT')">
 
+            USDT
 
-            <div 
-                class="currency-option"
-                onclick="selectCurrency('USDT')">
+        </div>
 
-                USDT
+        <div
+            class="currency-option"
+            onclick="selectTransactionCurrency('BTC')">
 
-            </div>
+            BTC
 
+        </div>
 
-            <div 
-                class="currency-option"
-                onclick="selectCurrency('BTC')">
+        <div
+            class="currency-option"
+            onclick="selectTransactionCurrency('ETH')">
 
-                BTC
-
-            </div>
-
-
-            <div 
-                class="currency-option"
-                onclick="selectCurrency('ETH')">
-
-                ETH
-
-            </div>
+            ETH
 
         </div>
 
     </div>
+
+</div>
 
 
     <!-- Filter Buttons -->
