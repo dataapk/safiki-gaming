@@ -792,7 +792,10 @@ img, svg {
    ADDRESS EDIT BOX
 ================================ */
 
-#address-edit-box{
+#address-edit-box,
+#name-edit-box,
+#email-edit-box,
+#mobile-edit-box{
 
     display:none;
 
