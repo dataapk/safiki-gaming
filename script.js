@@ -970,6 +970,17 @@ async function openKYCVerification() {
     }
 
 }
+function closeKYC(){
+
+    const kycSection = document.getElementById("kyc-section");
+
+    if(kycSection){
+
+        kycSection.style.display = "none";
+
+    }
+
+}
 // END OPEN KYC VERIFICATIONM=======
 function openSecuritySettings() {
 
