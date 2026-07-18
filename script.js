@@ -1055,19 +1055,17 @@ function toggleTransactionCurrencyDropdown() {
     menu.classList.toggle("active");
 
 }
-function selectCurrency(currency){
+function selectTransactionCurrency(currency) {
 
-    document.getElementById("selected-currency").innerText =
+    document.getElementById("selected-transaction-currency").innerText =
         currency === "all" ? "All Currency" : currency;
 
-
     document
-    .getElementById("currency-menu")
-    .classList.remove("active");
+        .getElementById("transaction-currency-menu")
+        .classList.remove("active");
 
-
-    // পরে Supabase filter এখানে হবে
-    console.log("Selected Currency:", currency);
+    // পরে Supabase Filter এখানে হবে
+    console.log("Selected Transaction Currency:", currency);
 
 }
 function filterBy(type){
