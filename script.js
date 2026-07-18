@@ -805,13 +805,15 @@ function updateMobile(){
 
 function editFullName(){
 
-    let current=document.getElementById("display-fullname").innerText;
+    let box=document.getElementById("name-edit-box");
 
-    let value=prompt("Enter Full Name",current);
+    if(box.style.display==="block"){
 
-    if(value!==null && value.trim()!=""){
+        box.style.display="none";
 
-        document.getElementById("display-fullname").innerText=value;
+    }else{
+
+        box.style.display="block";
 
     }
 
@@ -822,22 +824,33 @@ function editFullName(){
 
 function openChangeEmail(){
 
-    alert("Email Verification Module Coming Soon");
+    let box=document.getElementById("email-edit-box");
+
+    if(box.style.display==="block"){
+
+        box.style.display="none";
+
+    }else{
+
+        box.style.display="block";
+
+    }
 
 }
-
 
 /* ---------- MOBILE ---------- */
 
 function editMobile(){
 
-    let current=document.getElementById("display-mobile").innerText;
+    let box=document.getElementById("mobile-edit-box");
 
-    let value=prompt("Enter Mobile Number",current);
+    if(box.style.display==="block"){
 
-    if(value!==null && value.trim()!=""){
+        box.style.display="none";
 
-        document.getElementById("display-mobile").innerText=value;
+    }else{
+
+        box.style.display="block";
 
     }
 
