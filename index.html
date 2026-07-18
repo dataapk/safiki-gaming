@@ -1517,11 +1517,9 @@
                 type="password"
                 placeholder="Repeat New Password">
 
-            <button class="settings-save-btn">
-
-                Update Password
-
-            </button>
+            <button class="settings-save-btn" onclick="updatePassword()">
+                      Update Password
+                 </button>
 
         </div>
 
@@ -1538,11 +1536,9 @@
                 type="password"
                 placeholder="Password">
 
-            <button class="settings-save-btn">
-
-                Enable 2FA
-
-            </button>
+           <button class="settings-save-btn" onclick="enable2FA()">
+                    Enable 2FA
+             </button>
 
         </div>
 
@@ -1562,11 +1558,9 @@
 
             19 Jul 2026 - 10:45 PM
 
-            <button class="destroy-btn">
-
-                Destroy
-
-            </button>
+            <button class="destroy-btn" onclick="destroySession()">
+    Destroy
+</button>
 
         </div>
 
@@ -1582,29 +1576,21 @@
 
             <h4>Self Exclusion</h4>
 
-            <button class="exclude-btn">
+            <button class="exclude-btn" onclick="selfExclude('24 Hours')">
+                                  24 Hours
+                          </button>
 
-                24 Hours
+            <button class="exclude-btn" onclick="selfExclude('7 Days')">
+                         7 Days
+                    </button>
 
-            </button>
+            <button class="exclude-btn" onclick="selfExclude('30 Days')">
+                           30 Days
+                     </button>
 
-            <button class="exclude-btn">
-
-                7 Days
-
-            </button>
-
-            <button class="exclude-btn">
-
-                30 Days
-
-            </button>
-
-            <button class="exclude-btn">
-
-                Permanent
-
-            </button>
+            <button class="exclude-btn" onclick="selfExclude('Permanent')">
+                    Permanent
+                    </button>
 
         </div>
 
