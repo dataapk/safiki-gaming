@@ -899,8 +899,8 @@ async function openKYCVerification() {
     try {
 
         const {
-            data: { user }
-        } = await supabase.auth.getUser();
+    data: { user }
+} = await supabaseClient.auth.getUser();
 
         if (!user) return;
 
@@ -1001,7 +1001,7 @@ async function fetchTransactions(type = 'deposits', filter = 'latest') {
 
     try {
         // এখানে তোমার সুপারবেজ কোয়েরি হবে
-        // const { data, error } = await supabase.from('transactions').select('*').eq('type', type);
+        // const { data, error } = await supabaseClient.from('transactions').select('*').eq('type', type);
         
         // ডামি ডেটা (সুপারবেজ কানেক্ট করার পর এই অংশটা মুছে শুধু কোয়েরি রাখবে)
         const data = [
