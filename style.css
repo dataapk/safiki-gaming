@@ -1891,99 +1891,64 @@ select{
 }
 
 
-/* Currency Dropdown */
+/* ==========================
+   Transaction Currency Dropdown
+========================== */
 
 .currency-dropdown{
-
     position:relative;
-
+    display:inline-block;
 }
 
-
 .currency-btn{
-
+    width:170px;
+    height:42px;
+    padding:0 14px;
     background:#161b2e;
-    color:#fff;
     border:1px solid #2b2f40;
-
-    padding:10px 14px;
-
-    min-width:150px;
-
     border-radius:8px;
-
+    color:#fff;
     display:flex;
     align-items:center;
     justify-content:space-between;
-
     cursor:pointer;
-
     font-size:13px;
-
+    transition:.25s;
 }
 
-
-.currency-btn i{
-
-    margin-left:10px;
-    font-size:12px;
-
+.currency-btn:hover{
+    border-color:#e67e22;
 }
 
-
-/* Dropdown Menu */
-
-.currency-menu{
-
+#currency-menu{
     display:none;
-
     position:absolute;
-
     top:48px;
-
     left:0;
-
-    width:150px;
-
+    width:170px;
     background:#161b2e;
-
     border:1px solid #2b2f40;
-
     border-radius:8px;
-
     overflow:hidden;
-
     z-index:99999;
-
+    box-shadow:0 8px 20px rgba(0,0,0,.35);
 }
 
-
-.currency-menu.active{
-
+#currency-menu.active{
     display:block;
-
 }
-
 
 .currency-option{
-
-    padding:10px 12px;
-
+    padding:11px 14px;
     color:#fff;
-
     cursor:pointer;
-
     font-size:13px;
-
+    transition:.2s;
 }
-
 
 .currency-option:hover{
-
     background:#e67e22;
-
 }
-
 
 
 /* Filter Buttons */
