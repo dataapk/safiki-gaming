@@ -863,30 +863,6 @@ img, svg {
 /* ===============================
    TWO COLUMN
 ================================ */
-.inline-row{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    gap:15px;
-
-}
-
-.inline-row label{
-
-    width:130px;
-
-}
-
-.inline-row input,
-.inline-row select{
-
-    flex:1;
-
-}
 .two-column{
 
     display:grid;
@@ -895,55 +871,103 @@ img, svg {
 
     gap:14px;
 
-    margin-bottom:15px;
-
-}
-
-.two-column label{
-
-    display:block;
-
-    color:#bfbfbf;
-
-    font-size:13px;
-
-    margin-bottom:7px;
+    margin-bottom:14px;
 
 }
 
 .two-column input,
-
-.two-column select{
+.inline-row input,
+.country-select select{
 
     width:100%;
 
     height:44px;
 
-    background:#111318;
+    background:#1b1e27 !important;
 
-    border:1px solid #2d313d;
+    color:#fff;
+
+    border:1px solid #34394a;
 
     border-radius:10px;
 
     padding:0 14px;
 
-    color:#fff;
+    font-size:13px;
 
-    font-size:14px;
+    outline:none;
+
+    box-sizing:border-box;
 
 }
 
 .two-column input:focus,
-
-.two-column select:focus{
-
-    outline:none;
+.inline-row input:focus,
+.country-select select:focus{
 
     border-color:#d6b35d;
 
 }
 
+.inline-row{
 
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+    margin-bottom:14px;
+
+}
+
+.inline-row label{
+
+    width:130px;
+
+    color:#dcdcdc;
+
+    font-weight:600;
+
+    flex-shrink:0;
+
+}
+
+.country-select{
+
+    position:relative;
+
+    flex:1;
+
+}
+
+.country-select select{
+
+    appearance:none;
+
+    -webkit-appearance:none;
+
+    -moz-appearance:none;
+
+    padding-right:40px;
+
+}
+
+.country-select i{
+
+    position:absolute;
+
+    right:14px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    color:#d6b35d;
+
+    pointer-events:none;
+
+}
 /* ================= PART 2 END ================= */
 /* =========================================================
    ACCOUNT INFORMATION
