@@ -1830,11 +1830,152 @@ select{
     color: white;
 }
 
-/* কন্ট্রোল বার (কারেন্সি ও ফিল্টার) */
-.trans-controls {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 15px;
+/* ===============================
+   TRANSACTION FILTER BAR
+================================ */
+
+.trans-controls{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#121626;
+    padding:12px;
+    border-radius:10px;
+    margin-bottom:15px;
+
+}
+
+
+/* Currency Dropdown */
+
+.currency-dropdown{
+
+    position:relative;
+
+}
+
+
+.currency-btn{
+
+    background:#161b2e;
+    color:#fff;
+    border:1px solid #2b2f40;
+
+    padding:10px 14px;
+
+    min-width:150px;
+
+    border-radius:8px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    cursor:pointer;
+
+    font-size:13px;
+
+}
+
+
+.currency-btn i{
+
+    margin-left:10px;
+    font-size:12px;
+
+}
+
+
+/* Dropdown Menu */
+
+.currency-menu{
+
+    display:none;
+
+    position:absolute;
+
+    top:48px;
+
+    left:0;
+
+    width:150px;
+
+    background:#161b2e;
+
+    border:1px solid #2b2f40;
+
+    border-radius:8px;
+
+    overflow:hidden;
+
+    z-index:99999;
+
+}
+
+
+.currency-menu.active{
+
+    display:block;
+
+}
+
+
+.currency-option{
+
+    padding:10px 12px;
+
+    color:#fff;
+
+    cursor:pointer;
+
+    font-size:13px;
+
+}
+
+
+.currency-option:hover{
+
+    background:#e67e22;
+
+}
+
+
+
+/* Filter Buttons */
+
+.filter-btns{
+
+    display:flex;
+
+    gap:8px;
+
+}
+
+
+.filter-btn{
+
+    background:#161b2e;
+
+    color:#888;
+
+    border:1px solid #2b2f40;
+
+    padding:8px 14px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+}
+
+
+.filter-btn.active{
+
+    color:#fff;
+
+    border-color:#e67e22;
+
 }
 
 .currency-select, .filter-btn {
