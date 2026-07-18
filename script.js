@@ -1048,14 +1048,13 @@ function switchTransTab(type) {
     fetchTransactions(type);
 }
 
-function toggleCurrencyDropdown(){
+function toggleTransactionCurrencyDropdown() {
 
     const menu = document.getElementById("currency-menu");
 
     menu.classList.toggle("active");
 
 }
-
 function selectCurrency(currency){
 
     document.getElementById("selected-currency").innerText =
