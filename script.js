@@ -882,13 +882,95 @@ function saveAccountInfo(){
     alert("Account Information Saved");
 
 }
-// END  Account Information====================================================================
-function openKYCVerification() {
+// END  Account Information==========
 
-    alert("KYC Verification - Coming Soon");
+// START OPEN KYC VERIFICATIONM=======
+async function openKYC() {
+
+    // Hide other sections
+    document.getElementById("account-info-section").style.display = "none";
+
+    if (document.getElementById("transaction-section"))
+        document.getElementById("transaction-section").style.display = "none";
+
+    // Show KYC Section
+    document.getElementById("kyc-section").style.display = "block";
+
+    try {
+
+        const {
+            data: { user }
+        } = await supabase.auth.getUser();
+
+        if (!user) return;
+
+        // Load profile information
+        const { data, error } = await supabase
+            .from("profiles")
+            .select(`
+                full_name,
+                user_id,
+                country,
+                kyc_status,
+                kyc_document_type,
+                kyc_document_number
+            `)
+            .eq("id", user.id)
+            .single();
+
+        if (error || !data) return;
+
+        // Basic Information
+        document.getElementById("kyc-fullname").textContent =
+            data.full_name || "--";
+
+        document.getElementById("kyc-userid").textContent =
+            data.user_id || "--";
+
+        document.getElementById("kyc-country").value =
+            data.country || "Bangladesh";
+
+        document.getElementById("kyc-document-type").value =
+            data.kyc_document_type || "";
+
+        document.getElementById("kyc-document-number").value =
+            data.kyc_document_number || "";
+
+        // Status Badge
+        const status = (data.kyc_status || "not_verified").toLowerCase();
+
+        const statusBox = document.getElementById("kyc-status");
+
+        if (status === "approved") {
+
+            statusBox.innerHTML =
+                '<span class="kyc-approved"><i class="fas fa-check-circle"></i> Approved</span>';
+
+        } else if (status === "pending") {
+
+            statusBox.innerHTML =
+                '<span class="kyc-pending"><i class="fas fa-clock"></i> Pending Review</span>';
+
+        } else if (status === "rejected") {
+
+            statusBox.innerHTML =
+                '<span class="kyc-rejected"><i class="fas fa-times-circle"></i> Rejected</span>';
+
+        } else {
+
+            statusBox.innerHTML =
+                '<span class="kyc-pending"><i class="fas fa-id-card"></i> Not Verified</span>';
+
+        }
+
+    } catch (err) {
+
+        console.error("KYC Load Error:", err);
+
+    }
 
 }
-
+// END OPEN KYC VERIFICATIONM=======
 function openSecuritySettings() {
 
     alert("Security Settings - Coming Soon");
