@@ -1069,6 +1069,41 @@ function selectCurrency(currency){
     console.log("Selected Currency:", currency);
 
 }
+function filterBy(type){
+
+    console.log("Transaction Filter:", type);
+
+
+    // Active button change
+
+    const buttons = document.querySelectorAll(".filter-btn");
+
+    buttons.forEach(btn => {
+
+        btn.classList.remove("active");
+
+    });
+
+
+    event.target.classList.add("active");
+
+
+    // পরে Supabase query filter এখানে হবে
+
+    if(type === "archived"){
+
+        console.log("Showing Archived Transactions");
+
+    }
+
+
+    if(type === "latest"){
+
+        console.log("Showing Latest Transactions");
+
+    }
+
+}
 // ট্রানজেকশন লোড করার মেইন ফাংশন
 
 function confirmLogout() {
