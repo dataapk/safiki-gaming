@@ -405,27 +405,13 @@ img, svg {
     color:#ff5b5b;
 
 }
-/* =====================================
-   Account Information Section
-===================================== */
 
-
-/* =================================
-   Account Information Dropdown Panel
-================================= */
-
-
-/* =========================================
-   ACCOUNT INFORMATION
-========================================= */
 /* =========================================================
    ACCOUNT INFORMATION
    PART 1
 ========================================================= */
 
-/* ===============================
-   MAIN POPUP
-================================ */
+
 
 #account-info-section{
 
@@ -1312,7 +1298,23 @@ select{
 }
 
 }
+#account-info-section input,
+#account-info-section textarea,
+#account-info-section select{
 
+    background:#1b1f2a !important;
+    color:#ffffff !important;
+    border:1px solid rgba(255,255,255,.08) !important;
+    box-sizing:border-box;
+
+}
+
+#account-info-section input::placeholder,
+#account-info-section textarea::placeholder{
+
+    color:#8b93a7;
+
+}
 /* ===============================
    END ACCOUNT INFORMATION CSS
 ================================ */
