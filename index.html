@@ -465,6 +465,372 @@
         </div>
 
     </div>
+
+<!-- ================= KYC VERIFICATION ================= -->
+
+<div id="kyc-section" style="display:none;">
+
+    <!-- Header -->
+
+    <div class="account-header">
+
+        <h2>
+
+            <i class="fas fa-shield-alt"></i>
+
+            KYC Verification
+
+        </h2>
+
+        <button
+            class="close-account-btn"
+            onclick="closeKYC()">
+
+            <i class="fas fa-times"></i>
+
+        </button>
+
+    </div>
+
+    <!-- Body -->
+
+    <div class="account-card">
+
+        <!-- Status -->
+
+        <div class="info-box">
+
+            <div class="info-title">
+
+                <label>Verification Status</label>
+
+            </div>
+
+            <div class="info-value">
+
+                <span class="kyc-pending">
+
+                    <i class="fas fa-clock"></i>
+
+                    Not Verified
+
+                </span>
+
+            </div>
+
+        </div>
+
+        <!-- Full Name -->
+
+        <div class="info-box">
+
+            <div class="info-title">
+
+                <label>Full Name</label>
+
+            </div>
+
+            <div
+                class="info-value"
+                id="kyc-fullname">
+
+                --
+
+            </div>
+
+        </div>
+
+        <!-- User ID -->
+
+        <div class="info-box">
+
+            <div class="info-title">
+
+                <label>User ID</label>
+
+            </div>
+
+            <div
+                class="info-value"
+                id="kyc-userid">
+
+                --
+
+            </div>
+
+        </div>
+
+        <!-- Country -->
+
+        <div class="info-box">
+
+            <div class="info-title">
+
+                <label>Country / Region</label>
+
+            </div>
+
+            <div class="info-value">
+
+                <select id="kyc-country">
+
+                    <option value="Bangladesh" selected>Bangladesh</option>
+
+                    <option value="India">India</option>
+
+                    <option value="Pakistan">Pakistan</option>
+
+                    <option value="Nepal">Nepal</option>
+
+                    <option value="Sri Lanka">Sri Lanka</option>
+
+                    <option value="United States">United States</option>
+
+                    <option value="United Kingdom">United Kingdom</option>
+
+                    <option value="Australia">Australia</option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+        <!-- Document Type -->
+
+        <div class="info-box">
+
+            <div class="info-title">
+
+                <label>Verification Document</label>
+
+            </div>
+
+            <div class="info-value">
+
+                <select id="kyc-document-type">
+
+                    <option value="">Select Document</option>
+
+                    <option value="nid">
+
+                        National ID Card
+
+                    </option>
+
+                    <option value="passport">
+
+                        Passport
+
+                    </option>
+
+                    <option value="license">
+
+                        Driving License
+
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+        <!-- Document Number -->
+
+        <div class="info-box">
+
+            <div class="info-title">
+
+                <label>Document Number</label>
+
+            </div>
+
+            <div class="info-value">
+
+                <input
+                    type="text"
+                    id="kyc-document-number"
+                    placeholder="Enter your document number">
+
+            </div>
+
+        </div>
+
+        <!-- Upload Section Starts -->
+        <!-- ================= Upload Front Side ================= -->
+
+        <div class="kyc-upload-card">
+
+            <div class="kyc-upload-title">
+
+                <i class="fas fa-id-card"></i>
+
+                Front Side of Document
+
+            </div>
+
+            <label
+                for="kyc-front"
+                class="kyc-upload-box">
+
+                <i class="fas fa-cloud-upload-alt"></i>
+
+                <span>Upload Front Side</span>
+
+                <small>
+                    JPG, PNG (Max 5MB)
+                </small>
+
+            </label>
+
+            <input
+                type="file"
+                id="kyc-front"
+                accept="image/*"
+                capture="environment"
+                hidden>
+
+            <img
+                id="kyc-front-preview"
+                class="kyc-preview"
+                style="display:none;">
+
+        </div>
+
+        <!-- ================= Upload Back Side ================= -->
+
+        <div class="kyc-upload-card">
+
+            <div class="kyc-upload-title">
+
+                <i class="fas fa-address-card"></i>
+
+                Back Side of Document
+
+            </div>
+
+            <label
+                for="kyc-back"
+                class="kyc-upload-box">
+
+                <i class="fas fa-cloud-upload-alt"></i>
+
+                <span>Upload Back Side</span>
+
+                <small>
+                    JPG, PNG (Max 5MB)
+                </small>
+
+            </label>
+
+            <input
+                type="file"
+                id="kyc-back"
+                accept="image/*"
+                capture="environment"
+                hidden>
+
+            <img
+                id="kyc-back-preview"
+                class="kyc-preview"
+                style="display:none;">
+
+        </div>
+
+        <!-- ================= Selfie Verification ================= -->
+
+        <div class="kyc-upload-card">
+
+            <div class="kyc-upload-title">
+
+                <i class="fas fa-user-check"></i>
+
+                Selfie Verification
+
+            </div>
+
+            <label
+                for="kyc-selfie"
+                class="kyc-upload-box">
+
+                <i class="fas fa-camera"></i>
+
+                <span>Take Selfie / Upload</span>
+
+                <small>
+                    Face must be clearly visible
+                </small>
+
+            </label>
+
+            <input
+                type="file"
+                id="kyc-selfie"
+                accept="image/*"
+                capture="user"
+                hidden>
+
+            <img
+                id="kyc-selfie-preview"
+                class="kyc-preview"
+                style="display:none;">
+
+        </div>
+
+        <!-- ================= Upload Section Ends ================= -->
+
+        <!-- ================= Important Notice ================= -->
+
+        <div class="info-box">
+
+            <div class="info-title">
+
+                <label>KYC Guidelines</label>
+
+            </div>
+
+            <div class="info-value">
+
+                <ul class="kyc-rules">
+
+                    <li>Use your original government-issued document.</li>
+
+                    <li>All text and photo must be clearly visible.</li>
+
+                    <li>Do not upload edited, blurred or cropped images.</li>
+
+                    <li>Your selfie must match your uploaded document.</li>
+
+                    <li>Verification usually completes within 24–48 hours.</li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+
+        <div class="account-footer">
+
+            <button
+                class="save-btn"
+                onclick="submitKYC()">
+
+                Submit KYC Verification
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================= END KYC VERIFICATION ================= -->
+
+    
     <!-- Transactions -->
    <!-- ট্রানজেকশন মেইন মেনু আইটেম -->
 <div class="menu-item" onclick="openTransaction()">
