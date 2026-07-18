@@ -1762,46 +1762,48 @@ select{
     z-index: 1000; /* প্রোফাইল মেনু নিচে থাকবে */
 }
 
-#transaction-history-section {
-    z-index: 99999; /* ট্রানজেকশন পপআপ সবার উপরে থাকবে */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-/* ট্রানজেকশন কন্টেইনার - ফুল বক্স স্টাইল */
-.transaction-container{
+#transaction-history-section{
 
     position: fixed;
 
-    top: 72px;              /* Header-এর নিচ থেকে শুরু */
+    top: 70px;
 
-    left: 0;
+    left: 50%;
 
-    width: 100%;
+    transform: translateX(-50%);
 
-    height: calc(100vh - 72px);
+    width: 720px;
 
-    background: #0b0e1a;
+    max-width: 94%;
 
-    display: none;
+    height: 80vh;
 
     overflow-y: auto;
 
-    box-sizing: border-box;
+    background: #13151c;
 
-    padding: 20px;
+    border: 1px solid rgba(255,214,102,.25);
 
-    z-index: 950;
+    border-radius: 18px;
+
+    box-shadow: 0 20px 60px rgba(0,0,0,.45);
+
+    z-index: 9998;
+
+    display: none;
 
 }
-.transaction-container.active{
 
-    display:block;
+
+/* Show */
+
+#transaction-history-section.active{
+
+    display: block;
 
 }
+
+
 /* হেডার */
 .trans-header {
     display: flex;
