@@ -2084,15 +2084,13 @@ select{
 
     display:flex;
 
-    justify-content:space-between;
+    justify-content:center;
 
     align-items:center;
 
+    gap:20px;      /* এখানে 16-20px দিতে পারো */
+
     margin-top:20px;
-
-    padding-top:15px;
-
-    border-top:1px solid #2b2f40;
 
 }
 
