@@ -1045,6 +1045,30 @@ function switchTransTab(type) {
     event.target.classList.add('active');
     fetchTransactions(type);
 }
+
+function toggleCurrencyDropdown(){
+
+    const menu = document.getElementById("currency-menu");
+
+    menu.classList.toggle("active");
+
+}
+
+function selectCurrency(currency){
+
+    document.getElementById("selected-currency").innerText =
+        currency === "all" ? "All Currency" : currency;
+
+
+    document
+    .getElementById("currency-menu")
+    .classList.remove("active");
+
+
+    // পরে Supabase filter এখানে হবে
+    console.log("Selected Currency:", currency);
+
+}
 // ট্রানজেকশন লোড করার মেইন ফাংশন
 
 function confirmLogout() {
