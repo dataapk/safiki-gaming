@@ -590,91 +590,167 @@
 
         <!-- Full Name -->
 
-        <div class="info-box">
+<div class="info-box">
 
-            <div class="info-title">
+    <div class="info-title">
 
-                <label>Full Name</label>
+        <label>Full Name</label>
 
-                <button
-                    class="mini-edit-btn"
-                    onclick="editFullName()">
+        <button
+            class="mini-edit-btn"
+            onclick="editFullName()">
 
-                    Edit
+            Edit
 
-                </button>
+        </button>
 
-            </div>
+    </div>
 
-            <div
-                class="info-value"
-                id="display-fullname">
+    <div
+        class="info-value"
+        id="display-fullname">
 
-                MD Ayan Ali
+        MD Ayan Ali
 
-            </div>
+    </div>
+
+    <div id="name-edit-box" class="edit-box" style="display:none;">
+
+        <div class="input-group">
+
+            <label>First Name</label>
+
+            <input
+                type="text"
+                id="first-name">
+
+        </div>
+
+        <div class="input-group">
+
+            <label>Last Name</label>
+
+            <input
+                type="text"
+                id="last-name">
 
         </div>
 
+    </div>
+
+</div>
 
 
-        <!-- Email -->
 
-        <div class="info-box">
+       <!-- Email -->
 
-            <div class="info-title">
+<div class="info-box">
 
-                <label>Email Address</label>
+    <div class="info-title">
 
-                <button
-                    class="mini-edit-btn"
-                    onclick="openChangeEmail()">
+        <label>Email Address</label>
 
-                    Edit
+        <button
+            class="mini-edit-btn"
+            onclick="openChangeEmail()">
 
-                </button>
+            Edit
 
-            </div>
+        </button>
 
-            <div
-                class="info-value"
-                id="display-email">
+    </div>
 
-                user@email.com
+    <div
+        class="info-value"
+        id="display-email">
 
-            </div>
+        user@email.com
+
+    </div>
+
+    <div id="email-edit-box" class="edit-box" style="display:none;">
+
+        <div class="input-group">
+
+            <label>New Email</label>
+
+            <input
+                type="email"
+                id="new-email">
 
         </div>
+
+        <div class="input-group">
+
+            <label>Confirm Email</label>
+
+            <input
+                type="email"
+                id="confirm-email">
+
+        </div>
+
+    </div>
+
+</div>
 
 
 
         <!-- Mobile -->
 
-        <div class="info-box">
+<div class="info-box">
 
-            <div class="info-title">
+    <div class="info-title">
 
-                <label>Mobile Number</label>
+        <label>Mobile Number</label>
 
-                <button
-                    class="mini-edit-btn"
-                    onclick="editMobile()">
+        <button
+            class="mini-edit-btn"
+            onclick="editMobile()">
 
-                    Edit
+            Edit
 
-                </button>
+        </button>
 
-            </div>
+    </div>
 
-            <div
-                class="info-value"
-                id="display-mobile">
+    <div
+        class="info-value"
+        id="display-mobile">
 
-                Not Added
+        Not Added
 
-            </div>
+    </div>
+
+    <div id="mobile-edit-box" class="edit-box" style="display:none;">
+
+        <div class="input-group">
+
+            <label>Country Code</label>
+
+            <select id="mobile-code">
+
+                <option value="+880">🇧🇩 +880</option>
+                <option value="+91">🇮🇳 +91</option>
+                <option value="+1">🇺🇸 +1</option>
+
+            </select>
 
         </div>
+
+        <div class="input-group">
+
+            <label>Mobile Number</label>
+
+            <input
+                type="text"
+                id="mobile-number">
+
+        </div>
+
+    </div>
+
+</div>
 
 
 
