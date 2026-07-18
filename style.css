@@ -1319,7 +1319,439 @@ select{
    END ACCOUNT INFORMATION CSS
 ================================ */
 
+/* =========================================================
+   KYC VERIFICATION : PART 1
+========================================================= */
 
+#kyc-section{
+
+    position:fixed;
+
+    top:70px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:720px;
+
+    max-width:94%;
+
+    height:80vh;
+
+    overflow-y:auto;
+
+    background:#13151c;
+
+    border:1px solid rgba(255,214,102,.25);
+
+    border-radius:18px;
+
+    box-shadow:0 20px 60px rgba(0,0,0,.45);
+
+    z-index:9998;
+
+}
+
+#kyc-section::-webkit-scrollbar{
+
+    width:6px;
+
+}
+
+#kyc-section::-webkit-scrollbar-thumb{
+
+    background:#d6b35d;
+
+    border-radius:20px;
+
+}
+
+/* Card */
+
+#kyc-section .account-card{
+
+    padding:22px;
+
+}
+
+/* Status */
+
+.kyc-pending{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:8px 14px;
+
+    border-radius:30px;
+
+    background:rgba(255,193,7,.12);
+
+    border:1px solid rgba(255,193,7,.25);
+
+    color:#ffd666;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+.kyc-approved{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:8px 14px;
+
+    border-radius:30px;
+
+    background:rgba(0,200,83,.12);
+
+    border:1px solid rgba(0,200,83,.25);
+
+    color:#4cd964;
+
+}
+
+.kyc-rejected{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:8px 14px;
+
+    border-radius:30px;
+
+    background:rgba(255,59,48,.12);
+
+    border:1px solid rgba(255,59,48,.25);
+
+    color:#ff6b6b;
+
+}
+
+/* Inputs */
+
+#kyc-section input,
+
+#kyc-section select{
+
+    width:100%;
+
+    height:46px;
+
+    background:#1b1f2a;
+
+    color:#fff;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:10px;
+
+    padding:0 14px;
+
+    outline:none;
+
+    transition:.25s;
+
+}
+
+#kyc-section input:focus,
+
+#kyc-section select:focus{
+
+    border-color:#d6b35d;
+
+    box-shadow:0 0 0 3px rgba(214,179,93,.12);
+
+}
+
+#kyc-section input::placeholder{
+
+    color:#8b93a7;
+
+}
+/* =========================================================
+   KYC VERIFICATION : PART 2
+   Upload Cards
+========================================================= */
+
+.kyc-upload-card{
+
+    margin-top:18px;
+
+    background:#181b23;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:14px;
+
+    padding:18px;
+
+}
+
+.kyc-upload-title{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    color:#ffd666;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    margin-bottom:14px;
+
+}
+
+.kyc-upload-title i{
+
+    font-size:16px;
+
+}
+
+.kyc-upload-box{
+
+    width:100%;
+
+    min-height:150px;
+
+    border:2px dashed rgba(214,179,93,.35);
+
+    border-radius:14px;
+
+    background:#1b1f2a;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    padding:20px;
+
+}
+
+.kyc-upload-box:hover{
+
+    border-color:#d6b35d;
+
+    background:#202531;
+
+}
+
+.kyc-upload-box i{
+
+    font-size:38px;
+
+    color:#d6b35d;
+
+    margin-bottom:12px;
+
+}
+
+.kyc-upload-box span{
+
+    color:#fff;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    margin-bottom:6px;
+
+}
+
+.kyc-upload-box small{
+
+    color:#9aa3b2;
+
+    font-size:12px;
+
+    line-height:1.5;
+
+}
+
+.kyc-preview{
+
+    width:100%;
+
+    margin-top:15px;
+
+    border-radius:12px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    object-fit:cover;
+
+    max-height:220px;
+
+    display:block;
+
+}
+
+.kyc-preview:not([src]),
+
+.kyc-preview[src=""]{
+
+    display:none;
+
+}
+/* =========================================================
+   KYC VERIFICATION : PART 3
+   Footer + Guidelines + Responsive
+========================================================= */
+
+.kyc-rules{
+
+    margin:0;
+
+    padding-left:18px;
+
+}
+
+.kyc-rules li{
+
+    color:#bfc6d4;
+
+    font-size:13px;
+
+    line-height:1.8;
+
+    margin-bottom:6px;
+
+}
+
+.kyc-rules li::marker{
+
+    color:#d6b35d;
+
+}
+
+/* Footer */
+
+#kyc-section .account-footer{
+
+    position:sticky;
+
+    bottom:0;
+
+    background:#13151c;
+
+    padding:18px 0 0;
+
+    margin-top:25px;
+
+    border-top:1px solid rgba(255,255,255,.06);
+
+    display:flex;
+
+    justify-content:flex-end;
+
+}
+
+#kyc-section .save-btn{
+
+    min-width:210px;
+
+    height:46px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:linear-gradient(135deg,#d6b35d,#f5d77d);
+
+    color:#111;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+#kyc-section .save-btn:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 8px 25px rgba(214,179,93,.35);
+
+}
+
+/* Responsive */
+
+@media (max-width:768px){
+
+    #kyc-section{
+
+        width:96%;
+
+        height:84vh;
+
+    }
+
+    #kyc-section .account-card{
+
+        padding:16px;
+
+    }
+
+    .kyc-upload-box{
+
+        min-height:130px;
+
+        padding:16px;
+
+    }
+
+    .kyc-upload-box i{
+
+        font-size:32px;
+
+    }
+
+    #kyc-section .save-btn{
+
+        width:100%;
+
+        min-width:unset;
+
+    }
+
+    #kyc-section .account-footer{
+
+        justify-content:stretch;
+
+    }
+
+}
 
 /*END PROFILE CSS */
 
