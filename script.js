@@ -905,7 +905,7 @@ async function openKYCVerification() {
         if (!user) return;
 
         // Load profile information
-        const { data, error } = await supabase
+        const { data, error } = await supabaseClient
             .from("profiles")
             .select(`
                 full_name,
