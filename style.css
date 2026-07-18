@@ -832,7 +832,7 @@ img, svg {
 
     width:72px;          /* আগের 95px থেকে ছোট */
 
-    margin-left:0;
+    margin-left:-8px;   /* বা -6px, যতটা ভালো লাগে */
 
     flex:0 0 78px;
 
@@ -844,7 +844,7 @@ img, svg {
 
     width:100%;
     height:46px;              /* 44 → 46 */
-    padding:0 18px 0 2px;     /* বাম পাশে প্রায় জিরো */
+    padding:0 18px 0 8px;     /* বাম পাশে প্রায় জিরো */
     background:#1b1f2a !important;
     color:#fff;
     border:1px solid rgba(255,255,255,.08);
