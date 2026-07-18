@@ -1797,7 +1797,11 @@ select{
     z-index: 950;
 
 }
+.transaction-container.active{
 
+    display:block;
+
+}
 /* হেডার */
 .trans-header {
     display: flex;
