@@ -1050,7 +1050,7 @@ function switchTransTab(type) {
 
 function toggleTransactionCurrencyDropdown() {
 
-    const menu = document.getElementById("currency-menu");
+    const menu = document.getElementById("transaction-currency-menu");
 
     menu.classList.toggle("active");
 
