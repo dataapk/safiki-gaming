@@ -482,168 +482,7 @@
 </div>
 
 
-<!-- Transaction History Section -->
 
-<div id="transaction-history-section" class="transaction-container">
-
-    <div class="trans-header">
-
-        <h3>Transaction History</h3>
-
-        <button 
-            class="close-trans" 
-            onclick="closeTransaction()">
-
-            ×
-
-        </button>
-
-    </div>
-
-
-    <!-- Top Tabs -->
-
-    <div class="trans-tabs">
-
-        <button 
-            class="tab-btn active" 
-            onclick="switchTransTab('deposits')">
-
-            Deposits
-
-        </button>
-
-
-        <button 
-            class="tab-btn" 
-            onclick="switchTransTab('withdrawals')">
-
-            Withdrawals
-
-        </button>
-
-
-        <button 
-            class="tab-btn" 
-            onclick="switchTransTab('exchanges')">
-
-            Exchanges
-
-        </button>
-
-
-        <button 
-            class="tab-btn" 
-            onclick="switchTransTab('promo')">
-
-            Promo
-
-        </button>
-
-    </div>
-
-<!-- Controls -->
-
-<div class="trans-controls">
-
-    <!-- Currency Dropdown -->
-
-    <div class="currency-dropdown">
-
-        <button 
-            class="currency-btn"
-            onclick="toggleCurrencyDropdown()">
-
-            <span id="selected-currency">
-                All Currency
-            </span>
-
-            <i class="fas fa-chevron-down"></i>
-
-        </button>
-
-
-        <div 
-            id="currency-menu"
-            class="currency-menu">
-
-            <div 
-                class="currency-option"
-                onclick="selectCurrency('all')">
-
-                All Currency
-
-            </div>
-
-
-            <div 
-                class="currency-option"
-                onclick="selectCurrency('USDT')">
-
-                USDT
-
-            </div>
-
-
-            <div 
-                class="currency-option"
-                onclick="selectCurrency('BTC')">
-
-                BTC
-
-            </div>
-
-
-            <div 
-                class="currency-option"
-                onclick="selectCurrency('ETH')">
-
-                ETH
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- Filter Buttons -->
-
-    <div class="filter-btns">
-
-        <button 
-            class="filter-btn"
-            onclick="filterBy('archived')">
-
-            Archived
-
-        </button>
-
-
-        <button 
-            class="filter-btn active"
-            onclick="filterBy('latest')">
-
-            Latest
-
-        </button>
-
-    </div>
-
-
-</div>
-
-
-    <!-- Transaction List -->
-
-    <div id="trans-list-container" class="trans-list">
-
-        <!-- Supabase data load here -->
-
-    </div>
-
-
-</div>
 
     <!-- Logout -->
     <div class="menu-item logout-btn" onclick="showLogoutPopup()">
@@ -1392,6 +1231,172 @@
 </div>
 
 <!-- ================= END KYC VERIFICATION ================= -->
+
+    
+    <!-- Transaction History Section -->
+
+<div id="transaction-history-section" class="transaction-container">
+
+    <div class="trans-header">
+
+        <h3>Transaction History</h3>
+
+        <button 
+            class="close-trans" 
+            onclick="closeTransaction()">
+
+            ×
+
+        </button>
+
+    </div>
+
+
+    <!-- Top Tabs -->
+
+    <div class="trans-tabs">
+
+        <button 
+            class="tab-btn active" 
+            onclick="switchTransTab('deposits')">
+
+            Deposits
+
+        </button>
+
+
+        <button 
+            class="tab-btn" 
+            onclick="switchTransTab('withdrawals')">
+
+            Withdrawals
+
+        </button>
+
+
+        <button 
+            class="tab-btn" 
+            onclick="switchTransTab('exchanges')">
+
+            Exchanges
+
+        </button>
+
+
+        <button 
+            class="tab-btn" 
+            onclick="switchTransTab('promo')">
+
+            Promo
+
+        </button>
+
+    </div>
+
+<!-- Controls -->
+
+<div class="trans-controls">
+
+    <!-- Currency Dropdown -->
+
+    <div class="currency-dropdown">
+
+        <button 
+            class="currency-btn"
+            onclick="toggleCurrencyDropdown()">
+
+            <span id="selected-currency">
+                All Currency
+            </span>
+
+            <i class="fas fa-chevron-down"></i>
+
+        </button>
+
+
+        <div 
+            id="currency-menu"
+            class="currency-menu">
+
+            <div 
+                class="currency-option"
+                onclick="selectCurrency('all')">
+
+                All Currency
+
+            </div>
+
+
+            <div 
+                class="currency-option"
+                onclick="selectCurrency('USDT')">
+
+                USDT
+
+            </div>
+
+
+            <div 
+                class="currency-option"
+                onclick="selectCurrency('BTC')">
+
+                BTC
+
+            </div>
+
+
+            <div 
+                class="currency-option"
+                onclick="selectCurrency('ETH')">
+
+                ETH
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Filter Buttons -->
+
+    <div class="filter-btns">
+
+        <button 
+            class="filter-btn"
+            onclick="filterBy('archived')">
+
+            Archived
+
+        </button>
+
+
+        <button 
+            class="filter-btn active"
+            onclick="filterBy('latest')">
+
+            Latest
+
+        </button>
+
+    </div>
+
+
+</div>
+
+
+    <!-- Transaction List -->
+
+    <div id="trans-list-container" class="trans-list">
+
+        <!-- Supabase data load here -->
+
+    </div>
+
+
+</div>
+
+    <!-- TRANSACTIONS SUBMENU END  -->
     
 <!-- Logout Popup -->
 <div id="logout-confirm-popup" style="display:none;">
