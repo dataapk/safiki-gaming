@@ -830,7 +830,7 @@ img, svg {
 
 .country-code{
 
-    width:78px;          /* আগের 95px থেকে ছোট */
+    width:72px;          /* আগের 95px থেকে ছোট */
 
     margin-left:0;
 
@@ -843,23 +843,13 @@ img, svg {
 .country-code select{
 
     width:100%;
-
-    padding:0 20px 0 6px;   /* বামে কোনো অতিরিক্ত জায়গা নেই */
-
-    background:#1b1f2a;
-
+    height:46px;              /* 44 → 46 */
+    padding:0 18px 0 2px;     /* বাম পাশে প্রায় জিরো */
+    background:#1b1f2a !important;
     color:#fff;
-
     border:1px solid rgba(255,255,255,.08);
-
     border-radius:10px;
-
     appearance:none;
-
-    -webkit-appearance:none;
-
-    -moz-appearance:none;
-
 }
 
 .country-code::after{
@@ -885,15 +875,15 @@ img, svg {
 #mobile-number{
 
     flex:1;
-
-    min-width:0;      /* সবচেয়ে গুরুত্বপূর্ণ */
-
-    width:100%;
-
+    min-width:0;
+    height:46px;
+    background:#1b1f2a !important;   /* সাদা না */
+    color:#fff;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:10px;
+    padding:0 12px;
     box-sizing:border-box;
-
 }
-
 
 /* ===============================
    TWO COLUMN
