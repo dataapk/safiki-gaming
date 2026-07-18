@@ -1153,8 +1153,126 @@ function previousTransactionPage(){
 updatePagination();
 
 
-// ট্রানজেকশন লোড করার মেইন ফাংশন
+// END ট্রানজেকশন লোড করার মেইন ফাংশন
 
+/* ===============================
+   SETTINGS SECTION
+================================ */
+
+// Open Settings
+function openProfileSettingMenu() {
+
+    // Hide other profile sections
+    document.getElementById("account-info-section").style.display = "none";
+    document.getElementById("kyc-section").style.display = "none";
+    document.getElementById("transaction-history-section").style.display = "none";
+
+    // Show Settings
+    document.getElementById("settings-section").style.display = "block";
+
+    // Default Tab
+    switchSettingsTab("security");
+}
+
+
+// Close Settings
+function closeProfileSettingMenu() {
+
+    document.getElementById("settings-section").style.display = "none";
+
+}
+
+
+// Switch Tabs
+function switchSettingsTab(tab) {
+
+    // Hide all tabs
+    document.getElementById("security-tab").style.display = "none";
+    document.getElementById("sessions-tab").style.display = "none";
+    document.getElementById("self-exclusion-tab").style.display = "none";
+
+    // Remove active button
+    document.querySelectorAll(".settings-tab-btn").forEach(btn => {
+        btn.classList.remove("active");
+    });
+
+    // Show selected tab
+    if (tab === "security") {
+
+        document.getElementById("security-tab").style.display = "block";
+        document.querySelectorAll(".settings-tab-btn")[0].classList.add("active");
+
+    }
+
+    if (tab === "sessions") {
+
+        document.getElementById("sessions-tab").style.display = "block";
+        document.querySelectorAll(".settings-tab-btn")[1].classList.add("active");
+
+    }
+
+    if (tab === "self-exclusion") {
+
+        document.getElementById("self-exclusion-tab").style.display = "block";
+        document.querySelectorAll(".settings-tab-btn")[2].classList.add("active");
+
+    }
+
+}
+
+
+/* ===============================
+   SECURITY
+================================ */
+
+// Update Password
+function updatePassword() {
+
+    alert("Password Updated Successfully.");
+
+}
+
+
+// Enable 2FA
+function enable2FA() {
+
+    alert("Two-Factor Authentication Enabled.");
+
+}
+
+
+/* ===============================
+   ACTIVE SESSION
+================================ */
+
+// Destroy Session
+function destroySession() {
+
+    if (confirm("Are you sure you want to destroy this session?")) {
+
+        alert("Session Destroyed.");
+
+    }
+
+}
+
+
+/* ===============================
+   SELF EXCLUSION
+================================ */
+
+function selfExclude(period) {
+
+    if (confirm("Activate Self Exclusion for " + period + "?")) {
+
+        alert("Self Exclusion Activated: " + period);
+
+    }
+
+}
+/* ===============================
+   END SETTING 
+================================ */
 function confirmLogout() {
     // Add your logout logic here
     window.location.href = 'logout.php'; 
