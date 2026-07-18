@@ -990,21 +990,23 @@ function openSecuritySettings() {
 // প্রোফাইলের জন্য আলাদা ফাংশন
 
 // ট্রানজেকশন লোড করার মেইন ফাংশন
-function openTransaction() {
-    // ১. প্রোফাইল পপআপটিকে পুরোপুরি হাইড করো
-    document.getElementById('profile-popup').style.display = 'none';
-    
-    // ২. ট্রানজেকশন কন্টেইনারটিকে দেখাও
-    const transSection = document.getElementById('transaction-history-section');
-    transSection.style.display = 'block'; 
-    
-    // ৩. জেড-ইনডেক্স জোর করে বাড়িয়ে দাও
-    transSection.style.zIndex = "99999"; 
+function openTransaction(){
+
+    document.getElementById("profile-popup").style.display = "none";
+
+    document
+        .getElementById("transaction-history-section")
+        .classList.add("active");
+
 }
-function closeTransaction() {
-    document.getElementById('transaction-history-section').style.display = 'none';
-    // চাইলে এখানে আবার প্রোফাইল পপআপটিও খুলে দিতে পারো
-    // document.getElementById('profile-popup').style.display = 'block';
+
+
+function closeTransaction(){
+
+    document
+        .getElementById("transaction-history-section")
+        .classList.remove("active");
+
 }
 async function fetchTransactions(type = 'deposits', filter = 'latest') {
     const container = document.getElementById('trans-list-container');
