@@ -1891,64 +1891,6 @@ select{
 }
 
 
-/* ==========================
-   Transaction Currency Dropdown
-========================== */
-
-.currency-dropdown{
-    position:relative;
-    display:inline-block;
-}
-
-.currency-btn{
-    width:170px;
-    height:42px;
-    padding:0 14px;
-    background:#161b2e;
-    border:1px solid #2b2f40;
-    border-radius:8px;
-    color:#fff;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    cursor:pointer;
-    font-size:13px;
-    transition:.25s;
-}
-
-.currency-btn:hover{
-    border-color:#e67e22;
-}
-
-#currency-menu{
-    display:none;
-    position:absolute;
-    top:48px;
-    left:0;
-    width:170px;
-    background:#161b2e;
-    border:1px solid #2b2f40;
-    border-radius:8px;
-    overflow:hidden;
-    z-index:99999;
-    box-shadow:0 8px 20px rgba(0,0,0,.35);
-}
-
-#currency-menu.active{
-    display:block;
-}
-
-.currency-option{
-    padding:11px 14px;
-    color:#fff;
-    cursor:pointer;
-    font-size:13px;
-    transition:.2s;
-}
-
-.currency-option:hover{
-    background:#e67e22;
-}
 
 
 /* Filter Buttons */
@@ -2100,6 +2042,92 @@ select{
 /* ===============================
     TRANSACTION PAGINATION CSS
 ================================ */
+/* ===============================
+   TRANSACTION CURRENCY DROPDOWN
+================================ */
+
+.transaction-currency-dropdown{
+    position:relative;
+    display:inline-block;
+}
+
+.transaction-currency-btn{
+
+    width:170px;
+    height:42px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 14px;
+
+    background:#161b2e;
+    color:#fff;
+
+    border:1px solid #2b2f40;
+    border-radius:8px;
+
+    cursor:pointer;
+    transition:.25s ease;
+
+}
+
+.transaction-currency-btn:hover{
+
+    border-color:#e67e22;
+
+}
+
+.transaction-currency-menu{
+
+    display:none;
+
+    position:absolute;
+
+    top:48px;
+    left:0;
+
+    width:170px;
+
+    background:#161b2e;
+
+    border:1px solid #2b2f40;
+    border-radius:8px;
+
+    overflow:hidden;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.35);
+
+    z-index:99999;
+
+}
+
+.transaction-currency-menu.active{
+
+    display:block;
+
+}
+
+.transaction-currency-option{
+
+    padding:12px 14px;
+
+    color:#fff;
+
+    font-size:13px;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.transaction-currency-option:hover{
+
+    background:#e67e22;
+
+}
 
 /* ===============================
    END TRANSACTION CSS
