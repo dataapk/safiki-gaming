@@ -480,6 +480,37 @@
     </div>
 
 </div>
+    !-- SETTING -->
+<!-- SETTING মেইন মেনু আইটেম -->
+
+<div class="menu-item" onclick="openProfileSettingMenu()">
+
+    <div class="menu-left">
+
+        <i class="fas fa-cog"></i>
+
+        <span>Settings</span>
+
+    </div>
+
+</div>
+
+    
+    !-- SETTING -->
+<!-- ট্রানজেকশন মেইন মেনু আইটেম -->
+
+<div class="menu-item" onclick="openprofilesetting()">
+
+    <div class="menu-left">
+
+        <i class="fas fa-history"></i>
+
+        <span>Setting</span>
+
+    </div><
+
+</div>
+
 
 
 
@@ -1417,6 +1448,189 @@
     </div> <!-- END transaction-history-section -->
 
     <!-- TRANSACTIONS SUBMENU END  -->
+
+    <!-- START SETTING SECTION   -->
+<!-- ================= SETTINGS SECTION ================= -->
+
+<div id="settings-section" class="settings-container" style="display:none;">
+
+    <!-- Header -->
+    <div class="settings-header">
+
+        <h3>Settings</h3>
+
+        <button
+            class="close-settings"
+            onclick="closeProfileSettingMenu()">
+
+            ×
+
+        </button>
+
+    </div>
+
+    <!-- Top Tabs -->
+    <div class="settings-tabs">
+
+        <button
+            class="settings-tab-btn active"
+            onclick="switchSettingsTab('security')">
+
+            Security
+
+        </button>
+
+        <button
+            class="settings-tab-btn"
+            onclick="switchSettingsTab('sessions')">
+
+            Active Sessions
+
+        </button>
+
+        <button
+            class="settings-tab-btn"
+            onclick="switchSettingsTab('self-exclusion')">
+
+            Self Exclusion
+
+        </button>
+
+    </div>
+
+    <!-- ================= SECURITY ================= -->
+
+    <div id="security-tab" class="settings-tab-content">
+
+        <!-- Email Verification -->
+        <div class="settings-card">
+
+            <h4>Email Verification</h4>
+
+            <p>
+                Status:
+                <span class="verified-status">
+                    Verified
+                </span>
+            </p>
+
+        </div>
+
+        <!-- Password -->
+        <div class="settings-card">
+
+            <h4>Change Password</h4>
+
+            <input
+                type="password"
+                placeholder="Current Password">
+
+            <input
+                type="password"
+                placeholder="New Password">
+
+            <input
+                type="password"
+                placeholder="Repeat New Password">
+
+            <button class="settings-save-btn">
+
+                Update Password
+
+            </button>
+
+        </div>
+
+        <!-- 2FA -->
+        <div class="settings-card">
+
+            <h4>Two-Factor Authentication</h4>
+
+            <input
+                type="text"
+                placeholder="2FA Code">
+
+            <input
+                type="password"
+                placeholder="Password">
+
+            <button class="settings-save-btn">
+
+                Enable 2FA
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- ================= ACTIVE SESSIONS ================= -->
+
+    <div id="sessions-tab"
+         class="settings-tab-content"
+         style="display:none;">
+
+        <div class="session-item">
+
+            <strong>Chrome • Windows</strong><br>
+
+            Bangladesh (UTC +6)<br>
+
+            19 Jul 2026 - 10:45 PM
+
+            <button class="destroy-btn">
+
+                Destroy
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- ================= SELF EXCLUSION ================= -->
+
+    <div id="self-exclusion-tab"
+         class="settings-tab-content"
+         style="display:none;">
+
+        <div class="settings-card">
+
+            <h4>Self Exclusion</h4>
+
+            <button class="exclude-btn">
+
+                24 Hours
+
+            </button>
+
+            <button class="exclude-btn">
+
+                7 Days
+
+            </button>
+
+            <button class="exclude-btn">
+
+                30 Days
+
+            </button>
+
+            <button class="exclude-btn">
+
+                Permanent
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================= END SETTINGS SECTION ================= -->
+
+    <!-- SETTING SECTION  END  -->
     
 <!-- Logout Popup -->
 <div id="logout-confirm-popup" style="display:none;">
@@ -1436,6 +1650,7 @@
     </div>
 
 </div>
+    
 
 </header>
 <!-- ================= LOGIN POPUP ================= -->
