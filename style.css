@@ -820,19 +820,23 @@ img, svg {
 
     display:flex;
 
-    align-items:center;
-
-    gap:10px;
-
     width:100%;
+
+    gap:8px;
+
+    align-items:center;
 
 }
 
 .country-code{
 
-    width:95px;
+    width:78px;          /* আগের 95px থেকে ছোট */
 
-    flex-shrink:0;
+    margin-left:0;
+
+    flex:0 0 78px;
+
+    position:relative;
 
 }
 
@@ -840,19 +844,15 @@ img, svg {
 
     width:100%;
 
-    height:44px;
+    padding:0 20px 0 6px;   /* বামে কোনো অতিরিক্ত জায়গা নেই */
 
-    background:#1b1f2a !important;
+    background:#1b1f2a;
 
     color:#fff;
 
     border:1px solid rgba(255,255,255,.08);
 
     border-radius:10px;
-
-    padding:0 28px 0 10px;
-
-    outline:none;
 
     appearance:none;
 
@@ -862,25 +862,35 @@ img, svg {
 
 }
 
+.country-code::after{
+
+    content:"▼";
+
+    position:absolute;
+
+    right:8px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    color:#d6b35d;
+
+    font-size:10px;
+
+    pointer-events:none;
+
+}
+
 #mobile-number{
 
     flex:1;
 
-    width:auto;
+    min-width:0;      /* সবচেয়ে গুরুত্বপূর্ণ */
 
-    height:44px;
+    width:100%;
 
-    background:#1b1f2a !important;
-
-    color:#fff;
-
-    border:1px solid rgba(255,255,255,.08);
-
-    border-radius:10px;
-
-    padding:0 12px;
-
-    outline:none;
+    box-sizing:border-box;
 
 }
 
