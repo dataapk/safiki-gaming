@@ -979,41 +979,21 @@ img, svg {
    SAVE BUTTON
 ================================ */
 
-.save-btn{
+.account-footer{
 
-    width:100%;
+    margin-top:20px;
 
-    height:48px;
+    padding-top:16px;
 
-    margin-top:24px;
+    border-top:1px solid rgba(255,255,255,.08);
 
-    border:none;
+    position:sticky;
 
-    border-radius:10px;
+    bottom:0;
 
-    background:#d6b35d;
-
-    color:#111;
-
-    font-size:15px;
-
-    font-weight:700;
-
-    cursor:pointer;
-
-    transition:.25s;
+    background:#13151c;
 
 }
-
-.save-btn:hover{
-
-    background:#ffd666;
-
-    transform:translateY(-1px);
-
-}
-
-
 /* ===============================
    HOVER
 ================================ */
