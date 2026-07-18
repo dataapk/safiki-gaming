@@ -1773,16 +1773,29 @@ select{
 
 /* ট্রানজেকশন কন্টেইনার - ফুল বক্স স্টাইল */
 .transaction-container {
-    position: fixed; /* পুরো স্ক্রিনের সাপেক্ষে পজিশন */
-    top: 0;
+
+    position: fixed;
+
+    top: 70px;          /* Header-এর নিচ থেকে শুরু */
+
     left: 0;
+
     width: 100%;
-    height: 100%;
-    background: #0b0e1a; /* ডার্ক থিম */
-    z-index: 9999;
+
+    height: calc(100vh - 70px);
+
+    background: #0b0e1a;
+
+    z-index: 999;
+
     padding: 20px;
-    box-sizing: border-box; /* প্যাডিং যেন বক্সের সাইজ না বাড়ায় */
-    overflow-y: auto; /* কন্টেন্ট বড় হলে স্ক্রল হবে */
+
+    overflow-y: auto;
+
+    box-sizing: border-box;
+
+    display: none;
+
 }
 
 /* হেডার */
