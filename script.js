@@ -1108,6 +1108,56 @@ function filterBy(type){
 }
 // ট্রানজেকশন লোড করার মেইন ফাংশন
 
+// ট্রানজেকশন লোড করার মেইন ফাংশন
+  let currentPage = 1;
+const totalPages = 10; // পরে Supabase থেকে আসবে
+
+function updatePagination(){
+
+    document.getElementById("page-number").textContent =
+        `Page ${currentPage}`;
+
+    document.getElementById("prev-page").disabled =
+        currentPage === 1;
+
+    document.getElementById("next-page").disabled =
+        currentPage === totalPages;
+
+}
+
+function nextTransactionPage(){
+
+    if(currentPage < totalPages){
+
+        currentPage++;
+
+        updatePagination();
+
+        // এখানেই পরে Supabase থেকে নতুন data load হবে
+
+    }
+
+}
+
+function previousTransactionPage(){
+
+    if(currentPage > 1){
+
+        currentPage--;
+
+        updatePagination();
+
+        // এখানেই পরে Supabase থেকে আগের page load হবে
+
+    }
+
+}
+
+updatePagination();
+
+
+// ট্রানজেকশন লোড করার মেইন ফাংশন
+
 function confirmLogout() {
     // Add your logout logic here
     window.location.href = 'logout.php'; 
