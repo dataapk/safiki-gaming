@@ -677,13 +677,23 @@ function toggleProfileMenu(event){
 // ==============================
 function openPersonalArea(){
 
-    const area = document.getElementById("personalArea");
+    // Hide Profile Menu
+    const profileMenu = document.getElementById("profile-popup");
 
-    if(area){
-
-        area.style.display="block";
-
+    if(profileMenu){
+        profileMenu.style.display = "none";
     }
+
+    // Hide Other Sections
+    document.getElementById("my-bonus-section").style.display = "none";
+    document.getElementById("transaction-history-section").style.display = "none";
+    document.getElementById("settings-section").style.display = "none";
+
+    // Show Personal Area
+    document.getElementById("personalArea").style.display = "block";
+
+    // Default Tab
+    openPersonalTab("details");
 
 }
 
