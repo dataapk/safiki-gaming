@@ -233,6 +233,9 @@ img, svg {
     font-weight: 500;
 }
 /* END ব্যাক অ্যাকশন বাটন বক্স */
+/* ===========================
+   PROFILE USER ACTION SECTION START
+=========================== */
 
 
 /* হেডারের সব অ্যাকশন বাটনকে নিশ্চিতভাবে উপরে আনো */
@@ -248,26 +251,23 @@ img, svg {
     z-index: 10000; /* মেনুর চেয়েও উপরে */
     cursor: pointer;
 }
-/* ১.START PROFILE CSS */
+
 .profile-icon {
     cursor: pointer; 
 }
-/* ===========================
-   PROFILE POPUP
-=========================== */
+
 
 #profile-popup{
-    display:block !important;
-    position:fixed !important;
+    display:none;
+    position:fixed;
     top:80px;
     right:20px;
     width:260px;
     background:#111827;
     padding:15px;
     border-radius:12px;
-    z-index:999999 !important;
+    z-index:999999;
 }
-
 
 /* ===============================
   START PERSONAL AREA CSS
