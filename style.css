@@ -2650,16 +2650,36 @@ select{
 /* =========================================
         CLAIM BUTTON
 ========================================= */
+
 .bonus-claim-area{
 
-    margin-top:18px;
+    margin-top:12px;
+
+    display:flex;
+
+    justify-content:flex-end;
 
 }
+
 .claim-bonus-btn{
 
-    padding:8px;
+    min-width:90px;
 
-    height:38px;
+    height:32px;
+
+    padding:0 14px;
+
+    border:none;
+
+    border-radius:10px;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    letter-spacing:.3px;
+
+    transition:.25s;
 
 }
 
@@ -2675,8 +2695,6 @@ select{
 
 }
 
-
-
 /* Active Claim */
 
 .claim-bonus-btn.ready{
@@ -2687,7 +2705,14 @@ select{
 
     cursor:pointer;
 
-    box-shadow:0 0 15px rgba(34,197,94,.35);
+    box-shadow:0 0 12px rgba(34,197,94,.35);
+
+}
+
+
+.claim-bonus-btn.ready:hover{
+
+    background:#16a34a;
 
 }
 
