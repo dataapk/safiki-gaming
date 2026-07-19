@@ -292,6 +292,7 @@ PERSONAL DETAILS
     display:none;
 }
 .personal-card{
+position:relative;
 background:#161b22;
 border:1px solid rgba(255,255,255,.08);
 border-radius:16px;
@@ -343,29 +344,32 @@ transform:translateY(-2px);
 /* Personal Close Button */
 
 
+/* Personal Close Button */
+
 .close-personal-btn{
-top:15px;
+position:absolute;
+top:18px;
 right:18px;
-width:36px;
-height:36px;
-border:none;
-border-radius:50%;
-background:#2b2f3a;
-color:#fff;
-font-size:24px;
-font-weight:600;
-cursor:pointer;
+width:38px;
+height:38px;
 display:flex;
 align-items:center;
 justify-content:center;
+background:#FFD666;
+color:#111;
+border:none;
+border-radius:50%;
+font-size:24px;
+font-weight:700;
+cursor:pointer;
 transition:.25s;
-z-index:1000;
+box-shadow:0 4px 12px rgba(255,214,102,.35);
+z-index:10;
 }
 
 .close-personal-btn:hover{
-background:#f6c344;
-color:#111;
-transform:rotate(90deg);
+background:#ffbf00;
+transform:scale(1.08);
 }
 /* END Personal Close Button */
 
