@@ -2343,17 +2343,65 @@ select{
 /* ==========================================
    MY BONUS SECTION
 ========================================== */
-/*======================================================
-                 MY BONUS SECTION
-======================================================*/
+/* ================================
+      MY BONUS POSITION FIX
+================================ */
 
 #my-bonus-section{
+
+    position:relative;
+
+    width:100%;
+
+    margin-top:15px;
+
+    display:none;
+
+    background:#161b2e;
+
+    border-radius:16px;
+
+    overflow:hidden;
+
+}
+
+
+/* When Open */
+
+#my-bonus-section.active{
+
+    display:block;
+
+}
+
+
+/* Bonus Main Container */
+
+#my-bonus-section .bonus-container{
 
     width:100%;
 
     padding:18px;
 
-    animation:fadeIn .25s ease;
+}
+
+
+/* Keep inside profile dropdown */
+
+.profile-popup{
+
+    position:relative;
+
+}
+
+
+.profile-popup #my-bonus-section{
+
+    position:relative;
+
+    top:auto;
+
+    left:auto;
 
 }
 
