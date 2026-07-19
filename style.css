@@ -2690,54 +2690,34 @@ select{
     box-shadow:0 0 15px rgba(34,197,94,.35);
 
 }
-
 /* =========================================
-        BONUS TABS
+        DEPOSIT BONUS CONTENT START
 ========================================= */
 
 
-.bonus-tabs{
+/* Deposit Status */
 
-    display:flex;
+.deposit-status-card{
 
-    gap:10px;
+    background:#171b27;
 
-    margin-bottom:18px;
-
-}
-
-
-
-
-
-.bonus-menu-btn{
-
-    flex:1;
-
-    padding:12px;
-
-    background:#20263a;
-
-    border:none;
-
-    border-radius:12px;
-
-    color:#cbd5e1;
-
-    cursor:pointer;
-
-    font-weight:600;
-
-    transition:.3s;
+    border:1px solid rgba(255,214,102,.25);
 
 }
 
 
 
+/* Bonus Status Badge */
 
-.bonus-menu-btn.active{
+.bonus-status{
 
-    background:#ffd666;
+    padding:5px 12px;
+
+    border-radius:20px;
+
+    font-size:12px;
+
+    font-weight:700;
 
     color:#111827;
 
@@ -2745,24 +2725,37 @@ select{
 
 
 
+.bonus-status.active{
+
+    background:#22c55e;
+
+}
+
+
+
+.bonus-status.inactive{
+
+    background:#ef4444;
+
+    color:#ffffff;
+
+}
 
 
 
 
-/* =========================================
-        TAB CONTENT
-========================================= */
 
+/* Description */
 
-.bonus-tab-content{
+.bonus-description{
 
-    background:#171b27;
+    margin:10px 0 0;
 
-    border-radius:16px;
+    color:#aeb6cc;
 
-    padding:18px;
+    font-size:14px;
 
-    border:1px solid rgba(255,255,255,.08);
+    line-height:1.5;
 
 }
 
@@ -2773,11 +2766,526 @@ select{
 
 
 /* =========================================
-        HISTORY LIST
+        BONUS INFORMATION GRID
 ========================================= */
 
 
-#bonusHistoryList{
+.bonus-info-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:12px;
+
+}
+
+
+
+
+
+.bonus-info-item{
+
+    background:#20263a;
+
+    border-radius:12px;
+
+    padding:12px;
+
+    border:1px solid rgba(255,255,255,.06);
+
+}
+
+
+
+
+
+.bonus-info-item span{
+
+    display:block;
+
+    color:#9ca3af;
+
+    font-size:12px;
+
+    margin-bottom:5px;
+
+}
+
+
+
+
+.bonus-info-item strong{
+
+    color:#ffffff;
+
+    font-size:15px;
+
+    font-weight:700;
+
+}
+
+
+
+
+
+
+
+
+/* =========================================
+        BONUS RULES
+========================================= */
+
+
+.bonus-rules-list{
+
+    margin:0;
+
+    padding-left:18px;
+
+}
+
+
+
+.bonus-rules-list li{
+
+    color:#c5cada;
+
+    font-size:14px;
+
+    margin-bottom:8px;
+
+    line-height:1.5;
+
+}
+
+
+
+
+
+
+
+
+/* =========================================
+        ELIGIBLE GAMES GRID
+========================================= */
+
+
+.eligible-games-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:10px;
+
+}
+
+
+
+
+
+.eligible-game-card{
+
+    height:85px;
+
+    background:#20263a;
+
+    border-radius:12px;
+
+    overflow:hidden;
+
+    text-decoration:none;
+
+    border:1px solid rgba(255,214,102,.12);
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+
+
+
+
+.eligible-game-card img{
+
+    width:38px;
+
+    height:38px;
+
+    object-fit:cover;
+
+    border-radius:8px;
+
+    margin-bottom:5px;
+
+}
+
+
+
+
+
+.eligible-game-card span{
+
+    color:#ffffff;
+
+    font-size:12px;
+
+    font-weight:600;
+
+}
+
+
+
+
+
+.eligible-game-card:hover{
+
+    border-color:#ffd666;
+
+    transform:translateY(-3px);
+
+}
+
+
+
+
+
+
+
+/* =========================================
+        MOBILE RESPONSIVE
+========================================= */
+
+
+@media(max-width:600px){
+
+
+    .bonus-info-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+
+    .eligible-games-grid{
+
+        grid-template-columns:repeat(3,1fr);
+
+    }
+
+
+
+}
+
+
+
+
+
+/* =========================================
+        DEPOSIT BONUS CONTENT END
+========================================= */
+
+/* =========================================
+        PROMOTIONAL BONUS CONTENT START
+========================================= */
+
+
+/* Promotional Status Card */
+
+.promotional-status-card{
+
+    background:#171b27;
+
+    border:1px solid rgba(255,214,102,.25);
+
+}
+
+
+
+
+
+/* Promotional Description */
+
+.promotional-status-card .bonus-description{
+
+    color:#aeb6cc;
+
+    font-size:14px;
+
+    line-height:1.5;
+
+    margin-top:10px;
+
+}
+
+
+
+
+
+
+
+/* =========================================
+        PROMOTION DETAILS GRID
+========================================= */
+
+
+.promotional-status-card + .bonus-card .bonus-info-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:12px;
+
+}
+
+
+
+
+
+/* Promotion Info Box */
+
+.promotional-status-card + .bonus-card .bonus-info-item{
+
+    background:#20263a;
+
+    border-radius:12px;
+
+    padding:12px;
+
+    border:1px solid rgba(255,255,255,.06);
+
+}
+
+
+
+
+
+.promotional-status-card + .bonus-card .bonus-info-item span{
+
+    display:block;
+
+    color:#9ca3af;
+
+    font-size:12px;
+
+    margin-bottom:5px;
+
+}
+
+
+
+
+
+.promotional-status-card + .bonus-card .bonus-info-item strong{
+
+    color:#ffffff;
+
+    font-size:15px;
+
+    font-weight:700;
+
+}
+
+
+
+
+
+
+
+
+
+/* =========================================
+        PROMOTION RULES
+========================================= */
+
+
+.promotional-status-card ~ .bonus-card .bonus-rules-list{
+
+    padding-left:18px;
+
+    margin:0;
+
+}
+
+
+
+
+
+.promotional-status-card ~ .bonus-card .bonus-rules-list li{
+
+    color:#c5cada;
+
+    font-size:14px;
+
+    line-height:1.5;
+
+    margin-bottom:8px;
+
+}
+
+
+
+
+
+
+
+
+
+/* =========================================
+        PROMOTIONAL ELIGIBLE GAMES
+========================================= */
+
+
+.promotional-status-card ~ .bonus-card .eligible-games-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:10px;
+
+}
+
+
+
+
+
+
+
+.promotional-status-card ~ .bonus-card .eligible-game-card{
+
+    height:85px;
+
+    background:#20263a;
+
+    border-radius:12px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-decoration:none;
+
+    border:1px solid rgba(255,214,102,.12);
+
+    transition:.25s;
+
+}
+
+
+
+
+
+
+
+.promotional-status-card ~ .bonus-card .eligible-game-card img{
+
+    width:38px;
+
+    height:38px;
+
+    object-fit:cover;
+
+    border-radius:8px;
+
+    margin-bottom:5px;
+
+}
+
+
+
+
+
+.promotional-status-card ~ .bonus-card .eligible-game-card span{
+
+    color:#ffffff;
+
+    font-size:12px;
+
+    font-weight:600;
+
+}
+
+
+
+
+
+
+
+.promotional-status-card ~ .bonus-card .eligible-game-card:hover{
+
+    border-color:#ffd666;
+
+    transform:translateY(-3px);
+
+}
+
+
+
+
+
+
+
+
+/* =========================================
+        MOBILE RESPONSIVE
+========================================= */
+
+
+@media(max-width:600px){
+
+
+    .promotional-status-card + .bonus-card .bonus-info-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+
+
+    .promotional-status-card ~ .bonus-card .eligible-games-grid{
+
+        grid-template-columns:repeat(3,1fr);
+
+    }
+
+
+}
+
+
+
+
+
+/* =========================================
+        PROMOTIONAL BONUS CONTENT END
+========================================= */
+
+/* =========================================
+        BONUS HISTORY CONTENT START
+========================================= */
+
+
+/* History List */
+
+.bonus-history-list{
 
     display:flex;
 
@@ -2791,33 +3299,85 @@ select{
 
 
 
+
+
+/* Empty History */
+
+.bonus-empty-state{
+
+    text-align:center;
+
+    padding:25px 10px;
+
+    color:#9ca3af;
+
+    font-size:14px;
+
+}
+
+
+
+
+
+
+
+
+/* History Item */
+
 .bonus-history-item{
 
     display:flex;
 
-    justify-content:space-between;
-
     align-items:center;
+
+    justify-content:space-between;
 
     background:#20263a;
 
-    padding:14px;
+    border:1px solid rgba(255,255,255,.06);
 
     border-radius:12px;
 
+    padding:14px;
+
+    transition:.25s;
+
 }
 
 
 
 
+
+
+
+.bonus-history-item:hover{
+
+    border-color:rgba(255,214,102,.35);
+
+}
+
+
+
+
+
+
+
+
+/* Left Content */
 
 .bonus-history-left h4{
 
-    margin:0;
+    margin:0 0 5px;
 
     color:#ffffff;
 
+    font-size:15px;
+
+    font-weight:700;
+
 }
+
+
 
 
 
@@ -2826,7 +3386,7 @@ select{
 
     color:#9ca3af;
 
-    font-size:13px;
+    font-size:12px;
 
 }
 
@@ -2834,23 +3394,52 @@ select{
 
 
 
+
+
+
+/* Status Right */
+
 .bonus-history-right{
+
+    padding:6px 12px;
+
+    border-radius:20px;
+
+    font-size:12px;
 
     font-weight:700;
 
 }
 
 
+
+
+
+
+
+/* Completed */
+
 .bonus-history-right.success{
 
-    color:#4ade80;
+    background:#22c55e;
+
+    color:#111827;
 
 }
 
+
+
+
+
+
+
+/* Expired */
 
 .bonus-history-right.expired{
 
-    color:#ef4444;
+    background:#ef4444;
+
+    color:#ffffff;
 
 }
 
@@ -2858,6 +3447,76 @@ select{
 
 
 
+
+
+/* Claimed */
+
+.bonus-history-right.claimed{
+
+    background:#3b82f6;
+
+    color:#ffffff;
+
+}
+
+
+
+
+
+
+
+
+/* Failed */
+
+.bonus-history-right.failed{
+
+    background:#6b7280;
+
+    color:#ffffff;
+
+}
+
+
+
+
+
+
+
+
+
+/* Mobile */
+
+@media(max-width:600px){
+
+
+    .bonus-history-item{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:10px;
+
+    }
+
+
+
+    .bonus-history-right{
+
+        align-self:flex-end;
+
+    }
+
+
+}
+
+
+
+
+
+/* =========================================
+        BONUS HISTORY CONTENT END
+========================================= */
 
 
 /* =========================================
