@@ -494,10 +494,19 @@
     </div>
 
 </div>
+    <!-- My Bonus -->
 
+<div class="menu-item" onclick="openMyBonus()">
 
+    <div class="menu-left">
 
+        <i class="fas fa-gift"></i>
 
+        <span>My Bonus</span>
+
+    </div>
+
+</div>
 
     <!-- Logout -->
     <div class="menu-item logout-btn" onclick="showLogoutPopup()">
@@ -1600,9 +1609,188 @@
 
 <!-- ================= END SETTINGS SECTION ================= -->
 
-    <!-- SETTING SECTION  END  -->
+  <!-- ================= MY BONUS SECTION ================= -->
+
+<div id="my-bonus-section" class="my-bonus-container" style="display:none;">
+
+    <!-- Header -->
+    <div class="bonus-header">
+
+        <h3>My Bonus</h3>
+
+        <button class="close-bonus"
+                onclick="closeMyBonus()">
+
+            ×
+
+        </button>
+
+    </div>
+
+    <!-- Bonus Progress Card -->
+
+    <div class="bonus-progress-card">
+
+        <div class="bonus-progress-title">
+
+            Bonus Progress
+
+        </div>
+
+        <div class="bonus-progress-bar">
+
+            <div id="bonus-progress-fill"
+                 class="bonus-progress-fill"
+                 style="width:0%;">
+
+            </div>
+
+        </div>
+
+        <div id="bonus-progress-text"
+             class="bonus-progress-text">
+
+            0% Completed
+
+        </div>
+
+    </div>
+
+    <!-- Bonus Information -->
+
+    <div class="bonus-card">
+
+        <h4>Bonus Information</h4>
+
+        <div class="bonus-row">
+
+            <span>Bonus Balance</span>
+
+            <strong id="bonus-balance">
+
+                $0.00
+
+            </strong>
+
+        </div>
+
+        <div class="bonus-row">
+
+            <span>Bonus Type</span>
+
+            <strong id="bonus-type">
+
+                First Deposit Bonus
+
+            </strong>
+
+        </div>
+
+        <div class="bonus-row">
+
+            <span>Status</span>
+
+            <strong id="bonus-status">
+
+                Active
+
+            </strong>
+
+        </div>
+
+    </div>
+
+    <!-- Wager Rules -->
+
+    <div class="bonus-card">
+
+        <h4>Wager Rules</h4>
+
+        <div class="bonus-row">
+
+            <span>Minimum Odds</span>
+
+            <strong>
+
+                1.41
+
+            </strong>
+
+        </div>
+
+        <div class="bonus-row">
+
+            <span>Wager Requirement</span>
+
+            <strong id="bonus-wager">
+
+                3×
+            </strong>
+
+        </div>
+
+        <div class="bonus-row">
+
+            <span>Current Progress</span>
+
+            <strong id="bonus-current-progress">
+
+                0%
+
+            </strong>
+
+        </div>
+
+    </div>
+
+    <!-- Bonus Mode -->
+
+    <div class="bonus-card">
+
+        <h4>Bonus Mode</h4>
+
+        <label class="bonus-switch">
+
+            <input type="checkbox"
+                   id="bonus-mode-toggle"
+                   onchange="toggleBonusMode()">
+
+            <span class="bonus-slider"></span>
+
+        </label>
+
+        <p>
+
+            Enable Bonus Mode to use Bonus Balance
+            on eligible games only.
+
+        </p>
+
+    </div>
+
+    <!-- Eligible Games -->
+
+    <div class="bonus-card">
+
+        <h4>Eligible Games</h4>
+
+        <div class="eligible-games">
+
+            Dice • Crash • Limbo • Roulette
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================= END MY BONUS ================= -->
+
+
+
     
-<!-- Logout Popup -->
+    
+<!-- START LOG OUT SECTION  -->
 <div id="logout-confirm-popup" style="display:none;">
 
     <div class="logout-box">
