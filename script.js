@@ -1762,6 +1762,7 @@ else if(tab==="history"){
     claimBtn.style.display="none";
 
 }
+    }
 /*--------------------------------
       Add Wager Progress
 --------------------------------*/
