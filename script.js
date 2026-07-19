@@ -1810,7 +1810,7 @@ setInterval(function(){
         Initialize
 --------------------------------*/
 
-updateBonusProgress();
+
 
 updateBonusCountdown();
 
