@@ -1695,6 +1695,10 @@ function updateBonusProgressCard(tab){
         claimBtn.textContent="UNCLAIM";
         claimBtn.className="claim-bonus-btn locked";
         claimBtn.disabled=true;
+        // Show Progress Features
+document.getElementById("bonusWalletArea").style.display="flex";
+document.getElementById("bonusClaimArea").style.display="block";
+document.querySelector(".bonus-progress-bar").style.display="block";
 
     }
 
@@ -1722,6 +1726,10 @@ function updateBonusProgressCard(tab){
         claimBtn.textContent="UNCLAIM";
         claimBtn.className="claim-bonus-btn locked";
         claimBtn.disabled=true;
+        // Show Progress Features
+document.getElementById("bonusWalletArea").style.display="flex";
+document.getElementById("bonusClaimArea").style.display="block";
+document.querySelector(".bonus-progress-bar").style.display="block";
 
     }
 
@@ -1740,8 +1748,8 @@ if(tab==="history"){
 
     wager.textContent="";
 
-    badge.textContent="HISTORY";
-    badge.className="bonus-status";
+    badge.textContent="INFO";
+   badge.className="bonus-status";
 
     progressFill.style.width="0%";
 
