@@ -2347,63 +2347,46 @@ select{
       MY BONUS POSITION FIX
 ================================ */
 
+/* =========================================
+   MY BONUS SECTION
+========================================= */
+
 #my-bonus-section{
 
-    position:relative;
+    position:fixed;
 
-    width:100%;
+    top:70px;
 
-    margin-top:15px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:720px;
+
+    max-width:94%;
+
+    height:80vh;
+
+    overflow-y:auto;
+
+    background:#13151c;
+
+    border:1px solid rgba(255,214,102,.25);
+
+    border-radius:18px;
+
+    box-shadow:0 20px 60px rgba(0,0,0,.45);
+
+    z-index:9998;
 
     display:none;
 
-    background:#161b2e;
+    padding:20px;
 
-    border-radius:16px;
-
-    overflow:hidden;
+    box-sizing:border-box;
 
 }
 
-
-/* When Open */
-
-#my-bonus-section.active{
-
-    display:block;
-
-}
-
-
-/* Bonus Main Container */
-
-#my-bonus-section .bonus-container{
-
-    width:100%;
-
-    padding:18px;
-
-}
-
-
-/* Keep inside profile dropdown */
-
-.profile-popup{
-
-    position:relative;
-
-}
-
-
-.profile-popup #my-bonus-section{
-
-    position:relative;
-
-    top:auto;
-
-    left:auto;
-
-}
 
 /*======================================================
                     PAGE HEADER
