@@ -1661,108 +1661,97 @@ let bonusData = {
 
 function updateBonusProgressCard(tab){
 
-    const title=document.getElementById("bonusProgressTitle");
-    const text=document.getElementById("bonusProgressText");
-    const percent=document.getElementById("bonusProgressPercent");
-    const wager=document.getElementById("bonusWagerText");
-    const badge=document.getElementById("bonusStatusBadge");
-    const claimBtn=document.getElementById("claimBonusBtn");
-    const progressFill=document.getElementById("bonusProgressFill");
+    const title = document.getElementById("bonusProgressTitle");
+    const text = document.getElementById("bonusProgressText");
+    const percent = document.getElementById("bonusProgressPercent");
+    const wager = document.getElementById("bonusWagerText");
+    const badge = document.getElementById("bonusStatusBadge");
+    const claimBtn = document.getElementById("claimBonusBtn");
+    const progressFill = document.getElementById("bonusProgressFill");
+
+    const walletArea = document.getElementById("bonusWalletArea");
+    const claimArea = document.getElementById("bonusClaimArea");
+    const progressBar = document.querySelector(".bonus-progress-bar");
 
     if(!title) return;
 
+    // Default (সব দেখাও)
+    walletArea.style.display = "flex";
+    claimArea.style.display = "block";
+    progressBar.style.display = "block";
+    claimBtn.style.display = "inline-flex";
 
-    // ==========================
-    // Deposit Bonus
-    // ==========================
+    switch(tab){
 
-   if(tab==="promotional"){
+        case "deposit":
 
-        title.textContent="Deposit Bonus Progress";
+            title.textContent = "Deposit Bonus Progress";
 
-        text.textContent="Complete the deposit wagering requirement to unlock your deposit bonus.";
+            text.textContent = "Complete the deposit wagering requirement to unlock your deposit bonus.";
 
-        percent.textContent="0%";
+            percent.textContent = "0%";
 
-        wager.textContent="Wager : 0 / 0";
+            wager.textContent = "Wager : 0 / 0";
 
-        badge.textContent="ACTIVE";
-        badge.className="bonus-status active";
+            badge.textContent = "ACTIVE";
+            badge.className = "bonus-status active";
 
-        progressFill.style.width="0%";
+            progressFill.style.width = "0%";
 
-        claimBtn.style.display="inline-flex";
-        claimBtn.textContent="UNCLAIM";
-        claimBtn.className="claim-bonus-btn locked";
-        claimBtn.disabled=true;
-        // Show Progress Features
-document.getElementById("bonusWalletArea").style.display="flex";
-document.getElementById("bonusClaimArea").style.display="block";
-document.querySelector(".bonus-progress-bar").style.display="block";
+            claimBtn.textContent = "UNCLAIM";
+            claimBtn.className = "claim-bonus-btn locked";
+            claimBtn.disabled = true;
+
+        break;
+
+
+        case "promotional":
+
+            title.textContent = "Promotional Bonus Progress";
+
+            text.textContent = "Complete the promotional wagering requirement to unlock your promotional reward.";
+
+            percent.textContent = "0%";
+
+            wager.textContent = "Wager : 0 / 0";
+
+            badge.textContent = "ACTIVE";
+            badge.className = "bonus-status active";
+
+            progressFill.style.width = "0%";
+
+            claimBtn.textContent = "UNCLAIM";
+            claimBtn.className = "claim-bonus-btn locked";
+            claimBtn.disabled = true;
+
+        break;
+
+
+        case "history":
+
+            title.textContent = "Bonus History";
+
+            text.textContent = "Your latest completed, claimed and expired bonus records are shown here. Only the latest 10 records are stored automatically.";
+
+            percent.textContent = "";
+
+            wager.textContent = "";
+
+            badge.textContent = "INFO";
+            badge.className = "bonus-status";
+
+            progressFill.style.width = "0%";
+
+            walletArea.style.display = "none";
+            claimArea.style.display = "none";
+            progressBar.style.display = "none";
+            claimBtn.style.display = "none";
+
+        break;
 
     }
-
-
-    // ==========================
-    // Promotional Bonus
-    // ==========================
-
-   else if(tab==="promotional"){
-
-        title.textContent="Promotional Bonus Progress";
-
-        text.textContent="Complete the promotional wagering requirement to unlock your promotional reward.";
-
-        percent.textContent="0%";
-
-        wager.textContent="Wager : 0 / 0";
-
-        badge.textContent="ACTIVE";
-        badge.className="bonus-status active";
-
-        progressFill.style.width="0%";
-
-        claimBtn.style.display="inline-flex";
-        claimBtn.textContent="UNCLAIM";
-        claimBtn.className="claim-bonus-btn locked";
-        claimBtn.disabled=true;
-        // Show Progress Features
-document.getElementById("bonusWalletArea").style.display="flex";
-document.getElementById("bonusClaimArea").style.display="block";
-document.querySelector(".bonus-progress-bar").style.display="block";
-
-    }
-
-
-   // ==========================
-// ==========================
-// Bonus History
-// ==========================
-
-else if(tab==="history"){
-
-    title.textContent="Bonus History";
-
-    text.textContent="Your latest completed, claimed and expired bonus records are shown here. Only the latest 10 records are stored automatically.";
-
-    percent.textContent="";
-
-    wager.textContent="";
-
-    badge.textContent="INFO";
-    badge.className="bonus-status";
-
-    progressFill.style.width="0%";
-
-    // Hide Progress Features
-    document.getElementById("bonusWalletArea").style.display="none";
-    document.getElementById("bonusClaimArea").style.display="none";
-    document.querySelector(".bonus-progress-bar").style.display="none";
-
-    claimBtn.style.display="none";
 
 }
-    }
 /*--------------------------------
       Add Wager Progress
 --------------------------------*/
