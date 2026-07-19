@@ -2525,9 +2525,9 @@ select{
 
     display:flex;
 
-    gap:12px;
+    gap:8px;
 
-    margin-bottom:20px;
+    margin-bottom:10px;
 
 }
 
@@ -2540,7 +2540,7 @@ select{
 
     background:#20263a;
 
-    padding:14px;
+    padding:8px 12px;
 
     border-radius:12px;
 
@@ -2584,11 +2584,17 @@ select{
 
 .bonus-progress-wrapper{
 
-    margin-top:10px;
+    margin-top:5px;
 
 }
 
+.bonus-progress-card{
 
+    padding:10px 14px;
+
+    margin-bottom:12px;
+
+}
 
 .bonus-progress-label{
 
@@ -2649,7 +2655,13 @@ select{
     margin-top:18px;
 
 }
+.claim-bonus-btn{
 
+    padding:8px;
+
+    height:38px;
+
+}
 
 /* Default Locked */
 
