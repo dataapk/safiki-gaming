@@ -679,11 +679,21 @@ function toggleProfileMenu(event) {
 
 }
 // ==============================
-// PROFILE SUB  START
+// PROFILE menu start
 // ==============================
+function openPersonalArea(){
 
+    const area = document.getElementById("personalArea");
 
-// END  Account Information==========
+    if(area){
+
+        area.style.display="block";
+
+    }
+
+}
+
+// END  Personal area==========
 
 // START OPEN KYC VERIFICATIONM=======
 
