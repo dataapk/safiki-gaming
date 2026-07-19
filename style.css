@@ -342,12 +342,8 @@ transform:translateY(-2px);
 
 /* Personal Close Button */
 
-#personalDetailsContent{
-position:relative;
-}
 
 .close-personal-btn{
-position:absolute;
 top:15px;
 right:18px;
 width:36px;
