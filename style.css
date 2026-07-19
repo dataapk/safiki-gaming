@@ -2881,9 +2881,57 @@ select{
 /* =========================================
         BONUS CLOSE BUTTON
 ========================================= */
+/* =========================================
+        BONUS HEADER
+========================================= */
+
+.bonus-header{
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    margin-bottom:18px;
+
+    padding-bottom:12px;
+
+    border-bottom:1px solid #2b2f40;
+
+}
+
+
+.bonus-header h2{
+
+    margin:0;
+
+    color:#ffffff;
+
+    font-size:22px;
+
+    font-weight:700;
+
+}
+
+
+
+
+
+/* =========================================
+        BONUS CLOSE BUTTON
+========================================= */
 
 
 .close-bonus{
+
+    position:absolute;
+
+    right:0;
+
+    top:0;
 
     width:40px;
 
@@ -2893,13 +2941,13 @@ select{
 
     border-radius:50%;
 
-    background:#20263a;
+    background:#ffd666;
 
-    color:#ffffff;
+    color:#111827;
 
     font-size:26px;
 
-    font-weight:600;
+    font-weight:700;
 
     display:flex;
 
@@ -2909,19 +2957,13 @@ select{
 
     cursor:pointer;
 
-    transition:.3s ease;
-
 }
 
 
 
 .close-bonus:hover{
 
-    background:#ffd666;
-
-    color:#111827;
-
-    transform:rotate(90deg);
+    background:#ffcc33;
 
 }
 /* ==========================================
