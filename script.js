@@ -1335,79 +1335,55 @@ function closeMyBonus(){
 
 function openBonusTab(tab){
 
-    // Hide All Content
+    // Hide All Bonus Content
+    document.querySelectorAll(".bonus-tab-content").forEach(el=>{
+        el.style.display="none";
+    });
 
-    document
-        .querySelectorAll(".bonus-tab-content")
-        .forEach(el=>{
-
-            el.style.display="none";
-
-        });
-
-
-    // Remove Active
-
-    document
-        .querySelectorAll(".bonus-menu-btn")
-        .forEach(btn=>{
-
-            btn.classList.remove("active");
-
-        });
+    // Remove Active Tab
+    document.querySelectorAll(".bonus-menu-btn").forEach(btn=>{
+        btn.classList.remove("active");
+    });
 
 
-    // Deposit
-
+    // Deposit Bonus
     if(tab==="deposit"){
 
-        document
-            .getElementById("depositBonusContent")
-            .style.display="block";
+        document.getElementById("depositBonusContent").style.display="block";
 
-        document
-            .getElementById("depositBonusTab")
-            .classList.add("active");
+        document.getElementById("depositBonusTab").classList.add("active");
 
     }
 
+
+    // Promotional Bonus
+    if(tab==="promotional"){
+
+        document.getElementById("promotionalBonusContent").style.display="block";
+
+        document.getElementById("promotionalBonusTab").classList.add("active");
+
+    }
+
+
+    // History Bonus
+    if(tab==="history"){
+
+        document.getElementById("historyBonusContent").style.display="block";
+
+        document.getElementById("historyBonusTab").classList.add("active");
+
+        // Future: Load latest 10 history
+        // loadBonusHistory();
+
+    }
+
+}
 function closeMyBonus(){
 
     document.getElementById("my-bonus-section").style.display="none";
 
 }
-    
-    // Promotional
-
-    if(tab==="promotional"){
-
-        document
-            .getElementById("promotionalBonusContent")
-            .style.display="block";
-
-        document
-            .getElementById("promotionalBonusTab")
-            .classList.add("active");
-
-    }
-
-
-    // History
-
-    if(tab==="history"){
-
-        document
-            .getElementById("historyBonusContent")
-            .style.display="block";
-
-        document
-            .getElementById("historyBonusTab")
-            .classList.add("active");
-
-    }
-
-}
-
 
 /*------------------------------
         INITIALIZE
