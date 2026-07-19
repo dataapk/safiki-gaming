@@ -696,6 +696,14 @@ function openPersonalArea(){
     openPersonalTab("details");
 
 }
+
+function closePersonalArea(){
+
+    document.getElementById("personal-area-section").style.display="none";
+
+}
+
+
 function openPersonalTab(tab){
 
     // Hide All Content
