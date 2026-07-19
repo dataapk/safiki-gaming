@@ -1613,18 +1613,18 @@
 <!-- ========================= -->
 <!-- MY BONUS SECTION -->
 <!-- ========================= -->
+<!-- ========================================= -->
+<!-- MY BONUS SECTION START -->
+<!-- ========================================= -->
 
-<div id="my-bonus-section" class="profile-content-section">
+<div id="my-bonus-section">
 
-    <!-- Page Header -->
-    <div class="section-header">
 
-        <button class="back-btn"
-                onclick="closeMyBonus()">
+    <!-- ========================================= -->
+    <!-- BONUS HEADER -->
+    <!-- ========================================= -->
 
-            <i class="fas fa-arrow-left"></i>
-
-        </button>
+    <div class="bonus-header">
 
         <h2>
             My Bonus
@@ -1632,474 +1632,99 @@
 
     </div>
 
-    <!-- ========================= -->
-    <!-- BONUS PROGRESS CARD -->
-    <!-- ========================= -->
 
-    <div class="bonus-progress-card">
 
-        <div class="bonus-progress-top">
+    <!-- ========================================= -->
+    <!-- DYNAMIC BONUS PROGRESS CARD -->
+    <!-- ========================================= -->
 
-            <div>
+    <div class="bonus-progress-card"
+         id="bonusProgressCard">
 
-                <h3>
-                    Bonus Progress
-                </h3>
 
-                <p id="active-bonus-name">
+        <div class="bonus-progress-header">
 
-                    First Deposit Bonus
 
-                </p>
+            <h3 id="bonusProgressTitle">
+                Deposit Bonus Progress
+            </h3>
 
-            </div>
 
-            <div class="bonus-progress-percent"
-                 id="bonus-progress-percent">
+            <span 
+            id="bonusProgressStatus"
+            class="bonus-status active">
 
-                0%
-
-            </div>
-
-        </div>
-
-        <div class="bonus-progress-bar">
-
-            <div
-                id="bonus-progress-fill"
-                class="bonus-progress-fill"
-                style="width:0%;">
-
-            </div>
-
-        </div>
-
-        <div class="bonus-progress-footer">
-
-            <span>
-
-                Wager Progress
+                Active
 
             </span>
 
-            <span id="bonus-progress-text">
-
-                0%
-
-            </span>
 
         </div>
 
-    </div>
 
-    <!-- ========================= -->
-    <!-- BONUS MENU -->
-    <!-- ========================= -->
 
-    <div class="bonus-menu">
 
-        <button
-            class="bonus-menu-btn active"
-            id="depositBonusTab"
-            onclick="openBonusTab('deposit')">
+        <div class="bonus-progress-info">
 
-            Deposit Bonus
 
-        </button>
+            <div class="bonus-info-box">
 
-        <button
-            class="bonus-menu-btn"
-            id="promotionalBonusTab"
-            onclick="openBonusTab('promotional')">
-
-            Promotional
-
-        </button>
-
-        <button
-            class="bonus-menu-btn"
-            id="historyBonusTab"
-            onclick="openBonusTab('history')">
-
-            History
-
-        </button>
-
-    </div>
-
-    <!-- ========================================= -->
-    <!-- DEPOSIT BONUS CONTENT START -->
-    <!-- ========================================= -->
-
-    <div
-        id="depositBonusContent"
-        class="bonus-tab-content">
-        <!-- ========================================= -->
-        <!-- DEPOSIT BONUS CARD -->
-        <!-- ========================================= -->
-
-        <div class="bonus-card">
-
-            <div class="bonus-card-header">
-
-                <h3>
-                    First Deposit Bonus
-                </h3>
-
-                <span
-                    id="depositBonusStatus"
-                    class="bonus-status active">
-
-                    Active
-
+                <span>
+                    Bonus Balance
                 </span>
 
-            </div>
+                <strong id="bonusAmount">
 
-            <div class="bonus-grid">
+                    $100
 
-                <div class="bonus-item">
-
-                    <span class="bonus-label">
-
-                        Bonus Balance
-
-                    </span>
-
-                    <strong id="depositBonusBalance">
-
-                        $0.00
-
-                    </strong>
-
-                </div>
-
-                <div class="bonus-item">
-
-                    <span class="bonus-label">
-
-                        Bonus Type
-
-                    </span>
-
-                    <strong id="depositBonusType">
-
-                        First Deposit
-
-                    </strong>
-
-                </div>
-
-                <div class="bonus-item">
-
-                    <span class="bonus-label">
-
-                        Wager Requirement
-
-                    </span>
-
-                    <strong id="depositBonusWager">
-
-                        3x
-
-                    </strong>
-
-                </div>
-
-                <div class="bonus-item">
-
-                    <span class="bonus-label">
-
-                        Minimum Odds
-
-                    </span>
-
-                    <strong id="depositBonusOdds">
-
-                        1.41
-
-                    </strong>
-
-                </div>
-
-                <div class="bonus-item">
-
-                    <span class="bonus-label">
-
-                        Time Remaining
-
-                    </span>
-
-                    <strong id="depositBonusTimer">
-
-                        2D 13H 20M
-
-                    </strong>
-
-                </div>
-
-                <div class="bonus-item">
-
-                    <span class="bonus-label">
-
-                        Progress
-
-                    </span>
-
-                    <strong id="depositBonusProgress">
-
-                        45%
-
-                    </strong>
-
-                </div>
+                </strong>
 
             </div>
 
-        </div>
 
-        <!-- ========================================= -->
-        <!-- BONUS MODE -->
-        <!-- ========================================= -->
 
-        <div class="bonus-card">
 
-            <div class="bonus-switch-row">
+            <div class="bonus-info-box">
 
-                <div>
+                <span>
+                    Wager Requirement
+                </span>
 
-                    <h4>
+                <strong id="bonusRequirement">
 
-                        Bonus Mode
+                    3X
 
-                    </h4>
-
-                    <p>
-
-                        Use bonus balance for eligible games only.
-
-                    </p>
-
-                </div>
-
-                <label class="switch">
-
-                    <input
-                        type="checkbox"
-                        id="depositBonusMode">
-
-                    <span class="slider"></span>
-
-                </label>
+                </strong>
 
             </div>
 
-        </div>
 
-        <!-- ========================================= -->
-        <!-- ELIGIBLE GAMES -->
-        <!-- ========================================= -->
 
-        <div class="bonus-card">
-
-            <h3>
-
-                Eligible Games
-
-            </h3>
-
-            <div
-                class="eligible-games-grid">
-
-                <a href="dice.html"
-                   class="eligible-game-card">
-
-                    <img
-                        src="image/games/dice.png"
-                        alt="Dice">
-
-                    <span>
-
-                        Dice
-
-                    </span>
-
-                </a>
-
-                <a href="crash.html"
-                   class="eligible-game-card">
-
-                    <img
-                        src="image/games/crash.png"
-                        alt="Crash">
-
-                    <span>
-
-                        Crash
-
-                    </span>
-
-                </a>
-
-                <a href="limbo.html"
-                   class="eligible-game-card">
-
-                    <img
-                        src="image/games/limbo.png"
-                        alt="Limbo">
-
-                    <span>
-
-                        Limbo
-
-                    </span>
-
-                </a>
-
-                <a href="mines.html"
-                   class="eligible-game-card">
-
-                    <img
-                        src="image/games/mines.png"
-                        alt="Mines">
-
-                    <span>
-
-                        Mines
-
-                    </span>
-
-                </a>
-
-            </div>
-
-        </div>
-
-    </div>
-
-   <!-- =============================== -->
-<!-- PROMOTIONAL BONUS START -->
-<!-- =============================== -->
-
-<!-- =============================== -->
-<!-- PROMOTIONAL BONUS START -->
-<!-- =============================== -->
-
-<div
-    id="promotionalBonusContent"
-    class="bonus-tab-content"
-    style="display:none;">
-
-
-    <!-- PROMOTIONAL BONUS CARD -->
-
-    <div class="bonus-card">
-
-
-        <div class="bonus-card-header">
-
-            <h3>
-                Promotional Bonus
-            </h3>
-
-        </div>
-
-
-        <!-- Status -->
-
-        <div class="bonus-info-row">
-
-            <span>
-                Status
-            </span>
-
-            <span class="status-active">
-                Active
-            </span>
-
-        </div>
-
-
-
-        <!-- Bonus Balance -->
-
-        <div class="bonus-info-row">
-
-            <span>
-                Bonus Balance
-            </span>
-
-            <strong>
-                $50.00
-            </strong>
-
-        </div>
-
-
-
-        <!-- Wager Requirement -->
-
-        <div class="bonus-info-row">
-
-            <span>
-                Wager Requirement
-            </span>
-
-            <strong>
-                5X
-            </strong>
-
-        </div>
-
-
-
-        <!-- Minimum Wager -->
-
-        <div class="bonus-info-row">
-
-            <span>
-                Minimum Wager
-            </span>
-
-            <strong>
-                $1.00
-            </strong>
-
-        </div>
-
-
-
-        <!-- Countdown -->
-
-        <div class="bonus-info-row">
-
-            <span>
-                Valid For
-            </span>
-
-            <strong id="promotionalBonusTimer">
-                3 Days
-            </strong>
 
         </div>
 
 
 
 
-        <!-- Progress -->
 
-        <div class="bonus-progress-box">
+        <!-- Progress Bar -->
 
 
-            <div class="bonus-progress-text">
+        <div class="bonus-progress-wrapper">
+
+
+            <div class="bonus-progress-label">
+
 
                 <span>
                     Wager Progress
                 </span>
 
 
-                <span id="promotionalProgressPercent">
+                <span id="bonusProgressPercent">
+
                     0%
+
                 </span>
 
 
@@ -2111,9 +1736,10 @@
 
 
                 <div 
-                    class="bonus-progress-fill"
-                    id="promotionalProgressFill"
-                    style="width:0%;">
+                id="bonusProgressFill"
+                class="bonus-progress-fill"
+                style="width:0%;">
+
                 </div>
 
 
@@ -2127,162 +1753,16 @@
 
 
 
-        <!-- Bonus Toggle -->
+        <!-- Claim Button -->
 
-        <div class="bonus-toggle-row">
+        <button
+        id="claimBonusBtn"
+        class="claim-bonus-btn"
+        style="display:none;">
 
+            CLAIM BONUS
 
-            <span>
-                Use Promotional Bonus
-            </span>
-
-
-
-            <label class="switch">
-
-
-                <input 
-                    type="checkbox"
-                    id="promotionalBonusMode">
-
-
-                <span class="slider"></span>
-
-
-            </label>
-
-
-        </div>
-
-
-
-
-
-
-        <!-- Eligible Games -->
-
-        <div class="eligible-games">
-
-
-            <h4>
-                Eligible Games
-            </h4>
-
-
-
-
-            <!-- Game Card -->
-
-            <div class="bonus-game-card">
-
-
-                <a href="game-link-here">
-
-
-                    <img 
-                    src="game-image-here"
-                    alt="Game">
-
-
-                    <span>
-                        Game Name
-                    </span>
-
-
-                </a>
-
-
-            </div>
-
-
-
-
-
-            <div class="bonus-game-card">
-
-
-                <a href="game-link-here">
-
-
-                    <img 
-                    src="game-image-here"
-                    alt="Game">
-
-
-                    <span>
-                        Game Name
-                    </span>
-
-
-                </a>
-
-
-            </div>
-
-
-
-
-            <div class="bonus-game-card">
-
-
-                <a href="game-link-here">
-
-
-                    <img 
-                    src="game-image-here"
-                    alt="Game">
-
-
-                    <span>
-                        Game Name
-                    </span>
-
-
-                </a>
-
-
-            </div>
-
-
-
-        </div>
-
-
-
-
-
-
-        <!-- Rules -->
-
-        <div class="bonus-rules">
-
-
-            <h4>
-                Bonus Rules
-            </h4>
-
-
-            <ul>
-
-                <li>
-                    Complete wagering requirement before expiry.
-                </li>
-
-
-                <li>
-                    Only eligible games count towards wagering.
-                </li>
-
-
-                <li>
-                    Bonus balance cannot be withdrawn directly.
-                </li>
-
-
-            </ul>
-
-
-        </div>
+        </button>
 
 
 
@@ -2290,54 +1770,130 @@
 
 
 
-</div>
-
-
-<!-- =============================== -->
-<!-- PROMOTIONAL BONUS END -->
-<!-- =============================== -->
-    
-
-<!-- =============================== -->
-<!-- BONUS HISTORY START -->
-<!-- =============================== -->
-
-<div
-id="historyBonusContent"
-class="bonus-tab-content"
-style="display:none;">
-
-
-    <div class="bonus-card">
-
-
-        <div class="bonus-card-header">
-
-            <h3>
-                Bonus History
-            </h3>
-
-        </div>
 
 
 
-        <!-- Dynamic History List -->
+
+    <!-- ========================================= -->
+    <!-- BONUS TABS -->
+    <!-- ========================================= -->
+
+
+    <div class="bonus-tabs">
+
+
+        <button
+        class="bonus-menu-btn active"
+        onclick="openBonusTab('deposit')">
+
+            Deposit Bonus
+
+        </button>
+
+
+
+
+        <button
+        class="bonus-menu-btn"
+        onclick="openBonusTab('promotional')">
+
+            Promotional
+
+        </button>
+
+
+
+
+        <button
+        class="bonus-menu-btn"
+        onclick="openBonusTab('history')">
+
+            History
+
+        </button>
+
+
+
+    </div>
+
+
+
+
+
+
+
+    <!-- ========================================= -->
+    <!-- DEPOSIT BONUS CONTENT -->
+    <!-- ========================================= -->
+
+
+    <div id="depositBonusContent"
+         class="bonus-tab-content">
+
+
+        <!-- Deposit Bonus Details Will Stay Here -->
+
+
+    </div>
+
+
+
+
+
+
+
+    <!-- ========================================= -->
+    <!-- PROMOTIONAL BONUS CONTENT -->
+    <!-- ========================================= -->
+
+
+    <div id="promotionalBonusContent"
+         class="bonus-tab-content"
+         style="display:none;">
+
+
+        <!-- Promotional Details Will Stay Here -->
+
+
+    </div>
+
+
+
+
+
+
+
+    <!-- ========================================= -->
+    <!-- BONUS HISTORY CONTENT -->
+    <!-- ========================================= -->
+
+
+    <div id="historyBonusContent"
+         class="bonus-tab-content"
+         style="display:none;">
+
+
+        <!-- Auto Generated History Will Load Here -->
+
 
         <div id="bonusHistoryList">
 
 
-            <!-- JS AUTO LOAD HERE -->
-
-
         </div>
-
 
 
     </div>
 
 
+
+
+
 </div>
 
+
+<!-- ========================================= -->
+<!-- MY BONUS SECTION END -->
+<!-- ========================================= -->
 
 <!-- =============================== -->
 <!-- BONUS HISTORY END -->
