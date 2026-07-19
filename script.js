@@ -690,7 +690,7 @@ function openPersonalArea(){
     document.getElementById("settings-section").style.display = "none";
 
     // Show Personal Area
-    document.getElementById("personalArea").style.display = "block";
+    document.getElementById("personalDetailsContent").style.display = "block";
 
     // Default Tab
     openPersonalTab("details");
