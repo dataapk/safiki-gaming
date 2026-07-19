@@ -653,27 +653,21 @@ function toggleNotifMenu(event) {
 }
 
 // প্রোফাইলের জন্য আলাদা ফাংশন
-function toggleProfileMenu(event) {
+function toggleProfileMenu(event){
 
     event.stopPropagation();
 
-    const menu = document.getElementById('profile-popup');
-    const notif = document.getElementById('notif-popup');
+    const menu = document.getElementById("profile-popup");
 
+    if(!menu) return;
 
-    // Notification close
-    if(notif){
-        notif.style.display = 'none';
-    }
+    if(menu.style.display === "block"){
 
+        menu.style.display="none";
 
-    // Profile popup toggle
-    if(menu){
+    }else{
 
-        menu.style.display =
-        (menu.style.display === 'block')
-        ? 'none'
-        : 'block';
+        menu.style.display="block";
 
     }
 
