@@ -1658,8 +1658,8 @@ let bonusData = {
       Progress Update
 --------------------------------*/
 
-/* =========================================
-        UPDATE BONUS PROGRESS CARD
+//* =========================================
+        BONUS PROGRESS CARD UPDATE
 ========================================= */
 
 function updateBonusProgressCard(tab){
@@ -1667,8 +1667,17 @@ function updateBonusProgressCard(tab){
     const title=document.getElementById("bonusProgressTitle");
     const text=document.getElementById("bonusProgressText");
     const percent=document.getElementById("bonusProgressPercent");
+    const wager=document.getElementById("bonusWagerText");
+    const badge=document.getElementById("bonusStatusBadge");
     const claimBtn=document.getElementById("claimBonusBtn");
+    const progressFill=document.getElementById("bonusProgressFill");
 
+    if(!title) return;
+
+
+    // ==========================
+    // Deposit Bonus
+    // ==========================
 
     if(tab==="deposit"){
 
@@ -1678,10 +1687,24 @@ function updateBonusProgressCard(tab){
 
         percent.textContent="0%";
 
+        wager.textContent="Wager : 0 / 0";
+
+        badge.textContent="ACTIVE";
+        badge.className="bonus-status active";
+
+        progressFill.style.width="0%";
+
+        claimBtn.style.display="inline-flex";
         claimBtn.textContent="UNCLAIM";
+        claimBtn.className="claim-bonus-btn locked";
+        claimBtn.disabled=true;
 
     }
 
+
+    // ==========================
+    // Promotional Bonus
+    // ==========================
 
     if(tab==="promotional"){
 
@@ -1691,24 +1714,41 @@ function updateBonusProgressCard(tab){
 
         percent.textContent="0%";
 
+        wager.textContent="Wager : 0 / 0";
+
+        badge.textContent="ACTIVE";
+        badge.className="bonus-status active";
+
+        progressFill.style.width="0%";
+
+        claimBtn.style.display="inline-flex";
         claimBtn.textContent="UNCLAIM";
+        claimBtn.className="claim-bonus-btn locked";
+        claimBtn.disabled=true;
 
     }
 
+
+    // ==========================
+    // Bonus History
+    // ==========================
 
     if(tab==="history"){
 
         title.textContent="Bonus History";
 
-        text.textContent="Latest completed and expired bonuses.";
+        text.textContent="Latest completed and expired bonus records.";
 
         percent.textContent="-";
 
+        wager.textContent="";
+
+        badge.textContent="HISTORY";
+        badge.className="bonus-status";
+
+        progressFill.style.width="0%";
+
         claimBtn.style.display="none";
-
-    }else{
-
-        claimBtn.style.display="inline-flex";
 
     }
 
