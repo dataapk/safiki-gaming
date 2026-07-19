@@ -2935,18 +2935,185 @@ select{
             PROMOTIONAL BONUS SECTION
 ======================================================*/
 
-#promotionalBonusContent{
-
-    width:100%;
-
-}
 
 #promotionalBonusContent .bonus-card{
 
-    margin-bottom:20px;
+    background:#171b27;
+
+    border:1px solid rgba(255,214,102,.20);
+
+    border-radius:16px;
+
+    padding:18px;
+
+    margin-bottom:15px;
 
 }
 
+
+
+#promotionalBonusContent .bonus-card-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:15px;
+
+}
+
+
+
+#promotionalBonusContent .bonus-card-header h3{
+
+    color:#fff;
+
+    font-size:20px;
+
+    margin:0;
+
+}
+
+
+
+/* Info Row */
+
+#promotionalBonusContent .bonus-info-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:12px 0;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+    color:#cfd3e0;
+
+}
+
+
+
+#promotionalBonusContent .bonus-info-row strong{
+
+    color:#ffd666;
+
+}
+
+
+
+
+/* Progress */
+
+#promotionalBonusContent .bonus-progress-box{
+
+    margin-top:18px;
+
+}
+
+
+
+#promotionalBonusContent .bonus-progress-bar{
+
+    width:100%;
+
+    height:10px;
+
+    background:#252b3d;
+
+    border-radius:10px;
+
+    overflow:hidden;
+
+}
+
+
+
+#promotionalBonusContent .bonus-progress-fill{
+
+    height:100%;
+
+    background:#ffd666;
+
+    border-radius:10px;
+
+    transition:.4s;
+
+}
+
+
+
+/* Toggle */
+
+#promotionalBonusContent .bonus-toggle-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-top:20px;
+
+    padding:12px;
+
+    background:#20263a;
+
+    border-radius:12px;
+
+}
+
+
+
+/* Games */
+
+#promotionalBonusContent .bonus-game-card{
+
+    width:100%;
+
+    margin-top:12px;
+
+    border-radius:14px;
+
+    overflow:hidden;
+
+    background:#20263a;
+
+}
+
+
+
+#promotionalBonusContent .bonus-game-card a{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    color:#fff;
+
+    text-decoration:none;
+
+}
+
+
+
+#promotionalBonusContent .bonus-game-card img{
+
+    width:70px;
+
+    height:70px;
+
+    object-fit:cover;
+
+    border-radius:12px;
+
+}
 /*======================================================
                 ELIGIBLE GAMES
 ======================================================*/
@@ -3477,6 +3644,77 @@ select{
         transform:translateY(0);
 
     }
+
+}
+/* =========================================
+      BONUS HISTORY
+========================================= */
+
+#historyBonusContent .bonus-card{
+
+    background:#171b27;
+
+    border-radius:16px;
+
+    padding:18px;
+
+}
+
+
+#historyBonusContent .bonus-history-item{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:14px;
+
+    margin-top:12px;
+
+    background:#20263a;
+
+    border-radius:12px;
+
+}
+
+
+#historyBonusContent .bonus-history-left h4{
+
+    margin:0;
+
+    color:#fff;
+
+}
+
+
+#historyBonusContent .bonus-history-left span{
+
+    font-size:13px;
+
+    color:#9da3b5;
+
+}
+
+
+#historyBonusContent .bonus-history-right{
+
+    font-weight:600;
+
+}
+
+
+#historyBonusContent .success{
+
+    color:#4ade80;
+
+}
+
+
+#historyBonusContent .expired{
+
+    color:#ff6b6b;
 
 }
 /* ==========================================
