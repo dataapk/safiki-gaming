@@ -1375,6 +1375,7 @@ function openBonusTab(tab){
 
         // Future: Load latest 10 history
         // loadBonusHistory();
+        updateBonusProgressCard(tab);
 
     }
 
@@ -1657,56 +1658,61 @@ let bonusData = {
       Progress Update
 --------------------------------*/
 
-function updateBonusProgress(){
+/* =========================================
+        UPDATE BONUS PROGRESS CARD
+========================================= */
 
-    const percent = Math.min(
-        100,
-        Math.floor(
-            (bonusData.wagerCompleted / bonusData.wagerRequired) * 100
-        )
-    );
+function updateBonusProgressCard(tab){
 
-    bonusData.progress = percent;
+    const title=document.getElementById("bonusProgressTitle");
+    const text=document.getElementById("bonusProgressText");
+    const percent=document.getElementById("bonusProgressPercent");
+    const claimBtn=document.getElementById("claimBonusBtn");
 
-    const fill =
-    document.getElementById("bonus-progress-fill");
 
-    const text =
-    document.getElementById("bonus-progress-text");
+    if(tab==="deposit"){
 
-    const badge =
-    document.getElementById("bonus-progress-percent");
+        title.textContent="Deposit Bonus Progress";
 
-    const depositProgress =
-    document.getElementById("depositBonusProgress");
+        text.textContent="Complete the deposit wagering requirement to unlock your deposit bonus.";
 
-    if(fill){
+        percent.textContent="0%";
 
-        fill.style.width = percent + "%";
+        claimBtn.textContent="UNCLAIM";
 
     }
 
-    if(text){
 
-        text.innerText = percent + "%";
+    if(tab==="promotional"){
+
+        title.textContent="Promotional Bonus Progress";
+
+        text.textContent="Complete the promotional wagering requirement to unlock your promotional reward.";
+
+        percent.textContent="0%";
+
+        claimBtn.textContent="UNCLAIM";
 
     }
 
-    if(badge){
 
-        badge.innerText = percent + "%";
+    if(tab==="history"){
 
-    }
+        title.textContent="Bonus History";
 
-    if(depositProgress){
+        text.textContent="Latest completed and expired bonuses.";
 
-        depositProgress.innerText = percent + "%";
+        percent.textContent="-";
+
+        claimBtn.style.display="none";
+
+    }else{
+
+        claimBtn.style.display="inline-flex";
 
     }
 
 }
-
-
 /*--------------------------------
       Add Wager Progress
 --------------------------------*/
