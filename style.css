@@ -2340,6 +2340,213 @@ select{
     border-radius:10px;
 }
 /* END SETTINFG SECTION */
+/* ==========================================
+   MY BONUS SECTION
+========================================== */
+
+#my-bonus-section{
+    position:fixed;
+    top:70px;
+    left:50%;
+    transform:translateX(-50%);
+    width:720px;
+    max-width:94%;
+    height:80vh;
+    overflow-y:auto;
+    background:#13151c;
+    border:1px solid rgba(255,214,102,.25);
+    border-radius:18px;
+    box-shadow:0 20px 60px rgba(0,0,0,.45);
+    z-index:9998;
+    display:none;
+    padding:20px;
+    box-sizing:border-box;
+}
+
+/* Header */
+
+.bonus-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+    padding-bottom:12px;
+    border-bottom:1px solid #2b2f40;
+}
+
+.bonus-header h3{
+    margin:0;
+    color:#fff;
+    font-size:22px;
+    font-weight:600;
+}
+
+.close-bonus{
+    width:38px;
+    height:38px;
+    border:none;
+    border-radius:50%;
+    background:#20263a;
+    color:#fff;
+    font-size:24px;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.close-bonus:hover{
+    background:#e67e22;
+}
+
+/* Progress Card */
+
+.bonus-progress-card{
+    background:#181d2b;
+    border:1px solid #2b2f40;
+    border-radius:14px;
+    padding:18px;
+    margin-bottom:18px;
+}
+
+.bonus-progress-title{
+    color:#fff;
+    font-size:16px;
+    font-weight:600;
+    margin-bottom:12px;
+}
+
+.bonus-progress-bar{
+    width:100%;
+    height:12px;
+    background:#2b2f40;
+    border-radius:50px;
+    overflow:hidden;
+}
+
+.bonus-progress-fill{
+    width:0%;
+    height:100%;
+    background:#e67e22;
+    border-radius:50px;
+    transition:.4s;
+}
+
+.bonus-progress-text{
+    margin-top:10px;
+    text-align:right;
+    color:#f5f5f5;
+    font-size:13px;
+}
+
+/* Card */
+
+.bonus-card{
+    background:#181d2b;
+    border:1px solid #2b2f40;
+    border-radius:14px;
+    padding:18px;
+    margin-bottom:18px;
+}
+
+.bonus-card h4{
+    margin:0 0 15px;
+    color:#fff;
+    font-size:17px;
+}
+
+/* Row */
+
+.bonus-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:12px 0;
+    border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+.bonus-row:last-child{
+    border-bottom:none;
+}
+
+.bonus-row span{
+    color:#cfcfcf;
+    font-size:14px;
+}
+
+.bonus-row strong{
+    color:#fff;
+    font-size:14px;
+}
+
+/* Bonus Mode */
+
+.bonus-switch{
+    position:relative;
+    display:inline-block;
+    width:56px;
+    height:30px;
+    margin-bottom:15px;
+}
+
+.bonus-switch input{
+    display:none;
+}
+
+.bonus-slider{
+    position:absolute;
+    inset:0;
+    background:#555;
+    border-radius:30px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.bonus-slider::before{
+    content:"";
+    position:absolute;
+    width:24px;
+    height:24px;
+    left:3px;
+    top:3px;
+    background:#fff;
+    border-radius:50%;
+    transition:.3s;
+}
+
+.bonus-switch input:checked + .bonus-slider{
+    background:#2ecc71;
+}
+
+.bonus-switch input:checked + .bonus-slider::before{
+    transform:translateX(26px);
+}
+
+.bonus-card p{
+    color:#bdbdbd;
+    font-size:13px;
+    line-height:1.6;
+}
+
+/* Eligible Games */
+
+.eligible-games{
+    color:#ffd666;
+    font-size:14px;
+    line-height:1.8;
+}
+
+/* Scrollbar */
+
+#my-bonus-section::-webkit-scrollbar{
+    width:6px;
+}
+
+#my-bonus-section::-webkit-scrollbar-thumb{
+    background:#555;
+    border-radius:20px;
+}
+/* ==========================================
+END MY BONUS SECTION
+========================================== */
 
 /* ড্রপডাউন পজিশনিং */
 /* ১. ড্রপডাউন মেনু - ফুল পেজ ভিউ */
