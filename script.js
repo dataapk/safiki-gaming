@@ -1345,41 +1345,38 @@ function openBonusTab(tab){
         btn.classList.remove("active");
     });
 
-
     // Deposit Bonus
     if(tab==="deposit"){
 
         document.getElementById("depositBonusContent").style.display="block";
-
         document.getElementById("depositBonusTab").classList.add("active");
 
     }
-
 
     // Promotional Bonus
     if(tab==="promotional"){
 
         document.getElementById("promotionalBonusContent").style.display="block";
-
         document.getElementById("promotionalBonusTab").classList.add("active");
 
     }
-
 
     // History Bonus
     if(tab==="history"){
 
         document.getElementById("historyBonusContent").style.display="block";
-
         document.getElementById("historyBonusTab").classList.add("active");
 
-        // Future: Load latest 10 history
+        // Future:
         // loadBonusHistory();
-        updateBonusProgressCard(tab);
 
     }
 
+    // Update Progress Card
+    updateBonusProgressCard(tab);
+
 }
+
 function closeMyBonus(){
 
     document.getElementById("my-bonus-section").style.display="none";
