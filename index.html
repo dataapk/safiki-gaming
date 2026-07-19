@@ -1648,103 +1648,87 @@
 
 
 
-    <!-- ========================================= -->
-    <!-- DYNAMIC BONUS PROGRESS CARD -->
-    <!-- ========================================= -->
+<!-- ========================================= -->
+<!-- BONUS PROGRESS CARD -->
+<!-- ========================================= -->
 
-    <div class="bonus-progress-card"
-         id="bonusProgressCard">
+<div class="bonus-progress-card">
 
+    <div class="bonus-progress-header">
 
-        <div class="bonus-progress-header">
+        <h3 id="bonusProgressTitle">
+            Deposit Bonus Progress
+        </h3>
 
-    <h3 id="bonusProgressTitle">
-        Deposit Bonus Progress
-    </h3>
-
-    <span
-    id="bonusStatusBadge"
-    class="bonus-status active">
-
-        ACTIVE
-
-    </span>
-
-</div>
-
-
-<p id="bonusProgressText">
-
-    Complete the deposit wagering requirement to unlock your reward.
-
-</p>
-
-
-<div class="bonus-progress-percent">
-
-    <span id="bonusProgressPercent">
-
-        0%
-
-    </span>
-
-</div>
-
-
-<div class="bonus-progress-bar">
-
-
-    <div 
-    id="bonusProgressFill"
-    class="bonus-progress-fill"
-    style="width:0%;">
-
-    </div>
-
-
-</div>
-
-
-
-<!-- BONUS WALLET SWITCH -->
-
-<div class="bonus-action-bar">
-
-    <div class="bonus-wallet-switch">
-
-        <span class="bonus-wallet-label">
-            Bonus Balance
+        <span id="bonusStatusBadge" class="bonus-status active">
+            ACTIVE
         </span>
 
-        <label class="bonus-switch">
+    </div>
 
-            <input
-                type="checkbox"
-                id="bonusWalletToggle">
+    <p id="bonusProgressText">
+        Complete the deposit wagering requirement to unlock your bonus reward.
+    </p>
 
-            <span class="bonus-slider"></span>
+    <div class="bonus-progress-bar">
 
-        </label>
+        <div
+            id="bonusProgressFill"
+            class="bonus-progress-fill"
+            style="width:0%;">
+
+        </div>
 
     </div>
 
-    <!-- Claim Button -->
+    <div class="bonus-progress-footer">
 
-    <div class="bonus-claim-area">
+        <span id="bonusProgressPercent">
+            0%
+        </span>
 
-        <button
-            id="claimBonusBtn"
-            class="claim-bonus-btn locked"
-            disabled>
+        <span id="bonusWagerText">
+            Wager: 0 / 0
+        </span>
 
-            UNCLAIM
+    </div>
 
-        </button>
+    <div class="bonus-action-bar">
+
+        <div class="bonus-wallet-switch">
+
+            <span class="bonus-wallet-label">
+                Bonus Balance
+            </span>
+
+            <label class="bonus-switch">
+
+                <input
+                    type="checkbox"
+                    id="bonusWalletToggle">
+
+                <span class="bonus-slider"></span>
+
+            </label>
+
+        </div>
+
+        <div class="bonus-claim-area">
+
+            <button
+                id="claimBonusBtn"
+                class="claim-bonus-btn locked"
+                disabled>
+
+                UNCLAIM
+
+            </button>
+
+        </div>
 
     </div>
 
 </div>
-        </div>
         
 <!-- END BONUS PROGRESS CARD -->
 
