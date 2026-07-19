@@ -1726,28 +1726,29 @@ function updateBonusProgressCard(tab){
     }
 
 
-    // ==========================
-    // Bonus History
-    // ==========================
+   // ==========================
+// Bonus History
+// ==========================
 
-    if(tab==="history"){
+if(tab==="history"){
 
-        title.textContent="Bonus History";
+    title.textContent="Bonus History";
 
-        text.textContent="Latest completed and expired bonus records.";
+    text.textContent="Your latest completed, claimed and expired bonus records are shown here. Only the latest 10 records are stored automatically.";
 
-        percent.textContent="-";
+    percent.textContent="-";
 
-        wager.textContent="";
+    wager.textContent="";
 
-        badge.textContent="HISTORY";
-        badge.className="bonus-status";
+    badge.textContent="HISTORY";
+    badge.className="bonus-status";
 
-        progressFill.style.width="0%";
+    progressFill.style.width="0%";
 
-        claimBtn.style.display="none";
-
-    }
+    // Hide Progress Features
+    document.getElementById("bonusWalletArea").style.display="none";
+    document.getElementById("bonusClaimArea").style.display="none";
+    document.querySelector(".bonus-progress-bar").style.display="none";
 
 }
 /*--------------------------------
