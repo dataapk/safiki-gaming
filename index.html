@@ -1760,23 +1760,42 @@
 
 
 
-<!-- Claim Button -->
+<!-- BONUS WALLET SWITCH -->
 
-<div class="bonus-claim-area">
+<div class="bonus-action-bar">
 
+    <div class="bonus-wallet-switch">
 
-    <button
-    id="claimBonusBtn"
-    class="claim-bonus-btn locked"
-    disabled>
+        <span class="bonus-wallet-label">
+            Bonus Balance
+        </span>
 
-        UNCLAIM
+        <label class="bonus-switch">
 
-    </button>
+            <input
+                type="checkbox"
+                id="bonusWalletToggle">
 
+            <span class="bonus-slider"></span>
 
-</div>
+        </label>
 
+    </div>
+
+    <!-- Claim Button -->
+
+    <div class="bonus-claim-area">
+
+        <button
+            id="claimBonusBtn"
+            class="claim-bonus-btn locked"
+            disabled>
+
+            UNCLAIM
+
+        </button>
+
+    </div>
 
 </div>
         </div>
