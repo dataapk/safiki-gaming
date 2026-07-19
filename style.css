@@ -2717,17 +2717,12 @@ select{
 }
 
 /* =========================================
-        BONUS TAB BOX
+        BONUS TAB CONTAINER
 ========================================= */
-
 
 .bonus-tabs{
 
     display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
 
     background:#171b27;
 
@@ -2735,7 +2730,9 @@ select{
 
     border-radius:14px;
 
-    padding:6px;
+    padding:5px;
+
+    gap:5px;
 
     margin-bottom:18px;
 
@@ -2745,30 +2742,29 @@ select{
 
 
 
-/* Tab Button */
-
+/* TAB BUTTON */
 
 .bonus-menu-btn{
 
     flex:1;
 
+    height:38px;
+
     border:none;
+
+    border-radius:10px;
 
     background:transparent;
 
     color:#9ca3af;
 
-    padding:12px 10px;
-
-    border-radius:10px;
-
-    font-size:14px;
+    font-size:13px;
 
     font-weight:600;
 
     cursor:pointer;
 
-    transition:.25s;
+    transition:.25s ease;
 
 }
 
@@ -2785,7 +2781,7 @@ select{
 }
 
 
-/* Active Tab */
+/* ACTIVE TAB */
 
 .bonus-menu-btn.active{
 
@@ -2793,7 +2789,7 @@ select{
 
     color:#111827;
 
-    box-shadow:0 5px 15px rgba(255,214,102,.25);
+    box-shadow:0 5px 15px rgba(255,214,102,.35);
 
 }
 /* =========================================
