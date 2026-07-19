@@ -1371,7 +1371,12 @@ function openBonusTab(tab){
 
     }
 
+function closeMyBonus(){
 
+    document.getElementById("my-bonus-section").style.display="none";
+
+}
+    
     // Promotional
 
     if(tab==="promotional"){
