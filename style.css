@@ -2878,7 +2878,52 @@ select{
     }
 
 }
+/* =========================================
+        BONUS CLOSE BUTTON
+========================================= */
 
+
+.close-bonus{
+
+    width:40px;
+
+    height:40px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#20263a;
+
+    color:#ffffff;
+
+    font-size:26px;
+
+    font-weight:600;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    cursor:pointer;
+
+    transition:.3s ease;
+
+}
+
+
+
+.close-bonus:hover{
+
+    background:#ffd666;
+
+    color:#111827;
+
+    transform:rotate(90deg);
+
+}
 /* ==========================================
 END MY BONUS SECTION
 ========================================== */
