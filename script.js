@@ -1750,7 +1750,8 @@ if(tab==="history"){
     document.getElementById("bonusClaimArea").style.display="none";
     document.querySelector(".bonus-progress-bar").style.display="none";
 
-}
+       }
+    }
 /*--------------------------------
       Add Wager Progress
 --------------------------------*/
