@@ -1735,21 +1735,22 @@ document.querySelector(".bonus-progress-bar").style.display="block";
 
 
    // ==========================
+// ==========================
 // Bonus History
 // ==========================
 
-if(tab==="history"){
+else if(tab==="history"){
 
     title.textContent="Bonus History";
 
     text.textContent="Your latest completed, claimed and expired bonus records are shown here. Only the latest 10 records are stored automatically.";
 
-    percent.textContent="-";
+    percent.textContent="";
 
     wager.textContent="";
 
     badge.textContent="INFO";
-   badge.className="bonus-status";
+    badge.className="bonus-status";
 
     progressFill.style.width="0%";
 
@@ -1758,8 +1759,9 @@ if(tab==="history"){
     document.getElementById("bonusClaimArea").style.display="none";
     document.querySelector(".bonus-progress-bar").style.display="none";
 
-       }
-    }
+    claimBtn.style.display="none";
+
+}
 /*--------------------------------
       Add Wager Progress
 --------------------------------*/
