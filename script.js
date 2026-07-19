@@ -1277,139 +1277,704 @@ function selfExclude(period) {
 /* ==========================================
    START MY BONUS SECTION
 ========================================== */
-/* ==========================================
-   MY BONUS SECTION
-========================================== */
+/*=====================================================
+                MY BONUS - PART 1
+        Open / Close / Tabs / Initialize
+=====================================================*/
 
-// Open My Bonus
-function openMyBonus() {
+/*------------------------------
+    OPEN MY BONUS
+------------------------------*/
 
-    // Hide other profile sections
-    const sections = [
-        "account-info-section",
-        "kyc-section",
-        "transaction-history-section",
-        "settings-section"
-    ];
+function openMyBonus(){
 
-    sections.forEach(id => {
-        const el = document.getElementById(id);
-        if (el) el.style.display = "none";
-    });
+    // Hide Profile Menu
+    const profileMenu = document.getElementById("profile-popup");
 
-    // Show Bonus
-    document.getElementById("my-bonus-section").style.display = "block";
+    if(profileMenu){
 
-    // Demo Load
-    loadBonusDemo();
+        profileMenu.style.display = "none";
 
-}
+    }
 
+    // Show Bonus Page
+    const bonus = document.getElementById("my-bonus-section");
 
-// Close My Bonus
-function closeMyBonus() {
+    if(bonus){
 
-    document.getElementById("my-bonus-section").style.display = "none";
+        bonus.style.display = "block";
+
+    }
+
+    // Default Tab
+    openBonusTab("deposit");
 
 }
 
 
-/* ==========================================
-   BONUS DEMO DATA
-========================================== */
+/*------------------------------
+    CLOSE MY BONUS
+------------------------------*/
 
-function loadBonusDemo() {
+function closeMyBonus(){
 
-    const progress = 0; // Change later from Supabase
+    const bonus = document.getElementById("my-bonus-section");
 
-    document.getElementById("bonus-progress-fill").style.width =
-        progress + "%";
+    if(bonus){
 
-    document.getElementById("bonus-progress-text").innerText =
-        progress + "% Completed";
-
-    document.getElementById("bonus-current-progress").innerText =
-        progress + "%";
-
-    document.getElementById("bonus-balance").innerText =
-        "$0.00";
-
-    document.getElementById("bonus-type").innerText =
-        "First Deposit Bonus";
-
-    document.getElementById("bonus-status").innerText =
-        "Active";
-
-}
-
-
-/* ==========================================
-   BONUS MODE
-========================================== */
-
-function toggleBonusMode() {
-
-    const enabled =
-        document.getElementById("bonus-mode-toggle").checked;
-
-    if (enabled) {
-
-        console.log("Bonus Mode ON");
-
-    } else {
-
-        console.log("Bonus Mode OFF");
+        bonus.style.display = "none";
 
     }
 
 }
 
 
-/* ==========================================
-   UPDATE BONUS PROGRESS (UI)
-========================================== */
+/*------------------------------
+        BONUS TAB
+------------------------------*/
 
-function updateBonusProgress(percent) {
+function openBonusTab(tab){
 
-    if (percent < 0) percent = 0;
+    // Hide All Content
 
-    if (percent > 100) percent = 100;
+    document
+        .querySelectorAll(".bonus-tab-content")
+        .forEach(el=>{
 
-    document.getElementById("bonus-progress-fill").style.width =
-        percent + "%";
+            el.style.display="none";
 
-    document.getElementById("bonus-progress-text").innerText =
-        percent + "% Completed";
+        });
 
-    document.getElementById("bonus-current-progress").innerText =
-        percent + "%";
+
+    // Remove Active
+
+    document
+        .querySelectorAll(".bonus-menu-btn")
+        .forEach(btn=>{
+
+            btn.classList.remove("active");
+
+        });
+
+
+    // Deposit
+
+    if(tab==="deposit"){
+
+        document
+            .getElementById("depositBonusContent")
+            .style.display="block";
+
+        document
+            .getElementById("depositBonusTab")
+            .classList.add("active");
+
+    }
+
+
+    // Promotional
+
+    if(tab==="promotional"){
+
+        document
+            .getElementById("promotionalBonusContent")
+            .style.display="block";
+
+        document
+            .getElementById("promotionalBonusTab")
+            .classList.add("active");
+
+    }
+
+
+    // History
+
+    if(tab==="history"){
+
+        document
+            .getElementById("historyBonusContent")
+            .style.display="block";
+
+        document
+            .getElementById("historyBonusTab")
+            .classList.add("active");
+
+    }
 
 }
 
 
-/* ==========================================
-   RESET BONUS (UI)
-========================================== */
+/*------------------------------
+        INITIALIZE
+------------------------------*/
 
-function resetBonusUI() {
+document.addEventListener("DOMContentLoaded",()=>{
 
-    updateBonusProgress(0);
+    const page=document.getElementById("my-bonus-section");
 
-    document.getElementById("bonus-mode-toggle").checked = false;
+    if(page){
+
+        page.style.display="none";
+
+    }
+
+});
+/*=====================================================
+                MY BONUS - PART 2
+          Bonus Toggle & Active Logic
+=====================================================*/
+
+/*--------------------------------
+      Bonus Toggle Elements
+--------------------------------*/
+
+const depositBonusMode =
+document.getElementById("depositBonusMode");
+
+const birthdayBonusMode =
+document.getElementById("birthdayBonusMode");
+
+const weeklyBonusMode =
+document.getElementById("weeklyBonusMode");
+
+
+/*--------------------------------
+      Disable Other Bonuses
+--------------------------------*/
+
+function disableOtherBonuses(current){
+
+    const allBonus = [
+
+        depositBonusMode,
+
+        birthdayBonusMode,
+
+        weeklyBonusMode
+
+    ];
+
+    allBonus.forEach(item=>{
+
+        if(item && item!==current){
+
+            item.checked=false;
+
+        }
+
+    });
 
 }
 
 
-/* ==========================================
-   DEMO TEST
-========================================== */
+/*--------------------------------
+      Deposit Bonus
+--------------------------------*/
 
-// Example:
-// updateBonusProgress(35);
-// updateBonusProgress(70);
-// updateBonusProgress(100);
+if(depositBonusMode){
+
+    depositBonusMode.addEventListener("change",function(){
+
+        if(this.checked){
+
+            disableOtherBonuses(this);
+
+            console.log("Deposit Bonus Activated");
+
+        }else{
+
+            console.log("Deposit Bonus Disabled");
+
+        }
+
+    });
+
+}
 
 
+/*--------------------------------
+      Birthday Bonus
+--------------------------------*/
+
+if(birthdayBonusMode){
+
+    birthdayBonusMode.addEventListener("change",function(){
+
+        if(this.checked){
+
+            disableOtherBonuses(this);
+
+            console.log("Birthday Bonus Activated");
+
+        }else{
+
+            console.log("Birthday Bonus Disabled");
+
+        }
+
+    });
+
+}
+
+
+/*--------------------------------
+      Weekly Bonus
+--------------------------------*/
+
+if(weeklyBonusMode){
+
+    weeklyBonusMode.addEventListener("change",function(){
+
+        if(this.checked){
+
+            disableOtherBonuses(this);
+
+            console.log("Weekly Bonus Activated");
+
+        }else{
+
+            console.log("Weekly Bonus Disabled");
+
+        }
+
+    });
+
+}
+
+
+/*--------------------------------
+      Active Bonus Name
+--------------------------------*/
+
+function updateActiveBonus(title){
+
+    const text =
+    document.getElementById("active-bonus-name");
+
+    if(text){
+
+        text.innerText=title;
+
+    }
+
+}
+
+
+/*--------------------------------
+      Update Bonus Name
+--------------------------------*/
+
+if(depositBonusMode){
+
+    depositBonusMode.addEventListener("change",()=>{
+
+        if(depositBonusMode.checked){
+
+            updateActiveBonus("First Deposit Bonus");
+
+        }
+
+    });
+
+}
+
+if(birthdayBonusMode){
+
+    birthdayBonusMode.addEventListener("change",()=>{
+
+        if(birthdayBonusMode.checked){
+
+            updateActiveBonus("Birthday Bonus");
+
+        }
+
+    });
+
+}
+
+if(weeklyBonusMode){
+
+    weeklyBonusMode.addEventListener("change",()=>{
+
+        if(weeklyBonusMode.checked){
+
+            updateActiveBonus("Weekly Bonus");
+
+        }
+
+    });
+
+}
+
+/*=====================================================
+                MY BONUS - PART 3
+      Progress Bar + Countdown + Bonus Progress
+=====================================================*/
+
+/*--------------------------------
+        Demo Bonus Data
+   (Later Load From Supabase)
+--------------------------------*/
+
+let bonusData = {
+
+    progress: 0,
+
+    wagerCompleted: 0,
+
+    wagerRequired: 3000,
+
+    expireTime: Date.now() + (3 * 24 * 60 * 60 * 1000)
+
+};
+
+
+/*--------------------------------
+      Progress Update
+--------------------------------*/
+
+function updateBonusProgress(){
+
+    const percent = Math.min(
+        100,
+        Math.floor(
+            (bonusData.wagerCompleted / bonusData.wagerRequired) * 100
+        )
+    );
+
+    bonusData.progress = percent;
+
+    const fill =
+    document.getElementById("bonus-progress-fill");
+
+    const text =
+    document.getElementById("bonus-progress-text");
+
+    const badge =
+    document.getElementById("bonus-progress-percent");
+
+    const depositProgress =
+    document.getElementById("depositBonusProgress");
+
+    if(fill){
+
+        fill.style.width = percent + "%";
+
+    }
+
+    if(text){
+
+        text.innerText = percent + "%";
+
+    }
+
+    if(badge){
+
+        badge.innerText = percent + "%";
+
+    }
+
+    if(depositProgress){
+
+        depositProgress.innerText = percent + "%";
+
+    }
+
+}
+
+
+/*--------------------------------
+      Add Wager Progress
+--------------------------------*/
+
+function addBonusWager(amount){
+
+    bonusData.wagerCompleted += amount;
+
+    if(bonusData.wagerCompleted > bonusData.wagerRequired){
+
+        bonusData.wagerCompleted =
+        bonusData.wagerRequired;
+
+    }
+
+    updateBonusProgress();
+
+}
+
+
+/*--------------------------------
+        Countdown Timer
+--------------------------------*/
+
+function updateBonusCountdown(){
+
+    const timer =
+    document.getElementById("depositBonusTimer");
+
+    if(!timer) return;
+
+    let diff =
+    bonusData.expireTime - Date.now();
+
+    if(diff <= 0){
+
+        timer.innerText = "Expired";
+
+        return;
+
+    }
+
+    let days =
+    Math.floor(diff / 86400000);
+
+    diff %= 86400000;
+
+    let hours =
+    Math.floor(diff / 3600000);
+
+    diff %= 3600000;
+
+    let minutes =
+    Math.floor(diff / 60000);
+
+    timer.innerText =
+        days + "D " +
+        hours + "H " +
+        minutes + "M";
+
+}
+
+
+/*--------------------------------
+      Complete Bonus
+--------------------------------*/
+
+function completeBonus(){
+
+    if(bonusData.progress >= 100){
+
+        alert("🎉 Bonus Completed!");
+
+        bonusData.wagerCompleted = 0;
+
+        bonusData.progress = 100;
+
+    }
+
+}
+
+
+/*--------------------------------
+      Update Every Minute
+--------------------------------*/
+
+setInterval(function(){
+
+    updateBonusCountdown();
+
+},60000);
+
+
+/*--------------------------------
+        Initialize
+--------------------------------*/
+
+updateBonusProgress();
+
+updateBonusCountdown();
+
+
+/*--------------------------------
+ Example
+ Later Game Bet:
+
+ addBonusWager(25);
+
+--------------------------------*/
+/*=====================================================
+                MY BONUS - PART 4
+        History + Backend Ready + Final Init
+=====================================================*/
+
+/*--------------------------------
+        Bonus History
+--------------------------------*/
+
+let bonusHistory = [];
+
+function addBonusHistory(type,status,amount){
+
+    bonusHistory.unshift({
+
+        type:type,
+
+        status:status,
+
+        amount:amount,
+
+        date:new Date().toLocaleString()
+
+    });
+
+    renderBonusHistory();
+
+}
+
+
+/*--------------------------------
+      Render History
+--------------------------------*/
+
+function renderBonusHistory(){
+
+    const container =
+    document.getElementById("bonusHistoryList");
+
+    if(!container) return;
+
+    container.innerHTML="";
+
+    bonusHistory.forEach(item=>{
+
+        container.innerHTML += `
+
+        <div class="bonus-history-item">
+
+            <div class="bonus-history-left">
+
+                <h4>${item.type}</h4>
+
+                <span>${item.date}</span>
+
+            </div>
+
+            <div class="bonus-history-right ${item.status.toLowerCase()}">
+
+                ${item.status}
+
+            </div>
+
+        </div>
+
+        `;
+
+    });
+
+}
+
+
+/*--------------------------------
+      Deposit Bonus Completed
+--------------------------------*/
+
+function finishDepositBonus(){
+
+    addBonusHistory(
+
+        "First Deposit Bonus",
+
+        "Completed",
+
+        document.getElementById("depositBonusBalance")?.innerText || "$0.00"
+
+    );
+
+}
+
+
+/*--------------------------------
+      Promotional Bonus Completed
+--------------------------------*/
+
+function finishPromotionalBonus(name){
+
+    addBonusHistory(
+
+        name,
+
+        "Completed",
+
+        "$0.00"
+
+    );
+
+}
+
+
+/*--------------------------------
+      Backend Ready
+--------------------------------*/
+
+/*
+Later connect Supabase
+
+Example:
+
+await supabase
+.from("user_bonus")
+.select("*")
+
+*/
+
+
+async function loadBonusData(){
+
+    console.log("Load Bonus From Backend");
+
+}
+
+
+async function saveBonusData(){
+
+    console.log("Save Bonus To Backend");
+
+}
+
+
+async function loadBonusHistory(){
+
+    console.log("Load Bonus History");
+
+}
+
+
+/*--------------------------------
+      Auto Save (Optional)
+--------------------------------*/
+
+setInterval(()=>{
+
+    saveBonusData();
+
+},30000);
+
+
+/*--------------------------------
+      Initialize
+--------------------------------*/
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+    loadBonusData();
+
+    loadBonusHistory();
+
+    renderBonusHistory();
+
+});
+
+
+/*--------------------------------
+ Example Game Bet
+
+addBonusWager(50);
+
+Example Complete
+
+finishDepositBonus();
+
+--------------------------------*/
 /* ==========================================
   END  MY BONUS SECTION
 ========================================== */
