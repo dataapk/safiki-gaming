@@ -1354,7 +1354,7 @@ function openBonusTab(tab){
     }
 
     // Promotional Bonus
-    if(tab==="promotional"){
+   else if(tab==="promotional"){
 
         document.getElementById("promotionalBonusContent").style.display="block";
         document.getElementById("promotionalBonusTab").classList.add("active");
@@ -1362,7 +1362,7 @@ function openBonusTab(tab){
     }
 
     // History Bonus
-    if(tab==="history"){
+    else if(tab==="history"){
 
         document.getElementById("historyBonusContent").style.display="block";
         document.getElementById("historyBonusTab").classList.add("active");
