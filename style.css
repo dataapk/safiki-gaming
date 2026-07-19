@@ -283,20 +283,14 @@ img, svg {
    MENU ITEM
 =========================== */
 
-#profile-popup .menu-item{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    padding:13px 4px;
-
-    cursor:pointer;
-
-    transition:.25s;
-
+#profile-popup{
+    display:block !important;
+    position:absolute;
+    top:70px;
+    right:20px;
+    background:#111827;
+    width:250px;
+    z-index:99999;
 }
 
 #profile-popup .menu-item:hover{
