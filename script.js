@@ -692,6 +692,7 @@ function openPersonalArea(){
 // START OPEN KYC VERIFICATIONM=======
 
 // END OPEN KYC VERIFICATIONM=======
+
 function openSecuritySettings() {
 
     alert("Security Settings - Coming Soon");
@@ -872,6 +873,13 @@ updatePagination();
 // Open Settings
 function openProfileSettingMenu() {
 
+    // Hide Profile Menu
+    const profileMenu = document.getElementById("profile-popup");
+
+    if(profileMenu){
+        profileMenu.style.display = "none";
+    }
+
     // Hide other profile sections
     document.getElementById("account-info-section").style.display = "none";
     document.getElementById("kyc-section").style.display = "none";
@@ -882,6 +890,7 @@ function openProfileSettingMenu() {
 
     // Default Tab
     switchSettingsTab("security");
+
 }
 
 
