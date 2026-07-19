@@ -1384,7 +1384,50 @@ function closeMyBonus(){
     document.getElementById("my-bonus-section").style.display="none";
 
 }
+/* =========================================
+        BONUS WALLET TOGGLE
+========================================= */
 
+const bonusWalletToggle = document.getElementById("bonusWalletToggle");
+
+// Load Saved State
+if(bonusWalletToggle){
+
+    const savedState = localStorage.getItem("bonusWalletEnabled");
+
+    if(savedState==="true"){
+
+        bonusWalletToggle.checked = true;
+
+    }else{
+
+        bonusWalletToggle.checked = false;
+
+    }
+
+}
+
+
+// Toggle Change
+bonusWalletToggle?.addEventListener("change",function(){
+
+    if(this.checked){
+
+        // Enable Bonus Balance
+        localStorage.setItem("bonusWalletEnabled","true");
+
+        console.log("✅ Bonus Balance Enabled");
+
+    }else{
+
+        // Disable Bonus Balance
+        localStorage.setItem("bonusWalletEnabled","false");
+
+        console.log("❌ Bonus Balance Disabled");
+
+    }
+
+});
 /*------------------------------
         INITIALIZE
 ------------------------------*/
