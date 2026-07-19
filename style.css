@@ -2482,24 +2482,32 @@ select{
 /* STATUS */
 
 
+/* Bonus Status Badge */
+
 .bonus-status{
 
-    padding:6px 14px;
+    padding:5px 12px;
 
     border-radius:20px;
 
-    font-size:13px;
+    font-size:12px;
 
-    font-weight:600;
+    font-weight:700;
+
+    color:#ffffff;
+
+    background:#22c55e;
 
 }
 
 
 .bonus-status.active{
 
-    background:rgba(34,197,94,.15);
+    background:#22c55e;
 
-    color:#4ade80;
+    color:#ffffff;
+
+    text-shadow:0 1px 2px rgba(0,0,0,.25);
 
 }
 
