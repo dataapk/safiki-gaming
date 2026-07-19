@@ -3497,9 +3497,39 @@ select{
 /* =========================================
         BONUS HISTORY CONTENT START
 ========================================= */
+/* =========================================
+        BONUS HISTORY INFO
+========================================= */
 
+.bonus-history-info{
 
-/* History List */
+    padding:14px 16px;
+
+    margin-bottom:18px;
+
+    background:#1b2030;
+
+    border:1px solid rgba(255,214,102,.15);
+
+    border-radius:12px;
+
+}
+
+.bonus-history-info p{
+
+    margin:0;
+
+    color:#cbd5e1;
+
+    font-size:13px;
+
+    line-height:1.6;
+
+}
+
+/* =========================================
+        BONUS HISTORY LIST
+========================================= */
 
 .bonus-history-list{
 
@@ -3511,224 +3541,25 @@ select{
 
 }
 
-
-
-
-
-
-
-/* Empty History */
+/* Empty State */
 
 .bonus-empty-state{
 
+    padding:25px;
+
     text-align:center;
 
-    padding:25px 10px;
-
     color:#9ca3af;
+
+    background:#171b27;
+
+    border:1px dashed rgba(255,214,102,.20);
+
+    border-radius:12px;
 
     font-size:14px;
 
 }
-
-
-
-
-
-
-
-
-/* History Item */
-
-.bonus-history-item{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    background:#20263a;
-
-    border:1px solid rgba(255,255,255,.06);
-
-    border-radius:12px;
-
-    padding:14px;
-
-    transition:.25s;
-
-}
-
-
-
-
-
-
-
-.bonus-history-item:hover{
-
-    border-color:rgba(255,214,102,.35);
-
-}
-
-
-
-
-
-
-
-
-/* Left Content */
-
-.bonus-history-left h4{
-
-    margin:0 0 5px;
-
-    color:#ffffff;
-
-    font-size:15px;
-
-    font-weight:700;
-
-}
-
-
-
-
-
-
-.bonus-history-left span{
-
-    color:#9ca3af;
-
-    font-size:12px;
-
-}
-
-
-
-
-
-
-
-
-/* Status Right */
-
-.bonus-history-right{
-
-    padding:6px 12px;
-
-    border-radius:20px;
-
-    font-size:12px;
-
-    font-weight:700;
-
-}
-
-
-
-
-
-
-
-/* Completed */
-
-.bonus-history-right.success{
-
-    background:#22c55e;
-
-    color:#111827;
-
-}
-
-
-
-
-
-
-
-/* Expired */
-
-.bonus-history-right.expired{
-
-    background:#ef4444;
-
-    color:#ffffff;
-
-}
-
-
-
-
-
-
-
-/* Claimed */
-
-.bonus-history-right.claimed{
-
-    background:#3b82f6;
-
-    color:#ffffff;
-
-}
-
-
-
-
-
-
-
-
-/* Failed */
-
-.bonus-history-right.failed{
-
-    background:#6b7280;
-
-    color:#ffffff;
-
-}
-
-
-
-
-
-
-
-
-
-/* Mobile */
-
-@media(max-width:600px){
-
-
-    .bonus-history-item{
-
-        flex-direction:column;
-
-        align-items:flex-start;
-
-        gap:10px;
-
-    }
-
-
-
-    .bonus-history-right{
-
-        align-self:flex-end;
-
-    }
-
-
-}
-
-
-
-
 
 /* =========================================
         BONUS HISTORY CONTENT END
