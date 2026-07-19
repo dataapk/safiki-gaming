@@ -1676,7 +1676,7 @@ function updateBonusProgressCard(tab){
     // Deposit Bonus
     // ==========================
 
-    if(tab==="deposit"){
+   if(tab==="promotional"){
 
         title.textContent="Deposit Bonus Progress";
 
@@ -1707,7 +1707,7 @@ document.querySelector(".bonus-progress-bar").style.display="block";
     // Promotional Bonus
     // ==========================
 
-    if(tab==="promotional"){
+   else if(tab==="promotional"){
 
         title.textContent="Promotional Bonus Progress";
 
