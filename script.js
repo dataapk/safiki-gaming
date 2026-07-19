@@ -654,11 +654,29 @@ function toggleNotifMenu(event) {
 
 // প্রোফাইলের জন্য আলাদা ফাংশন
 function toggleProfileMenu(event) {
+
     event.stopPropagation();
+
     const menu = document.getElementById('profile-popup');
     const notif = document.getElementById('notif-popup');
-    notif.style.display = 'none'; // অন্য মেনু বন্ধ
-    menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+
+
+    // Notification close
+    if(notif){
+        notif.style.display = 'none';
+    }
+
+
+    // Profile popup toggle
+    if(menu){
+
+        menu.style.display =
+        (menu.style.display === 'block')
+        ? 'none'
+        : 'block';
+
+    }
+
 }
 // ==============================
 // PROFILE SUB  START
