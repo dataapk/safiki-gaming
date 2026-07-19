@@ -1273,6 +1273,149 @@ function selfExclude(period) {
 /* ===============================
    END SETTING 
 ================================ */
+
+/* ==========================================
+   START MY BONUS SECTION
+========================================== */
+/* ==========================================
+   MY BONUS SECTION
+========================================== */
+
+// Open My Bonus
+function openMyBonus() {
+
+    // Hide other profile sections
+    const sections = [
+        "account-info-section",
+        "kyc-section",
+        "transaction-history-section",
+        "settings-section"
+    ];
+
+    sections.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.style.display = "none";
+    });
+
+    // Show Bonus
+    document.getElementById("my-bonus-section").style.display = "block";
+
+    // Demo Load
+    loadBonusDemo();
+
+}
+
+
+// Close My Bonus
+function closeMyBonus() {
+
+    document.getElementById("my-bonus-section").style.display = "none";
+
+}
+
+
+/* ==========================================
+   BONUS DEMO DATA
+========================================== */
+
+function loadBonusDemo() {
+
+    const progress = 0; // Change later from Supabase
+
+    document.getElementById("bonus-progress-fill").style.width =
+        progress + "%";
+
+    document.getElementById("bonus-progress-text").innerText =
+        progress + "% Completed";
+
+    document.getElementById("bonus-current-progress").innerText =
+        progress + "%";
+
+    document.getElementById("bonus-balance").innerText =
+        "$0.00";
+
+    document.getElementById("bonus-type").innerText =
+        "First Deposit Bonus";
+
+    document.getElementById("bonus-status").innerText =
+        "Active";
+
+}
+
+
+/* ==========================================
+   BONUS MODE
+========================================== */
+
+function toggleBonusMode() {
+
+    const enabled =
+        document.getElementById("bonus-mode-toggle").checked;
+
+    if (enabled) {
+
+        console.log("Bonus Mode ON");
+
+    } else {
+
+        console.log("Bonus Mode OFF");
+
+    }
+
+}
+
+
+/* ==========================================
+   UPDATE BONUS PROGRESS (UI)
+========================================== */
+
+function updateBonusProgress(percent) {
+
+    if (percent < 0) percent = 0;
+
+    if (percent > 100) percent = 100;
+
+    document.getElementById("bonus-progress-fill").style.width =
+        percent + "%";
+
+    document.getElementById("bonus-progress-text").innerText =
+        percent + "% Completed";
+
+    document.getElementById("bonus-current-progress").innerText =
+        percent + "%";
+
+}
+
+
+/* ==========================================
+   RESET BONUS (UI)
+========================================== */
+
+function resetBonusUI() {
+
+    updateBonusProgress(0);
+
+    document.getElementById("bonus-mode-toggle").checked = false;
+
+}
+
+
+/* ==========================================
+   DEMO TEST
+========================================== */
+
+// Example:
+// updateBonusProgress(35);
+// updateBonusProgress(70);
+// updateBonusProgress(100);
+
+
+/* ==========================================
+  END  MY BONUS SECTION
+========================================== */
+
+
+
 function confirmLogout() {
     // Add your logout logic here
     window.location.href = 'logout.php'; 
