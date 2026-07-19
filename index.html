@@ -501,11 +501,11 @@
 
 <div class="personal-avatar-box">
 
-<img id="profilePhotoPreview" src="assets/images/default-user.png" alt="Profile Photo">
+<img id="profilePhotoPreview" src="assets/images/default-user.png" alt="Profile">
 
 <input type="file" id="profilePhotoInput" accept="image/*" capture="environment" hidden onchange="updateProfilePhoto(event)">
 
-<button type="button" class="change-photo-btn" onclick="document.getElementById('profilePhotoInput').click()">
+<button class="change-photo-btn" type="button" onclick="document.getElementById('profilePhotoInput').click()">
 <i class="fas fa-camera"></i> Change Photo
 </button>
 
@@ -527,37 +527,51 @@
 
 </div>
 
-
 <div class="personal-form">
 
 <div class="personal-group">
 <label>Full Name</label>
-<input type="text" id="personalFullName" placeholder="Enter your full name">
+<div class="personal-input-group">
+<input type="text" id="personalFullName" value="MD Ayan Ali" readonly>
+<button class="edit-btn" onclick="enableEdit('personalFullName',this)">Edit</button>
+</div>
 </div>
 
 <div class="personal-group">
 <label>Email Address</label>
-<input type="email" id="personalEmail" placeholder="Enter your email">
+<div class="personal-input-group">
+<input type="email" id="personalEmail" value="user@email.com" readonly>
+<button class="edit-btn" onclick="changeEmail()">Change</button>
+</div>
 </div>
 
 <div class="personal-group">
 <label>Mobile Number</label>
-<input type="text" id="personalMobile" placeholder="Enter your mobile number">
+<div class="personal-input-group">
+<input type="text" id="personalMobile" value="+8801XXXXXXXXX" readonly>
+<button class="edit-btn" onclick="enableEdit('personalMobile',this)">Edit</button>
+</div>
 </div>
 
 <div class="personal-group">
 <label>Date of Birth</label>
-<input type="date" id="personalDob">
+<div class="personal-input-group">
+<input type="date" id="personalDob" readonly>
+<button class="edit-btn" onclick="enableEdit('personalDob',this)">Edit</button>
+</div>
 </div>
 
 <div class="personal-group">
 <label>Gender</label>
-<select id="personalGender">
+<div class="personal-input-group">
+<select id="personalGender" disabled>
 <option value="">Select Gender</option>
 <option>Male</option>
 <option>Female</option>
 <option>Other</option>
 </select>
+<button class="edit-btn" onclick="enableGender(this)">Edit</button>
+</div>
 </div>
 
 <button class="save-personal-btn" onclick="savePersonalDetails()">
