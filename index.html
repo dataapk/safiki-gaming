@@ -1981,6 +1981,10 @@
 <!-- PROMOTIONAL BONUS START -->
 <!-- =============================== -->
 
+<!-- =============================== -->
+<!-- PROMOTIONAL BONUS START -->
+<!-- =============================== -->
+
 <div
     id="promotionalBonusContent"
     class="bonus-tab-content"
@@ -2001,12 +2005,12 @@
         </div>
 
 
-        <!-- Bonus Status -->
+        <!-- Status -->
 
         <div class="bonus-info-row">
 
             <span>
-                Bonus Status
+                Status
             </span>
 
             <span class="status-active">
@@ -2014,6 +2018,7 @@
             </span>
 
         </div>
+
 
 
         <!-- Bonus Balance -->
@@ -2031,6 +2036,7 @@
         </div>
 
 
+
         <!-- Wager Requirement -->
 
         <div class="bonus-info-row">
@@ -2046,9 +2052,44 @@
         </div>
 
 
+
+        <!-- Minimum Wager -->
+
+        <div class="bonus-info-row">
+
+            <span>
+                Minimum Wager
+            </span>
+
+            <strong>
+                $1.00
+            </strong>
+
+        </div>
+
+
+
+        <!-- Countdown -->
+
+        <div class="bonus-info-row">
+
+            <span>
+                Valid For
+            </span>
+
+            <strong id="promotionalBonusTimer">
+                3 Days
+            </strong>
+
+        </div>
+
+
+
+
         <!-- Progress -->
 
         <div class="bonus-progress-box">
+
 
             <div class="bonus-progress-text">
 
@@ -2056,40 +2097,57 @@
                     Wager Progress
                 </span>
 
-                <span>
+
+                <span id="promotionalProgressPercent">
                     0%
                 </span>
 
+
             </div>
+
 
 
             <div class="bonus-progress-bar">
 
-                <div class="bonus-progress-fill"
-                     style="width:0%;">
+
+                <div 
+                    class="bonus-progress-fill"
+                    id="promotionalProgressFill"
+                    style="width:0%;">
                 </div>
 
+
             </div>
+
 
         </div>
 
 
-        <!-- Toggle -->
+
+
+
+
+        <!-- Bonus Toggle -->
 
         <div class="bonus-toggle-row">
+
 
             <span>
                 Use Promotional Bonus
             </span>
 
 
+
             <label class="switch">
 
+
                 <input 
-                type="checkbox"
-                id="promotionalBonusMode">
+                    type="checkbox"
+                    id="promotionalBonusMode">
+
 
                 <span class="slider"></span>
+
 
             </label>
 
@@ -2097,34 +2155,182 @@
         </div>
 
 
+
+
+
+
         <!-- Eligible Games -->
 
         <div class="eligible-games">
+
 
             <h4>
                 Eligible Games
             </h4>
 
 
-            <div class="game-box">
 
-                <a href="#">
-                    Game 1
+
+            <!-- Game Card -->
+
+            <div class="bonus-game-card">
+
+
+                <a href="game-link-here">
+
+
+                    <img 
+                    src="game-image-here"
+                    alt="Game">
+
+
+                    <span>
+                        Game Name
+                    </span>
+
+
                 </a>
+
 
             </div>
 
 
-            <div class="game-box">
 
-                <a href="#">
-                    Game 2
+
+
+            <div class="bonus-game-card">
+
+
+                <a href="game-link-here">
+
+
+                    <img 
+                    src="game-image-here"
+                    alt="Game">
+
+
+                    <span>
+                        Game Name
+                    </span>
+
+
                 </a>
 
+
             </div>
+
+
+
+
+            <div class="bonus-game-card">
+
+
+                <a href="game-link-here">
+
+
+                    <img 
+                    src="game-image-here"
+                    alt="Game">
+
+
+                    <span>
+                        Game Name
+                    </span>
+
+
+                </a>
+
+
+            </div>
+
 
 
         </div>
+
+
+
+
+
+
+        <!-- Rules -->
+
+        <div class="bonus-rules">
+
+
+            <h4>
+                Bonus Rules
+            </h4>
+
+
+            <ul>
+
+                <li>
+                    Complete wagering requirement before expiry.
+                </li>
+
+
+                <li>
+                    Only eligible games count towards wagering.
+                </li>
+
+
+                <li>
+                    Bonus balance cannot be withdrawn directly.
+                </li>
+
+
+            </ul>
+
+
+        </div>
+
+
+
+    </div>
+
+
+
+</div>
+
+
+<!-- =============================== -->
+<!-- PROMOTIONAL BONUS END -->
+<!-- =============================== -->
+    
+
+<!-- =============================== -->
+<!-- BONUS HISTORY START -->
+<!-- =============================== -->
+
+<div
+id="historyBonusContent"
+class="bonus-tab-content"
+style="display:none;">
+
+
+    <div class="bonus-card">
+
+
+        <div class="bonus-card-header">
+
+            <h3>
+                Bonus History
+            </h3>
+
+        </div>
+
+
+
+        <!-- Dynamic History List -->
+
+        <div id="bonusHistoryList">
+
+
+            <!-- JS AUTO LOAD HERE -->
+
+
+        </div>
+
 
 
     </div>
@@ -2132,8 +2338,9 @@
 
 </div>
 
+
 <!-- =============================== -->
-<!-- PROMOTIONAL BONUS END -->
+<!-- BONUS HISTORY END -->
 <!-- =============================== -->
 <!-- ========================================= -->
 <!-- END MY BONUS SECTION -->
