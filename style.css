@@ -2690,6 +2690,87 @@ select{
     box-shadow:0 0 15px rgba(34,197,94,.35);
 
 }
+
+/* =========================================
+        BONUS TAB BOX
+========================================= */
+
+
+.bonus-tabs{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    background:#171b27;
+
+    border:1px solid rgba(255,214,102,.25);
+
+    border-radius:14px;
+
+    padding:6px;
+
+    margin-bottom:18px;
+
+}
+
+
+
+
+
+/* Tab Button */
+
+
+.bonus-menu-btn{
+
+    flex:1;
+
+    border:none;
+
+    background:transparent;
+
+    color:#9ca3af;
+
+    padding:12px 10px;
+
+    border-radius:10px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+
+
+
+
+/* Hover */
+
+.bonus-menu-btn:hover{
+
+    color:#ffffff;
+
+}
+
+
+/* Active Tab */
+
+.bonus-menu-btn.active{
+
+    background:#ffd666;
+
+    color:#111827;
+
+    box-shadow:0 5px 15px rgba(255,214,102,.25);
+
+}
 /* =========================================
         DEPOSIT BONUS CONTENT START
 ========================================= */
