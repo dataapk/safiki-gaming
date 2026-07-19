@@ -489,738 +489,90 @@
 
 
 <!-- ================= ACCOUNT INFORMATION ================= -->
+    <!-- ================= PERSONAL DETAILS CONTENT ================= -->
+
+<div id="personalDetailsContent" class="personal-tab-content">
+
+<div class="personal-card">
+
+<div class="personal-profile-header">
+
+<div class="personal-avatar-box">
+
+<img id="profilePhotoPreview" src="assets/images/default-user.png" alt="Profile Photo">
+
+<input type="file" id="profilePhotoInput" accept="image/*" capture="environment" hidden onchange="updateProfilePhoto(event)">
+
+<button type="button" class="change-photo-btn" onclick="document.getElementById('profilePhotoInput').click()">
+<i class="fas fa-camera"></i> Change Photo
+</button>
+
+</div>
+
+<div class="personal-user-info">
+
+<div class="personal-info-item">
+<span class="info-label">User ID</span>
+<span class="info-value" id="personalUserId">SFK950001</span>
+</div>
+
+<div class="personal-info-item">
+<span class="info-label">Member Since</span>
+<span class="info-value" id="memberSince">17 July 2026</span>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="personal-form">
+
+<div class="personal-group">
+<label>Full Name</label>
+<input type="text" id="personalFullName" placeholder="Enter your full name">
+</div>
+
+<div class="personal-group">
+<label>Email Address</label>
+<input type="email" id="personalEmail" placeholder="Enter your email">
+</div>
+
+<div class="personal-group">
+<label>Mobile Number</label>
+<input type="text" id="personalMobile" placeholder="Enter your mobile number">
+</div>
+
+<div class="personal-group">
+<label>Date of Birth</label>
+<input type="date" id="personalDob">
+</div>
+
+<div class="personal-group">
+<label>Gender</label>
+<select id="personalGender">
+<option value="">Select Gender</option>
+<option>Male</option>
+<option>Female</option>
+<option>Other</option>
+</select>
+</div>
+
+<button class="save-personal-btn" onclick="savePersonalDetails()">
+<i class="fas fa-save"></i> Save Changes
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ================= END PERSONAL DETAILS ================= -->
 
 <!-- ================= ACCOUNT INFORMATION ================= -->
 
-<div id="account-info-section" style="display:none;">
 
-    <!-- Header -->
-    <div class="account-header">
-
-        <div class="account-profile">
-
-            <div class="profile-photo-box">
-
-                <img id="profile-photo"
-                     src="images/default-user.png"
-                     alt="Profile Photo">
-
-                <button class="photo-edit-btn"
-                        onclick="changeProfilePhoto()">
-
-                    <i class="fas fa-camera"></i>
-
-                </button>
-
-            </div>
-
-            <div class="profile-header-info">
-
-                <h3>Account Information</h3>
-
-                <div class="header-meta">
-
-                    <p>
-                        <span>User ID :</span>
-                        <strong id="header-user-id">
-                            SFK950001
-                        </strong>
-                    </p>
-
-                    <p>
-                        <span>Member Since :</span>
-                        <strong id="member-since">
-                            17 July 2026
-                        </strong>
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <button class="close-account-btn"
-                onclick="closeAccountInfo()">
-
-            <i class="fas fa-times"></i>
-
-        </button>
-
-    </div>
-
-
-    <!-- Body -->
-
-    <div class="account-card">
-
-
-        <!-- Full Name -->
-
-<div class="info-box">
-
-    <div class="info-title">
-
-        <label>Full Name</label>
-
-        <button
-            class="mini-edit-btn"
-            onclick="editFullName()">
-
-            Edit
-
-        </button>
-
-    </div>
-
-    <div
-        class="info-value"
-        id="display-fullname">
-
-        MD Ayan Ali
-
-    </div>
-
-    <div id="name-edit-box" class="edit-box" style="display:none;">
-
-        <div class="input-group">
-
-            <label>First Name</label>
-
-            <input
-                type="text"
-                id="first-name">
-
-        </div>
-
-        <div class="input-group">
-
-            <label>Last Name</label>
-
-            <input
-                type="text"
-                id="last-name">
-
-        </div>
-
-    </div>
-
-</div>
-
-
-
-       <!-- Email -->
-
-<div class="info-box">
-
-    <div class="info-title">
-
-        <label>Email Address</label>
-
-        <button
-            class="mini-edit-btn"
-            onclick="openChangeEmail()">
-
-            Edit
-
-        </button>
-
-    </div>
-
-    <div
-        class="info-value"
-        id="display-email">
-
-        user@email.com
-
-    </div>
-
-    <div id="email-edit-box" class="edit-box" style="display:none;">
-
-        <div class="input-group">
-
-            <label>New Email</label>
-
-            <input
-                type="email"
-                id="new-email">
-
-        </div>
-
-        <div class="input-group">
-
-            <label>Confirm Email</label>
-
-            <input
-                type="email"
-                id="confirm-email">
-
-        </div>
-
-    </div>
-
-</div>
-
-
-
-        <!-- Mobile -->
-
-<div class="info-box">
-
-    <div class="info-title">
-
-        <label>Mobile Number</label>
-
-        <button
-            class="mini-edit-btn"
-            onclick="editMobile()">
-
-            Edit
-
-        </button>
-
-    </div>
-
-    <div
-        class="info-value"
-        id="display-mobile">
-
-        Not Added
-
-    </div>
-
-    <div id="mobile-edit-box" class="edit-box" style="display:none;">
-
-        <div class="mobile-row">
-
-        <div class="country-code">
-
-            <select id="mobile-code">
-
-                <option value="+880">🇧🇩 +880</option>
-                <option value="+91">🇮🇳 +91</option>
-                <option value="+1">🇺🇸 +1</option>
-
-            </select>
-
-    </div>
-
-    <input
-        type="text"
-        id="mobile-number"
-        placeholder="17XXXXXXXX">
-
-</div>
-
-    </div>
-
-</div>
-
-
-
-        <!-- Address -->
-
-        <div class="info-box">
-
-            <div class="info-title">
-
-                <label>Address</label>
-
-                <button
-                    class="mini-edit-btn"
-                    onclick="editAddress()">
-
-                    Edit
-
-                </button>
-
-            </div>
-
-            <div
-                class="info-value"
-                id="display-address">
-
-                Not Added
-
-            </div>
-
-        </div>
-
-
-
-        <!-- Hidden Address Form -->
-
-        <div
-            id="address-edit-box"
-            style="display:none;">
-
-            <div class="input-group">
-
-                <label>Address Line</label>
-
-                <input
-                    type="text"
-                    id="address-line">
-
-            </div>
-
-            <div class="two-column">
-
-                <div>
-
-                    <label>Village / Area</label>
-
-                    <input
-                        type="text"
-                        id="address-village">
-
-                </div>
-
-                <div>
-
-                    <label>District</label>
-
-                    <input
-                        type="text"
-                        id="address-district">
-
-                </div>
-
-            </div>
-
-        <div class="inline-row">
-
-    <label>Postal Code</label>
-
-    <input
-        type="text"
-        id="postal-code"
-        placeholder="1209">
-
-</div>
-
-<div class="inline-row">
-
-    <label>Country</label>
-
-    <div class="country-select">
-
-        <select id="country">
-
-            <option value="Bangladesh" selected>Bangladesh</option>
-
-            <option value="India">India</option>
-
-            <option value="Pakistan">Pakistan</option>
-
-            <option value="Nepal">Nepal</option>
-
-            <option value="Bhutan">Bhutan</option>
-
-            <option value="Sri Lanka">Sri Lanka</option>
-
-            <option value="Malaysia">Malaysia</option>
-
-            <option value="Singapore">Singapore</option>
-
-            <option value="United Arab Emirates">United Arab Emirates</option>
-
-            <option value="Saudi Arabia">Saudi Arabia</option>
-
-            <option value="United Kingdom">United Kingdom</option>
-
-            <option value="United States">United States</option>
-
-            <option value="Canada">Canada</option>
-
-            <option value="Australia">Australia</option>
-
-        </select>
-
-        <i class="fas fa-chevron-down"></i>
-
-    </div>
-
-</div>
- </div>
-
-        <!-- Save -->
-
-        <div class="account-footer">
-
-        <button
-            class="save-btn"
-            onclick="saveAccountInfo()">
-
-            Save Changes
-
-        </button>
-
-    </div>
-
-</div>
-</div>
-    <!-- ================= KYC VERIFICATION ================= -->
-
-<div id="kyc-section" style="display:none;">
-
-    <!-- Header -->
-
-    <div class="account-header">
-
-        <h2>
-
-            <i class="fas fa-shield-alt"></i>
-
-            KYC Verification
-
-        </h2>
-
-        <button
-            class="close-account-btn"
-            onclick="closeKYC()">
-
-            <i class="fas fa-times"></i>
-
-        </button>
-
-    </div>
-
-    <!-- Body -->
-
-    <div class="account-card">
-
-        <!-- Status -->
-
-        <div class="info-box">
-
-            <div class="info-title">
-
-                <label>Verification Status</label>
-
-            </div>
-
-            <div class="info-value">
-
-                <span class="kyc-pending">
-
-                    <i class="fas fa-clock"></i>
-
-                    Not Verified
-
-                </span>
-
-            </div>
-
-        </div>
-
-        <!-- Full Name -->
-
-        <div class="info-box">
-
-            <div class="info-title">
-
-                <label>Full Name</label>
-
-            </div>
-
-            <div
-                class="info-value"
-                id="kyc-fullname">
-
-                --
-
-            </div>
-
-        </div>
-
-        <!-- User ID -->
-
-        <div class="info-box">
-
-            <div class="info-title">
-
-                <label>User ID</label>
-
-            </div>
-
-            <div
-                class="info-value"
-                id="kyc-userid">
-
-                --
-
-            </div>
-
-        </div>
-
-        <!-- Country -->
-
-        <div class="info-box">
-
-            <div class="info-title">
-
-                <label>Country / Region</label>
-
-            </div>
-
-            <div class="info-value">
-
-                <select id="kyc-country">
-
-                    <option value="Bangladesh" selected>Bangladesh</option>
-
-                    <option value="India">India</option>
-
-                    <option value="Pakistan">Pakistan</option>
-
-                    <option value="Nepal">Nepal</option>
-
-                    <option value="Sri Lanka">Sri Lanka</option>
-
-                    <option value="United States">United States</option>
-
-                    <option value="United Kingdom">United Kingdom</option>
-
-                    <option value="Australia">Australia</option>
-
-                </select>
-
-            </div>
-
-        </div>
-
-        <!-- Document Type -->
-
-        <div class="info-box">
-
-            <div class="info-title">
-
-                <label>Verification Document</label>
-
-            </div>
-
-            <div class="info-value">
-
-                <select id="kyc-document-type">
-
-                    <option value="">Select Document</option>
-
-                    <option value="nid">
-
-                        National ID Card
-
-                    </option>
-
-                    <option value="passport">
-
-                        Passport
-
-                    </option>
-
-                    <option value="license">
-
-                        Driving License
-
-                    </option>
-
-                </select>
-
-            </div>
-
-        </div>
-
-        <!-- Document Number -->
-
-        <div class="info-box">
-
-            <div class="info-title">
-
-                <label>Document Number</label>
-
-            </div>
-
-            <div class="info-value">
-
-                <input
-                    type="text"
-                    id="kyc-document-number"
-                    placeholder="Enter your document number">
-
-            </div>
-
-        </div>
-
-        <!-- Upload Section Starts -->
-        <!-- ================= Upload Front Side ================= -->
-
-        <div class="kyc-upload-card">
-
-            <div class="kyc-upload-title">
-
-                <i class="fas fa-id-card"></i>
-
-                Front Side of Document
-
-            </div>
-
-            <label
-                for="kyc-front"
-                class="kyc-upload-box">
-
-                <i class="fas fa-cloud-upload-alt"></i>
-
-                <span>Upload Front Side</span>
-
-                <small>
-                    JPG, PNG (Max 5MB)
-                </small>
-
-            </label>
-
-            <input
-                type="file"
-                id="kyc-front"
-                accept="image/*"
-                capture="environment"
-                hidden>
-
-            <img
-                id="kyc-front-preview"
-                class="kyc-preview"
-                style="display:none;">
-
-        </div>
-
-        <!-- ================= Upload Back Side ================= -->
-
-        <div class="kyc-upload-card">
-
-            <div class="kyc-upload-title">
-
-                <i class="fas fa-address-card"></i>
-
-                Back Side of Document
-
-            </div>
-
-            <label
-                for="kyc-back"
-                class="kyc-upload-box">
-
-                <i class="fas fa-cloud-upload-alt"></i>
-
-                <span>Upload Back Side</span>
-
-                <small>
-                    JPG, PNG (Max 5MB)
-                </small>
-
-            </label>
-
-            <input
-                type="file"
-                id="kyc-back"
-                accept="image/*"
-                capture="environment"
-                hidden>
-
-            <img
-                id="kyc-back-preview"
-                class="kyc-preview"
-                style="display:none;">
-
-        </div>
-
-        <!-- ================= Selfie Verification ================= -->
-
-        <div class="kyc-upload-card">
-
-            <div class="kyc-upload-title">
-
-                <i class="fas fa-user-check"></i>
-
-                Selfie Verification
-
-            </div>
-
-            <label
-                for="kyc-selfie"
-                class="kyc-upload-box">
-
-                <i class="fas fa-camera"></i>
-
-                <span>Take Selfie / Upload</span>
-
-                <small>
-                    Face must be clearly visible
-                </small>
-
-            </label>
-
-            <input
-                type="file"
-                id="kyc-selfie"
-                accept="image/*"
-                capture="user"
-                hidden>
-
-            <img
-                id="kyc-selfie-preview"
-                class="kyc-preview"
-                style="display:none;">
-
-        </div>
-
-        <!-- ================= Upload Section Ends ================= -->
-
-        <!-- ================= Important Notice ================= -->
-
-        <div class="info-box">
-
-            <div class="info-title">
-
-                <label>KYC Guidelines</label>
-
-            </div>
-
-            <div class="info-value">
-
-                <ul class="kyc-rules">
-
-                    <li>Use your original government-issued document.</li>
-
-                    <li>All text and photo must be clearly visible.</li>
-
-                    <li>Do not upload edited, blurred or cropped images.</li>
-
-                    <li>Your selfie must match your uploaded document.</li>
-
-                    <li>Verification usually completes within 24–48 hours.</li>
-
-                </ul>
-
-            </div>
-
-        </div>
-
-        <!-- Footer -->
-
-        <div class="account-footer">
-
-            <button
-                class="save-btn"
-                onclick="submitKYC()">
-
-                Submit KYC Verification
-
-            </button>
-
-        </div>
-
-    </div>
-
-</div>
 
 <!-- ================= END KYC VERIFICATION ================= -->
 
