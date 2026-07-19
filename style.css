@@ -2653,7 +2653,113 @@ select{
     transition:.4s ease;
 
 }
+/* =========================================
+        BONUS ACTION BAR
+========================================= */
 
+.bonus-action-bar{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-top:14px;
+
+}
+
+/* Bonus Wallet */
+
+.bonus-wallet-switch{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+.bonus-wallet-label{
+
+    color:#ffffff;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+/* Switch */
+
+.bonus-switch{
+
+    position:relative;
+
+    width:44px;
+
+    height:24px;
+
+}
+
+.bonus-switch input{
+
+    display:none;
+
+}
+
+.bonus-slider{
+
+    position:absolute;
+
+    inset:0;
+
+    background:#374151;
+
+    border-radius:20px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.bonus-slider::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:18px;
+
+    height:18px;
+
+    left:3px;
+
+    top:3px;
+
+    background:#ffffff;
+
+    border-radius:50%;
+
+    transition:.3s;
+
+}
+
+/* ON */
+
+.bonus-switch input:checked + .bonus-slider{
+
+    background:#22c55e;
+
+}
+
+.bonus-switch input:checked + .bonus-slider::before{
+
+    transform:translateX(20px);
+
+}
 
 /* =========================================
         CLAIM BUTTON
