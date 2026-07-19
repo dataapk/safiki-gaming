@@ -3560,6 +3560,23 @@ select{
     font-size:14px;
 
 }
+.bonus-menu-btn{
+
+    background:transparent;
+    color:#cbd5e1;
+    border-radius:10px;
+    transition:.25s;
+
+}
+
+.bonus-menu-btn.active{
+
+    background:#ffd666;
+    color:#111827;
+    font-weight:700;
+    box-shadow:0 0 12px rgba(255,214,102,.35);
+
+}
 
 /* =========================================
         BONUS HISTORY CONTENT END
