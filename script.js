@@ -696,7 +696,40 @@ function openPersonalArea(){
     openPersonalTab("details");
 
 }
+function openPersonalTab(tab){
 
+    // Hide All Content
+    document.querySelectorAll(".personal-content").forEach(el=>{
+        el.style.display="none";
+    });
+
+    // Remove Active
+    document.querySelectorAll(".personal-tab-btn").forEach(btn=>{
+        btn.classList.remove("active");
+    });
+
+    if(tab==="details"){
+
+        document.getElementById("personalDetailsContent").style.display="block";
+        document.getElementById("personalDetailsTab").classList.add("active");
+
+    }
+
+    else if(tab==="address"){
+
+        document.getElementById("addressInformationContent").style.display="block";
+        document.getElementById("addressInformationTab").classList.add("active");
+
+    }
+
+    else if(tab==="verification"){
+
+        document.getElementById("accountVerificationContent").style.display="block";
+        document.getElementById("accountVerificationTab").classList.add("active");
+
+    }
+
+}
 // END  Personal area==========
 
 // START OPEN KYC VERIFICATIONM=======
