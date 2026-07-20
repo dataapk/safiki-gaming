@@ -807,7 +807,7 @@ function openSecuritySettings() {
 // ট্রানজেকশন লোড করার মেইন ফাংশন
 function openTransaction(){
 
-    document.getElementById("profile-popup").style.display = "none";
+    document.getElementById("profile-menu").style.display = "none";
 
     document
         .getElementById("transaction-history-section")
