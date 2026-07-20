@@ -508,12 +508,11 @@
  <!-- ================= PERSONAL DETAILS ================= -->
 <div id="personalDetailsSection" class="personal-tab-content">
     
-    <!-- বক্স ১: প্রোফাইল ইনফো (এডিট করা যাবে না) -->
+    <!-- বক্স ১: প্রোফাইল ইনফো (এটি এডিট হবে না) -->
     <div class="personal-card" style="margin-bottom: 20px;">
         <div class="profile-header">
             <div class="profile-icon">
                 <img src="profile-placeholder.png" alt="Profile">
-                <span class="camera-icon">📷</span>
             </div>
             <div class="user-info">
                 <p style="color: #888; margin: 0;">User ID: <span style="color: #fff;">USER12345</span></p>
@@ -522,40 +521,29 @@
         </div>
     </div>
 
-    <!-- বক্স ২: এডিটযোগ্য ফর্ম -->
+    <!-- বক্স ২: মূল ফর্ম সেকশন -->
     <div class="personal-card">
-        <button class="edit-btn" onclick="enableEdit()">Edit</button>
-        
         <div class="form-container">
+            
             <!-- নাম ও সারনেম -->
             <div class="input-group">
                 <div class="input-wrapper">
                     <label>First Name</label>
-                    <input type="text" placeholder="First Name" disabled>
+                    <input type="text" id="firstName" value="John" disabled>
                 </div>
                 <div class="input-wrapper">
                     <label>Surname</label>
-                    <input type="text" placeholder="Surname" disabled>
-                </div>
-            </div>
-
-            <!-- ইমেইল ও মোবাইল -->
-            <div class="input-group">
-                <div class="input-wrapper">
-                    <label>Email Address</label>
-                    <input type="email" placeholder="example@mail.com" disabled>
-                </div>
-                <div class="input-wrapper">
-                    <label>Mobile Number</label>
-                    <input type="tel" placeholder="+8801XXXXXXXXX" disabled>
+                    <input type="text" id="surname" value="Doe" disabled>
                 </div>
             </div>
             
             <!-- জন্মস্থান -->
             <div class="input-wrapper" style="margin-bottom: 15px;">
                 <label>Place of Birth</label>
-                <select class="full-width" disabled>
-                    <option>Select Birth Place</option>
+                <select id="birthPlace" class="full-width" disabled>
+                    <option>Bangladesh</option>
+                    <option>United States</option>
+                    <option>United Kingdom</option>
                 </select>
             </div>
 
@@ -563,19 +551,60 @@
             <div class="input-group">
                 <div class="input-wrapper">
                     <label>Date of Birth</label>
-                    <input type="date" disabled>
+                    <!-- এখানে ক্লিক করলে অটোমেটিক ক্যালেন্ডার পপআপ ওপেন হবে -->
+                    <input type="date" id="dob" disabled>
                 </div>
                 <div class="input-wrapper">
                     <label>Gender</label>
                     <div class="gender-options">
-                        <label><input type="radio" name="gender" disabled> Male</label>
+                        <label><input type="radio" name="gender" disabled checked> Male</label>
                         <label><input type="radio" name="gender" disabled> Female</label>
                     </div>
                 </div>
             </div>
 
-            <!-- সেভ বাটন -->
-            <button class="save-btn" style="display: none;">Save Changes</button>
+            <!-- ইমেইল সেকশন (Change বাটন এবং ড্রপডাউন সহ) -->
+            <div class="input-wrapper" style="margin-bottom: 15px;">
+                <label>Email Address</label>
+                <div class="action-input-group">
+                    <input type="email" id="currentEmail" value="example@mail.com" disabled>
+                    <button type="button" class="change-btn" id="emailChangeBtn" onclick="toggleDropdown('emailDropdown')" disabled>Change</button>
+                </div>
+                <!-- ইমেইল ড্রপডাউন বক্স -->
+                <div id="emailDropdown" class="verification-dropdown">
+                    <div class="verify-group">
+                        <input type="email" placeholder="Enter New Email">
+                        <button type="button" class="send-code-btn">Send Code</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- মোবাইল সেকশন (Change বাটন এবং ড্রপডাউন সহ) -->
+            <div class="input-wrapper" style="margin-bottom: 15px;">
+                <label>Mobile Number</label>
+                <div class="action-input-group">
+                    <div class="mobile-display-wrapper">
+                        <input type="text" value="+880" style="width: 25%;" disabled>
+                        <input type="tel" value="1712345678" style="width: 75%;" disabled>
+                    </div>
+                    <button type="button" class="change-btn" id="mobileChangeBtn" onclick="toggleDropdown('mobileDropdown')" disabled>Change</button>
+                </div>
+                <!-- মোবাইল ড্রপডাউন বক্স -->
+                <div id="mobileDropdown" class="verification-dropdown">
+                    <div class="verify-group">
+                        <input type="text" placeholder="+880" style="width: 20%;">
+                        <input type="tel" placeholder="Enter New Mobile" style="width: 55%;">
+                        <button type="button" class="send-code-btn" style="width: 25%;">Send Code</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ফুটার বাটন সেকশন (বাম পাশে Edit, ডান পাশে Save Changes) -->
+            <div class="form-footer">
+                <button type="button" class="edit-action-btn" id="editBtn" onclick="activateEditMode()">Edit</button>
+                <button type="button" class="save-btn" id="saveBtn" disabled>Save Changes</button>
+            </div>
+
         </div>
     </div>
 </div>
