@@ -809,9 +809,14 @@ function openTransaction(){
 
     document.getElementById("profile-menu").style.display = "none";
 
-    document
-        .getElementById("transaction-history-section")
-        .classList.add("active");
+    const transaction = document.getElementById("transaction-history-section");
+
+    if(transaction){
+
+        transaction.style.display = "block";
+        transaction.classList.add("active");
+
+    }
 
 }
 
