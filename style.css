@@ -813,7 +813,7 @@ color:#ef4444;
 /* ===============================
    START TRANSACTION CSS
 ================================ */
-#profile-popup {
+#profile-menu {
     z-index: 1000; /* প্রোফাইল মেনু নিচে থাকবে */
 }
 
@@ -1441,7 +1441,7 @@ color:#ef4444;
 
 /* Keep inside profile popup */
 
-.profile-popup{
+.profile-menu{
 
     position:relative;
 
@@ -2955,7 +2955,7 @@ END MY BONUS SECTION
 /* ডাইনামিকালি রেন্ডার করার সময় নতুন এলিমেন্ট .prepend() করলে এটি কাজ করবে */
 
 /* ২. প্রোফাইল পপআপের স্টাইল */
-#profile-popup {
+#profile-menu {
     display: none;
     position: absolute;
     top: 60px; 
@@ -2969,7 +2969,7 @@ END MY BONUS SECTION
 }
 
 /* প্রোফাইল পপআপের ভেতরের আইকনগুলোর জন্য ফিক্সড কালার */
-#profile-popup .menu-item i {
+#profile-menu .menu-item i {
     color: #ffd700 !important; /* গোল্ডেন কালার সব সময় থাকবে */
     margin-right: 12px;
     width: 20px;
@@ -2978,7 +2978,7 @@ END MY BONUS SECTION
 }
 
 /* মেনুর লেখার কালার আলাদা রাখতে চাইলে (ঐচ্ছিক) */
-#profile-popup .menu-item {
+#profile-menu .menu-item {
     padding: 10px 25px; 
     /* আগের চেয়ে প্যাডিং বাড়ানো হয়েছে (২০px উপরে-নিচে, ২৫px ডানে-বামে) */
     height: 40px;
