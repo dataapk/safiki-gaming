@@ -457,17 +457,61 @@
         <i class="fas fa-chevron-right"></i>
     </div>
 
-    <!-- Logout -->
-    <div class="menu-item logout-item" onclick="confirmLogout()">
-        <div class="menu-left">
-            <i class="fas fa-sign-out-alt"></i>
-            <span>Logout</span>
-        </div>
-        <i class="fas fa-chevron-right"></i>
+   <!-- ================= LOGOUT CONFIRM POPUP ================= -->
+
+<!-- ================= LOGOUT MENU ITEM ================= -->
+
+<div class="menu-item logout-item" onclick="openLogoutPopup()">
+
+    <div class="menu-left">
+        <i class="fas fa-sign-out-alt"></i>
+        <span>Logout</span>
     </div>
+
+    <i class="fas fa-chevron-right"></i>
 
 </div>
 
+
+<!-- ================= LOGOUT CONFIRM POPUP ================= -->
+
+<div id="logout-confirm-popup" style="display:none;">
+
+    <div class="logout-confirm-box">
+
+        <div class="logout-icon">
+            <i class="fas fa-sign-out-alt"></i>
+        </div>
+
+        <h3>Confirm Logout</h3>
+
+        <p>
+            Are you sure you want to logout?
+        </p>
+
+
+        <div class="logout-actions">
+
+            <!-- Cancel -->
+            <button 
+            class="cancel-logout-btn"
+            onclick="closeLogoutPopup()">
+                Cancel
+            </button>
+
+
+            <!-- Confirm -->
+            <button 
+            class="confirm-logout-btn"
+            onclick="confirmLogout()">
+                Logout
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
 <!-- এখানেই Profile Menu শেষ -->
 
 <!-- ================= PERSONAL AREA ================= -->
@@ -1206,24 +1250,13 @@ Submit
 
 <!-- ================= END SETTINGS SECTION ================= -->
 
-  <!-- ================= MY BONUS SECTION ================= -->
-<!-- ========================= -->
-<!-- MY BONUS SECTION -->
-<!-- ========================= -->
+
+
 <!-- ========================================= -->
 <!-- MY BONUS SECTION START -->
 <!-- ========================================= -->
 
 <div id="my-bonus-section">
-
-
-    <!-- ========================================= -->
-    <!-- BONUS HEADER -->
-    <!-- ========================================= -->
-
-    <!-- ========================================= -->
-<!-- BONUS HEADER -->
-<!-- ========================================= -->
 
 <div class="bonus-header">
 
