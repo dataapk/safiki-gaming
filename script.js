@@ -1130,7 +1130,7 @@ function selfExclude(period) {
 function openMyBonus(){
 
     // Hide Profile Menu
-    const profileMenu = document.getElementById("profile-popup");
+    const profileMenu = document.getElementById("profile-menu");
 
     if(profileMenu){
 
