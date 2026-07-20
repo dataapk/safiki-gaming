@@ -508,54 +508,59 @@
  <!-- ================= PERSONAL DETAILS ================= -->
 <div id="personalDetailsSection" class="personal-tab-content">
     
-    <!-- Profile Header -->
-    <div class="profile-header">
-        <div class="profile-icon">
-            <input type="file" accept="image/*" id="profile-upload" style="display:none;">
-            <label for="profile-upload"><img src="profile-placeholder.png" alt="Profile Icon"></label>
-        </div>
-        <div class="user-info">
-            <p>User ID: <span id="user-id">USER12345</span></p>
-            <p>Member Since: <span id="member-date">2026-07-20</span></p>
-        </div>
-        <button class="close-btn" onclick="closeSection('personalDetailsSection')">X</button>
-        <button class="edit-btn" onclick="enableEdit()">Edit</button>
-    </div>
-
-    <!-- Personal Details Content -->
-    <div class="form-container">
-        <div class="input-group">
-            <input type="text" placeholder="First Name">
-            <input type="text" placeholder="Surname" class="small-box">
-        </div>
-        
-        <select class="full-width">
-            <option>Place of Birth</option>
-        </select>
-        
-        <div class="input-group">
-            <input type="date" placeholder="Date of Birth">
-            <div class="gender-options">
-                <label><input type="radio" name="gender"> Male</label>
-                <label><input type="radio" name="gender"> Female</label>
-                <label><input type="radio" name="gender"> Other</label>
+    <!-- বক্স ১: প্রোফাইল ইনফো (এডিট করা যাবে না) -->
+    <div class="personal-card" style="margin-bottom: 20px;">
+        <div class="profile-header">
+            <div class="profile-icon">
+                <img src="profile-placeholder.png" alt="Profile">
+                <span class="camera-icon">📷</span>
+            </div>
+            <div class="user-info">
+                <p style="color: #888; margin: 0;">User ID: <span style="color: #fff;">USER12345</span></p>
+                <p style="color: #888; margin: 0;">Member Since: <span style="color: #fff;">2026-07-20</span></p>
             </div>
         </div>
-
-        <div class="email-section">
-            <input type="email" placeholder="Email">
-            <button class="change-btn">Change</button>
-            <button class="send-code-btn">Send Code</button>
-        </div>
-
-        <div class="mobile-section">
-            <div class="country-code-box"><select><option>+880</option></select></div>
-            <input type="text" placeholder="Mobile Number" class="large-box">
-        </div>
-
-        <button class="save-btn">Save</button>
     </div>
 
+    <!-- বক্স ২: ফর্ম (যেখানে এডিট করা যাবে) -->
+    <div class="personal-card">
+        <button class="edit-btn" onclick="enableEdit()">Edit</button>
+        <div class="form-container">
+            <div class="input-group">
+                <div class="input-wrapper">
+                    <label>First Name</label>
+                    <input type="text" placeholder="First Name" disabled>
+                </div>
+                <div class="input-wrapper">
+                    <label>Surname</label>
+                    <input type="text" placeholder="Surname" disabled>
+                </div>
+            </div>
+            
+            <div class="input-wrapper" style="margin-bottom: 15px;">
+                <label>Place of Birth</label>
+                <select class="full-width" disabled>
+                    <option>Select Birth Place</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <div class="input-wrapper">
+                    <label>Date of Birth</label>
+                    <input type="date" disabled>
+                </div>
+                <div class="input-wrapper">
+                    <label>Gender</label>
+                    <div class="gender-options">
+                        <label><input type="radio" name="gender" disabled> Male</label>
+                        <label><input type="radio" name="gender" disabled> Female</label>
+                    </div>
+                </div>
+            </div>
+
+            <button class="save-btn" style="display: none;">Save Changes</button>
+        </div>
+    </div>
 </div>
 <!-- ================= END OF PERSONAL DETAILS ================= -->
 
