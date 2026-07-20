@@ -1922,8 +1922,23 @@ function closeLogoutPopup(){
 
 
 function confirmLogout(){
+    updateLogoutUI();
 
     window.location.href = "logout.php";
+
+}
+function updateLogoutUI(){
+
+    const userActions = document.getElementById("user-actions-area");
+    const guestActions = document.getElementById("guest-actions-area");
+
+    if(userActions){
+        userActions.style.display = "none";
+    }
+
+    if(guestActions){
+        guestActions.style.display = "flex";
+    }
 
 }
 
