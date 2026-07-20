@@ -487,43 +487,38 @@
 
 
 
-    <!-- ================= PERSONAL TABS ================= -->
-
-    <div class="personal-tabs">
-
-        <button 
-        class="personal-tab active"
-        onclick="openPersonalTab('details')">
-
-            Personal Details
-
-        </button>
-
-
-        <button 
-        class="personal-tab"
-        onclick="openPersonalTab('idverification')">
-
-            ID Verification
-
-        </button>
-
-
-        <button 
-        class="personal-tab"
-        onclick="openPersonalTab('address')">
-
-            Proof Documents
-
-        </button>
-
-
-    </div>
-
-
     <!-- ================= PERSONAL DETAILS ================= -->
+<div class="personal-area-container">
+  <h2>Personal Area</h2>
+  
+  <!-- Horizontal Container for Tabs -->
+  <div class="tabs-container">
+    <div class="tab-header" onclick="openPersonalTab('personal-details')">Personal Details</div>
+    <div class="tab-header" onclick="openPersonalTab('id-verification')">ID Verification</div>
+    <div class="tab-header" onclick="openPersonalTab('proof-of-address')">Proof of Address</div>
+  </div>
+
+  <!-- Content Areas -->
+  <div id="personal-details" class="dropdown-content" style="display:none;">
+    <!-- Profile Header with Edit/Close -->
+    <div class="profile-header">
+      <div class="profile-icon">...</div>
+      <div class="user-info">...</div>
+      <button class="close-btn" onclick="closeProfile()">X</button>
+      <button class="edit-btn" onclick="enableEditMode()">Edit</button>
+    </div>
+    <!-- Inputs -->
+  </div>
+
+  <div id="id-verification" class="dropdown-content" style="display:none;">...</div>
+  <div id="proof-of-address" class="dropdown-content" style="display:none;">...</div>
+</div>
+
+
+
+    
 <!-- Personal Area Section -->
-<div class="personal-tab" onclick="openPersonalTab('personal-details')">
+
   <h3>Personal Details</h3>
   <div id="personal-details" class="dropdown-content" style="display:none;">
     
@@ -560,7 +555,7 @@
 </div>
 
 <!-- ID Verification Section -->
-<div class="personal-tab" onclick="openPersonalTab('id-verification')">
+
   <h3>ID Verification</h3>
   <div id="id-verification" class="dropdown-content" style="display:none;">
     <select><option>Select Country</option></select>
@@ -571,7 +566,7 @@
 </div>
 
 <!-- Proof of Address Section -->
-<div class="personal-tab" onclick="openPersonalTab('proof-of-address')">
+
   <h3>Proof of Address</h3>
   <div id="proof-of-address" class="dropdown-content" style="display:none;">
     <select>
