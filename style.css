@@ -273,10 +273,10 @@ img, svg {
   START PERSONAL AREA CSS
 ================================ */
 /* ===============================
-   PERSONAL AREA CSS (CLEANED)
+   START PERSONAL AREA CSS (FINAL)
 ================================ */
 
-/* মেইন বক্স স্টাইল */
+/* মেইন এরিয়া বক্স */
 #personal-area-section {
     position: fixed;
     top: 70px;
@@ -296,7 +296,7 @@ img, svg {
     box-sizing: border-box;
 }
 
-/* ট্যাব কন্টেইনার */
+/* ট্যাব সিস্টেম */
 .personal-tabs {
     display: flex;
     gap: 10px;
@@ -305,7 +305,6 @@ img, svg {
     padding-bottom: 12px;
 }
 
-/* প্রতিটি বাটন */
 .personal-tab {
     background: transparent;
     border: none;
@@ -318,60 +317,48 @@ img, svg {
     transition: 0.25s;
 }
 
-.personal-tab:hover {
-    background: #202733;
-    color: #ffd700;
-}
-
-.personal-tab.active {
-    background: #f5c542;
-    color: #111;
-}
-
-/* কন্টেন্ট এরিয়া */
-.personal-tab-content {
-    display: none;
-    padding: 10px 0;
-}
-
-/* প্রোফাইল ও হেডার সেকশন */
-.profile-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 20px;
-    position: relative;
-    color: #fff;
-}
-
-.profile-icon {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin-right: 15px;
-    border: 2px solid #f5c542;
-}
-
-.user-info { flex-grow: 1; }
-
-/* বাটনস */
-.edit-btn { background: #202733; color: #fff; border: none; padding: 5px 15px; border-radius: 5px; cursor: pointer; }
-.save-btn { display: block; margin-left: auto; margin-top: 20px; padding: 8px 20px; background: #f5c542; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; }
-
-/* ইনপুট গ্রুপ */
-.input-group { display: flex; gap: 10px; margin-bottom: 15px; }
-.small-box { width: 30%; }
-.large-box { width: 60%; }
+.personal-tab:hover { background: #202733; color: #ffd700; }
+.personal-tab.active { background: #f5c542; color: #111; }
 
 /* কার্ড স্টাইল */
-.personal-card {
-    background: #161b22;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 16px;
-    padding: 22px;
+.personal-card { 
+    background: #161b22; 
+    border: 1px solid rgba(255, 255, 255, 0.08); 
+    border-radius: 16px; 
+    padding: 22px; 
+    position: relative; 
+    margin-bottom: 20px;
 }
 
+/* প্রোফাইল হেডার ও আইকন */
+.profile-header { display: flex; align-items: center; gap: 15px; }
+.profile-icon { position: relative; width: 80px; height: 80px; }
+.profile-icon img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 2px solid #f5c542; }
+.camera-icon { 
+    position: absolute; bottom: 0; right: 0; background: #000; color: #fff; 
+    padding: 4px 6px; border-radius: 50%; font-size: 10px; cursor: pointer; 
+}
+
+/* ফর্ম ও ইনপুট এলিমেন্ট */
+.input-group { display: flex; gap: 15px; margin-bottom: 15px; }
+.input-wrapper { flex: 1; display: flex; flex-direction: column; gap: 5px; }
+.input-wrapper label { color: #888; font-size: 12px; }
+.input-wrapper input, .input-wrapper select { 
+    padding: 10px; border-radius: 6px; border: 1px solid #333; 
+    background: #0d1117; color: #fff; width: 100%; box-sizing: border-box;
+}
+
+.gender-options { display: flex; gap: 15px; padding: 10px 0; color: #fff; align-items: center; }
+
+/* বাটনস */
+.edit-btn { position: absolute; top: 20px; right: 20px; background: #202733; color: #f5c542; border: none; 
+           padding: 6px 16px; border-radius: 6px; cursor: pointer; }
+.save-btn { display: block; margin: 10px 0 0 auto; padding: 10px 20px; background: #f5c542; color: #111; 
+           border: none; border-radius: 6px; cursor: pointer; font-weight: bold; }
+
+/* স্টেট ম্যানেজমেন্ট */
+.personal-tab-content { display: none; }
+input:disabled, select:disabled { opacity: 0.6; cursor: not-allowed; }
 
 /* =========================================================
  start  id verification CSS
