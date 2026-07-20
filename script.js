@@ -704,28 +704,28 @@ function closePersonalArea(){
 
 function openPersonalTab(tab){
 
-document.getElementById("personal-area-section").style.display="none";
-document.getElementById("idVerificationSection").style.display="none";
-document.getElementById("proofAddressSection").style.display="none";
+    document.getElementById("detailsSection").style.display = "none";
+    document.getElementById("idVerificationSection").style.display = "none";
+    document.getElementById("proofAddressSection").style.display = "none";
 
-document.querySelectorAll(".personal-tab").forEach(btn=>{
-btn.classList.remove("active");
-});
+    document.querySelectorAll(".personal-tab").forEach(btn=>{
+        btn.classList.remove("active");
+    });
 
-if(tab==="details"){
-document.getElementById("personal-area-section").style.display="block";
-document.querySelectorAll(".personal-tab")[0].classList.add("active");
-}
+    if(tab==="details"){
+        document.getElementById("detailsSection").style.display="block";
+        document.querySelectorAll(".personal-tab")[0].classList.add("active");
+    }
 
-if(tab==="verification"){
-document.getElementById("idVerificationSection").style.display="block";
-document.querySelectorAll(".personal-tab")[1].classList.add("active");
-}
+    if(tab==="verification"){
+        document.getElementById("idVerificationSection").style.display="block";
+        document.querySelectorAll(".personal-tab")[1].classList.add("active");
+    }
 
-if(tab==="address"){
-document.getElementById("proofAddressSection").style.display="block";
-document.querySelectorAll(".personal-tab")[2].classList.add("active");
-}
+    if(tab==="address"){
+        document.getElementById("proofAddressSection").style.display="block";
+        document.querySelectorAll(".personal-tab")[2].classList.add("active");
+    }
 
 }
 /*================ CLOSE PERSONAL AREA ================*/
