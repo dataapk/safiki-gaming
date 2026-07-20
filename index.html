@@ -484,99 +484,92 @@
         </button>
 
     </div>
+    <!-- ================= PERSONAL TABS ================= -->
+
+    <div class="personal-tabs">
+
+        <button 
+        class="personal-tab active"
+        onclick="openPersonalTab('details')">
+
+            Personal Details
+
+        </button>
+
+
+        <button 
+        class="personal-tab"
+        onclick="openPersonalTab('verification')">
+
+            ID Verification
+
+        </button>
+
+
+        <button 
+        class="personal-tab"
+        onclick="openPersonalTab('address')">
+
+            Proof Documents
+
+        </button>
+
+
+    </div>
+
+
 
 
 
     <!-- ================= PERSONAL DETAILS ================= -->
-<div class="personal-area-container">
-  <h2>Personal Area</h2>
-  
-  <!-- Horizontal Container for Tabs -->
-  <div class="tabs-container">
-    <div class="tab-header" onclick="openPersonalTab('personal-details')">Personal Details</div>
-    <div class="tab-header" onclick="openPersonalTab('id-verification')">ID Verification</div>
-    <div class="tab-header" onclick="openPersonalTab('proof-of-address')">Proof of Address</div>
-  </div>
 
-  <!-- Content Areas -->
-  <div id="personal-details" class="dropdown-content" style="display:none;">
-    <!-- Profile Header with Edit/Close -->
-    <div class="profile-header">
-      <div class="profile-icon">...</div>
-      <div class="user-info">...</div>
-      <button class="close-btn" onclick="closeProfile()">X</button>
-      <button class="edit-btn" onclick="enableEditMode()">Edit</button>
-    </div>
-    <!-- Inputs -->
-  </div>
-
-  <div id="id-verification" class="dropdown-content" style="display:none;">...</div>
-  <div id="proof-of-address" class="dropdown-content" style="display:none;">...</div>
-</div>
+    <div id="personalDetailsSection"
+    class="personal-tab-content">
 
 
+        <!-- Personal Details Content Will Come Here -->
 
-    
-<!-- Personal Area Section -->
 
-  <h3>Personal Details</h3>
-  <div id="personal-details" class="dropdown-content" style="display:none;">
-    
-    <!-- Header with Profile Icon and User Info -->
-    <div class="profile-header">
-      <div class="profile-icon">
-        <input type="file" accept="image/*" id="profile-upload" style="display:none;">
-        <label for="profile-upload"><img src="placeholder.png" alt="Profile Icon"></label>
-      </div>
-      <div class="user-info">
-        <p>User ID: <span id="user-id">123456</span></p>
-        <p>Member Since: <span id="member-date">2026-07-20</span></p>
-      </div>
-      <button class="close-btn" onclick="closeProfile()">X</button>
-      <button class="edit-btn" onclick="enableEditMode()">Edit</button>
     </div>
 
-    <!-- Personal Detail Inputs -->
-    <div class="input-group">
-      <input type="text" placeholder="First Name">
-      <input type="text" placeholder="Surname" class="small-box">
+
+
+
+
+    <!-- ================= ID VERIFICATION ================= -->
+
+    <div id="idVerificationSection"
+    class="personal-tab-content"
+    style="display:none;">
+
+
+        <!-- ID Verification Content Will Come Here -->
+
+
     </div>
-    <select><option>Place of Birth</option></select>
-    <input type="date" placeholder="Date of Birth">
-    <label><input type="radio" name="gender"> Male</label>
-    <label><input type="radio" name="gender"> Female</label>
-    <label><input type="radio" name="gender"> Other</label>
-    <input type="email" placeholder="Email">
-    <button>Change</button>
-    <input type="text" placeholder="Country Code" class="country-code">
-    <input type="text" placeholder="Mobile Number">
-    <button>Save</button>
-  </div>
+
+
+
+
+
+    <!-- ================= PROOF DOCUMENTS ================= -->
+
+    <div id="proofAddressSection"
+    class="personal-tab-content"
+    style="display:none;">
+
+
+        <!-- Proof Documents Content Will Come Here -->
+
+
+    </div>
+
+
+
 </div>
 
-<!-- ID Verification Section -->
 
-  <h3>ID Verification</h3>
-  <div id="id-verification" class="dropdown-content" style="display:none;">
-    <select><option>Select Country</option></select>
-    <input type="file" placeholder="Front Part of ID">
-    <input type="file" placeholder="Back Part of ID">
-    <input type="file" placeholder="Selfie Verification">
-  </div>
-</div>
-
-<!-- Proof of Address Section -->
-
-  <h3>Proof of Address</h3>
-  <div id="proof-of-address" class="dropdown-content" style="display:none;">
-    <select>
-      <option>Bank Statement</option>
-      <option>Electricity Bill</option>
-      <option>Others</option>
-    </select>
-    <input type="file" placeholder="Upload Image">
-  </div>
-</div>
+   
 <!-- ================= END PERSONAL AREA ================= -->
 
 <!-- ================= END KYC VERIFICATION ================= -->
