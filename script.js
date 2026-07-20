@@ -701,9 +701,14 @@ function closePersonalArea(){
 }
 /*================ PERSONAL AREA edit mode opem ================*/
 
+// এডিট মোড - এবার Change বাটনগুলোও একটিভ হবে
 function activateEditMode() {
-    // ফর্মের সবকিছু আনলক করা
+    // ফর্মের সব ইনপুট ও সিলেক্ট আনলক
     document.querySelectorAll('input, select').forEach(el => el.disabled = false);
+    
+    // Change বাটনগুলো আনলক করা (খুবই জরুরি)
+    document.querySelectorAll('.change-btn').forEach(btn => btn.disabled = false);
+    
     document.getElementById('saveBtn').disabled = false;
 }
 /*================ PERSONAL AREA edit open  ================*/
@@ -718,29 +723,28 @@ function toggleDropdown(id) {
 /*================ PERSONAL AREA TABS ================*/
 
 function openPersonalTab(tabId) {
-    // ১. সব কন্টেন্ট সেকশন লুকিয়ে ফেলা হচ্ছে
+    // ১. সব কন্টেন্ট সেকশন লুকিয়ে ফেলা
     const allTabs = document.querySelectorAll('.personal-tab-content');
     allTabs.forEach(tab => {
         tab.style.display = "none";
     });
 
-    // ২. সব বাটন থেকে 'active' ক্লাস সরিয়ে ফেলা হচ্ছে
+    // ২. সব বাটন থেকে 'active' ক্লাস সরিয়ে ফেলা
     const allButtons = document.querySelectorAll('.personal-tab');
     allButtons.forEach(btn => {
         btn.classList.remove('active');
     });
 
-    // ৩. নির্দিষ্ট সেকশনটি দেখানো হচ্ছে
+    // ৩. নির্দিষ্ট সেকশনটি দেখানো
     const targetTab = document.getElementById(tabId);
     if (targetTab) {
         targetTab.style.display = "block";
     }
 
-    // ৪. ক্লিক করা বাটনে 'active' ক্লাস যোগ করা হচ্ছে
-    // এখানে window.event বা সরাসরি event প্যারামিটার ব্যবহার করা হয়েছে
-    const clickedBtn = event.currentTarget;
-    if (clickedBtn) {
-        clickedBtn.classList.add('active');
+    // ৪. ক্লিক করা বাটনে 'active' ক্লাস যোগ করা
+    // এখানে কোনো বাড়তি ব্র্যাকেট বা কোড মিসিং নেই তো, চেক করে নাও:
+    if (event && event.currentTarget) {
+        event.currentTarget.classList.add('active');
     }
 }
 /*================ CLOSE PERSONAL AREA ================*/
