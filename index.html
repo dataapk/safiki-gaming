@@ -419,108 +419,67 @@
 
 <!-- ================= PROFILE MENU ================= -->
 
-<div id="profile-popup" style="display:none;">
+<!-- ================= PERSONAL AREA HEADER ================= -->
 
-    <div class="menu-item" onclick="openPersonalArea()">
+<div class="personal-header">
 
-        <div class="menu-left">
-
-            <i class="fas fa-user"></i>
-
-            <span>
-                Personal Area
-            </span>
-
-        </div>
-
-    </div>
-
-    <!-- Transactions -->
-
-    <div class="menu-item" onclick="openTransaction()">
-
-        <div class="menu-left">
-
-            <i class="fas fa-history"></i>   
-
-        <span>Transactions</span>
-
-    </div>
-
-</div>
-    <!-- SETTING -->
-<!-- SETTING মেইন মেনু আইটেম -->
-
-<div class="menu-item" onclick="openProfileSettingMenu()">
-
-    <div class="menu-left">
-
-        <i class="fas fa-cog"></i>
-
-        <span>Settings</span>
-
-    </div>
-
-</div>
-    <!-- My Bonus -->
-
-<div class="menu-item" onclick="openMyBonus()">
-
-    <div class="menu-left">
-
-        <i class="fas fa-gift"></i>
-
-        <span>My Bonus</span>
-
-    </div>
-
-</div>
-
-    <!-- Logout -->
-    <div class="menu-item logout-btn" onclick="showLogoutPopup()">
-
-        <div class="menu-left">
-            <i class="fas fa-sign-out-alt"></i>
-            <span>Logout</span></div>
-        </div>
-
-    </div>
-
-
-
-<!-- ================= ACCOUNT INFORMATION ================= -->
-    <!-- ================= PERSONAL DETAILS CONTENT ================= -->
-
-<div id="personalDetailsContent" class="personal-tab-content">
+<h2>Personal Area</h2>
 
 <button class="close-personal-btn" onclick="closePersonalArea()">×</button>
+
+</div>
+
+<!-- ================= PERSONAL TABS ================= -->
+
+<div class="personal-tabs">
+
+<button class="personal-tab active"
+onclick="openPersonalTab('details')">
+Personal Details
+</button>
+
+<button class="personal-tab"
+onclick="openPersonalTab('verification')">
+ID Verification
+</button>
+
+<button class="personal-tab"
+onclick="openPersonalTab('address')">
+Proof of Address
+</button>
+
+</div>
+
+<!-- ================= PERSONAL DETAILS ================= -->
+
+<div id="personalDetailsContent" class="personal-tab-content">
 
 <div class="personal-card">
 
 <div class="personal-profile-header">
 
-<div class="personal-avatar-box">
+<div class="personal-avatar-area">
 
 <img id="profilePhotoPreview" src="assets/images/default-user.png" alt="Profile">
 
-<input type="file" id="profilePhotoInput" accept="image/*" capture="environment" hidden onchange="updateProfilePhoto(event)">
+<input type="file" id="profilePhotoInput" accept="image/*" capture="environment" hidden>
 
-<button class="change-photo-btn" type="button" onclick="document.getElementById('profilePhotoInput').click()">
+<button type="button" class="change-photo-btn" onclick="document.getElementById('profilePhotoInput').click()">
 <i class="fas fa-camera"></i> Change Photo
 </button>
 
 </div>
 
-<div class="personal-user-info">
+<div class="personal-user-meta">
 
-<div class="personal-info-item">
-<span class="info-label">User ID</span>
-<span class="info-value" id="personalUserId">SFK950001</span>
+<div class="user-id-box">
+<label>User ID</label>
+<span>SFK950001</span>
 </div>
 
-<div class="personal-info-item">
-<span class="info-label">Member Since</span>
-<span class="info-value" id="memberSince">17 July 2026</span>
+<div class="member-box">
+<label>Member Since</label>
+<span>17 July 2026</span>
 </div>
 
 </div>
@@ -529,53 +488,164 @@
 
 <div class="personal-form">
 
-<div class="personal-group">
-<label>Full Name</label>
-<div class="personal-input-group">
-<input type="text" id="personalFullName" value="MD Ayan Ali" readonly>
-<button class="edit-btn" onclick="enableEdit('personalFullName',this)">Edit</button>
-</div>
+<div class="form-row">
+
+<div class="form-group half">
+
+<label>First Name</label>
+
+<input type="text" id="firstName" placeholder="First Name">
+
 </div>
 
-<div class="personal-group">
-<label>Email Address</label>
-<div class="personal-input-group">
-<input type="email" id="personalEmail" value="user@email.com" readonly>
-<button class="edit-btn" onclick="changeEmail()">Change</button>
-</div>
+<div class="form-group half">
+
+<label>Last Name</label>
+
+<input type="text" id="lastName" placeholder="Last Name">
+
 </div>
 
-<div class="personal-group">
-<label>Mobile Number</label>
-<div class="personal-input-group">
-<input type="text" id="personalMobile" value="+8801XXXXXXXXX" readonly>
-<button class="edit-btn" onclick="enableEdit('personalMobile',this)">Edit</button>
-</div>
 </div>
 
-<div class="personal-group">
+<div class="form-row">
+
+<div class="form-group half">
+
 <label>Date of Birth</label>
-<div class="personal-input-group">
-<input type="date" id="personalDob" readonly>
-<button class="edit-btn" onclick="enableEdit('personalDob',this)">Edit</button>
-</div>
+
+<input type="date" id="dateOfBirth">
+
 </div>
 
-<div class="personal-group">
+<div class="form-group half">
+
 <label>Gender</label>
-<div class="personal-input-group">
-<select id="personalGender" disabled>
-<option value="">Select Gender</option>
+
+<select id="gender">
+
+<option>Select Gender</option>
+
 <option>Male</option>
+
 <option>Female</option>
+
 <option>Other</option>
+
 </select>
-<button class="edit-btn" onclick="enableGender(this)">Edit</button>
-</div>
+
 </div>
 
-<button class="save-personal-btn" onclick="savePersonalDetails()">
-<i class="fas fa-save"></i> Save Changes
+</div>
+
+<div class="form-group">
+
+<label>Place of Birth</label>
+
+<div class="select-box" onclick="openBirthCountryPopup()">
+
+<span id="birthCountryText">Select Place of Birth</span>
+
+<i class="fas fa-chevron-down"></i>
+
+</div>
+
+</div>
+
+<div class="form-group">
+
+<label>Email Address</label>
+
+<div class="input-action">
+
+<input type="email" id="emailAddress" readonly>
+
+<button type="button" onclick="toggleEmailEdit()">
+
+Edit
+
+</button>
+
+</div>
+
+<div id="emailEditBox" style="display:none;">
+
+<input type="email" placeholder="New Email">
+
+<input type="text" placeholder="Verification Code">
+
+<button type="button">
+
+Save Email
+
+</button>
+
+</div>
+
+</div>
+
+<div class="form-group">
+
+<label>Phone Number</label>
+
+<div class="input-action">
+
+<div class="phone-code">
+
+🇧🇩 +880
+
+</div>
+
+<input type="text" id="phoneNumber" placeholder="Add your phone number" readonly>
+
+<button type="button" onclick="togglePhoneEdit()">
+
+Edit
+
+</button>
+
+</div>
+
+<div id="phoneEditBox" style="display:none;">
+
+<div class="phone-input">
+
+<div class="phone-code">
+
+🇧🇩 +880
+
+</div>
+
+<input type="text" placeholder="Phone Number">
+
+</div>
+
+<button type="button">
+
+Save Number
+
+</button>
+
+</div>
+
+</div>
+
+<div class="privacy-box">
+
+<input type="checkbox" checked disabled>
+
+<span>
+
+We will not disclose your personal information to any third parties unless required by law. See our Terms & Conditions for more information.
+
+</span>
+
+</div>
+
+<button class="save-personal-btn">
+
+Save Changes
+
 </button>
 
 </div>
@@ -583,10 +653,172 @@
 </div>
 
 </div>
+<!-- ================= ID VERIFICATION ================= -->
 
-<!-- ================= END PERSONAL DETAILS ================= -->
+<div id="idVerificationContent" class="personal-tab-content" style="display:none;">
 
-<!-- ================= ACCOUNT INFORMATION ================= -->
+<div class="verification-card">
+
+<div class="form-group">
+
+<label>Select Country</label>
+
+<div class="select-box" onclick="openCountryPopup()">
+
+<span id="verifyCountryText">Select Country</span>
+
+<i class="fas fa-chevron-down"></i>
+
+</div>
+
+</div>
+
+<div class="form-group">
+
+<label>Document Type</label>
+
+<select id="documentType">
+
+<option value="">Select Document</option>
+
+<option>National ID Card</option>
+
+<option>Passport</option>
+
+<option>Driving License</option>
+
+</select>
+
+</div>
+
+<div class="upload-group">
+
+<label>Front Side</label>
+
+<div class="upload-box" onclick="document.getElementById('frontDocument').click()">
+
+<i class="fas fa-cloud-upload-alt"></i>
+
+<span>Upload Front Side</span>
+
+</div>
+
+<input type="file" id="frontDocument" accept="image/*" hidden>
+
+</div>
+
+<div class="upload-group">
+
+<label>Back Side</label>
+
+<div class="upload-box" onclick="document.getElementById('backDocument').click()">
+
+<i class="fas fa-cloud-upload-alt"></i>
+
+<span>Upload Back Side</span>
+
+</div>
+
+<input type="file" id="backDocument" accept="image/*" hidden>
+
+</div>
+
+<div class="upload-group">
+
+<label>Selfie Verification</label>
+
+<div class="upload-box" onclick="document.getElementById('selfieDocument').click()">
+
+<i class="fas fa-camera"></i>
+
+<span>Take Selfie</span>
+
+</div>
+
+<input type="file" id="selfieDocument" accept="image/*" capture="user" hidden>
+
+</div>
+
+<button class="submit-verification-btn">
+
+Submit Verification
+
+</button>
+
+<div class="verification-status pending">
+
+<span>Status :</span>
+
+<strong>Waiting For Verification</strong>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ================= PROOF OF ADDRESS ================= -->
+
+<div id="proofAddressContent" class="personal-tab-content" style="display:none;">
+
+<div class="address-card">
+
+<div class="address-info">
+
+<h3>Proof of Address</h3>
+
+<p>
+Please upload one valid document showing your current residential address.
+</p>
+
+<ul class="address-list">
+
+<li><i class="fas fa-check-circle"></i> Bank Statement</li>
+
+<li><i class="fas fa-check-circle"></i> Utility Bill (Electricity / Water / Gas)</li>
+
+<li><i class="fas fa-check-circle"></i> Internet Bill</li>
+
+<li><i class="fas fa-check-circle"></i> Government Issued Address Letter</li>
+
+</ul>
+
+</div>
+
+<div class="upload-group">
+
+<label>Upload Document</label>
+
+<div class="upload-box" onclick="document.getElementById('addressDocument').click()">
+
+<i class="fas fa-file-upload"></i>
+
+<span>Upload Proof of Address</span>
+
+</div>
+
+<input type="file" id="addressDocument" accept="image/*,.pdf" hidden>
+
+</div>
+
+<button class="submit-address-btn">
+
+Submit
+
+</button>
+
+<div class="verification-status pending">
+
+<span>Status :</span>
+
+<strong>Waiting For Verification</strong>
+
+</div>
+
+</div>
+
+</div>
+
 
 
 
