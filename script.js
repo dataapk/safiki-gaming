@@ -1921,10 +1921,18 @@ function closeLogoutPopup(){
 }
 
 
-function confirmLogout(){
-    updateLogoutUI();
+async function confirmLogout(){
 
-    window.location.href = "logout.php";
+    const { error } = await supabaseClient.auth.signOut();
+
+    if(error){
+        console.error("Logout Error:", error);
+        return;
+    }
+
+    closeLogoutPopup();
+
+    await updateHeaderAuth();
 
 }
 function updateLogoutUI(){
@@ -1949,28 +1957,29 @@ window.addEventListener('click', (event) => {
     const profileMenu = document.getElementById('profile-menu');
     const logoutModal = document.getElementById('logout-confirm-popup');
 
-    // Close notification menu if click outside
-    if(
+    // Close notifications if clicking outside
+    if (
         notifPopup &&
         !notifPopup.contains(event.target) &&
         !event.target.closest('.notif-icon-class')
-    ){
+    ) {
         notifPopup.style.display = 'none';
     }
 
-
-    // Close profile menu if click outside
-    if(
+    // Close profile menu if clicking outside
+    if (
         profileMenu &&
         !profileMenu.contains(event.target) &&
         !event.target.closest('.profile-icon-class')
-    ){
+    ) {
         profileMenu.style.display = 'none';
     }
 
-
-    // Close logout confirmation popup by clicking outside
-    if(event.target === logoutModal){
+    // Close logout popup if clicking outside
+    if (
+        logoutModal &&
+        event.target === logoutModal
+    ) {
         closeLogoutPopup();
     }
 
