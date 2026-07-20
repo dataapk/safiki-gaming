@@ -418,75 +418,66 @@
 
 
 <!-- ================= PROFILE MENU ================= -->
+<div id="profile-menu" style="display:none;">
 
-<!-- ================= PERSONAL AREA HEADER ================= -->
+    <div class="menu-item" onclick="openPersonalArea()">
+        <div class="menu-left">
+            <i class="fas fa-user"></i>
+            <span>Personal Area</span>
+        </div>
+        <i class="fas fa-chevron-right"></i>
+    </div>
 
-<div class="personal-header">
-
-<h2>Personal Area</h2>
-
-<button class="close-personal-btn" onclick="closePersonalArea()">×</button>
-
-</div>
-
-<!-- ================= PERSONAL TABS ================= -->
-
-<div class="personal-tabs">
-
-<button class="personal-tab active"
-onclick="openPersonalTab('details')">
-Personal Details
-</button>
-
-<button class="personal-tab"
-onclick="openPersonalTab('verification')">
-ID Verification
-</button>
-
-<button class="personal-tab"
-onclick="openPersonalTab('address')">
-Proof of Address
-</button>
+    <!-- Other Menu Items -->
 
 </div>
 
-<!-- ================= PERSONAL DETAILS ================= -->
-
+<!-- ================= PERSONAL AREA ================= -->
 <div id="personal-area-section" style="display:none;">
 
-<div class="personal-card">
+    <div class="personal-header">
+        <h2>Personal Area</h2>
+        <button class="close-personal-btn" onclick="closePersonalArea()">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
 
-<div class="personal-profile-header">
+    <div class="personal-tabs">
+        <button class="personal-tab active" onclick="openPersonalTab('details')">Personal Details</button>
+        <button class="personal-tab" onclick="openPersonalTab('verification')">ID Verification</button>
+        <button class="personal-tab" onclick="openPersonalTab('address')">Proof of Address</button>
+    </div>
 
-<div class="personal-avatar-area">
+    <!-- ================= PERSONAL DETAILS ================= -->
+    <div id="personalDetailsSection">
 
-<img id="profilePhotoPreview" src="assets/images/default-user.png" alt="Profile">
+        <div class="personal-card">
 
-<input type="file" id="profilePhotoInput" accept="image/*" capture="environment" hidden>
+            <div class="personal-profile-header">
 
-<button type="button" class="change-photo-btn" onclick="document.getElementById('profilePhotoInput').click()">
-<i class="fas fa-camera"></i> Change Photo
-</button>
+                <div class="personal-avatar-area">
+                    <img id="profilePhotoPreview" src="assets/images/default-user.png" alt="Profile">
+                    <input type="file" id="profilePhotoInput" accept="image/*" capture="environment" hidden>
+                    <button type="button" class="change-photo-btn" onclick="document.getElementById('profilePhotoInput').click()">
+                        <i class="fas fa-camera"></i> Change Photo
+                    </button>
+                </div>
 
-</div>
+                <div class="personal-user-meta">
+                    <div class="user-id-box">
+                        <label>User ID</label>
+                        <span>SFK950001</span>
+                    </div>
 
-<div class="personal-user-meta">
+                    <div class="member-box">
+                        <label>Member Since</label>
+                        <span>17 July 2026</span>
+                    </div>
+                </div>
 
-<div class="user-id-box">
-<label>User ID</label>
-<span>SFK950001</span>
-</div>
+            </div>
 
-<div class="member-box">
-<label>Member Since</label>
-<span>17 July 2026</span>
-</div>
-
-</div>
-
-</div>
-
-<div class="personal-form">
+            <div class="personal-form">
 
 <div class="form-row">
 
