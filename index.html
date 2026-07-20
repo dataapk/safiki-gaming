@@ -473,45 +473,7 @@
 </div>
 
 
-<!-- ================= LOGOUT CONFIRM POPUP ================= -->
 
-<div id="logout-confirm-popup" style="display:none;">
-
-    <div class="logout-confirm-box">
-
-        <div class="logout-icon">
-            <i class="fas fa-sign-out-alt"></i>
-        </div>
-
-        <h3>Confirm Logout</h3>
-
-        <p>
-            Are you sure you want to logout?
-        </p>
-
-
-        <div class="logout-actions">
-
-            <!-- Cancel -->
-            <button 
-            class="cancel-logout-btn"
-            onclick="closeLogoutPopup()">
-                Cancel
-            </button>
-
-
-            <!-- Confirm -->
-            <button 
-            class="confirm-logout-btn"
-            onclick="confirmLogout()">
-                Logout
-            </button>
-
-        </div>
-
-    </div>
-
-</div>
 <!-- এখানেই Profile Menu শেষ -->
 
 <!-- ================= PERSONAL AREA ================= -->
@@ -2262,25 +2224,45 @@ style="display:none;">
     
     
 <!-- START LOG OUT SECTION  -->
+<!-- ================= LOGOUT CONFIRM POPUP ================= -->
+
 <div id="logout-confirm-popup" style="display:none;">
 
-    <div class="logout-box">
+    <div class="logout-confirm-box">
 
-        <p>Are you sure you want to log out?</p>
+        <div class="logout-icon">
+            <i class="fas fa-sign-out-alt"></i>
+        </div>
+
+        <h3>Confirm Logout</h3>
+
+        <p>
+            Are you sure you want to logout?
+        </p>
+
 
         <div class="logout-actions">
 
-            <button class="confirm-btn" onclick="performLogout()">Confirm</button>
+            <!-- Cancel -->
+            <button 
+            class="cancel-logout-btn"
+            onclick="closeLogoutPopup()">
+                Cancel
+            </button>
 
-            <button class="cancel-btn" onclick="closeLogoutPopup()">Cancel</button>
+
+            <!-- Confirm -->
+            <button 
+            class="confirm-logout-btn"
+            onclick="confirmLogout()">
+                Logout
+            </button>
 
         </div>
 
     </div>
 
 </div>
-    
-
 </header>
 <!-- ================= LOGIN POPUP ================= -->
 
