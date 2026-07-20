@@ -699,6 +699,21 @@ function closePersonalArea(){
     if(personalArea) personalArea.style.display = "none";
 
 }
+/*================ PERSONAL AREA edit mode opem ================*/
+
+function activateEditMode() {
+    // ফর্মের সবকিছু আনলক করা
+    document.querySelectorAll('input, select').forEach(el => el.disabled = false);
+    document.getElementById('saveBtn').disabled = false;
+}
+/*================ PERSONAL AREA edit open  ================*/
+
+
+function toggleDropdown(id) {
+    const el = document.getElementById(id);
+    // ড্রপডাউন ডিসপ্লে টগল করা
+    el.style.display = (el.style.display === "block") ? "none" : "block";
+}
 
 /*================ PERSONAL AREA TABS ================*/
 
