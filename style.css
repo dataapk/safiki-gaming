@@ -274,6 +274,8 @@ img, svg {
 ================================ */
 /* ===============================
    START PERSONAL AREA CSS (FINAL)
+/* ===============================
+   FINAL PERSONAL AREA CSS
 ================================ */
 
 /* মেইন এরিয়া বক্স */
@@ -296,69 +298,65 @@ img, svg {
     box-sizing: border-box;
 }
 
-/* ট্যাব সিস্টেম */
-.personal-tabs {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    padding-bottom: 12px;
-}
-
-.personal-tab {
-    background: transparent;
-    border: none;
-    color: #bfc7d5;
-    font-size: 14px;
-    font-weight: 600;
-    padding: 10px 18px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.25s;
-}
-
-.personal-tab:hover { background: #202733; color: #ffd700; }
-.personal-tab.active { background: #f5c542; color: #111; }
-
 /* কার্ড স্টাইল */
 .personal-card { 
     background: #161b22; 
-    border: 1px solid rgba(255, 255, 255, 0.08); 
+    border: 1px solid rgba(255,255,255,0.08); 
     border-radius: 16px; 
     padding: 22px; 
-    position: relative; 
-    margin-bottom: 20px;
 }
 
-/* প্রোফাইল হেডার ও আইকন */
+/* প্রোফাইল হেডার */
 .profile-header { display: flex; align-items: center; gap: 15px; }
-.profile-icon { position: relative; width: 80px; height: 80px; }
+.profile-icon { width: 80px; height: 80px; }
 .profile-icon img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 2px solid #f5c542; }
-.camera-icon { 
-    position: absolute; bottom: 0; right: 0; background: #000; color: #fff; 
-    padding: 4px 6px; border-radius: 50%; font-size: 10px; cursor: pointer; 
-}
 
-/* ফর্ম ও ইনপুট এলিমেন্ট */
+/* ফর্ম লেআউট */
 .input-group { display: flex; gap: 15px; margin-bottom: 15px; }
 .input-wrapper { flex: 1; display: flex; flex-direction: column; gap: 5px; }
-.input-wrapper label { color: #888; font-size: 12px; }
+.input-wrapper label { color: #888; font-size: 13px; }
+
+/* ইনপুট ফিল্ডস */
 .input-wrapper input, .input-wrapper select { 
-    padding: 10px; border-radius: 6px; border: 1px solid #333; 
-    background: #0d1117; color: #fff; width: 100%; box-sizing: border-box;
+    padding: 12px; border-radius: 6px; border: 1px solid #333; 
+    background: #0d1117; color: #fff; width: 100%; box-sizing: border-box; font-size: 14px;
+}
+.input-wrapper input:disabled, .input-wrapper select:disabled {
+    opacity: 0.6; cursor: not-allowed; background: #12161f;
 }
 
-.gender-options { display: flex; gap: 15px; padding: 10px 0; color: #fff; align-items: center; }
+/* অ্যাকশন ইনপুট গ্রুপ ও ড্রপডাউন */
+.action-input-group { display: flex; gap: 10px; align-items: center; }
+.change-btn { 
+    background: #202733; color: #f5c542; border: 1px solid rgba(245, 197, 66, 0.3); 
+    padding: 11px 18px; border-radius: 6px; cursor: pointer; font-weight: 500;
+}
+.change-btn:disabled { opacity: 0.4; cursor: not-allowed; }
 
-/* বাটনস */
-.edit-btn { position: absolute; top: 20px; right: 20px; background: #202733; color: #f5c542; border: none; 
-           padding: 6px 16px; border-radius: 6px; cursor: pointer; }
-.save-btn { display: block; margin: 10px 0 0 auto; padding: 10px 20px; background: #f5c542; color: #111; 
-           border: none; border-radius: 6px; cursor: pointer; font-weight: bold; }
+.verification-dropdown { 
+    display: none; margin-top: 10px; padding: 15px; 
+    background: #0d1117; border: 1px dashed #333; border-radius: 8px; 
+}
+.verify-group { display: flex; gap: 10px; }
+.send-code-btn { 
+    background: #f5c542; color: #111; border: none; padding: 0 15px; 
+    border-radius: 6px; font-weight: bold; cursor: pointer;
+}
 
-/* স্টেট ম্যানেজমেন্ট */
-.personal-tab-content { display: none; }
-input:disabled, select:disabled { opacity: 0.6; cursor: not-allowed; }
+/* ফুটার বাটনস */
+.form-footer { 
+    display: flex; justify-content: space-between; align-items: center; 
+    margin-top: 25px; border-top: 1px solid #21262d; padding-top: 20px; 
+}
+.edit-action-btn { 
+    background: transparent; color: #f5c542; border: 1px solid #f5c542; 
+    padding: 10px 30px; border-radius: 6px; cursor: pointer; font-weight: bold;
+}
+.save-btn { 
+    background: #f5c542; color: #111; border: none; 
+    padding: 10px 30px; border-radius: 6px; cursor: pointer; font-weight: bold; 
+}
+.save-btn:disabled { background: #30363d; color: #8b949e; cursor: not-allowed; }
 
 /* =========================================================
  start  id verification CSS
