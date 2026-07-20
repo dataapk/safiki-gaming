@@ -677,23 +677,19 @@ function toggleProfileMenu(event){
 // ==============================
 function openPersonalArea(){
 
-    // Hide Profile Menu
-    const profileMenu = document.getElementById("profile-popup");
+const profileMenu=document.getElementById("profile-menu");
 
-    if(profileMenu){
-        profileMenu.style.display = "none";
-    }
+if(profileMenu){
+profileMenu.style.display="none";
+}
 
-    // Hide Other Sections
-    document.getElementById("my-bonus-section").style.display = "none";
-    document.getElementById("transaction-history-section").style.display = "none";
-    document.getElementById("settings-section").style.display = "none";
+document.getElementById("my-bonus-section").style.display="none";
+document.getElementById("transaction-history-section").style.display="none";
+document.getElementById("settings-section").style.display="none";
 
-    // Show Personal Area
-    document.getElementById("personalDetailsContent").style.display = "block";
+document.getElementById("personal-area-section").style.display="block";
 
-    // Default Tab
-    openPersonalTab("details");
+openPersonalTab("details");
 
 }
 
@@ -704,38 +700,96 @@ function closePersonalArea(){
 }
 
 
+/*================ PERSONAL AREA TABS ================*/
+
 function openPersonalTab(tab){
 
-    // Hide All Content
-    document.querySelectorAll(".personal-content").forEach(el=>{
-        el.style.display="none";
-    });
+document.getElementById("personalDetailsContent").style.display="none";
+document.getElementById("idVerificationContent").style.display="none";
+document.getElementById("proofAddressContent").style.display="none";
 
-    // Remove Active
-    document.querySelectorAll(".personal-tab-btn").forEach(btn=>{
-        btn.classList.remove("active");
-    });
+document.querySelectorAll(".personal-tab").forEach(btn=>{
+btn.classList.remove("active");
+});
 
-    if(tab==="details"){
+if(tab==="details"){
+document.getElementById("personalDetailsContent").style.display="block";
+document.querySelectorAll(".personal-tab")[0].classList.add("active");
+}
 
-        document.getElementById("personalDetailsContent").style.display="block";
-        document.getElementById("personalDetailsTab").classList.add("active");
+if(tab==="verification"){
+document.getElementById("idVerificationContent").style.display="block";
+document.querySelectorAll(".personal-tab")[1].classList.add("active");
+}
 
-    }
+if(tab==="address"){
+document.getElementById("proofAddressContent").style.display="block";
+document.querySelectorAll(".personal-tab")[2].classList.add("active");
+}
 
-    else if(tab==="address"){
+}
 
-        document.getElementById("addressInformationContent").style.display="block";
-        document.getElementById("addressInformationTab").classList.add("active");
+/*================ CLOSE PERSONAL AREA ================*/
 
-    }
+function closePersonalArea(){
 
-    else if(tab==="verification"){
+document.getElementById("personalArea").style.display="none";
 
-        document.getElementById("accountVerificationContent").style.display="block";
-        document.getElementById("accountVerificationTab").classList.add("active");
+}
 
-    }
+/*================ PROFILE PHOTO ================*/
+
+function updateProfilePhoto(event){
+
+const file=event.target.files[0];
+
+if(!file) return;
+
+const reader=new FileReader();
+
+reader.onload=function(e){
+
+document.getElementById("profilePhotoPreview").src=e.target.result;
+
+};
+
+reader.readAsDataURL(file);
+
+}
+
+/*================ EMAIL EDIT ================*/
+
+function toggleEmailEdit(){
+
+const box=document.getElementById("emailEditBox");
+
+box.style.display=(box.style.display==="block")?"none":"block";
+
+}
+
+/*================ PHONE EDIT ================*/
+
+function togglePhoneEdit(){
+
+const box=document.getElementById("phoneEditBox");
+
+box.style.display=(box.style.display==="block")?"none":"block";
+
+}
+
+/*================ PLACE OF BIRTH POPUP ================*/
+
+function openBirthCountryPopup(){
+
+// Country popup এখানে পরে যোগ করা হবে
+
+}
+
+/*================ COUNTRY POPUP ================*/
+
+function openCountryPopup(){
+
+// ID Verification Country Popup পরে যোগ করা হবে
 
 }
 // END  Personal area==========
