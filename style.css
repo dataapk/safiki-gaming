@@ -276,7 +276,32 @@ img, svg {
 PERSONAL DETAILS
 ==============================*/
 /*================ PERSONAL DETAILS ================*/
-/* Container Layout */
+/* বাটনগুলোর কন্টেইনার */
+.personal-tabs {
+    display: flex;
+    justify-content: space-between; /* সমান দূরত্বে বসবে */
+    border-bottom: 2px solid #ddd;
+    margin-bottom: 20px;
+}
+
+/* প্রতিটি বাটনের স্টাইল */
+.personal-tab {
+    flex: 1;
+    padding: 15px;
+    cursor: pointer;
+    border: none;
+    background-color: #f8f8f8;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+/* বাটন সক্রিয় (Active) থাকলে */
+.personal-tab.active {
+    background-color: #fff;
+    border-bottom: 3px solid #007bff; /* সক্রিয় থাকলে নিচে নীল দাগ */
+    color: #007bff;
+}
+
 #personalDetailsSection {
     position: relative;
     padding: 20px;
@@ -326,6 +351,7 @@ PERSONAL DETAILS
 .small-box { width: 30%; }
 .large-box { width: 60%; }
 .input-group { display: flex; gap: 10px; margin-bottom: 10px; }
+
 #personal-area-section{
 position:fixed;
 top:70px;
