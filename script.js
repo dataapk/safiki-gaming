@@ -1890,32 +1890,66 @@ finishDepositBonus();
 ========================================== */
 
 
+function openLogoutPopup(){
 
-function confirmLogout() {
-    // Add your logout logic here
-    window.location.href = 'logout.php'; 
+    const popup = document.getElementById("logout-confirm-popup");
+
+    if(popup){
+        popup.style.display = "flex";
+    }
+
+}
+
+
+function closeLogoutPopup(){
+
+    const popup = document.getElementById("logout-confirm-popup");
+
+    if(popup){
+        popup.style.display = "none";
+    }
+
+}
+
+
+function confirmLogout(){
+
+    window.location.href = "logout.php";
+
 }
 
 // --- Outside Click Handler ---
 window.addEventListener('click', (event) => {
+
     const notifPopup = document.getElementById('notif-popup');
-    const profilemenu = document.getElementById('profile-menu');
+    const profileMenu = document.getElementById('profile-menu');
     const logoutModal = document.getElementById('logout-confirm-popup');
 
-    // Close notifications if clicking outside
-    if (notifPopup && !notifPopup.contains(event.target) && !event.target.closest('.notif-icon-class')) {
+    // Close notification menu if click outside
+    if(
+        notifPopup &&
+        !notifPopup.contains(event.target) &&
+        !event.target.closest('.notif-icon-class')
+    ){
         notifPopup.style.display = 'none';
     }
 
-    // Close profile menu if clicking outside
-    if (profilePopup && !profilePopup.contains(event.target) && !event.target.closest('.profile-icon-class')) {
-        profilePopup.style.display = 'none';
+
+    // Close profile menu if click outside
+    if(
+        profileMenu &&
+        !profileMenu.contains(event.target) &&
+        !event.target.closest('.profile-icon-class')
+    ){
+        profileMenu.style.display = 'none';
     }
-    
-    // Optional: Close logout modal if clicking the background overlay
-    if (event.target === logoutModal) {
+
+
+    // Close logout confirmation popup by clicking outside
+    if(event.target === logoutModal){
         closeLogoutPopup();
     }
+
 });
 // --- Outside Click Handler ---
 // হেডার আপডেট করার মূল ফাংশন
