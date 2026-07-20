@@ -418,8 +418,10 @@
 
 
 <!-- ================= PROFILE MENU ================= -->
+
 <div id="profile-menu" style="display:none;">
 
+    <!-- Personal Area -->
     <div class="menu-item" onclick="openPersonalArea()">
         <div class="menu-left">
             <i class="fas fa-user"></i>
@@ -428,11 +430,48 @@
         <i class="fas fa-chevron-right"></i>
     </div>
 
-    <!-- Other Menu Items -->
+    <!-- My Bonus -->
+    <div class="menu-item" onclick="openBonusSection()">
+        <div class="menu-left">
+            <i class="fas fa-gift"></i>
+            <span>My Bonus</span>
+        </div>
+        <i class="fas fa-chevron-right"></i>
+    </div>
+
+    <!-- Transaction History -->
+    <div class="menu-item" onclick="openTransactionHistory()">
+        <div class="menu-left">
+            <i class="fas fa-history"></i>
+            <span>Transaction History</span>
+        </div>
+        <i class="fas fa-chevron-right"></i>
+    </div>
+
+    <!-- Settings -->
+    <div class="menu-item" onclick="openSettings()">
+        <div class="menu-left">
+            <i class="fas fa-cog"></i>
+            <span>Settings</span>
+        </div>
+        <i class="fas fa-chevron-right"></i>
+    </div>
+
+    <!-- Logout -->
+    <div class="menu-item logout-item" onclick="logout()">
+        <div class="menu-left">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Logout</span>
+        </div>
+        <i class="fas fa-chevron-right"></i>
+    </div>
 
 </div>
 
+<!-- এখানেই Profile Menu শেষ -->
+
 <!-- ================= PERSONAL AREA ================= -->
+
 <div id="personal-area-section" style="display:none;">
 
     <div class="personal-header">
