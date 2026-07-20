@@ -975,33 +975,51 @@ updatePagination();
 ================================ */
 
 // Open Settings
-function openProfileSettingMenu() {
+function openProfileSettingMenu(){
 
-    // Hide Profile Menu
-    const profileMenu = document.getElementById("profile-popup");
-
+    const profileMenu = document.getElementById("profile-menu");
     if(profileMenu){
         profileMenu.style.display = "none";
     }
 
-    // Hide other profile sections
-    document.getElementById("account-info-section").style.display = "none";
-    document.getElementById("kyc-section").style.display = "none";
-    document.getElementById("transaction-history-section").style.display = "none";
+    const personalArea = document.getElementById("personal-area-section");
+    if(personalArea){
+        personalArea.style.display = "none";
+    }
 
-    // Show Settings
-    document.getElementById("settings-section").style.display = "block";
+    const accountInfo = document.getElementById("account-info-section");
+    if(accountInfo){
+        accountInfo.style.display = "none";
+    }
 
-    // Default Tab
+    const kyc = document.getElementById("kyc-section");
+    if(kyc){
+        kyc.style.display = "none";
+    }
+
+    const transaction = document.getElementById("transaction-history-section");
+    if(transaction){
+        transaction.style.display = "none";
+    }
+
+    const settings = document.getElementById("settings-section");
+    if(settings){
+        settings.style.display = "block";
+    }
+
     switchSettingsTab("security");
 
 }
 
 
 // Close Settings
-function closeProfileSettingMenu() {
+function closeProfileSettingMenu(){
 
-    document.getElementById("settings-section").style.display = "none";
+    const settings = document.getElementById("settings-section");
+
+    if(settings){
+        settings.style.display = "none";
+    }
 
 }
 
