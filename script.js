@@ -657,78 +657,77 @@ function toggleProfileMenu(event){
 
     event.stopPropagation();
 
-    const menu = document.getElementById("profile-popup");
+    const menu = document.getElementById("profile-menu");
 
     if(!menu) return;
 
     if(menu.style.display === "block"){
-
-        menu.style.display="none";
-
+        menu.style.display = "none";
     }else{
-
-        menu.style.display="block";
-
+        menu.style.display = "block";
     }
 
 }
 // ==============================
-// PROFILE menu start
+// PERSONAL AREA
 // ==============================
+
 function openPersonalArea(){
 
-const profileMenu=document.getElementById("profile-menu");
+    const profileMenu = document.getElementById("profile-menu");
+    if(profileMenu) profileMenu.style.display = "none";
 
-if(profileMenu){
-profileMenu.style.display="none";
-}
+    const bonus = document.getElementById("my-bonus-section");
+    if(bonus) bonus.style.display = "none";
 
-document.getElementById("my-bonus-section").style.display="none";
-document.getElementById("transaction-history-section").style.display="none";
-document.getElementById("settings-section").style.display="none";
+    const history = document.getElementById("transaction-history-section");
+    if(history) history.style.display = "none";
 
-document.getElementById("personal-area-section").style.display="block";
+    const settings = document.getElementById("settings-section");
+    if(settings) settings.style.display = "none";
 
-openPersonalTab("details");
+    const personalArea = document.getElementById("personal-area-section");
+    if(personalArea) personalArea.style.display = "block";
+
+    openPersonalTab("details");
 
 }
 
 function closePersonalArea(){
 
-    document.getElementById("personal-area-section").style.display="none";
+    const personalArea = document.getElementById("personal-area-section");
+    if(personalArea) personalArea.style.display = "none";
 
 }
-
 
 /*================ PERSONAL AREA TABS ================*/
 
 function openPersonalTab(tab){
 
-document.getElementById("personalDetailsContent").style.display="none";
-document.getElementById("idVerificationContent").style.display="none";
-document.getElementById("proofAddressContent").style.display="none";
+document.getElementById("personal-area-section").style.display="none";
+document.getElementById("idVerificationSection").style.display="none";
+document.getElementById("proofAddressSection").style.display="none";
 
 document.querySelectorAll(".personal-tab").forEach(btn=>{
 btn.classList.remove("active");
 });
 
 if(tab==="details"){
-document.getElementById("personalDetailsContent").style.display="block";
+document.getElementById("personal-area-section").style.display="block";
 document.querySelectorAll(".personal-tab")[0].classList.add("active");
 }
 
 if(tab==="verification"){
-document.getElementById("idVerificationContent").style.display="block";
+document.getElementById("idVerificationSection").style.display="block";
 document.querySelectorAll(".personal-tab")[1].classList.add("active");
 }
 
 if(tab==="address"){
-document.getElementById("proofAddressContent").style.display="block";
+document.getElementById("proofAddressSection").style.display="block";
 document.querySelectorAll(".personal-tab")[2].classList.add("active");
 }
 
 }
-
 /*================ CLOSE PERSONAL AREA ================*/
 
 function closePersonalArea(){
