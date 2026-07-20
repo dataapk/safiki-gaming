@@ -730,11 +730,6 @@ document.querySelectorAll(".personal-tab")[2].classList.add("active");
 }
 /*================ CLOSE PERSONAL AREA ================*/
 
-function closePersonalArea(){
-
-document.getElementById("personalArea").style.display="none";
-
-}
 
 /*================ PROFILE PHOTO ================*/
 
