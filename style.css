@@ -4560,3 +4560,10 @@ END MY BONUS SECTION
 .name-row input:last-child{
     flex:1;
 }
+
+
+#profile-menu .menu-left{
+    display:flex !important;
+    align-items:center !important;
+    gap:12px !important;
+}
