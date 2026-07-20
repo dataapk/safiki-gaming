@@ -502,7 +502,7 @@
 
         <button 
         class="personal-tab"
-        onclick="openPersonalTab('verification')">
+        onclick="openPersonalTab('idverification')">
 
             ID Verification
 
@@ -521,56 +521,67 @@
     </div>
 
 
-
-
-
     <!-- ================= PERSONAL DETAILS ================= -->
-
-    <div id="personalDetailsSection"
-    class="personal-tab-content">
-
-
-        <!-- Personal Details Content Will Come Here -->
-
-
+<!-- Personal Area Section -->
+<div class="personal-tab" onclick="openPersonalTab('personal-details')">
+  <h3>Personal Details</h3>
+  <div id="personal-details" class="dropdown-content" style="display:none;">
+    
+    <!-- Header with Profile Icon and User Info -->
+    <div class="profile-header">
+      <div class="profile-icon">
+        <input type="file" accept="image/*" id="profile-upload" style="display:none;">
+        <label for="profile-upload"><img src="placeholder.png" alt="Profile Icon"></label>
+      </div>
+      <div class="user-info">
+        <p>User ID: <span id="user-id">123456</span></p>
+        <p>Member Since: <span id="member-date">2026-07-20</span></p>
+      </div>
+      <button class="close-btn" onclick="closeProfile()">X</button>
+      <button class="edit-btn" onclick="enableEditMode()">Edit</button>
     </div>
 
-
-
-
-
-    <!-- ================= ID VERIFICATION ================= -->
-
-    <div id="idVerificationSection"
-    class="personal-tab-content"
-    style="display:none;">
-
-
-        <!-- ID Verification Content Will Come Here -->
-
-
+    <!-- Personal Detail Inputs -->
+    <div class="input-group">
+      <input type="text" placeholder="First Name">
+      <input type="text" placeholder="Surname" class="small-box">
     </div>
-
-
-
-
-
-    <!-- ================= PROOF DOCUMENTS ================= -->
-
-    <div id="proofAddressSection"
-    class="personal-tab-content"
-    style="display:none;">
-
-
-        <!-- Proof Documents Content Will Come Here -->
-
-
-    </div>
-
-
-
+    <select><option>Place of Birth</option></select>
+    <input type="date" placeholder="Date of Birth">
+    <label><input type="radio" name="gender"> Male</label>
+    <label><input type="radio" name="gender"> Female</label>
+    <label><input type="radio" name="gender"> Other</label>
+    <input type="email" placeholder="Email">
+    <button>Change</button>
+    <input type="text" placeholder="Country Code" class="country-code">
+    <input type="text" placeholder="Mobile Number">
+    <button>Save</button>
+  </div>
 </div>
 
+<!-- ID Verification Section -->
+<div class="personal-tab" onclick="openPersonalTab('id-verification')">
+  <h3>ID Verification</h3>
+  <div id="id-verification" class="dropdown-content" style="display:none;">
+    <select><option>Select Country</option></select>
+    <input type="file" placeholder="Front Part of ID">
+    <input type="file" placeholder="Back Part of ID">
+    <input type="file" placeholder="Selfie Verification">
+  </div>
+</div>
+
+<!-- Proof of Address Section -->
+<div class="personal-tab" onclick="openPersonalTab('proof-of-address')">
+  <h3>Proof of Address</h3>
+  <div id="proof-of-address" class="dropdown-content" style="display:none;">
+    <select>
+      <option>Bank Statement</option>
+      <option>Electricity Bill</option>
+      <option>Others</option>
+    </select>
+    <input type="file" placeholder="Upload Image">
+  </div>
+</div>
 <!-- ================= END PERSONAL AREA ================= -->
 
 <!-- ================= END KYC VERIFICATION ================= -->
