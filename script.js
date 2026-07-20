@@ -1899,7 +1899,7 @@ function confirmLogout() {
 // --- Outside Click Handler ---
 window.addEventListener('click', (event) => {
     const notifPopup = document.getElementById('notif-popup');
-    const profilePopup = document.getElementById('profile-popup');
+    const profilemenu = document.getElementById('profile-menu');
     const logoutModal = document.getElementById('logout-confirm-popup');
 
     // Close notifications if clicking outside
