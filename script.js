@@ -702,31 +702,31 @@ function closePersonalArea(){
 
 /*================ PERSONAL AREA TABS ================*/
 
-function openPersonalTab(tab){
-
-    document.getElementById("detailsSection").style.display = "none";
-    document.getElementById("idVerificationSection").style.display = "none";
-    document.getElementById("proofAddressSection").style.display = "none";
-
-    document.querySelectorAll(".personal-tab").forEach(btn=>{
-        btn.classList.remove("active");
+function openPersonalTab(tabId) {
+    // ১. সব কন্টেন্ট সেকশন লুকিয়ে ফেলা হচ্ছে
+    const allTabs = document.querySelectorAll('.personal-tab-content');
+    allTabs.forEach(tab => {
+        tab.style.display = "none";
     });
 
-    if(tab==="details"){
-        document.getElementById("detailsSection").style.display="block";
-        document.querySelectorAll(".personal-tab")[0].classList.add("active");
+    // ২. সব বাটন থেকে 'active' ক্লাস সরিয়ে ফেলা হচ্ছে
+    const allButtons = document.querySelectorAll('.personal-tab');
+    allButtons.forEach(btn => {
+        btn.classList.remove('active');
+    });
+
+    // ৩. নির্দিষ্ট সেকশনটি দেখানো হচ্ছে
+    const targetTab = document.getElementById(tabId);
+    if (targetTab) {
+        targetTab.style.display = "block";
     }
 
-    if(tab==="verification"){
-        document.getElementById("idVerificationSection").style.display="block";
-        document.querySelectorAll(".personal-tab")[1].classList.add("active");
+    // ৪. ক্লিক করা বাটনে 'active' ক্লাস যোগ করা হচ্ছে
+    // এখানে window.event বা সরাসরি event প্যারামিটার ব্যবহার করা হয়েছে
+    const clickedBtn = event.currentTarget;
+    if (clickedBtn) {
+        clickedBtn.classList.add('active');
     }
-
-    if(tab==="address"){
-        document.getElementById("proofAddressSection").style.display="block";
-        document.querySelectorAll(".personal-tab")[2].classList.add("active");
-    }
-
 }
 /*================ CLOSE PERSONAL AREA ================*/
 
