@@ -522,10 +522,12 @@
         </div>
     </div>
 
-    <!-- বক্স ২: ফর্ম (যেখানে এডিট করা যাবে) -->
+    <!-- বক্স ২: এডিটযোগ্য ফর্ম -->
     <div class="personal-card">
         <button class="edit-btn" onclick="enableEdit()">Edit</button>
+        
         <div class="form-container">
+            <!-- নাম ও সারনেম -->
             <div class="input-group">
                 <div class="input-wrapper">
                     <label>First Name</label>
@@ -536,7 +538,20 @@
                     <input type="text" placeholder="Surname" disabled>
                 </div>
             </div>
+
+            <!-- ইমেইল ও মোবাইল -->
+            <div class="input-group">
+                <div class="input-wrapper">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="example@mail.com" disabled>
+                </div>
+                <div class="input-wrapper">
+                    <label>Mobile Number</label>
+                    <input type="tel" placeholder="+8801XXXXXXXXX" disabled>
+                </div>
+            </div>
             
+            <!-- জন্মস্থান -->
             <div class="input-wrapper" style="margin-bottom: 15px;">
                 <label>Place of Birth</label>
                 <select class="full-width" disabled>
@@ -544,6 +559,7 @@
                 </select>
             </div>
 
+            <!-- জন্ম তারিখ ও জেন্ডার -->
             <div class="input-group">
                 <div class="input-wrapper">
                     <label>Date of Birth</label>
@@ -558,14 +574,11 @@
                 </div>
             </div>
 
+            <!-- সেভ বাটন -->
             <button class="save-btn" style="display: none;">Save Changes</button>
         </div>
     </div>
 </div>
-<!-- ================= END OF PERSONAL DETAILS ================= -->
-
-
-
 
     <!-- ================= ID VERIFICATION ================= -->
 
