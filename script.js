@@ -820,12 +820,16 @@ function openTransaction(){
 
 }
 
-
 function closeTransaction(){
 
-    document
-        .getElementById("transaction-history-section")
-        .classList.remove("active");
+    const transaction = document.getElementById("transaction-history-section");
+
+    if(transaction){
+
+        transaction.style.display = "none";
+        transaction.classList.remove("active");
+
+    }
 
 }
 async function fetchTransactions(type = 'deposits', filter = 'latest') {
