@@ -979,40 +979,6 @@ function toggleProfileMenu(event){
 
 // ১. ট্যাব সুইচিং এবং সেকশন কন্ট্রোল করার মেইন ফাংশন
 
-// ১. ট্যাব সুইচিং এবং সেকশন কন্ট্রোল করার মেইন ফাংশন
-
-// ১. ট্যাব সুইচিং এবং সেকশন কন্ট্রোল করার মেইন ফাংশন
-
-function openIdVerificationSection() {
-
-
-
-    const section = document.getElementById('idVerificationSection');
-
-
-
-    if (section) {
-
-
-
-        section.style.display = 'block'; // সেকশনটি স্ক্রিনে দৃশ্যমান করবে
-
-
-
-        section.scrollIntoView({ behavior: 'smooth' }); // স্ক্রিনটি স্মুথলি নিচে নামিয়ে নিয়ে যাবে
-
-
-
-    } else {
-
-
-
-        console.error("ID Verification Section element not found in HTML!");
-
-
-
-    }
-
 
 
 // ১. পার্সোনাল এরিয়া খোলার মেইন ফাংশন (মেনু থেকে কল হবে)
@@ -1544,7 +1510,35 @@ function updateNewMobileNumber() {
     document.getElementById('mobileChangeSendStep').style.display = 'flex';
 }
 /*================ CLOSE PERSONAL AREA ================*/
+function openIdVerificationSection() {
 
+
+
+    const section = document.getElementById('idVerificationSection');
+
+
+
+    if (section) {
+
+
+
+        section.style.display = 'block'; // সেকশনটি স্ক্রিনে দৃশ্যমান করবে
+
+
+
+        section.scrollIntoView({ behavior: 'smooth' }); // স্ক্রিনটি স্মুথলি নিচে নামিয়ে নিয়ে যাবে
+
+
+
+    } else {
+
+
+
+        console.error("ID Verification Section element not found in HTML!");
+
+
+
+    }
 
 /*================ PROFILE PHOTO ================*/
 
