@@ -597,21 +597,33 @@
     </div>
 
     <!-- মোবাইল ড্রপডাউন সেকশন -->
-    <div id="mobileDropdown" class="verification-dropdown">
-        
-        <!-- ধাপ ১: সেন্ড কোড অপশন (মোবাইলে কোড পাঠানোর জন্য) -->
-        <div class="verify-group" id="mobileSendStep">
-            <span style="color: #888; font-size: 13px; align-self: center;">Code will be sent to your mobile number</span>
-            <button type="button" class="send-code-btn" onclick="sendCodeToMobileNumber()">Send Code</button>
-        </div>
-
-        <!-- ধাপ ২: কোড বসানোর বক্স ও ভেরিফাই বাটন (সেন্ড কোডে ক্লিক করার পর এটি দেখাবে) -->
-        <div class="verify-group" id="mobileVerifyStep" style="display: none; margin-top: 10px;">
-            <input type="text" id="mobileOtpInput" placeholder="Enter Verification Code" maxlength="6">
-            <button type="button" class="verify-code-btn" onclick="verifyAndSaveMobileCode()">Verify & Save</button>
-        </div>
-
+    <!-- মোবাইল ড্রপডাউন সেকশন -->
+<div id="mobileDropdown" class="verification-dropdown">
+    
+    <!-- কেস ১ (নতুন নাম্বারের জন্য): সরাসরি সেন্ড কোড ও ভেরিফাই ধাপ -->
+    <div class="verify-group" id="mobileNewAddStep" style="display: none;">
+        <input type="text" id="mobileAddOtpInput" placeholder="Enter Verification Code" maxlength="6">
+        <button type="button" class="send-code-btn" onclick="verifyAndSaveNewMobileCode()">Verify & Save</button>
     </div>
+
+    <!-- কেস ২ (চেঞ্জ মোড - ধাপ ১): বর্তমান নাম্বারে কোড পাঠানো -->
+    <div class="verify-group" id="mobileChangeSendStep" style="display: none;">
+        <span style="color: #888; font-size: 13px; align-self: center;">Code will be sent to your current mobile</span>
+        <button type="button" class="send-code-btn" onclick="sendCodeToCurrentMobile()">Send Code</button>
+    </div>
+
+    <!-- কেস ২ (চেঞ্জ মোড - ধাপ ২): কোড ভেরিফাই করা -->
+    <div class="verify-group" id="mobileChangeVerifyStep" style="display: none;">
+        <input type="text" id="mobileChangeOtpInput" placeholder="Enter Verification Code" maxlength="6">
+        <button type="button" class="verify-code-btn" onclick="verifyCurrentMobileCode()">Verify</button>
+    </div>
+
+    <!-- কেস ২ (চেঞ্জ মোড - ধাপ ৩): নতুন নাম্বার ইনপুট ও আপডেট করা -->
+    <div class="verify-group" id="mobileNewUpdateStep" style="display: none;">
+        <input type="tel" id="finalNewMobileInput" placeholder="Enter new mobile number">
+        <button type="button" class="save-new-email-btn" onclick="updateNewMobileNumber()">Update Mobile</button>
+    </div>
+
 </div>
 
             <!-- ফুটার বাটন -->
