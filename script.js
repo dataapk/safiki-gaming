@@ -695,25 +695,26 @@ function openIdVerificationSection() {
     }
 
 // ১. পার্সোনাল এরিয়া খোলার মেইন ফাংশন (মেনু থেকে কল হবে)
-// ১. পার্সোনাল এরিয়া খোলার মেইন ফাংশন (মেনু থেকে কল হবে)
+// ==============================
+// PERSONAL AREA MODULE
+// ==============================
+
+// ১. মূল পার্সোনাল এরিয়া খোলার ফাংশন
 function openPersonalArea() {
     const mainArea = document.getElementById('personal-area-section');
     if (mainArea) {
-        mainArea.style.display = 'block'; // মূল বক্স ওপেন করবে
+        mainArea.style.display = 'block'; 
     }
-    // ডিফল্টভাবে প্রথম ট্যাবটি ওপেন করবে
     openPersonalTab('personalDetailsSection');
 }
 
-// ২. ট্যাব সুইচিং এবং সেকশন কন্ট্রোল করার মেইন ফাংশন
+// ২. ট্যাব সুইচিং এবং সেকশন কন্ট্রোল করার ফাংশন
 function openPersonalTab(sectionId) {
-    // ক. সবার আগে মূল পার্সোনাল এরিয়া ওপেন থাকা নিশ্চিত করা
     const personalBox = document.getElementById('personal-area-section');
     if (personalBox) {
         personalBox.style.display = 'block';
     }
 
-    // খ. সব ট্যাব বা সেকশন কনটেন্ট হাইড করা
     const sections = ['personalDetailsSection', 'idVerificationSection', 'proofOfAddressSection'];
     sections.forEach(id => {
         const el = document.getElementById(id);
@@ -722,7 +723,6 @@ function openPersonalTab(sectionId) {
         }
     });
 
-    // গ. নির্দিষ্ট টার্গেট ট্যাবটি শো করা
     const targetSection = document.getElementById(sectionId);
     if (targetSection) {
         targetSection.style.display = "flex"; 
@@ -731,12 +731,10 @@ function openPersonalTab(sectionId) {
         console.error("Target section not found:", sectionId);
     }
 
-    // ঘ. সব ট্যাব বাটন থেকে আগের 'active' ক্লাস রিমুভ করা
     document.querySelectorAll('.personal-tab').forEach(btn => {
         btn.classList.remove('active');
     });
 
-    // ঙ. বর্তমান ক্লিক করা ট্যাবে 'active' ক্লাস যোগ করা
     let activeBtnIndex = 0;
     if (sectionId === 'personalDetailsSection') activeBtnIndex = 0;
     else if (sectionId === 'idVerificationSection') activeBtnIndex = 1;
@@ -745,6 +743,14 @@ function openPersonalTab(sectionId) {
     const allTabs = document.querySelectorAll('.personal-tab');
     if (allTabs[activeBtnIndex]) {
         allTabs[activeBtnIndex].classList.add('active');
+    }
+}
+
+// ৩. পার্সোনাল এরিয়া বন্ধ করার ফাংশন
+function closePersonalArea() {
+    const personalArea = document.getElementById("personal-area-section");
+    if (personalArea) {
+        personalArea.style.display = "none";
     }
 }
 
