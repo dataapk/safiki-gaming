@@ -764,111 +764,101 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 // মোবাইল স্ট্যাটাস চেক করে বাটন ও কন্টেইনার সেট করার ফাংশন
-function checkMobileStatus() {
+// পেজ লোড হওয়ার সময় স্ট্যাটাস চেক করা
+window.addEventListener('DOMContentLoaded', () => {
+    checkMobileInitialStatus();
+});
+
+// ইউজারের নাম্বার আছে কি না চেক করে 'Add' বা 'Change' সেট করা
+function checkMobileInitialStatus() {
     const mobileInput = document.getElementById('mobileNumberInput');
     const actionBtn = document.getElementById('mobileActionBtn');
-    const noNumContainer = document.getElementById('noNumberContainer');
-    const hasNumContainer = document.getElementById('hasNumberContainer');
     
-    // ধরা যাক ইউজারের প্রোফাইলে কোনো নাম্বার সেভ করা নেই (ফাঁকা)
-    const savedMobile = ""; // ডেটাবেজ বা লোকালস্টোরেজ থেকে নাম্বার এখানে আসবে
+    // ডেটাবেজ বা লোকালস্টোরেজ থেকে ইউজারের সেভ করা মোবাইল নাম্বার এখানে আনবে
+    const savedMobile = ""; // যদি ফাঁকা থাকে মানে নাম্বার নেই
     
     if (savedMobile.trim() === "") {
-        // যদি নাম্বার না থাকে
         mobileInput.value = "";
-        actionBtn.innerText = "Send Code";
-        noNumContainer.style.display = "block";
-        hasNumContainer.style.display = "none";
+        mobileInput.removeAttribute('disabled'); // লেখার সুযোগ থাকবে
+        actionBtn.innerText = "Add";
     } else {
-        // যদি নাম্বার অলরেডি সেভ করা থাকে
         mobileInput.value = savedMobile;
+        mobileInput.setAttribute('disabled', 'true'); // সেভ থাকলে এডিট বন্ধ থাকবে
         actionBtn.innerText = "Change";
-        noNumContainer.style.display = "none";
-        hasNumContainer.style.display = "block";
     }
 }
 
-// মেইন 'Send Code' বা 'Change' বাটনে ক্লিক করলে ড্রপডাউন টগল হবে
-function toggleMobileDropdown() {
+// মেইন 'Add' বা 'Change' বাটনে ক্লিক করলে যা হবে
+function handleMobileMainAction() {
+    const actionBtn = document.getElementById('mobileActionBtn');
     const dropdown = document.getElementById('mobileDropdown');
-    dropdown.style.display = (dropdown.style.display === "block") ? "none" : "block";
+    const mobileInput = document.getElementById('mobileNumberInput');
     
-    // ড্রপডাউন খুললে আগের ওটিপি বক্স হাইড থাকবে
-    document.getElementById('mobileVerifyStep').style.display = 'none';
-}
-
-// ১. নাম্বার না থাকলে নতুন নাম্বারে কোড পাঠানো
-function sendCodeForNewMobile() {
-    const newMob = document.getElementById('newMobileInput').value;
-    if (!newMob) {
-        alert("Please enter a mobile number first.");
-        return;
+    if (actionBtn.innerText === "Add") {
+        // ১. যদি 'Add' মোডে থাকে
+        if (!mobileInput.value.trim()) {
+            alert("Please enter a mobile number first.");
+            return;
+        }
+        
+        // ড্রপডাউন ওপেন করা এবং শুধু কোড বসানোর বক্স দেখানো
+        dropdown.style.display = "block";
+        document.getElementById('addOtpStep').style.display = "block";
+        document.getElementById('changeOtpStep').style.display = "none";
+        
+    } else {
+        // ২. যদি 'Change' মোডে থাকে (ইমেইলের মতো সিকিউর ফ্লো)
+        dropdown.style.display = (dropdown.style.display === "block") ? "none" : "block";
+        document.getElementById('addOtpStep').style.display = "none";
+        document.getElementById('changeOtpStep').style.display = "block";
     }
-    alert("Verification code sent to " + newMob);
-    
-    // নতুন নাম্বারের ইনপুট লুকিয়ে ওটিপি বক্স ওপেন করা
-    document.getElementById('noNumberContainer').style.display = 'none';
-    document.getElementById('mobileVerifyStep').style.display = 'flex';
 }
 
-// ২. অলরেডি নাম্বার থাকলে বর্তমান নাম্বারে কোড পাঠানো
-function sendCodeToExistingMobile() {
-    alert("Verification code sent to your existing mobile number!");
-    
-    // অপশন লুকিয়ে ওটিপি বক্স ওপেন করা
-    document.getElementById('hasNumberContainer').style.display = 'none';
-    document.getElementById('mobileVerifyStep').style.display = 'flex';
+// নতুন নাম্বারের জন্য কোড পাঠানোর ফাংশন
+function sendCodeForNewNumber() {
+    const mobileNum = document.getElementById('mobileNumberInput').value;
+    alert("Verification code has been sent to " + mobileNum);
 }
 
-// ৩. কোড ভেরিফাই এবং ফাইনাল সেভ করা
-function verifyAndSaveMobile() {
-    const otp = document.getElementById('mobileOtpInput').value;
+// নতুন নাম্বার ভেরিফাই এবং সেভ করার ফাংশন
+function verifyAndSaveAddedMobile() {
+    const otp = document.getElementById('addMobileOtpInput').value;
+    
     if (otp.length < 4) {
         alert("Please enter a valid verification code.");
         return;
     }
     
-    alert("Mobile number verified successfully!");
+    alert("Mobile number added and verified successfully!");
     
-    // নতুন নাম্বার দেওয়া হয়ে থাকলে সেটা মেইন ইনপুটে বসিয়ে দেওয়া
-    const newMob = document.getElementById('newMobileInput').value;
-    if (newMob) {
-        document.getElementById('mobileNumberInput').value = newMob;
-    }
+    // ড্রপডাউন বন্ধ করা
+    document.getElementById('mobileDropdown').style.display = "none";
     
-    // ড্রপডাউন বন্ধ করা এবং বাটনটি ইমেইলের মতো 'Change' এ রূপান্তর করা
-    document.getElementById('mobileDropdown').style.display = 'none';
+    // ইনপুট ডিজেবল করে দেওয়া এবং বাটনটি ইমেইলের মতো 'Change' এ রূপান্তর করা
+    document.getElementById('mobileNumberInput').setAttribute('disabled', 'true');
     document.getElementById('mobileActionBtn').innerText = "Change";
-    
-    // পরবর্তীতে চেঞ্জ করার জন্য কন্টেইনার আপডেট করা
-    document.getElementById('hasNumberContainer').style.display = 'block';
 }
-/*================ PERSONAL AREA TABS ================*/
 
-function openPersonalTab(tabId) {
-    // ১. সব কন্টেন্ট সেকশন লুকিয়ে ফেলা
-    const allTabs = document.querySelectorAll('.personal-tab-content');
-    allTabs.forEach(tab => {
-        tab.style.display = "none";
-    });
+// বিদ্যমান (Existing) নাম্বারে কোড পাঠানো (Change মোডের জন্য)
+function sendCodeToExistingMobile() {
+    alert("Verification code sent to your existing mobile number!");
+}
 
-    // ২. সব বাটন থেকে 'active' ক্লাস সরিয়ে ফেলা
-    const allButtons = document.querySelectorAll('.personal-tab');
-    allButtons.forEach(btn => {
-        btn.classList.remove('active');
-    });
-
-    // ৩. নির্দিষ্ট সেকশনটি দেখানো
-    const targetTab = document.getElementById(tabId);
-    if (targetTab) {
-        targetTab.style.display = "block";
+// চেঞ্জ করার সময় ওটিপি ভেরিফাই করা
+function verifyChangeMobileOtp() {
+    const otp = document.getElementById('changeMobileOtpInput').value;
+    if (otp.length < 4) {
+        alert("Please enter a valid code.");
+        return;
     }
-
-    // ৪. ক্লিক করা বাটনে 'active' ক্লাস যোগ করা
-    // এখানে কোনো বাড়তি ব্র্যাকেট বা কোড মিসিং নেই তো, চেক করে নাও:
-    if (event && event.currentTarget) {
-        event.currentTarget.classList.add('active');
-    }
+    alert("Verified! Now you can enter a new mobile number.");
+    
+    // এখানে চাইলে নতুন নাম্বার দেওয়ার ইনপুট ওপেন করে দিতে পারো (ইমেইলের মতো)
+    document.getElementById('mobileNumberInput').removeAttribute('disabled');
+    document.getElementById('mobileNumberInput').value = "";
+    document.getElementById('mobileNumberInput').focus();
+    document.getElementById('mobileActionBtn').innerText = "Save"; // বা আবার অ্যাড মোড
+    document.getElementById('mobileDropdown').style.display = "none";
 }
 /*================ CLOSE PERSONAL AREA ================*/
 
