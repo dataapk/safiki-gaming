@@ -781,12 +781,7 @@ function saveNewEmail() {
 
 // ১. 'Change' বা 'Send Code' বাটনে ক্লিক করলে এই ফাংশনটি রান হবে
 // পেজ লোড হওয়ার সময় চেক করার জন্য
-window.addEventListener('DOMContentLoaded', () => {
-    checkMobileStatus();
-});
-
-// মোবাইল স্ট্যাটাস চেক করে বাটন ও কন্টেইনার সেট করার ফাংশন
-// পেজ লোড হওয়ার সময় স্ট্যাটাস চেক করা
+// পেজ লোড হওয়ার সময় চেক করা মোবাইল নাম্বার আছে কি না
 window.addEventListener('DOMContentLoaded', () => {
     checkMobileInitialStatus();
 });
@@ -796,91 +791,73 @@ function checkMobileInitialStatus() {
     const mobileInput = document.getElementById('mobileNumberInput');
     const actionBtn = document.getElementById('mobileActionBtn');
     
-    // ডেটাবেজ বা লোকালস্টোরেজ থেকে ইউজারের সেভ করা মোবাইল নাম্বার এখানে আনবে
+    // ডেটাবেজ বা লোকালস্টোরেজ থেকে ইউজারের সেভ করা মোবাইল নাম্বার এখানে আসবে
     const savedMobile = ""; // যদি ফাঁকা থাকে মানে নাম্বার নেই
     
     if (savedMobile.trim() === "") {
         mobileInput.value = "";
-        mobileInput.removeAttribute('disabled'); // লেখার সুযোগ থাকবে
+        mobileInput.removeAttribute('disabled');
         actionBtn.innerText = "Add";
     } else {
         mobileInput.value = savedMobile;
-        mobileInput.setAttribute('disabled', 'true'); // সেভ থাকলে এডিট বন্ধ থাকবে
+        mobileInput.setAttribute('disabled', 'true');
         actionBtn.innerText = "Change";
     }
 }
 
-// মেইন 'Add' বা 'Change' বাটনে ক্লিক করলে যা হবে
+// মূল 'Add' বা 'Change' বাটনে ক্লিক করলে ড্রপডাউন টগল হবে
 function handleMobileMainAction() {
+    const mobileInput = document.getElementById('mobileNumberInput');
     const actionBtn = document.getElementById('mobileActionBtn');
     const dropdown = document.getElementById('mobileDropdown');
-    const mobileInput = document.getElementById('mobileNumberInput');
     
-    if (actionBtn.innerText === "Add") {
-        // ১. যদি 'Add' মোডে থাকে
-        if (!mobileInput.value.trim()) {
-            alert("Please enter a mobile number first.");
-            return;
-        }
-        
-        // ড্রপডাউন ওপেন করা এবং শুধু কোড বসানোর বক্স দেখানো
-        dropdown.style.display = "block";
-        document.getElementById('addOtpStep').style.display = "block";
-        document.getElementById('changeOtpStep').style.display = "none";
-        
+    // যদি 'Add' মোডে থাকে, তবে ইনপুট চেক করা
+    if (actionBtn.innerText === "Add" && !mobileInput.value.trim()) {
+        alert("Please enter a mobile number first.");
+        return;
+    }
+    
+    // ড্রপডাউন ওপেন/ক্লোজ করা
+    if (dropdown.style.display === "block") {
+        dropdown.style.display = "none";
     } else {
-        // ২. যদি 'Change' মোডে থাকে (ইমেইলের মতো সিকিউর ফ্লো)
-        dropdown.style.display = (dropdown.style.display === "block") ? "none" : "block";
-        document.getElementById('addOtpStep').style.display = "none";
-        document.getElementById('changeOtpStep').style.display = "block";
+        dropdown.style.display = "block";
+        
+        // ড্রপডাউন খুললে সবসময় প্রথম ধাপ (Send Code) দৃশ্যমান থাকবে এবং ভেরিফাই ধাপ লুকানো থাকবে
+        document.getElementById('mobileSendStep').style.display = 'flex';
+        document.getElementById('mobileVerifyStep').style.display = 'none';
+        document.getElementById('mobileOtpInput').value = '';
     }
 }
 
-// নতুন নাম্বারের জন্য কোড পাঠানোর ফাংশন
-function sendCodeForNewNumber() {
+// মোবাইলে কোড পাঠানোর ফাংশন
+function sendCodeToMobileNumber() {
     const mobileNum = document.getElementById('mobileNumberInput').value;
     alert("Verification code has been sent to " + mobileNum);
+    
+    // 'Send Code' অপশন লুকিয়ে কোড বসানোর বক্স এবং 'Verify & Save' বাটন ওপেন করা
+    document.getElementById('mobileSendStep').style.display = 'none';
+    document.getElementById('mobileVerifyStep').style.display = 'flex';
 }
 
-// নতুন নাম্বার ভেরিফাই এবং সেভ করার ফাংশন
-function verifyAndSaveAddedMobile() {
-    const otp = document.getElementById('addMobileOtpInput').value;
+// কোড ভেরিফাই এবং ফাইনাল সেভ করার ফাংশন (সাথে ড্রপডাউন হাইড করার ব্যবস্থা)
+function verifyAndSaveMobileCode() {
+    const otp = document.getElementById('mobileOtpInput').value.trim();
     
     if (otp.length < 4) {
         alert("Please enter a valid verification code.");
         return;
     }
     
-    alert("Mobile number added and verified successfully!");
+    alert("Mobile number verified and saved successfully!");
     
-    // ড্রপডাউন বন্ধ করা
-    document.getElementById('mobileDropdown').style.display = "none";
+    // ১. ড্রপডাউন বক্সটি পুরোপুরি হাইড করে দেওয়া
+    const dropdown = document.getElementById('mobileDropdown');
+    dropdown.style.display = 'none';
     
-    // ইনপুট ডিজেবল করে দেওয়া এবং বাটনটি ইমেইলের মতো 'Change' এ রূপান্তর করা
+    // ২. ইনপুট ডিজেবল করা এবং মূল বাটনটিকে 'Add' থেকে 'Change' এ রূপান্তর করা
     document.getElementById('mobileNumberInput').setAttribute('disabled', 'true');
     document.getElementById('mobileActionBtn').innerText = "Change";
-}
-
-// বিদ্যমান (Existing) নাম্বারে কোড পাঠানো (Change মোডের জন্য)
-function sendCodeToExistingMobile() {
-    alert("Verification code sent to your existing mobile number!");
-}
-
-// চেঞ্জ করার সময় ওটিপি ভেরিফাই করা
-function verifyChangeMobileOtp() {
-    const otp = document.getElementById('changeMobileOtpInput').value;
-    if (otp.length < 4) {
-        alert("Please enter a valid code.");
-        return;
-    }
-    alert("Verified! Now you can enter a new mobile number.");
-    
-    // এখানে চাইলে নতুন নাম্বার দেওয়ার ইনপুট ওপেন করে দিতে পারো (ইমেইলের মতো)
-    document.getElementById('mobileNumberInput').removeAttribute('disabled');
-    document.getElementById('mobileNumberInput').value = "";
-    document.getElementById('mobileNumberInput').focus();
-    document.getElementById('mobileActionBtn').innerText = "Save"; // বা আবার অ্যাড মোড
-    document.getElementById('mobileDropdown').style.display = "none";
 }
 /*================ CLOSE PERSONAL AREA ================*/
 
