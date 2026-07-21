@@ -372,8 +372,7 @@ function closeAll() {
     
     // অথবা যদি তোমার পুরো ওয়ালেট সেকশনটা একটা মেইন ডিভ-এ থাকে, সেটা হাইড করতে পারো
     // document.getElementById('main-wallet-container').style.display = 'none';
-}
-// এক্সচেঞ্জ বক্স ওপেন করার জন্য
+}// এক্সচেঞ্জ বক্স ওপেন করার জন্য
 function openExchange() {
     // সব বক্স হাইড করা
     document.querySelectorAll('.crypto-grid').forEach(el => el.style.display = 'none');
@@ -406,7 +405,7 @@ function closeExchange() {
     console.log("Exchange box closed");
 }
 
-// ২. সোয়াপ (Swap) কয়েন ফাংশন
+// ২. সোয়াপ (Swap) কয়েন ফাংশন
 function swapCoins() {
     const fromSelect = document.getElementById('from-currency');
     const toSelect = document.getElementById('to-currency');
@@ -424,18 +423,12 @@ function swapCoins() {
 
 // ৩. ম্যাক্স (Max) ব্যালেন্স সেট করার ফাংশন
 function setMax() {
-    // ১. ইউজার বর্তমানে কোন কারেন্সি সিলেক্ট করে আছে তা নেওয়া
     const fromCurrency = document.getElementById('from-currency').value;
-    
-    // ২. গ্লোবাল ডাটাবেস থেকে ব্যালেন্স নেওয়া
-    // '|| 0' দেওয়ার মানে হলো, যদি ব্যালেন্স না পাওয়া যায় তবে এটি ০ ধরে নেবে
     const balance = userBalances[fromCurrency] || 0;
     
-    // ৩. ইনপুট বক্সে ব্যালেন্সটি বসানো
     const amountInput = document.getElementById('from-amount');
     amountInput.value = balance;
     
-    // ৪. ব্যালেন্স পরিবর্তনের সাথে সাথে এক্সচেঞ্জ ক্যালকুলেশন আপডেট করা
     if (typeof checkMinimumLimit === 'function') {
         checkMinimumLimit();
     }
@@ -445,13 +438,11 @@ function setMax() {
     }
 }
 
-
-// ১. কারেন্সি অনুযায়ী রেট ও লিমিট আপডেট করার ফাংশন
+// ১. কারেন্সি অনুযায়ী রেট ও লিমিট আপডেট করার ফাংশন
 function updateStatLimits() {
     const fromCurrency = document.getElementById('from-currency').value;
     const price = currentPrices[fromCurrency] || 1;
     
-    // লিমিট (ডলারে)
     const minUSD = 5;
     const maxUSD = 20000;
     
@@ -460,7 +451,6 @@ function updateStatLimits() {
     
     const currencyLabel = fromCurrency.toUpperCase();
     
-    // UI-তে ভ্যালু বসানো
     const minEl = document.getElementById('stat-min');
     const maxEl = document.getElementById('stat-max');
     
@@ -469,6 +459,7 @@ function updateStatLimits() {
     
     console.log("Stat Limits updated for:", currencyLabel);
 }
+
 function checkMinimumLimit() {
     const fromCurrency = document.getElementById('from-currency').value; 
     const currencyName = fromCurrency.toUpperCase();
@@ -494,65 +485,52 @@ function checkMinimumLimit() {
             minAmountElement.style.color = "#ffffff"; 
         }
     } 
-} // এটা ফাংশন বন্ধ করল
+} 
 
 function validateExchange(amount, minLimit) {
     const minAmountElement = document.getElementById('min-amount');
-    const exchangeBtn = document.querySelector('.exchange-btn'); // তোমার এক্সচেঞ্জ বাটন
+    const exchangeBtn = document.querySelector('.exchange-btn'); 
 
-    // মিনিমাম অ্যামাউন্ট ১০ ডলার হতে হবে (তোমার শর্ত অনুযায়ী)
     const MIN_LIMIT = 10.00; 
 
     if (amount < MIN_LIMIT) {
-        // ১০ ডলারের কম হলে:
         minAmountElement.innerText = "Min: " + MIN_LIMIT + " USD (Required)";
-        minAmountElement.style.color = "red"; // টেক্সট লাল করে দিবে
+        minAmountElement.style.color = "red"; 
         minAmountElement.style.fontWeight = "bold";
         
-        // বাটন ডিজেবল করে দেওয়া যাতে ভুল ট্রানজ্যাকশন না হয়
         exchangeBtn.disabled = true;
         exchangeBtn.style.opacity = "0.5";
         
-        return false; // লজিক আটকে দিবে
+        return false; 
     } else {
-        // ১০ ডলারের বেশি হলে:
-        minAmountElement.innerText = "Min: " + minLimit + " ADA"; // অরিজিনাল ভ্যালু ফিরে আসবে
-        minAmountElement.style.color = "#ffffff"; // রঙ ঠিক করে দিবে
+        minAmountElement.innerText = "Min: " + minLimit + " ADA"; 
+        minAmountElement.style.color = "#ffffff"; 
         
-        // বাটন আবার সচল করে দেওয়া
         exchangeBtn.disabled = false;
         exchangeBtn.style.opacity = "1";
         
-        return true; // সব ঠিক আছে
+        return true; 
     }
 }
 
 // ৪. এক্সচেঞ্জ প্রসেসিং ফাংশন
 function processExchange() {
-    // ১. প্রয়োজনীয় ডেটা সংগ্রহ
     const fromCurrency = document.getElementById('from-currency').value;
     const amount = parseFloat(document.getElementById('from-amount').value);
     const currencyName = fromCurrency.toUpperCase();
     
-    // লাইভ রেট ও মিনিমাম লিমিট ক্যালকুলেশন
     const price = currentPrices[fromCurrency] || 1;
     const minAmount = 10 / price; 
 
-    // ২. ভ্যালিডেশন চেক (যদি অ্যামাউন্ট ভুল বা কম হয়)
     if (!amount || amount < minAmount) {
-        // মেসেজে একটু স্পেস দেওয়ার জন্য ${currencyName} এর আগে স্পেস রাখা হয়েছে
         alert(`Exchange failed: Minimum amount is ${minAmount.toFixed(4)} ${currencyName}`);
-        return; // এখানেই থেমে যাবে, এক্সচেঞ্জ হবে না
+        return; 
     }
-    
-    // ৩. যদি ভ্যালিডেশন পাস করে (সব ঠিক থাকে), তবে নিচের লজিক চলবে
-    // এখানে তোমার এক্সচেঞ্জ হওয়ার আসল এপিআই বা ডাটাবেজ কোডটি বসাবে
     
     alert("Exchange successful for " + amount + " " + currencyName + "!");
     console.log("Exchange processed for " + amount + " " + currencyName);
-    
-    // এখানে তোমার ব্যালেন্স আপডেটের কোড বা অন্যান্য ফাংশন কল করতে পারো
 }
+
 // ৫. রেট আপডেট ও টাইমার ফাংশন (প্রতি ৩০ সেকেন্ড)
 function startRateTimer() {
     setInterval(() => {
@@ -567,44 +545,35 @@ function startRateTimer() {
     }, 1000);
 }
 
-// পেজ লোড হওয়ার সময় সব ইনিশিয়ালাইজ করা
+// পেজ লোড হওয়ার সময় সব ইনিশিয়ালাইজ করা
 window.onload = function() {
     fetchLiveRates();
     startRateTimer();
 };
 
-// ক্যালকুলেশন ফাংশন (৫% ফি সহ আপডেট করা হয়েছে)
+// ক্যালকুলেশন ফাংশন
 function calculateExchange() {
     const fromVal = parseFloat(document.getElementById('from-amount').value) || 0;
     const fromCurr = document.getElementById('from-currency').value;
     const toCurr = document.getElementById('to-currency').value;
 
-    // রেট বের করা
     const fromPrice = currentPrices[fromCurr] || 0;
     const toPrice = currentPrices[toCurr] || 0;
     
-    // কনভার্সন ফর্মুলা: (fromAmount * fromPrice) / toPrice
     const grossResult = (fromVal * fromPrice) / toPrice;
-   
-       //--- ৫% এক্সচেঞ্জ ফি ক্যালকুলেশন ---
-       //নিচে ৫% ফি কেটে নেওয়ার লজিকটি দেওয়া হলো।
-       //আমরা মোট রেজাল্ট থেকে ৫% বাদ দিচ্ছি (অর্থাৎ ৯৫% রেজাল্ট দেখাচ্ছি)।
    
     const feePercentage = 0.05; 
     const netResult = grossResult * (1 - feePercentage);
 
-    // নিচে রেজাল্ট বসানো (ইউজার শুধু ফি কাটার পরের অ্যামাউন্টটিই দেখতে পাবে)
     const toAmountDisplay = document.getElementById('to-amount');
     if (toAmountDisplay) {
         toAmountDisplay.innerText = netResult.toFixed(8);
     }
 }
+
 function updateStats(fromCurr, toCurr, fromVal, calculatedMax) {
-    // এখানে তোমার ব্যালেন্স এবং লিমিটগুলো আপডেট হচ্ছে
     document.getElementById('user-balance').innerText = userBalance + " " + fromCurr.toUpperCase();
     document.getElementById('min-amount').innerText = "31.40 " + fromCurr.toUpperCase();
-    
-    // নিচে ম্যাক্স অ্যামাউন্ট হিসেবে ক্যালকুলেটেড ভ্যালু বা তোমার লজিক অনুযায়ী মান বসাও
     document.getElementById('max-amount').innerText = calculatedMax + " " + fromCurr.toUpperCase();
 }
 
@@ -612,9 +581,8 @@ function updateStats(fromCurr, toCurr, fromVal, calculatedMax) {
 document.getElementById('from-amount').addEventListener('input', calculateExchange);
 document.getElementById('from-currency').addEventListener('change', calculateExchange);
 document.getElementById('to-currency').addEventListener('change', calculateExchange);
-// এই ফাংশনটি তোমার জাভাস্ক্রিপ্ট ফাইলে যোগ করো
+
 function updatecurrencyIcons() {
-    // ১. FROM কারেন্সির জন্য (ড্রপডাউনের পাশে)
     const fromSelect = document.getElementById('from-currency');
     const fromIcon = document.getElementById('from-icon');
     const fromOption = fromSelect.options[fromSelect.selectedIndex];
@@ -623,15 +591,12 @@ function updatecurrencyIcons() {
         const imageUrl = fromOption.getAttribute('data-img');
         fromIcon.src = imageUrl;
 
-        // ২. নতুন সংযোজন: ইনপুট বক্সের পাশের লোগো আপডেট করা
-        // ধরে নিচ্ছি তোমার ইনপুট বক্সের পাশের লোগোর ID 'input-from-icon'
         const inputFromIcon = document.getElementById('input-from-icon');
         if (inputFromIcon) {
             inputFromIcon.src = imageUrl;
         }
     }
 
-    // ৩. TO কারেন্সির জন্য
     const toSelect = document.getElementById('to-currency');
     const toIcon = document.getElementById('to-icon');
     const toOption = toSelect.options[toSelect.selectedIndex];
@@ -641,14 +606,14 @@ function updatecurrencyIcons() {
     
     console.log("Icons updated successfully");
 }
-// ২. NOTIFICATIONA  profile menu START
+
 // নোটিফিকেশনের জন্য আলাদা ফাংশন
 function toggleNotifMenu(event) {
     event.stopPropagation();
     const menu = document.getElementById('notif-popup');
     const profile = document.getElementById('profile-popup');
     
-    if (profile) profile.style.display = 'none'; // প্রোফাইল মেনু খোলা থাকলে বন্ধ হবে
+    if (profile) profile.style.display = 'none'; 
     
     if (menu) {
         menu.style.display = (menu.style.display === 'flex') ? 'none' : 'flex';
@@ -657,9 +622,7 @@ function toggleNotifMenu(event) {
 
 // প্রোফাইলের জন্য আলাদা ফাংশন
 function toggleProfileMenu(event){
-
     event.stopPropagation();
-
     const menu = document.getElementById("profile-menu");
 
     if(!menu) return;
@@ -669,35 +632,22 @@ function toggleProfileMenu(event){
     }else{
         menu.style.display = "block";
     }
-
 }
-// ==============================
-// PERSONAL AREA
-// ==============================
 
-// ১. ট্যাব সুইচিং এবং সেকশন কন্ট্রোল করার মেইন ফাংশন
-// ১. ট্যাব সুইচিং এবং সেকশন কন্ট্রোল করার মেইন ফাংশন
-// ১. ট্যাব সুইচিং এবং সেকশন কন্ট্রোল করার মেইন ফাংশন
-function openIdVerificationSection() {
-
-    const section = document.getElementById('idVerificationSection');
-
-    if (section) {
-
-        section.style.display = 'block'; // সেকশনটি স্ক্রিনে দৃশ্যমান করবে
-
-        section.scrollIntoView({ behavior: 'smooth' }); // স্ক্রিনটি স্মুথলি নিচে নামিয়ে নিয়ে যাবে
-
-    } else {
-
-        console.error("ID Verification Section element not found in HTML!");
-
-    }
-
-// ১. পার্সোনাল এরিয়া খোলার মেইন ফাংশন (মেনু থেকে কল হবে)
 // ==============================
 // PERSONAL AREA MODULE
 // ==============================
+
+// আইডি ভেরিফিকেশন সেকশন ওপেন করার ফাংশন
+function openIdVerificationSection() {
+    const section = document.getElementById('idVerificationSection');
+    if (section) {
+        section.style.display = 'block'; 
+        section.scrollIntoView({ behavior: 'smooth' }); 
+    } else {
+        console.error("ID Verification Section element not found in HTML!");
+    }
+}
 
 // ১. মূল পার্সোনাল এরিয়া খোলার ফাংশন
 function openPersonalArea() {
@@ -755,64 +705,51 @@ function closePersonalArea() {
 }
 
 /*================ PERSONAL AREA LOCK edit mode open ================*/
-// ১. পেজ লোড হওয়ার সময় বা সেকশনে ঢুকলে ফর্মগুলো ডিফল্টভাবে লক থাকবে
 window.addEventListener('DOMContentLoaded', () => {
     lockPersonalDetailsForm();
 });
 
-// ফর্ম লক করার ফাংশন
-// ১. লক বা পেজ লোড হওয়ার সময় মোবাইল ইনপুট ও অ্যাড বাটন ডিজেবল থাকবে
 function lockPersonalDetailsForm() {
-    // সমস্ত ইনপুট ও সিলেক্ট লক করা
     document.querySelectorAll('#personalDetailsSection input, #personalDetailsSection select').forEach(el => {
         el.setAttribute('disabled', 'true');
     });
 
-    // মোবাইল নাম্বার ইনপুট স্পষ্টভাবে ডিজেবল করা
     const mobileInput = document.getElementById('mobileNumberInput');
     if (mobileInput) {
         mobileInput.setAttribute('disabled', 'true');
     }
 
-    // অ্যাড বাটন ডিজেবল করা
     const mobileBtn = document.getElementById('mobileActionBtn');
     if (mobileBtn) {
         mobileBtn.setAttribute('disabled', 'true');
     }
     
-    // সেভ বাটন ডিজেবল করা
     const saveBtn = document.getElementById('saveBtn');
     if (saveBtn) {
         saveBtn.setAttribute('disabled', 'true');
     }
 }
 
-// ২. এডিট মোডে ক্লিক করলে মোবাইল ইনপুট ও অ্যাড বাটন দুটোই আনলক হবে
 function activateEditMode() {
-    // সমস্ত ইনপুট ও সিলেক্ট আনলক করা
     document.querySelectorAll('#personalDetailsSection input, #personalDetailsSection select').forEach(el => {
         el.removeAttribute('disabled');
     });
 
-    // মোবাইল নাম্বার ইনপুট আনলক করা
     const mobileInput = document.getElementById('mobileNumberInput');
     if (mobileInput) {
         mobileInput.removeAttribute('disabled');
     }
 
-    // অ্যাড বাটন আনলক করা
     const mobileBtn = document.getElementById('mobileActionBtn');
     if (mobileBtn) {
         mobileBtn.removeAttribute('disabled');
     }
     
-    // ইমেইলের Change বাটন আনলক করা (এই লাইনটি যুক্ত করতে হবে)
     const emailChangeBtn = document.getElementById('emailChangeBtn');
     if (emailChangeBtn) {
         emailChangeBtn.removeAttribute('disabled');
     }
 
-    // সেভ বাটন সচল করা
     const saveBtn = document.getElementById('saveBtn');
     if (saveBtn) {
         saveBtn.removeAttribute('disabled');
