@@ -741,21 +741,20 @@ window.addEventListener('DOMContentLoaded', () => {
     lockPersonalDetailsForm();
 });
 
-// ফর্ম লক করার ফাংশন (এডিট মোড অফ থাকা অবস্থায়)
+// ফর্ম লক করার ফাংশন
 function lockPersonalDetailsForm() {
     document.querySelectorAll('#personalDetailsSection input, #personalDetailsSection select').forEach(el => {
         el.setAttribute('disabled', 'true');
     });
     
-    // সেভ বাটন ডিফল্টভাবে ডিসেবল বা হিডেন থাকবে (যতক্ষণ না এডিটে ক্লিক করা হয়)
+    // সেভ বাটন ডিফল্টভাবে ডিসেবল থাকবে
     const saveBtn = document.getElementById('saveBtn');
     if (saveBtn) saveBtn.setAttribute('disabled', 'true');
 }
 
-// এডিট মোড - এবার Change বাটনগুলোও একটিভ হবে
 // ২. এডিট মোড অন করার ফাংশন (Edit বাটনে ক্লিক করলে এটি রান হবে)
 function activateEditMode() {
-    // পার্সোনাল ডিটেইলস সেকশনের সব ইনপুট ও সিলেক্ট আনলক
+    // পার্সোনাল ডিটেইলস সেকশনের সব ইনপুট ও সিলেক্ট আনলক (সিএসএসের অপাসিটি তখন নরমাল হয়ে যাবে)
     document.querySelectorAll('#personalDetailsSection input, #personalDetailsSection select').forEach(el => {
         el.removeAttribute('disabled');
     });
@@ -765,28 +764,19 @@ function activateEditMode() {
         btn.removeAttribute('disabled');
     });
     
-    // সেভ বাটনটি এবার সচল করা হবে
+    // সেভ বাটনটি সচল করা
     const saveBtn = document.getElementById('saveBtn');
     if (saveBtn) {
         saveBtn.removeAttribute('disabled');
     }
 }
 
-// ৩. নতুন যোগ করা ফাংশন: 'Save Changes' বাটনে ক্লিক করলে যা হবে
+// ৩. 'Save Changes' বাটনে ক্লিক করলে যা হবে
 function savePersonalChanges() {
-    // ফর্মের ডেটাগুলো তুমি চাইলে এখানে লোকালস্টোরেজ বা ডেটাবেজে পাঠাতে পারো
-    
-    // কাজ শেষ! এবার সফল বার্তা দেখিয়ে আবার পুরো ফর্মটা লক করে দেব (যাতে সিকিউর থাকে)
     alert("Changes saved successfully!");
     
-    // ফর্ম আবার লক করে দেওয়া
+    // সফলভাবে সেভ হওয়ার পর ফর্ম আবার লক করে দেওয়া
     lockPersonalDetailsForm();
-    
-    // সেভ বাটন আবার ডিজেবল করে দেওয়া
-    const saveBtn = document.getElementById('saveBtn');
-    if (saveBtn) {
-        saveBtn.setAttribute('disabled', 'true');
-    }
 }
 /*================ PERSONAL AREA edit open  ================*/
 
