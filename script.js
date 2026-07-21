@@ -674,8 +674,9 @@ function toggleProfileMenu(event){
 
 // ১. ট্যাব সুইচিং এবং সেকশন কন্ট্রোল করার মেইন ফাংশন
 // ১. ট্যাব সুইচিং এবং সেকশন কন্ট্রোল করার মেইন ফাংশন
+// ১. ট্যাব সুইচিং এবং সেকশন কন্ট্রোল করার মেইন ফাংশন
 function openPersonalTab(sectionId) {
-    // ১. সব সেকশন বা ট্যাব কনটেন্ট হাইড করা
+    // ১. শুধু পার্সোনাল সেকশনগুলোর আইডি এখানে থাকবে, হেডার বা অন্য কিছু নয়
     const sections = ['personalDetailsSection', 'idVerificationSection', 'proofOfAddressSection'];
     
     sections.forEach(id => {
@@ -685,11 +686,10 @@ function openPersonalTab(sectionId) {
         }
     });
 
-    // ২. যেটিতে ক্লিক করা হয়েছে, কেবল সেই সেকশনটি শো করা
+    // ২. শুধুমাত্র যেটিতে ক্লিক করা হয়েছে, সেই সেকশনটি শো করা
     const targetSection = document.getElementById(sectionId);
     if (targetSection) {
-        targetSection.style.display = "block"; // অথবা 'flex', তোমার লেআউট অনুযায়ী
-        targetSection.scrollIntoView({ behavior: 'smooth' }); // চাইলে স্মুথ স্ক্রিন স্ক্রোল রাখতে পারো
+        targetSection.style.display = "block"; // লেআউট ফ্লেক্স হলে 'flex' দিতে পারো
     } else {
         console.error("Target section not found:", sectionId);
     }
