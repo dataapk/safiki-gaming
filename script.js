@@ -700,7 +700,7 @@ function openPersonalArea() {
     // ডিফল্টভাবে প্রথম ট্যাবটি ওপেন করবে
     openPersonalTab('personalDetailsSection');
 }
-
+}
 // ২. ট্যাব সুইচিং এবং সেকশন কন্ট্রোল করার মেইন ফাংশন
 function openPersonalTab(sectionId) {
     // ক. সবার আগে মূল পার্সোনাল এরিয়া ওপেন থাকা নিশ্চিত করা
