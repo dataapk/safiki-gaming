@@ -766,7 +766,31 @@ function openPersonalTab(sectionId) {
             el.style.display = "none";
         }
     });
+// সবার আগে মূল পার্সোনাল এরিয়া ওপেন থাকা নিশ্চিত করা
+    const mainArea = document.getElementById('personal-area-section');
+    if (mainArea) {
+        mainArea.style.display = 'block';
+    }
 
+    // সব ট্যাব বা সেকশন কনটেন্ট হাইড করা
+    const sections = ['personalDetailsSection', 'idVerificationSection', 'proofOfAddressSection'];
+    
+    sections.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+            el.style.display = "none";
+        }
+    });
+
+    // নির্দিষ্ট টার্গেট ট্যাবটি শো করা
+    const targetSection = document.getElementById(sectionId);
+    if (targetSection) {
+        targetSection.style.display = "flex"; // সিএসএস অনুযায়ী ফ্লেক্স করা
+        targetSection.scrollIntoView({ behavior: 'smooth' }); // স্মুথ স্ক্রোল
+    } else {
+        console.error("Target section not found:", sectionId);
+    }
+}
    
 
 
