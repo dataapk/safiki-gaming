@@ -787,17 +787,24 @@ function activateEditMode() {
         mobileBtn.removeAttribute('disabled');
     }
     
+    // ইমেইলের Change বাটন আনলক করা (এই লাইনটি যুক্ত করতে হবে)
+    const emailChangeBtn = document.getElementById('emailChangeBtn');
+    if (emailChangeBtn) {
+        emailChangeBtn.removeAttribute('disabled');
+    }
+
     // সেভ বাটন সচল করা
     const saveBtn = document.getElementById('saveBtn');
     if (saveBtn) {
         saveBtn.removeAttribute('disabled');
     }
 }
+
 // ৩. 'Save Changes' বাটনে ক্লিক করলে যা হবে
 function savePersonalChanges() {
     alert("Changes saved successfully!");
     
-    // সফলভাবে সেভ হওয়ার পর ফর্ম আবার লক করে দেওয়া
+    // সফলভাবে সেভ হওয়ার পর ফর্ম আবার লক করে দেওয়া
     lockPersonalDetailsForm();
 }
 /*================ PERSONAL AREA edit open  ================*/
