@@ -757,6 +757,8 @@ function activateEditMode() {
     // পার্সোনাল ডিটেইলস সেকশনের সব ইনপুট ও সিলেক্ট আনলক (সিএসএসের অপাসিটি তখন নরমাল হয়ে যাবে)
     document.querySelectorAll('#personalDetailsSection input, #personalDetailsSection select').forEach(el => {
         el.removeAttribute('disabled');
+        document.getElementById('mobileNumberInput').classList.remove('hide-element');
+    document.getElementById('mobileActionBtn').classList.remove('hide-element');
     });
     
     // Change বাটনগুলো সচল করা
