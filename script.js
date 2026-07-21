@@ -643,13 +643,16 @@ function updatecurrencyIcons() {
 }
 // ২. NOTIFICATIONA  profile menu START
 // নোটিফিকেশনের জন্য আলাদা ফাংশন
-// নোটিফিকেশনের জন্য আলাদা ফাংশন
 function toggleNotifMenu(event) {
     event.stopPropagation();
     const menu = document.getElementById('notif-popup');
     const profile = document.getElementById('profile-popup');
-    profile.style.display = 'none'; // অন্য মেনু বন্ধ
-    menu.style.display = (menu.style.display === 'flex') ? 'none' : 'flex';
+    
+    if (profile) profile.style.display = 'none'; // প্রোফাইল মেনু খোলা থাকলে বন্ধ হবে
+    
+    if (menu) {
+        menu.style.display = (menu.style.display === 'flex') ? 'none' : 'flex';
+    }
 }
 
 // প্রোফাইলের জন্য আলাদা ফাংশন
