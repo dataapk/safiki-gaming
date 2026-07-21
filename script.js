@@ -1045,14 +1045,26 @@ function openCountryPopup(){
 
 // START ID VERIFICATION =======
 // ১. আইডি ভেরিফিকেশন সেকশন বন্ধ করার ফাংশন (ক্লোজ বাটন ক্লিক করলে)
-function closeIdVerificationSection() {
+// ১. আইডি ভেরিফিকেশন সেকশন ওপেন করার ফাংশন (মেনু বা লিঙ্কে ক্লিক করলে এটি রান হবে)
+function openIdVerificationSection() {
     const section = document.getElementById('idVerificationSection');
     if (section) {
-        section.style.display = 'none';
+        section.style.display = 'block'; // সেকশনটি স্ক্রিনে দৃশ্যমান করবে
+        section.scrollIntoView({ behavior: 'smooth' }); // স্ক্রিনটি স্মুথলি নিচে নামিয়ে নিয়ে যাবে
+    } else {
+        console.error("ID Verification Section element not found in HTML!");
     }
 }
 
-// ২. ফাইল সিলেক্ট করার পর ফাইলের নাম দেখানোর ফাংশন
+// ২. আইডি ভেরিফিকেশন সেকশন বন্ধ করার ফাংশন (ক্রস 'X' বাটনে ক্লিক করলে রান হবে)
+function closeIdVerificationSection() {
+    const section = document.getElementById('idVerificationSection');
+    if (section) {
+        section.style.display = 'none'; // সেকশনটি আবার হাইড বা বন্ধ করে দেবে
+    }
+}
+
+// ৩. ফাইল সিলেক্ট করার পর ফাইলের নাম স্ক্রিনে দেখানোর ফাংশন
 function handleFileSelect(inputElement, nameDisplayId) {
     const fileNameDiv = document.getElementById(nameDisplayId);
     if (inputElement.files && inputElement.files[0]) {
@@ -1060,7 +1072,7 @@ function handleFileSelect(inputElement, nameDisplayId) {
     }
 }
 
-// ৩. আইডি ডকুমেন্ট সাবমিট করার ফাংশন
+// ৪. আইডি ডকুমেন্ট সাবমিট করার ফাংশন
 function submitIdDocuments() {
     const frontFile = document.getElementById('frontPartFile').files[0];
     const backFile = document.getElementById('backPartFile').files[0];
@@ -1072,16 +1084,16 @@ function submitIdDocuments() {
 
     alert("Documents uploaded successfully!");
     
-    // সাবমিটের পর স্ট্যাটাস শো করা এবং আপলোড অংশ লক করা
+    // সাবমিটের পর ওয়েটিং স্ট্যাটাস শো করা
     document.getElementById('verificationStatusArea').style.display = 'block';
 }
 
-// ৪. সেলফি ক্যামেরা ওপেন করার ফাংশন
+// ৫. সেলফি ক্যামেরা ওপেন করার ফাংশন
 function startSelfieCamera() {
     const video = document.getElementById('selfieCameraFeed');
     const placeholder = document.getElementById('cameraPlaceholder');
     
-    // ব্রাউজারের ক্যামেরা এক্সেস নেওয়ার রিকোয়েস্ট
+    // ব্রাউজারের ক্যামেরা পারমিশন ও এক্সেস নেওয়ার রিকোয়েস্ট
     navigator.mediaDevices.getUserMedia({ video: true })
         .then((stream) => {
             video.srcObject = stream;
@@ -1091,10 +1103,9 @@ function startSelfieCamera() {
         })
         .catch((error) => {
             console.error("Camera access error:", error);
-            alert("Unable to access camera. Please check permissions.");
+            alert("Unable to access camera. Please check camera permissions in your browser.");
         });
 }
-
 
 // END OPEN KYC VERIFICATIONM=======
 
