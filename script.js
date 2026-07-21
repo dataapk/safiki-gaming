@@ -713,50 +713,72 @@ function activateEditMode() {
 }
 /*================ PERSONAL AREA edit open  ================*/
 
-// ১. বর্তমান ইমেইলে কোড পাঠানোর ফাংশন
+// ১. ড্রপডাউন টগল করার ফাংশন (Change বাটনে ক্লিক করলে ড্রপডাউন খুলবে/বন্ধ হবে)
+function toggleDropdown(dropdownId) {
+    const dropdown = document.getElementById(dropdownId);
+    
+    if (dropdown.style.display === "block") {
+        dropdown.style.display = "none";
+    } else {
+        dropdown.style.display = "block";
+        // ড্রপডাউন খুললে সবসময় প্রথম ধাপটি (Send Code) দৃশ্যমান থাকবে এবং বাকি ধাপগুলো রিসেট হবে
+        document.getElementById('emailSendStep').style.display = 'flex';
+        document.getElementById('emailVerifyStep').style.display = 'none';
+        document.getElementById('newEmailStep').style.display = 'none';
+        
+        // ইনপুট ফিল্ডগুলো ফাঁকা করে দেওয়া
+        document.getElementById('emailOtpInput').value = '';
+        document.getElementById('finalNewEmail').value = '';
+    }
+}
+
+// ২. বর্তমান ইমেইলে কোড পাঠানোর ফাংশন
 function sendCodeToCurrentEmail() {
     alert("Verification code has been sent to your current email!");
     
-    // সেন্ড বাটন লুকিয়ে ফেলব, কোড বসানোর বক্স ওপেন করব
+    // সেন্ড কোড অপশন লুকিয়ে ওটিপি বক্স ওপেন করা
     document.getElementById('emailSendStep').style.display = 'none';
     document.getElementById('emailVerifyStep').style.display = 'flex';
 }
 
-// ২. কোড ভেরিফাই করার ফাংশন
+// ৩. কোড ভেরিফাই করার ফাংশন
 function verifyEmailCode() {
-    const otp = document.getElementById('emailOtpInput').value;
+    const otp = document.getElementById('emailOtpInput').value.trim();
     
-    if(otp.length < 4) { // কোডের লেন্থ তোমার মতো দিতে পারো
+    if (otp.length < 4) { // প্রয়োজনমতো কোডের লেন্থ চেক
         alert("Please enter a valid verification code.");
         return;
     }
     
-    alert("Code verified successfully! Now you can enter your new email.");
+    alert("Code verified successfully! Now please enter your new email.");
     
-    // কোড বক্স লুকিয়ে ফেলব, নতুন ইমেইল দেওয়ার বক্স ওপেন করব
+    // ওটিপি বক্স লুকিয়ে নতুন ইমেইল দেওয়ার বক্স ওপেন করা
     document.getElementById('emailVerifyStep').style.display = 'none';
     document.getElementById('newEmailStep').style.display = 'flex';
 }
 
-// ৩. নতুন ইমেইল আপডেট বা সেভ করার ফাংশন
+// ৪. নতুন ইমেইল আপডেট বা সেভ করার ফাংশন
 function saveNewEmail() {
-    const newEmail = document.getElementById('finalNewEmail').value;
+    const newEmail = document.getElementById('finalNewEmail').value.trim();
     
-    if(!newEmail || !newEmail.includes('@')) {
+    if (!newEmail || !newEmail.includes('@')) {
         alert("Please enter a valid email address.");
         return;
     }
     
-    // মেইন ইনপুটে নতুন ইমেইল বসিয়ে দেওয়া
+    // মেইন ইনপুটে নতুন ইমেইলটি বসিয়ে দেওয়া
     document.getElementById('currentEmail').value = newEmail;
     
     alert("Email updated successfully!");
     
-    // ড্রপডাউন বন্ধ করে দেওয়া এবং রিসেট করা
+    // ড্রপডাউন বন্ধ করে দেওয়া এবং সব স্টেপ রিসেট করা
     document.getElementById('emailDropdown').style.display = 'none';
+    document.getElementById('emailSendStep').style.display = 'flex';
+    document.getElementById('emailVerifyStep').style.display = 'none';
     document.getElementById('newEmailStep').style.display = 'none';
-    document.getElementById('emailSendStep').style.display = 'flex'; // আবার আগের অবস্থায় ফিরিয়ে নেওয়া
 }
+// ১. END EMAIL DROPDOWN LOGIC
+
 // ১. 'Change' বা 'Send Code' বাটনে ক্লিক করলে এই ফাংশনটি রান হবে
 // পেজ লোড হওয়ার সময় চেক করার জন্য
 window.addEventListener('DOMContentLoaded', () => {
