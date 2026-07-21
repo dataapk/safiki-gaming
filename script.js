@@ -754,13 +754,6 @@ function closePersonalArea() {
     }
 }
 
-// ৩. পার্সোনাল এরিয়া বন্ধ করার ফাংশন
-function closePersonalArea() {
-    const personalArea = document.getElementById("personal-area-section");
-    if (personalArea) {
-        personalArea.style.display = "none";
-    }
-}
 /*================ PERSONAL AREA LOCK edit mode open ================*/
 // ১. পেজ লোড হওয়ার সময় বা সেকশনে ঢুকলে ফর্মগুলো ডিফল্টভাবে লক থাকবে
 window.addEventListener('DOMContentLoaded', () => {
