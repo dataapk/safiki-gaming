@@ -1043,7 +1043,58 @@ function openCountryPopup(){
 }
 // END  Personal area==========
 
-// START OPEN KYC VERIFICATIONM=======
+// START ID VERIFICATION =======
+// ১. আইডি ভেরিফিকেশন সেকশন বন্ধ করার ফাংশন (ক্লোজ বাটন ক্লিক করলে)
+function closeIdVerificationSection() {
+    const section = document.getElementById('idVerificationSection');
+    if (section) {
+        section.style.display = 'none';
+    }
+}
+
+// ২. ফাইল সিলেক্ট করার পর ফাইলের নাম দেখানোর ফাংশন
+function handleFileSelect(inputElement, nameDisplayId) {
+    const fileNameDiv = document.getElementById(nameDisplayId);
+    if (inputElement.files && inputElement.files[0]) {
+        fileNameDiv.textContent = inputElement.files[0].name;
+    }
+}
+
+// ৩. আইডি ডকুমেন্ট সাবমিট করার ফাংশন
+function submitIdDocuments() {
+    const frontFile = document.getElementById('frontPartFile').files[0];
+    const backFile = document.getElementById('backPartFile').files[0];
+
+    if (!frontFile || !backFile) {
+        alert("Please upload both Front and Back parts of your document.");
+        return;
+    }
+
+    alert("Documents uploaded successfully!");
+    
+    // সাবমিটের পর স্ট্যাটাস শো করা এবং আপলোড অংশ লক করা
+    document.getElementById('verificationStatusArea').style.display = 'block';
+}
+
+// ৪. সেলফি ক্যামেরা ওপেন করার ফাংশন
+function startSelfieCamera() {
+    const video = document.getElementById('selfieCameraFeed');
+    const placeholder = document.getElementById('cameraPlaceholder');
+    
+    // ব্রাউজারের ক্যামেরা এক্সেস নেওয়ার রিকোয়েস্ট
+    navigator.mediaDevices.getUserMedia({ video: true })
+        .then((stream) => {
+            video.srcObject = stream;
+            video.style.display = 'block';
+            placeholder.style.display = 'none';
+            alert("Camera access granted. Please position your face inside the frame.");
+        })
+        .catch((error) => {
+            console.error("Camera access error:", error);
+            alert("Unable to access camera. Please check permissions.");
+        });
+}
+
 
 // END OPEN KYC VERIFICATIONM=======
 
