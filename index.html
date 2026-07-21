@@ -469,8 +469,8 @@
 <!-- এখানেই Profile Menu শেষ -->
 
 <!-- ================= PERSONAL AREA ================= -->
-     
-    <div id="personal-area-section" style="display:none;">
+
+<div id="personal-area-section" style="display:none;">
 
 
     <!-- HEADER -->
@@ -484,262 +484,76 @@
         </button>
 
     </div>
+
+
+
     <!-- ================= PERSONAL TABS ================= -->
 
-   <div class="personal-tabs">
-    <button class="personal-tab" onclick="openPersonalTab('personalDetailsSection')">Personal Details</button>
+    <div class="personal-tabs">
 
-    <button class="personal-tab" onclick="openPersonalTab('idVerificationSection')">ID Verification</button>
+        <button 
+        class="personal-tab active"
+        onclick="openPersonalTab('details')">
 
-    <button class="personal-tab" onclick="openPersonalTab('proofOfAddressSection')">Proof Documents</button>
-</div>
+            Personal Details
+
+        </button>
+
+
+        <button 
+        class="personal-tab"
+        onclick="openPersonalTab('verification')">
+
+            ID Verification
+
+        </button>
+
+
+        <button 
+        class="personal-tab"
+        onclick="openPersonalTab('address')">
+
+            Proof Documents
+
+        </button>
+
+
+    </div>
+
+
+
 
 
     <!-- ================= PERSONAL DETAILS ================= -->
 
- <!-- ================= PERSONAL DETAILS ================= -->
-<div id="personalDetailsSection" class="personal-tab-content">
-    <div class="personal-card">
-        <div class="form-container">
-            <!-- নাম ও সারনেম -->
-            <div class="input-group">
-                <div class="input-wrapper">
-                    <label>First Name</label>
-                    <input type="text" id="firstName" disabled>
-                </div>
-                <div class="input-wrapper">
-                    <label>Surname</label>
-                    <input type="text" id="surname" disabled>
-                </div>
-            </div>
-            
-            <!-- জন্মস্থান (পতাকাসহ) -->
-            <div class="input-wrapper" style="margin-bottom: 15px;">
-                <label>Place of Birth</label>
-                <select id="birthPlace" class="full-width" disabled>
-                    <option value="BD">🇧🇩 Bangladesh</option>
-                    <option value="US">🇺🇸 United States</option>
-                    <option value="UK">🇬🇧 United Kingdom</option>
-                    <option value="IN">🇮🇳 India</option>
-                </select>
-            </div>
+    <div id="personalDetailsSection"
+    class="personal-tab-content">
 
-            <!-- জন্ম তারিখ ও জেন্ডার -->
-            <div class="input-group">
-                <div class="input-wrapper">
-                    <label>Date of Birth</label>
-                    <input type="date" id="dob" disabled>
-                </div>
-                <div class="input-wrapper">
-                    <label>Gender</label>
-                    <div class="gender-options" style="display: flex; gap: 15px; margin-top: 10px;">
-                        <label><input type="radio" name="gender" disabled> Male</label>
-                        <label><input type="radio" name="gender" disabled> Female</label>
-                    </div>
-                </div>
-            </div>
 
-            <!-- ইমেইল সেকশন -->
-            <div class="input-wrapper" style="margin-bottom: 15px;">
-                <label>Email Address</label>
-                <div class="action-input-group">
-                    <input type="email" id="currentEmail" value="example@mail.com" disabled>
-                    <button type="button" class="change-btn" id="emailChangeBtn" onclick="toggleDropdown('emailDropdown')" disabled>Change</button>
-                </div>
-                <!-- ইমেইল ড্রপডাউন সেকশন -->
-<div id="emailDropdown" class="verification-dropdown">
-    
-    <!-- ধাপ ১: সেন্ড কোড অপশন (বর্তমান ইমেইলে কোড পাঠানোর জন্য) -->
-    <div class="verify-group" id="emailSendStep">
-        <span style="color: #888; font-size: 13px; align-self: center;">Code will be sent to your current email</span>
-        <button type="button" class="send-code-btn" onclick="sendCodeToCurrentEmail()">Send Code</button>
+        <!-- Personal Details Content Will Come Here -->
+
+
     </div>
 
-    <!-- ধাপ ২: কোড বসানোর বক্স (সেন্ড কোডে ক্লিক করার পর ওপেন হবে) -->
-    <div class="verify-group" id="emailVerifyStep" style="display: none; margin-top: 10px;">
-        <input type="text" id="emailOtpInput" placeholder="Enter Verification Code" maxlength="6">
-        <button type="button" class="verify-code-btn" onclick="verifyEmailCode()">Verify</button>
+
+
+
+
+    <!-- ================= ID VERIFICATION ================= -->
+
+    <div id="idVerificationSection"
+    class="personal-tab-content"
+    style="display:none;">
+
+
+        <!-- ID Verification Content Will Come Here -->
+
+
     </div>
 
-    <!-- ধাপ ৩: ভেরিফাই সফল হওয়ার পর নতুন ইমেইল দেওয়ার বক্স -->
-    <div class="verify-group" id="newEmailStep" style="display: none; margin-top: 10px;">
-        <input type="email" id="finalNewEmail" placeholder="Enter New Email Address">
-        <button type="button" class="save-new-email-btn" onclick="saveNewEmail()">Update Email</button>
-    </div>
-
-</div>
-            </div>
-
-            <!-- মোবাইল সেকশন -->
-            <!-- মোবাইল নাম্বার সেকশন -->
-<!-- মোবাইল নাম্বার মেইন সেকশন -->
-<div class="input-wrapper" style="margin-bottom: 15px;">
-    <label>Mobile Number</label>
-    <div class="action-input-group">
-        <select class="country-code" id="mobileCountryCode">
-            <option>🇧🇩 +880</option>
-            <option>🇺🇸 +1</option>
-        </select>
-        
-       <!-- মোবাইল নাম্বার ইনপুট -->
-<input type="tel" id="mobileNumberInput" placeholder="Enter mobile number" value="" disabled>
-
-<!-- অ্যাড বাটন -->
-<button type="button" class="change-btn"
-    id="mobileActionBtn" onclick="handleMobileMainAction()" disabled>Add</button>
-        </div>
-
-    <!-- মোবাইল ড্রপডাউন সেকশন -->
-    <!-- মোবাইল ড্রপডাউন সেকশন -->
-<div id="mobileDropdown" class="verification-dropdown">
-    
-    <!-- কেস ১ (নতুন নাম্বারের জন্য): সরাসরি সেন্ড কোড ও ভেরিফাই ধাপ -->
-    <div class="verify-group" id="mobileNewAddStep" style="display: none;">
-        <input type="text" id="mobileAddOtpInput" placeholder="Enter Verification Code" maxlength="6">
-        <button type="button" class="send-code-btn" onclick="verifyAndSaveNewMobileCode()">Verify & Save</button>
-    </div>
-
-    <!-- কেস ২ (চেঞ্জ মোড - ধাপ ১): বর্তমান নাম্বারে কোড পাঠানো -->
-    <div class="verify-group" id="mobileChangeSendStep" style="display: none;">
-        <span style="color: #888; font-size: 13px; align-self: center;">Code will be sent to your current mobile</span>
-        <button type="button" class="send-code-btn" onclick="sendCodeToCurrentMobile()">Send Code</button>
-    </div>
-
-    <!-- কেস ২ (চেঞ্জ মোড - ধাপ ২): কোড ভেরিফাই করা -->
-    <div class="verify-group" id="mobileChangeVerifyStep" style="display: none;">
-        <input type="text" id="mobileChangeOtpInput" placeholder="Enter Verification Code" maxlength="6">
-        <button type="button" class="verify-code-btn" onclick="verifyCurrentMobileCode()">Verify</button>
-    </div>
-
-    <!-- কেস ২ (চেঞ্জ মোড - ধাপ ৩): নতুন নাম্বার ইনপুট ও আপডেট করা -->
-    <div class="verify-group" id="mobileNewUpdateStep" style="display: none;">
-        <input type="tel" id="finalNewMobileInput" placeholder="Enter new mobile number">
-        <button type="button" class="save-new-email-btn" onclick="updateNewMobileNumber()">Update Mobile</button>
-    </div>
-
-</div>
-
-<!-- ফুটার বাটন -->
-        <div class="form-footer">
-            <button type="button" class="edit-action-btn" onclick="activateEditMode()">Edit</button>
-            <button type="button" class="save-btn" id="saveBtn" onclick="savePersonalChanges()" disabled>Save Changes</button>
-        </div>
-    </div> 
-</div>
-        </div>
 
 
-<!-- ================= ID VERIFICATION (এটি পার্সোনাল ডিটেইলসের সম্পূর্ণ বাইরে থাকবে) ================= -->
-<!-- ================= ID VERIFICATION (সম্পূর্ণ কোড) ================= -->
-<!-- ১. আইডি ভেরিফিকেশন খোলার বাটন (এটি তোমার মেনু বা প্রোফাইল সেকশনের এমন জায়গায় রাখো যা সবসময় দেখা যায়) -->
-<!-- ================= ID VERIFICATION ================= -->
-<div id="idVerificationSection" class="personal-tab-content" style="display: none;">
-    <div class="verification-card">
-        
-        <!-- শিরোনাম এবং ক্লোজ বাটন -->
-        <div class="verification-header">
-            <h3 class="verification-title">Identity Verification</h3>
-            <button type="button" class="close-verify-btn" onclick="closeIdVerificationSection()" title="Close">✕</button>
-        </div>
-        
-        <div class="form-container">
-            
-            <!-- ধাপ ১: কান্ট্রি সিলেকশন -->
-            <div class="input-wrapper" style="margin-bottom: 15px;">
-                <label>Select Country</label>
-                <select id="verificationCountry" class="full-width">
-                    <option value="BD">🇧🇩 Bangladesh</option>
-                    <option value="US">🇺🇸 United States</option>
-                    <option value="UK">🇬🇧 United Kingdom</option>
-                    <option value="IN">🇮🇳 India</option>
-                </select>
-            </div>
 
-            <!-- ধাপ ২: আইডি টাইপ সিলেকশন -->
-            <div class="input-wrapper" style="margin-bottom: 15px;">
-                <label>Document Type</label>
-                <select id="idDocumentType" class="full-width">
-                    <option value="nid">National ID Card (NID)</option>
-                    <option value="passport">Passport</option>
-                    <option value="driving">Driving License</option>
-                </select>
-            </div>
-
-            <!-- ধাপ ৩: ভেরিফিকেশন গাইডলাইন ও রাইট/রং ডিরেকশন -->
-            <div class="id-guidelines-box">
-                <div class="guidance-title">📌 Verification Guidelines & Instructions:</div>
-                <ul class="guideline-text-list">
-                    <li>Ensure all text and details on the ID are fully readable and sharp.</li>
-                    <li>Avoid blurry images, flashlight glare, or cutting off any corners.</li>
-                </ul>
-
-                <div class="direction-grid">
-                    <!-- রাইট ডিরেকশন (সঠিক নমুনা) -->
-                    <div class="direction-card correct">
-                        <div class="direction-img-placeholder">
-                            <span>[ Clear Full View ]</span>
-                        </div>
-                        <span class="direction-label correct-label">✔ Right Direction</span>
-                    </div>
-
-                    <!-- রং ডিরেকশন (ভুল নমুনা) -->
-                    <div class="direction-card wrong">
-                        <div class="direction-img-placeholder">
-                            <span>[ Cut / Blurry View ]</span>
-                        </div>
-                        <span class="direction-label wrong-label">✖ Wrong Direction</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ধাপ ৪: ফ্রন্ট ও ব্যাক পার্ট আপলোড অপশন -->
-            <div class="id-upload-grid">
-                <!-- ফ্রন্ট পার্ট -->
-                <div class="upload-box" onclick="document.getElementById('frontPartFile').click()">
-                    <div style="font-size: 22px; color: #f5c542; margin-bottom: 5px;">📁</div>
-                    <span style="color: #fff; font-size: 13px; font-weight: 500;">Front Part</span>
-                    <p style="color: #777; font-size: 11px; margin: 3px 0 0 0;">Click to upload</p>
-                    <input type="file" id="frontPartFile" accept="image/*" onchange="handleFileSelect(this, 'frontFileName')">
-                    <div id="frontFileName" style="color: #f5c542; font-size: 11px; margin-top: 4px;"></div>
-                </div>
-
-                <!-- ব্যাক পার্ট -->
-                <div class="upload-box" onclick="document.getElementById('backPartFile').click()">
-                    <div style="font-size: 22px; color: #f5c542; margin-bottom: 5px;">📁</div>
-                    <span style="color: #fff; font-size: 13px; font-weight: 500;">Back Part</span>
-                    <p style="color: #777; font-size: 11px; margin: 3px 0 0 0;">Click to upload</p>
-                    <input type="file" id="backPartFile" accept="image/*" onchange="handleFileSelect(this, 'backFileName')">
-                    <div id="backFileName" style="color: #f5c542; font-size: 11px; margin-top: 4px;"></div>
-                </div>
-            </div>
-
-            <!-- ধাপ ৫: সাবমিট বাটন -->
-            <button type="button" class="submit-verify-btn" onclick="submitIdDocuments()">Submit Documents</button>
-
-            <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 25px 0;">
-
-            <!-- ধাপ ৬: সেলফি ভেরিফিকেশন ক্যামেরা অপশন -->
-            <div class="input-wrapper">
-                <label>Selfie Verification</label>
-                <p style="color: #888; font-size: 12px; margin: 4px 0;">Position your face inside the oval frame to verify your identity.</p>
-                
-                <div class="selfie-container">
-                    <div class="camera-frame">
-                        <video id="selfieCameraFeed" autoplay playsinline style="width: 100%; height: 100%; object-fit: cover; display: none;"></video>
-                        <div id="cameraPlaceholder" style="color: #666; font-size: 12px;">Camera Inactive</div>
-                    </div>
-                    <button type="button" class="change-btn" id="startCameraBtn" onclick="startSelfieCamera()" style="margin-top: 5px;">Start Camera & Verify</button>
-                </div>
-            </div>
-
-            <!-- ভেরিফিকেশন ওয়েটিং স্ট্যাটাস -->
-            <div id="verificationStatusArea" style="text-align: center; display: none;">
-                <div class="status-badge">⏳ Waiting for Verification (Up to 48 hours)</div>
-            </div>
-
-        </div>
-    </div>
-</div>
 
     <!-- ================= PROOF DOCUMENTS ================= -->
 
@@ -757,8 +571,6 @@
 
 </div>
 
-
-   
 <!-- ================= END PERSONAL AREA ================= -->
 
 <!-- ================= END KYC VERIFICATION ================= -->
