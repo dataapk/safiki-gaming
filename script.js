@@ -735,33 +735,58 @@ function closePersonalArea(){
     if(personalArea) personalArea.style.display = "none";
 
 }
-/*================ PERSONAL AREA edit mode opem ================*/
+/*================ PERSONAL AREA LOCK edit mode open ================*/
+// ১. পেজ লোড হওয়ার সময় বা সেকশনে ঢুকলে ফর্মগুলো ডিফল্টভাবে লক থাকবে
+window.addEventListener('DOMContentLoaded', () => {
+    lockPersonalDetailsForm();
+});
+
+// ফর্ম লক করার ফাংশন (এডিট মোড অফ থাকা অবস্থায়)
+function lockPersonalDetailsForm() {
+    document.querySelectorAll('#personalDetailsSection input, #personalDetailsSection select').forEach(el => {
+        el.setAttribute('disabled', 'true');
+    });
+    
+    // সেভ বাটন ডিফল্টভাবে ডিসেবল বা হিডেন থাকবে (যতক্ষণ না এডিটে ক্লিক করা হয়)
+    const saveBtn = document.getElementById('saveBtn');
+    if (saveBtn) saveBtn.setAttribute('disabled', 'true');
+}
 
 // এডিট মোড - এবার Change বাটনগুলোও একটিভ হবে
+// ২. এডিট মোড অন করার ফাংশন (Edit বাটনে ক্লিক করলে এটি রান হবে)
 function activateEditMode() {
-    // পার্সোনাল ডিটেইলস সেকশনের ভেতরের সব ইনপুট ও সিলেক্ট আনলক করা
+    // পার্সোনাল ডিটেইলস সেকশনের সব ইনপুট ও সিলেক্ট আনলক
     document.querySelectorAll('#personalDetailsSection input, #personalDetailsSection select').forEach(el => {
         el.removeAttribute('disabled');
     });
     
-    // মোবাইল নাম্বার ইনপুটটি আলাদাভাবে নিশ্চিত করা যাতে কোনো বাধা না থাকে
-    const mobileInput = document.getElementById('mobileNumberInput');
-    if (mobileInput) {
-        mobileInput.removeAttribute('disabled');
-    }
-    
-    // Change বাটনগুলো আনলক করা
+    // Change বাটনগুলো সচল করা
     document.querySelectorAll('.change-btn').forEach(btn => {
         btn.removeAttribute('disabled');
     });
     
-    // সেভ বাটন সচল করা
+    // সেভ বাটনটি এবার সচল করা হবে
     const saveBtn = document.getElementById('saveBtn');
     if (saveBtn) {
         saveBtn.removeAttribute('disabled');
     }
+}
 
-    alert("Edit mode activated. You can now modify your details.");
+// ৩. নতুন যোগ করা ফাংশন: 'Save Changes' বাটনে ক্লিক করলে যা হবে
+function savePersonalChanges() {
+    // ফর্মের ডেটাগুলো তুমি চাইলে এখানে লোকালস্টোরেজ বা ডেটাবেজে পাঠাতে পারো
+    
+    // কাজ শেষ! এবার সফল বার্তা দেখিয়ে আবার পুরো ফর্মটা লক করে দেব (যাতে সিকিউর থাকে)
+    alert("Changes saved successfully!");
+    
+    // ফর্ম আবার লক করে দেওয়া
+    lockPersonalDetailsForm();
+    
+    // সেভ বাটন আবার ডিজেবল করে দেওয়া
+    const saveBtn = document.getElementById('saveBtn');
+    if (saveBtn) {
+        saveBtn.setAttribute('disabled', 'true');
+    }
 }
 /*================ PERSONAL AREA edit open  ================*/
 
