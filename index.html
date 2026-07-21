@@ -638,16 +638,113 @@
 </div>
 
     <!-- ================= ID VERIFICATION ================= -->
+<div id="idVerificationSection" class="personal-tab-content" style="display: none;">
+    <div class="verification-card">
+        
+        <!-- শিরোনাম এবং ক্লোজ বাটন -->
+        <div class="verification-header">
+            <h3 class="verification-title">Identity Verification</h3>
+            <button type="button" class="close-verify-btn" onclick="closeIdVerificationSection()" title="Close">✕</button>
+        </div>
+        
+        <div class="form-container">
+            
+            <!-- ধাপ ১: কান্ট্রি সিলেকশন -->
+            <div class="input-wrapper" style="margin-bottom: 15px;">
+                <label>Select Country</label>
+                <select id="verificationCountry" class="full-width">
+                    <option value="BD">🇧🇩 Bangladesh</option>
+                    <option value="US">🇺🇸 United States</option>
+                    <option value="UK">🇬🇧 United Kingdom</option>
+                    <option value="IN">🇮🇳 India</option>
+                </select>
+            </div>
 
-    <div id="idVerificationSection"
-    class="personal-tab-content"
-    style="display:none;">
+            <!-- ধাপ ২: আইডি টাইপ সিলেকশন -->
+            <div class="input-wrapper" style="margin-bottom: 15px;">
+                <label>Document Type</label>
+                <select id="idDocumentType" class="full-width">
+                    <option value="nid">National ID Card (NID)</option>
+                    <option value="passport">Passport</option>
+                    <option value="driving">Driving License</option>
+                </select>
+            </div>
 
+            <!-- ধাপ ৩: ভেরিফিকেশন গাইডলাইন ও রাইট/রং ডিরেকশন -->
+            <div class="id-guidelines-box">
+                <div class="guidance-title">📌 Verification Guidelines & Instructions:</div>
+                <ul class="guideline-text-list">
+                    <li>Ensure all text and details on the ID are fully readable and sharp.</li>
+                    <li>Avoid blurry images, flashlight glare, or cutting off any corners.</li>
+                </ul>
 
-        <!-- ID Verification Content Will Come Here -->
+                <div class="direction-grid">
+                    <!-- রাইট ডিরেকশন (সঠিক নমুনা) -->
+                    <div class="direction-card correct">
+                        <div class="direction-img-placeholder">
+                            <span>[ Clear Full View ]</span>
+                        </div>
+                        <span class="direction-label correct-label">✔ Right Direction</span>
+                    </div>
 
+                    <!-- রং ডিরেকশন (ভুল নমুনা) -->
+                    <div class="direction-card wrong">
+                        <div class="direction-img-placeholder">
+                            <span>[ Cut / Blurry View ]</span>
+                        </div>
+                        <span class="direction-label wrong-label">✖ Wrong Direction</span>
+                    </div>
+                </div>
+            </div>
 
+            <!-- ধাপ ৪: ফ্রন্ট ও ব্যাক পার্ট আপলোড অপশন -->
+            <div class="id-upload-grid">
+                <!-- ফ্রন্ট পার্ট -->
+                <div class="upload-box" onclick="document.getElementById('frontPartFile').click()">
+                    <div style="font-size: 22px; color: #f5c542; margin-bottom: 5px;">📁</div>
+                    <span style="color: #fff; font-size: 13px; font-weight: 500;">Front Part</span>
+                    <p style="color: #777; font-size: 11px; margin: 3px 0 0 0;">Click to upload</p>
+                    <input type="file" id="frontPartFile" accept="image/*" onchange="handleFileSelect(this, 'frontFileName')">
+                    <div id="frontFileName" style="color: #f5c542; font-size: 11px; margin-top: 4px;"></div>
+                </div>
+
+                <!-- ব্যাক পার্ট -->
+                <div class="upload-box" onclick="document.getElementById('backPartFile').click()">
+                    <div style="font-size: 22px; color: #f5c542; margin-bottom: 5px;">📁</div>
+                    <span style="color: #fff; font-size: 13px; font-weight: 500;">Back Part</span>
+                    <p style="color: #777; font-size: 11px; margin: 3px 0 0 0;">Click to upload</p>
+                    <input type="file" id="backPartFile" accept="image/*" onchange="handleFileSelect(this, 'backFileName')">
+                    <div id="backFileName" style="color: #f5c542; font-size: 11px; margin-top: 4px;"></div>
+                </div>
+            </div>
+
+            <!-- ধাপ ৫: সাবমিট বাটন -->
+            <button type="button" class="submit-verify-btn" onclick="submitIdDocuments()">Submit Documents</button>
+
+            <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 25px 0;">
+
+            <!-- ধাপ ৬: সেলফি ভেরিফিকেশন ক্যামেরা অপশন -->
+            <div class="input-wrapper">
+                <label>Selfie Verification</label>
+                <p style="color: #888; font-size: 12px; margin: 4px 0;">Position your face inside the oval frame to verify your identity.</p>
+                
+                <div class="selfie-container">
+                    <div class="camera-frame">
+                        <video id="selfieCameraFeed" autoplay playsinline style="width: 100%; height: 100%; object-fit: cover; display: none;"></video>
+                        <div id="cameraPlaceholder" style="color: #666; font-size: 12px;">Camera Inactive</div>
+                    </div>
+                    <button type="button" class="change-btn" id="startCameraBtn" onclick="startSelfieCamera()" style="margin-top: 5px;">Start Camera & Verify</button>
+                </div>
+            </div>
+
+            <!-- ভেরিফিকেশন ওয়েটিং স্ট্যাটাস -->
+            <div id="verificationStatusArea" style="text-align: center; display: none;">
+                <div class="status-badge">⏳ Waiting for Verification (Up to 48 hours)</div>
+            </div>
+
+        </div>
     </div>
+</div>
 
 
 
