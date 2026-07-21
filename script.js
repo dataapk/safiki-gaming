@@ -742,37 +742,57 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 // ফর্ম লক করার ফাংশন
+// ১. লক বা পেজ লোড হওয়ার সময় মোবাইল ইনপুট ও অ্যাড বাটন ডিজেবল থাকবে
 function lockPersonalDetailsForm() {
+    // সমস্ত ইনপুট ও সিলেক্ট লক করা
     document.querySelectorAll('#personalDetailsSection input, #personalDetailsSection select').forEach(el => {
         el.setAttribute('disabled', 'true');
     });
+
+    // মোবাইল নাম্বার ইনপুট স্পষ্টভাবে ডিজেবল করা
+    const mobileInput = document.getElementById('mobileNumberInput');
+    if (mobileInput) {
+        mobileInput.setAttribute('disabled', 'true');
+    }
+
+    // অ্যাড বাটন ডিজেবল করা
+    const mobileBtn = document.getElementById('mobileActionBtn');
+    if (mobileBtn) {
+        mobileBtn.setAttribute('disabled', 'true');
+    }
     
-    // সেভ বাটন ডিফল্টভাবে ডিসেবল থাকবে
+    // সেভ বাটন ডিজেবল করা
     const saveBtn = document.getElementById('saveBtn');
-    if (saveBtn) saveBtn.setAttribute('disabled', 'true');
+    if (saveBtn) {
+        saveBtn.setAttribute('disabled', 'true');
+    }
 }
 
-// ২. এডিট মোড অন করার ফাংশন (Edit বাটনে ক্লিক করলে এটি রান হবে)
+// ২. এডিট মোডে ক্লিক করলে মোবাইল ইনপুট ও অ্যাড বাটন দুটোই আনলক হবে
 function activateEditMode() {
-    // পার্সোনাল ডিটেইলস সেকশনের সব ইনপুট ও সিলেক্ট আনলক (সিএসএসের অপাসিটি তখন নরমাল হয়ে যাবে)
+    // সমস্ত ইনপুট ও সিলেক্ট আনলক করা
     document.querySelectorAll('#personalDetailsSection input, #personalDetailsSection select').forEach(el => {
         el.removeAttribute('disabled');
-        document.getElementById('mobileNumberInput').classList.remove('hide-element');
-    document.getElementById('mobileActionBtn').classList.remove('hide-element');
     });
+
+    // মোবাইল নাম্বার ইনপুট আনলক করা
+    const mobileInput = document.getElementById('mobileNumberInput');
+    if (mobileInput) {
+        mobileInput.removeAttribute('disabled');
+    }
+
+    // অ্যাড বাটন আনলক করা
+    const mobileBtn = document.getElementById('mobileActionBtn');
+    if (mobileBtn) {
+        mobileBtn.removeAttribute('disabled');
+    }
     
-    // Change বাটনগুলো সচল করা
-    document.querySelectorAll('.change-btn').forEach(btn => {
-        btn.removeAttribute('disabled');
-    });
-    
-    // সেভ বাটনটি সচল করা
+    // সেভ বাটন সচল করা
     const saveBtn = document.getElementById('saveBtn');
     if (saveBtn) {
         saveBtn.removeAttribute('disabled');
     }
 }
-
 // ৩. 'Save Changes' বাটনে ক্লিক করলে যা হবে
 function savePersonalChanges() {
     alert("Changes saved successfully!");
