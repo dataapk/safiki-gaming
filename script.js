@@ -672,8 +672,35 @@ function toggleProfileMenu(event){
 // PERSONAL AREA
 // ==============================
 
-function openPersonalArea(){
+// ১. ট্যাব সুইচিং এবং সেকশন কন্ট্রোল করার মেইন ফাংশন
+function openPersonalTab(sectionId) {
+    // প্রথমে পার্সোনাল এরিয়ার ভেতরের সব সেকশন বা ট্যাব কনটেন্ট হাইড করে দেব
+    const sections = ['personalDetailsSection', 'idVerificationSection', 'proofOfAddressSection'];
+    
+    sections.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+            el.style.display = "none";
+        }
+    });
 
+    // যে সেকশ্নে ক্লিক করা হয়েছে শুধুমাত্র সেটি শো করবে
+    const targetSection = document.getElementById(sectionId);
+    if (targetSection) {
+        targetSection.style.display = "block";
+    }
+
+    // অপশনাল: ট্যাবগুলোর অ্যাক্টিভ ক্লাস স্টাইল ঠিক রাখার জন্য (যদি থাকে)
+    document.querySelectorAll('.personal-tab').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    
+    // যে ট্যাবে ক্লিক করা হয়েছে সেটিতে active ক্লাস যোগ করা (যদি দরকার হয়)
+    // event.currentTarget.classList.add('active'); 
+}
+
+// ২. তোমার পুরনো openPersonalArea ফাংশনটি এখন একদম পারফেক্ট কাজ করবে:
+function openPersonalArea() {
     const profileMenu = document.getElementById("profile-menu");
     if(profileMenu) profileMenu.style.display = "none";
 
@@ -688,10 +715,10 @@ function openPersonalArea(){
 
     const personalArea = document.getElementById("personal-area-section");
     if(personalArea) personalArea.style.display = "block";
-
-    openPersonalTab("details");
-
+    // এই লাইনটি একদম এভাবে বসিয়ে দাও:
+    openPersonalTab("personalDetailsSection");
 }
+
 
 function closePersonalArea(){
 
@@ -783,6 +810,8 @@ function saveNewEmail() {
 // ১. 'Change' বা 'Send Code' বাটনে ক্লিক করলে এই ফাংশনটি রান হবে
 // পেজ লোড হওয়ার সময় চেক করার জন্য
 // পেজ লোড হওয়ার সময় চেক করা মোবাইল নাম্বার আছে কি না
+
+
 window.addEventListener('DOMContentLoaded', () => {
     checkMobileInitialStatus();
 });
