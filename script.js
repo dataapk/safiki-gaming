@@ -806,58 +806,91 @@ function checkMobileInitialStatus() {
 }
 
 // মূল 'Add' বা 'Change' বাটনে ক্লিক করলে ড্রপডাউন টগল হবে
+// মূল 'Add' বা 'Change' বাটনে ক্লিক করলে
 function handleMobileMainAction() {
     const mobileInput = document.getElementById('mobileNumberInput');
     const actionBtn = document.getElementById('mobileActionBtn');
     const dropdown = document.getElementById('mobileDropdown');
     
-    // যদি 'Add' মোডে থাকে, তবে ইনপুট চেক করা
-    if (actionBtn.innerText === "Add" && !mobileInput.value.trim()) {
-        alert("Please enter a mobile number first.");
-        return;
-    }
-    
-    // ড্রপডাউন ওপেন/ক্লোজ করা
-    if (dropdown.style.display === "block") {
-        dropdown.style.display = "none";
-    } else {
-        dropdown.style.display = "block";
+    if (actionBtn.innerText === "Add") {
+        if (!mobileInput.value.trim()) {
+            alert("Please enter a mobile number first.");
+            return;
+        }
         
-        // ড্রপডাউন খুললে সবসময় প্রথম ধাপ (Send Code) দৃশ্যমান থাকবে এবং ভেরিফাই ধাপ লুকানো থাকবে
-        document.getElementById('mobileSendStep').style.display = 'flex';
-        document.getElementById('mobileVerifyStep').style.display = 'none';
-        document.getElementById('mobileOtpInput').value = '';
+        dropdown.style.display = "block";
+        document.getElementById('mobileNewAddStep').style.display = 'flex';
+        document.getElementById('mobileChangeSendStep').style.display = 'none';
+        document.getElementById('mobileChangeVerifyStep').style.display = 'none';
+        document.getElementById('mobileNewUpdateStep').style.display = 'none';
+        
+        alert("Verification code sent to " + mobileInput.value);
+        
+    } else {
+        dropdown.style.display = (dropdown.style.display === "block") ? "none" : "block";
+        
+        document.getElementById('mobileNewAddStep').style.display = 'none';
+        document.getElementById('mobileChangeSendStep').style.display = 'flex';
+        document.getElementById('mobileChangeVerifyStep').style.display = 'none';
+        document.getElementById('mobileNewUpdateStep').style.display = 'none';
+        
+        document.getElementById('mobileChangeOtpInput').value = '';
+        document.getElementById('finalNewMobileInput').value = '';
     }
 }
 
-// মোবাইলে কোড পাঠানোর ফাংশন
-function sendCodeToMobileNumber() {
-    const mobileNum = document.getElementById('mobileNumberInput').value;
-    alert("Verification code has been sent to " + mobileNum);
-    
-    // 'Send Code' অপশন লুকিয়ে কোড বসানোর বক্স এবং 'Verify & Save' বাটন ওপেন করা
-    document.getElementById('mobileSendStep').style.display = 'none';
-    document.getElementById('mobileVerifyStep').style.display = 'flex';
-}
-
-// কোড ভেরিফাই এবং ফাইনাল সেভ করার ফাংশন (সাথে ড্রপডাউন হাইড করার ব্যবস্থা)
-function verifyAndSaveMobileCode() {
-    const otp = document.getElementById('mobileOtpInput').value.trim();
-    
+// ১. প্রথমবার নাম্বার অ্যাড করার সময় কোড ভেরিফাই ও সেভ করা
+function verifyAndSaveNewMobileCode() {
+    const otp = document.getElementById('mobileAddOtpInput').value.trim();
     if (otp.length < 4) {
-        alert("Please enter a valid verification code.");
+        alert("Your code is wrong! Please enter a valid verification code.");
         return;
     }
     
     alert("Mobile number verified and saved successfully!");
     
-    // ১. ড্রপডাউন বক্সটি পুরোপুরি হাইড করে দেওয়া
-    const dropdown = document.getElementById('mobileDropdown');
-    dropdown.style.display = 'none';
-    
-    // ২. ইনপুট ডিজেবল করা এবং মূল বাটনটিকে 'Add' থেকে 'Change' এ রূপান্তর করা
+    document.getElementById('mobileDropdown').style.display = 'none';
     document.getElementById('mobileNumberInput').setAttribute('disabled', 'true');
     document.getElementById('mobileActionBtn').innerText = "Change";
+}
+
+// ২. চেঞ্জ মোড: বর্তমান নাম্বারে কোড পাঠানো
+function sendCodeToCurrentMobile() {
+    alert("Verification code sent to your current mobile number!");
+    document.getElementById('mobileChangeSendStep').style.display = 'none';
+    document.getElementById('mobileChangeVerifyStep').style.display = 'flex';
+}
+
+// ৩. চেঞ্জ মোড: বর্তমান নাম্বারের কোড ভেরিফাই করা
+function verifyCurrentMobileCode() {
+    const otp = document.getElementById('mobileChangeOtpInput').value.trim();
+    
+    if (otp !== "1234" && otp.length < 4) {
+        alert("Your code is wrong! Please try again.");
+        return;
+    }
+    
+    alert("Code is verified! Now please enter your mobile number.");
+    
+    document.getElementById('mobileChangeVerifyStep').style.display = 'none';
+    document.getElementById('mobileNewUpdateStep').style.display = 'flex';
+}
+
+// ৪. চেঞ্জ মোড: নতুন মোবাইল নাম্বার আপডেট ও সেভ করা
+function updateNewMobileNumber() {
+    const newMob = document.getElementById('finalNewMobileInput').value.trim();
+    
+    if (!newMob || newMob.length < 10) {
+        alert("Please enter a valid mobile number.");
+        return;
+    }
+    
+    document.getElementById('mobileNumberInput').value = newMob;
+    alert("Mobile number updated successfully!");
+    
+    document.getElementById('mobileDropdown').style.display = 'none';
+    document.getElementById('mobileNewUpdateStep').style.display = 'none';
+    document.getElementById('mobileChangeSendStep').style.display = 'flex';
 }
 /*================ CLOSE PERSONAL AREA ================*/
 
