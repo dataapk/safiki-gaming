@@ -709,7 +709,8 @@ function activateEditMode() {
     // Change বাটনগুলো আনলক করা (খুবই জরুরি)
     document.querySelectorAll('.change-btn').forEach(btn => btn.disabled = false);
     
-    document.getElementById('saveBtn').disabled = false;
+    const saveBtn = document.getElementById('saveBtn');
+    if (saveBtn) saveBtn.disabled = false;
 }
 /*================ PERSONAL AREA edit open  ================*/
 
