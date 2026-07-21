@@ -440,6 +440,11 @@ img, svg {
 ========================================================= */
 /*================ ID VERIFICATION ================*/
 /* আইডি ভেরিফিকেশন মেইন কার্ড ও ক্লোজ বাটন */
+#idVerificationSection {
+    display: none; /* প্রথমে বন্ধ থাকবে */
+    flex-direction: column;
+    width: 100%;
+}
 .verification-card {
     background: #161b22;
     border: 1px solid rgba(255,255,255,0.08);
