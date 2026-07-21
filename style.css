@@ -334,15 +334,58 @@ img, svg {
 .change-btn:disabled { opacity: 0.4; cursor: not-allowed; }
 
 .verification-dropdown { 
-    display: none; margin-top: 10px; padding: 15px; 
-    background: #0d1117; border: 1px dashed #333; border-radius: 8px; 
+    display: none; 
+    margin-top: 10px; 
+    padding: 15px; 
+    background: #0d1117; 
+    border: 1px dashed #f5c542; 
+    border-radius: 8px; 
 }
-.verify-group { display: flex; gap: 10px; }
+.verify-group { 
+    display: flex; 
+    gap: 10px; 
+    width: 100%; 
+    justify-content: space-between;
+}
+.verify-group input {
+    flex: 1;
+    padding: 10px;
+    background: #161b22;
+    border: 1px solid #333;
+    color: #fff;
+    border-radius: 6px;
+}
 .send-code-btn { 
-    background: #f5c542; color: #111; border: none; padding: 0 15px; 
-    border-radius: 6px; font-weight: bold; cursor: pointer;
+    background: #f5c542; 
+    color: #111; 
+    border: none; 
+    padding: 0 15px; 
+    border-radius: 6px; 
+    font-weight: bold; 
+    cursor: pointer; 
+    white-space: nowrap;
+}
+.verify-code-btn {
+    background: #238636;
+    color: #fff;
+    border: none;
+    padding: 0 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    white-space: nowrap;
 }
 
+.save-new-email-btn {
+    background: #1f6feb;
+    color: #fff;
+    border: none;
+    padding: 0 15px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    white-space: nowrap;
+}
 /* ফুটার বাটনস */
 .form-footer { 
     display: flex; justify-content: space-between; align-items: center; 
