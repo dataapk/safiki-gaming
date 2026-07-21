@@ -736,7 +736,7 @@ function openPersonalTab(sectionId) {
     if (allTabs[activeBtnId]) {
         allTabs[activeBtnId].classList.add('active');
     }
-}
+
 
 // ২. তোমার পুরনো openPersonalArea ফাংশনটি এখন একদম পারফেক্ট কাজ করবে:
 // পার্সোনাল এরিয়া খোলার মেইন ফাংশন (যেটি মেনু থেকে কল হয়)
