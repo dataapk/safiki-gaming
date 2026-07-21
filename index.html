@@ -581,7 +581,6 @@
             <!-- মোবাইল সেকশন -->
             <!-- মোবাইল নাম্বার সেকশন -->
 <!-- মোবাইল নাম্বার মেইন সেকশন -->
-<!-- মোবাইল নাম্বার মেইন সেকশন -->
 <div class="input-wrapper" style="margin-bottom: 15px;">
     <label>Mobile Number</label>
     <div class="action-input-group">
@@ -593,33 +592,23 @@
         <!-- মোবাইল নাম্বার ইনপুট -->
         <input type="tel" id="mobileNumberInput" placeholder="Enter mobile number" value="">
         
-        <!-- ডাইনামিক বাটন: নাম্বার না থাকলে 'Add', থাকলে 'Change' -->
+        <!-- মূল বাটন: নাম্বার না থাকলে 'Add', থাকলে 'Change' -->
         <button type="button" class="change-btn" id="mobileActionBtn" onclick="handleMobileMainAction()">Add</button>
     </div>
 
-    <!-- ড্রপডাউন বক্স -->
+    <!-- মোবাইল ড্রপডাউন সেকশন -->
     <div id="mobileDropdown" class="verification-dropdown">
         
-        <!-- কেস ১: 'Add' এ ক্লিক করার পর কোড পাঠানোর ও বসানোর ধাপ -->
-        <div id="addOtpStep" style="display: none;">
-            <div class="verify-group">
-                <input type="text" id="addMobileOtpInput" placeholder="Enter Verification Code" maxlength="6">
-                <button type="button" class="send-code-btn" id="sendCodeTriggerBtn" onclick="sendCodeForNewNumber()">Send Code</button>
-            </div>
-            <!-- ভেরিফাই ও সেভ বাটন (কোড আসার পর বা নিচে একসাথেও রাখতে পারো) -->
-            <button type="button" class="verify-code-btn" style="margin-top: 10px; width: 100%;" onclick="verifyAndSaveAddedMobile()">Verify & Save</button>
+        <!-- ধাপ ১: সেন্ড কোড অপশন (মোবাইলে কোড পাঠানোর জন্য) -->
+        <div class="verify-group" id="mobileSendStep">
+            <span style="color: #888; font-size: 13px; align-self: center;">Code will be sent to your mobile number</span>
+            <button type="button" class="send-code-btn" onclick="sendCodeToMobileNumber()">Send Code</button>
         </div>
 
-        <!-- কেস ২: অলরেডি নাম্বার থাকলে 'Change' এ ক্লিক করার পর বর্তমান নাম্বারে কোড পাঠানোর ধাপ -->
-        <div id="changeOtpStep" style="display: none;">
-            <div class="verify-group" style="justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                <span style="color: #888; font-size: 13px;">Code will be sent to your existing mobile</span>
-                <button type="button" class="send-code-btn" onclick="sendCodeToExistingMobile()">Send Code</button>
-            </div>
-            <div class="verify-group">
-                <input type="text" id="changeMobileOtpInput" placeholder="Enter Code" maxlength="6">
-                <button type="button" class="verify-code-btn" onclick="verifyChangeMobileOtp()">Verify & Update</button>
-            </div>
+        <!-- ধাপ ২: কোড বসানোর বক্স ও ভেরিফাই বাটন (সেন্ড কোডে ক্লিক করার পর এটি দেখাবে) -->
+        <div class="verify-group" id="mobileVerifyStep" style="display: none; margin-top: 10px;">
+            <input type="text" id="mobileOtpInput" placeholder="Enter Verification Code" maxlength="6">
+            <button type="button" class="verify-code-btn" onclick="verifyAndSaveMobileCode()">Verify & Save</button>
         </div>
 
     </div>
