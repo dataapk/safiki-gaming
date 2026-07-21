@@ -675,35 +675,45 @@ function toggleProfileMenu(event){
 // ১. ট্যাব সুইচিং এবং সেকশন কন্ট্রোল করার মেইন ফাংশন
 // ১. ট্যাব সুইচিং এবং সেকশন কন্ট্রোল করার মেইন ফাংশন
 // ১. ট্যাব সুইচিং এবং সেকশন কন্ট্রোল করার মেইন ফাংশন
+function openIdVerificationSection() {
+
+    const section = document.getElementById('idVerificationSection');
+
+    if (section) {
+
+        section.style.display = 'block'; // সেকশনটি স্ক্রিনে দৃশ্যমান করবে
+
+        section.scrollIntoView({ behavior: 'smooth' }); // স্ক্রিনটি স্মুথলি নিচে নামিয়ে নিয়ে যাবে
+
+    } else {
+
+        console.error("ID Verification Section element not found in HTML!");
+
+    }
+
+}// ১. ট্যাব সুইচিং এবং সেকশন কন্ট্রোল করার মেইন ফাংশন
+
 function openPersonalTab(sectionId) {
-    // ১. শুধু পার্সোনাল সেকশনগুলোর আইডি এখানে থাকবে, হেডার বা অন্য কিছু নয়
+
+    // ১. সব সেকশন বা ট্যাব কনটেন্ট হাইড করা
+
     const sections = ['personalDetailsSection', 'idVerificationSection', 'proofOfAddressSection'];
+
     
+
     sections.forEach(id => {
+
         const el = document.getElementById(id);
+
         if (el) {
+
             el.style.display = "none";
+
         }
+
     });
+   
 
-    // ২. শুধুমাত্র যেটিতে ক্লিক করা হয়েছে, সেই সেকশনটি শো করা
-    const targetSection = document.getElementById(sectionId);
-    if (targetSection) {
-        targetSection.style.display = "block"; // লেআউট ফ্লেক্স হলে 'flex' দিতে পারো
-    } else {
-        console.error("Target section not found:", sectionId);
-    }
-}
-
-    // ২. যেটিতে ক্লিক করা হয়েছে, কেবল সেই সেকশনটি শো করা
-    const targetSection = document.getElementById(sectionId);
-    if (targetSection) {
-        targetSection.style.display = "block"; // অথবা 'flex', তোমার লেআউট অনুযায়ী
-        targetSection.scrollIntoView({ behavior: 'smooth' }); // চাইলে স্মুথ স্ক্রিন স্ক্রোল রাখতে পারো
-    } else {
-        console.error("Target section not found:", sectionId);
-    }
-}
 
     // ২. শুধুমাত্র কাঙ্ক্ষিত সেকশনটি শো করা
     const targetSection = document.getElementById(sectionId);
