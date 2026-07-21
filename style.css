@@ -434,7 +434,10 @@ img, svg {
 }
 .personal-tab:hover { color: #f5c542; transform: translateY(-2px); }
 .personal-tab.active { color: #f5c542; border-bottom: 2px solid #f5c542; }
-
+/*mobile and no hide element */
+.hide-element {
+    display: none !important;
+}
 /* =========================================================
  start  id verification CSS
 ========================================================= */
