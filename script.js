@@ -739,12 +739,19 @@ function closePersonalArea(){
 
 // এডিট মোড - এবার Change বাটনগুলোও একটিভ হবে
 function activateEditMode() {
-    // ফর্মের সব ইনপুট ও সিলেক্ট আনলক
+    // ১. ফর্মের সব সাধারণ ইনপুট ও সিলেক্ট আনলক
     document.querySelectorAll('input, select').forEach(el => el.disabled = false);
     
-    // Change বাটনগুলো আনলক করা (খুবই জরুরি)
+    // ২. বিশেষভাবে মোবাইল নাম্বারের ইনপুট ফিল্ডটি আনলক করা (যদি আগে ডিজেবল থাকে)
+    const mobileInput = document.getElementById('mobileNumberInput');
+    if (mobileInput) {
+        mobileInput.removeAttribute('disabled');
+    }
+    
+    // ৩. Change বাটনগুলো আনলক করা
     document.querySelectorAll('.change-btn').forEach(btn => btn.disabled = false);
     
+    // ৪. সেভ বাটন সচল করা
     const saveBtn = document.getElementById('saveBtn');
     if (saveBtn) saveBtn.disabled = false;
 }
