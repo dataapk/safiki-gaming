@@ -439,7 +439,175 @@ img, svg {
  start  id verification CSS
 ========================================================= */
 /*================ ID VERIFICATION ================*/
+/* আইডি ভেরিফিকেশন মেইন কার্ড ও ক্লোজ বাটন */
+.verification-card {
+    background: #161b22;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 22px;
+    margin-top: 20px;
+    position: relative;
+}
 
+.verification-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.verification-title {
+    color: #fff;
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.close-verify-btn {
+    background: transparent;
+    border: none;
+    color: #8b949e;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.close-verify-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+}
+
+/* গাইডলাইন বক্স ও রাইট/রং ডিরেকশন */
+.id-guidelines-box {
+    background: #0d1117;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 18px;
+    margin: 15px 0;
+}
+
+.guidance-title {
+    color: #f5c542;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.guideline-text-list {
+    color: #aaa;
+    font-size: 13px;
+    margin: 0 0 15px 15px;
+    padding: 0;
+    line-height: 1.5;
+}
+
+.direction-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.direction-card {
+    background: #161b22;
+    border-radius: 8px;
+    padding: 12px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.direction-card.correct { border-color: rgba(35, 134, 54, 0.4); }
+.direction-card.wrong { border-color: rgba(248, 81, 73, 0.4); }
+
+.direction-img-placeholder {
+    width: 100%;
+    height: 85px;
+    background: #21262d;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    color: #888;
+    margin-bottom: 8px;
+    border: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.direction-label { font-size: 11px; font-weight: 600; }
+.correct-label { color: #3fb950; }
+.wrong-label { color: #f85149; }
+
+/* আপলোড গ্রিড ও বাটন */
+.id-upload-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.upload-box {
+    border: 2px dashed rgba(255, 255, 255, 0.15);
+    background: #0d1117;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.upload-box:hover { border-color: #f5c542; }
+.upload-box input[type="file"] { display: none; }
+
+.submit-verify-btn {
+    background: #238636;
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 15px;
+    font-size: 15px;
+}
+.submit-verify-btn:hover { background: #2ea043; }
+
+/* সেলফি সেকশন */
+.selfie-container {
+    text-align: center;
+    padding: 15px;
+    background: #0d1117;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    margin-top: 10px;
+}
+
+.camera-frame {
+    width: 180px;
+    height: 220px;
+    margin: 10px auto;
+    border: 3px dashed #f5c542;
+    border-radius: 50% / 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #13151c;
+    overflow: hidden;
+    position: relative;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 8px 16px;
+    background: rgba(245, 197, 66, 0.15);
+    color: #f5c542;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    margin-top: 15px;
+}
 
 /* =========================================================
   END id verification CSS
