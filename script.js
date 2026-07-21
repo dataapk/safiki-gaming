@@ -767,15 +767,7 @@ function openPersonalTab(sectionId) {
         }
     });
 
-    // নির্দিষ্ট টার্গেট ট্যাবটি শো করা
-    const targetSection = document.getElementById(sectionId);
-    if (targetSection) {
-        targetSection.style.display = "flex"; // সিএসএস অনুযায়ী এটি ফ্লেক্স হবে
-        targetSection.scrollIntoView({ behavior: 'smooth' });
-    } else {
-        console.error("Target section not found:", sectionId);
-    }
-}
+   
 
 
 function closePersonalArea(){
