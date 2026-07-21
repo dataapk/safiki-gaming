@@ -674,7 +674,7 @@ function toggleProfileMenu(event){
 
 // ১. ট্যাব সুইচিং এবং সেকশন কন্ট্রোল করার মেইন ফাংশন
 function openPersonalTab(sectionId) {
-    // প্রথমে পার্সোনাল এরিয়ার ভেতরের সব সেকশন বা ট্যাব কনটেন্ট হাইড করে দেব
+    // ১. সব সেকশন বা ট্যাব কনটেন্ট হাইড করা
     const sections = ['personalDetailsSection', 'idVerificationSection', 'proofOfAddressSection'];
     
     sections.forEach(id => {
@@ -684,19 +684,28 @@ function openPersonalTab(sectionId) {
         }
     });
 
-    // যে সেকশ্নে ক্লিক করা হয়েছে শুধুমাত্র সেটি শো করবে
+    // ২. শুধুমাত্র কাঙ্ক্ষিত সেকশনটি শো করা
     const targetSection = document.getElementById(sectionId);
     if (targetSection) {
         targetSection.style.display = "block";
     }
 
-    // অপশনাল: ট্যাবগুলোর অ্যাক্টিভ ক্লাস স্টাইল ঠিক রাখার জন্য (যদি থাকে)
+    // ৩. সব ট্যাব বাটন থেকে আগের 'active' বা গোল্ডেন ক্লাসরুম স্টাইল রিমুভ করা
     document.querySelectorAll('.personal-tab').forEach(btn => {
-        btn.classList.remove('active');
+        btn.classList.remove('active'); // এখানে তোমার সিএসএস-এ অ্যাক্টিভ ক্লাসের নাম যা দেওয়া আছে (যেমন active বা selected) তা লিখবে
     });
-    
-    // যে ট্যাবে ক্লিক করা হয়েছে সেটিতে active ক্লাস যোগ করা (যদি দরকার হয়)
-    // event.currentTarget.classList.add('active'); 
+
+    // ৪. যে ট্যাবটিতে ক্লিক করা হয়েছে বা যেটির পেজ ওপেন হয়েছে, সেটিতে গোল্ডেন হাইলাইট (active) ক্লাস যোগ করা
+    // আমরা সেকশন আইডি দেখে ডাইনামিক্যালি সঠিক বাটনটি খুঁজে বের করব
+    let activeBtnId = "";
+    if (sectionId === 'personalDetailsSection') activeBtnId = 0; // প্রথম বাটন
+    else if (sectionId === 'idVerificationSection') activeBtnId = 1; // দ্বিতীয় বাটন
+    else if (sectionId === 'proofOfAddressSection') activeBtnId = 2; // তৃতীয় বাটন
+
+    const allTabs = document.querySelectorAll('.personal-tab');
+    if (allTabs[activeBtnId]) {
+        allTabs[activeBtnId].classList.add('active');
+    }
 }
 
 // ২. তোমার পুরনো openPersonalArea ফাংশনটি এখন একদম পারফেক্ট কাজ করবে:
