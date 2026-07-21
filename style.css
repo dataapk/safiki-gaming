@@ -434,134 +434,13 @@ img, svg {
 }
 .personal-tab:hover { color: #f5c542; transform: translateY(-2px); }
 .personal-tab.active { color: #f5c542; border-bottom: 2px solid #f5c542; }
-/*mobile and no hide element */
-.hide-element {
-    display: none !important;
-}
+
 /* =========================================================
  start  id verification CSS
 ========================================================= */
 /*================ ID VERIFICATION ================*/
 
-.verification-card{
-background:#161b22;
-border:1px solid rgba(255,255,255,.08);
-border-radius:16px;
-padding:22px;
-display:flex;
-flex-direction:column;
-gap:18px;
-}
 
-.verification-card .form-group{
-display:flex;
-flex-direction:column;
-gap:8px;
-}
-
-.verification-card label{
-font-size:13px;
-font-weight:600;
-color:#d1d5db;
-}
-
-.verification-card select{
-width:100%;
-height:46px;
-padding:0 14px;
-background:#1d2430;
-border:1px solid rgba(255,255,255,.08);
-border-radius:10px;
-color:#fff;
-outline:none;
-}
-
-.verification-card select:focus{
-border-color:#f5c542;
-}
-
-.upload-group{
-display:flex;
-flex-direction:column;
-gap:8px;
-}
-
-.upload-box{
-height:130px;
-background:#1d2430;
-border:2px dashed rgba(245,197,66,.45);
-border-radius:14px;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-gap:10px;
-cursor:pointer;
-transition:.25s;
-text-align:center;
-}
-
-.upload-box:hover{
-border-color:#f5c542;
-background:#232c3a;
-}
-
-.upload-box i{
-font-size:34px;
-color:#f5c542;
-}
-
-.upload-box span{
-font-size:14px;
-font-weight:600;
-color:#fff;
-}
-
-.submit-verification-btn{
-width:100%;
-height:48px;
-border:none;
-border-radius:10px;
-background:#f5c542;
-color:#111;
-font-size:15px;
-font-weight:700;
-cursor:pointer;
-transition:.25s;
-}
-
-.submit-verification-btn:hover{
-opacity:.9;
-}
-
-.verification-status{
-margin-top:10px;
-padding:14px;
-border-radius:10px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-font-size:14px;
-font-weight:600;
-}
-
-.verification-status.pending{
-background:rgba(245,197,66,.12);
-border:1px solid rgba(245,197,66,.35);
-color:#f5c542;
-}
-
-.verification-status.verified{
-background:rgba(34,197,94,.12);
-border:1px solid rgba(34,197,94,.35);
-color:#22c55e;
-}
-
-.verification-status.rejected{
-background:rgba(239,68,68,.12);
-border:1px solid rgba(239,68,68,.35);
-color:#ef4444;
-}
 /* =========================================================
   END id verification CSS
 ========================================================= */
