@@ -1262,7 +1262,7 @@ function activateEditMode() {
     }
 
 }
-=========================================================================================================================================
+
 // ৩. 'Save Changes' বাটনে ক্লিক করলে যা হবে
 function savePersonalChanges() {
     alert("Changes saved successfully!");
