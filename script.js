@@ -694,32 +694,31 @@ function openIdVerificationSection() {
 }// ১. ট্যাব সুইচিং এবং সেকশন কন্ট্রোল করার মেইন ফাংশন
 
 function openPersonalTab(sectionId) {
+    // ১. মূল পার্সোনাল এরিয়া ওপেন করা
+    const mainArea = document.getElementById('personal-area-section');
+    if (mainArea) {
+        mainArea.style.display = 'block';
+    }
 
-    // ১. সব সেকশন বা ট্যাব কনটেন্ট হাইড করা
-
+    // ২. সব ট্যাব বা সেকশন কনটেন্ট হাইড করা
     const sections = ['personalDetailsSection', 'idVerificationSection', 'proofOfAddressSection'];
-
     
-
     sections.forEach(id => {
-
         const el = document.getElementById(id);
-
         if (el) {
-
             el.style.display = "none";
-
         }
-
     });
-   
 
-
-    // ২. শুধুমাত্র কাঙ্ক্ষিত সেকশনটি শো করা
+    // ৩. নির্দিষ্ট টার্গেট ট্যাবটি শো করা (এখানে নতুন করে আর 'mainArea' ডিক্লেয়ার করা হয়নি)
     const targetSection = document.getElementById(sectionId);
     if (targetSection) {
-        targetSection.style.display = "block";
+        targetSection.style.display = "flex"; 
+        targetSection.scrollIntoView({ behavior: 'smooth' }); 
+    } else {
+        console.error("Target section not found:", sectionId);
     }
+}
 
     // ৩. সব ট্যাব বাটন থেকে আগের 'active' বা গোল্ডেন ক্লাসরুম স্টাইল রিমুভ করা
     document.querySelectorAll('.personal-tab').forEach(btn => {
