@@ -589,11 +589,11 @@
             <option>🇺🇸 +1</option>
         </select>
         
-        <!-- মোবাইল নাম্বার ইনপুট -->
-        <input type="tel" id="mobileNumberInput" placeholder="Enter mobile number" value="">
+       <!-- মোবাইল নাম্বার ইনপুট (এখানে hide-element যোগ করা হলো) -->
+        <input type="tel" id="mobileNumberInput" class="hide-element" placeholder="Enter mobile number" value="" disabled>
         
-        <!-- মূল বাটন: নাম্বার না থাকলে 'Add', থাকলে 'Change' -->
-        <button type="button" class="change-btn" id="mobileActionBtn" onclick="handleMobileMainAction()">Add</button>
+        <!-- অ্যাড বাটন (এখানেও hide-element যোগ করা হলো) -->
+        <button type="button" class="change-btn hide-element" id="mobileActionBtn" onclick="handleMobileMainAction()" disabled>Add</button>
     </div>
 
     <!-- মোবাইল ড্রপডাউন সেকশন -->
