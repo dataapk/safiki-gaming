@@ -691,18 +691,26 @@ function openIdVerificationSection() {
 
     }
 
-}// ১. ট্যাব সুইচিং এবং সেকশন কন্ট্রোল করার মেইন ফাংশন
-
-function openPersonalTab(sectionId) {
-    // ১. মূল পার্সোনাল এরিয়া ওপেন করা
+// ১. পার্সোনাল এরিয়া খোলার মেইন ফাংশন (মেনু থেকে কল হবে)
+function openPersonalArea() {
     const mainArea = document.getElementById('personal-area-section');
     if (mainArea) {
-        mainArea.style.display = 'block';
+        mainArea.style.display = 'block'; // মূল বক্স ওপেন করবে
+    }
+    // ডিফল্টভাবে প্রথম ট্যাবটি ওপেন করবে
+    openPersonalTab('personalDetailsSection');
+}
+
+// ২. ট্যাব সুইচিং এবং সেকশন কন্ট্রোল করার মেইন ফাংশন
+function openPersonalTab(sectionId) {
+    // ক. সবার আগে মূল পার্সোনাল এরিয়া ওপেন থাকা নিশ্চিত করা
+    const personalBox = document.getElementById('personal-area-section');
+    if (personalBox) {
+        personalBox.style.display = 'block';
     }
 
-    // ২. সব ট্যাব বা সেকশন কনটেন্ট হাইড করা
+    // খ. সব ট্যাব বা সেকশন কনটেন্ট হাইড করা
     const sections = ['personalDetailsSection', 'idVerificationSection', 'proofOfAddressSection'];
-    
     sections.forEach(id => {
         const el = document.getElementById(id);
         if (el) {
@@ -710,7 +718,7 @@ function openPersonalTab(sectionId) {
         }
     });
 
-    // ৩. নির্দিষ্ট টার্গেট ট্যাবটি শো করা (এখানে নতুন করে আর 'mainArea' ডিক্লেয়ার করা হয়নি)
+    // গ. নির্দিষ্ট টার্গেট ট্যাবটি শো করা
     const targetSection = document.getElementById(sectionId);
     if (targetSection) {
         targetSection.style.display = "flex"; 
@@ -718,86 +726,30 @@ function openPersonalTab(sectionId) {
     } else {
         console.error("Target section not found:", sectionId);
     }
-}
 
-    // ৩. সব ট্যাব বাটন থেকে আগের 'active' বা গোল্ডেন ক্লাসরুম স্টাইল রিমুভ করা
+    // ঘ. সব ট্যাব বাটন থেকে আগের 'active' ক্লাস রিমুভ করা
     document.querySelectorAll('.personal-tab').forEach(btn => {
-        btn.classList.remove('active'); // এখানে তোমার সিএসএস-এ অ্যাক্টিভ ক্লাসের নাম যা দেওয়া আছে (যেমন active বা selected) তা লিখবে
+        btn.classList.remove('active');
     });
 
-    // ৪. যে ট্যাবটিতে ক্লিক করা হয়েছে বা যেটির পেজ ওপেন হয়েছে, সেটিতে গোল্ডেন হাইলাইট (active) ক্লাস যোগ করা
-    // আমরা সেকশন আইডি দেখে ডাইনামিক্যালি সঠিক বাটনটি খুঁজে বের করব
-    let activeBtnId = "";
-    if (sectionId === 'personalDetailsSection') activeBtnId = 0; // প্রথম বাটন
-    else if (sectionId === 'idVerificationSection') activeBtnId = 1; // দ্বিতীয় বাটন
-    else if (sectionId === 'proofOfAddressSection') activeBtnId = 2; // তৃতীয় বাটন
+    // ঙ. বর্তমান ক্লিক করা ট্যাবে 'active' ক্লাস যোগ করা
+    let activeBtnIndex = 0;
+    if (sectionId === 'personalDetailsSection') activeBtnIndex = 0;
+    else if (sectionId === 'idVerificationSection') activeBtnIndex = 1;
+    else if (sectionId === 'proofOfAddressSection') activeBtnIndex = 2;
 
     const allTabs = document.querySelectorAll('.personal-tab');
-    if (allTabs[activeBtnId]) {
-        allTabs[activeBtnId].classList.add('active');
-    }
-
-
-// ২. তোমার পুরনো openPersonalArea ফাংশনটি এখন একদম পারফেক্ট কাজ করবে:
-// পার্সোনাল এরিয়া খোলার মেইন ফাংশন (যেটি মেনু থেকে কল হয়)
-function openPersonalArea() {
-    const mainArea = document.getElementById('personal-area-section');
-    if (mainArea) {
-        mainArea.style.display = 'block'; // মূল বক্স ওপেন করবে
-    }
-    // ডিফল্টভাবে প্রথম ট্যাবটি ওপেন করে দিতে পারো
-    openPersonalTab('personalDetailsSection');
-}
-
-// ট্যাব সুইচিং ফাংশন
-function openPersonalTab(sectionId) {
-    // সবার আগে মূল পার্সোনাল এরিয়া ওপেন থাকা নিশ্চিত করা
-    const mainArea = document.getElementById('personal-area-section');
-    if (mainArea) {
-        mainArea.style.display = 'block';
-    }
-
-    // সব ট্যাব কন্টেন্ট হাইড করা
-    const sections = ['personalDetailsSection', 'idVerificationSection', 'proofOfAddressSection'];
-    sections.forEach(id => {
-        const el = document.getElementById(id);
-        if (el) {
-            el.style.display = "none";
-        }
-    });
-// সবার আগে মূল পার্সোনাল এরিয়া ওপেন থাকা নিশ্চিত করা
-    const mainArea = document.getElementById('personal-area-section');
-    if (mainArea) {
-        mainArea.style.display = 'block';
-    }
-
-    // সব ট্যাব বা সেকশন কনটেন্ট হাইড করা
-    const sections = ['personalDetailsSection', 'idVerificationSection', 'proofOfAddressSection'];
-    
-    sections.forEach(id => {
-        const el = document.getElementById(id);
-        if (el) {
-            el.style.display = "none";
-        }
-    });
-
-    // নির্দিষ্ট টার্গেট ট্যাবটি শো করা
-    const targetSection = document.getElementById(sectionId);
-    if (targetSection) {
-        targetSection.style.display = "flex"; // সিএসএস অনুযায়ী ফ্লেক্স করা
-        targetSection.scrollIntoView({ behavior: 'smooth' }); // স্মুথ স্ক্রোল
-    } else {
-        console.error("Target section not found:", sectionId);
+    if (allTabs[activeBtnIndex]) {
+        allTabs[activeBtnIndex].classList.add('active');
     }
 }
-   
 
-
-function closePersonalArea(){
-
+// ৩. পার্সোনাল এরিয়া বন্ধ করার ফাংশন
+function closePersonalArea() {
     const personalArea = document.getElementById("personal-area-section");
-    if(personalArea) personalArea.style.display = "none";
-
+    if (personalArea) {
+        personalArea.style.display = "none";
+    }
 }
 /*================ PERSONAL AREA LOCK edit mode open ================*/
 // ১. পেজ লোড হওয়ার সময় বা সেকশনে ঢুকলে ফর্মগুলো ডিফল্টভাবে লক থাকবে
