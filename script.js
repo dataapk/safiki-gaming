@@ -372,1173 +372,369 @@ function closeAll() {
     
     // অথবা যদি তোমার পুরো ওয়ালেট সেকশনটা একটা মেইন ডিভ-এ থাকে, সেটা হাইড করতে পারো
     // document.getElementById('main-wallet-container').style.display = 'none';
-}// এক্সচেঞ্জ বক্স ওপেন করার জন্য
-// এক্সচেঞ্জ বক্স ওপেন করার জন্য
-
-function openExchange() {
-
-    // সব বক্স হাইড করা
-
-    document.querySelectorAll('.crypto-grid').forEach(el => el.style.display = 'none');
-
-    document.getElementById('address-box').style.display = 'none';
-
-    document.getElementById('withdraw-input-box').style.display = 'none';
-
-    
-
-    // মেইন মেনু হাইড করা (যদি থাকে)
-
-    const mainMenu = document.getElementById('main-menu');
-
-    if (mainMenu) mainMenu.style.display = 'none';
-
-    
-
-    // এক্সচেঞ্জ বক্স দেখানো
-
-    document.getElementById('exchange-box').style.display = 'block';
-
 }
-
-
+// এক্সচেঞ্জ বক্স ওপেন করার জন্য
+function openExchange() {
+    // সব বক্স হাইড করা
+    document.querySelectorAll('.crypto-grid').forEach(el => el.style.display = 'none');
+    document.getElementById('address-box').style.display = 'none';
+    document.getElementById('withdraw-input-box').style.display = 'none';
+    
+    // মেইন মেনু হাইড করা (যদি থাকে)
+    const mainMenu = document.getElementById('main-menu');
+    if (mainMenu) mainMenu.style.display = 'none';
+    
+    // এক্সচেঞ্জ বক্স দেখানো
+    document.getElementById('exchange-box').style.display = 'block';
+}
 
 // এক্সচেঞ্জ থেকে ফিরে আসার জন্য
-
 function goBackFromExchange() {
-
     document.getElementById('exchange-box').style.display = 'none';
-
     
-
     // আবার মেইন মেনু দেখানো
-
     const mainMenu = document.getElementById('main-menu');
-
     if (mainMenu) mainMenu.style.display = 'block';
-
     
-
     // ডিফল্ট ট্যাবটি আবার শো করা (যেমন: deposit)
-
     document.getElementById('deposit').style.display = 'grid';
-
 }
-
-
 
 // ১. এক্সচেঞ্জ বক্স ক্লোজ করার ফাংশন
-
 function closeExchange() {
-
     document.getElementById('exchange-box').style.display = 'none';
-
     console.log("Exchange box closed");
-
 }
 
-
-
-// ২. সোয়াপ (Swap) কয়েন ফাংশন
-
+// ২. সোয়াপ (Swap) কয়েন ফাংশন
 function swapCoins() {
-
     const fromSelect = document.getElementById('from-currency');
-
     const toSelect = document.getElementById('to-currency');
-
     
-
     // ভ্যালু অদলবদল
-
     let temp = fromSelect.value;
-
     fromSelect.value = toSelect.value;
-
     toSelect.value = temp;
-
     
-
     // আইকন ও ক্যালকুলেশন আপডেট
-
     updateIcons();
-
     calculateExchange();
-
     console.log("Coins swapped");
-
 }
-
-
 
 // ৩. ম্যাক্স (Max) ব্যালেন্স সেট করার ফাংশন
-
 function setMax() {
-
-    // ১. ইউজার বর্তমানে কোন কারেন্সি সিলেক্ট করে আছে তা নেওয়া
-
+    // ১. ইউজার বর্তমানে কোন কারেন্সি সিলেক্ট করে আছে তা নেওয়া
     const fromCurrency = document.getElementById('from-currency').value;
-
     
-
-    // ২. গ্লোবাল ডাটাবেস থেকে ব্যালেন্স নেওয়া
-
-    // '|| 0' দেওয়ার মানে হলো, যদি ব্যালেন্স না পাওয়া যায় তবে এটি ০ ধরে নেবে
-
+    // ২. গ্লোবাল ডাটাবেস থেকে ব্যালেন্স নেওয়া
+    // '|| 0' দেওয়ার মানে হলো, যদি ব্যালেন্স না পাওয়া যায় তবে এটি ০ ধরে নেবে
     const balance = userBalances[fromCurrency] || 0;
-
     
-
     // ৩. ইনপুট বক্সে ব্যালেন্সটি বসানো
-
     const amountInput = document.getElementById('from-amount');
-
     amountInput.value = balance;
-
     
-
     // ৪. ব্যালেন্স পরিবর্তনের সাথে সাথে এক্সচেঞ্জ ক্যালকুলেশন আপডেট করা
-
     if (typeof checkMinimumLimit === 'function') {
-
         checkMinimumLimit();
-
     }
-
     
-
     if (typeof calculateExchange === 'function') {
-
         calculateExchange();
-
     }
-
 }
 
 
-
-
-
-// ১. কারেন্সি অনুযায়ী রেট ও লিমিট আপডেট করার ফাংশন
-
+// ১. কারেন্সি অনুযায়ী রেট ও লিমিট আপডেট করার ফাংশন
 function updateStatLimits() {
-
     const fromCurrency = document.getElementById('from-currency').value;
-
     const price = currentPrices[fromCurrency] || 1;
-
     
-
     // লিমিট (ডলারে)
-
     const minUSD = 5;
-
     const maxUSD = 20000;
-
     
-
     const minAmount = minUSD / price;
-
     const maxAmount = maxUSD / price;
-
     
-
     const currencyLabel = fromCurrency.toUpperCase();
-
     
-
     // UI-তে ভ্যালু বসানো
-
     const minEl = document.getElementById('stat-min');
-
     const maxEl = document.getElementById('stat-max');
-
     
-
     if(minEl) minEl.innerText = `${minAmount.toFixed(4)} ${currencyLabel}`;
-
     if(maxEl) maxEl.innerText = `${maxAmount.toFixed(2)} ${currencyLabel}`;
-
     
-
     console.log("Stat Limits updated for:", currencyLabel);
-
 }
-
 function checkMinimumLimit() {
-
     const fromCurrency = document.getElementById('from-currency').value; 
-
     const currencyName = fromCurrency.toUpperCase();
-
     const price = currentPrices[fromCurrency] || 1;
-
     const minAmount = 10 / price;
-
     
-
     let decimals = 4;
-
     if (fromCurrency === 'btc' || fromCurrency === 'eth') {
-
         decimals = 6;
-
     }
-
-
 
     const message = `Min: ${minAmount.toFixed(decimals)} ${currencyName} ($10)`;
-
     const minAmountElement = document.getElementById('min-amount');
-
     
-
     if (minAmountElement) {
-
         minAmountElement.innerText = message;
-
         
-
         const amountInput = parseFloat(document.getElementById('from-amount').value) || 0;
-
         
-
         if (amountInput > 0 && amountInput < minAmount) {
-
             minAmountElement.style.color = "red"; 
-
         } else {
-
             minAmountElement.style.color = "#ffffff"; 
-
         }
-
     } 
-
 } // এটা ফাংশন বন্ধ করল
 
-
-
 function validateExchange(amount, minLimit) {
-
     const minAmountElement = document.getElementById('min-amount');
-
     const exchangeBtn = document.querySelector('.exchange-btn'); // তোমার এক্সচেঞ্জ বাটন
 
-
-
-    // মিনিমাম অ্যামাউন্ট ১০ ডলার হতে হবে (তোমার শর্ত অনুযায়ী)
-
+    // মিনিমাম অ্যামাউন্ট ১০ ডলার হতে হবে (তোমার শর্ত অনুযায়ী)
     const MIN_LIMIT = 10.00; 
 
-
-
     if (amount < MIN_LIMIT) {
-
         // ১০ ডলারের কম হলে:
-
         minAmountElement.innerText = "Min: " + MIN_LIMIT + " USD (Required)";
-
         minAmountElement.style.color = "red"; // টেক্সট লাল করে দিবে
-
         minAmountElement.style.fontWeight = "bold";
-
         
-
-        // বাটন ডিজেবল করে দেওয়া যাতে ভুল ট্রানজ্যাকশন না হয়
-
+        // বাটন ডিজেবল করে দেওয়া যাতে ভুল ট্রানজ্যাকশন না হয়
         exchangeBtn.disabled = true;
-
         exchangeBtn.style.opacity = "0.5";
-
         
-
         return false; // লজিক আটকে দিবে
-
     } else {
-
         // ১০ ডলারের বেশি হলে:
-
         minAmountElement.innerText = "Min: " + minLimit + " ADA"; // অরিজিনাল ভ্যালু ফিরে আসবে
-
         minAmountElement.style.color = "#ffffff"; // রঙ ঠিক করে দিবে
-
         
-
-        // বাটন আবার সচল করে দেওয়া
-
+        // বাটন আবার সচল করে দেওয়া
         exchangeBtn.disabled = false;
-
         exchangeBtn.style.opacity = "1";
-
         
-
         return true; // সব ঠিক আছে
-
     }
-
 }
-
-
 
 // ৪. এক্সচেঞ্জ প্রসেসিং ফাংশন
-
 function processExchange() {
-
-    // ১. প্রয়োজনীয় ডেটা সংগ্রহ
-
+    // ১. প্রয়োজনীয় ডেটা সংগ্রহ
     const fromCurrency = document.getElementById('from-currency').value;
-
     const amount = parseFloat(document.getElementById('from-amount').value);
-
     const currencyName = fromCurrency.toUpperCase();
-
     
-
     // লাইভ রেট ও মিনিমাম লিমিট ক্যালকুলেশন
-
     const price = currentPrices[fromCurrency] || 1;
-
     const minAmount = 10 / price; 
 
-
-
-    // ২. ভ্যালিডেশন চেক (যদি অ্যামাউন্ট ভুল বা কম হয়)
-
+    // ২. ভ্যালিডেশন চেক (যদি অ্যামাউন্ট ভুল বা কম হয়)
     if (!amount || amount < minAmount) {
-
-        // মেসেজে একটু স্পেস দেওয়ার জন্য ${currencyName} এর আগে স্পেস রাখা হয়েছে
-
+        // মেসেজে একটু স্পেস দেওয়ার জন্য ${currencyName} এর আগে স্পেস রাখা হয়েছে
         alert(`Exchange failed: Minimum amount is ${minAmount.toFixed(4)} ${currencyName}`);
-
         return; // এখানেই থেমে যাবে, এক্সচেঞ্জ হবে না
-
     }
-
     
-
     // ৩. যদি ভ্যালিডেশন পাস করে (সব ঠিক থাকে), তবে নিচের লজিক চলবে
-
-    // এখানে তোমার এক্সচেঞ্জ হওয়ার আসল এপিআই বা ডাটাবেজ কোডটি বসাবে
-
+    // এখানে তোমার এক্সচেঞ্জ হওয়ার আসল এপিআই বা ডাটাবেজ কোডটি বসাবে
     
-
     alert("Exchange successful for " + amount + " " + currencyName + "!");
-
     console.log("Exchange processed for " + amount + " " + currencyName);
-
     
-
     // এখানে তোমার ব্যালেন্স আপডেটের কোড বা অন্যান্য ফাংশন কল করতে পারো
-
 }
-
 // ৫. রেট আপডেট ও টাইমার ফাংশন (প্রতি ৩০ সেকেন্ড)
-
 function startRateTimer() {
-
     setInterval(() => {
-
         timeLeft--;
-
         const timerDisplay = document.getElementById('rate-timer');
-
         if (timerDisplay) timerDisplay.innerText = timeLeft;
-
         
-
         if (timeLeft <= 0) {
-
             fetchLiveRates();
-
             timeLeft = 30;
-
         }
-
     }, 1000);
-
 }
 
-
-
-// পেজ লোড হওয়ার সময় সব ইনিশিয়ালাইজ করা
-
+// পেজ লোড হওয়ার সময় সব ইনিশিয়ালাইজ করা
 window.onload = function() {
-
     fetchLiveRates();
-
     startRateTimer();
-
 };
 
-
-
-// ক্যালকুলেশন ফাংশন (৫% ফি সহ আপডেট করা হয়েছে)
-
+// ক্যালকুলেশন ফাংশন (৫% ফি সহ আপডেট করা হয়েছে)
 function calculateExchange() {
-
     const fromVal = parseFloat(document.getElementById('from-amount').value) || 0;
-
     const fromCurr = document.getElementById('from-currency').value;
-
     const toCurr = document.getElementById('to-currency').value;
 
-
-
     // রেট বের করা
-
     const fromPrice = currentPrices[fromCurr] || 0;
-
     const toPrice = currentPrices[toCurr] || 0;
-
     
-
     // কনভার্সন ফর্মুলা: (fromAmount * fromPrice) / toPrice
-
     const grossResult = (fromVal * fromPrice) / toPrice;
-
    
-
        //--- ৫% এক্সচেঞ্জ ফি ক্যালকুলেশন ---
-
-       //নিচে ৫% ফি কেটে নেওয়ার লজিকটি দেওয়া হলো।
-
+       //নিচে ৫% ফি কেটে নেওয়ার লজিকটি দেওয়া হলো।
        //আমরা মোট রেজাল্ট থেকে ৫% বাদ দিচ্ছি (অর্থাৎ ৯৫% রেজাল্ট দেখাচ্ছি)।
-
    
-
     const feePercentage = 0.05; 
-
     const netResult = grossResult * (1 - feePercentage);
 
-
-
     // নিচে রেজাল্ট বসানো (ইউজার শুধু ফি কাটার পরের অ্যামাউন্টটিই দেখতে পাবে)
-
     const toAmountDisplay = document.getElementById('to-amount');
-
     if (toAmountDisplay) {
-
         toAmountDisplay.innerText = netResult.toFixed(8);
-
     }
-
 }
-
 function updateStats(fromCurr, toCurr, fromVal, calculatedMax) {
-
     // এখানে তোমার ব্যালেন্স এবং লিমিটগুলো আপডেট হচ্ছে
-
     document.getElementById('user-balance').innerText = userBalance + " " + fromCurr.toUpperCase();
-
     document.getElementById('min-amount').innerText = "31.40 " + fromCurr.toUpperCase();
-
     
-
-    // নিচে ম্যাক্স অ্যামাউন্ট হিসেবে ক্যালকুলেটেড ভ্যালু বা তোমার লজিক অনুযায়ী মান বসাও
-
+    // নিচে ম্যাক্স অ্যামাউন্ট হিসেবে ক্যালকুলেটেড ভ্যালু বা তোমার লজিক অনুযায়ী মান বসাও
     document.getElementById('max-amount').innerText = calculatedMax + " " + fromCurr.toUpperCase();
-
 }
-
-
 
 // ইনপুট বা ড্রপডাউনে কিছু পরিবর্তন হলে ক্যালকুলেশন কল হবে
-
 document.getElementById('from-amount').addEventListener('input', calculateExchange);
-
 document.getElementById('from-currency').addEventListener('change', calculateExchange);
-
 document.getElementById('to-currency').addEventListener('change', calculateExchange);
-
 // এই ফাংশনটি তোমার জাভাস্ক্রিপ্ট ফাইলে যোগ করো
-
 function updatecurrencyIcons() {
-
     // ১. FROM কারেন্সির জন্য (ড্রপডাউনের পাশে)
-
     const fromSelect = document.getElementById('from-currency');
-
     const fromIcon = document.getElementById('from-icon');
-
     const fromOption = fromSelect.options[fromSelect.selectedIndex];
-
     
-
     if (fromOption) {
-
         const imageUrl = fromOption.getAttribute('data-img');
-
         fromIcon.src = imageUrl;
 
-
-
         // ২. নতুন সংযোজন: ইনপুট বক্সের পাশের লোগো আপডেট করা
-
         // ধরে নিচ্ছি তোমার ইনপুট বক্সের পাশের লোগোর ID 'input-from-icon'
-
         const inputFromIcon = document.getElementById('input-from-icon');
-
         if (inputFromIcon) {
-
             inputFromIcon.src = imageUrl;
-
         }
-
     }
-
-
 
     // ৩. TO কারেন্সির জন্য
-
     const toSelect = document.getElementById('to-currency');
-
     const toIcon = document.getElementById('to-icon');
-
     const toOption = toSelect.options[toSelect.selectedIndex];
-
     if (toOption) {
-
         toIcon.src = toOption.getAttribute('data-img');
-
     }
-
     
-
     console.log("Icons updated successfully");
-
 }
-
 // ২. NOTIFICATIONA  profile menu START
-
 // নোটিফিকেশনের জন্য আলাদা ফাংশন
-
+// নোটিফিকেশনের জন্য আলাদা ফাংশন
 function toggleNotifMenu(event) {
-
     event.stopPropagation();
-
     const menu = document.getElementById('notif-popup');
-
     const profile = document.getElementById('profile-popup');
-
-    
-
-    if (profile) profile.style.display = 'none'; // প্রোফাইল মেনু খোলা থাকলে বন্ধ হবে
-
-    
-
-    if (menu) {
-
-        menu.style.display = (menu.style.display === 'flex') ? 'none' : 'flex';
-
-    }
-
+    profile.style.display = 'none'; // অন্য মেনু বন্ধ
+    menu.style.display = (menu.style.display === 'flex') ? 'none' : 'flex';
 }
-
-
 
 // প্রোফাইলের জন্য আলাদা ফাংশন
-
 function toggleProfileMenu(event){
 
-
-
     event.stopPropagation();
-
-
 
     const menu = document.getElementById("profile-menu");
 
-
-
     if(!menu) return;
 
-
-
     if(menu.style.display === "block"){
-
         menu.style.display = "none";
-
     }else{
-
         menu.style.display = "block";
-
     }
 
-
-
 }
-
 // ==============================
-
 // PERSONAL AREA
-
 // ==============================
 
+function openPersonalArea(){
 
+    const profileMenu = document.getElementById("profile-menu");
+    if(profileMenu) profileMenu.style.display = "none";
 
-// ১. ট্যাব সুইচিং এবং সেকশন কন্ট্রোল করার মেইন ফাংশন
+    const bonus = document.getElementById("my-bonus-section");
+    if(bonus) bonus.style.display = "none";
 
+    const history = document.getElementById("transaction-history-section");
+    if(history) history.style.display = "none";
 
-
-// ১. পার্সোনাল এরিয়া খোলার মেইন ফাংশন (মেনু থেকে কল হবে)
-
-// ==============================
-
-// PERSONAL AREA MODULE
-
-// ==============================
-
-
-
-// ১. মূল পার্সোনাল এরিয়া খোলার ফাংশন
-
-function openPersonalArea() {
-
-    const mainArea = document.getElementById('personal-area-section');
-
-    if (mainArea) {
-
-        mainArea.style.display = 'block'; // মূল বক্স ওপেন করবে
-
-    }
-
-    // ডিফল্টভাবে প্রথম ট্যাবটি ওপেন করবে
-
-    openPersonalTab('personalDetailsSection');
-
-}
-
-}
-
-// ২. ট্যাব সুইচিং এবং সেকশন কন্ট্রোল করার মেইন ফাংশন
-
-function openPersonalTab(sectionId) {
-
-    // ক. সবার আগে মূল পার্সোনাল এরিয়া ওপেন থাকা নিশ্চিত করা
-
-    const personalBox = document.getElementById('personal-area-section');
-
-    if (personalBox) {
-
-        personalBox.style.display = 'block';
-
-    }
-
-
-
-    // খ. সব ট্যাব বা সেকশন কনটেন্ট হাইড করা
-
-    const sections = ['personalDetailsSection', 'idVerificationSection', 'proofOfAddressSection'];
-
-    sections.forEach(id => {
-
-        const el = document.getElementById(id);
-
-        if (el) {
-
-            el.style.display = "none";
-
-        }
-
-    });
-
-
-
-    // গ. নির্দিষ্ট টার্গেট ট্যাবটি শো করা
-
-    const targetSection = document.getElementById(sectionId);
-
-    if (targetSection) {
-
-        targetSection.style.display = "flex"; 
-
-        targetSection.scrollIntoView({ behavior: 'smooth' }); 
-
-    } else {
-
-        console.error("Target section not found:", sectionId);
-
-    }
-
-
-
-    // ঘ. সব ট্যাব বাটন থেকে আগের 'active' ক্লাস রিমুভ করা
-
-    document.querySelectorAll('.personal-tab').forEach(btn => {
-
-        btn.classList.remove('active');
-
-    });
-
-
-
-    // ঙ. বর্তমান ক্লিক করা ট্যাবে 'active' ক্লাস যোগ করা
-
-    let activeBtnIndex = 0;
-
-    if (sectionId === 'personalDetailsSection') activeBtnIndex = 0;
-
-    else if (sectionId === 'idVerificationSection') activeBtnIndex = 1;
-
-    else if (sectionId === 'proofOfAddressSection') activeBtnIndex = 2;
-
-
-
-    const allTabs = document.querySelectorAll('.personal-tab');
-
-    if (allTabs[activeBtnIndex]) {
-
-        allTabs[activeBtnIndex].classList.add('active');
-
-    }
-
-} 
-
-
-
-
-
-// ২. ট্যাব সুইচিং এবং সেকশন কন্ট্রোল করার ফাংশন
-
-function openPersonalTab(sectionId) {
-
-    const personalBox = document.getElementById('personal-area-section');
-
-    if (personalBox) {
-
-        personalBox.style.display = 'block';
-
-    }
-
-
-
-    const sections = ['personalDetailsSection', 'idVerificationSection', 'proofOfAddressSection'];
-
-    sections.forEach(id => {
-
-        const el = document.getElementById(id);
-
-        if (el) {
-
-            el.style.display = "none";
-
-        }
-
-    });
-
-
-
-    const targetSection = document.getElementById(sectionId);
-
-    if (targetSection) {
-
-        targetSection.style.display = "flex"; 
-
-        targetSection.scrollIntoView({ behavior: 'smooth' }); 
-
-    } else {
-
-        console.error("Target section not found:", sectionId);
-
-    }
-
-
-
-    document.querySelectorAll('.personal-tab').forEach(btn => {
-
-        btn.classList.remove('active');
-
-    });
-
-
-
-    let activeBtnIndex = 0;
-
-    if (sectionId === 'personalDetailsSection') activeBtnIndex = 0;
-
-    else if (sectionId === 'idVerificationSection') activeBtnIndex = 1;
-
-    else if (sectionId === 'proofOfAddressSection') activeBtnIndex = 2;
-
-
-
-    const allTabs = document.querySelectorAll('.personal-tab');
-
-    if (allTabs[activeBtnIndex]) {
-
-        allTabs[activeBtnIndex].classList.add('active');
-
-    }
-
-}
-
-
-
-// ৩. পার্সোনাল এরিয়া বন্ধ করার ফাংশন
-
-function closePersonalArea() {
+    const settings = document.getElementById("settings-section");
+    if(settings) settings.style.display = "none";
 
     const personalArea = document.getElementById("personal-area-section");
+    if(personalArea) personalArea.style.display = "block";
 
-    if (personalArea) {
-
-        personalArea.style.display = "none";
-
-    }
+    openPersonalTab("details");
 
 }
 
+function closePersonalArea(){
 
+    const personalArea = document.getElementById("personal-area-section");
+    if(personalArea) personalArea.style.display = "none";
 
-/*================ PERSONAL AREA LOCK edit mode open ================*/
+}
 
-// ১. পেজ লোড হওয়ার সময় বা সেকশনে ঢুকলে ফর্মগুলো ডিফল্টভাবে লক থাকবে
+/*================ PERSONAL AREA TABS ================*/
 
-window.addEventListener('DOMContentLoaded', () => {
+function openPersonalTab(tab){
 
-    lockPersonalDetailsForm();
+document.getElementById("personal-area-section").style.display="none";
+document.getElementById("idVerificationSection").style.display="none";
+document.getElementById("proofAddressSection").style.display="none";
 
+document.querySelectorAll(".personal-tab").forEach(btn=>{
+btn.classList.remove("active");
 });
 
-
-
-// ফর্ম লক করার ফাংশন
-
-// ১. লক বা পেজ লোড হওয়ার সময় মোবাইল ইনপুট ও অ্যাড বাটন ডিজেবল থাকবে
-
-function lockPersonalDetailsForm() {
-
-    // সমস্ত ইনপুট ও সিলেক্ট লক করা
-
-    document.querySelectorAll('#personalDetailsSection input, #personalDetailsSection select').forEach(el => {
-
-        el.setAttribute('disabled', 'true');
-
-    });
-
-
-
-    // মোবাইল নাম্বার ইনপুট স্পষ্টভাবে ডিজেবল করা
-
-    const mobileInput = document.getElementById('mobileNumberInput');
-
-    if (mobileInput) {
-
-        mobileInput.setAttribute('disabled', 'true');
-
-    }
-
-
-
-    // অ্যাড বাটন ডিজেবল করা
-
-    const mobileBtn = document.getElementById('mobileActionBtn');
-
-    if (mobileBtn) {
-
-        mobileBtn.setAttribute('disabled', 'true');
-
-    }
-
-    
-
-    // সেভ বাটন ডিজেবল করা
-
-    const saveBtn = document.getElementById('saveBtn');
-
-    if (saveBtn) {
-
-        saveBtn.setAttribute('disabled', 'true');
-
-    }
-
+if(tab==="details"){
+document.getElementById("personal-area-section").style.display="block";
+document.querySelectorAll(".personal-tab")[0].classList.add("active");
 }
 
-
-
-// ২. এডিট মোডে ক্লিক করলে মোবাইল ইনপুট ও অ্যাড বাটন দুটোই আনলক হবে
-
-function activateEditMode() {
-
-    // সমস্ত ইনপুট ও সিলেক্ট আনলক করা
-
-    document.querySelectorAll('#personalDetailsSection input, #personalDetailsSection select').forEach(el => {
-
-        el.removeAttribute('disabled');
-
-    });
-
-
-
-    // মোবাইল নাম্বার ইনপুট আনলক করা
-
-    const mobileInput = document.getElementById('mobileNumberInput');
-
-    if (mobileInput) {
-
-        mobileInput.removeAttribute('disabled');
-
-    }
-
-
-
-    // অ্যাড বাটন আনলক করা
-
-    const mobileBtn = document.getElementById('mobileActionBtn');
-
-    if (mobileBtn) {
-
-        mobileBtn.removeAttribute('disabled');
-
-    }
-
-    
-
-    // ইমেইলের Change বাটন আনলক করা (এই লাইনটি যুক্ত করতে হবে)
-
-    const emailChangeBtn = document.getElementById('emailChangeBtn');
-
-    if (emailChangeBtn) {
-
-        emailChangeBtn.removeAttribute('disabled');
-
-    }
-
-
-
-    // সেভ বাটন সচল করা
-
-    const saveBtn = document.getElementById('saveBtn');
-
-    if (saveBtn) {
-
-        saveBtn.removeAttribute('disabled');
-
-    }
-
+if(tab==="verification"){
+document.getElementById("idVerificationSection").style.display="block";
+document.querySelectorAll(".personal-tab")[1].classList.add("active");
 }
 
-// ৩. 'Save Changes' বাটনে ক্লিক করলে যা হবে
-function savePersonalChanges() {
-    alert("Changes saved successfully!");
-    
-    // সফলভাবে সেভ হওয়ার পর ফর্ম আবার লক করে দেওয়া
-    lockPersonalDetailsForm();
-}
-/*================ PERSONAL AREA edit open  ================*/
-
-// ১. ড্রপডাউন টগল করার ফাংশন (Change বাটনে ক্লিক করলে ড্রপডাউন খুলবে/বন্ধ হবে)
-function toggleDropdown(dropdownId) {
-    const dropdown = document.getElementById(dropdownId);
-    
-    if (dropdown.style.display === "block") {
-        dropdown.style.display = "none";
-    } else {
-        dropdown.style.display = "block";
-        // ড্রপডাউন খুললে সবসময় প্রথম ধাপটি (Send Code) দৃশ্যমান থাকবে এবং বাকি ধাপগুলো রিসেট হবে
-        document.getElementById('emailSendStep').style.display = 'flex';
-        document.getElementById('emailVerifyStep').style.display = 'none';
-        document.getElementById('newEmailStep').style.display = 'none';
-        
-        // ইনপুট ফিল্ডগুলো ফাঁকা করে দেওয়া
-        document.getElementById('emailOtpInput').value = '';
-        document.getElementById('finalNewEmail').value = '';
-    }
+if(tab==="address"){
+document.getElementById("proofAddressSection").style.display="block";
+document.querySelectorAll(".personal-tab")[2].classList.add("active");
 }
 
-// ২. বর্তমান ইমেইলে কোড পাঠানোর ফাংশন
-function sendCodeToCurrentEmail() {
-    alert("Verification code has been sent to your current email!");
-    
-    // সেন্ড কোড অপশন লুকিয়ে ওটিপি বক্স ওপেন করা
-    document.getElementById('emailSendStep').style.display = 'none';
-    document.getElementById('emailVerifyStep').style.display = 'flex';
-}
-
-// ৩. কোড ভেরিফাই করার ফাংশন
-function verifyEmailCode() {
-    const otp = document.getElementById('emailOtpInput').value.trim();
-    
-    if (otp.length < 4) { // প্রয়োজনমতো কোডের লেন্থ চেক
-        alert("Please enter a valid verification code.");
-        return;
-    }
-    
-    alert("Code verified successfully! Now please enter your new email.");
-    
-    // ওটিপি বক্স লুকিয়ে নতুন ইমেইল দেওয়ার বক্স ওপেন করা
-    document.getElementById('emailVerifyStep').style.display = 'none';
-    document.getElementById('newEmailStep').style.display = 'flex';
-}
-
-// ৪. নতুন ইমেইল আপডেট বা সেভ করার ফাংশন
-function saveNewEmail() {
-    const newEmail = document.getElementById('finalNewEmail').value.trim();
-    
-    if (!newEmail || !newEmail.includes('@')) {
-        alert("Please enter a valid email address.");
-        return;
-    }
-    
-    // মেইন ইনপুটে নতুন ইমেইলটি বসিয়ে দেওয়া
-    document.getElementById('currentEmail').value = newEmail;
-    
-    alert("Email updated successfully!");
-    
-    // ড্রপডাউন বন্ধ করে দেওয়া এবং সব স্টেপ রিসেট করা
-    document.getElementById('emailDropdown').style.display = 'none';
-    document.getElementById('emailSendStep').style.display = 'flex';
-    document.getElementById('emailVerifyStep').style.display = 'none';
-    document.getElementById('newEmailStep').style.display = 'none';
-}
-// ১. END EMAIL DROPDOWN LOGIC
-
-// ১. 'Change' বা 'Send Code' বাটনে ক্লিক করলে এই ফাংশনটি রান হবে
-// পেজ লোড হওয়ার সময় চেক করার জন্য
-// পেজ লোড হওয়ার সময় চেক করা মোবাইল নাম্বার আছে কি না
-
-
-window.addEventListener('DOMContentLoaded', () => {
-    checkMobileInitialStatus();
-});
-
-// ইউজারের নাম্বার আছে কি না চেক করে 'Add' বা 'Change' সেট করা
-function checkMobileInitialStatus() {
-    const mobileInput = document.getElementById('mobileNumberInput');
-    const actionBtn = document.getElementById('mobileActionBtn');
-    
-    // ডেটাবেজ বা লোকালস্টোরেজ থেকে ইউজারের সেভ করা মোবাইল নাম্বার এখানে আসবে
-    const savedMobile = ""; // যদি ফাঁকা থাকে মানে নাম্বার নেই
-    
-    if (savedMobile.trim() === "") {
-        mobileInput.value = "";
-        mobileInput.removeAttribute('disabled');
-        actionBtn.innerText = "Add";
-    } else {
-        mobileInput.value = savedMobile;
-        mobileInput.setAttribute('disabled', 'true');
-        actionBtn.innerText = "Change";
-    }
-}
-
-// মূল 'Add' বা 'Change' বাটনে ক্লিক করলে ড্রপডাউন টগল হবে
-// মূল 'Add' বা 'Change' বাটনে ক্লিক করলে
-function handleMobileMainAction() {
-    const mobileInput = document.getElementById('mobileNumberInput');
-    const actionBtn = document.getElementById('mobileActionBtn');
-    const dropdown = document.getElementById('mobileDropdown');
-    
-    if (actionBtn.innerText === "Add") {
-        if (!mobileInput.value.trim()) {
-            alert("Please enter a mobile number first.");
-            return;
-        }
-        
-        dropdown.style.display = "block";
-        document.getElementById('mobileNewAddStep').style.display = 'flex';
-        document.getElementById('mobileChangeSendStep').style.display = 'none';
-        document.getElementById('mobileChangeVerifyStep').style.display = 'none';
-        document.getElementById('mobileNewUpdateStep').style.display = 'none';
-        
-        alert("Verification code sent to " + mobileInput.value);
-        
-    } else {
-        dropdown.style.display = (dropdown.style.display === "block") ? "none" : "block";
-        
-        document.getElementById('mobileNewAddStep').style.display = 'none';
-        document.getElementById('mobileChangeSendStep').style.display = 'flex';
-        document.getElementById('mobileChangeVerifyStep').style.display = 'none';
-        document.getElementById('mobileNewUpdateStep').style.display = 'none';
-        
-        document.getElementById('mobileChangeOtpInput').value = '';
-        document.getElementById('finalNewMobileInput').value = '';
-    }
-}
-
-// ১. প্রথমবার নাম্বার অ্যাড করার সময় কোড ভেরিফাই ও সেভ করা
-function verifyAndSaveNewMobileCode() {
-    const otp = document.getElementById('mobileAddOtpInput').value.trim();
-    if (otp.length < 4) {
-        alert("Your code is wrong! Please enter a valid verification code.");
-        return;
-    }
-    
-    alert("Mobile number verified and saved successfully!");
-    
-    document.getElementById('mobileDropdown').style.display = 'none';
-    document.getElementById('mobileNumberInput').setAttribute('disabled', 'true');
-    document.getElementById('mobileActionBtn').innerText = "Change";
-}
-
-// ২. চেঞ্জ মোড: বর্তমান নাম্বারে কোড পাঠানো
-function sendCodeToCurrentMobile() {
-    alert("Verification code sent to your current mobile number!");
-    document.getElementById('mobileChangeSendStep').style.display = 'none';
-    document.getElementById('mobileChangeVerifyStep').style.display = 'flex';
-}
-
-// ৩. চেঞ্জ মোড: বর্তমান নাম্বারের কোড ভেরিফাই করা
-function verifyCurrentMobileCode() {
-    const otp = document.getElementById('mobileChangeOtpInput').value.trim();
-    
-    if (otp !== "1234" && otp.length < 4) {
-        alert("Your code is wrong! Please try again.");
-        return;
-    }
-    
-    alert("Code is verified! Now please enter your mobile number.");
-    
-    document.getElementById('mobileChangeVerifyStep').style.display = 'none';
-    document.getElementById('mobileNewUpdateStep').style.display = 'flex';
-}
-
-// ৪. চেঞ্জ মোড: নতুন মোবাইল নাম্বার আপডেট ও সেভ করা
-function updateNewMobileNumber() {
-    const newMob = document.getElementById('finalNewMobileInput').value.trim();
-    
-    if (!newMob || newMob.length < 10) {
-        alert("Please enter a valid mobile number.");
-        return;
-    }
-    
-    document.getElementById('mobileNumberInput').value = newMob;
-    alert("Mobile number updated successfully!");
-    
-    document.getElementById('mobileDropdown').style.display = 'none';
-    document.getElementById('mobileNewUpdateStep').style.display = 'none';
-    document.getElementById('mobileChangeSendStep').style.display = 'flex';
 }
 /*================ CLOSE PERSONAL AREA ================*/
-function openIdVerificationSection() {
 
+function closePersonalArea(){
 
+document.getElementById("personalArea").style.display="none";
 
-    const section = document.getElementById('idVerificationSection');
-
-
-
-    if (section) {
-
-
-
-        section.style.display = 'block'; // সেকশনটি স্ক্রিনে দৃশ্যমান করবে
-
-
-
-        section.scrollIntoView({ behavior: 'smooth' }); // স্ক্রিনটি স্মুথলি নিচে নামিয়ে নিয়ে যাবে
-
-
-
-    } else {
-
-
-
-        console.error("ID Verification Section element not found in HTML!");
-
-
-
-    }
+}
 
 /*================ PROFILE PHOTO ================*/
 
@@ -1597,69 +793,7 @@ function openCountryPopup(){
 }
 // END  Personal area==========
 
-// START ID VERIFICATION =======
-// ১. আইডি ভেরিফিকেশন সেকশন বন্ধ করার ফাংশন (ক্লোজ বাটন ক্লিক করলে)
-// ১. আইডি ভেরিফিকেশন সেকশন ওপেন করার ফাংশন (মেনু বা লিঙ্কে ক্লিক করলে এটি রান হবে)
-function openIdVerificationSection() {
-    const section = document.getElementById('idVerificationSection');
-    if (section) {
-        section.style.display = 'block'; // সেকশনটি স্ক্রিনে দৃশ্যমান করবে
-        section.scrollIntoView({ behavior: 'smooth' }); // স্ক্রিনটি স্মুথলি নিচে নামিয়ে নিয়ে যাবে
-    } else {
-        console.error("ID Verification Section element not found in HTML!");
-    }
-}
-
-// ২. আইডি ভেরিফিকেশন সেকশন বন্ধ করার ফাংশন (ক্রস 'X' বাটনে ক্লিক করলে রান হবে)
-function closeIdVerificationSection() {
-    const section = document.getElementById('idVerificationSection');
-    if (section) {
-        section.style.display = 'none'; // সেকশনটি আবার হাইড বা বন্ধ করে দেবে
-    }
-}
-
-// ৩. ফাইল সিলেক্ট করার পর ফাইলের নাম স্ক্রিনে দেখানোর ফাংশন
-function handleFileSelect(inputElement, nameDisplayId) {
-    const fileNameDiv = document.getElementById(nameDisplayId);
-    if (inputElement.files && inputElement.files[0]) {
-        fileNameDiv.textContent = inputElement.files[0].name;
-    }
-}
-
-// ৪. আইডি ডকুমেন্ট সাবমিট করার ফাংশন
-function submitIdDocuments() {
-    const frontFile = document.getElementById('frontPartFile').files[0];
-    const backFile = document.getElementById('backPartFile').files[0];
-
-    if (!frontFile || !backFile) {
-        alert("Please upload both Front and Back parts of your document.");
-        return;
-    }
-
-    alert("Documents uploaded successfully!");
-    
-    // সাবমিটের পর ওয়েটিং স্ট্যাটাস শো করা
-    document.getElementById('verificationStatusArea').style.display = 'block';
-}
-
-// ৫. সেলফি ক্যামেরা ওপেন করার ফাংশন
-function startSelfieCamera() {
-    const video = document.getElementById('selfieCameraFeed');
-    const placeholder = document.getElementById('cameraPlaceholder');
-    
-    // ব্রাউজারের ক্যামেরা পারমিশন ও এক্সেস নেওয়ার রিকোয়েস্ট
-    navigator.mediaDevices.getUserMedia({ video: true })
-        .then((stream) => {
-            video.srcObject = stream;
-            video.style.display = 'block';
-            placeholder.style.display = 'none';
-            alert("Camera access granted. Please position your face inside the frame.");
-        })
-        .catch((error) => {
-            console.error("Camera access error:", error);
-            alert("Unable to access camera. Please check camera permissions in your browser.");
-        });
-}
+// START OPEN KYC VERIFICATIONM=======
 
 // END OPEN KYC VERIFICATIONM=======
 
