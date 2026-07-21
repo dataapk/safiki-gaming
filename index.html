@@ -554,33 +554,70 @@
                     <input type="email" id="currentEmail" value="example@mail.com" disabled>
                     <button type="button" class="change-btn" id="emailChangeBtn" onclick="toggleDropdown('emailDropdown')" disabled>Change</button>
                 </div>
-                <div id="emailDropdown" class="verification-dropdown">
-                    <div class="verify-group">
-                        <input type="email" placeholder="Enter New Email">
-                        <button type="button" class="send-code-btn">Send Code</button>
-                    </div>
-                </div>
+                <!-- ইমেইল ড্রপডাউন সেকশন -->
+<div id="emailDropdown" class="verification-dropdown">
+    
+    <!-- ধাপ ১: সেন্ড কোড অপশন (বর্তমান ইমেইলে কোড পাঠানোর জন্য) -->
+    <div class="verify-group" id="emailSendStep">
+        <span style="color: #888; font-size: 13px; align-self: center;">Code will be sent to your current email</span>
+        <button type="button" class="send-code-btn" onclick="sendCodeToCurrentEmail()">Send Code</button>
+    </div>
+
+    <!-- ধাপ ২: কোড বসানোর বক্স (সেন্ড কোডে ক্লিক করার পর ওপেন হবে) -->
+    <div class="verify-group" id="emailVerifyStep" style="display: none; margin-top: 10px;">
+        <input type="text" id="emailOtpInput" placeholder="Enter Verification Code" maxlength="6">
+        <button type="button" class="verify-code-btn" onclick="verifyEmailCode()">Verify</button>
+    </div>
+
+    <!-- ধাপ ৩: ভেরিফাই সফল হওয়ার পর নতুন ইমেইল দেওয়ার বক্স -->
+    <div class="verify-group" id="newEmailStep" style="display: none; margin-top: 10px;">
+        <input type="email" id="finalNewEmail" placeholder="Enter New Email Address">
+        <button type="button" class="save-new-email-btn" onclick="saveNewEmail()">Update Email</button>
+    </div>
+
+</div>
             </div>
 
             <!-- মোবাইল সেকশন -->
-            <div class="input-wrapper" style="margin-bottom: 15px;">
-                <label>Mobile Number</label>
-                <div class="action-input-group">
-                    <select class="country-code" disabled>
-                        <option>🇧🇩 +880</option>
-                        <option>🇺🇸 +1</option>
-                    </select>
-                    <input type="tel" id="mobileNumber" placeholder="1XXXXXXXXX" disabled>
-                    <button type="button" class="change-btn" id="mobileChangeBtn" onclick="toggleDropdown('mobileDropdown')" disabled>Change</button>
-                </div>
-                <div id="mobileDropdown" class="verification-dropdown">
-                    <div class="verify-group">
-                        <input type="text" placeholder="+880" style="width: 20%;">
-                        <input type="tel" placeholder="Enter New Mobile" style="width: 55%;">
-                        <button type="button" class="send-code-btn" style="width: 25%;">Send Code</button>
-                    </div>
-                </div>
-            </div>
+            <!-- মোবাইল নাম্বার সেকশন -->
+<div class="input-wrapper" style="margin-bottom: 15px;">
+    <label>Mobile Number</label>
+    <div class="action-input-group">
+        <select class="country-code" id="mobileCountryCode" disabled>
+            <option>🇧🇩 +880</option>
+            <option>🇺🇸 +1</option>
+        </select>
+        
+        <!-- যদি নাম্বার না থাকে, তাহলে ইনপুট ফাঁকা থাকবে। নাম্বার থাকলে ভ্যালু থাকবে। -->
+        <input type="tel" id="mobileNumberInput" placeholder="Enter mobile number" value="" disabled>
+        
+        <!-- ডায়নামিক বাটন: যদি নাম্বার না থাকে দেখাবে 'Send Code', থাকলে দেখাবে 'Change' -->
+        <button type="button" class="change-btn" id="mobileActionBtn" onclick="handleMobileAction()" disabled>Send Code</button>
+    </div>
+
+    <!-- ড্রপডাউন বক্স (ভেরিফিকেশন বা নতুন নাম্বার দেওয়ার জন্য) -->
+    <div id="mobileDropdown" class="verification-dropdown">
+        
+        <!-- কন্ডিশন ১: যদি নাম্বার না থাকে (সরাসরি নতুন নাম্বার ও সেন্ড কোড) -->
+        <div class="verify-group" id="mobileNoNumberStep" style="display: none;">
+            <input type="tel" id="newMobileInput" placeholder="Enter your mobile number">
+            <button type="button" class="send-code-btn" onclick="sendCodeForNewMobile()">Send Code</button>
+        </div>
+
+        <!-- কন্ডিশন ২: যদি নাম্বার অলরেডি থাকে (বর্তমান নাম্বারে কোড পাঠানোর অপশন) -->
+        <div class="verify-group" id="mobileHasNumberStep" style="display: none; justify-content: space-between; align-items: center;">
+            <span style="color: #888; font-size: 13px;">Code will be sent to your existing mobile</span>
+            <button type="button" class="send-code-btn" onclick="sendCodeToExistingMobile()">Send Code</button>
+        </div>
+
+        <!-- ধাপ ৩: কোড বসানোর বক্স (সবার জন্য কমন) -->
+        <div class="verify-group" id="mobileVerifyStep" style="display: none; margin-top: 10px;">
+            <input type="text" id="mobileOtpInput" placeholder="Enter Verification Code" maxlength="6">
+            <button type="button" class="verify-code-btn" onclick="verifyMobileCode()">Verify & Save</button>
+        </div>
+
+    </div>
+</div>
 
             <!-- ফুটার বাটন -->
             <div class="form-footer">
