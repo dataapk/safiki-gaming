@@ -740,23 +740,41 @@ function openPersonalTab(sectionId) {
 }
 
 // ২. তোমার পুরনো openPersonalArea ফাংশনটি এখন একদম পারফেক্ট কাজ করবে:
+// পার্সোনাল এরিয়া খোলার মেইন ফাংশন (যেটি মেনু থেকে কল হয়)
 function openPersonalArea() {
-    const profileMenu = document.getElementById("profile-menu");
-    if(profileMenu) profileMenu.style.display = "none";
+    const mainArea = document.getElementById('personal-area-section');
+    if (mainArea) {
+        mainArea.style.display = 'block'; // মূল বক্স ওপেন করবে
+    }
+    // ডিফল্টভাবে প্রথম ট্যাবটি ওপেন করে দিতে পারো
+    openPersonalTab('personalDetailsSection');
+}
 
-    const bonus = document.getElementById("my-bonus-section");
-    if(bonus) bonus.style.display = "none";
+// ট্যাব সুইচিং ফাংশন
+function openPersonalTab(sectionId) {
+    // সবার আগে মূল পার্সোনাল এরিয়া ওপেন থাকা নিশ্চিত করা
+    const mainArea = document.getElementById('personal-area-section');
+    if (mainArea) {
+        mainArea.style.display = 'block';
+    }
 
-    const history = document.getElementById("transaction-history-section");
-    if(history) history.style.display = "none";
+    // সব ট্যাব কন্টেন্ট হাইড করা
+    const sections = ['personalDetailsSection', 'idVerificationSection', 'proofOfAddressSection'];
+    sections.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+            el.style.display = "none";
+        }
+    });
 
-    const settings = document.getElementById("settings-section");
-    if(settings) settings.style.display = "none";
-
-    const personalArea = document.getElementById("personal-area-section");
-    if(personalArea) personalArea.style.display = "block";
-    // এই লাইনটি একদম এভাবে বসিয়ে দাও:
-    openPersonalTab("personalDetailsSection");
+    // নির্দিষ্ট টার্গেট ট্যাবটি শো করা
+    const targetSection = document.getElementById(sectionId);
+    if (targetSection) {
+        targetSection.style.display = "flex"; // সিএসএস অনুযায়ী এটি ফ্লেক্স হবে
+        targetSection.scrollIntoView({ behavior: 'smooth' });
+    } else {
+        console.error("Target section not found:", sectionId);
+    }
 }
 
 
