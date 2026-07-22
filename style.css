@@ -925,13 +925,14 @@ img, svg {
 }
 
 /* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 786px) {
     #personal-area-section {
         width: 100%;
         max-width: 100%;
         top: 0;
         height: 100vh;
         border-radius: 0;
+        top:18px
     }
 
     .form-row {
