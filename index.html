@@ -471,7 +471,7 @@
 <!-- ================= PERSONAL AREA ================= -->
 <div id="personal-area-section" style="display:none;">
 
-    <!-- HEADER with Close Button -->
+    <!-- HEADER: Text + Close Button -->
     <div class="personal-header">
         <h2>Personal Area</h2>
         <button class="close-personal-btn" onclick="closePersonalArea()">
@@ -479,8 +479,8 @@
         </button>
     </div>
 
-    <!-- TABS (পাশাপাশি) -->
-    <div class="personal-tabs">
+    <!-- TAB BOX: 3 Tabs Side by Side -->
+    <div class="tab-box">
         <button class="personal-tab active" onclick="openPersonalTab('details')">Personal Details</button>
         <button class="personal-tab" onclick="openPersonalTab('verification')">ID Verification</button>
         <button class="personal-tab" onclick="openPersonalTab('address')">Proof Documents</button>
@@ -490,16 +490,14 @@
     <div id="personaldetailsSection" class="personal-tab-content active">
 
         <!-- Profile Header -->
-        <div class="profile-header-box">
-            <div class="profile-left">
+        <div class="content-box">
+            <div class="profile-header-inner">
                 <div class="profile-avatar-wrapper">
                     <img src="default-avatar.png" alt="Profile" class="profile-avatar" id="profileAvatar">
                     <button class="change-avatar-btn" onclick="changeAvatar()">
                         <i class="fas fa-camera"></i>
                     </button>
                 </div>
-            </div>
-            <div class="profile-right">
                 <div class="user-info">
                     <p class="user-id-label">User ID</p>
                     <p class="user-id-value" id="userId">USR-123456</p>
@@ -509,27 +507,27 @@
         </div>
 
         <!-- Form Box -->
-        <div class="personal-form-box">
+        <div class="content-box">
             
             <!-- Row 1: First Name (বড়) | Surname (ছোট) -->
-            <div class="form-row name-row">
-                <div class="form-group first-name-group">
+            <div class="form-row">
+                <div class="form-group first-name">
                     <label>First Name</label>
                     <input type="text" id="firstName" class="form-input" value="Md Akkas" disabled>
                 </div>
-                <div class="form-group surname-group">
+                <div class="form-group surname">
                     <label>Surname</label>
                     <input type="text" id="surname" class="form-input" value="Ali" disabled>
                 </div>
             </div>
 
             <!-- Row 2: DOB (বাম) | Gender (ডান) -->
-            <div class="form-row dob-row">
-                <div class="form-group dob-group">
+            <div class="form-row">
+                <div class="form-group">
                     <label>Date of Birth</label>
                     <input type="text" id="dateOfBirth" class="form-input date-picker" value="12/12/1984" readonly onclick="openDatePicker()" disabled>
                 </div>
-                <div class="form-group gender-group">
+                <div class="form-group">
                     <label>Gender</label>
                     <select id="gender" class="form-input form-select" disabled>
                         <option value="male" selected>Male</option>
@@ -589,7 +587,7 @@
         </div>
 
         <!-- Bottom Controls -->
-        <div class="form-controls">
+        <div class="content-box controls-box">
             <button class="edit-toggle-btn" id="editToggleBtn" onclick="toggleEditMode()">
                 <span class="toggle-track">
                     <span class="toggle-thumb" id="editThumb"></span>
@@ -604,8 +602,8 @@
     <!-- ================= ID VERIFICATION ================= -->
     <div id="idVerificationSection" class="personal-tab-content" style="display:none;">
         
-        <div class="kyc-country-header">
-            <label>Select Country</label>
+        <div class="content-box">
+            <label class="section-label">Select Country</label>
             <select id="kycCountrySelect" class="form-input kyc-select" onchange="updateKycRequirements()">
                 <option value="">-- Select Your Country --</option>
                 <option value="BD">🇧🇩 Bangladesh</option>
@@ -614,12 +612,12 @@
                 <option value="US">🇺🇸 United States</option>
                 <option value="UK">🇬🇧 United Kingdom</option>
             </select>
-            <p class="ip-location-text">Detected Location: <span id="ipLocation">Detecting...</span></p>
+            <p class="ip-text">Detected Location: <span id="ipLocation">Detecting...</span></p>
         </div>
 
-        <div class="kyc-instructions">
-            <h3><i class="fas fa-info-circle"></i> Photo Guidelines</h3>
-            <ul>
+        <div class="content-box">
+            <h3 class="box-title"><i class="fas fa-info-circle"></i> Photo Guidelines</h3>
+            <ul class="guideline-list">
                 <li><i class="fas fa-check"></i> Photo must be clear and not blurry</li>
                 <li><i class="fas fa-check"></i> All 4 corners of ID must be visible</li>
                 <li><i class="fas fa-check"></i> No cropped edges or cut corners</li>
@@ -627,10 +625,10 @@
             </ul>
         </div>
 
-        <!-- Upload Boxes (পাশাপাশি) -->
-        <div class="kyc-upload-section">
-            <div class="kyc-upload-box" id="frontUploadBox">
-                <div class="upload-placeholder" id="frontPlaceholder">
+        <!-- Upload Boxes: Side by Side -->
+        <div class="upload-row">
+            <div class="content-box upload-box">
+                <div class="upload-inner" id="frontPlaceholder">
                     <i class="fas fa-id-card"></i>
                     <p>Front Side</p>
                     <span>Click to upload</span>
@@ -642,8 +640,8 @@
                 </button>
             </div>
 
-            <div class="kyc-upload-box" id="backUploadBox">
-                <div class="upload-placeholder" id="backPlaceholder">
+            <div class="content-box upload-box">
+                <div class="upload-inner" id="backPlaceholder">
                     <i class="fas fa-id-card-alt"></i>
                     <p>Back Side</p>
                     <span>Click to upload</span>
@@ -656,31 +654,31 @@
             </div>
         </div>
 
-        <div class="kyc-selfie-section">
-            <h3><i class="fas fa-camera"></i> Face Verification</h3>
-            <p>Please take a live selfie. Our system will automatically match your face with your ID photo.</p>
+        <div class="content-box">
+            <h3 class="box-title"><i class="fas fa-camera"></i> Face Verification</h3>
+            <p class="box-desc">Please take a live selfie. Our system will automatically match your face with your ID photo.</p>
             
-            <div class="selfie-camera-box" id="selfieCameraBox">
+            <div class="camera-box" id="selfieCameraBox">
                 <video id="selfieVideo" autoplay playsinline style="display:none;"></video>
                 <canvas id="selfieCanvas" style="display:none;"></canvas>
                 <img id="selfiePreview" class="selfie-preview" style="display:none;" alt="Selfie">
                 
-                <div class="camera-placeholder" id="cameraPlaceholder">
+                <div class="camera-inner" id="cameraPlaceholder">
                     <i class="fas fa-user-circle"></i>
                     <p>Live Face Verification</p>
-                    <button class="start-camera-btn" id="startCameraBtn" onclick="startSelfieCamera()">
+                    <button class="camera-btn" id="startCameraBtn" onclick="startSelfieCamera()">
                         <i class="fas fa-video"></i> Start Camera
                     </button>
                 </div>
             </div>
 
-            <div class="verification-status" id="verificationStatus" style="display:none;">
+            <div class="verify-status" id="verificationStatus" style="display:none;">
                 <div class="status-icon" id="statusIcon">
                     <i class="fas fa-spinner fa-spin"></i>
                 </div>
                 <p class="status-text" id="statusText">Verifying your identity...</p>
-                <div class="progress-bar">
-                    <div class="progress-fill" id="verificationProgress"></div>
+                <div class="progress-track">
+                    <div class="progress-bar" id="verificationProgress"></div>
                 </div>
             </div>
 
@@ -689,19 +687,19 @@
             </button>
         </div>
 
-        <div class="verification-pending" id="verificationPending" style="display:none;">
-            <div class="pending-icon"><i class="fas fa-clock"></i></div>
+        <div class="content-box status-box" id="verificationPending" style="display:none;">
+            <div class="status-icon-big"><i class="fas fa-clock"></i></div>
             <h3>Waiting for Verification</h3>
             <p>Your documents are under review</p>
-            <div class="countdown-timer">
+            <div class="timer-box">
                 <span id="verifyTimer">48:00:00</span>
                 <span>hours remaining</span>
             </div>
-            <p class="verify-note">Verification may take up to 48 hours.</p>
+            <p class="note">Verification may take up to 48 hours.</p>
         </div>
 
-        <div class="verification-success" id="verificationSuccess" style="display:none;">
-            <div class="success-icon"><i class="fas fa-check-circle"></i></div>
+        <div class="content-box status-box success" id="verificationSuccess" style="display:none;">
+            <div class="status-icon-big"><i class="fas fa-check-circle"></i></div>
             <h3>ID Verified Successfully!</h3>
             <p>A confirmation email has been sent.</p>
         </div>
@@ -711,20 +709,20 @@
     <!-- ================= PROOF OF ADDRESS ================= -->
     <div id="proofAddressSection" class="personal-tab-content" style="display:none;">
 
-        <div class="address-form-box">
-            <h3>Current Address</h3>
+        <div class="content-box">
+            <h3 class="box-title">Current Address</h3>
             
             <div class="form-group full-width">
                 <label>Full Address</label>
                 <textarea id="currentAddress" class="form-input address-textarea" rows="2" placeholder="Enter your full address" disabled></textarea>
             </div>
 
-            <div class="form-row address-row">
-                <div class="form-group city-group">
+            <div class="form-row">
+                <div class="form-group city">
                     <label>City</label>
                     <input type="text" id="addressCity" class="form-input" placeholder="City" disabled>
                 </div>
-                <div class="form-group postal-group">
+                <div class="form-group postal">
                     <label>Postal Code</label>
                     <input type="text" id="addressPostal" class="form-input" placeholder="Postal Code" disabled>
                 </div>
@@ -747,10 +745,10 @@
             </div>
         </div>
 
-        <!-- Document Type (ছোট ছোট পাশাপাশি) -->
-        <div class="document-type-section">
-            <h3>Select Document Type</h3>
-            <div class="document-options">
+        <!-- Document Type: Side by Side -->
+        <div class="content-box">
+            <h3 class="box-title">Select Document Type</h3>
+            <div class="doc-row">
                 <div class="doc-option" onclick="selectDocType('bank')" id="docBank">
                     <i class="fas fa-university"></i>
                     <span>Bank Statement</span>
@@ -766,11 +764,11 @@
             </div>
         </div>
 
-        <div class="address-upload-section" id="addressUploadSection" style="display:none;">
-            <h3>Upload Document</h3>
-            <div class="upload-box" id="addressUploadBox">
+        <div class="content-box" id="addressUploadSection" style="display:none;">
+            <h3 class="box-title">Upload Document</h3>
+            <div class="upload-area" id="addressUploadBox">
                 <input type="file" id="addressDocument" accept="image/*,.pdf" style="display:none;" onchange="previewAddressDoc(this)">
-                <div class="upload-placeholder" onclick="document.getElementById('addressDocument').click()">
+                <div class="upload-inner" onclick="document.getElementById('addressDocument').click()">
                     <i class="fas fa-cloud-upload-alt"></i>
                     <span id="uploadText">Click to upload document</span>
                     <p>JPG, PNG, PDF (Max 5MB)</p>
@@ -783,24 +781,24 @@
             </div>
         </div>
 
-        <div class="address-submit" id="addressSubmitSection" style="display:none;">
-            <button class="submit-verify-btn" id="submitAddressBtn" onclick="submitAddressVerification()" disabled>
+        <div class="content-box" id="addressSubmitSection" style="display:none;">
+            <button class="submit-btn" id="submitAddressBtn" onclick="submitAddressVerification()" disabled>
                 Submit for Verification
             </button>
         </div>
 
-        <div class="verification-pending" id="addressPending" style="display:none;">
-            <div class="pending-icon"><i class="fas fa-clock"></i></div>
+        <div class="content-box status-box" id="addressPending" style="display:none;">
+            <div class="status-icon-big"><i class="fas fa-clock"></i></div>
             <h3>Waiting for Verification</h3>
             <p>Your address proof is under review</p>
-            <div class="countdown-timer">
+            <div class="timer-box">
                 <span id="addressTimer">48:00:00</span>
                 <span>hours remaining</span>
             </div>
         </div>
 
-        <div class="verification-success" id="addressSuccess" style="display:none;">
-            <div class="success-icon"><i class="fas fa-check-circle"></i></div>
+        <div class="content-box status-box success" id="addressSuccess" style="display:none;">
+            <div class="status-icon-big"><i class="fas fa-check-circle"></i></div>
             <h3>Address Verified Successfully!</h3>
             <p>A confirmation email has been sent.</p>
         </div>
@@ -808,6 +806,7 @@
     </div>
 
 </div>
+<!-- ================= END PERSONAL AREA ================= -->
 <!-- ================= END PERSONAL AREA ================= -->
 
 <!-- ================= END PROOF OF ADDRESS ================= -->
