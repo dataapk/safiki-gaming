@@ -272,182 +272,176 @@ img, svg {
 /* ===============================
   START PERSONAL AREA CSS
 ================================ */
-/* ============================================
-   PERSONAL AREA SECTION (Main Container)
-   ============================================ */
-
-/* ============================================
-   PERSONAL AREA POPUP — FIXED
-   ============================================ */
-
-css_code = '''/* ============================================
-   PERSONAL AREA — 
-STYLE (DARK THEME)
-   ============================================ */
 
 /* ============================================
    PERSONAL AREA POPUP — MY BONUS STYLE
    ============================================ */
+============================================
+   PERSONAL AREA POPUP — Transaction Style
+   ============================================ */
 
-#personal-area-section {
+#personal-area-section{
     position: fixed;
     top: 70px;
     left: 50%;
     transform: translateX(-50%);
     width: 720px;
-    max-width: 94%;
-    height: 80vh;
+    max-width: 98%;
+    height: calc(100vh - 70px);
     overflow-y: auto;
     background: #13151c;
-    border: 1px solid rgba(255, 214, 102, 0.25);
+    border: 1px solid rgba(255,214,102,.25);
     border-radius: 18px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+    box-shadow: 0 20px 60px rgba(0,0,0,.45);
     z-index: 9998;
     display: none;
     padding: 20px;
     box-sizing: border-box;
 }
 
-/* Show when active */
-#personal-area-section.active {
+/* Show */
+#personal-area-section.active{
     display: block;
 }
 
-/* Scrollbar styling */
-#personal-area-section::-webkit-scrollbar {
-    width: 6px;
-}
-#personal-area-section::-webkit-scrollbar-track {
-    background: #1a1d2b;
-    border-radius: 3px;
-}
-#personal-area-section::-webkit-scrollbar-thumb {
-    background: #ffd666;
-    border-radius: 3px;
-}
-
-/* ============================================
-   HEADER
-   ============================================ */
-
-.personal-header {
+/* হেডার */
+.personal-header{
+    position: relative;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin-bottom: 18px;
-    padding-bottom: 12px;
+    justify-content: center;
+    padding: 0 8px 12px;
+    margin-bottom: 20px;
     border-bottom: 1px solid #2b2f40;
 }
 
-.personal-header h2 {
-    margin: 0 auto;
-    color: #ffffff;
-    font-size: 22px;
+.personal-header h3{
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
     font-weight: 600;
 }
 
-.close-personal-btn {
+.close-personal {
+    background: #2b2f40;
+    border: none;
+    color: #fff;
+    font-size: 24px;
     width: 40px;
     height: 40px;
-    border: none;
     border-radius: 50%;
-    background: #ffd666;
-    color: #13151c;
-    font-size: 20px;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: 0.3s;
 }
 
-.close-personal-btn:hover {
-    background: #e6c25c;
-    transform: scale(1.05);
+.close-personal:hover{
+    background: #e67e22;
 }
 
-/* ============================================
-   TAB BOX
-   ============================================ */
-
-.tab-box {
+/* টপ ট্যাব ডিজাইন */
+.personal-tabs {
     display: flex;
-    gap: 8px;
-    margin: 20px 0;
-    background: #171b27;
-    border: 1px solid rgba(255, 214, 102, 0.25);
-    border-radius: 14px;
-    padding: 6px;
+    gap: 5px;
+    margin-bottom: 15px;
 }
 
-.personal-tab {
-    flex: 1;
-    padding: 12px 10px;
-    background: transparent;
+.personal-tab-btn {
+    background: #161b2e;
     border: none;
-    border-radius: 10px;
-    color: #8892b0;
-    font-size: 13px;
-    font-weight: 600;
+    padding: 8px 12px;
+    color: #888;
+    border-radius: 6px;
     cursor: pointer;
+    font-size: 12px;
+    flex: 1;
     text-align: center;
-    transition: all 0.3s ease;
+    transition: .3s;
 }
 
-.personal-tab.active,
-.personal-tab:hover {
-    background: #ffd666;
-    color: #13151c;
+.personal-tab-btn.active,
+.personal-tab-btn:hover {
+    background: #e67e22;
+    color: white;
 }
 
-/* ============================================
-   TAB CONTENT
-   ============================================ */
-
-.personal-tab-content {
+/* ট্যাব কন্টেন্ট */
+.personal-tab-content{
     display: none;
-    margin-top: 15px;
 }
 
-.personal-tab-content.active {
+.personal-tab-content.active{
     display: block;
 }
 
-/* ============================================
-   CONTENT BOX (CARD) — MY BONUS STYLE
-   ============================================ */
-
-.content-box {
+/* কার্ড / বক্স */
+.personal-card{
     background: #181d2b;
     border: 1px solid #2b2f40;
-    border-radius: 14px;
+    border-radius: 12px;
     padding: 18px;
-    margin-bottom: 18px;
+    margin-bottom: 15px;
 }
 
-.content-box:last-child {
-    margin-bottom: 0;
+/* ============================================
+   PROFILE SECTION
+   ============================================ */
+
+.profile-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
-/* Box Title */
-.box-title {
-    color: #ffd666;
+.profile-avatar-wrapper {
+    position: relative;
+}
+
+.profile-avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255, 214, 102, 0.3);
+}
+
+.change-avatar-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: #e67e22;
+    border: none;
+    color: #fff;
+    font-size: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-info .label-small {
+    color: #8892b0;
+    font-size: 12px;
+    margin: 0 0 2px 0;
+}
+
+.profile-info .value-text {
+    color: #fff;
     font-size: 16px;
     font-weight: 600;
-    margin: 0 0 12px 0;
+    margin: 0 0 4px 0;
 }
 
-.box-label {
-    display: block;
+.profile-info .member-text {
     color: #8892b0;
-    font-size: 13px;
-    margin-bottom: 8px;
-}
-
-.box-desc {
-    color: #8892b0;
-    font-size: 13px;
-    margin-bottom: 12px;
+    font-size: 12px;
+    margin: 0;
 }
 
 /* ============================================
@@ -458,10 +452,6 @@ STYLE (DARK THEME)
     display: flex;
     gap: 12px;
     margin-bottom: 12px;
-}
-
-.form-row:last-child {
-    margin-bottom: 0;
 }
 
 .form-group {
@@ -476,25 +466,25 @@ STYLE (DARK THEME)
 .form-group label {
     display: block;
     color: #8892b0;
-    font-size: 12px;
+    font-size: 13px;
     margin-bottom: 6px;
 }
 
 .form-input {
     width: 100%;
-    padding: 10px 14px;
-    background: #13151c;
+    padding: 10px 12px;
+    background: #0f111a;
     border: 1px solid #2b2f40;
-    border-radius: 10px;
-    color: #ffffff;
+    border-radius: 8px;
+    color: #fff;
     font-size: 14px;
     box-sizing: border-box;
-    transition: border-color 0.3s;
+    transition: .3s;
 }
 
 .form-input:focus {
     outline: none;
-    border-color: #ffd666;
+    border-color: #e67e22;
 }
 
 .form-input:disabled {
@@ -507,7 +497,6 @@ STYLE (DARK THEME)
     cursor: pointer;
 }
 
-/* Label Row with Action Button */
 .label-row {
     display: flex;
     justify-content: space-between;
@@ -516,56 +505,47 @@ STYLE (DARK THEME)
 }
 
 /* ============================================
-   ACTION BUTTONS
+   BUTTONS
    ============================================ */
 
 .action-btn {
     padding: 6px 14px;
     border: none;
-    border-radius: 8px;
+    border-radius: 6px;
     font-size: 12px;
     font-weight: 600;
     cursor: pointer;
-    transition: 0.3s;
+    transition: .3s;
 }
 
 .change-btn {
-    background: transparent;
-    color: #ffd666;
-    border: 1px solid #ffd666;
+    background: #2b2f40;
+    color: #e67e22;
 }
 
 .change-btn:hover {
-    background: #ffd666;
-    color: #13151c;
+    background: #e67e22;
+    color: #fff;
 }
 
 .add-btn {
-    background: #ffd666;
-    color: #13151c;
-}
-
-.add-btn:hover {
-    background: #e6c25c;
+    background: #2b2f40;
+    color: #4ade80;
 }
 
 .save-btn {
-    background: #27ae60;
-    color: #ffffff;
+    background: #e67e22;
+    color: #fff;
 }
 
 .save-btn:hover {
-    background: #219a52;
+    background: #d35400;
 }
 
 .send-btn {
-    background: #ffd666;
-    color: #13151c;
+    background: #2b2f40;
+    color: #fff;
     white-space: nowrap;
-}
-
-.send-btn:hover {
-    background: #e6c25c;
 }
 
 /* ============================================
@@ -575,9 +555,9 @@ STYLE (DARK THEME)
 .change-dropdown {
     margin-top: 10px;
     padding: 12px;
-    background: #13151c;
+    background: #0f111a;
+    border-radius: 8px;
     border: 1px solid #2b2f40;
-    border-radius: 10px;
 }
 
 .otp-row {
@@ -614,66 +594,6 @@ STYLE (DARK THEME)
 }
 
 /* ============================================
-   PROFILE
-   ============================================ */
-
-.profile-row {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-}
-
-.profile-avatar-wrapper {
-    position: relative;
-    width: 70px;
-    height: 70px;
-}
-
-.profile-avatar {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid #ffd666;
-}
-
-.change-avatar-btn {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 26px;
-    height: 26px;
-    border: none;
-    border-radius: 50%;
-    background: #ffd666;
-    color: #13151c;
-    font-size: 12px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.profile-info .label-small {
-    color: #8892b0;
-    font-size: 11px;
-    margin: 0 0 2px 0;
-}
-
-.profile-info .value-text {
-    color: #ffffff;
-    font-size: 16px;
-    font-weight: 600;
-    margin: 0 0 4px 0;
-}
-
-.profile-info .member-text {
-    color: #8892b0;
-    font-size: 12px;
-    margin: 0;
-}
-
-/* ============================================
    CONTROLS ROW
    ============================================ */
 
@@ -681,6 +601,7 @@ STYLE (DARK THEME)
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 12px;
 }
 
 .edit-toggle-btn {
@@ -689,34 +610,34 @@ STYLE (DARK THEME)
     gap: 10px;
     background: transparent;
     border: none;
-    color: #ffffff;
-    font-size: 14px;
+    color: #fff;
     cursor: pointer;
+    font-size: 14px;
 }
 
 .toggle-track {
-    display: inline-block;
     width: 44px;
     height: 24px;
     background: #2b2f40;
     border-radius: 12px;
     position: relative;
-    transition: 0.3s;
+    transition: .3s;
+    display: inline-block;
 }
 
 .toggle-track.active {
-    background: #ffd666;
+    background: #e67e22;
 }
 
 .toggle-thumb {
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 50%;
     position: absolute;
     top: 2px;
     left: 2px;
-    width: 20px;
-    height: 20px;
-    background: #ffffff;
-    border-radius: 50%;
-    transition: 0.3s;
+    transition: .3s;
 }
 
 .toggle-track.active .toggle-thumb {
@@ -725,81 +646,57 @@ STYLE (DARK THEME)
 
 .save-changes-btn {
     padding: 10px 24px;
-    background: #27ae60;
-    color: #ffffff;
+    background: #e67e22;
     border: none;
-    border-radius: 10px;
+    border-radius: 8px;
+    color: #fff;
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
-    transition: 0.3s;
+    transition: .3s;
 }
 
 .save-changes-btn:disabled {
-    opacity: 0.4;
+    opacity: 0.5;
     cursor: not-allowed;
 }
 
-.save-changes-btn:not(:disabled):hover {
-    background: #219a52;
+.save-changes-btn:hover:not(:disabled) {
+    background: #d35400;
 }
 
 /* ============================================
-   ID VERIFICATION — UPLOAD
+   ID VERIFICATION
    ============================================ */
 
-.upload-row {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 18px;
-}
-
-.upload-box {
-    flex: 1;
-    text-align: center;
-    padding: 24px 18px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.upload-box:hover {
-    border-color: #ffd666;
-}
-
-.upload-box i {
-    font-size: 32px;
-    color: #ffd666;
+.box-label {
+    display: block;
+    color: #8892b0;
+    font-size: 13px;
     margin-bottom: 8px;
 }
 
-.upload-box p {
-    color: #ffffff;
-    font-size: 14px;
-    font-weight: 600;
-    margin: 0 0 4px 0;
-}
-
-.upload-box span {
+.ip-text {
     color: #8892b0;
     font-size: 12px;
-    display: block;
-    margin-bottom: 12px;
+    margin: 8px 0 0 0;
 }
 
-.upload-btn {
-    padding: 8px 16px;
-    background: #ffd666;
-    color: #13151c;
-    border: none;
-    border-radius: 8px;
-    font-size: 12px;
+.ip-text span {
+    color: #e67e22;
+}
+
+.box-title {
+    color: #fff;
+    font-size: 16px;
     font-weight: 600;
-    cursor: pointer;
-    transition: 0.3s;
+    margin: 0 0 12px 0;
 }
 
-.upload-btn:hover {
-    background: #e6c25c;
+.box-desc {
+    color: #8892b0;
+    font-size: 13px;
+    margin: 0 0 15px 0;
 }
 
 .guide-list {
@@ -820,81 +717,138 @@ STYLE (DARK THEME)
     content: "✓";
     position: absolute;
     left: 0;
-    color: #27ae60;
-    font-weight: bold;
+    color: #4ade80;
 }
 
-.ip-text {
+/* ============================================
+   UPLOAD BOXES
+   ============================================ */
+
+.upload-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.upload-box {
+    flex: 1;
+    text-align: center;
+    padding: 24px 18px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.upload-box:hover {
+    border-color: #e67e22;
+}
+
+.upload-box i {
+    font-size: 32px;
+    color: #e67e22;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.upload-box p {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0 0 4px 0;
+}
+
+.upload-box span {
     color: #8892b0;
     font-size: 12px;
-    margin-top: 8px;
+    display: block;
+    margin-bottom: 12px;
 }
 
-.ip-text span {
-    color: #ffd666;
+.upload-btn {
+    padding: 8px 16px;
+    background: #2b2f40;
+    border: 1px solid #e67e22;
+    border-radius: 6px;
+    color: #e67e22;
+    font-size: 12px;
+    cursor: pointer;
+    transition: .3s;
 }
 
-/* Camera Box */
+.upload-btn:hover {
+    background: #e67e22;
+    color: #fff;
+}
+
+/* ============================================
+   CAMERA / FACE VERIFICATION
+   ============================================ */
+
 .camera-box {
-    text-align: center;
-    padding: 30px;
-    background: #13151c;
+    background: #0f111a;
     border: 2px dashed #2b2f40;
     border-radius: 12px;
-    margin-bottom: 12px;
+    padding: 40px;
+    text-align: center;
+    margin-bottom: 15px;
 }
 
 .camera-box i {
     font-size: 48px;
-    color: #8892b0;
+    color: #2b2f40;
     margin-bottom: 12px;
+    display: block;
 }
 
 .camera-btn {
     padding: 10px 20px;
     background: #2b2f40;
-    color: #ffffff;
     border: none;
     border-radius: 8px;
-    font-size: 13px;
+    color: #fff;
+    font-size: 14px;
     cursor: pointer;
-    transition: 0.3s;
+    transition: .3s;
 }
 
 .camera-btn:hover {
-    background: #ffd666;
-    color: #13151c;
+    background: #e67e22;
 }
 
 .verify-btn {
     width: 100%;
     padding: 14px;
-    background: #27ae60;
-    color: #ffffff;
+    background: #4ade80;
     border: none;
     border-radius: 10px;
-    font-size: 15px;
-    font-weight: 600;
+    color: #13151c;
+    font-size: 16px;
+    font-weight: 700;
     cursor: pointer;
-    transition: 0.3s;
+    transition: .3s;
 }
 
 .verify-btn:disabled {
-    opacity: 0.4;
+    opacity: 0.5;
     cursor: not-allowed;
 }
 
-.verify-btn:not(:disabled):hover {
-    background: #219a52;
+.verify-btn:hover:not(:disabled) {
+    background: #22c55e;
 }
 
 /* ============================================
-   PROOF OF ADDRESS
+   ADDRESS / DOCUMENT
    ============================================ */
 
 .address-textarea {
     resize: vertical;
     min-height: 60px;
+}
+
+.action-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
 }
 
 .doc-row {
@@ -904,56 +858,56 @@ STYLE (DARK THEME)
 
 .doc-option {
     flex: 1;
-    text-align: center;
-    padding: 16px 10px;
-    background: #13151c;
+    padding: 18px 12px;
+    background: #0f111a;
     border: 1px solid #2b2f40;
     border-radius: 10px;
+    text-align: center;
     cursor: pointer;
-    transition: 0.3s;
+    transition: .3s;
 }
 
 .doc-option:hover,
 .doc-option.selected {
-    border-color: #ffd666;
-    background: rgba(255, 214, 102, 0.1);
+    border-color: #e67e22;
+    background: rgba(230, 126, 34, 0.1);
 }
 
 .doc-option i {
     font-size: 24px;
-    color: #ffd666;
-    margin-bottom: 6px;
+    color: #e67e22;
+    margin-bottom: 8px;
     display: block;
 }
 
 .doc-option span {
-    color: #ffffff;
-    font-size: 12px;
-    font-weight: 500;
+    color: #fff;
+    font-size: 13px;
 }
 
 .upload-area {
-    text-align: center;
-    padding: 30px;
-    background: #13151c;
+    background: #0f111a;
     border: 2px dashed #2b2f40;
     border-radius: 12px;
+    padding: 40px;
+    text-align: center;
     cursor: pointer;
-    transition: 0.3s;
+    transition: .3s;
 }
 
 .upload-area:hover {
-    border-color: #ffd666;
+    border-color: #e67e22;
 }
 
 .upload-area i {
     font-size: 36px;
-    color: #ffd666;
-    margin-bottom: 8px;
+    color: #e67e22;
+    margin-bottom: 10px;
+    display: block;
 }
 
 .upload-area p {
-    color: #ffffff;
+    color: #fff;
     font-size: 14px;
     margin: 0 0 4px 0;
 }
@@ -966,29 +920,40 @@ STYLE (DARK THEME)
 .submit-btn {
     width: 100%;
     padding: 14px;
-    background: #ffd666;
-    color: #13151c;
+    background: #e67e22;
     border: none;
     border-radius: 10px;
-    font-size: 15px;
+    color: #fff;
+    font-size: 16px;
     font-weight: 700;
     cursor: pointer;
-    transition: 0.3s;
+    transition: .3s;
 }
 
 .submit-btn:disabled {
-    opacity: 0.4;
+    opacity: 0.5;
     cursor: not-allowed;
 }
 
-.submit-btn:not(:disabled):hover {
-    background: #e6c25c;
+.submit-btn:hover:not(:disabled) {
+    background: #d35400;
 }
 
-.action-row {
-    display: flex;
-    gap: 10px;
-    margin-top: 12px;
+/* ============================================
+   SCROLLBAR
+   ============================================ */
+
+#personal-area-section::-webkit-scrollbar {
+    width: 6px;
+}
+
+#personal-area-section::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#personal-area-section::-webkit-scrollbar-thumb {
+    background: rgba(255, 214, 102, 0.3);
+    border-radius: 3px;
 }
 
 /* ============================================
@@ -999,24 +964,10 @@ STYLE (DARK THEME)
     #personal-area-section {
         width: 100%;
         max-width: 100%;
-        top: 60px;
-        height: calc(100vh - 60px);
+        top: 0;
+        height: 100vh;
         border-radius: 0;
         padding: 15px;
-    }
-
-    .personal-header h2 {
-        font-size: 18px;
-    }
-
-    .tab-box {
-        gap: 4px;
-        padding: 4px;
-    }
-
-    .personal-tab {
-        font-size: 11px;
-        padding: 10px 6px;
     }
 
     .form-row {
@@ -1032,11 +983,12 @@ STYLE (DARK THEME)
         flex-direction: column;
     }
 
-    .mobile-row {
+    .controls-row {
         flex-direction: column;
+        gap: 12px;
     }
 
-    .country-code {
+    .save-changes-btn {
         width: 100%;
     }
 }
