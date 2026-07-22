@@ -647,26 +647,26 @@ function updatecurrencyIcons() {
 function toggleNotifMenu(event) {
     event.stopPropagation();
     const menu = document.getElementById('notif-popup');
-    const profile = document.getElementById('profile-popup');
-    profile.style.display = 'none'; // অন্য মেনু বন্ধ
+    const profile = document.getElementById('profile-menu'); // ❌ ছিল 'profile-popup' → ✅ ঠিক 'profile-menu'
+    if (profile) profile.style.display = 'none'; // অন্য মেনু বন্ধ
     menu.style.display = (menu.style.display === 'flex') ? 'none' : 'flex';
 }
-}
+
 // প্রোফাইলের জন্য আলাদা ফাংশন
-function toggleProfileMenu(event){
-
+function toggleProfileMenu(event) {
     event.stopPropagation();
-
     const menu = document.getElementById("profile-menu");
-
-    if(!menu) return;
-
-    if(menu.style.display === "block"){
+    const notif = document.getElementById('notif-popup'); // নোটিফিকেশনও বন্ধ করবে
+    
+    if (!menu) return;
+    
+    if (notif) notif.style.display = 'none'; // নোটিফিকেশন বন্ধ
+    
+    if (menu.style.display === "block") {
         menu.style.display = "none";
-    }else{
+    } else {
         menu.style.display = "block";
     }
-
 }
 // ==============================
 // PERSONAL AREA
