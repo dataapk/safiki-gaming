@@ -278,7 +278,7 @@ img, svg {
 
 #personal-area-section {
     position: fixed;
-    top:50px;                    /* ← 70px + 18px = 88px (header-এর নিচে) */
+    top:90px;                    /* ← 70px + 18px = 88px (header-এর নিচে) */
     left: 50%;
     transform: translateX(-50%);
     width: 720px;
