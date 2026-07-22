@@ -317,21 +317,24 @@ img, svg {
 }
 
 
-/* ===== HEADER — STICKY TOP ===== */
+/* ============================================
+   PERSONAL HEADER — FIXED (Like My Bonus)
+   ============================================ */
+
 .personal-header {
     display: flex;
-    justify-content: center;
+    justify-content: center;      /* Title center */
     align-items: center;
-    position: relative;        /* Not absolute */
+    position: relative;            /* For absolute close button */
     margin-bottom: 18px;
-    padding-bottom: 12px;
+    padding: 10px 40px 10px 10px;  /* ← RIGHT padding 40px for close button */
     border-bottom: 1px solid rgba(255, 214, 102, 0.2);
-    flex-shrink: 0;            /* Don't shrink */
+    min-height: 40px;              /* ← Minimum height */
 }
 
 .personal-header h2 {
     margin: 0;
-    color: #ffffff;
+    color: #ffd666;
     font-size: 22px;
     font-weight: 700;
     text-align: center;
@@ -339,22 +342,21 @@ img, svg {
 
 .close-personal-btn {
     position: absolute;
-    right: 0;
+    right: 10px;                   /* ← 10px from right */
     top: 50%;
     transform: translateY(-50%);
     background: #ffd666;
     border: none;
     color: #13151c;
-    font-size: 18px;
-    width: 36px;
-    height: 36px;
+    font-size: 20px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    z-index: 10;               /* Ensure on top */
 }
 
 /* ===== TAB BOX ===== */
