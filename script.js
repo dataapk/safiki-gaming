@@ -672,13 +672,6 @@ function toggleProfileMenu(event) {
 // PERSONAL AREA
 // ==============================
 
-// ============================================
-// PERSONAL DETAILS - JAVASCRIPT ONLY
-// ============================================
-// ============================================
-// PERSONAL AREA TAB SWITCHING
-// ============================================
-
 function openPersonalTab(tabName) {
     // 1. সব ট্যাব কন্টেন্ট হাইড করা
     const allContents = document.querySelectorAll('.personal-tab-content');
@@ -766,667 +759,242 @@ function closePersonalArea() {
 // ============================================
 // CLOSE PERSONAL AREA
 // ============================================
-/* ============================================
-   PERSONAL AREA POPUP
-   ============================================ */
-#personal-area-section {
-    position: fixed;
-    top: 70px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 720px;
-    max-width: 98%;
-    height: calc(100vh - 70px);
-    overflow-y: auto;
-    background: #13151c;
-    border: 1px solid rgba(255, 214, 102, 0.25);
-    border-radius: 18px;
-    z-index: 9998;
-    display: none;
-    padding: 20px;
-    box-sizing: border-box;
-}
+// ============================================
+// PERSONAL AREA — COMPLETE JAVASCRIPT
+// ============================================
 
-/* ============================================
-   HEADER
-   ============================================ */
-.personal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid rgba(255, 214, 102, 0.2);
-}
-.personal-header h2 {
-    margin: 0;
-    color: #ffd666;
-    font-size: 22px;
-    font-weight: 700;
-}
-.close-personal-btn {
-    background: transparent;
-    border: 1px solid #ff8c00;
-    color: #ff8c00;
-    font-size: 18px;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.close-personal-btn:hover {
-    background: #ff8c00;
-    color: #13151c;
-}
-
-/* ============================================
-   TAB BOX
-   ============================================ */
-.tab-box {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-    background: #1a1a2e;
-    border: 1px solid rgba(255, 214, 102, 0.25);
-    border-radius: 12px;
-    padding: 5px;
-}
-.personal-tab {
-    flex: 1;
-    padding: 12px;
-    background: transparent;
-    border: none;
-    border-radius: 8px;
-    color: #8892b0;
-    font-size: 13px;
-    font-weight: 500;
-    cursor: pointer;
-    text-align: center;
-    transition: all 0.3s ease;
-}
-.personal-tab:hover {
-    color: #ffd666;
-}
-.personal-tab.active {
-    background: rgba(255, 140, 0, 0.2);
-    color: #ffd666;
-}
-
-/* ============================================
-   TAB CONTENT
-   ============================================ */
-.personal-tab-content {
-    display: none;
-}
-.personal-tab-content.active {
-    display: block;
-}
-
-/* ============================================
-   CONTENT BOX
-   ============================================ */
-.content-box {
-    background: #1a1a2e;
-    border: 1px solid rgba(255, 214, 102, 0.25);
-    border-radius: 12px;
-    padding: 15px;
-    margin-bottom: 15px;
-}
-
-/* ============================================
-   PROFILE
-   ============================================ */
-.profile-row {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-.profile-avatar-wrapper {
-    position: relative;
-    width: 60px;
-    height: 60px;
-    flex-shrink: 0;
-}
-.profile-avatar {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid #ff8c00;
-}
-.change-avatar-btn {
-    position: absolute;
-    bottom: -4px;
-    right: -4px;
-    width: 22px;
-    height: 22px;
-    background: #ff8c00;
-    border: 2px solid #1a1a2e;
-    border-radius: 50%;
-    color: #fff;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 9px;
-}
-.profile-info {
-    flex: 1;
-}
-.label-small {
-    color: #8892b0;
-    font-size: 11px;
-    text-transform: uppercase;
-    margin: 0;
-}
-.value-text {
-    color: #ffd666;
-    font-size: 16px;
-    font-weight: 600;
-    margin: 4px 0;
-}
-.member-text {
-    color: #64ffda;
-    font-size: 12px;
-    margin: 0;
-}
-
-/* ============================================
-   FORM ROWS
-   ============================================ */
-.form-row {
-    display: flex;
-    gap: 15px;
-    margin-bottom: 15px;
-}
-.form-group {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
-.form-group.full-width {
-    width: 100%;
-    margin-bottom: 15px;
-}
-.first-name {
-    flex: 2;
-}
-.surname {
-    flex: 1;
-}
-.city {
-    flex: 2;
-}
-.postal {
-    flex: 1;
-}
-
-/* Labels */
-label, .box-label {
-    color: #ffd666;
-    font-size: 12px;
-    font-weight: 500;
-    margin-bottom: 6px;
-    text-transform: uppercase;
-}
-.label-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 6px;
-}
-
-/* Inputs */
-.form-input {
-    background: #0f3460;
-    border: 1px solid rgba(255, 214, 102, 0.2);
-    border-radius: 10px;
-    padding: 10px 14px;
-    color: #ccd6f6;
-    font-size: 13px;
-    height: 40px;
-    box-sizing: border-box;
-    outline: none;
-    width: 100%;
-}
-.form-input:focus {
-    border-color: #ffd666;
-}
-.form-input:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-}
-.form-select {
-    appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23ffd666' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 12px center;
-    padding-right: 35px;
-    cursor: pointer;
-}
-.date-picker {
-    cursor: pointer;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' fill='%23ffd666' viewBox='0 0 16 16'%3E%3Cpath d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 12px center;
-    padding-right: 35px;
-}
-.address-textarea {
-    height: auto;
-    min-height: 60px;
-    resize: vertical;
-}
-
-/* ============================================
-   ACTION BUTTONS
-   ============================================ */
-.action-btn {
-    background: transparent;
-    border: 1px solid #ff8c00;
-    color: #ff8c00;
-    padding: 5px 14px;
-    border-radius: 8px;
-    font-size: 12px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-.action-btn:hover:not(:disabled) {
-    background: #ff8c00;
-    color: #13151c;
-}
-.action-btn:disabled {
-    opacity: 0.4;
-    cursor: not-allowed;
-    border-color: #8892b0;
-    color: #8892b0;
-}
-.change-btn {
-    border-color: #64ffda;
-    color: #64ffda;
-}
-.change-btn:hover:not(:disabled) {
-    background: #64ffda;
-    color: #13151c;
-}
-.add-btn {
-    border-color: #ff8c00;
-    color: #ff8c00;
-}
-.send-btn {
-    background: #ff8c00;
-    color: #fff;
-    border: none;
-    white-space: nowrap;
-}
-.save-btn {
-    background: #64ffda;
-    color: #13151c;
-    border: none;
-    font-weight: 600;
-}
-
-/* ============================================
-   DROPDOWNS
-   ============================================ */
-.change-dropdown {
-    margin-top: 10px;
-    padding: 14px;
-    background: #0f3460;
-    border-radius: 12px;
-    border: 1px solid rgba(255, 214, 102, 0.2);
-}
-.otp-row,
-.new-row {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 10px;
-}
-.otp-input {
-    flex: 1;
-}
-
-/* ============================================
-   MOBILE ROW
-   ============================================ */
-.mobile-row {
-    display: flex;
-    gap: 10px;
-}
-.country-code {
-    width: 80px;
-    flex-shrink: 0;
-}
-.mobile-input {
-    flex: 1;
-}
-
-/* ============================================
-   CONTROLS ROW
-   ============================================ */
-.controls-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.edit-toggle-btn {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    color: #ccd6f6;
-    font-size: 13px;
-}
-.toggle-track {
-    width: 44px;
-    height: 24px;
-    background: #0f3460;
-    border-radius: 12px;
-    position: relative;
-    border: 1px solid rgba(255, 214, 102, 0.2);
-    transition: all 0.3s ease;
-}
-.toggle-track.active {
-    background: rgba(255, 140, 0, 0.3);
-    border-color: #ff8c00;
-}
-.toggle-thumb {
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    width: 18px;
-    height: 18px;
-    background: #8892b0;
-    border-radius: 50%;
-    transition: all 0.3s ease;
-}
-.toggle-track.active .toggle-thumb {
-    left: 22px;
-    background: #ffd666;
-}
-.save-changes-btn {
-    background: #ff8c00;
-    color: #13151c;
-    border: none;
-    padding: 10px 24px;
-    border-radius: 10px;
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-.save-changes-btn:hover:not(:disabled) {
-    background: #ffd666;
-}
-.save-changes-btn:disabled {
-    opacity: 0.4;
-    cursor: not-allowed;
-    background: #8892ball;
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-.save-changes-btn:hover:not(:disabled) {
-    background: #ffd666;
-}
-.save-changes-btn:disabled {
-    opacity: 0.4;
-    cursor: not-allowed;
-    background: #8892b0;
-}
-
-/* ============================================
-   ID VERIFICATION
-   ============================================ */
-.box-title {
-    color: #ffd666;
-    font-size: 14px;
-    margin: 0 0 12px 0;
-}
-.box-title i {
-    margin-right: 8px;
-}
-.box-desc {
-    color: #8892b0;
-    font-size: 13px;
-    margin: 0 0 15px 0;
-}
-.ip-text {
-    color: #8892b0;
-    font-size: 12px;
-    margin: 8px 0 0 0;
-}
-.ip-text span {
-    color: #64ffda;
-}
-.guide-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-.guide-list li {
-    color: #8892b0;
-    font-size: 12px;
-    padding: 5px 0;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-.guide-list li::before {
-    content: "✓";
-    color: #64ffda;
-    font-size: 10px;
-}
-
-/* Upload Row */
-.upload-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-    margin-bottom: 15px;
-}
-.upload-box {
-    text-align: center;
-}
-.upload-box i {
-    font-size: 32px;
-    color: #ff8c00;
-    margin-bottom: 10px;
-    display: block;
-}
-.upload-box p {
-    color: #ffd666;
-    font-size: 14px;
-    margin: 0 0 5px 0;
-}
-.upload-box span {
-    color: #8892b0;
-    font-size: 11px;
-    display: block;
-    margin-bottom: 10px;
-}
-.upload-btn {
-    background: transparent;
-    border: 1px solid #ff8c00;
-    color: #ff8c00;
-    padding: 8px 16px;
-    border-radius: 8px;
-    font-size: 12px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-.upload-btn:hover {
-    background: #ff8c00;
-    color: #13151c;
-}
-
-/* Camera */
-.camera-box {
-    background: #0f3460;
-    border: 1px solid rgba(255, 214, 102, 0.2);
-    border-radius: 12px;
-    padding: 20px;
-    text-align: center;
-    margin-bottom: 15px;
-}
-.camera-box i {
-    font-size: 40px;
-    color: #ff8c00;
-    margin-bottom: 10px;
-    display: block;
-}
-.camera-btn {
-    background: transparent;
-    border: 1px solid #ff8c00;
-    color: #ff8c00;
-    padding: 10px 20px;
-    border-radius: 10px;
-    font-size: 13px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-.camera-btn:hover {
-    background: #ff8c00;
-    color: #13151c;
-}
-.verify-btn {
-    width: 100%;
-    padding: 12px;
-    background: transparent;
-    border: 1px solid #ff8c00;
-    color: #ff8c00;
-    border-radius: 10px;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-.verify-btn:hover:not(:disabled) {
-    background: #ff8c00;
-    color: #13151c;
-}
-.verify-btn:disabled {
-    opacity: 0.4;
-    cursor: not-allowed;
-    border-color: #8892b0;
-    color: #8892b0;
-}
-
-/* ============================================
-   PROOF OF ADDRESS
-   ============================================ */
-.action-row {
-    display: flex;
-    gap: 10px;
-    margin-top: 10px;
-}
-
-/* Document Row */
-.doc-row {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-}
-.doc-option {
-    background: #0f3460;
-    border: 1px solid rgba(255, 214, 102, 0.2);
-    border-radius: 10px;
-    padding: 15px 10px;
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-.doc-option:hover {
-    border-color: #ffd666;
-}
-.doc-option.active {
-    border-color: #ff8c00;
-    background: rgba(255, 140, 0, 0.2);
-}
-.doc-option i {
-    font-size: 20px;
-    color: #ff8c00;
-    margin-bottom: 6px;
-    display: block;
-}
-.doc-option span {
-    color: #ffd666;
-    font-size: 11px;
-}
-
-/* Upload Area */
-.upload-area {
-    text-align: center;
-    padding: 20px;
-    cursor: pointer;
-}
-.upload-area i {
-    font-size: 32px;
-    color: #ff8c00;
-    margin-bottom: 10px;
-    display: block;
-}
-.upload-area p {
-    color: #ffd666;
-    font-size: 14px;
-    margin: 0 0 5px 0;
-}
-.upload-area span {
-    color: #8892b0;
-    font-size: 11px;
-}
-
-/* Submit */
-.submit-btn {
-    width: 100%;
-    padding: 12px;
-    background: transparent;
-    border: 1px solid #ff8c00;
-    color: #ff8c00;
-    border-radius: 10px;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-.submit-btn:hover:not(:disabled) {
-    background: #ff8c00;
-    color: #13151c;
-}
-.submit-btn:disabled {
-    opacity: 0.4;
-    cursor: not-allowed;
-    border-color: #8892b0;
-    color: #8892b0;
-}
-
-/* ============================================
-   RESPONSIVE
-   ============================================ */
-@media (max-width: 768px) {
-    #personal-area-section {
-        width: 95%;
-        max-width: 100%;
-        border-radius: 0;
-        top: 0;
-        height: 100vh;
+// ===== Open/Close Personal Area =====
+function openPersonalArea() {
+    const section = document.getElementById('personal-area-section');
+    if (section) {
+        section.style.display = 'block';
+        // Default open Personal Details
+        openPersonalTab('details');
     }
-    .tab-box {
-        flex-direction: column;
+}
+
+function closePersonalArea() {
+    const section = document.getElementById('personal-area-section');
+    if (section) section.style.display = 'none';
+}
+
+// ===== Tab Switching =====
+function openPersonalTab(tabName) {
+    // Hide all contents
+    document.querySelectorAll('.personal-tab-content').forEach(el => {
+        el.classList.remove('active');
+        el.style.display = 'none';
+    });
+    
+    // Remove active from all tabs
+    document.querySelectorAll('.personal-tab').forEach(el => {
+        el.classList.remove('active');
+    });
+    
+    // Show selected content
+    const contentMap = {
+        'details': 'personaldetailsSection',
+        'verification': 'idVerificationSection',
+        'address': 'proofAddressSection'
+    };
+    
+    const selectedContent = document.getElementById(contentMap[tabName]);
+    if (selectedContent) {
+        selectedContent.classList.add('active');
+        selectedContent.style.display = 'block';
     }
-    .form-row,
-    .upload-row,
-    .doc-row {
-        flex-direction: column;
-        grid-template-columns: 1fr;
+    
+    // Add active to clicked tab
+    if (event && event.currentTarget) {
+        event.currentTarget.classList.add('active');
     }
+}
+
+// ===== Edit Mode Toggle =====
+let isEditMode = false;
+
+function toggleEditMode() {
+    isEditMode = !isEditMode;
+    
+    const toggleTrack = document.getElementById('toggleTrack');
+    const editLabel = document.getElementById('editLabel');
+    const saveChangesBtn = document.getElementById('saveChangesBtn');
+    const personalDetails = document.getElementById('personaldetailsSection');
+    
+    if (!personalDetails) return;
+    
+    const allInputs = personalDetails.querySelectorAll('.form-input');
+    const allActionBtns = personalDetails.querySelectorAll('.action-btn');
+    
+    if (isEditMode) {
+        // ON
+        if (toggleTrack) toggleTrack.classList.add('active');
+        if (editLabel) {
+            editLabel.textContent = 'Editing...';
+            editLabel.style.color = '#ffd666';
+        }
+        if (saveChangesBtn) saveChangesBtn.disabled = false;
+        
+        allInputs.forEach(input => {
+            if (!input.classList.contains('otp-input')) {
+                input.disabled = false;
+            }
+        });
+        
+        allActionBtns.forEach(btn => {
+            if (!btn.classList.contains('send-btn') && !btn.classList.contains('save-btn')) {
+                btn.disabled = false;
+            }
+        });
+    } else {
+        // OFF
+        if (toggleTrack) toggleTrack.classList.remove('active');
+        if (editLabel) {
+            editLabel.textContent = 'Edit';
+            editLabel.style.color = '#ccd6f6';
+        }
+        if (saveChangesBtn) saveChangesBtn.disabled = true;
+        
+        allInputs.forEach(input => {
+            input.disabled = true;
+        });
+        
+        allActionBtns.forEach(btn => {
+            btn.disabled = true;
+        });
+        
+        // Close dropdowns
+        document.querySelectorAll('.change-dropdown').forEach(d => d.style.display = 'none');
+    }
+}
+
+// ===== Save Changes =====
+function saveAllChanges() {
+    const firstName = document.getElementById('firstName')?.value;
+    const surname = document.getElementById('surname')?.value;
+    
+    console.log('Saving:', { firstName, surname });
+    
+    alert('Saved successfully!');
+    
+    // Turn off edit mode
+    toggleEditMode();
+}
+
+// ===== Email Change =====
+function toggleEmailChange() {
+    const dropdown = document.getElementById('emailChangeDropdown');
+    if (dropdown) {
+        dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
+    }
+}
+
+function sendEmailOtp() {
+    const btn = event.target;
+    btn.textContent = 'Save & Changes';
+    btn.classList.remove('send-btn');
+    btn.classList.add('save-btn');
+    
+    document.getElementById('newEmailRow').style.display = 'flex';
+}
+
+function saveNewEmail() {
+    alert('Email updated!');
+    document.getElementById('emailChangeDropdown').style.display = 'none';
+}
+
+// ===== Mobile Change =====
+function toggleMobileAdd() {
+    const dropdown = document.getElementById('mobileChangeDropdown');
+    if (dropdown) {
+        dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
+    }
+}
+
+function toggleMobileChange() {
+    toggleMobileAdd();
+}
+
+function sendMobileOtp() {
+    const btn = event.target;
+    btn.textContent = 'Save & Change';
+    btn.classList.remove('send-btn');
+    btn.classList.add('save-btn');
+    
+    document.getElementById('newMobileRow').style.display = 'flex';
+}
+
+function saveNewMobile() {
+    alert('Mobile updated!');
+    document.getElementById('mobileChangeDropdown').style.display = 'none';
+    
+    // Change Add to Change
+    const addBtn = document.getElementById('mobileAddBtn');
+    const changeBtn = document.getElementById('mobileChangeBtn');
+    if (addBtn) addBtn.style.display = 'none';
+    if (changeBtn) changeBtn.style.display = 'inline-block';
+}
+
+// ===== Avatar =====
+function changeAvatar() {
+    alert('Avatar change clicked!');
+}
+
+// ===== ID Verification =====
+function updateKycRequirements() {
+    console.log('Country changed');
+}
+
+function previewIdImage(input, side) {
+    if (input.files && input.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const preview = document.getElementById(side + 'Preview');
+            if (preview) {
+                preview.src = e.target.result;
+                preview.style.display = 'block';
+            }
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+function startSelfieCamera() {
+    alert('Camera starting...');
+}
+
+function startVerification() {
+    alert('Verification started!');
+}
+
+// ===== Proof of Address =====
+function toggleAddressEdit() {
+    const inputs = document.querySelectorAll('#proofAddressSection .form-input');
+    inputs.forEach(input => {
+        input.disabled = !input.disabled;
+    });
+}
+
+function saveAddress() {
+    alert('Address saved!');
+}
+
+function selectDocType(type) {
+    document.querySelectorAll('.doc-option').forEach(el => el.classList.remove('active'));
+    event.currentTarget.classList.add('active');
+    
+    document.getElementById('addressUploadSection').style.display = 'block';
+}
+
+function previewAddressDoc(input) {
+    if (input.files && input.files[0]) {
+        document.getElementById('addressSubmitSection').style.display = 'block';
+        document.getElementById('submitAddressBtn').disabled = false;
+    }
+}
+
+function submitAddressVerification() {
+    alert('Submitted for verification!');
 }
 
 
