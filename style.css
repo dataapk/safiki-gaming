@@ -276,14 +276,18 @@ img, svg {
    PERSONAL AREA SECTION (Main Container)
    ============================================ */
 
+/* ============================================
+   PERSONAL AREA POPUP — FIXED
+   ============================================ */
+
 #personal-area-section {
     position: fixed;
-    top:90px;                    /* ← 70px + 18px = 88px (header-এর নিচে) */
+    top: 80px;                    /* Header-এর নিচে */
     left: 50%;
     transform: translateX(-50%);
-    width: 720px;
-    max-width: 94%;
-    height: calc(80vh - 100px);  /* ← Height adjust করলাম */
+    width: 680px;                 /* ছোট width */
+    max-width: 90%;               /* দুই সাইডে margin */
+    height: calc(100vh - 100px);  /* Height adjust */
     overflow-y: auto;
     background: #13151c;
     border: 1px solid rgba(255, 214, 102, 0.25);
@@ -293,6 +297,7 @@ img, svg {
     display: none;
     padding: 20px;
     box-sizing: border-box;
+    margin: 0 auto;               /* Center */
 }
 
 /* Show when active */
@@ -301,7 +306,7 @@ img, svg {
 }
 
 /* ============================================
-   HEADER
+   HEADER — FIXED AT TOP INSIDE
    ============================================ */
 
 .personal-header {
@@ -309,15 +314,19 @@ img, svg {
     justify-content: center;
     align-items: center;
     position: relative;
-    margin-bottom: 18px;
-    padding: 10px 40px 10px 10px;
+    margin-bottom: 15px;
+    padding: 10px 40px;
     border-bottom: 1px solid rgba(255, 214, 102, 0.2);
+    background: #13151c;          /* Same as container */
+    position: sticky;              /* Stick to top */
+    top: 0;
+    z-index: 10;
 }
 
 .personal-header h2 {
     margin: 0;
-    color: #ffffff;              
-    font-size: 22px;
+    color: #ffffff;
+    font-size: 20px;
     font-weight: 700;
     text-align: center;
 }
@@ -327,12 +336,12 @@ img, svg {
     right: 0;
     top: 50%;
     transform: translateY(-50%);
-    background: #ffd666;         /* Golden like My Bonus */
+    background: #ffd666;
     border: none;
     color: #13151c;
-    font-size: 20px;
-    width: 36px;
-    height: 36px;
+    font-size: 18px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
     cursor: pointer;
     display: flex;
@@ -342,47 +351,36 @@ img, svg {
 }
 
 /* ============================================
-   TAB BOX
-   ============================================ */
-
-/* ============================================
-   TAB BOX — FORCE SIDE BY SIDE
+   TAB BOX — BELOW HEADER
    ============================================ */
 
 .tab-box {
-    display: flex !important;           /* Force flex */
-    flex-direction: row !important;     /* Force horizontal */
-    flex-wrap: nowrap !important;       /* No wrapping */
-    gap: 8px !important;
-    margin-bottom: 18px !important;
-    background: #171b27 !important;
-    border: 1px solid rgba(255, 214, 102, 0.25) !important;
-    border-radius: 18px !important;
-    padding: 6px !important;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35) !important;
+    display: flex;
+    gap: 8px;
+    margin-bottom: 15px;
+    background: #171b27;
+    border: 1px solid rgba(255, 214, 102, 0.25);
+    border-radius: 14px;
+    padding: 6px;
 }
 
 .personal-tab {
-    flex: 1 1 0 !important;             /* Equal width, force */
-    min-width: 0 !important;            /* Prevent overflow */
-    padding: 14px 8px !important;
-    background: transparent !important;
-    border: none !important;
-    border-radius: 12px !important;
-    color: #8892b0 !important;
-    font-size: 13px !important;
-    font-weight: 600 !important;
-    cursor: pointer !important;
-    text-align: center !important;
-    white-space: nowrap !important;     /* No text wrap */
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
+    flex: 1;
+    padding: 12px 10px;
+    background: transparent;
+    border: none;
+    border-radius: 10px;
+    color: #8892b0;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s ease;
 }
 
 .personal-tab.active {
-    background: #ffd666 !important;     /* Golden active */
-    color: #13151c !important;
-    box-shadow: 0 0 15px rgba(255, 214, 102, 0.3) !important;
+    background: #ffd666;
+    color: #13151c;
 }
 
 /* ============================================
@@ -392,10 +390,28 @@ img, svg {
 .content-box {
     background: #171b27;
     border: 1px solid rgba(255, 214, 102, 0.25);
-    border-radius: 18px;
-    padding: 16px;
-    margin-bottom: 14px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+    border-radius: 14px;
+    padding: 14px;
+    margin-bottom: 12px;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+    #personal-area-section {
+        width: 100%;
+        max-width: 100%;
+        top: 60px;
+        height: calc(100vh - 60px);
+        border-radius: 0;
+        padding: 15px;
+    }
+    
+    .personal-header h2 {
+        font-size: 18px;
+    }
 }
 
 /* ===== PROFILE ===== */
