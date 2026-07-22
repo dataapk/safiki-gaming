@@ -468,108 +468,346 @@
 
 <!-- এখানেই Profile Menu শেষ -->
 
-<!-- ================= PERSONAL AREA ================= -->
+<!-- Complete Design for Personal Details, ID Verification & Proof Documents -->
 
 <div id="personal-area-section" style="display:none;">
 
-
     <!-- HEADER -->
-
     <div class="personal-header">
-
-        <h2>Personal Area</h2>
-
+        <h2><i class="fas fa-user-shield"></i> Personal Area</h2>
         <button class="close-personal-btn" onclick="closePersonalArea()">
             <i class="fas fa-times"></i>
         </button>
-
     </div>
-
-
 
     <!-- ================= PERSONAL TABS ================= -->
-
     <div class="personal-tabs">
-
-        <button 
-        class="personal-tab active"
-        onclick="openPersonalTab('details')">
-
-            Personal Details
-
+        <button class="personal-tab active" onclick="openPersonalTab('details')">
+            <i class="fas fa-id-card"></i> Personal Details
         </button>
-
-
-        <button 
-        class="personal-tab"
-        onclick="openPersonalTab('verification')">
-
-            ID Verification
-
+        <button class="personal-tab" onclick="openPersonalTab('verification')">
+            <i class="fas fa-shield-alt"></i> ID Verification
         </button>
-
-
-        <button 
-        class="personal-tab"
-        onclick="openPersonalTab('address')">
-
-            Proof Documents
-
+        <button class="personal-tab" onclick="openPersonalTab('address')">
+            <i class="fas fa-file-alt"></i> Proof Documents
         </button>
-
-
     </div>
-
-
-
-
 
     <!-- ================= PERSONAL DETAILS ================= -->
+    <div id="personalDetailsSection" class="personal-tab-content">
+        
+        <!-- User Avatar & Basic Info Card -->
+        <div class="pa-card pa-profile-card">
+            <div class="pa-avatar-section">
+                <div class="pa-avatar">
+                    <img src="https://ui-avatars.com/api/?name=User&background=gold&color=1a1a2e&size=128" alt="Avatar">
+                    <div class="pa-avatar-edit">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                </div>
+                <div class="pa-user-info">
+                    <h3>John Doe</h3>
+                    <span class="pa-user-id"><i class="fas fa-fingerprint"></i> ID: SAF-2026-78432</span>
+                    <span class="pa-status verified"><i class="fas fa-check-circle"></i> Verified Account</span>
+                </div>
+            </div>
+        </div>
 
-    <div id="personalDetailsSection"
-    class="personal-tab-content">
+        <!-- Personal Info Form -->
+        <div class="pa-card">
+            <h4 class="pa-section-title"><i class="fas fa-user-edit"></i> Basic Information</h4>
+            <div class="pa-form-row">
+                <div class="pa-form-group">
+                    <label>First Name</label>
+                    <input type="text" value="John" readonly>
+                    <i class="fas fa-lock lock-icon"></i>
+                </div>
+                <div class="pa-form-group">
+                    <label>Last Name</label>
+                    <input type="text" value="Doe" readonly>
+                    <i class="fas fa-lock lock-icon"></i>
+                </div>
+            </div>
+            <div class="pa-form-row">
+                <div class="pa-form-group">
+                    <label>Date of Birth</label>
+                    <input type="text" value="15 March 1995" readonly>
+                    <i class="fas fa-lock lock-icon"></i>
+                </div>
+                <div class="pa-form-group">
+                    <label>Gender</label>
+                    <input type="text" value="Male" readonly>
+                    <i class="fas fa-lock lock-icon"></i>
+                </div>
+            </div>
+        </div>
 
+        <!-- Contact Info Form -->
+        <div class="pa-card">
+            <h4 class="pa-section-title"><i class="fas fa-address-book"></i> Contact Information</h4>
+            <div class="pa-form-row">
+                <div class="pa-form-group">
+                    <label>Email Address</label>
+                    <input type="email" value="john.doe@email.com">
+                    <span class="pa-verify-badge verified"><i class="fas fa-check"></i> Verified</span>
+                </div>
+                <div class="pa-form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" value="+880 1XXX-XXXXXX">
+                    <span class="pa-verify-badge pending"><i class="fas fa-clock"></i> Pending</span>
+                </div>
+            </div>
+            <div class="pa-form-row">
+                <div class="pa-form-group full-width">
+                    <label>Country</label>
+                    <select>
+                        <option selected>Bangladesh</option>
+                        <option>India</option>
+                        <option>Pakistan</option>
+                        <option>United Kingdom</option>
+                        <option>Canada</option>
+                    </select>
+                </div>
+            </div>
+            <button class="pa-save-btn"><i class="fas fa-save"></i> Save Changes</button>
+        </div>
 
-        <!-- Personal Details Content Will Come Here -->
-
+        <!-- Security Settings -->
+        <div class="pa-card">
+            <h4 class="pa-section-title"><i class="fas fa-lock"></i> Security</h4>
+            <div class="pa-security-item">
+                <div class="pa-security-info">
+                    <span class="pa-security-label">Password</span>
+                    <span class="pa-security-desc">Last changed 30 days ago</span>
+                </div>
+                <button class="pa-action-btn" onclick="openChangePassword()">Change</button>
+            </div>
+            <div class="pa-security-item">
+                <div class="pa-security-info">
+                    <span class="pa-security-label">Two-Factor Authentication</span>
+                    <span class="pa-security-desc">Add extra security to your account</span>
+                </div>
+                <label class="pa-toggle">
+                    <input type="checkbox">
+                    <span class="pa-toggle-slider"></span>
+                </label>
+            </div>
+            <div class="pa-security-item">
+                <div class="pa-security-info">
+                    <span class="pa-security-label">Login Notifications</span>
+                    <span class="pa-security-desc">Get alerts for new device logins</span>
+                </div>
+                <label class="pa-toggle">
+                    <input type="checkbox" checked>
+                    <span class="pa-toggle-slider"></span>
+                </label>
+            </div>
+        </div>
 
     </div>
-
-
-
-
 
     <!-- ================= ID VERIFICATION ================= -->
+    <div id="idVerificationSection" class="personal-tab-content" style="display:none;">
+        
+        <!-- Verification Status Banner -->
+        <div class="pa-card pa-status-banner">
+            <div class="pa-status-icon">
+                <i class="fas fa-user-check"></i>
+            </div>
+            <div class="pa-status-text">
+                <h3>Identity Verification</h3>
+                <p>Your identity has been successfully verified. You have full access to all platform features.</p>
+                <span class="pa-status-badge verified"><i class="fas fa-check-circle"></i> Fully Verified</span>
+            </div>
+        </div>
 
-    <div id="idVerificationSection"
-    class="personal-tab-content"
-    style="display:none;">
+        <!-- Verification Steps -->
+        <div class="pa-card">
+            <h4 class="pa-section-title"><i class="fas fa-tasks"></i> Verification Steps</h4>
+            
+            <div class="pa-verification-step completed">
+                <div class="pa-step-number"><i class="fas fa-check"></i></div>
+                <div class="pa-step-content">
+                    <h5>Email Verification</h5>
+                    <p>Your email address has been verified successfully.</p>
+                    <span class="pa-step-date">Completed on 15 Jan 2026</span>
+                </div>
+                <div class="pa-step-status"><i class="fas fa-check-circle"></i></div>
+            </div>
 
+            <div class="pa-verification-step completed">
+                <div class="pa-step-number"><i class="fas fa-check"></i></div>
+                <div class="pa-step-content">
+                    <h5>Phone Verification</h5>
+                    <p>Your phone number has been verified via SMS.</p>
+                    <span class="pa-step-date">Completed on 16 Jan 2026</span>
+                </div>
+                <div class="pa-step-status"><i class="fas fa-check-circle"></i></div>
+            </div>
 
-        <!-- ID Verification Content Will Come Here -->
+            <div class="pa-verification-step completed">
+                <div class="pa-step-number"><i class="fas fa-check"></i></div>
+                <div class="pa-step-content">
+                    <h5>ID Document Upload</h5>
+                    <p>National ID / Passport / Driving License verified.</p>
+                    <span class="pa-step-date">Completed on 18 Jan 2026</span>
+                </div>
+                <div class="pa-step-status"><i class="fas fa-check-circle"></i></div>
+            </div>
 
+            <div class="pa-verification-step completed">
+                <div class="pa-step-number"><i class="fas fa-check"></i></div>
+                <div class="pa-step-content">
+                    <h5>Selfie Verification</h5>
+                    <p>Live selfie check completed successfully.</p>
+                    <span class="pa-step-date">Completed on 18 Jan 2026</span>
+                </div>
+                <div class="pa-step-status"><i class="fas fa-check-circle"></i></div>
+            </div>
+        </div>
+
+        <!-- Uploaded ID Documents -->
+        <div class="pa-card">
+            <h4 class="pa-section-title"><i class="fas fa-folder-open"></i> Uploaded Documents</h4>
+            <div class="pa-documents-grid">
+                <div class="pa-document-card">
+                    <div class="pa-doc-preview">
+                        <i class="fas fa-id-card"></i>
+                    </div>
+                    <div class="pa-doc-info">
+                        <span class="pa-doc-name">National ID - Front</span>
+                        <span class="pa-doc-type">JPEG • 2.4 MB</span>
+                        <span class="pa-doc-status approved"><i class="fas fa-check"></i> Approved</span>
+                    </div>
+                    <button class="pa-doc-view"><i class="fas fa-eye"></i></button>
+                </div>
+                <div class="pa-document-card">
+                    <div class="pa-doc-preview">
+                        <i class="fas fa-id-card"></i>
+                    </div>
+                    <div class="pa-doc-info">
+                        <span class="pa-doc-name">National ID - Back</span>
+                        <span class="pa-doc-type">JPEG • 1.8 MB</span>
+                        <span class="pa-doc-status approved"><i class="fas fa-check"></i> Approved</span>
+                    </div>
+                    <button class="pa-doc-view"><i class="fas fa-eye"></i></button>
+                </div>
+                <div class="pa-document-card">
+                    <div class="pa-doc-preview">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <div class="pa-doc-info">
+                        <span class="pa-doc-name">Selfie Photo</span>
+                        <span class="pa-doc-type">PNG • 856 KB</span>
+                        <span class="pa-doc-status approved"><i class="fas fa-check"></i> Approved</span>
+                    </div>
+                    <button class="pa-doc-view"><i class="fas fa-eye"></i></button>
+                </div>
+            </div>
+        </div>
 
     </div>
-
-
-
-
 
     <!-- ================= PROOF DOCUMENTS ================= -->
+    <div id="proofAddressSection" class="personal-tab-content" style="display:none;">
+        
+        <!-- Address Verification Status -->
+        <div class="pa-card pa-status-banner warning">
+            <div class="pa-status-icon">
+                <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <div class="pa-status-text">
+                <h3>Address Verification Pending</h3>
+                <p>Please upload a valid proof of address document to complete your verification.</p>
+                <span class="pa-status-badge pending"><i class="fas fa-clock"></i> Under Review</span>
+            </div>
+        </div>
 
-    <div id="proofAddressSection"
-    class="personal-tab-content"
-    style="display:none;">
+        <!-- Address Info -->
+        <div class="pa-card">
+            <h4 class="pa-section-title"><i class="fas fa-home"></i> Current Address</h4>
+            <div class="pa-address-display">
+                <div class="pa-address-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="pa-address-details">
+                    <p>House #42, Road #7</p>
+                    <p>Gulshan Avenue, Gulshan-1</p>
+                    <p>Dhaka, 1212</p>
+                    <p>Bangladesh</p>
+                </div>
+                <button class="pa-action-btn outline"><i class="fas fa-edit"></i> Edit</button>
+            </div>
+        </div>
 
+        <!-- Upload New Document -->
+        <div class="pa-card">
+            <h4 class="pa-section-title"><i class="fas fa-cloud-upload-alt"></i> Upload Proof of Address</h4>
+            <p class="pa-upload-desc">Accepted documents: Utility Bill, Bank Statement, Government Letter (must be dated within last 3 months)</p>
+            
+            <div class="pa-upload-zone" onclick="document.getElementById('addressDoc').click()">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <span>Click or drag file here to upload</span>
+                <small>Max file size: 10MB (PDF, JPG, PNG)</small>
+                <input type="file" id="addressDoc" hidden accept=".pdf,.jpg,.jpeg,.png">
+            </div>
 
-        <!-- Proof Documents Content Will Come Here -->
+            <div class="pa-doc-type-select">
+                <label>Document Type</label>
+                <div class="pa-doc-options">
+                    <label class="pa-doc-option">
+                        <input type="radio" name="docType" value="utility" checked>
+                        <span><i class="fas fa-bolt"></i> Utility Bill</span>
+                    </label>
+                    <label class="pa-doc-option">
+                        <input type="radio" name="docType" value="bank">
+                        <span><i class="fas fa-university"></i> Bank Statement</span>
+                    </label>
+                    <label class="pa-doc-option">
+                        <input type="radio" name="docType" value="govt">
+                        <span><i class="fas fa-landmark"></i> Govt. Letter</span>
+                    </label>
+                </div>
+            </div>
 
+            <button class="pa-save-btn"><i class="fas fa-paper-plane"></i> Submit Document</button>
+        </div>
+
+        <!-- Document History -->
+        <div class="pa-card">
+            <h4 class="pa-section-title"><i class="fas fa-history"></i> Document History</h4>
+            
+            <div class="pa-history-item">
+                <div class="pa-history-icon rejected">
+                    <i class="fas fa-times-circle"></i>
+                </div>
+                <div class="pa-history-content">
+                    <h5>Utility Bill - Electricity</h5>
+                    <p>Rejected: Document is older than 3 months</p>
+                    <span class="pa-history-date">Uploaded: 10 Jul 2026</span>
+                </div>
+                <span class="pa-history-status rejected">Rejected</span>
+            </div>
+
+            <div class="pa-history-item">
+                <div class="pa-history-icon approved">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="pa-history-content">
+                    <h5>Bank Statement</h5>
+                    <p>Approved: Valid proof of address</p>
+                    <span class="pa-history-date">Uploaded: 05 Jun 2026 • Approved: 07 Jun 2026</span>
+                </div>
+                <span class="pa-history-status approved">Approved</span>
+            </div>
+
+        </div>
 
     </div>
 
-
-
 </div>
+
+
 
 <!-- ================= END PERSONAL AREA ================= -->
 
