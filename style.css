@@ -992,11 +992,17 @@ label, .box-label {
 @media (max-width: 768px) {
     #personal-area-section {
         width: 100%;
-        max-width: 90%;
+        max-width: 100%;
+        top: 60px;
+        height: calc(100vh - 60px);
         border-radius: 0;
-        top: 0;
-        height: 95vh;
+        padding: 15px;
     }
+    
+    .personal-header h2 {
+        font-size: 18px;
+    }
+}
     
     .tab-box {
         flex-direction: column;
