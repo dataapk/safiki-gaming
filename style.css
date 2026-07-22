@@ -345,35 +345,44 @@ img, svg {
    TAB BOX
    ============================================ */
 
+/* ============================================
+   TAB BOX — FORCE SIDE BY SIDE
+   ============================================ */
+
 .tab-box {
-    display: flex;
-    gap: 0;
-    margin-bottom: 18px;
-    background: #171b27;
-    border: 1px solid rgba(255, 214, 102, 0.25);
-    border-radius: 18px;
-    padding: 6px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+    display: flex !important;           /* Force flex */
+    flex-direction: row !important;     /* Force horizontal */
+    flex-wrap: nowrap !important;       /* No wrapping */
+    gap: 8px !important;
+    margin-bottom: 18px !important;
+    background: #171b27 !important;
+    border: 1px solid rgba(255, 214, 102, 0.25) !important;
+    border-radius: 18px !important;
+    padding: 6px !important;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35) !important;
 }
 
 .personal-tab {
-    flex: 1;
-    padding: 14px;
-    background: transparent;
-    border: none;
-    border-radius: 12px;
-    color: #8892b0;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    text-align: center;
-    transition: all 0.3s ease;
+    flex: 1 1 0 !important;             /* Equal width, force */
+    min-width: 0 !important;            /* Prevent overflow */
+    padding: 14px 8px !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 12px !important;
+    color: #8892b0 !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    text-align: center !important;
+    white-space: nowrap !important;     /* No text wrap */
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
 }
 
 .personal-tab.active {
-    background: #ffd666;         /* Golden active */
-    color: #13151c;
-    box-shadow: 0 0 15px rgba(255, 214, 102, 0.3);
+    background: #ffd666 !important;     /* Golden active */
+    color: #13151c !important;
+    box-shadow: 0 0 15px rgba(255, 214, 102, 0.3) !important;
 }
 
 /* ============================================
