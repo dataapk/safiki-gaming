@@ -276,129 +276,136 @@ img, svg {
    PERSONAL AREA SECTION (Main Container)
    ============================================ */
 /* ============================================
-   PERSONAL AREA POPUP
+   PERSONAL AREA — MY BONUS STYLE
    ============================================ */
+
+/* ===== Main Container (same as My Bonus) ===== */
 #personal-area-section {
     position: fixed;
     top: 70px;
     left: 50%;
     transform: translateX(-50%);
     width: 720px;
-    max-width: 98%;
-    height: calc(100vh - 70px);
+    max-width: 94%;
+    height: 80vh;
     overflow-y: auto;
     background: #13151c;
     border: 1px solid rgba(255, 214, 102, 0.25);
     border-radius: 18px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
     z-index: 9998;
     display: none;
     padding: 20px;
     box-sizing: border-box;
 }
 
-/* ============================================
-   HEADER
-   ============================================ */
+/* ===== HEADER (Title Center + Close Right) ===== */
 .personal-header {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
-    padding-bottom: 15px;
+    position: relative;
+    margin-bottom: 18px;
+    padding-bottom: 12px;
     border-bottom: 1px solid rgba(255, 214, 102, 0.2);
 }
+
 .personal-header h2 {
     margin: 0;
-    color: #ffd666;
+    color: #ffffff;
     font-size: 22px;
     font-weight: 700;
+    text-align: center;
 }
+
 .close-personal-btn {
-    background: transparent;
-    border: 1px solid #ff8c00;
-    color: #ff8c00;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #ffd666;
+    border: none;
+    color: #13151c;
     font-size: 18px;
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-.close-personal-btn:hover {
-    background: #ff8c00;
-    color: #13151c;
+    font-weight: bold;
 }
 
-/* ============================================
-   TAB BOX
-   ============================================ */
+/* ===== TAB BOX (3 Tabs Side by Side — Like My Bonus) ===== */
 .tab-box {
     display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-    background: #1a1a2e;
+    gap: 0;
+    margin-bottom: 14px;
+    background: #171b27;
     border: 1px solid rgba(255, 214, 102, 0.25);
-    border-radius: 12px;
-    padding: 5px;
+    border-radius: 18px;
+    padding: 6px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
 }
+
 .personal-tab {
     flex: 1;
     padding: 12px;
     background: transparent;
     border: none;
-    border-radius: 8px;
+    border-radius: 12px;
     color: #8892b0;
-    font-size: 13px;
-    font-weight: 500;
+    font-size: 14px;
+    font-weight: 600;
     cursor: pointer;
     text-align: center;
     transition: all 0.3s ease;
 }
+
 .personal-tab:hover {
     color: #ffd666;
 }
+
 .personal-tab.active {
-    background: rgba(255, 140, 0, 0.2);
-    color: #ffd666;
+    background: #ffd666;
+    color: #13151c;
+    box-shadow: 0 0 15px rgba(255, 214, 102, 0.3);
 }
 
-/* ============================================
-   TAB CONTENT
-   ============================================ */
+/* ===== TAB CONTENT ===== */
 .personal-tab-content {
     display: none;
 }
+
 .personal-tab-content.active {
     display: block;
 }
 
-/* ============================================
-   CONTENT BOX
-   ============================================ */
+/* ===== CONTENT BOXES (Like My Bonus Cards) ===== */
 .content-box {
-    background: #1a1a2e;
+    background: #171b27;
     border: 1px solid rgba(255, 214, 102, 0.25);
-    border-radius: 12px;
-    padding: 15px;
-    margin-bottom: 15px;
+    border-radius: 18px;
+    padding: 12px 16px;
+    margin-bottom: 14px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
 }
 
-/* ============================================
-   PROFILE
-   ============================================ */
+/* ===== PROFILE ===== */
 .profile-row {
     display: flex;
     align-items: center;
     gap: 15px;
 }
+
 .profile-avatar-wrapper {
     position: relative;
     width: 60px;
     height: 60px;
     flex-shrink: 0;
 }
+
 .profile-avatar {
     width: 100%;
     height: 100%;
@@ -406,6 +413,7 @@ img, svg {
     object-fit: cover;
     border: 2px solid #ff8c00;
 }
+
 .change-avatar-btn {
     position: absolute;
     bottom: -4px;
@@ -413,7 +421,7 @@ img, svg {
     width: 22px;
     height: 22px;
     background: #ff8c00;
-    border: 2px solid #1a1a2e;
+    border: 2px solid #171b27;
     border-radius: 50%;
     color: #fff;
     cursor: pointer;
@@ -422,53 +430,61 @@ img, svg {
     justify-content: center;
     font-size: 9px;
 }
+
 .profile-info {
     flex: 1;
 }
+
 .label-small {
     color: #8892b0;
-    font-size: 11px;
+    font-size: 12px;
     text-transform: uppercase;
     margin: 0;
 }
+
 .value-text {
     color: #ffd666;
     font-size: 16px;
     font-weight: 600;
     margin: 4px 0;
 }
+
 .member-text {
     color: #64ffda;
     font-size: 12px;
     margin: 0;
 }
 
-/* ============================================
-   FORM ROWS
-   ============================================ */
+/* ===== FORM ROWS ===== */
 .form-row {
     display: flex;
     gap: 15px;
     margin-bottom: 15px;
 }
+
 .form-group {
     flex: 1;
     display: flex;
     flex-direction: column;
 }
+
 .form-group.full-width {
     width: 100%;
     margin-bottom: 15px;
 }
+
 .first-name {
     flex: 2;
 }
+
 .surname {
     flex: 1;
 }
+
 .city {
     flex: 2;
 }
+
 .postal {
     flex: 1;
 }
@@ -481,6 +497,7 @@ label, .box-label {
     margin-bottom: 6px;
     text-transform: uppercase;
 }
+
 .label-row {
     display: flex;
     justify-content: space-between;
@@ -501,13 +518,16 @@ label, .box-label {
     outline: none;
     width: 100%;
 }
+
 .form-input:focus {
     border-color: #ffd666;
 }
+
 .form-input:disabled {
     opacity: 0.6;
     cursor: not-allowed;
 }
+
 .form-select {
     appearance: none;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23ffd666' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
@@ -516,6 +536,7 @@ label, .box-label {
     padding-right: 35px;
     cursor: pointer;
 }
+
 .date-picker {
     cursor: pointer;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' fill='%23ffd666' viewBox='0 0 16 16'%3E%3Cpath d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/%3E%3C/svg%3E");
@@ -523,15 +544,14 @@ label, .box-label {
     background-position: right 12px center;
     padding-right: 35px;
 }
+
 .address-textarea {
     height: auto;
     min-height: 60px;
     resize: vertical;
 }
 
-/* ============================================
-   ACTION BUTTONS
-   ============================================ */
+/* ===== ACTION BUTTONS ===== */
 .action-btn {
     background: transparent;
     border: 1px solid #ff8c00;
@@ -543,34 +563,41 @@ label, .box-label {
     cursor: pointer;
     transition: all 0.3s ease;
 }
+
 .action-btn:hover:not(:disabled) {
     background: #ff8c00;
     color: #13151c;
 }
+
 .action-btn:disabled {
     opacity: 0.4;
     cursor: not-allowed;
     border-color: #8892b0;
     color: #8892b0;
 }
+
 .change-btn {
     border-color: #64ffda;
     color: #64ffda;
 }
+
 .change-btn:hover:not(:disabled) {
     background: #64ffda;
     color: #13151c;
 }
+
 .add-btn {
     border-color: #ff8c00;
     color: #ff8c00;
 }
+
 .send-btn {
     background: #ff8c00;
     color: #fff;
     border: none;
     white-space: nowrap;
 }
+
 .save-btn {
     background: #64ffda;
     color: #13151c;
@@ -578,9 +605,7 @@ label, .box-label {
     font-weight: 600;
 }
 
-/* ============================================
-   DROPDOWNS
-   ============================================ */
+/* ===== DROPDOWNS ===== */
 .change-dropdown {
     margin-top: 10px;
     padding: 14px;
@@ -588,39 +613,39 @@ label, .box-label {
     border-radius: 12px;
     border: 1px solid rgba(255, 214, 102, 0.2);
 }
-.otp-row,
-.new-row {
+
+.otp-row, .new-row {
     display: flex;
     gap: 10px;
     margin-bottom: 10px;
 }
+
 .otp-input {
     flex: 1;
 }
 
-/* ============================================
-   MOBILE ROW
-   ============================================ */
+/* ===== MOBILE ROW ===== */
 .mobile-row {
     display: flex;
     gap: 10px;
 }
+
 .country-code {
     width: 80px;
     flex-shrink: 0;
 }
+
 .mobile-input {
     flex: 1;
 }
 
-/* ============================================
-   CONTROLS ROW
-   ============================================ */
+/* ===== CONTROLS ROW ===== */
 .controls-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+
 .edit-toggle-btn {
     display: flex;
     align-items: center;
@@ -632,6 +657,7 @@ label, .box-label {
     color: #ccd6f6;
     font-size: 13px;
 }
+
 .toggle-track {
     width: 44px;
     height: 24px;
@@ -641,10 +667,12 @@ label, .box-label {
     border: 1px solid rgba(255, 214, 102, 0.2);
     transition: all 0.3s ease;
 }
+
 .toggle-track.active {
     background: rgba(255, 140, 0, 0.3);
     border-color: #ff8c00;
 }
+
 .toggle-thumb {
     position: absolute;
     top: 2px;
@@ -655,10 +683,12 @@ label, .box-label {
     border-radius: 50%;
     transition: all 0.3s ease;
 }
+
 .toggle-track.active .toggle-thumb {
     left: 22px;
     background: #ffd666;
 }
+
 .save-changes-btn {
     background: #ff8c00;
     color: #13151c;
@@ -670,56 +700,54 @@ label, .box-label {
     cursor: pointer;
     transition: all 0.3s ease;
 }
+
 .save-changes-btn:hover:not(:disabled) {
     background: #ffd666;
 }
-.save-changes-btn:disabled {
-    opacity: 0.4;
-    cursor: not-allowed;
-    background: #8892ball;
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-.save-changes-btn:hover:not(:disabled) {
-    background: #ffd666;
-}
+
 .save-changes-btn:disabled {
     opacity: 0.4;
     cursor: not-allowed;
     background: #8892b0;
 }
 
-/* ============================================
-   ID VERIFICATION
-   ============================================ */
+/* ===== ID VERIFICATION ===== */
 .box-title {
     color: #ffd666;
-    font-size: 14px;
+    font-size: 16px;
+    font-weight: 700;
     margin: 0 0 12px 0;
+    text-align: center;
 }
+
 .box-title i {
     margin-right: 8px;
 }
+
 .box-desc {
     color: #8892b0;
     font-size: 13px;
     margin: 0 0 15px 0;
+    text-align: center;
 }
+
 .ip-text {
     color: #8892b0;
     font-size: 12px;
     margin: 8px 0 0 0;
+    text-align: center;
 }
+
 .ip-text span {
     color: #64ffda;
 }
+
 .guide-list {
     list-style: none;
     padding: 0;
     margin: 0;
 }
+
 .guide-list li {
     color: #8892b0;
     font-size: 12px;
@@ -728,6 +756,7 @@ label, .box-label {
     align-items: center;
     gap: 8px;
 }
+
 .guide-list li::before {
     content: "✓";
     color: #64ffda;
@@ -741,26 +770,31 @@ label, .box-label {
     gap: 15px;
     margin-bottom: 15px;
 }
+
 .upload-box {
     text-align: center;
 }
+
 .upload-box i {
     font-size: 32px;
     color: #ff8c00;
     margin-bottom: 10px;
     display: block;
 }
+
 .upload-box p {
     color: #ffd666;
     font-size: 14px;
     margin: 0 0 5px 0;
 }
+
 .upload-box span {
     color: #8892b0;
     font-size: 11px;
     display: block;
     margin-bottom: 10px;
 }
+
 .upload-btn {
     background: transparent;
     border: 1px solid #ff8c00;
@@ -771,6 +805,7 @@ label, .box-label {
     cursor: pointer;
     transition: all 0.3s ease;
 }
+
 .upload-btn:hover {
     background: #ff8c00;
     color: #13151c;
@@ -785,12 +820,14 @@ label, .box-label {
     text-align: center;
     margin-bottom: 15px;
 }
+
 .camera-box i {
     font-size: 40px;
     color: #ff8c00;
     margin-bottom: 10px;
     display: block;
 }
+
 .camera-btn {
     background: transparent;
     border: 1px solid #ff8c00;
@@ -801,10 +838,12 @@ label, .box-label {
     cursor: pointer;
     transition: all 0.3s ease;
 }
+
 .camera-btn:hover {
     background: #ff8c00;
     color: #13151c;
 }
+
 .verify-btn {
     width: 100%;
     padding: 12px;
@@ -817,10 +856,12 @@ label, .box-label {
     cursor: pointer;
     transition: all 0.3s ease;
 }
+
 .verify-btn:hover:not(:disabled) {
     background: #ff8c00;
     color: #13151c;
 }
+
 .verify-btn:disabled {
     opacity: 0.4;
     cursor: not-allowed;
@@ -828,13 +869,12 @@ label, .box-label {
     color: #8892b0;
 }
 
-/* ============================================
-   PROOF OF ADDRESS
-   ============================================ */
+/* ===== PROOF OF ADDRESS ===== */
 .action-row {
     display: flex;
     gap: 10px;
     margin-top: 10px;
+    justify-content: center;
 }
 
 /* Document Row */
@@ -843,6 +883,7 @@ label, .box-label {
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
 }
+
 .doc-option {
     background: #0f3460;
     border: 1px solid rgba(255, 214, 102, 0.2);
@@ -852,19 +893,23 @@ label, .box-label {
     cursor: pointer;
     transition: all 0.3s ease;
 }
+
 .doc-option:hover {
     border-color: #ffd666;
 }
+
 .doc-option.active {
     border-color: #ff8c00;
     background: rgba(255, 140, 0, 0.2);
 }
+
 .doc-option i {
     font-size: 20px;
     color: #ff8c00;
     margin-bottom: 6px;
     display: block;
 }
+
 .doc-option span {
     color: #ffd666;
     font-size: 11px;
@@ -876,17 +921,20 @@ label, .box-label {
     padding: 20px;
     cursor: pointer;
 }
+
 .upload-area i {
     font-size: 32px;
     color: #ff8c00;
     margin-bottom: 10px;
     display: block;
 }
+
 .upload-area p {
     color: #ffd666;
     font-size: 14px;
     margin: 0 0 5px 0;
 }
+
 .upload-area span {
     color: #8892b0;
     font-size: 11px;
@@ -905,10 +953,12 @@ label, .box-label {
     cursor: pointer;
     transition: all 0.3s ease;
 }
+
 .submit-btn:hover:not(:disabled) {
     background: #ff8c00;
     color: #13151c;
 }
+
 .submit-btn:disabled {
     opacity: 0.4;
     cursor: not-allowed;
@@ -916,20 +966,20 @@ label, .box-label {
     color: #8892b0;
 }
 
-/* ============================================
-   RESPONSIVE
-   ============================================ */
+/* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
     #personal-area-section {
         width: 100%;
         max-width: 100%;
         border-radius: 0;
         top: 0;
-        height: 100vh;
+        height: 85vh;
     }
+    
     .tab-box {
         flex-direction: column;
     }
+    
     .form-row,
     .upload-row,
     .doc-row {
@@ -937,7 +987,6 @@ label, .box-label {
         grid-template-columns: 1fr;
     }
 }
-
 
 /* =========================================================
   END PERSONAL AREA CSS
