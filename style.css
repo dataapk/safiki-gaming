@@ -281,17 +281,22 @@ img, svg {
    ============================================ */
 
 css_code = '''/* ============================================
-   PERSONAL AREA — MY BONUS STYLE (DARK THEME)
+   PERSONAL AREA — 
+STYLE (DARK THEME)
+   ============================================ */
+
+/* ============================================
+   PERSONAL AREA POPUP — MY BONUS STYLE
    ============================================ */
 
 #personal-area-section {
     position: fixed;
-    top: 80px;
+    top: 70px;
     left: 50%;
     transform: translateX(-50%);
-    width: 680px;
-    max-width: 90%;
-    height: calc(100vh - 100px);
+    width: 720px;
+    max-width: 94%;
+    height: 80vh;
     overflow-y: auto;
     background: #13151c;
     border: 1px solid rgba(255, 214, 102, 0.25);
@@ -303,19 +308,21 @@ css_code = '''/* ============================================
     box-sizing: border-box;
 }
 
+/* Show when active */
 #personal-area-section.active {
     display: block;
 }
 
-/* Scrollbar */
+/* Scrollbar styling */
 #personal-area-section::-webkit-scrollbar {
     width: 6px;
 }
 #personal-area-section::-webkit-scrollbar-track {
-    background: transparent;
+    background: #1a1d2b;
+    border-radius: 3px;
 }
 #personal-area-section::-webkit-scrollbar-thumb {
-    background: rgba(255, 214, 102, 0.3);
+    background: #ffd666;
     border-radius: 3px;
 }
 
@@ -325,52 +332,48 @@ css_code = '''/* ============================================
 
 .personal-header {
     display: flex;
-    justify-content: center;
     align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    margin-bottom: 15px;
-    padding: 10px 40px;
-    border-bottom: 1px solid rgba(255, 214, 102, 0.2);
-    background: #13151c;
+    justify-content: space-between;
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #2b2f40;
 }
 
 .personal-header h2 {
-    margin: 0;
+    margin: 0 auto;
     color: #ffffff;
-    font-size: 20px;
-    font-weight: 700;
-    text-align: center;
+    font-size: 22px;
+    font-weight: 600;
 }
 
 .close-personal-btn {
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    background: #ffd666;
+    width: 40px;
+    height: 40px;
     border: none;
-    color: #13151c;
-    font-size: 18px;
-    width: 32px;
-    height: 32px;
     border-radius: 50%;
+    background: #ffd666;
+    color: #13151c;
+    font-size: 20px;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close-personal-btn:hover {
+    background: #e6c25c;
+    transform: scale(1.05);
 }
 
 /* ============================================
-   TAB BOX — MY BONUS STYLE
+   TAB BOX
    ============================================ */
 
 .tab-box {
     display: flex;
     gap: 8px;
-    margin-bottom: 15px;
+    margin: 20px 0;
     background: #171b27;
     border: 1px solid rgba(255, 214, 102, 0.25);
     border-radius: 14px;
@@ -391,7 +394,8 @@ css_code = '''/* ============================================
     transition: all 0.3s ease;
 }
 
-.personal-tab.active {
+.personal-tab.active,
+.personal-tab:hover {
     background: #ffd666;
     color: #13151c;
 }
@@ -402,6 +406,7 @@ css_code = '''/* ============================================
 
 .personal-tab-content {
     display: none;
+    margin-top: 15px;
 }
 
 .personal-tab-content.active {
@@ -409,15 +414,15 @@ css_code = '''/* ============================================
 }
 
 /* ============================================
-   CONTENT BOX — CARD STYLE
+   CONTENT BOX (CARD) — MY BONUS STYLE
    ============================================ */
 
 .content-box {
-    background: #171b27;
-    border: 1px solid rgba(255, 214, 102, 0.25);
+    background: #181d2b;
+    border: 1px solid #2b2f40;
     border-radius: 14px;
-    padding: 16px;
-    margin-bottom: 12px;
+    padding: 18px;
+    margin-bottom: 18px;
 }
 
 .content-box:last-child {
@@ -428,85 +433,21 @@ css_code = '''/* ============================================
 .box-title {
     color: #ffd666;
     font-size: 16px;
-    font-weight: 700;
+    font-weight: 600;
     margin: 0 0 12px 0;
 }
 
 .box-label {
     display: block;
     color: #8892b0;
-    font-size: 12px;
-    font-weight: 600;
-    margin-bottom: 6px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    font-size: 13px;
+    margin-bottom: 8px;
 }
 
 .box-desc {
     color: #8892b0;
     font-size: 13px;
-    margin: 0 0 12px 0;
-}
-
-/* ============================================
-   PROFILE SECTION
-   ============================================ */
-
-.profile-row {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-}
-
-.profile-avatar-wrapper {
-    position: relative;
-    width: 64px;
-    height: 64px;
-    flex-shrink: 0;
-}
-
-.profile-avatar {
-    width: 64px;
-    height: 64px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid rgba(255, 214, 102, 0.3);
-}
-
-.change-avatar-btn {
-    position: absolute;
-    bottom: -2px;
-    right: -2px;
-    width: 24px;
-    height: 24px;
-    background: #ffd666;
-    border: none;
-    border-radius: 50%;
-    color: #13151c;
-    font-size: 11px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.profile-info .label-small {
-    color: #8892b0;
-    font-size: 11px;
-    margin: 0 0 2px 0;
-}
-
-.profile-info .value-text {
-    color: #ffffff;
-    font-size: 16px;
-    font-weight: 700;
-    margin: 0 0 4px 0;
-}
-
-.profile-info .member-text {
-    color: #ffd666;
-    font-size: 12px;
-    margin: 0;
+    margin-bottom: 12px;
 }
 
 /* ============================================
@@ -527,48 +468,33 @@ css_code = '''/* ============================================
     flex: 1;
 }
 
-.form-group.first-name {
-    flex: 1;
-}
-
-.form-group.surname {
-    flex: 1;
-}
-
 .form-group.full-width {
     width: 100%;
     margin-bottom: 12px;
-}
-
-.form-group.full-width:last-child {
-    margin-bottom: 0;
 }
 
 .form-group label {
     display: block;
     color: #8892b0;
     font-size: 12px;
-    font-weight: 600;
     margin-bottom: 6px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
 }
 
 .form-input {
     width: 100%;
-    padding: 12px 14px;
-    background: #1e2230;
-    border: 1px solid rgba(255, 214, 102, 0.15);
+    padding: 10px 14px;
+    background: #13151c;
+    border: 1px solid #2b2f40;
     border-radius: 10px;
     color: #ffffff;
     font-size: 14px;
     box-sizing: border-box;
-    transition: border-color 0.3s ease;
+    transition: border-color 0.3s;
 }
 
 .form-input:focus {
     outline: none;
-    border-color: rgba(255, 214, 102, 0.5);
+    border-color: #ffd666;
 }
 
 .form-input:disabled {
@@ -578,12 +504,10 @@ css_code = '''/* ============================================
 
 .form-select {
     appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%238892b0' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 14px center;
-    padding-right: 36px;
+    cursor: pointer;
 }
 
+/* Label Row with Action Button */
 .label-row {
     display: flex;
     justify-content: space-between;
@@ -591,7 +515,90 @@ css_code = '''/* ============================================
     margin-bottom: 6px;
 }
 
-/* Mobile row */
+/* ============================================
+   ACTION BUTTONS
+   ============================================ */
+
+.action-btn {
+    padding: 6px 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.change-btn {
+    background: transparent;
+    color: #ffd666;
+    border: 1px solid #ffd666;
+}
+
+.change-btn:hover {
+    background: #ffd666;
+    color: #13151c;
+}
+
+.add-btn {
+    background: #ffd666;
+    color: #13151c;
+}
+
+.add-btn:hover {
+    background: #e6c25c;
+}
+
+.save-btn {
+    background: #27ae60;
+    color: #ffffff;
+}
+
+.save-btn:hover {
+    background: #219a52;
+}
+
+.send-btn {
+    background: #ffd666;
+    color: #13151c;
+    white-space: nowrap;
+}
+
+.send-btn:hover {
+    background: #e6c25c;
+}
+
+/* ============================================
+   OTP / CHANGE DROPDOWN
+   ============================================ */
+
+.change-dropdown {
+    margin-top: 10px;
+    padding: 12px;
+    background: #13151c;
+    border: 1px solid #2b2f40;
+    border-radius: 10px;
+}
+
+.otp-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.otp-input {
+    flex: 1;
+}
+
+.new-row {
+    display: flex;
+    gap: 8px;
+}
+
+/* ============================================
+   MOBILE ROW
+   ============================================ */
+
 .mobile-row {
     display: flex;
     gap: 8px;
@@ -606,94 +613,74 @@ css_code = '''/* ============================================
     flex: 1;
 }
 
-/* OTP & Change dropdown */
-.change-dropdown {
-    margin-top: 10px;
-    padding-top: 10px;
-    border-top: 1px solid rgba(255, 214, 102, 0.1);
-}
-
-.otp-row {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 8px;
-}
-
-.otp-input {
-    flex: 1;
-}
-
-.new-row {
-    display: flex;
-    gap: 8px;
-}
-
 /* ============================================
-   ACTION BUTTONS
+   PROFILE
    ============================================ */
 
-.action-btn {
-    padding: 8px 16px;
-    border-radius: 8px;
-    font-size: 12px;
-    font-weight: 600;
-    cursor: pointer;
+.profile-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.profile-avatar-wrapper {
+    position: relative;
+    width: 70px;
+    height: 70px;
+}
+
+.profile-avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ffd666;
+}
+
+.change-avatar-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 26px;
+    height: 26px;
     border: none;
-    transition: all 0.3s ease;
-}
-
-.action-btn:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
-.change-btn {
-    background: transparent;
-    color: #ffd666;
-    border: 1px solid rgba(255, 214, 102, 0.3);
-}
-
-.change-btn:hover:not(:disabled) {
-    background: rgba(255, 214, 102, 0.1);
-}
-
-.add-btn {
+    border-radius: 50%;
     background: #ffd666;
     color: #13151c;
+    font-size: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.add-btn:hover:not(:disabled) {
-    background: #e6c15c;
+.profile-info .label-small {
+    color: #8892b0;
+    font-size: 11px;
+    margin: 0 0 2px 0;
 }
 
-.save-btn {
-    background: #ffd666;
-    color: #13151c;
+.profile-info .value-text {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 4px 0;
 }
 
-.save-btn:hover:not(:disabled) {
-    background: #e6c15c;
-}
-
-.send-btn {
-    background: #ffd666;
-    color: #13151c;
-    white-space: nowrap;
-}
-
-.send-btn:hover:not(:disabled) {
-    background: #e6c15c;
+.profile-info .member-text {
+    color: #8892b0;
+    font-size: 12px;
+    margin: 0;
 }
 
 /* ============================================
-   CONTROLS ROW (Edit Toggle + Save)
+   CONTROLS ROW
    ============================================ */
 
 .controls-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 12px;
 }
 
 .edit-toggle-btn {
@@ -704,7 +691,6 @@ css_code = '''/* ============================================
     border: none;
     color: #ffffff;
     font-size: 14px;
-    font-weight: 600;
     cursor: pointer;
 }
 
@@ -712,10 +698,10 @@ css_code = '''/* ============================================
     display: inline-block;
     width: 44px;
     height: 24px;
-    background: #2d3348;
+    background: #2b2f40;
     border-radius: 12px;
     position: relative;
-    transition: background 0.3s ease;
+    transition: 0.3s;
 }
 
 .toggle-track.active {
@@ -730,61 +716,60 @@ css_code = '''/* ============================================
     height: 20px;
     background: #ffffff;
     border-radius: 50%;
-    transition: transform 0.3s ease;
+    transition: 0.3s;
 }
 
 .toggle-track.active .toggle-thumb {
-    transform: translateX(20px);
+    left: 22px;
 }
 
 .save-changes-btn {
     padding: 10px 24px;
-    background: #ffd666;
-    color: #13151c;
+    background: #27ae60;
+    color: #ffffff;
     border: none;
     border-radius: 10px;
     font-size: 14px;
-    font-weight: 700;
+    font-weight: 600;
     cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.save-changes-btn:hover:not(:disabled) {
-    background: #e6c15c;
+    transition: 0.3s;
 }
 
 .save-changes-btn:disabled {
-    opacity: 0.5;
+    opacity: 0.4;
     cursor: not-allowed;
 }
 
+.save-changes-btn:not(:disabled):hover {
+    background: #219a52;
+}
+
 /* ============================================
-   ID VERIFICATION — UPLOAD BOXES
+   ID VERIFICATION — UPLOAD
    ============================================ */
 
 .upload-row {
     display: flex;
     gap: 12px;
-    margin-bottom: 12px;
+    margin-bottom: 18px;
 }
 
 .upload-box {
     flex: 1;
     text-align: center;
-    padding: 20px 16px;
+    padding: 24px 18px;
     cursor: pointer;
-    transition: border-color 0.3s ease;
+    transition: 0.3s;
 }
 
 .upload-box:hover {
-    border-color: rgba(255, 214, 102, 0.5);
+    border-color: #ffd666;
 }
 
 .upload-box i {
-    font-size: 28px;
+    font-size: 32px;
     color: #ffd666;
     margin-bottom: 8px;
-    display: block;
 }
 
 .upload-box p {
@@ -796,28 +781,27 @@ css_code = '''/* ============================================
 
 .upload-box span {
     color: #8892b0;
-    font-size: 11px;
+    font-size: 12px;
     display: block;
     margin-bottom: 12px;
 }
 
 .upload-btn {
     padding: 8px 16px;
-    background: transparent;
-    color: #ffd666;
-    border: 1px solid rgba(255, 214, 102, 0.3);
+    background: #ffd666;
+    color: #13151c;
+    border: none;
     border-radius: 8px;
     font-size: 12px;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: 0.3s;
 }
 
 .upload-btn:hover {
-    background: rgba(255, 214, 102, 0.1);
+    background: #e6c25c;
 }
 
-/* Guide list */
 .guide-list {
     list-style: none;
     padding: 0;
@@ -836,83 +820,82 @@ css_code = '''/* ============================================
     content: "✓";
     position: absolute;
     left: 0;
-    color: #ffd666;
+    color: #27ae60;
     font-weight: bold;
 }
 
-/* Camera box */
+.ip-text {
+    color: #8892b0;
+    font-size: 12px;
+    margin-top: 8px;
+}
+
+.ip-text span {
+    color: #ffd666;
+}
+
+/* Camera Box */
 .camera-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    text-align: center;
     padding: 30px;
-    background: #1e2230;
-    border: 2px dashed rgba(255, 214, 102, 0.2);
+    background: #13151c;
+    border: 2px dashed #2b2f40;
     border-radius: 12px;
     margin-bottom: 12px;
 }
 
 .camera-box i {
     font-size: 48px;
-    color: #ffd666;
+    color: #8892b0;
     margin-bottom: 12px;
 }
 
 .camera-btn {
     padding: 10px 20px;
-    background: transparent;
-    color: #ffd666;
-    border: 1px solid rgba(255, 214, 102, 0.3);
+    background: #2b2f40;
+    color: #ffffff;
+    border: none;
     border-radius: 8px;
     font-size: 13px;
-    font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: 0.3s;
 }
 
 .camera-btn:hover {
-    background: rgba(255, 214, 102, 0.1);
+    background: #ffd666;
+    color: #13151c;
 }
 
-/* Verify button */
 .verify-btn {
     width: 100%;
     padding: 14px;
-    background: #ffd666;
-    color: #13151c;
+    background: #27ae60;
+    color: #ffffff;
     border: none;
     border-radius: 10px;
     font-size: 15px;
-    font-weight: 700;
+    font-weight: 600;
     cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.verify-btn:hover:not(:disabled) {
-    background: #e6c15c;
+    transition: 0.3s;
 }
 
 .verify-btn:disabled {
-    opacity: 0.5;
+    opacity: 0.4;
     cursor: not-allowed;
 }
 
-/* IP text */
-.ip-text {
-    color: #8892b0;
-    font-size: 12px;
-    margin: 8px 0 0 0;
-}
-
-.ip-text span {
-    color: #ffd666;
-    font-family: monospace;
+.verify-btn:not(:disabled):hover {
+    background: #219a52;
 }
 
 /* ============================================
-   PROOF OF ADDRESS — DOCUMENT OPTIONS
+   PROOF OF ADDRESS
    ============================================ */
+
+.address-textarea {
+    resize: vertical;
+    min-height: 60px;
+}
 
 .doc-row {
     display: flex;
@@ -921,79 +904,65 @@ css_code = '''/* ============================================
 
 .doc-option {
     flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    text-align: center;
     padding: 16px 10px;
-    background: #1e2230;
-    border: 1px solid rgba(255, 214, 102, 0.15);
+    background: #13151c;
+    border: 1px solid #2b2f40;
     border-radius: 10px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    text-align: center;
+    transition: 0.3s;
 }
 
-.doc-option:hover {
-    border-color: rgba(255, 214, 102, 0.5);
-    background: rgba(255, 214, 102, 0.05);
+.doc-option:hover,
+.doc-option.selected {
+    border-color: #ffd666;
+    background: rgba(255, 214, 102, 0.1);
 }
 
 .doc-option i {
     font-size: 24px;
     color: #ffd666;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
+    display: block;
 }
 
 .doc-option span {
     color: #ffffff;
     font-size: 12px;
-    font-weight: 600;
+    font-weight: 500;
 }
 
-/* Upload area */
 .upload-area {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    text-align: center;
     padding: 30px;
-    background: #1e2230;
-    border: 2px dashed rgba(255, 214, 102, 0.2);
+    background: #13151c;
+    border: 2px dashed #2b2f40;
     border-radius: 12px;
     cursor: pointer;
-    transition: border-color 0.3s ease;
+    transition: 0.3s;
 }
 
 .upload-area:hover {
-    border-color: rgba(255, 214, 102, 0.5);
+    border-color: #ffd666;
 }
 
 .upload-area i {
     font-size: 36px;
     color: #ffd666;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .upload-area p {
     color: #ffffff;
     font-size: 14px;
-    font-weight: 600;
     margin: 0 0 4px 0;
 }
 
 .upload-area span {
     color: #8892b0;
-    font-size: 11px;
+    font-size: 12px;
 }
 
-/* Action row */
-.action-row {
-    display: flex;
-    gap: 10px;
-    margin-top: 12px;
-}
-
-/* Submit button */
 .submit-btn {
     width: 100%;
     padding: 14px;
@@ -1004,22 +973,22 @@ css_code = '''/* ============================================
     font-size: 15px;
     font-weight: 700;
     cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.submit-btn:hover:not(:disabled) {
-    background: #e6c15c;
+    transition: 0.3s;
 }
 
 .submit-btn:disabled {
-    opacity: 0.5;
+    opacity: 0.4;
     cursor: not-allowed;
 }
 
-/* Address textarea */
-.address-textarea {
-    resize: vertical;
-    min-height: 60px;
+.submit-btn:not(:disabled):hover {
+    background: #e6c25c;
+}
+
+.action-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
 }
 
 /* ============================================
@@ -1040,9 +1009,19 @@ css_code = '''/* ============================================
         font-size: 18px;
     }
 
+    .tab-box {
+        gap: 4px;
+        padding: 4px;
+    }
+
+    .personal-tab {
+        font-size: 11px;
+        padding: 10px 6px;
+    }
+
     .form-row {
         flex-direction: column;
-        gap: 12px;
+        gap: 0;
     }
 
     .upload-row {
@@ -1053,27 +1032,14 @@ css_code = '''/* ============================================
         flex-direction: column;
     }
 
-    .controls-row {
+    .mobile-row {
         flex-direction: column;
-        gap: 10px;
     }
 
-    .save-changes-btn {
+    .country-code {
         width: 100%;
     }
-
-    .action-row {
-        flex-direction: column;
-    }
 }
-'''
-
-with open('/mnt/agents/output/personal_area_mybonus_style.css', 'w') as f:
-    f.write(css_code)
-
-print("CSS saved successfully!")
-print(f"Total lines: {len(css_code.splitlines())}")
-
 
 /* =========================================================
   END PERSONAL AREA CSS
