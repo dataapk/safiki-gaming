@@ -563,13 +563,17 @@
         </div>
 
         <!-- Controls Box -->
-        <div class="content-box controls-row">
-            <button class="edit-toggle-btn">
-                <span class="toggle-track"><span class="toggle-thumb"></span></span>
-                <span>Edit</span>
-            </button>
-            <button class="save-changes-btn" disabled>Save Changes</button>
-        </div>
+<div class="content-box controls-row">
+    <button class="edit-toggle-btn" id="editToggleBtn" onclick="toggleEditMode()">
+        <span class="toggle-track" id="toggleTrack">
+            <span class="toggle-thumb" id="toggleThumb"></span>
+        </span>
+        <span id="editLabel">Edit</span>
+    </button>
+    <button class="save-changes-btn" id="saveChangesBtn" onclick="saveAllChanges()" disabled>
+        Save Changes
+    </button>
+</div>
 
     </div>
 
