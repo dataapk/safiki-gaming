@@ -782,6 +782,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (editToggleBtn) {
         editToggleBtn.addEventListener('click', toggleEditMode);
     }
+    let isEditMode = false;
 
     function toggleEditMode() {
         isEditMode = !isEditMode;
