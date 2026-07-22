@@ -2248,7 +2248,7 @@ window.addEventListener('click', (event) => {
     }
 
 });
-// --- Outside Click Handler ---
+// END Outside Click Handler ---
 // হেডার আপডেট করার মূল ফাংশন
 // ১. লগইন/লগআউট স্ট্যাটাস অনুযায়ী হেডার আপডেট করার ফাংশন
 // =========================
