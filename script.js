@@ -777,50 +777,82 @@ document.addEventListener('DOMContentLoaded', function() {
     const personalFormBox = document.getElementById('personalFormBox');
     const allInputs = personalFormBox.querySelectorAll('.form-input');
     const allActionBtns = personalFormBox.querySelectorAll('.action-btn');
+// ============================================
+// EDIT TOGGLE — COMPLETE FIXED
+// ============================================
 
-    // --- Edit Mode Toggle ---
-    if (editToggleBtn) {
-        editToggleBtn.addEventListener('click', toggleEditMode);
+let isEditMode = false;
+
+function toggleEditMode() {
+    isEditMode = !isEditMode;
+    
+    // Get elements
+    const toggleTrack = document.getElementById('toggleTrack');
+    const editLabel = document.getElementById('editLabel');
+    const saveChangesBtn = document.getElementById('saveChangesBtn');
+    
+    // Get Personal Details section
+    const personalDetails = document.getElementById('personaldetailsSection');
+    
+    if (!personalDetails) {
+        console.error('personaldetailsSection not found!');
+        return;
     }
-    let isEditMode = false;
-
-    function toggleEditMode() {
-        isEditMode = !isEditMode;
-        const toggleTrack = editToggleBtn.querySelector('.toggle-track');
+    
+    // Get all inputs and buttons inside Personal Details ONLY
+    const allInputs = personalDetails.querySelectorAll('.form-input');
+    const allActionBtns = personalDetails.querySelectorAll('.action-btn');
+    
+    if (isEditMode) {
+        // ===== ON: Unlock =====
+        console.log('Edit Mode: ON');
         
-        if (isEditMode) {
-            // ON: Unlock everything
-            toggleTrack.classList.add('active');
-            saveChangesBtn.disabled = false;
-            
-            allInputs.forEach(input => {
-                if (!input.classList.contains('otp-input')) {
-                    input.disabled = false;
-                }
-            });
-            
-            allActionBtns.forEach(btn => {
-                if (!btn.classList.contains('send-btn') && !btn.classList.contains('save-btn')) {
-                    btn.disabled = false;
-                }
-            });
-        } else {
-            // OFF: Lock everything
-            toggleTrack.classList.remove('active');
-            saveChangesBtn.disabled = true;
-            
-            allInputs.forEach(input => {
-                input.disabled = true;
-            });
-            
-            allActionBtns.forEach(btn => {
-                btn.disabled = true;
-            });
-            
-            // Close any open dropdowns
-            closeAllDropdowns();
+        if (toggleTrack) toggleTrack.classList.add('active');
+        if (editLabel) {
+            editLabel.textContent = 'Editing...';
+            editLabel.style.color = '#ffd666';
         }
+        if (saveChangesBtn) saveChangesBtn.disabled = false;
+        
+        // Enable inputs (except OTP)
+        allInputs.forEach(input => {
+            if (!input.classList.contains('otp-input')) {
+                input.disabled = false;
+            }
+        });
+        
+        // Enable action buttons (except send/save)
+        allActionBtns.forEach(btn => {
+            if (!btn.classList.contains('send-btn') && !btn.classList.contains('save-btn')) {
+                btn.disabled = false;
+            }
+        });
+        
+    } else {
+        // ===== OFF: Lock =====
+        console.log('Edit Mode: OFF');
+        
+        if (toggleTrack) toggleTrack.classList.remove('active');
+        if (editLabel) {
+            editLabel.textContent = 'Edit';
+            editLabel.style.color = '#ccd6f6';
+        }
+        if (saveChangesBtn) saveChangesBtn.disabled = true;
+        
+        // Disable all inputs
+        allInputs.forEach(input => {
+            input.disabled = true;
+        });
+        
+        // Disable all action buttons
+        allActionBtns.forEach(btn => {
+            btn.disabled = true;
+        });
+        
+        // Close dropdowns
+        closeAllDropdowns();
     }
+}
 
     // --- Close All Dropdowns ---
     function closeAllDropdowns() {
