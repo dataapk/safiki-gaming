@@ -651,7 +651,7 @@ function toggleNotifMenu(event) {
     profile.style.display = 'none'; // অন্য মেনু বন্ধ
     menu.style.display = (menu.style.display === 'flex') ? 'none' : 'flex';
 }
-
+}
 // প্রোফাইলের জন্য আলাদা ফাংশন
 function toggleProfileMenu(event){
 
