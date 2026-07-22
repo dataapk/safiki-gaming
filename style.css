@@ -276,9 +276,7 @@ img, svg {
 /* ============================================
    PERSONAL AREA POPUP — MY BONUS STYLE
    ============================================ */
-/* ============================================
-   PERSONAL AREA — SAME AS TRANSACTION HISTORY
-   ============================================ */
+
 
 #personal-area-section {
     position: fixed;
@@ -297,6 +295,7 @@ img, svg {
     display: none;
     padding: 20px;
     box-sizing: border-box;
+    zindex: 1000
 }
 
 /* Show */
@@ -932,7 +931,7 @@ img, svg {
         top: 0;
         height: 100vh;
         border-radius: 0;
-        top:18px
+        top:30px
     }
 
     .form-row {
