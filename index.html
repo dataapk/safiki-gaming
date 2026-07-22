@@ -469,9 +469,10 @@
 <!-- এখানেই Profile Menu শেষ -->
 
 <!-- ================= PERSONAL AREA ================= -->
+<!-- ================= PERSONAL AREA POPUP ================= -->
 <div id="personal-area-section" style="display:none;">
 
-    <!-- HEADER: "Personal Area" + Close Button -->
+    <!-- HEADER -->
     <div class="personal-header">
         <h2>Personal Area</h2>
         <button class="close-personal-btn" onclick="closePersonalArea()">
@@ -479,29 +480,29 @@
         </button>
     </div>
 
-    <!-- TAB BOX: 3 Tabs Side by Side INSIDE ONE BOX -->
+    <!-- TABS (Side by Side in ONE Box) -->
     <div class="tab-box">
         <button class="personal-tab active" onclick="openPersonalTab('details')">Personal Details</button>
         <button class="personal-tab" onclick="openPersonalTab('verification')">ID Verification</button>
         <button class="personal-tab" onclick="openPersonalTab('address')">Proof Documents</button>
     </div>
 
-    <!-- ================= PERSONAL DETAILS CONTENT ================= -->
+    <!-- ================= PERSONAL DETAILS ================= -->
     <div id="personaldetailsSection" class="personal-tab-content active">
 
-        <!-- Profile Header Box -->
+        <!-- Profile Box -->
         <div class="content-box">
-            <div class="profile-header-inner">
+            <div class="profile-row">
                 <div class="profile-avatar-wrapper">
                     <img src="default-avatar.png" alt="Profile" class="profile-avatar">
                     <button class="change-avatar-btn" onclick="changeAvatar()">
                         <i class="fas fa-camera"></i>
                     </button>
                 </div>
-                <div class="user-info">
-                    <p class="user-id-label">User ID</p>
-                    <p class="user-id-value">USR-123456</p>
-                    <p class="member-since">Member Since: Jan 2024</p>
+                <div class="profile-info">
+                    <p class="label-small">User ID</p>
+                    <p class="value-text">USR-123456</p>
+                    <p class="member-text">Member Since: Jan 2024</p>
                 </div>
             </div>
         </div>
@@ -521,7 +522,7 @@
                 </div>
             </div>
 
-            <!-- Row 2: DOB (বাম) | Gender (ডান) -->
+            <!-- Row 2: DOB | Gender -->
             <div class="form-row">
                 <div class="form-group">
                     <label>Date of Birth</label>
@@ -538,7 +539,7 @@
 
             <!-- Email -->
             <div class="form-group full-width">
-                <div class="label-with-action">
+                <div class="label-row">
                     <label>Email</label>
                     <button class="action-btn change-btn" disabled>Change</button>
                 </div>
@@ -547,7 +548,7 @@
 
             <!-- Mobile -->
             <div class="form-group full-width">
-                <div class="label-with-action">
+                <div class="label-row">
                     <label>Mobile Number</label>
                     <button class="action-btn add-btn" disabled>Add</button>
                 </div>
@@ -561,23 +562,23 @@
 
         </div>
 
-        <!-- Bottom Controls -->
-        <div class="content-box controls-box">
+        <!-- Controls Box -->
+        <div class="content-box controls-row">
             <button class="edit-toggle-btn">
                 <span class="toggle-track"><span class="toggle-thumb"></span></span>
-                <span class="edit-label">Edit</span>
+                <span>Edit</span>
             </button>
             <button class="save-changes-btn" disabled>Save Changes</button>
         </div>
 
     </div>
 
-    <!-- ================= ID VERIFICATION CONTENT ================= -->
+    <!-- ================= ID VERIFICATION ================= -->
     <div id="idVerificationSection" class="personal-tab-content" style="display:none;">
         
-        <!-- Country Select -->
+        <!-- Country -->
         <div class="content-box">
-            <label class="section-label">Select Country</label>
+            <label class="box-label">Select Country</label>
             <select class="form-input">
                 <option>-- Select Country --</option>
                 <option>Bangladesh</option>
@@ -589,22 +590,25 @@
         <!-- Guidelines -->
         <div class="content-box">
             <h3 class="box-title">Photo Guidelines</h3>
-            <ul class="guideline-list">
-                <li>Photo must be clear</li>
-                <li>All corners visible</li>
+            <ul class="guide-list">
+                <li>Photo must be clear and not blurry</li>
+                <li>All 4 corners of ID must be visible</li>
+                <li>No cropped edges or cut corners</li>
             </ul>
         </div>
 
-        <!-- Upload Boxes: Side by Side -->
+        <!-- Upload: Front | Back (Side by Side) -->
         <div class="upload-row">
             <div class="content-box upload-box">
                 <i class="fas fa-id-card"></i>
                 <p>Front Side</p>
+                <span>Click to upload</span>
                 <button class="upload-btn">Upload Front</button>
             </div>
             <div class="content-box upload-box">
                 <i class="fas fa-id-card-alt"></i>
                 <p>Back Side</p>
+                <span>Click to upload</span>
                 <button class="upload-btn">Upload Back</button>
             </div>
         </div>
@@ -612,6 +616,7 @@
         <!-- Face Verification -->
         <div class="content-box">
             <h3 class="box-title">Face Verification</h3>
+            <p class="box-desc">Take a live selfie. System will match with ID photo.</p>
             <div class="camera-box">
                 <i class="fas fa-user-circle"></i>
                 <button class="camera-btn">Start Camera</button>
@@ -621,7 +626,7 @@
 
     </div>
 
-    <!-- ================= PROOF OF ADDRESS CONTENT ================= -->
+    <!-- ================= PROOF OF ADDRESS ================= -->
     <div id="proofAddressSection" class="personal-tab-content" style="display:none;">
 
         <!-- Address Form -->
@@ -651,12 +656,12 @@
                 </select>
             </div>
 
-            <div class="address-action">
-                <button class="action-btn change-btn">Change</button>
+            <div class="action-row">
+                <button class="action-btn change-btn">Change Address</button>
             </div>
         </div>
 
-        <!-- Document Type: 3 Small Boxes Side by Side -->
+        <!-- Document Type: 3 Small Boxes -->
         <div class="content-box">
             <h3 class="box-title">Select Document Type</h3>
             <div class="doc-row">
@@ -675,18 +680,18 @@
             </div>
         </div>
 
-        <!-- Upload Section -->
-        <div class="content-box" style="display:none;">
-            <h3 class="box-title">Upload Document</h3>
+        <!-- Upload -->
+        <div class="content-box">
             <div class="upload-area">
                 <i class="fas fa-cloud-upload-alt"></i>
-                <p>Click to upload</p>
+                <p>Click to upload document</p>
+                <span>JPG, PNG, PDF (Max 5MB)</span>
             </div>
         </div>
 
         <!-- Submit -->
         <div class="content-box">
-            <button class="submit-btn">Submit</button>
+            <button class="submit-btn">Submit for Verification</button>
         </div>
 
     </div>
