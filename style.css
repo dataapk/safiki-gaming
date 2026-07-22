@@ -276,11 +276,11 @@ img, svg {
 /* ============================================
    PERSONAL AREA POPUP — MY BONUS STYLE
    ============================================ */
-============================================
-   PERSONAL AREA POPUP — Transaction Style
+/* ============================================
+   PERSONAL AREA — SAME AS TRANSACTION HISTORY
    ============================================ */
 
-#personal-area-section{
+#personal-area-section {
     position: fixed;
     top: 70px;
     left: 50%;
@@ -290,9 +290,9 @@ img, svg {
     height: calc(100vh - 70px);
     overflow-y: auto;
     background: #13151c;
-    border: 1px solid rgba(255,214,102,.25);
+    border: 1px solid rgba(255, 214, 102, 0.25);
     border-radius: 18px;
-    box-shadow: 0 20px 60px rgba(0,0,0,.45);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
     z-index: 9998;
     display: none;
     padding: 20px;
@@ -300,12 +300,12 @@ img, svg {
 }
 
 /* Show */
-#personal-area-section.active{
+#personal-area-section.active {
     display: block;
 }
 
-/* হেডার */
-.personal-header{
+/* Header */
+.personal-header {
     position: relative;
     display: flex;
     align-items: center;
@@ -315,7 +315,7 @@ img, svg {
     border-bottom: 1px solid #2b2f40;
 }
 
-.personal-header h3{
+.personal-header h3 {
     margin: 0;
     width: 100%;
     text-align: center;
@@ -336,13 +336,14 @@ img, svg {
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: 0.3s;
 }
 
-.close-personal:hover{
+.close-personal:hover {
     background: #e67e22;
 }
 
-/* টপ ট্যাব ডিজাইন */
+/* Tabs */
 .personal-tabs {
     display: flex;
     gap: 5px;
@@ -357,9 +358,9 @@ img, svg {
     border-radius: 6px;
     cursor: pointer;
     font-size: 12px;
+    transition: 0.3s;
     flex: 1;
     text-align: center;
-    transition: .3s;
 }
 
 .personal-tab-btn.active,
@@ -368,17 +369,17 @@ img, svg {
     color: white;
 }
 
-/* ট্যাব কন্টেন্ট */
-.personal-tab-content{
+/* Tab Content */
+.personal-tab-content {
     display: none;
 }
 
-.personal-tab-content.active{
+.personal-tab-content.active {
     display: block;
 }
 
-/* কার্ড / বক্স */
-.personal-card{
+/* Content Boxes */
+.content-box {
     background: #181d2b;
     border: 1px solid #2b2f40;
     border-radius: 12px;
@@ -386,10 +387,7 @@ img, svg {
     margin-bottom: 15px;
 }
 
-/* ============================================
-   PROFILE SECTION
-   ============================================ */
-
+/* Profile */
 .profile-row {
     display: flex;
     align-items: center;
@@ -444,10 +442,7 @@ img, svg {
     margin: 0;
 }
 
-/* ============================================
-   FORM ELEMENTS
-   ============================================ */
-
+/* Form */
 .form-row {
     display: flex;
     gap: 12px;
@@ -479,7 +474,7 @@ img, svg {
     color: #fff;
     font-size: 14px;
     box-sizing: border-box;
-    transition: .3s;
+    transition: 0.3s;
 }
 
 .form-input:focus {
@@ -504,10 +499,7 @@ img, svg {
     margin-bottom: 6px;
 }
 
-/* ============================================
-   BUTTONS
-   ============================================ */
-
+/* Buttons */
 .action-btn {
     padding: 6px 14px;
     border: none;
@@ -515,7 +507,7 @@ img, svg {
     font-size: 12px;
     font-weight: 600;
     cursor: pointer;
-    transition: .3s;
+    transition: 0.3s;
 }
 
 .change-btn {
@@ -548,10 +540,7 @@ img, svg {
     white-space: nowrap;
 }
 
-/* ============================================
-   OTP / CHANGE DROPDOWN
-   ============================================ */
-
+/* Dropdowns */
 .change-dropdown {
     margin-top: 10px;
     padding: 12px;
@@ -575,10 +564,7 @@ img, svg {
     gap: 8px;
 }
 
-/* ============================================
-   MOBILE ROW
-   ============================================ */
-
+/* Mobile Row */
 .mobile-row {
     display: flex;
     gap: 8px;
@@ -593,10 +579,7 @@ img, svg {
     flex: 1;
 }
 
-/* ============================================
-   CONTROLS ROW
-   ============================================ */
-
+/* Controls */
 .controls-row {
     display: flex;
     justify-content: space-between;
@@ -621,7 +604,7 @@ img, svg {
     background: #2b2f40;
     border-radius: 12px;
     position: relative;
-    transition: .3s;
+    transition: 0.3s;
     display: inline-block;
 }
 
@@ -637,7 +620,7 @@ img, svg {
     position: absolute;
     top: 2px;
     left: 2px;
-    transition: .3s;
+    transition: 0.3s;
 }
 
 .toggle-track.active .toggle-thumb {
@@ -653,7 +636,7 @@ img, svg {
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
-    transition: .3s;
+    transition: 0.3s;
 }
 
 .save-changes-btn:disabled {
@@ -665,10 +648,7 @@ img, svg {
     background: #d35400;
 }
 
-/* ============================================
-   ID VERIFICATION
-   ============================================ */
-
+/* ID Verification */
 .box-label {
     display: block;
     color: #8892b0;
@@ -720,10 +700,7 @@ img, svg {
     color: #4ade80;
 }
 
-/* ============================================
-   UPLOAD BOXES
-   ============================================ */
-
+/* Upload */
 .upload-row {
     display: flex;
     gap: 12px;
@@ -735,7 +712,7 @@ img, svg {
     text-align: center;
     padding: 24px 18px;
     cursor: pointer;
-    transition: .3s;
+    transition: 0.3s;
 }
 
 .upload-box:hover {
@@ -771,7 +748,7 @@ img, svg {
     color: #e67e22;
     font-size: 12px;
     cursor: pointer;
-    transition: .3s;
+    transition: 0.3s;
 }
 
 .upload-btn:hover {
@@ -779,10 +756,7 @@ img, svg {
     color: #fff;
 }
 
-/* ============================================
-   CAMERA / FACE VERIFICATION
-   ============================================ */
-
+/* Camera */
 .camera-box {
     background: #0f111a;
     border: 2px dashed #2b2f40;
@@ -807,7 +781,7 @@ img, svg {
     color: #fff;
     font-size: 14px;
     cursor: pointer;
-    transition: .3s;
+    transition: 0.3s;
 }
 
 .camera-btn:hover {
@@ -824,7 +798,7 @@ img, svg {
     font-size: 16px;
     font-weight: 700;
     cursor: pointer;
-    transition: .3s;
+    transition: 0.3s;
 }
 
 .verify-btn:disabled {
@@ -836,10 +810,7 @@ img, svg {
     background: #22c55e;
 }
 
-/* ============================================
-   ADDRESS / DOCUMENT
-   ============================================ */
-
+/* Address */
 .address-textarea {
     resize: vertical;
     min-height: 60px;
@@ -864,7 +835,7 @@ img, svg {
     border-radius: 10px;
     text-align: center;
     cursor: pointer;
-    transition: .3s;
+    transition: 0.3s;
 }
 
 .doc-option:hover,
@@ -892,7 +863,7 @@ img, svg {
     padding: 40px;
     text-align: center;
     cursor: pointer;
-    transition: .3s;
+    transition: 0.3s;
 }
 
 .upload-area:hover {
@@ -927,7 +898,7 @@ img, svg {
     font-size: 16px;
     font-weight: 700;
     cursor: pointer;
-    transition: .3s;
+    transition: 0.3s;
 }
 
 .submit-btn:disabled {
@@ -939,10 +910,7 @@ img, svg {
     background: #d35400;
 }
 
-/* ============================================
-   SCROLLBAR
-   ============================================ */
-
+/* Scrollbar */
 #personal-area-section::-webkit-scrollbar {
     width: 6px;
 }
@@ -956,10 +924,7 @@ img, svg {
     border-radius: 3px;
 }
 
-/* ============================================
-   RESPONSIVE
-   ============================================ */
-
+/* Responsive */
 @media (max-width: 768px) {
     #personal-area-section {
         width: 100%;
@@ -967,7 +932,6 @@ img, svg {
         top: 0;
         height: 100vh;
         border-radius: 0;
-        padding: 15px;
     }
 
     .form-row {
@@ -990,6 +954,15 @@ img, svg {
 
     .save-changes-btn {
         width: 100%;
+    }
+
+    .personal-tabs {
+        flex-wrap: wrap;
+    }
+
+    .personal-tab-btn {
+        flex: 1 1 auto;
+        min-width: 100px;
     }
 }
 
