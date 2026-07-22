@@ -285,18 +285,18 @@ img, svg {
     top: 80px;
     left: 50%;
     transform: translateX(-50%);
-    width: 680px;                 /* ছোট width — দুই পাশে margin বেশি */
+    width: 650px;                 /* ছোট width — দুই পাশে margin বেশি */
     max-width: 90%;               /* 98% → 90% — দুই পাশে gap বেশি */
     height: calc(100vh - 100px);  /* Height adjust */
     overflow-y: auto;
     background: #13151c;
     border: 1px solid rgba(255, 214, 102, 0.25);
-    border-radius: 18px;
+    border-radius: 20px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
     z-index: 9998;
     display: none;
     padding: 20px;
-    padding-bottom: 40px;         /* নিচে extra padding — button cut হবে না */
+    padding-bottom: 50px;         /* নিচে extra padding — button cut হবে না */
     box-sizing: border-box;
 }
 
