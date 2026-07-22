@@ -276,652 +276,76 @@ img, svg {
    PERSONAL AREA - MAIN CONTAINER
    ============================================ */
 /* ============================================
-   PERSONAL AREA — MAIN CONTAINER
-   ============================================ */
-#personal-area-section {
-    position: fixed;
-    top: 70px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 720px;
-    max-width: 98%;
-    height: calc(100vh - 70px);
-    overflow-y: auto;
-    background: #13151c;
-    border: 1px solid rgba(255, 214, 102, 0.25);
-    border-radius: 18px;
-    z-index: 9998;
-    display: none;
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-/* ============================================
-   HEADER
-   ============================================ */
-.personal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-.personal-header h2 {
-    margin: 0;
-    color: #ffd666;
-    font-size: 22px;
-    font-weight: 700;
-}
-.close-personal-btn {
-    background: transparent;
-    border: 1px solid #ff8c00;
-    color: #ff8c00;
-    font-size: 18px;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.close-personal-btn:hover {
-    background: #ff8c00;
-    color: #13151c;
-}
-
-/* ============================================
-   TAB BOX — Side by Side
+   TAB BOX — 3 Tabs Side by Side in ONE Box
    ============================================ */
 .tab-box {
-    display: flex;
+    display: flex;           /* পাশাপাশি */
     gap: 10px;
     margin-bottom: 20px;
-    background: #1a1a2e;
-    border: 1px solid rgba(255, 214, 102, 0.25);
+    background: #1a1a2e;     /* Deep black */
+    border: 1px solid rgba(255, 214, 102, 0.25);  /* Golden border */
     border-radius: 12px;
     padding: 5px;
 }
+
 .personal-tab {
-    flex: 1;
+    flex: 1;                 /* সমান জায়গা */
     padding: 12px;
     background: transparent;
     border: none;
     border-radius: 8px;
     color: #8892b0;
     font-size: 13px;
-    font-weight: 500;
     cursor: pointer;
-    transition: all 0.3s ease;
     text-align: center;
 }
-.personal-tab:hover {
-    color: #ffd666;
-}
+
 .personal-tab.active {
     background: rgba(255, 140, 0, 0.2);
     color: #ffd666;
 }
 
 /* ============================================
-   TAB CONTENT
-   ============================================ */
-.personal-tab-content {
-    display: none;
-}
-.personal-tab-content.active {
-    display: block;
-}
-
-/* ============================================
-   CONTENT BOX — Golden Border (No Glow)
-   ============================================ */
-.content-box {
-    background: #1a1a2e;
-    border: 1px solid rgba(255, 214, 102, 0.25);
-    border-radius: 12px;
-    padding: 15px;
-    margin-bottom: 15px;
-}
-
-/* ============================================
-   PROFILE HEADER
-   ============================================ */
-.profile-header-inner {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-.profile-avatar-wrapper {
-    position: relative;
-    width: 60px;
-    height: 60px;
-}
-.profile-avatar {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid #ff8c00;
-}
-.change-avatar-btn {
-    position: absolute;
-    bottom: -4px;
-    right: -4px;
-    width: 22px;
-    height: 22px;
-    background: #ff8c00;
-    border: 2px solid #1a1a2e;
-    border-radius: 50%;
-    color: #fff;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 9px;
-}
-.user-info {
-    flex: 1;
-}
-.user-id-label {
-    color: #8892b0;
-    font-size: 11px;
-    text-transform: uppercase;
-    margin: 0;
-}
-.user-id-value {
-    color: #ffd666;
-    font-size: 16px;
-    font-weight: 600;
-    margin: 4px 0;
-}
-.member-since {
-    color: #64ffda;
-    font-size: 12px;
-    margin: 0;
-}
-
-/* ============================================
    FORM ROWS — Side by Side
    ============================================ */
 .form-row {
-    display: flex;
+    display: flex;           /* পাশাপাশি */
     gap: 15px;
     margin-bottom: 15px;
 }
-.form-group {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
-.form-group.full-width {
-    width: 100%;
-    margin-bottom: 15px;
-}
 
-/* First Name (বড়) | Surname (ছোট) */
 .first-name {
-    flex: 2;
+    flex: 2;               /* বড় */
 }
 .surname {
-    flex: 1;
+    flex: 1;               /* ছোট */
 }
-
-/* City (বড়) | Postal (ছোট) */
 .city {
-    flex: 2;
+    flex: 2;               /* বড় */
 }
 .postal {
-    flex: 1;
-}
-
-/* Labels */
-label, .section-label {
-    color: #ffd666;
-    font-size: 12px;
-    font-weight: 500;
-    margin-bottom: 6px;
-    text-transform: uppercase;
-}
-.label-with-action {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 6px;
-}
-
-/* Inputs */
-.form-input {
-    background: #0f3460;
-    border: 1px solid rgba(255, 214, 102, 0.2);
-    border-radius: 10px;
-    padding: 10px 14px;
-    color: #ccd6f6;
-    font-size: 13px;
-    height: 40px;
-    box-sizing: border-box;
-    outline: none;
-    width: 100%;
-}
-.form-input:focus {
-    border-color: #ffd666;
-}
-.form-input:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-}
-
-/* Select */
-.form-select {
-    appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23ffd666' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 12px center;
-    padding-right: 35px;
-    cursor: pointer;
-}
-
-/* Date Picker */
-.date-picker {
-    cursor: pointer;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' fill='%23ffd666' viewBox='0 0 16 16'%3E%3Cpath d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 12px center;
-    padding-right: 35px;
-}
-
-/* Textarea */
-.address-textarea {
-    height: auto;
-    min-height: 60px;
-    resize: vertical;
+    flex: 1;               /* ছোট */
 }
 
 /* ============================================
-   ACTION BUTTONS
+   UPLOAD ROW — 2 Boxes Side by Side
    ============================================ */
-.action-btn {
-    background: transparent;
-    border: 1px solid #ff8c00;
-    color: #ff8c00;
-    padding: 5px 14px;
-    border-radius: 8px;
-    font-size: 12px;
-    font-weight: 500;
-    cursor: pointer;
-}
-.action-btn:hover:not(:disabled) {
-    background: #ff8c00;
-    color: #13151c;
-}
-.action-btn:disabled {
-    opacity: 0.4;
-    cursor: not-allowed;
-    border-color: #8892b0;
-    color: #8892b0;
-}
-.change-btn {
-    border-color: #64ffda;
-    color: #64ffda;
-}
-.change-btn:hover:not(:disabled) {
-    background: #64ffda;
-    color: #13151c;
-}
-.add-btn {
-    border-color: #ff8c00;
-    color: #ff8c00;
-}
-.send-btn {
-    background: #ff8c00;
-    color: #fff;
-    border: none;
-    white-space: nowrap;
-}
-.save-btn {
-    background: #64ffda;
-    color: #13151c;
-    border: none;
-    font-weight: 600;
-}
-
-/* ============================================
-   DROPDOWNS
-   ============================================ */
-.change-dropdown {
-    margin-top: 10px;
-    padding: 14px;
-    background: #0f3460;
-    border-radius: 12px;
-    border: 1px solid rgba(255, 214, 102, 0.2);
-}
-.otp-row,
-.new-email-row,
-.new-mobile-row {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 10px;
-}
-.otp-input {
-    flex: 1;
-}
-
-/* ============================================
-   MOBILE ROW
-   ============================================ */
-.mobile-row {
-    display: flex;
-    gap: 10px;
-}
-.country-code {
-    width: 80px;
-    flex-shrink: 0;
-}
-.mobile-input {
-    flex: 1;
-}
-
-/* ============================================
-   BOTTOM CONTROLS
-   ============================================ */
-.controls-box {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.edit-toggle-btn {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-}
-.toggle-track {
-    width: 44px;
-    height: 24px;
-    background: #0f3460;
-    border-radius: 12px;
-    position: relative;
-    border: 1px solid rgba(255, 214, 102, 0.2);
-}
-.toggle-track.active {
-    background: rgba(255, 140, 0, 0.2);
-    border-color: #ff8c00;
-}
-.toggle-thumb {
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    width: 18px;
-    height: 18px;
-    background: #8892b0;
-    border-radius: 50%;
-    transition: all 0.3s ease;
-}
-.toggle-track.active .toggle-thumb {
-    left: 22px;
-    background: #ffd666;
-}
-.edit-label {
-    color: #ccd6f6;
-    font-size: 13px;
-}
-.save-changes-btn {
-    background: #ff8c00;
-    color: #13151c;
-    border: none;
-    padding: 10px 24px;
-    border-radius: 10px;
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
-}
-.save-changes-btn:disabled {
-    opacity: 0.4;
-    cursor: not-allowed;
-    background: #8892b0;
-}
-
-/* ============================================
-   ID VERIFICATION
-   ============================================ */
-.box-title {
-    color: #ffd666;
-    font-size: 14px;
-    margin: 0 0 12px 0;
-}
-.box-title i {
-    margin-right: 8px;
-}
-.box-desc {
-    color: #8892b0;
-    font-size: 13px;
-    margin: 0 0 15px 0;
-}
-.ip-text {
-    color: #8892b0;
-    font-size: 12px;
-    margin: 8px 0 0 0;
-}
-.ip-text span {
-    color: #64ffda;
-}
-
-/* Guidelines */
-.guideline-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-.guideline-list li {
-    color: #8892b0;
-    font-size: 12px;
-    padding: 5px 0;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-.guideline-list li i {
-    color: #64ffda;
-    font-size: 10px;
-}
-
-/* Upload Row — Side by Side */
 .upload-row {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;  /* 2 columns */
     gap: 15px;
     margin-bottom: 15px;
 }
-.upload-box {
-    text-align: center;
-}
-.upload-inner {
-    padding: 20px;
-}
-.upload-inner i {
-    font-size: 32px;
-    color: #ff8c00;
-    margin-bottom: 10px;
-    display: block;
-}
-.upload-inner p {
-    color: #ffd666;
-    font-size: 14px;
-    margin: 0 0 5px 0;
-}
-.upload-inner span {
-    color: #8892b0;
-    font-size: 11px;
-}
-.id-preview {
-    max-width: 100%;
-    border-radius: 8px;
-    margin-top: 10px;
-}
-.upload-btn {
-    background: transparent;
-    border: 1px solid #ff8c00;
-    color: #ff8c00;
-    padding: 8px 16px;
-    border-radius: 8px;
-    font-size: 12px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-.upload-btn:hover {
-    background: #ff8c00;
-    color: #13151c;
-}
-
-/* Camera */
-.camera-box {
-    background: #0f3460;
-    border: 1px solid rgba(255, 214, 102, 0.2);
-    border-radius: 12px;
-    padding: 20px;
-    text-align: center;
-    margin-bottom: 15px;
-}
-.camera-inner i {
-    font-size: 40px;
-    color: #ff8c00;
-    margin-bottom: 10px;
-    display: block;
-}
-.camera-inner p {
-    color: #ffd666;
-    font-size: 14px;
-    margin: 0 0 15px 0;
-}
-.camera-btn {
-    background: transparent;
-    border: 1px solid #ff8c00;
-    color: #ff8c00;
-    padding: 10px 20px;
-    border-radius: 10px;
-    font-size: 13px;
-    cursor: pointer;
-}
-.camera-btn:hover {
-    background: #ff8c00;
-    color: #13151c;
-}
-
-/* Verify Status */
-.verify-status {
-    text-align: center;
-    padding: 15px;
-}
-.status-icon {
-    font-size: 30px;
-    color: #ff8c00;
-    margin-bottom: 10px;
-}
-.status-text {
-    color: #ffd666;
-    font-size: 14px;
-    margin: 0 0 10px 0;
-}
-.progress-track {
-    width: 100%;
-    height: 6px;
-    background: #0f3460;
-    border-radius: 3px;
-    overflow: hidden;
-}
-.progress-bar {
-    height: 100%;
-    background: #ff8c00;
-    width: 0%;
-    transition: width 0.3s ease;
-}
-.verify-btn {
-    width: 100%;
-    padding: 12px;
-    background: transparent;
-    border: 1px solid #ff8c00;
-    color: #ff8c00;
-    border-radius: 10px;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-}
-.verify-btn:hover:not(:disabled) {
-    background: #ff8c00;
-    color: #13151c;
-}
-.verify-btn:disabled {
-    opacity: 0.4;
-    cursor: not-allowed;
-    border-color: #8892b0;
-    color: #8892b0;
-}
-
-/* Status Boxes */
-.status-box {
-    text-align: center;
-    padding: 30px 20px;
-}
-.status-box.success {
-    border-color: #64ffda;
-}
-.status-icon-big {
-    font-size: 50px;
-    margin-bottom: 15px;
-    color: #ff8c00;
-}
-.status-box.success .status-icon-big {
-    color: #64ffda;
-}
-.status-box h3 {
-    color: #ffd666;
-    font-size: 18px;
-    margin: 0 0 10px 0;
-}
-.status-box p {
-    color: #8892b0;
-    font-size: 13px;
-    margin: 0;
-}
-.timer-box {
-    margin: 15px 0;
-    padding: 10px;
-    background: #0f3460;
-    border-radius: 8px;
-}
-.timer-box span:first-child {
-    color: #ff8c00;
-    font-size: 24px;
-    font-weight: 700;
-    display: block;
-}
-.timer-box span:last-child {
-    color: #8892b0;
-    font-size: 12px;
-}
-.note {
-    color: #8892b0;
-    font-size: 11px;
-    margin-top: 10px;
-}
 
 /* ============================================
-   PROOF OF ADDRESS
+   DOC ROW — 3 Small Boxes Side by Side
    ============================================ */
-.address-action {
-    display: flex;
-    gap: 10px;
-    margin-top: 10px;
-}
-
-/* Document Row — Side by Side */
 .doc-row {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);  /* 3 columns */
     gap: 10px;
 }
+
 .doc-option {
     background: #0f3460;
     border: 1px solid rgba(255, 214, 102, 0.2);
@@ -929,101 +353,18 @@ label, .section-label {
     padding: 15px 10px;
     text-align: center;
     cursor: pointer;
-    transition: all 0.3s ease;
-}
-.doc-option:hover {
-    border-color: #ffd666;
-}
-.doc-option.active {
-    border-color: #ff8c00;
-    background: rgba(255, 140, 0, 0.2);
-}
-.doc-option i {
-    font-size: 20px;
-    color: #ff8c00;
-    margin-bottom: 6px;
-    display: block;
-}
-.doc-option span {
-    color: #ffd666;
-    font-size: 11px;
-}
-
-/* Upload Area */
-.upload-area {
-    text-align: center;
-}
-.doc-preview {
-    max-width: 100%;
-    border-radius: 8px;
-    margin-top: 10px;
-}
-.file-info {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 10px;
-    padding: 8px 12px;
-    background: #0f3460;
-    border-radius: 8px;
-}
-.file-info span {
-    color: #ffd666;
-    font-size: 12px;
-}
-.remove-file-btn {
-    background: none;
-    border: none;
-    color: #ff8c00;
-    cursor: pointer;
-    font-size: 14px;
-}
-
-/* Submit */
-.submit-btn {
-    width: 100%;
-    padding: 12px;
-    background: transparent;
-    border: 1px solid #ff8c00;
-    color: #ff8c00;
-    border-radius: 10px;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-}
-.submit-btn:hover:not(:disabled) {
-    background: #ff8c00;
-    color: #13151c;
-}
-.submit-btn:disabled {
-    opacity: 0.4;
-    cursor: not-allowed;
-    border-color: #8892b0;
-    color: #8892b0;
 }
 
 /* ============================================
-   RESPONSIVE
+   CONTENT BOX — Deep Black + Golden Border
    ============================================ */
-@media (max-width: 768px) {
-    #personal-area-section {
-        width: 100%;
-        max-width: 100%;
-        border-radius: 0;
-        top: 0;
-        height: 100vh;
-    }
-    .tab-box {
-        flex-direction: column;
-    }
-    .form-row,
-    .upload-row,
-    .doc-row {
-        flex-direction: column;
-        grid-template-columns: 1fr;
-    }
+.content-box {
+    background: #1a1a2e;     /* Deep black */
+    border: 1px solid rgba(255, 214, 102, 0.25);  /* Golden border */
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 15px;
 }
-
 /* =========================================================
   END PERSONAL AREA CSS
 ========================================================= */
