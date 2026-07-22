@@ -275,11 +275,6 @@ img, svg {
 /* ============================================
    PERSONAL AREA - MAIN CONTAINER
    ============================================ */
-
-/* ============================================
-   PERSONAL AREA - MAIN CONTAINER
-   ============================================ */
-
 /* ============================================
    PERSONAL AREA — MAIN CONTAINER
    ============================================ */
@@ -295,7 +290,6 @@ img, svg {
     background: #13151c;
     border: 1px solid rgba(255, 214, 102, 0.25);
     border-radius: 18px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
     z-index: 9998;
     display: none;
     padding: 20px;
@@ -310,8 +304,6 @@ img, svg {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid rgba(255, 214, 102, 0.2);
 }
 .personal-header h2 {
     margin: 0;
@@ -320,35 +312,41 @@ img, svg {
     font-weight: 700;
 }
 .close-personal-btn {
-    background: rgba(255, 214, 102, 0.1);
-    border: 1px solid rgba(255, 214, 102, 0.3);
-    color: #ffd666;
-    font-size: 20px;
-    width: 36px;
-    height: 36px;
+    background: transparent;
+    border: 1px solid #ff8c00;
+    color: #ff8c00;
+    font-size: 18px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
 }
+.close-personal-btn:hover {
+    background: #ff8c00;
+    color: #13151c;
+}
 
 /* ============================================
-   TABS (পাশাপাশি)
+   TAB BOX — Side by Side
    ============================================ */
-.personal-tabs {
+.tab-box {
     display: flex;
     gap: 10px;
     margin-bottom: 20px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid rgba(255, 214, 102, 0.15);
+    background: #1a1a2e;
+    border: 1px solid rgba(255, 214, 102, 0.25);
+    border-radius: 12px;
+    padding: 5px;
 }
 .personal-tab {
     flex: 1;
     padding: 12px;
-    background: #1a1a2e;
-    border: 1px solid rgba(255, 214, 102, 0.2);
-    border-radius: 10px;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
     color: #8892b0;
     font-size: 13px;
     font-weight: 500;
@@ -357,12 +355,10 @@ img, svg {
     text-align: center;
 }
 .personal-tab:hover {
-    border-color: #ffd666;
     color: #ffd666;
 }
 .personal-tab.active {
-    background: #1a1a2e;
-    border-color: #ff8c00;
+    background: rgba(255, 140, 0, 0.2);
     color: #ffd666;
 }
 
@@ -377,22 +373,28 @@ img, svg {
 }
 
 /* ============================================
-   PROFILE HEADER BOX
+   CONTENT BOX — Golden Border (No Glow)
    ============================================ */
-.profile-header-box {
+.content-box {
+    background: #1a1a2e;
+    border: 1px solid rgba(255, 214, 102, 0.25);
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+/* ============================================
+   PROFILE HEADER
+   ============================================ */
+.profile-header-inner {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    background: #16213e;
-    border: 1px solid rgba(255, 214, 102, 0.25);
-    border-radius: 16px;
-    padding: 20px;
-    margin-bottom: 20px;
+    gap: 15px;
 }
 .profile-avatar-wrapper {
     position: relative;
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
 }
 .profile-avatar {
     width: 100%;
@@ -403,22 +405,22 @@ img, svg {
 }
 .change-avatar-btn {
     position: absolute;
-    bottom: -5px;
-    right: -5px;
-    width: 24px;
-    height: 24px;
+    bottom: -4px;
+    right: -4px;
+    width: 22px;
+    height: 22px;
     background: #ff8c00;
-    border: 2px solid #13151c;
+    border: 2px solid #1a1a2e;
     border-radius: 50%;
     color: #fff;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 10px;
+    font-size: 9px;
 }
 .user-info {
-    text-align: right;
+    flex: 1;
 }
 .user-id-label {
     color: #8892b0;
@@ -430,7 +432,7 @@ img, svg {
     color: #ffd666;
     font-size: 16px;
     font-weight: 600;
-    margin: 5px 0;
+    margin: 4px 0;
 }
 .member-since {
     color: #64ffda;
@@ -439,22 +441,15 @@ img, svg {
 }
 
 /* ============================================
-   FORM BOX
+   FORM ROWS — Side by Side
    ============================================ */
-.personal-form-box {
-    background: #16213e;
-    border: 1px solid rgba(255, 214, 102, 0.25);
-    border-radius: 16px;
-    padding: 20px;
-}
-
-/* Form Rows — পাশাপাশি */
 .form-row {
     display: flex;
     gap: 15px;
     margin-bottom: 15px;
 }
 .form-group {
+    flex: 1;
     display: flex;
     flex-direction: column;
 }
@@ -463,24 +458,24 @@ img, svg {
     margin-bottom: 15px;
 }
 
-/* ====== NAME ROW ====== */
-.name-row .first-name-group {
+/* First Name (বড়) | Surname (ছোট) */
+.first-name {
     flex: 2;
 }
-.name-row .surname-group {
+.surname {
     flex: 1;
 }
 
-/* ====== DOB ROW ====== */
-.dob-row .dob-group {
-    flex: 1;
+/* City (বড়) | Postal (ছোট) */
+.city {
+    flex: 2;
 }
-.dob-row .gender-group {
+.postal {
     flex: 1;
 }
 
 /* Labels */
-.form-group label {
+label, .section-label {
     color: #ffd666;
     font-size: 12px;
     font-weight: 500;
@@ -505,6 +500,7 @@ img, svg {
     height: 40px;
     box-sizing: border-box;
     outline: none;
+    width: 100%;
 }
 .form-input:focus {
     border-color: #ffd666;
@@ -531,6 +527,13 @@ img, svg {
     background-repeat: no-repeat;
     background-position: right 12px center;
     padding-right: 35px;
+}
+
+/* Textarea */
+.address-textarea {
+    height: auto;
+    min-height: 60px;
+    resize: vertical;
 }
 
 /* ============================================
@@ -620,13 +623,10 @@ img, svg {
 /* ============================================
    BOTTOM CONTROLS
    ============================================ */
-.form-controls {
+.controls-box {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 20px;
-    padding-top: 15px;
-    border-top: 1px solid rgba(255, 214, 102, 0.15);
 }
 .edit-toggle-btn {
     display: flex;
@@ -640,7 +640,7 @@ img, svg {
 .toggle-track {
     width: 44px;
     height: 24px;
-    background: #1a1a2e;
+    background: #0f3460;
     border-radius: 12px;
     position: relative;
     border: 1px solid rgba(255, 214, 102, 0.2);
@@ -686,48 +686,35 @@ img, svg {
 /* ============================================
    ID VERIFICATION
    ============================================ */
-.kyc-country-header,
-.kyc-instructions,
-.kyc-upload-box,
-.kyc-selfie-section,
-.verification-pending,
-.verification-success {
-    background: #16213e;
-    border: 1px solid rgba(255, 214, 102, 0.25);
-    border-radius: 12px;
-    padding: 15px;
-    margin-bottom: 15px;
-}
-.kyc-country-header label {
-    color: #ffd666;
-    font-size: 12px;
-    text-transform: uppercase;
-    display: block;
-    margin-bottom: 8px;
-}
-.kyc-select {
-    width: 100%;
-    margin-bottom: 8px;
-}
-.ip-location-text {
-    color: #8892b0;
-    font-size: 12px;
-    margin: 0;
-}
-.ip-location-text span {
-    color: #64ffda;
-}
-.kyc-instructions h3 {
+.box-title {
     color: #ffd666;
     font-size: 14px;
-    margin: 0 0 10px 0;
+    margin: 0 0 12px 0;
 }
-.kyc-instructions ul {
+.box-title i {
+    margin-right: 8px;
+}
+.box-desc {
+    color: #8892b0;
+    font-size: 13px;
+    margin: 0 0 15px 0;
+}
+.ip-text {
+    color: #8892b0;
+    font-size: 12px;
+    margin: 8px 0 0 0;
+}
+.ip-text span {
+    color: #64ffda;
+}
+
+/* Guidelines */
+.guideline-list {
     list-style: none;
     padding: 0;
     margin: 0;
 }
-.kyc-instructions li {
+.guideline-list li {
     color: #8892b0;
     font-size: 12px;
     padding: 5px 0;
@@ -735,36 +722,36 @@ img, svg {
     align-items: center;
     gap: 8px;
 }
-.kyc-instructions li i {
+.guideline-list li i {
     color: #64ffda;
     font-size: 10px;
 }
 
-/* Upload Section — পাশাপাশি */
-.kyc-upload-section {
+/* Upload Row — Side by Side */
+.upload-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 15px;
     margin-bottom: 15px;
 }
-.kyc-upload-box {
+.upload-box {
     text-align: center;
 }
-.upload-placeholder {
+.upload-inner {
     padding: 20px;
 }
-.upload-placeholder i {
+.upload-inner i {
     font-size: 32px;
     color: #ff8c00;
     margin-bottom: 10px;
     display: block;
 }
-.upload-placeholder p {
+.upload-inner p {
     color: #ffd666;
-    font-size: 13px;
+    font-size: 14px;
     margin: 0 0 5px 0;
 }
-.upload-placeholder span {
+.upload-inner span {
     color: #8892b0;
     font-size: 11px;
 }
@@ -788,26 +775,27 @@ img, svg {
     color: #13151c;
 }
 
-/* Selfie */
-.selfie-camera-box {
+/* Camera */
+.camera-box {
     background: #0f3460;
-    border: 1px solid rgba(255, 214, 102, 0.25);
+    border: 1px solid rgba(255, 214, 102, 0.2);
     border-radius: 12px;
     padding: 20px;
     text-align: center;
     margin-bottom: 15px;
 }
-.camera-placeholder i {
+.camera-inner i {
     font-size: 40px;
     color: #ff8c00;
     margin-bottom: 10px;
+    display: block;
 }
-.camera-placeholder p {
+.camera-inner p {
     color: #ffd666;
     font-size: 14px;
     margin: 0 0 15px 0;
 }
-.start-camera-btn {
+.camera-btn {
     background: transparent;
     border: 1px solid #ff8c00;
     color: #ff8c00;
@@ -816,11 +804,13 @@ img, svg {
     font-size: 13px;
     cursor: pointer;
 }
-.start-camera-btn:hover {
+.camera-btn:hover {
     background: #ff8c00;
     color: #13151c;
 }
-.verification-status {
+
+/* Verify Status */
+.verify-status {
     text-align: center;
     padding: 15px;
 }
@@ -834,14 +824,14 @@ img, svg {
     font-size: 14px;
     margin: 0 0 10px 0;
 }
-.progress-bar {
+.progress-track {
     width: 100%;
     height: 6px;
     background: #0f3460;
     border-radius: 3px;
     overflow: hidden;
 }
-.progress-fill {
+.progress-bar {
     height: 100%;
     background: #ff8c00;
     width: 0%;
@@ -869,47 +859,49 @@ img, svg {
     color: #8892b0;
 }
 
-/* Pending/Success */
-.pending-icon,
-.success-icon {
+/* Status Boxes */
+.status-box {
+    text-align: center;
+    padding: 30px 20px;
+}
+.status-box.success {
+    border-color: #64ffda;
+}
+.status-icon-big {
     font-size: 50px;
     margin-bottom: 15px;
-}
-.pending-icon {
     color: #ff8c00;
 }
-.success-icon {
+.status-box.success .status-icon-big {
     color: #64ffda;
 }
-.verification-pending h3,
-.verification-success h3 {
+.status-box h3 {
     color: #ffd666;
     font-size: 18px;
     margin: 0 0 10px 0;
 }
-.verification-pending p,
-.verification-success p {
+.status-box p {
     color: #8892b0;
     font-size: 13px;
     margin: 0;
 }
-.countdown-timer {
+.timer-box {
     margin: 15px 0;
     padding: 10px;
     background: #0f3460;
     border-radius: 8px;
 }
-.countdown-timer span:first-child {
+.timer-box span:first-child {
     color: #ff8c00;
     font-size: 24px;
     font-weight: 700;
     display: block;
 }
-.countdown-timer span:last-child {
+.timer-box span:last-child {
     color: #8892b0;
     font-size: 12px;
 }
-.verify-note {
+.note {
     color: #8892b0;
     font-size: 11px;
     margin-top: 10px;
@@ -918,52 +910,14 @@ img, svg {
 /* ============================================
    PROOF OF ADDRESS
    ============================================ */
-.address-form-box {
-    background: #16213e;
-    border: 1px solid rgba(255, 214, 102, 0.25);
-    border-radius: 12px;
-    padding: 15px;
-    margin-bottom: 15px;
-}
-.address-form-box h3 {
-    color: #ffd666;
-    font-size: 14px;
-    margin: 0 0 12px 0;
-}
-.address-textarea {
-    min-height: 60px;
-    resize: vertical;
-    height: auto;
-}
-
-/* Address Row */
-.address-row .city-group {
-    flex: 2;
-}
-.address-row .postal-group {
-    flex: 1;
-}
-
 .address-action {
     display: flex;
     gap: 10px;
     margin-top: 10px;
 }
 
-/* Document Type — ছোট ছোট পাশাপাশি */
-.document-type-section {
-    background: #16213e;
-    border: 1px solid rgba(255, 214, 102, 0.25);
-    border-radius: 12px;
-    padding: 15px;
-    margin-bottom: 15px;
-}
-.document-type-section h3 {
-    color: #ffd666;
-    font-size: 14px;
-    margin: 0 0 12px 0;
-}
-.document-options {
+/* Document Row — Side by Side */
+.doc-row {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
@@ -995,18 +949,9 @@ img, svg {
     font-size: 11px;
 }
 
-/* Upload */
-.address-upload-section {
-    background: #16213e;
-    border: 1px solid rgba(255, 214, 102, 0.25);
-    border-radius: 12px;
-    padding: 15px;
-    margin-bottom: 15px;
-}
-.address-upload-section h3 {
-    color: #ffd666;
-    font-size: 14px;
-    margin: 0 0 12px 0;
+/* Upload Area */
+.upload-area {
+    text-align: center;
 }
 .doc-preview {
     max-width: 100%;
@@ -1020,7 +965,6 @@ img, svg {
     margin-top: 10px;
     padding: 8px 12px;
     background: #0f3460;
-    border: 1px solid rgba(255, 214, 102, 0.2);
     border-radius: 8px;
 }
 .file-info span {
@@ -1036,11 +980,7 @@ img, svg {
 }
 
 /* Submit */
-.address-submit {
-    text-align: center;
-    margin-bottom: 15px;
-}
-.submit-verify-btn {
+.submit-btn {
     width: 100%;
     padding: 12px;
     background: transparent;
@@ -1051,11 +991,11 @@ img, svg {
     font-weight: 600;
     cursor: pointer;
 }
-.submit-verify-btn:hover:not(:disabled) {
+.submit-btn:hover:not(:disabled) {
     background: #ff8c00;
     color: #13151c;
 }
-.submit-verify-btn:disabled {
+.submit-btn:disabled {
     opacity: 0.4;
     cursor: not-allowed;
     border-color: #8892b0;
@@ -1073,22 +1013,16 @@ img, svg {
         top: 0;
         height: 100vh;
     }
-    .personal-tabs {
+    .tab-box {
         flex-direction: column;
     }
-    .name-row,
-    .dob-row,
-    .address-row {
+    .form-row,
+    .upload-row,
+    .doc-row {
         flex-direction: column;
-    }
-    .kyc-upload-section,
-    .document-options {
         grid-template-columns: 1fr;
     }
 }
-/* =========================================================
- proof of adrrsss
-========================================================= */
 
 /* =========================================================
   END PERSONAL AREA CSS
