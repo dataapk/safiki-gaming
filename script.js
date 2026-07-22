@@ -781,17 +781,12 @@ document.addEventListener('DOMContentLoaded', function() {
 // EDIT TOGGLE — COMPLETE FIXED
 // ============================================
 
-let isEditMode = false;
-
 function toggleEditMode() {
-    isEditMode = !isEditMode;
+    window.isEditMode = !window.isEditMode;
     
-    // Get elements
     const toggleTrack = document.getElementById('toggleTrack');
     const editLabel = document.getElementById('editLabel');
     const saveChangesBtn = document.getElementById('saveChangesBtn');
-    
-    // Get Personal Details section
     const personalDetails = document.getElementById('personaldetailsSection');
     
     if (!personalDetails) {
