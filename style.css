@@ -276,22 +276,27 @@ img, svg {
    PERSONAL AREA — FIXED (NO OVERLAP)
    ============================================ */
 
+/* ============================================
+   PERSONAL AREA — FINAL FIX
+   ============================================ */
+
 #personal-area-section {
     position: fixed;
-    top: 80px;                    /* Header-এর নিচে — 70px থেকে বাড়ানো */
+    top: 80px;
     left: 50%;
     transform: translateX(-50%);
-    width: 720px;
-    max-width: 98%;
-    height: calc(100vh - 100px);  /* Height adjust — top + bottom gap */
+    width: 680px;                 /* ছোট width — দুই পাশে margin বেশি */
+    max-width: 90%;               /* 98% → 90% — দুই পাশে gap বেশি */
+    height: calc(100vh - 100px);  /* Height adjust */
     overflow-y: auto;
     background: #13151c;
     border: 1px solid rgba(255, 214, 102, 0.25);
     border-radius: 18px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
-    z-index: 9998;                /* Header-এর উপরে */
+    z-index: 9998;
     display: none;
     padding: 20px;
+    padding-bottom: 40px;         /* নিচে extra padding — button cut হবে না */
     box-sizing: border-box;
 }
 
@@ -313,7 +318,7 @@ img, svg {
 }
 
 /* ============================================
-   HEADER INSIDE BOX
+   HEADER
    ============================================ */
 
 .personal-header {
@@ -409,6 +414,11 @@ img, svg {
     border-radius: 12px;
     padding: 18px;
     margin-bottom: 15px;
+}
+
+/* Last content box — নিচে extra margin */
+.personal-tab-content .content-box:last-child {
+    margin-bottom: 30px;
 }
 
 /* ============================================
@@ -988,6 +998,7 @@ img, svg {
         height: calc(100vh - 60px);
         border-radius: 0;
         padding: 15px;
+        padding-bottom: 30px;
     }
 
     .form-row {
@@ -1031,8 +1042,6 @@ img, svg {
         width: 100%;
     }
 }
-
-
 /* =========================================================
   END PERSONAL AREA CSS
 ========================================================= */
