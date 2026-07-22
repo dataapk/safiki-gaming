@@ -672,63 +672,61 @@ function toggleProfileMenu(event){
 // PERSONAL AREA
 // ==============================
 
-<!-- ================= JAVASCRIPT FOR PERSONAL AREA ================= -->
+function openPersonalArea(){
 
-// ===== Open Personal Area =====
-function openPersonalArea() {
-    document.getElementById('personal-area-section').style.display = 'block';
-    document.body.style.overflow = 'hidden';
-    // Hide profile menu
-    var profileMenu = document.getElementById('profile-menu');
-    if (profileMenu) profileMenu.style.display = 'none';
+    const profileMenu = document.getElementById("profile-menu");
+    if(profileMenu) profileMenu.style.display = "none";
+
+    const bonus = document.getElementById("my-bonus-section");
+    if(bonus) bonus.style.display = "none";
+
+    const history = document.getElementById("transaction-history-section");
+    if(history) history.style.display = "none";
+
+    const settings = document.getElementById("settings-section");
+    if(settings) settings.style.display = "none";
+
+    const personalArea = document.getElementById("personal-area-section");
+    if(personalArea) personalArea.style.display = "block";
+
+    openPersonalTab("details");
+
 }
 
-// ===== Close Personal Area =====
-function closePersonalArea() {
-    document.getElementById('personal-area-section').style.display = 'none';
-    document.body.style.overflow = 'auto';
+function closePersonalArea(){
+
+    const personalArea = document.getElementById("personal-area-section");
+    if(personalArea) personalArea.style.display = "none";
+
 }
 
-// ===== Tab Switching =====
-function openPersonalTab(tabName) {
-    // Hide all tab contents
-    var contents = document.querySelectorAll('.personal-tab-content');
-    contents.forEach(function(content) {
-        content.style.display = 'none';
-    });
-    
-    // Remove active class from all tabs
-    var tabs = document.querySelectorAll('.personal-tab');
-    tabs.forEach(function(tab) {
-        tab.classList.remove('active');
-    });
-    
-    // Show selected content
-    if (tabName === 'details') {
-        document.getElementById('personalDetailsSection').style.display = 'block';
-        tabs[0].classList.add('active');
-    } else if (tabName === 'verification') {
-        document.getElementById('idVerificationSection').style.display = 'block';
-        tabs[1].classList.add('active');
-    } else if (tabName === 'address') {
-        document.getElementById('proofAddressSection').style.display = 'block';
-        tabs[2].classList.add('active');
-    }
+/*================ PERSONAL AREA TABS ================*/
+
+function openPersonalTab(tab){
+
+document.getElementById("personal-area-section").style.display="none";
+document.getElementById("idVerificationSection").style.display="none";
+document.getElementById("proofAddressSection").style.display="none";
+
+document.querySelectorAll(".personal-tab").forEach(btn=>{
+btn.classList.remove("active");
+});
+
+if(tab==="details"){
+document.getElementById("personal-area-section").style.display="block";
+document.querySelectorAll(".personal-tab")[0].classList.add("active");
 }
 
-// ===== Change Password Popup (Placeholder) =====
-function openChangePassword() {
-    alert('Change Password popup will open here!');
+if(tab==="verification"){
+document.getElementById("idVerificationSection").style.display="block";
+document.querySelectorAll(".personal-tab")[1].classList.add("active");
 }
 
+if(tab==="address"){
+document.getElementById("proofAddressSection").style.display="block";
+document.querySelectorAll(".personal-tab")[2].classList.add("active");
+}
 
-
-// Save to file
-with open('/mnt/agents/output/personal_area_design.html', 'w', encoding='utf-8') as f:
-    f.write(html_code)
-
-print("✅ Personal Area Design saved successfully!")
-print(f"📄 File size: {len(html_code)} characters")
 }
 /*================ CLOSE PERSONAL AREA ================*/
 
