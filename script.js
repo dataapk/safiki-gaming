@@ -763,813 +763,674 @@ function closePersonalArea() {
         personalArea.style.display = 'none';
     }
 }
-
-document.addEventListener('DOMContentLoaded', function() {
-    
-    // --- Global State ---
-    let isEditMode = false;
-    let hasMobile = false; // false = Add btn, true = Change btn
-
-    // --- Elements ---
-    const editToggleBtn = document.getElementById('editToggleBtn');
-    const editThumb = document.getElementById('editThumb');
-    const saveChangesBtn = document.getElementById('saveChangesBtn');
-    const personalFormBox = document.getElementById('personalFormBox');
-    const allInputs = personalFormBox.querySelectorAll('.form-input');
-    const allActionBtns = personalFormBox.querySelectorAll('.action-btn');
 // ============================================
-// EDIT TOGGLE — COMPLETE FIXED
+// CLOSE PERSONAL AREA
 // ============================================
+/* ============================================
+   PERSONAL AREA POPUP
+   ============================================ */
+#personal-area-section {
+    position: fixed;
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 720px;
+    max-width: 98%;
+    height: calc(100vh - 70px);
+    overflow-y: auto;
+    background: #13151c;
+    border: 1px solid rgba(255, 214, 102, 0.25);
+    border-radius: 18px;
+    z-index: 9998;
+    display: none;
+    padding: 20px;
+    box-sizing: border-box;
+}
 
-function toggleEditMode() {
-    window.isEditMode = !window.isEditMode;
-    
-    const toggleTrack = document.getElementById('toggleTrack');
-    const editLabel = document.getElementById('editLabel');
-    const saveChangesBtn = document.getElementById('saveChangesBtn');
-    const personalDetails = document.getElementById('personaldetailsSection');
-    
-    if (!personalDetails) {
-        console.error('personaldetailsSection not found!');
-        return;
+/* ============================================
+   HEADER
+   ============================================ */
+.personal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 214, 102, 0.2);
+}
+.personal-header h2 {
+    margin: 0;
+    color: #ffd666;
+    font-size: 22px;
+    font-weight: 700;
+}
+.close-personal-btn {
+    background: transparent;
+    border: 1px solid #ff8c00;
+    color: #ff8c00;
+    font-size: 18px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.close-personal-btn:hover {
+    background: #ff8c00;
+    color: #13151c;
+}
+
+/* ============================================
+   TAB BOX
+   ============================================ */
+.tab-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    background: #1a1a2e;
+    border: 1px solid rgba(255, 214, 102, 0.25);
+    border-radius: 12px;
+    padding: 5px;
+}
+.personal-tab {
+    flex: 1;
+    padding: 12px;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    color: #8892b0;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+.personal-tab:hover {
+    color: #ffd666;
+}
+.personal-tab.active {
+    background: rgba(255, 140, 0, 0.2);
+    color: #ffd666;
+}
+
+/* ============================================
+   TAB CONTENT
+   ============================================ */
+.personal-tab-content {
+    display: none;
+}
+.personal-tab-content.active {
+    display: block;
+}
+
+/* ============================================
+   CONTENT BOX
+   ============================================ */
+.content-box {
+    background: #1a1a2e;
+    border: 1px solid rgba(255, 214, 102, 0.25);
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+/* ============================================
+   PROFILE
+   ============================================ */
+.profile-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.profile-avatar-wrapper {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
+}
+.profile-avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ff8c00;
+}
+.change-avatar-btn {
+    position: absolute;
+    bottom: -4px;
+    right: -4px;
+    width: 22px;
+    height: 22px;
+    background: #ff8c00;
+    border: 2px solid #1a1a2e;
+    border-radius: 50%;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+}
+.profile-info {
+    flex: 1;
+}
+.label-small {
+    color: #8892b0;
+    font-size: 11px;
+    text-transform: uppercase;
+    margin: 0;
+}
+.value-text {
+    color: #ffd666;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 4px 0;
+}
+.member-text {
+    color: #64ffda;
+    font-size: 12px;
+    margin: 0;
+}
+
+/* ============================================
+   FORM ROWS
+   ============================================ */
+.form-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+.form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.form-group.full-width {
+    width: 100%;
+    margin-bottom: 15px;
+}
+.first-name {
+    flex: 2;
+}
+.surname {
+    flex: 1;
+}
+.city {
+    flex: 2;
+}
+.postal {
+    flex: 1;
+}
+
+/* Labels */
+label, .box-label {
+    color: #ffd666;
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+}
+.label-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+/* Inputs */
+.form-input {
+    background: #0f3460;
+    border: 1px solid rgba(255, 214, 102, 0.2);
+    border-radius: 10px;
+    padding: 10px 14px;
+    color: #ccd6f6;
+    font-size: 13px;
+    height: 40px;
+    box-sizing: border-box;
+    outline: none;
+    width: 100%;
+}
+.form-input:focus {
+    border-color: #ffd666;
+}
+.form-input:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+.form-select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23ffd666' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 35px;
+    cursor: pointer;
+}
+.date-picker {
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' fill='%23ffd666' viewBox='0 0 16 16'%3E%3Cpath d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 35px;
+}
+.address-textarea {
+    height: auto;
+    min-height: 60px;
+    resize: vertical;
+}
+
+/* ============================================
+   ACTION BUTTONS
+   ============================================ */
+.action-btn {
+    background: transparent;
+    border: 1px solid #ff8c00;
+    color: #ff8c00;
+    padding: 5px 14px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.action-btn:hover:not(:disabled) {
+    background: #ff8c00;
+    color: #13151c;
+}
+.action-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    border-color: #8892b0;
+    color: #8892b0;
+}
+.change-btn {
+    border-color: #64ffda;
+    color: #64ffda;
+}
+.change-btn:hover:not(:disabled) {
+    background: #64ffda;
+    color: #13151c;
+}
+.add-btn {
+    border-color: #ff8c00;
+    color: #ff8c00;
+}
+.send-btn {
+    background: #ff8c00;
+    color: #fff;
+    border: none;
+    white-space: nowrap;
+}
+.save-btn {
+    background: #64ffda;
+    color: #13151c;
+    border: none;
+    font-weight: 600;
+}
+
+/* ============================================
+   DROPDOWNS
+   ============================================ */
+.change-dropdown {
+    margin-top: 10px;
+    padding: 14px;
+    background: #0f3460;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 214, 102, 0.2);
+}
+.otp-row,
+.new-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+.otp-input {
+    flex: 1;
+}
+
+/* ============================================
+   MOBILE ROW
+   ============================================ */
+.mobile-row {
+    display: flex;
+    gap: 10px;
+}
+.country-code {
+    width: 80px;
+    flex-shrink: 0;
+}
+.mobile-input {
+    flex: 1;
+}
+
+/* ============================================
+   CONTROLS ROW
+   ============================================ */
+.controls-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.edit-toggle-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    color: #ccd6f6;
+    font-size: 13px;
+}
+.toggle-track {
+    width: 44px;
+    height: 24px;
+    background: #0f3460;
+    border-radius: 12px;
+    position: relative;
+    border: 1px solid rgba(255, 214, 102, 0.2);
+    transition: all 0.3s ease;
+}
+.toggle-track.active {
+    background: rgba(255, 140, 0, 0.3);
+    border-color: #ff8c00;
+}
+.toggle-thumb {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 18px;
+    height: 18px;
+    background: #8892b0;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+.toggle-track.active .toggle-thumb {
+    left: 22px;
+    background: #ffd666;
+}
+.save-changes-btn {
+    background: #ff8c00;
+    color: #13151c;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.save-changes-btn:hover:not(:disabled) {
+    background: #ffd666;
+}
+.save-changes-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    background: #8892ball;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.save-changes-btn:hover:not(:disabled) {
+    background: #ffd666;
+}
+.save-changes-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    background: #8892b0;
+}
+
+/* ============================================
+   ID VERIFICATION
+   ============================================ */
+.box-title {
+    color: #ffd666;
+    font-size: 14px;
+    margin: 0 0 12px 0;
+}
+.box-title i {
+    margin-right: 8px;
+}
+.box-desc {
+    color: #8892b0;
+    font-size: 13px;
+    margin: 0 0 15px 0;
+}
+.ip-text {
+    color: #8892b0;
+    font-size: 12px;
+    margin: 8px 0 0 0;
+}
+.ip-text span {
+    color: #64ffda;
+}
+.guide-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.guide-list li {
+    color: #8892b0;
+    font-size: 12px;
+    padding: 5px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.guide-list li::before {
+    content: "✓";
+    color: #64ffda;
+    font-size: 10px;
+}
+
+/* Upload Row */
+.upload-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+.upload-box {
+    text-align: center;
+}
+.upload-box i {
+    font-size: 32px;
+    color: #ff8c00;
+    margin-bottom: 10px;
+    display: block;
+}
+.upload-box p {
+    color: #ffd666;
+    font-size: 14px;
+    margin: 0 0 5px 0;
+}
+.upload-box span {
+    color: #8892b0;
+    font-size: 11px;
+    display: block;
+    margin-bottom: 10px;
+}
+.upload-btn {
+    background: transparent;
+    border: 1px solid #ff8c00;
+    color: #ff8c00;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.upload-btn:hover {
+    background: #ff8c00;
+    color: #13151c;
+}
+
+/* Camera */
+.camera-box {
+    background: #0f3460;
+    border: 1px solid rgba(255, 214, 102, 0.2);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+.camera-box i {
+    font-size: 40px;
+    color: #ff8c00;
+    margin-bottom: 10px;
+    display: block;
+}
+.camera-btn {
+    background: transparent;
+    border: 1px solid #ff8c00;
+    color: #ff8c00;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.camera-btn:hover {
+    background: #ff8c00;
+    color: #13151c;
+}
+.verify-btn {
+    width: 100%;
+    padding: 12px;
+    background: transparent;
+    border: 1px solid #ff8c00;
+    color: #ff8c00;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.verify-btn:hover:not(:disabled) {
+    background: #ff8c00;
+    color: #13151c;
+}
+.verify-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    border-color: #8892b0;
+    color: #8892b0;
+}
+
+/* ============================================
+   PROOF OF ADDRESS
+   ============================================ */
+.action-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* Document Row */
+.doc-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+.doc-option {
+    background: #0f3460;
+    border: 1px solid rgba(255, 214, 102, 0.2);
+    border-radius: 10px;
+    padding: 15px 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.doc-option:hover {
+    border-color: #ffd666;
+}
+.doc-option.active {
+    border-color: #ff8c00;
+    background: rgba(255, 140, 0, 0.2);
+}
+.doc-option i {
+    font-size: 20px;
+    color: #ff8c00;
+    margin-bottom: 6px;
+    display: block;
+}
+.doc-option span {
+    color: #ffd666;
+    font-size: 11px;
+}
+
+/* Upload Area */
+.upload-area {
+    text-align: center;
+    padding: 20px;
+    cursor: pointer;
+}
+.upload-area i {
+    font-size: 32px;
+    color: #ff8c00;
+    margin-bottom: 10px;
+    display: block;
+}
+.upload-area p {
+    color: #ffd666;
+    font-size: 14px;
+    margin: 0 0 5px 0;
+}
+.upload-area span {
+    color: #8892b0;
+    font-size: 11px;
+}
+
+/* Submit */
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    background: transparent;
+    border: 1px solid #ff8c00;
+    color: #ff8c00;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.submit-btn:hover:not(:disabled) {
+    background: #ff8c00;
+    color: #13151c;
+}
+.submit-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    border-color: #8892b0;
+    color: #8892b0;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+    #personal-area-section {
+        width: 95%;
+        max-width: 100%;
+        border-radius: 0;
+        top: 0;
+        height: 100vh;
     }
-    
-    // Get all inputs and buttons inside Personal Details ONLY
-    const allInputs = personalDetails.querySelectorAll('.form-input');
-    const allActionBtns = personalDetails.querySelectorAll('.action-btn');
-    
-    if (isEditMode) {
-        // ===== ON: Unlock =====
-        console.log('Edit Mode: ON');
-        
-        if (toggleTrack) toggleTrack.classList.add('active');
-        if (editLabel) {
-            editLabel.textContent = 'Editing...';
-            editLabel.style.color = '#ffd666';
-        }
-        if (saveChangesBtn) saveChangesBtn.disabled = false;
-        
-        // Enable inputs (except OTP)
-        allInputs.forEach(input => {
-            if (!input.classList.contains('otp-input')) {
-                input.disabled = false;
-            }
-        });
-        
-        // Enable action buttons (except send/save)
-        allActionBtns.forEach(btn => {
-            if (!btn.classList.contains('send-btn') && !btn.classList.contains('save-btn')) {
-                btn.disabled = false;
-            }
-        });
-        
-    } else {
-        // ===== OFF: Lock =====
-        console.log('Edit Mode: OFF');
-        
-        if (toggleTrack) toggleTrack.classList.remove('active');
-        if (editLabel) {
-            editLabel.textContent = 'Edit';
-            editLabel.style.color = '#ccd6f6';
-        }
-        if (saveChangesBtn) saveChangesBtn.disabled = true;
-        
-        // Disable all inputs
-        allInputs.forEach(input => {
-            input.disabled = true;
-        });
-        
-        // Disable all action buttons
-        allActionBtns.forEach(btn => {
-            btn.disabled = true;
-        });
-        
-        // Close dropdowns
-        closeAllDropdowns();
+    .tab-box {
+        flex-direction: column;
+    }
+    .form-row,
+    .upload-row,
+    .doc-row {
+        flex-direction: column;
+        grid-template-columns: 1fr;
     }
 }
 
-    // --- Close All Dropdowns ---
-    function closeAllDropdowns() {
-        const emailDropdown = document.getElementById('emailChangeDropdown');
-        const mobileDropdown = document.getElementById('mobileChangeDropdown');
-        
-        if (emailDropdown) emailDropdown.style.display = 'none';
-        if (mobileDropdown) mobileDropdown.style.display = 'none';
-        
-        // Reset OTP inputs
-        const emailOtp = document.getElementById('emailOtp');
-        const mobileOtp = document.getElementById('mobileOtp');
-        if (emailOtp) emailOtp.value = '';
-        if (mobileOtp) mobileOtp.value = '';
-    }
 
-    // --- Email Change Functionality ---
-    function toggleEmailChange() {
-        const dropdown = document.getElementById('emailChangeDropdown');
-        const newEmailRow = document.getElementById('newEmailRow');
-        const emailOtp = document.getElementById('emailOtp');
-        const sendBtn = document.getElementById('emailSendBtn');
-        
-        if (!dropdown) return;
-        
-        if (dropdown.style.display === 'none' || dropdown.style.display === '') {
-            dropdown.style.display = 'block';
-            if (newEmailRow) newEmailRow.style.display = 'none';
-            if (emailOtp) emailOtp.value = '';
-            if (sendBtn) {
-                sendBtn.textContent = 'Send Code';
-                sendBtn.classList.remove('save-btn');
-                sendBtn.classList.add('send-btn');
-            }
-        } else {
-            dropdown.style.display = 'none';
-        }
-    }
 
-    function sendEmailOtp() {
-        const sendBtn = document.getElementById('emailSendBtn');
-        const newEmailRow = document.getElementById('newEmailRow');
-        const emailOtp = document.getElementById('emailOtp');
-        
-        if (!sendBtn || !emailOtp) return;
-        
-        const otpValue = emailOtp.value.trim();
-        
-        if (otpValue === '') {
-            alert('Please enter the OTP code');
-            return;
-        }
-        
-        // Simulate OTP verification
-        // In real app: send to backend and verify
-        sendBtn.textContent = 'Save & Changes';
-        sendBtn.classList.remove('send-btn');
-        sendBtn.classList.add('save-btn');
-        
-        if (newEmailRow) {
-            newEmailRow.style.display = 'flex';
-        }
-        
-        // Reset click handler
-        sendBtn.onclick = saveNewEmail;
-    }
-
-    function saveNewEmail() {
-        const newEmailInput = document.getElementById('newEmail');
-        const currentEmailInput = document.getElementById('currentEmail');
-        const dropdown = document.getElementById('emailChangeDropdown');
-        
-        if (!newEmailInput) return;
-        
-        const newEmail = newEmailInput.value.trim();
-        
-        if (newEmail === '') {
-            alert('Please enter new email');
-            return;
-        }
-        
-        if (!validateEmail(newEmail)) {
-            alert('Please enter a valid email');
-            return;
-        }
-        
-        // Update email
-        if (currentEmailInput) {
-            currentEmailInput.value = newEmail;
-        }
-        
-        // Close dropdown
-        if (dropdown) {
-            dropdown.style.display = 'none';
-        }
-        
-        // Reset button
-        const sendBtn = document.getElementById('emailSendBtn');
-        if (sendBtn) {
-            sendBtn.textContent = 'Send Code';
-            sendBtn.classList.remove('save-btn');
-            sendBtn.classList.add('send-btn');
-            sendBtn.onclick = sendEmailOtp;
-        }
-        
-        alert('Email updated successfully!');
-    }
-
-    // --- Mobile Add/Change Functionality ---
-    function toggleMobileAdd() {
-        const dropdown = document.getElementById('mobileChangeDropdown');
-        const newMobileRow = document.getElementById('newMobileRow');
-        const mobileOtp = document.getElementById('mobileOtp');
-        const sendBtn = document.getElementById('mobileSendBtn');
-        
-        if (!dropdown) return;
-        
-        if (dropdown.style.display === 'none' || dropdown.style.display === '') {
-            dropdown.style.display = 'block';
-            if (newMobileRow) newMobileRow.style.display = 'none';
-            if (mobileOtp) mobileOtp.value = '';
-            if (sendBtn) {
-                sendBtn.textContent = 'Send';
-                sendBtn.classList.remove('save-btn');
-                sendBtn.classList.add('send-btn');
-            }
-        } else {
-            dropdown.style.display = 'none';
-        }
-    }
-
-    function toggleMobileChange() {
-        // Same as toggleMobileAdd but for Change state
-        toggleMobileAdd();
-    }
-
-    function sendMobileOtp() {
-        const sendBtn = document.getElementById('mobileSendBtn');
-        const newMobileRow = document.getElementById('newMobileRow');
-        const mobileOtp = document.getElementById('mobileOtp');
-        
-        if (!sendBtn || !mobileOtp) return;
-        
-        const otpValue = mobileOtp.value.trim();
-        
-        if (otpValue === '') {
-            alert('Please enter the OTP code');
-            return;
-        }
-        
-        // Simulate OTP verification
-        sendBtn.textContent = 'Save & Change';
-        sendBtn.classList.remove('send-btn');
-        sendBtn.classList.add('save-btn');
-        
-        if (newMobileRow) {
-            newMobileRow.style.display = 'flex';
-        }
-        
-        // Reset click handler
-        sendBtn.onclick = saveNewMobile;
-    }
-
-    function saveNewMobile() {
-        const newMobileInput = document.getElementById('newMobile');
-        const mobileNumberInput = document.getElementById('mobileNumber');
-        const dropdown = document.getElementById('mobileChangeDropdown');
-        const addBtn = document.getElementById('mobileAddBtn');
-        const changeBtn = document.getElementById('mobileChangeBtn');
-        
-        if (!newMobileInput) return;
-        
-        const newMobile = newMobileInput.value.trim();
-        
-        if (newMobile === '') {
-            alert('Please enter new mobile number');
-            return;
-        }
-        
-        // Update mobile number
-        if (mobileNumberInput) {
-            mobileNumberInput.value = newMobile;
-        }
-        
-        // Switch from Add to Change
-        hasMobile = true;
-        if (addBtn) addBtn.style.display = 'none';
-        if (changeBtn) {
-            changeBtn.style.display = 'inline-block';
-            changeBtn.disabled = false;
-        }
-        
-        // Close dropdown
-        if (dropdown) {
-            dropdown.style.display = 'none';
-        }
-        
-        // Reset button
-        const sendBtn = document.getElementById('mobileSendBtn');
-        if (sendBtn) {
-            sendBtn.textContent = 'Send';
-            sendBtn.classList.remove('save-btn');
-            sendBtn.classList.add('send-btn');
-            sendBtn.onclick = sendMobileOtp;
-        }
-        
-        alert('Mobile number added successfully!');
-    }
-
-    // --- Save All Changes ---
-    function saveAllChanges() {
-        const firstName = document.getElementById('firstName');
-        const surname = document.getElementById('surname');
-        const dateOfBirth = document.getElementById('dateOfBirth');
-        const gender = document.getElementById('gender');
-        const currentEmail = document.getElementById('currentEmail');
-        const mobileNumber = document.getElementById('mobileNumber');
-        
-        const data = {
-            firstName: firstName ? firstName.value : '',
-            surname: surname ? surname.value : '',
-            dateOfBirth: dateOfBirth ? dateOfBirth.value : '',
-            gender: gender ? gender.value : '',
-            email: currentEmail ? currentEmail.value : '',
-            mobile: mobileNumber ? mobileNumber.value : ''
-        };
-        
-        // In real app: send to backend API
-        console.log('Saving data:', data);
-        
-        // Turn off edit mode
-        toggleEditMode();
-        
-        alert('All changes saved successfully!');
-    }
-
-    // --- Date Picker ---
-    function openDatePicker() {
-        if (!isEditMode) return;
-        
-        const dateInput = document.getElementById('dateOfBirth');
-        if (dateInput) {
-            // Create a temporary date input for native picker
-            const tempInput = document.createElement('input');
-            tempInput.type = 'date';
-            tempInput.style.position = 'absolute';
-            tempInput.style.opacity = '0';
-            tempInput.style.pointerEvents = 'none';
-            
-            tempInput.addEventListener('change', function() {
-                if (dateInput) {
-                    dateInput.value = this.value;
-                }
-                document.body.removeChild(tempInput);
-            });
-            
-            document.body.appendChild(tempInput);
-            tempInput.click();
-        }
-    }
-
-    // --- Avatar Change ---
-    function changeAvatar() {
-        if (!isEditMode) return;
-        
-        const input = document.createElement('input');
-        input.type = 'file';
-        input.accept = 'image/*';
-        
-        input.addEventListener('change', function(e) {
-            const file = e.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(event) {
-                    const avatar = document.getElementById('profileAvatar');
-                    if (avatar) {
-                        avatar.src = event.target.result;
-                    }
-                };
-                reader.readAsDataURL(file);
-            }
-        });
-        
-        input.click();
-    }
-
-    // --- Close Personal Area ---
-    function closePersonalArea() {
-        const personalContent = document.getElementById('details');
-        if (personalContent) {
-            personalContent.classList.remove('active');
-            personalContent.style.display = 'none';
-        }
-        
-        // Reset edit mode
-        if (isEditMode) {
-            toggleEditMode();
-        }
-    }
-
-    // --- Email Validation ---
-    function validateEmail(email) {
-        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return re.test(email);
-    }
-
-    // --- Global Functions (for onclick attributes) ---
-    window.toggleEditMode = toggleEditMode;
-    window.toggleEmailChange = toggleEmailChange;
-    window.sendEmailOtp = sendEmailOtp;
-    window.saveNewEmail = saveNewEmail;
-    window.toggleMobileAdd = toggleMobileAdd;
-    window.toggleMobileChange = toggleMobileChange;
-    window.sendMobileOtp = sendMobileOtp;
-    window.saveNewMobile = saveNewMobile;
-    window.saveAllChanges = saveAllChanges;
-    window.openDatePicker = openDatePicker;
-    window.changeAvatar = changeAvatar;
-    window.closePersonalArea = closePersonalArea;
-
-}); // End DOMContentLoaded
-// ID Verification Country Popup পরে যোগ করা হবে
-
-// END  Personal area==========
-
-// START ID VERIFICATIONM=======
-// ============================================
-// ID VERIFICATION FUNCTIONS
-// ============================================
-
-// IP Address Detection
-function detectIpAddress() {
-    const ipElement = document.getElementById('ipLocation');
-    if (ipElement) {
-        // Real app: fetch from API
-        // For demo, show a placeholder
-        ipElement.textContent = 'Detecting...';
-        
-        // Simulate detection
-        setTimeout(() => {
-            ipElement.textContent = '192.168.1.1 (Bangladesh)';
-        }, 1000);
-    }
-}
-
-// Preview ID Image (Front/Back)
-function previewIdImage(input, side) {
-    if (input.files && input.files[0]) {
-        const reader = new FileReader();
-        
-        reader.onload = function(e) {
-            const previewId = side + 'Preview';
-            const placeholderId = side + 'Placeholder';
-            
-            const preview = document.getElementById(previewId);
-            const placeholder = document.getElementById(placeholderId);
-            
-            if (preview) {
-                preview.src = e.target.result;
-                preview.style.display = 'block';
-            }
-            
-            if (placeholder) {
-                placeholder.style.display = 'none';
-            }
-            
-            // Check if both images uploaded, enable verify button
-            checkVerifyButton();
-        };
-        
-        reader.readAsDataURL(input.files[0]);
-    }
-}
-
-// Check if both front and back images are uploaded
-function checkVerifyButton() {
-    const frontPreview = document.getElementById('frontPreview');
-    const backPreview = document.getElementById('backPreview');
-    const verifyBtn = document.getElementById('verifyBtn');
-    
-    if (frontPreview && backPreview && verifyBtn) {
-        const frontUploaded = frontPreview.style.display === 'block';
-        const backUploaded = backPreview.style.display === 'block';
-        
-        verifyBtn.disabled = !(frontUploaded && backUploaded);
-    }
-}
-
-// Start Selfie Camera
-function startSelfieCamera() {
-    const video = document.getElementById('selfieVideo');
-    const canvas = document.getElementById('selfieCanvas');
-    const placeholder = document.getElementById('cameraPlaceholder');
-    const preview = document.getElementById('selfiePreview');
-    
-    if (!video) return;
-    
-    navigator.mediaDevices.getUserMedia({ video: true })
-        .then(stream => {
-            video.srcObject = stream;
-            video.style.display = 'block';
-            
-            if (placeholder) placeholder.style.display = 'none';
-            if (preview) preview.style.display = 'none';
-            
-            // Auto capture after 3 seconds
-            setTimeout(() => {
-                captureSelfie(video, canvas, stream);
-            }, 3000);
-        })
-        .catch(err => {
-            console.error('Camera error:', err);
-            alert('Could not access camera. Please allow camera permission.');
-        });
-}
-
-// Capture Selfie
-function captureSelfie(video, canvas, stream) {
-    if (!canvas || !video) return;
-    
-    const context = canvas.getContext('2d');
-    canvas.width = video.videoWidth;
-    canvas.height = video.videoHeight;
-    context.drawImage(video, 0, 0);
-    
-    // Stop camera
-    stream.getTracks().forEach(track => track.stop());
-    video.style.display = 'none';
-    
-    // Show preview
-    const preview = document.getElementById('selfiePreview');
-    if (preview) {
-        preview.src = canvas.toDataURL('image/png');
-        preview.style.display = 'block';
-    }
-    
-    // Show retake button or continue
-    const placeholder = document.getElementById('cameraPlaceholder');
-    if (placeholder) {
-        placeholder.innerHTML = `
-            <i class="fas fa-check-circle" style="color: #64ffda;"></i>
-            <p>Selfie Captured!</p>
-            <button class="start-camera-btn" onclick="startSelfieCamera()">
-                <i class="fas fa-redo"></i> Retake
-            </button>
-        `;
-        placeholder.style.display = 'block';
-    }
-}
-
-// Start Verification Process
-function startVerification() {
-    const statusBox = document.getElementById('verificationStatus');
-    const statusText = document.getElementById('statusText');
-    const statusIcon = document.getElementById('statusIcon');
-    const progress = document.getElementById('verificationProgress');
-    const verifyBtn = document.getElementById('verifyBtn');
-    
-    if (!statusBox) return;
-    
-    // Hide verify button
-    if (verifyBtn) verifyBtn.style.display = 'none';
-    
-    // Show status
-    statusBox.style.display = 'block';
-    
-    // Simulate progress
-    let progressValue = 0;
-    const interval = setInterval(() => {
-        progressValue += 10;
-        if (progress) progress.style.width = progressValue + '%';
-        
-        if (progressValue >= 100) {
-            clearInterval(interval);
-            
-            // Show success
-            if (statusIcon) {
-                statusIcon.innerHTML = '<i class="fas fa-check-circle" style="color: #64ffda;"></i>';
-            }
-            if (statusText) {
-                statusText.textContent = 'Verification Successful!';
-                statusText.style.color = '#64ffda';
-            }
-            
-            // Send email notification (simulate)
-            setTimeout(() => {
-                showVerificationSuccess();
-            }, 1000);
-        }
-    }, 300);
-}
-
-// Show Verification Success
-function showVerificationSuccess() {
-    const successBox = document.getElementById('verificationSuccess');
-    const statusBox = document.getElementById('verificationStatus');
-    
-    if (statusBox) statusBox.style.display = 'none';
-    if (successBox) successBox.style.display = 'block';
-    
-    // Simulate email notification
-    console.log('Email sent: Your ID is verified!');
-}
-
-// Update KYC Requirements based on country
-function updateKycRequirements() {
-    const country = document.getElementById('kycCountrySelect').value;
-    console.log('Selected country:', country);
-    // Future: Load country-specific requirements
-}
-
-// END ID VERIFICATIONM=======
-// ============================================
-// PROOF OF ADDRESS FUNCTIONS
-// ============================================
-
-// Toggle Address Edit Mode
-function toggleAddressEdit() {
-    const editBtn = document.getElementById('editAddressBtn');
-    const saveBtn = document.getElementById('saveAddressBtn');
-    const address = document.getElementById('currentAddress');
-    const city = document.getElementById('addressCity');
-    const postal = document.getElementById('addressPostal');
-    const country = document.getElementById('addressCountry');
-    
-    if (!editBtn || !saveBtn) return;
-    
-    if (editBtn.style.display !== 'none') {
-        // Switch to edit mode
-        editBtn.style.display = 'none';
-        saveBtn.style.display = 'inline-block';
-        
-        // Enable inputs
-        if (address) address.disabled = false;
-        if (city) city.disabled = false;
-        if (postal) postal.disabled = false;
-        if (country) country.disabled = false;
-    } else {
-        // Switch back to view mode
-        editBtn.style.display = 'inline-block';
-        saveBtn.style.display = 'none';
-        
-        // Disable inputs
-        if (address) address.disabled = true;
-        if (city) city.disabled = true;
-        if (postal) postal.disabled = true;
-        if (country) country.disabled = true;
-    }
-}
-
-// Save Address
-function saveAddress() {
-    const address = document.getElementById('currentAddress');
-    const city = document.getElementById('addressCity');
-    const postal = document.getElementById('addressPostal');
-    const country = document.getElementById('addressCountry');
-    
-    // Validate
-    if (!address.value.trim() || !city.value.trim() || !postal.value.trim()) {
-        alert('Please fill in all address fields');
-        return;
-    }
-    
-    // Save (in real app: send to backend)
-    console.log('Address saved:', {
-        address: address.value,
-        city: city.value,
-        postal: postal.value,
-        country: country.value
-    });
-    
-    // Switch back to view mode
-    toggleAddressEdit();
-    
-    alert('Address saved successfully!');
-}
-
-// Select Document Type
-function selectDocType(type) {
-    // Remove active from all
-    document.querySelectorAll('.doc-option').forEach(el => {
-        el.classList.remove('active');
-    });
-    
-    // Add active to selected
-    const selected = document.getElementById('doc' + type.charAt(0).toUpperCase() + type.slice(1));
-    if (selected) selected.classList.add('active');
-    
-    // Show upload section
-    const uploadSection = document.getElementById('addressUploadSection');
-    if (uploadSection) uploadSection.style.display = 'block';
-    
-    // Update upload text
-    const uploadText = document.getElementById('uploadText');
-    if (uploadText) {
-        const typeNames = {
-            'bank': 'Bank Statement',
-            'utility': 'Utility Bill',
-            'other': 'Other Document'
-        };
-        uploadText.textContent = 'Upload ' + typeNames[type];
-    }
-}
-
-// Preview Address Document
-function previewAddressDoc(input) {
-    if (input.files && input.files[0]) {
-        const file = input.files[0];
-        const preview = document.getElementById('addressPreview');
-        const fileInfo = document.getElementById('fileInfo');
-        const fileName = document.getElementById('fileName');
-        const uploadSection = document.getElementById('addressUploadSection');
-        const submitSection = document.getElementById('addressSubmitSection');
-        
-        // Show preview for images
-        if (file.type.startsWith('image/')) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                if (preview) {
-                    preview.src = e.target.result;
-                    preview.style.display = 'block';
-                }
-            };
-            reader.readAsDataURL(file);
-        }
-        
-        // Show file info
-        if (fileInfo) fileInfo.style.display = 'flex';
-        if (fileName) fileName.textContent = file.name;
-        
-        // Show submit button
-        if (submitSection) {
-            submitSection.style.display = 'block';
-            const submitBtn = document.getElementById('submitAddressBtn');
-            if (submitBtn) submitBtn.disabled = false;
-        }
-    }
-}
-
-// Remove Address Document
-function removeAddressDoc() {
-    const input = document.getElementById('addressDocument');
-    const preview = document.getElementById('addressPreview');
-    const fileInfo = document.getElementById('fileInfo');
-    const submitSection = document.getElementById('addressSubmitSection');
-    
-    if (input) input.value = '';
-    if (preview) preview.style.display = 'none';
-    if (fileInfo) fileInfo.style.display = 'none';
-    if (submitSection) submitSection.style.display = 'none';
-}
-
-// Submit Address Verification
-function submitAddressVerification() {
-    const pendingBox = document.getElementById('addressPending');
-    const uploadSection = document.getElementById('addressUploadSection');
-    const submitSection = document.getElementById('addressSubmitSection');
-    const docSection = document.getElementById('documentTypeSection');
-    
-    // Hide upload and submit
-    if (uploadSection) uploadSection.style.display = 'none';
-    if (submitSection) submitSection.style.display = 'none';
-    if (docSection) docSection.style.display = 'none';
-    
-    // Show pending status
-    if (pendingBox) pendingBox.style.display = 'block';
-    
-    // Start 48-hour countdown
-    startAddressCountdown();
-    
-    // Simulate email notification
-    console.log('Email sent: Address verification submitted!');
-}
-
-// 48-Hour Countdown Timer
-function startAddressCountdown() {
-    const timerElement = document.getElementById('addressTimer');
-    if (!timerElement) return;
-    
-    let hours = 48;
-    let minutes = 0;
-    let seconds = 0;
-    
-    const interval = setInterval(() => {
-        seconds--;
-        
-        if (seconds < 0) {
-            seconds = 59;
-            minutes--;
-        }
-        
-        if (minutes < 0) {
-            minutes = 59;
-            hours--;
-        }
-        
-        if (hours < 0) {
-            clearInterval(interval);
-            showAddressVerified();
-            return;
-        }
-        
-        // Format display
-        const h = hours.toString().padStart(2, '0');
-        const m = minutes.toString().padStart(2, '0');
-        const s = seconds.toString().padStart(2, '0');
-        
-        timerElement.textContent = `${h}:${m}:${s}`;
-    }, 1000);
-}
-
-// Show Address Verified
-function showAddressVerified() {
-    const pendingBox = document.getElementById('addressPending');
-    const successBox = document.getElementById('addressSuccess');
-    
-    if (pendingBox) pendingBox.style.display = 'none';
-    if (successBox) successBox.style.display = 'block';
-    
-    // Simulate email
-    console.log('Email sent: Your address is verified!');
-}
 // ============================================
 // end PROOF OF ADDRESS FUNCTIONS
 // ============================================
