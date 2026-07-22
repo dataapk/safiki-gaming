@@ -1145,10 +1145,406 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // END  Personal area==========
 
-// START OPEN KYC VERIFICATIONM=======
+// START ID VERIFICATIONM=======
+// ============================================
+// ID VERIFICATION FUNCTIONS
+// ============================================
 
-// END OPEN KYC VERIFICATIONM=======
+// IP Address Detection
+function detectIpAddress() {
+    const ipElement = document.getElementById('ipLocation');
+    if (ipElement) {
+        // Real app: fetch from API
+        // For demo, show a placeholder
+        ipElement.textContent = 'Detecting...';
+        
+        // Simulate detection
+        setTimeout(() => {
+            ipElement.textContent = '192.168.1.1 (Bangladesh)';
+        }, 1000);
+    }
+}
 
+// Preview ID Image (Front/Back)
+function previewIdImage(input, side) {
+    if (input.files && input.files[0]) {
+        const reader = new FileReader();
+        
+        reader.onload = function(e) {
+            const previewId = side + 'Preview';
+            const placeholderId = side + 'Placeholder';
+            
+            const preview = document.getElementById(previewId);
+            const placeholder = document.getElementById(placeholderId);
+            
+            if (preview) {
+                preview.src = e.target.result;
+                preview.style.display = 'block';
+            }
+            
+            if (placeholder) {
+                placeholder.style.display = 'none';
+            }
+            
+            // Check if both images uploaded, enable verify button
+            checkVerifyButton();
+        };
+        
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+// Check if both front and back images are uploaded
+function checkVerifyButton() {
+    const frontPreview = document.getElementById('frontPreview');
+    const backPreview = document.getElementById('backPreview');
+    const verifyBtn = document.getElementById('verifyBtn');
+    
+    if (frontPreview && backPreview && verifyBtn) {
+        const frontUploaded = frontPreview.style.display === 'block';
+        const backUploaded = backPreview.style.display === 'block';
+        
+        verifyBtn.disabled = !(frontUploaded && backUploaded);
+    }
+}
+
+// Start Selfie Camera
+function startSelfieCamera() {
+    const video = document.getElementById('selfieVideo');
+    const canvas = document.getElementById('selfieCanvas');
+    const placeholder = document.getElementById('cameraPlaceholder');
+    const preview = document.getElementById('selfiePreview');
+    
+    if (!video) return;
+    
+    navigator.mediaDevices.getUserMedia({ video: true })
+        .then(stream => {
+            video.srcObject = stream;
+            video.style.display = 'block';
+            
+            if (placeholder) placeholder.style.display = 'none';
+            if (preview) preview.style.display = 'none';
+            
+            // Auto capture after 3 seconds
+            setTimeout(() => {
+                captureSelfie(video, canvas, stream);
+            }, 3000);
+        })
+        .catch(err => {
+            console.error('Camera error:', err);
+            alert('Could not access camera. Please allow camera permission.');
+        });
+}
+
+// Capture Selfie
+function captureSelfie(video, canvas, stream) {
+    if (!canvas || !video) return;
+    
+    const context = canvas.getContext('2d');
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+    context.drawImage(video, 0, 0);
+    
+    // Stop camera
+    stream.getTracks().forEach(track => track.stop());
+    video.style.display = 'none';
+    
+    // Show preview
+    const preview = document.getElementById('selfiePreview');
+    if (preview) {
+        preview.src = canvas.toDataURL('image/png');
+        preview.style.display = 'block';
+    }
+    
+    // Show retake button or continue
+    const placeholder = document.getElementById('cameraPlaceholder');
+    if (placeholder) {
+        placeholder.innerHTML = `
+            <i class="fas fa-check-circle" style="color: #64ffda;"></i>
+            <p>Selfie Captured!</p>
+            <button class="start-camera-btn" onclick="startSelfieCamera()">
+                <i class="fas fa-redo"></i> Retake
+            </button>
+        `;
+        placeholder.style.display = 'block';
+    }
+}
+
+// Start Verification Process
+function startVerification() {
+    const statusBox = document.getElementById('verificationStatus');
+    const statusText = document.getElementById('statusText');
+    const statusIcon = document.getElementById('statusIcon');
+    const progress = document.getElementById('verificationProgress');
+    const verifyBtn = document.getElementById('verifyBtn');
+    
+    if (!statusBox) return;
+    
+    // Hide verify button
+    if (verifyBtn) verifyBtn.style.display = 'none';
+    
+    // Show status
+    statusBox.style.display = 'block';
+    
+    // Simulate progress
+    let progressValue = 0;
+    const interval = setInterval(() => {
+        progressValue += 10;
+        if (progress) progress.style.width = progressValue + '%';
+        
+        if (progressValue >= 100) {
+            clearInterval(interval);
+            
+            // Show success
+            if (statusIcon) {
+                statusIcon.innerHTML = '<i class="fas fa-check-circle" style="color: #64ffda;"></i>';
+            }
+            if (statusText) {
+                statusText.textContent = 'Verification Successful!';
+                statusText.style.color = '#64ffda';
+            }
+            
+            // Send email notification (simulate)
+            setTimeout(() => {
+                showVerificationSuccess();
+            }, 1000);
+        }
+    }, 300);
+}
+
+// Show Verification Success
+function showVerificationSuccess() {
+    const successBox = document.getElementById('verificationSuccess');
+    const statusBox = document.getElementById('verificationStatus');
+    
+    if (statusBox) statusBox.style.display = 'none';
+    if (successBox) successBox.style.display = 'block';
+    
+    // Simulate email notification
+    console.log('Email sent: Your ID is verified!');
+}
+
+// Update KYC Requirements based on country
+function updateKycRequirements() {
+    const country = document.getElementById('kycCountrySelect').value;
+    console.log('Selected country:', country);
+    // Future: Load country-specific requirements
+}
+
+// END ID VERIFICATIONM=======
+// ============================================
+// PROOF OF ADDRESS FUNCTIONS
+// ============================================
+
+// Toggle Address Edit Mode
+function toggleAddressEdit() {
+    const editBtn = document.getElementById('editAddressBtn');
+    const saveBtn = document.getElementById('saveAddressBtn');
+    const address = document.getElementById('currentAddress');
+    const city = document.getElementById('addressCity');
+    const postal = document.getElementById('addressPostal');
+    const country = document.getElementById('addressCountry');
+    
+    if (!editBtn || !saveBtn) return;
+    
+    if (editBtn.style.display !== 'none') {
+        // Switch to edit mode
+        editBtn.style.display = 'none';
+        saveBtn.style.display = 'inline-block';
+        
+        // Enable inputs
+        if (address) address.disabled = false;
+        if (city) city.disabled = false;
+        if (postal) postal.disabled = false;
+        if (country) country.disabled = false;
+    } else {
+        // Switch back to view mode
+        editBtn.style.display = 'inline-block';
+        saveBtn.style.display = 'none';
+        
+        // Disable inputs
+        if (address) address.disabled = true;
+        if (city) city.disabled = true;
+        if (postal) postal.disabled = true;
+        if (country) country.disabled = true;
+    }
+}
+
+// Save Address
+function saveAddress() {
+    const address = document.getElementById('currentAddress');
+    const city = document.getElementById('addressCity');
+    const postal = document.getElementById('addressPostal');
+    const country = document.getElementById('addressCountry');
+    
+    // Validate
+    if (!address.value.trim() || !city.value.trim() || !postal.value.trim()) {
+        alert('Please fill in all address fields');
+        return;
+    }
+    
+    // Save (in real app: send to backend)
+    console.log('Address saved:', {
+        address: address.value,
+        city: city.value,
+        postal: postal.value,
+        country: country.value
+    });
+    
+    // Switch back to view mode
+    toggleAddressEdit();
+    
+    alert('Address saved successfully!');
+}
+
+// Select Document Type
+function selectDocType(type) {
+    // Remove active from all
+    document.querySelectorAll('.doc-option').forEach(el => {
+        el.classList.remove('active');
+    });
+    
+    // Add active to selected
+    const selected = document.getElementById('doc' + type.charAt(0).toUpperCase() + type.slice(1));
+    if (selected) selected.classList.add('active');
+    
+    // Show upload section
+    const uploadSection = document.getElementById('addressUploadSection');
+    if (uploadSection) uploadSection.style.display = 'block';
+    
+    // Update upload text
+    const uploadText = document.getElementById('uploadText');
+    if (uploadText) {
+        const typeNames = {
+            'bank': 'Bank Statement',
+            'utility': 'Utility Bill',
+            'other': 'Other Document'
+        };
+        uploadText.textContent = 'Upload ' + typeNames[type];
+    }
+}
+
+// Preview Address Document
+function previewAddressDoc(input) {
+    if (input.files && input.files[0]) {
+        const file = input.files[0];
+        const preview = document.getElementById('addressPreview');
+        const fileInfo = document.getElementById('fileInfo');
+        const fileName = document.getElementById('fileName');
+        const uploadSection = document.getElementById('addressUploadSection');
+        const submitSection = document.getElementById('addressSubmitSection');
+        
+        // Show preview for images
+        if (file.type.startsWith('image/')) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                if (preview) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                }
+            };
+            reader.readAsDataURL(file);
+        }
+        
+        // Show file info
+        if (fileInfo) fileInfo.style.display = 'flex';
+        if (fileName) fileName.textContent = file.name;
+        
+        // Show submit button
+        if (submitSection) {
+            submitSection.style.display = 'block';
+            const submitBtn = document.getElementById('submitAddressBtn');
+            if (submitBtn) submitBtn.disabled = false;
+        }
+    }
+}
+
+// Remove Address Document
+function removeAddressDoc() {
+    const input = document.getElementById('addressDocument');
+    const preview = document.getElementById('addressPreview');
+    const fileInfo = document.getElementById('fileInfo');
+    const submitSection = document.getElementById('addressSubmitSection');
+    
+    if (input) input.value = '';
+    if (preview) preview.style.display = 'none';
+    if (fileInfo) fileInfo.style.display = 'none';
+    if (submitSection) submitSection.style.display = 'none';
+}
+
+// Submit Address Verification
+function submitAddressVerification() {
+    const pendingBox = document.getElementById('addressPending');
+    const uploadSection = document.getElementById('addressUploadSection');
+    const submitSection = document.getElementById('addressSubmitSection');
+    const docSection = document.getElementById('documentTypeSection');
+    
+    // Hide upload and submit
+    if (uploadSection) uploadSection.style.display = 'none';
+    if (submitSection) submitSection.style.display = 'none';
+    if (docSection) docSection.style.display = 'none';
+    
+    // Show pending status
+    if (pendingBox) pendingBox.style.display = 'block';
+    
+    // Start 48-hour countdown
+    startAddressCountdown();
+    
+    // Simulate email notification
+    console.log('Email sent: Address verification submitted!');
+}
+
+// 48-Hour Countdown Timer
+function startAddressCountdown() {
+    const timerElement = document.getElementById('addressTimer');
+    if (!timerElement) return;
+    
+    let hours = 48;
+    let minutes = 0;
+    let seconds = 0;
+    
+    const interval = setInterval(() => {
+        seconds--;
+        
+        if (seconds < 0) {
+            seconds = 59;
+            minutes--;
+        }
+        
+        if (minutes < 0) {
+            minutes = 59;
+            hours--;
+        }
+        
+        if (hours < 0) {
+            clearInterval(interval);
+            showAddressVerified();
+            return;
+        }
+        
+        // Format display
+        const h = hours.toString().padStart(2, '0');
+        const m = minutes.toString().padStart(2, '0');
+        const s = seconds.toString().padStart(2, '0');
+        
+        timerElement.textContent = `${h}:${m}:${s}`;
+    }, 1000);
+}
+
+// Show Address Verified
+function showAddressVerified() {
+    const pendingBox = document.getElementById('addressPending');
+    const successBox = document.getElementById('addressSuccess');
+    
+    if (pendingBox) pendingBox.style.display = 'none';
+    if (successBox) successBox.style.display = 'block';
+    
+    // Simulate email
+    console.log('Email sent: Your address is verified!');
+}
+/ ============================================
+// end PROOF OF ADDRESS FUNCTIONS
+// ============================================
 function openSecuritySettings() {
 
     alert("Security Settings - Coming Soon");
