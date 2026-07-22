@@ -723,7 +723,7 @@ function openChangePassword() {
 
 
 
-# Save to file
+// Save to file
 with open('/mnt/agents/output/personal_area_design.html', 'w', encoding='utf-8') as f:
     f.write(html_code)
 
