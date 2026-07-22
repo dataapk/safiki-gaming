@@ -470,7 +470,7 @@
 
 <!-- ================= PERSONAL AREA ================= -->
 <!-- ================= PERSONAL AREA POPUP ================= -->
-<!-- ================= PERSONAL AREA ================= -->
+<!-- ================= PERSONAL AREA POPUP ================= -->
 <div id="personal-area-section" style="display:none;">
 
     <!-- HEADER -->
@@ -481,17 +481,17 @@
         </button>
     </div>
 
-    <!-- TABS -->
+    <!-- TAB BOX -->
     <div class="tab-box">
         <button class="personal-tab active" onclick="openPersonalTab('details')">Personal Details</button>
         <button class="personal-tab" onclick="openPersonalTab('verification')">ID Verification</button>
         <button class="personal-tab" onclick="openPersonalTab('address')">Proof Documents</button>
     </div>
 
-    <!-- ================= PERSONAL DETAILS ================= -->
+    <!-- ================= PERSONAL DETAILS TAB ================= -->
     <div id="personaldetailsSection" class="personal-tab-content active">
 
-        <!-- Profile -->
+        <!-- Profile Card -->
         <div class="content-box">
             <div class="profile-row">
                 <div class="profile-avatar-wrapper">
@@ -508,9 +508,8 @@
             </div>
         </div>
 
-        <!-- Form -->
+        <!-- Form Card -->
         <div class="content-box">
-            
             <div class="form-row">
                 <div class="form-group first-name">
                     <label>First Name</label>
@@ -579,10 +578,9 @@
                     </div>
                 </div>
             </div>
-
         </div>
 
-        <!-- Controls -->
+        <!-- Controls Card -->
         <div class="content-box controls-row">
             <button class="edit-toggle-btn" id="editToggleBtn" onclick="toggleEditMode()">
                 <span class="toggle-track" id="toggleTrack"><span class="toggle-thumb"></span></span>
@@ -593,9 +591,9 @@
 
     </div>
 
-    <!-- ================= ID VERIFICATION ================= -->
+    <!-- ================= ID VERIFICATION TAB ================= -->
     <div id="idVerificationSection" class="personal-tab-content" style="display:none;">
-        
+
         <div class="content-box">
             <label class="box-label">Select Country</label>
             <select class="form-input" onchange="updateKycRequirements()">
@@ -644,7 +642,7 @@
 
     </div>
 
-    <!-- ================= PROOF OF ADDRESS ================= -->
+    <!-- ================= PROOF OF ADDRESS TAB ================= -->
     <div id="proofAddressSection" class="personal-tab-content" style="display:none;">
 
         <div class="content-box">
