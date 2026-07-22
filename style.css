@@ -280,6 +280,9 @@ img, svg {
    PERSONAL AREA - MAIN CONTAINER
    ============================================ */
 
+/* ============================================
+   PERSONAL AREA — MAIN CONTAINER
+   ============================================ */
 #personal-area-section {
     position: fixed;
     top: 70px;
@@ -299,30 +302,9 @@ img, svg {
     box-sizing: border-box;
 }
 
-/* Golden Glowing Outer Border */
-#personal-area-section::before {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    background: linear-gradient(45deg, #ffd666, #ff8c00, #ffd666, #ff8c00);
-    border-radius: 20px;
-    z-index: -1;
-    opacity: 0.3;
-    animation: goldenGlow 3s ease-in-out infinite;
-}
-
-@keyframes goldenGlow {
-    0%, 100% { opacity: 0.3; }
-    50% { opacity: 0.6; }
-}
-
 /* ============================================
-   PERSONAL HEADER
+   HEADER
    ============================================ */
-
 .personal-header {
     display: flex;
     justify-content: space-between;
@@ -331,15 +313,12 @@ img, svg {
     padding-bottom: 15px;
     border-bottom: 1px solid rgba(255, 214, 102, 0.2);
 }
-
 .personal-header h2 {
     margin: 0;
     color: #ffd666;
     font-size: 22px;
     font-weight: 700;
-    text-shadow: 0 0 10px rgba(255, 214, 102, 0.3);
 }
-
 .close-personal-btn {
     background: rgba(255, 214, 102, 0.1);
     border: 1px solid rgba(255, 214, 102, 0.3);
@@ -352,18 +331,11 @@ img, svg {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
-}
-
-.close-personal-btn:hover {
-    background: rgba(255, 214, 102, 0.2);
-    transform: rotate(90deg);
 }
 
 /* ============================================
-   PERSONAL TABS
+   TABS (পাশাপাশি)
    ============================================ */
-
 .personal-tabs {
     display: flex;
     gap: 10px;
@@ -371,75 +343,70 @@ img, svg {
     padding-bottom: 15px;
     border-bottom: 1px solid rgba(255, 214, 102, 0.15);
 }
-
 .personal-tab {
     flex: 1;
-    padding: 12px 20px;
-    background: rgba(255, 214, 102, 0.05);
+    padding: 12px;
+    background: #1a1a2e;
     border: 1px solid rgba(255, 214, 102, 0.2);
     border-radius: 10px;
     color: #8892b0;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
     text-align: center;
 }
-
 .personal-tab:hover {
-    background: rgba(255, 214, 102, 0.1);
+    border-color: #ffd666;
+    color: #ffd666;
+}
+.personal-tab.active {
+    background: #1a1a2e;
+    border-color: #ff8c00;
     color: #ffd666;
 }
 
-.personal-tab.active {
-    background: rgba(255, 140, 0, 0.2);
-    border-color: #ff8c00;
-    color: #ffd666;
-    box-shadow: 0 0 15px rgba(255, 140, 0, 0.2);
+/* ============================================
+   TAB CONTENT
+   ============================================ */
+.personal-tab-content {
+    display: none;
+}
+.personal-tab-content.active {
+    display: block;
 }
 
 /* ============================================
    PROFILE HEADER BOX
    ============================================ */
-
 .profile-header-box {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: rgba(255, 214, 102, 0.05);
-    border: 1px solid rgba(255, 214, 102, 0.15);
+    background: #16213e;
+    border: 1px solid rgba(255, 214, 102, 0.25);
     border-radius: 16px;
     padding: 20px;
     margin-bottom: 20px;
-    position: relative;
 }
-
-.profile-left {
-    display: flex;
-    align-items: center;
-}
-
 .profile-avatar-wrapper {
     position: relative;
     width: 70px;
     height: 70px;
 }
-
 .profile-avatar {
     width: 100%;
     height: 100%;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid #ff8c00;
-    box-shadow: 0 0 15px rgba(255, 140, 0, 0.3);
+    border: 2px solid #ff8c00;
 }
-
 .change-avatar-btn {
     position: absolute;
     bottom: -5px;
     right: -5px;
-    width: 26px;
-    height: 26px;
+    width: 24px;
+    height: 24px;
     background: #ff8c00;
     border: 2px solid #13151c;
     border-radius: 50%;
@@ -449,65 +416,22 @@ img, svg {
     align-items: center;
     justify-content: center;
     font-size: 10px;
-    transition: all 0.3s ease;
 }
-
-.change-avatar-btn:hover {
-    background: #ffd666;
-    transform: scale(1.1);
-}
-
-.profile-right {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    flex: 1;
-    margin-left: 20px;
-}
-
-.close-btn {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background: none;
-    border: none;
-    color: #8892b0;
-    font-size: 22px;
-    cursor: pointer;
-    width: 28px;
-    height: 28px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    transition: all 0.3s ease;
-}
-
-.close-btn:hover {
-    color: #ff8c00;
-    background: rgba(255, 140, 0, 0.1);
-}
-
 .user-info {
     text-align: right;
-    margin-top: 10px;
 }
-
 .user-id-label {
     color: #8892b0;
     font-size: 11px;
     text-transform: uppercase;
-    letter-spacing: 1px;
     margin: 0;
 }
-
 .user-id-value {
     color: #ffd666;
     font-size: 16px;
     font-weight: 600;
     margin: 5px 0;
 }
-
 .member-since {
     color: #64ffda;
     font-size: 12px;
@@ -515,32 +439,44 @@ img, svg {
 }
 
 /* ============================================
-   FORM BOX - SMALLER INPUTS
+   FORM BOX
    ============================================ */
-
 .personal-form-box {
-    background: rgba(255, 214, 102, 0.03);
-    border: 1px solid rgba(255, 214, 102, 0.1);
+    background: #16213e;
+    border: 1px solid rgba(255, 214, 102, 0.25);
     border-radius: 16px;
     padding: 20px;
 }
 
-/* Form Rows - Compact */
+/* Form Rows — পাশাপাশি */
 .form-row {
     display: flex;
     gap: 15px;
     margin-bottom: 15px;
 }
-
 .form-group {
-    flex: 1;
     display: flex;
     flex-direction: column;
 }
-
 .form-group.full-width {
     width: 100%;
     margin-bottom: 15px;
+}
+
+/* ====== NAME ROW ====== */
+.name-row .first-name-group {
+    flex: 2;
+}
+.name-row .surname-group {
+    flex: 1;
+}
+
+/* ====== DOB ROW ====== */
+.dob-row .dob-group {
+    flex: 1;
+}
+.dob-row .gender-group {
+    flex: 1;
 }
 
 /* Labels */
@@ -550,9 +486,7 @@ img, svg {
     font-weight: 500;
     margin-bottom: 6px;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
 }
-
 .label-with-action {
     display: flex;
     justify-content: space-between;
@@ -560,41 +494,27 @@ img, svg {
     margin-bottom: 6px;
 }
 
-.label-with-action label {
-    margin-bottom: 0;
-}
-
-/* SMALLER INPUTS - Fixed Width */
+/* Inputs */
 .form-input {
-    background: rgba(255, 214, 102, 0.05);
-    border: 1px solid rgba(255, 214, 102, 0.15);
+    background: #0f3460;
+    border: 1px solid rgba(255, 214, 102, 0.2);
     border-radius: 10px;
     padding: 10px 14px;
     color: #ccd6f6;
     font-size: 13px;
-    transition: all 0.3s ease;
-    outline: none;
     height: 40px;
     box-sizing: border-box;
+    outline: none;
 }
-
 .form-input:focus {
-    border-color: #ff8c00;
-    box-shadow: 0 0 0 3px rgba(255, 140, 0, 0.1);
+    border-color: #ffd666;
 }
-
 .form-input:disabled {
     opacity: 0.6;
     cursor: not-allowed;
-    background: rgba(255, 214, 102, 0.02);
 }
 
-.form-input::placeholder {
-    color: #8892b0;
-    font-size: 12px;
-}
-
-/* Select Dropdown */
+/* Select */
 .form-select {
     appearance: none;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23ffd666' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
@@ -616,7 +536,6 @@ img, svg {
 /* ============================================
    ACTION BUTTONS
    ============================================ */
-
 .action-btn {
     background: transparent;
     border: 1px solid #ff8c00;
@@ -626,85 +545,52 @@ img, svg {
     font-size: 12px;
     font-weight: 500;
     cursor: pointer;
-    transition: all 0.3s ease;
 }
-
 .action-btn:hover:not(:disabled) {
     background: #ff8c00;
     color: #13151c;
 }
-
 .action-btn:disabled {
     opacity: 0.4;
     cursor: not-allowed;
     border-color: #8892b0;
     color: #8892b0;
 }
-
 .change-btn {
     border-color: #64ffda;
     color: #64ffda;
 }
-
 .change-btn:hover:not(:disabled) {
     background: #64ffda;
     color: #13151c;
 }
-
 .add-btn {
     border-color: #ff8c00;
     color: #ff8c00;
 }
-
 .send-btn {
     background: #ff8c00;
     color: #fff;
     border: none;
     white-space: nowrap;
-    padding: 8px 16px;
 }
-
-.send-btn:hover:not(:disabled) {
-    background: #ffd666;
-    color: #13151c;
-}
-
 .save-btn {
     background: #64ffda;
     color: #13151c;
     border: none;
     font-weight: 600;
-    padding: 8px 16px;
-}
-
-.save-btn:hover:not(:disabled) {
-    background: #4fd1c5;
 }
 
 /* ============================================
-   DROPDOWN SECTIONS
+   DROPDOWNS
    ============================================ */
-
 .change-dropdown {
     margin-top: 10px;
     padding: 14px;
-    background: rgba(255, 214, 102, 0.05);
+    background: #0f3460;
     border-radius: 12px;
-    border: 1px solid rgba(255, 214, 102, 0.1);
-    animation: slideDown 0.3s ease;
+    border: 1px solid rgba(255, 214, 102, 0.2);
 }
-
-@keyframes slideDown {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 .otp-row,
 .new-email-row,
 .new-mobile-row {
@@ -712,13 +598,6 @@ img, svg {
     gap: 10px;
     margin-bottom: 10px;
 }
-
-.otp-row:last-child,
-.new-email-row:last-child,
-.new-mobile-row:last-child {
-    margin-bottom: 0;
-}
-
 .otp-input {
     flex: 1;
 }
@@ -726,17 +605,14 @@ img, svg {
 /* ============================================
    MOBILE ROW
    ============================================ */
-
 .mobile-row {
     display: flex;
     gap: 10px;
 }
-
 .country-code {
     width: 80px;
     flex-shrink: 0;
 }
-
 .mobile-input {
     flex: 1;
 }
@@ -744,7 +620,6 @@ img, svg {
 /* ============================================
    BOTTOM CONTROLS
    ============================================ */
-
 .form-controls {
     display: flex;
     justify-content: space-between;
@@ -753,8 +628,6 @@ img, svg {
     padding-top: 15px;
     border-top: 1px solid rgba(255, 214, 102, 0.15);
 }
-
-/* Edit Toggle */
 .edit-toggle-btn {
     display: flex;
     align-items: center;
@@ -764,22 +637,18 @@ img, svg {
     cursor: pointer;
     padding: 0;
 }
-
 .toggle-track {
     width: 44px;
     height: 24px;
-    background: rgba(255, 214, 102, 0.1);
+    background: #1a1a2e;
     border-radius: 12px;
     position: relative;
-    transition: all 0.3s ease;
     border: 1px solid rgba(255, 214, 102, 0.2);
 }
-
 .toggle-track.active {
-    background: rgba(255, 140, 0, 0.3);
+    background: rgba(255, 140, 0, 0.2);
     border-color: #ff8c00;
 }
-
 .toggle-thumb {
     position: absolute;
     top: 2px;
@@ -790,20 +659,14 @@ img, svg {
     border-radius: 50%;
     transition: all 0.3s ease;
 }
-
 .toggle-track.active .toggle-thumb {
     left: 22px;
     background: #ffd666;
-    box-shadow: 0 0 10px rgba(255, 214, 102, 0.5);
 }
-
 .edit-label {
     color: #ccd6f6;
     font-size: 13px;
-    font-weight: 500;
 }
-
-/* Save Changes Button */
 .save-changes-btn {
     background: #ff8c00;
     color: #13151c;
@@ -813,15 +676,7 @@ img, svg {
     font-size: 13px;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
 }
-
-.save-changes-btn:hover:not(:disabled) {
-    background: #ffd666;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
-}
-
 .save-changes-btn:disabled {
     opacity: 0.4;
     cursor: not-allowed;
@@ -829,65 +684,49 @@ img, svg {
 }
 
 /* ============================================
-   ID VERIFICATION SECTION
+   ID VERIFICATION
    ============================================ */
-
-.kyc-country-header {
-    background: rgba(255, 214, 102, 0.05);
-    border: 1px solid rgba(255, 214, 102, 0.15);
+.kyc-country-header,
+.kyc-instructions,
+.kyc-upload-box,
+.kyc-selfie-section,
+.verification-pending,
+.verification-success {
+    background: #16213e;
+    border: 1px solid rgba(255, 214, 102, 0.25);
     border-radius: 12px;
     padding: 15px;
     margin-bottom: 15px;
 }
-
 .kyc-country-header label {
     color: #ffd666;
     font-size: 12px;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 8px;
     display: block;
+    margin-bottom: 8px;
 }
-
 .kyc-select {
     width: 100%;
     margin-bottom: 8px;
 }
-
 .ip-location-text {
     color: #8892b0;
     font-size: 12px;
     margin: 0;
 }
-
 .ip-location-text span {
     color: #64ffda;
 }
-
-/* ============================================
-   KYC INSTRUCTIONS
-   ============================================ */
-
-.kyc-instructions {
-    background: rgba(255, 214, 102, 0.05);
-    border: 1px solid rgba(255, 214, 102, 0.15);
-    border-radius: 12px;
-    padding: 15px;
-    margin-bottom: 15px;
-}
-
 .kyc-instructions h3 {
     color: #ffd666;
     font-size: 14px;
     margin: 0 0 10px 0;
 }
-
 .kyc-instructions ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
-
 .kyc-instructions li {
     color: #8892b0;
     font-size: 12px;
@@ -896,198 +735,133 @@ img, svg {
     align-items: center;
     gap: 8px;
 }
-
 .kyc-instructions li i {
     color: #64ffda;
     font-size: 10px;
 }
 
-/* ============================================
-   KYC UPLOAD SECTION
-   ============================================ */
-
+/* Upload Section — পাশাপাশি */
 .kyc-upload-section {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 15px;
     margin-bottom: 15px;
 }
-
 .kyc-upload-box {
-    background: rgba(255, 214, 102, 0.05);
-    border: 1px solid rgba(255, 214, 102, 0.15);
-    border-radius: 12px;
-    padding: 15px;
     text-align: center;
-    transition: all 0.3s ease;
 }
-
-.kyc-upload-box:hover {
-    border-color: rgba(255, 140, 0, 0.3);
-    box-shadow: 0 0 15px rgba(255, 140, 0, 0.1);
-}
-
 .upload-placeholder {
     padding: 20px;
 }
-
 .upload-placeholder i {
     font-size: 32px;
     color: #ff8c00;
     margin-bottom: 10px;
     display: block;
 }
-
 .upload-placeholder p {
     color: #ffd666;
     font-size: 13px;
     margin: 0 0 5px 0;
 }
-
 .upload-placeholder span {
     color: #8892b0;
     font-size: 11px;
 }
-
 .id-preview {
     max-width: 100%;
     border-radius: 8px;
     margin-top: 10px;
 }
-
 .upload-btn {
-    background: rgba(255, 140, 0, 0.2);
+    background: transparent;
     border: 1px solid #ff8c00;
     color: #ff8c00;
     padding: 8px 16px;
     border-radius: 8px;
     font-size: 12px;
     cursor: pointer;
-    transition: all 0.3s ease;
     margin-top: 10px;
 }
-
 .upload-btn:hover {
     background: #ff8c00;
     color: #13151c;
 }
 
-/* ============================================
-   SELFIE SECTION
-   ============================================ */
-
-.kyc-selfie-section {
-    background: rgba(255, 214, 102, 0.05);
-    border: 1px solid rgba(255, 214, 102, 0.15);
-    border-radius: 12px;
-    padding: 15px;
-    margin-bottom: 15px;
-}
-
-.kyc-selfie-section h3 {
-    color: #ffd666;
-    font-size: 14px;
-    margin: 0 0 8px 0;
-}
-
-.kyc-selfie-section p {
-    color: #8892b0;
-    font-size: 12px;
-    margin: 0 0 15px 0;
-}
-
+/* Selfie */
 .selfie-camera-box {
-    background: rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(255, 214, 102, 0.2);
+    background: #0f3460;
+    border: 1px solid rgba(255, 214, 102, 0.25);
     border-radius: 12px;
     padding: 20px;
     text-align: center;
     margin-bottom: 15px;
 }
-
 .camera-placeholder i {
     font-size: 40px;
     color: #ff8c00;
     margin-bottom: 10px;
 }
-
 .camera-placeholder p {
     color: #ffd666;
     font-size: 14px;
     margin: 0 0 15px 0;
 }
-
 .start-camera-btn {
-    background: rgba(255, 140, 0, 0.2);
+    background: transparent;
     border: 1px solid #ff8c00;
     color: #ff8c00;
     padding: 10px 20px;
     border-radius: 10px;
     font-size: 13px;
     cursor: pointer;
-    transition: all 0.3s ease;
 }
-
 .start-camera-btn:hover {
     background: #ff8c00;
     color: #13151c;
 }
-
-.selfie-preview {
-    max-width: 100%;
-    border-radius: 8px;
-}
-
 .verification-status {
     text-align: center;
     padding: 15px;
 }
-
 .status-icon {
     font-size: 30px;
     color: #ff8c00;
     margin-bottom: 10px;
 }
-
 .status-text {
     color: #ffd666;
     font-size: 14px;
     margin: 0 0 10px 0;
 }
-
 .progress-bar {
     width: 100%;
     height: 6px;
-    background: rgba(255, 214, 102, 0.1);
+    background: #0f3460;
     border-radius: 3px;
     overflow: hidden;
 }
-
 .progress-fill {
     height: 100%;
-    background: linear-gradient(90deg, #ff8c00, #ffd666);
+    background: #ff8c00;
     width: 0%;
     transition: width 0.3s ease;
 }
-
 .verify-btn {
     width: 100%;
     padding: 12px;
-    background: rgba(255, 140, 0, 0.2);
+    background: transparent;
     border: 1px solid #ff8c00;
     color: #ff8c00;
     border-radius: 10px;
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
 }
-
 .verify-btn:hover:not(:disabled) {
     background: #ff8c00;
     color: #13151c;
 }
-
 .verify-btn:disabled {
     opacity: 0.4;
     cursor: not-allowed;
@@ -1095,66 +869,46 @@ img, svg {
     color: #8892b0;
 }
 
-/* ============================================
-   VERIFICATION PENDING/SUCCESS
-   ============================================ */
-
-.verification-pending,
-.verification-success {
-    text-align: center;
-    padding: 30px 20px;
-    background: rgba(255, 214, 102, 0.05);
-    border: 1px solid rgba(255, 214, 102, 0.15);
-    border-radius: 12px;
-}
-
+/* Pending/Success */
 .pending-icon,
 .success-icon {
     font-size: 50px;
     margin-bottom: 15px;
 }
-
 .pending-icon {
     color: #ff8c00;
 }
-
 .success-icon {
     color: #64ffda;
 }
-
 .verification-pending h3,
 .verification-success h3 {
     color: #ffd666;
     font-size: 18px;
     margin: 0 0 10px 0;
 }
-
 .verification-pending p,
 .verification-success p {
     color: #8892b0;
     font-size: 13px;
     margin: 0;
 }
-
 .countdown-timer {
     margin: 15px 0;
     padding: 10px;
-    background: rgba(255, 140, 0, 0.1);
+    background: #0f3460;
     border-radius: 8px;
 }
-
 .countdown-timer span:first-child {
     color: #ff8c00;
     font-size: 24px;
     font-weight: 700;
     display: block;
 }
-
 .countdown-timer span:last-child {
     color: #8892b0;
     font-size: 12px;
 }
-
 .verify-note {
     color: #8892b0;
     font-size: 11px;
@@ -1164,24 +918,30 @@ img, svg {
 /* ============================================
    PROOF OF ADDRESS
    ============================================ */
-
 .address-form-box {
-    background: rgba(255, 214, 102, 0.05);
-    border: 1px solid rgba(255, 214, 102, 0.15);
+    background: #16213e;
+    border: 1px solid rgba(255, 214, 102, 0.25);
     border-radius: 12px;
     padding: 15px;
     margin-bottom: 15px;
 }
-
 .address-form-box h3 {
     color: #ffd666;
     font-size: 14px;
     margin: 0 0 12px 0;
 }
-
 .address-textarea {
     min-height: 60px;
     resize: vertical;
+    height: auto;
+}
+
+/* Address Row */
+.address-row .city-group {
+    flex: 2;
+}
+.address-row .postal-group {
+    flex: 1;
 }
 
 .address-action {
@@ -1190,95 +950,83 @@ img, svg {
     margin-top: 10px;
 }
 
-/* Document Type Section */
+/* Document Type — ছোট ছোট পাশাপাশি */
 .document-type-section {
-    background: rgba(255, 214, 102, 0.05);
-    border: 1px solid rgba(255, 214, 102, 0.15);
+    background: #16213e;
+    border: 1px solid rgba(255, 214, 102, 0.25);
     border-radius: 12px;
     padding: 15px;
     margin-bottom: 15px;
 }
-
 .document-type-section h3 {
     color: #ffd666;
     font-size: 14px;
     margin: 0 0 12px 0;
 }
-
 .document-options {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
 }
-
 .doc-option {
-    background: rgba(255, 214, 102, 0.05);
-    border: 1px solid rgba(255, 214, 102, 0.15);
+    background: #0f3460;
+    border: 1px solid rgba(255, 214, 102, 0.2);
     border-radius: 10px;
-    padding: 15px;
+    padding: 15px 10px;
     text-align: center;
     cursor: pointer;
     transition: all 0.3s ease;
 }
-
 .doc-option:hover {
-    border-color: rgba(255, 140, 0, 0.3);
-    background: rgba(255, 140, 0, 0.1);
+    border-color: #ffd666;
 }
-
 .doc-option.active {
     border-color: #ff8c00;
     background: rgba(255, 140, 0, 0.2);
 }
-
 .doc-option i {
-    font-size: 24px;
+    font-size: 20px;
     color: #ff8c00;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     display: block;
 }
-
 .doc-option span {
     color: #ffd666;
-    font-size: 12px;
+    font-size: 11px;
 }
 
-/* Address Upload */
+/* Upload */
 .address-upload-section {
-    background: rgba(255, 214, 102, 0.05);
-    border: 1px solid rgba(255, 214, 102, 0.15);
+    background: #16213e;
+    border: 1px solid rgba(255, 214, 102, 0.25);
     border-radius: 12px;
     padding: 15px;
     margin-bottom: 15px;
 }
-
 .address-upload-section h3 {
     color: #ffd666;
     font-size: 14px;
     margin: 0 0 12px 0;
 }
-
 .doc-preview {
     max-width: 100%;
     border-radius: 8px;
     margin-top: 10px;
 }
-
 .file-info {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-top: 10px;
     padding: 8px 12px;
-    background: rgba(255, 214, 102, 0.05);
+    background: #0f3460;
+    border: 1px solid rgba(255, 214, 102, 0.2);
     border-radius: 8px;
 }
-
 .file-info span {
     color: #ffd666;
     font-size: 12px;
 }
-
 .remove-file-btn {
     background: none;
     border: none;
@@ -1287,60 +1035,27 @@ img, svg {
     font-size: 14px;
 }
 
-/* Submit Section */
+/* Submit */
 .address-submit {
     text-align: center;
     margin-bottom: 15px;
 }
-
 .submit-verify-btn {
     width: 100%;
     padding: 12px;
-    background: rgba(255, 140, 0, 0.2);
+    background: transparent;
     border: 1px solid #ff8c00;
     color: #ff8c00;
     border-radius: 10px;
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
 }
-
 .submit-verify-btn:hover:not(:disabled) {
     background: #ff8c00;
     color: #13151c;
 }
-
 .submit-verify-btn:disabled {
-    opacity: 0.4;
-    cursor: not-allowed;
-    border-color: #8892b0;
-    color: #8892b0;
-}
-
-/* ============================================
-   SAVE CHANGES BUTTON
-   ============================================ */
-
-.save-changes-btn {
-    background: rgba(255, 140, 0, 0.2);
-    border: 1px solid #ff8c00;
-    color: #ff8c00;
-    padding: 10px 25px;
-    border-radius: 10px;
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.save-changes-btn:hover:not(:disabled) {
-    background: #ff8c00;
-    color: #13151c;
-    box-shadow: 0 0 15px rgba(255, 140, 0, 0.3);
-}
-
-.save-changes-btn:disabled {
     opacity: 0.4;
     cursor: not-allowed;
     border-color: #8892b0;
@@ -1350,7 +1065,6 @@ img, svg {
 /* ============================================
    RESPONSIVE
    ============================================ */
-
 @media (max-width: 768px) {
     #personal-area-section {
         width: 100%;
@@ -1359,60 +1073,19 @@ img, svg {
         top: 0;
         height: 100vh;
     }
-    
-    .form-row {
-        flex-direction: column;
-        gap: 12px;
-    }
-    
-    .profile-header-box {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .profile-right {
-        align-items: center;
-        margin-left: 0;
-        margin-top: 10px;
-    }
-    
-    .user-info {
-        text-align: center;
-    }
-    
-    .close-btn {
-        top: 10px;
-        right: 10px;
-    }
-    
-    .mobile-row {
-        flex-direction: column;
-    }
-    
-    .country-code {
-        width: 100%;
-    }
-    
-    .otp-row,
-    .new-email-row,
-    .new-mobile-row {
-        flex-direction: column;
-    }
-    
-    .kyc-upload-section {
-        grid-template-columns: 1fr;
-    }
-    
-    .document-options {
-        grid-template-columns: 1fr;
-    }
-    
     .personal-tabs {
         flex-direction: column;
     }
+    .name-row,
+    .dob-row,
+    .address-row {
+        flex-direction: column;
+    }
+    .kyc-upload-section,
+    .document-options {
+        grid-template-columns: 1fr;
+    }
 }
-
-
 /* =========================================================
  proof of adrrsss
 ========================================================= */
