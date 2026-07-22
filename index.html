@@ -471,33 +471,33 @@
 <!-- ================= PERSONAL AREA ================= -->
 <!-- ================= PERSONAL AREA POPUP ================= -->
 <!-- ================= PERSONAL AREA POPUP ================= -->
-<div id="personal-area-section" style="display:none;">
+<div id="personal-area-section">
 
-    <!-- HEADER -->
+    <!-- হেডার -->
     <div class="personal-header">
-        <h2>Personal Area</h2>
-        <button class="close-personal-btn" onclick="closePersonalArea()">
-            <i class="fas fa-times"></i>
+        <h3>Personal Area</h3>
+        <button class="close-personal" onclick="closePersonalArea()">
+            <i class="fas fa-times">✕</i>
         </button>
     </div>
 
-    <!-- TABS -->
-    <div class="tab-box">
-        <button class="personal-tab active" onclick="openPersonalTab('details')">Personal Details</button>
-        <button class="personal-tab" onclick="openPersonalTab('verification')">ID Verification</button>
-        <button class="personal-tab" onclick="openPersonalTab('address')">Proof Documents</button>
+    <!-- টপ ট্যাব -->
+    <div class="personal-tabs">
+        <button class="personal-tab-btn active" onclick="openPersonalTab('details')">Personal Details</button>
+        <button class="personal-tab-btn" onclick="openPersonalTab('verification')">ID Verification</button>
+        <button class="personal-tab-btn" onclick="openPersonalTab('address')">Proof Documents</button>
     </div>
 
     <!-- ================= PERSONAL DETAILS TAB ================= -->
     <div id="personaldetailsSection" class="personal-tab-content active">
 
         <!-- Profile Box -->
-        <div class="content-box">
+        <div class="personal-card">
             <div class="profile-row">
                 <div class="profile-avatar-wrapper">
                     <img src="default-avatar.png" alt="Profile" class="profile-avatar">
                     <button class="change-avatar-btn" onclick="changeAvatar()">
-                        <i class="fas fa-camera"></i>
+                        <i class="fas fa-camera">📷</i>
                     </button>
                 </div>
                 <div class="profile-info">
@@ -509,7 +509,7 @@
         </div>
 
         <!-- Form Box -->
-        <div class="content-box">
+        <div class="personal-card">
             <div class="form-row">
                 <div class="form-group first-name">
                     <label>First Name</label>
@@ -581,7 +581,7 @@
         </div>
 
         <!-- Controls Box -->
-        <div class="content-box controls-row">
+        <div class="personal-card controls-row">
             <button class="edit-toggle-btn" id="editToggleBtn" onclick="toggleEditMode()">
                 <span class="toggle-track" id="toggleTrack"><span class="toggle-thumb"></span></span>
                 <span id="editLabel">Edit</span>
@@ -593,8 +593,8 @@
 
     <!-- ================= ID VERIFICATION TAB ================= -->
     <div id="idVerificationSection" class="personal-tab-content" style="display:none;">
-        
-        <div class="content-box">
+
+        <div class="personal-card">
             <label class="box-label">Select Country</label>
             <select class="form-input" onchange="updateKycRequirements()">
                 <option>-- Select Country --</option>
@@ -604,7 +604,7 @@
             <p class="ip-text">IP: <span>192.168.1.1</span></p>
         </div>
 
-        <div class="content-box">
+        <div class="personal-card">
             <h3 class="box-title">Photo Guidelines</h3>
             <ul class="guide-list">
                 <li>Photo must be clear and not blurry</li>
@@ -614,15 +614,15 @@
         </div>
 
         <div class="upload-row">
-            <div class="content-box upload-box">
-                <i class="fas fa-id-card"></i>
+            <div class="personal-card upload-box">
+                <i class="fas fa-id-card">🪪</i>
                 <p>Front Side</p>
                 <span>Click to upload</span>
                 <button class="upload-btn" onclick="document.getElementById('frontIdInput').click()">Upload Front</button>
                 <input type="file" id="frontIdInput" accept="image/*" style="display:none;" onchange="previewIdImage(this, 'front')">
             </div>
-            <div class="content-box upload-box">
-                <i class="fas fa-id-card-alt"></i>
+            <div class="personal-card upload-box">
+                <i class="fas fa-id-card-alt">🪪</i>
                 <p>Back Side</p>
                 <span>Click to upload</span>
                 <button class="upload-btn" onclick="document.getElementById('backIdInput').click()">Upload Back</button>
@@ -630,11 +630,11 @@
             </div>
         </div>
 
-        <div class="content-box">
+        <div class="personal-card">
             <h3 class="box-title">Face Verification</h3>
             <p class="box-desc">Take a live selfie. System will match with ID photo.</p>
             <div class="camera-box">
-                <i class="fas fa-user-circle"></i>
+                <i class="fas fa-user-circle">👤</i>
                 <button class="camera-btn" onclick="startSelfieCamera()">Start Camera</button>
             </div>
             <button class="verify-btn" onclick="startVerification()" disabled>Verify Now</button>
@@ -645,7 +645,7 @@
     <!-- ================= PROOF OF ADDRESS TAB ================= -->
     <div id="proofAddressSection" class="personal-tab-content" style="display:none;">
 
-        <div class="content-box">
+        <div class="personal-card">
             <h3 class="box-title">Current Address</h3>
             <div class="form-group full-width">
                 <label>Full Address</label>
@@ -673,43 +673,41 @@
             </div>
         </div>
 
-        <div class="content-box">
+        <div class="personal-card">
             <h3 class="box-title">Select Document Type</h3>
             <div class="doc-row">
                 <div class="doc-option" onclick="selectDocType('bank')">
-                    <i class="fas fa-university"></i>
+                    <i class="fas fa-university">🏦</i>
                     <span>Bank Statement</span>
                 </div>
                 <div class="doc-option" onclick="selectDocType('utility')">
-                    <i class="fas fa-bolt"></i>
+                    <i class="fas fa-bolt">⚡</i>
                     <span>Utility Bill</span>
                 </div>
                 <div class="doc-option" onclick="selectDocType('other')">
-                    <i class="fas fa-file-alt"></i>
+                    <i class="fas fa-file-alt">📄</i>
                     <span>Other</span>
                 </div>
             </div>
         </div>
 
-        <div class="content-box" id="addressUploadSection" style="display:none;">
+        <div class="personal-card" id="addressUploadSection" style="display:none;">
             <h3 class="box-title">Upload Document</h3>
             <div class="upload-area" onclick="document.getElementById('addressDocument').click()">
-                <i class="fas fa-cloud-upload-alt"></i>
+                <i class="fas fa-cloud-upload-alt">☁️</i>
                 <p>Click to upload document</p>
                 <span>JPG, PNG, PDF (Max 5MB)</span>
             </div>
             <input type="file" id="addressDocument" accept="image/*,.pdf" style="display:none;" onchange="previewAddressDoc(this)">
         </div>
 
-        <div class="content-box" id="addressSubmitSection" style="display:none;">
+        <div class="personal-card" id="addressSubmitSection" style="display:none;">
             <button class="submit-btn" onclick="submitAddressVerification()" disabled>Submit for Verification</button>
         </div>
 
     </div>
 
 </div>
-<!-- ================= END PERSONAL AREA ================= -->
-    
 <!-- ================= END PERSONAL AREA ================= -->
 <!-- ================= END PERSONAL AREA ================= -->
 <!-- ================= END PERSONAL AREA ================= -->
