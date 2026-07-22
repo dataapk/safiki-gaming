@@ -721,8 +721,7 @@ function openChangePassword() {
     alert('Change Password popup will open here!');
 }
 
-</script>
-'''
+
 
 # Save to file
 with open('/mnt/agents/output/personal_area_design.html', 'w', encoding='utf-8') as f:
