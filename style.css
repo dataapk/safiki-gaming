@@ -275,67 +275,8 @@ img, svg {
 /* ============================================
    PERSONAL AREA SECTION (Main Container)
    ============================================ */
-#personal-area-section {
-    position: fixed;
-    top: 70px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 720px;
-    max-width: 98%;
-    height: calc(100vh - 70px);
-    overflow-y: auto;
-    background: #13151c;
-    border: 1px solid rgba(255, 214, 102, 0.25);
-    border-radius: 18px;
-    z-index: 9998;
-    display: none;
-    padding: 20px;
-    box-sizing: border-box;
-}
-
 /* ============================================
-   PERSONAL HEADER
-   ============================================ */
-.personal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid rgba(255, 214, 102, 0.2);
-}
-.personal-header h2 {
-    margin: 0;
-    color: #ffd666;
-    font-size: 22px;
-    font-weight: 700;
-}
-.close-personal-btn {
-    background: transparent;
-    border: 1px solid #ff8c00;
-    color: #ff8c00;
-    font-size: 18px;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.close-personal-btn:hover {
-    background: #ff8c00;
-    color: #13151c;
-}
-
-/* ============================================
-   PERSONAL AREA - MAIN CONTAINER
-   ============================================ */
-/* ============================================
-   TAB BOX — 3 Tabs Side by Side in ONE Box
-   ============================================ */
-/* ============================================
-   PERSONAL AREA POPUP (Like Transaction)
+   PERSONAL AREA POPUP
    ============================================ */
 #personal-area-section {
     position: fixed;
@@ -391,7 +332,7 @@ img, svg {
 }
 
 /* ============================================
-   TAB BOX — 3 Tabs Side by Side
+   TAB BOX
    ============================================ */
 .tab-box {
     display: flex;
@@ -434,7 +375,7 @@ img, svg {
 }
 
 /* ============================================
-   CONTENT BOX — Deep Black + Golden Border
+   CONTENT BOX
    ============================================ */
 .content-box {
     background: #1a1a2e;
@@ -445,7 +386,7 @@ img, svg {
 }
 
 /* ============================================
-   PROFILE ROW
+   PROFILE
    ============================================ */
 .profile-row {
     display: flex;
@@ -503,7 +444,7 @@ img, svg {
 }
 
 /* ============================================
-   FORM ROWS — Side by Side
+   FORM ROWS
    ============================================ */
 .form-row {
     display: flex;
@@ -519,16 +460,12 @@ img, svg {
     width: 100%;
     margin-bottom: 15px;
 }
-
-/* First Name (বড়) | Surname (ছোট) */
 .first-name {
     flex: 2;
 }
 .surname {
     flex: 1;
 }
-
-/* City (বড়) | Postal (ছোট) */
 .city {
     flex: 2;
 }
@@ -571,8 +508,6 @@ label, .box-label {
     opacity: 0.6;
     cursor: not-allowed;
 }
-
-/* Select */
 .form-select {
     appearance: none;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23ffd666' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
@@ -581,8 +516,6 @@ label, .box-label {
     padding-right: 35px;
     cursor: pointer;
 }
-
-/* Date Picker */
 .date-picker {
     cursor: pointer;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' fill='%23ffd666' viewBox='0 0 16 16'%3E%3Cpath d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/%3E%3C/svg%3E");
@@ -590,8 +523,6 @@ label, .box-label {
     background-position: right 12px center;
     padding-right: 35px;
 }
-
-/* Textarea */
 .address-textarea {
     height: auto;
     min-height: 60px;
@@ -610,6 +541,7 @@ label, .box-label {
     font-size: 12px;
     font-weight: 500;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 .action-btn:hover:not(:disabled) {
     background: #ff8c00;
@@ -632,6 +564,38 @@ label, .box-label {
 .add-btn {
     border-color: #ff8c00;
     color: #ff8c00;
+}
+.send-btn {
+    background: #ff8c00;
+    color: #fff;
+    border: none;
+    white-space: nowrap;
+}
+.save-btn {
+    background: #64ffda;
+    color: #13151c;
+    border: none;
+    font-weight: 600;
+}
+
+/* ============================================
+   DROPDOWNS
+   ============================================ */
+.change-dropdown {
+    margin-top: 10px;
+    padding: 14px;
+    background: #0f3460;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 214, 102, 0.2);
+}
+.otp-row,
+.new-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+.otp-input {
+    flex: 1;
 }
 
 /* ============================================
@@ -675,9 +639,10 @@ label, .box-label {
     border-radius: 12px;
     position: relative;
     border: 1px solid rgba(255, 214, 102, 0.2);
+    transition: all 0.3s ease;
 }
 .toggle-track.active {
-    background: rgba(255, 140, 0, 0.2);
+    background: rgba(255, 140, 0, 0.3);
     border-color: #ff8c00;
 }
 .toggle-thumb {
@@ -703,6 +668,22 @@ label, .box-label {
     font-size: 13px;
     font-weight: 600;
     cursor: pointer;
+    transition: all 0.3s ease;
+}
+.save-changes-btn:hover:not(:disabled) {
+    background: #ffd666;
+}
+.save-changes-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    background: #8892ball;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.save-changes-btn:hover:not(:disabled) {
+    background: #ffd666;
 }
 .save-changes-btn:disabled {
     opacity: 0.4;
@@ -734,8 +715,6 @@ label, .box-label {
 .ip-text span {
     color: #64ffda;
 }
-
-/* Guidelines */
 .guide-list {
     list-style: none;
     padding: 0;
@@ -755,7 +734,7 @@ label, .box-label {
     font-size: 10px;
 }
 
-/* Upload Row — 2 Boxes Side by Side */
+/* Upload Row */
 .upload-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -790,6 +769,7 @@ label, .box-label {
     border-radius: 8px;
     font-size: 12px;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 .upload-btn:hover {
     background: #ff8c00;
@@ -819,6 +799,7 @@ label, .box-label {
     border-radius: 10px;
     font-size: 13px;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 .camera-btn:hover {
     background: #ff8c00;
@@ -834,6 +815,7 @@ label, .box-label {
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 .verify-btn:hover:not(:disabled) {
     background: #ff8c00;
@@ -855,7 +837,7 @@ label, .box-label {
     margin-top: 10px;
 }
 
-/* Document Row — 3 Small Boxes */
+/* Document Row */
 .doc-row {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -892,6 +874,7 @@ label, .box-label {
 .upload-area {
     text-align: center;
     padding: 20px;
+    cursor: pointer;
 }
 .upload-area i {
     font-size: 32px;
@@ -920,6 +903,7 @@ label, .box-label {
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 .submit-btn:hover:not(:disabled) {
     background: #ff8c00;
@@ -953,6 +937,8 @@ label, .box-label {
         grid-template-columns: 1fr;
     }
 }
+
+
 /* =========================================================
   END PERSONAL AREA CSS
 ========================================================= */
