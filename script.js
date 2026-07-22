@@ -673,7 +673,6 @@ function toggleProfileMenu(event){
 // ==============================
 
 <!-- ================= JAVASCRIPT FOR PERSONAL AREA ================= -->
-<script>
 
 // ===== Open Personal Area =====
 function openPersonalArea() {
