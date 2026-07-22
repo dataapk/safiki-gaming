@@ -276,67 +276,14 @@ img, svg {
    PERSONAL AREA SECTION (Main Container)
    ============================================ */
 
-/* ===== Main Container  ===== */
-/* ============================================
-   PERSONAL AREA — HEADER FIX
-   ============================================ */
-
-/* ============================================
-   PERSONAL HEADER — FIXED (Like My Bonus)
-   ============================================ */
-
-/* ============================================
-   PERSONAL AREA POPUP — FIXED
-   ============================================ */
-#personal-area-section {
-
-    position:fixed;
-
-    top:70px;
-
-    left:50%;
-
-    transform:translateX(-50%);
-
-    width:720px;
-
-    max-width:94%;
-
-    height:80vh;
-
-    overflow-y:auto;
-
-    background:#13151c;
-
-    border:1px solid rgba(255,214,102,.25);
-
-    border-radius:18px;
-
-    box-shadow:0 20px 60px rgba(0,0,0,.45);
-
-    z-index:9998;
-
-    display:none;
-
-    padding:20px;
-
-    box-sizing:border-box;
-
-}
-
-
-/* ============================================
-   PERSONAL AREA POPUP — Moved Down
-   ============================================ */
-
 #personal-area-section {
     position: fixed;
-    top: 88px;                    /* ← 70px + 18px = 88px (header-এর নিচে) */
+    top:50px;                    /* ← 70px + 18px = 88px (header-এর নিচে) */
     left: 50%;
     transform: translateX(-50%);
     width: 720px;
     max-width: 94%;
-    height: calc(100vh - 100px);  /* ← Height adjust করলাম */
+    height: calc(80vh - 100px);  /* ← Height adjust করলাম */
     overflow-y: auto;
     background: #13151c;
     border: 1px solid rgba(255, 214, 102, 0.25);
@@ -369,7 +316,7 @@ img, svg {
 
 .personal-header h2 {
     margin: 0;
-    color: #ffffff;              /* White like My Bonus */
+    color: #ffffff;              
     font-size: 22px;
     font-weight: 700;
     text-align: center;
@@ -1019,11 +966,11 @@ label, .box-label {
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
     #personal-area-section {
-        width: 95%;
+        width: 100%;
         max-width: 100%;
         border-radius: 0;
         top: 0;
-        height: 100vh;
+        height: 85vh;
     }
     
     .tab-box {
