@@ -1542,7 +1542,7 @@ function showAddressVerified() {
     // Simulate email
     console.log('Email sent: Your address is verified!');
 }
-/ ============================================
+// ============================================
 // end PROOF OF ADDRESS FUNCTIONS
 // ============================================
 function openSecuritySettings() {
