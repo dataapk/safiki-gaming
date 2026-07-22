@@ -675,6 +675,94 @@ function toggleProfileMenu(event) {
 // ============================================
 // PERSONAL DETAILS - JAVASCRIPT ONLY
 // ============================================
+// ============================================
+// PERSONAL AREA TAB SWITCHING
+// ============================================
+
+function openPersonalTab(tabName) {
+    // 1. সব ট্যাব কন্টেন্ট হাইড করা
+    const allContents = document.querySelectorAll('.personal-tab-content');
+    allContents.forEach(content => {
+        content.style.display = 'none';
+    });
+    
+    // 2. সব ট্যাব বাটন থেকে active ক্লাস সরানো
+    const allTabs = document.querySelectorAll('.personal-tab');
+    allTabs.forEach(tab => {
+        tab.classList.remove('active');
+    });
+    
+    // 3. নির্বাচিত কন্টেন্ট দেখানো (ID ম্যাপিং)
+    let targetId = '';
+    
+    if (tabName === 'details') {
+        targetId = 'personaldetailsSection'; // Personal Details
+    } else if (tabName === 'verification') {
+        targetId = 'idVerificationSection'; // ID Verification
+    } else if (tabName === 'address') {
+        targetId = 'proofAddressSection'; // Proof Documents
+    }
+    
+    const selectedContent = document.getElementById(targetId);
+    if (selectedContent) {
+        selectedContent.style.display = 'block';
+    }
+    
+    // 4. ক্লিক করা বাটনে active ক্লাস যোগ করা
+    if (event && event.currentTarget) {
+        event.currentTarget.classList.add('active');
+    }
+}
+
+// ============================================
+// OPEN PERSONAL AREA (from Profile Menu)
+// ============================================
+
+function openPersonalArea() {
+    // Profile menu বন্ধ করা
+    const profileMenu = document.getElementById('profile-menu');
+    if (profileMenu) {
+        profileMenu.style.display = 'none';
+    }
+    
+    // Personal area দেখানো
+    const personalArea = document.getElementById('personal-area-section');
+    if (personalArea) {
+        personalArea.style.display = 'block';
+    }
+    
+    // Default: Personal Details ট্যাব ওপেন করা
+    // সব কন্টেন্ট হাইড করা
+    document.querySelectorAll('.personal-tab-content').forEach(content => {
+        content.style.display = 'none';
+    });
+    
+    // Personal Details দেখানো
+    const detailsSection = document.getElementById('personaldetailsSection');
+    if (detailsSection) {
+        detailsSection.style.display = 'block';
+    }
+    
+    // প্রথম ট্যাবে active ক্লাস যোগ করা
+    const allTabs = document.querySelectorAll('.personal-tab');
+    allTabs.forEach(tab => tab.classList.remove('active'));
+    
+    const firstTab = document.querySelector('.personal-tab');
+    if (firstTab) {
+        firstTab.classList.add('active');
+    }
+}
+
+// ============================================
+// CLOSE PERSONAL AREA
+// ============================================
+
+function closePersonalArea() {
+    const personalArea = document.getElementById('personal-area-section');
+    if (personalArea) {
+        personalArea.style.display = 'none';
+    }
+}
 
 document.addEventListener('DOMContentLoaded', function() {
     
