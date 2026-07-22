@@ -672,121 +672,497 @@ function toggleProfileMenu(event){
 // PERSONAL AREA
 // ==============================
 
-function openPersonalArea(){
+// ============================================
+// PERSONAL DETAILS - JAVASCRIPT ONLY
+// ============================================
 
-    const profileMenu = document.getElementById("profile-menu");
-    if(profileMenu) profileMenu.style.display = "none";
+// --- Global State ---
+let isEditMode = false;
+let emailVerified = false;
+let mobileAdded = false;
+let emailChangeStep = 0; // 0: closed, 1: otp sent, 2: new email
+let mobileChangeStep = 0; // 0: closed, 1: otp sent, 2: new mobile
 
-    const bonus = document.getElementById("my-bonus-section");
-    if(bonus) bonus.style.display = "none";
+// ============================================
+// EDIT MODE TOGGLE
+// ============================================
 
-    const history = document.getElementById("transaction-history-section");
-    if(history) history.style.display = "none";
-
-    const settings = document.getElementById("settings-section");
-    if(settings) settings.style.display = "none";
-
-    const personalArea = document.getElementById("personal-area-section");
-    if(personalArea) personalArea.style.display = "block";
-
-    openPersonalTab("details");
-
+function toggleEditMode() {
+    isEditMode = !isEditMode;
+    
+    const thumb = document.getElementById('editThumb');
+    const track = thumb.parentElement;
+    const saveBtn = document.getElementById('saveChangesBtn');
+    const allInputs = document.querySelectorAll('.form-input');
+    const allActionBtns = document.querySelectorAll('.action-btn');
+    
+    if (isEditMode) {
+        // ON: Unlock everything
+        track.classList.add('active');
+        saveBtn.disabled = false;
+        
+        allInputs.forEach(input => {
+            if (!input.classList.contains('otp-input')) {
+                input.disabled = false;
+            }
+        });
+        
+        allActionBtns.forEach(btn => {
+            btn.disabled = false;
+        });
+        
+    } else {
+        // OFF: Lock everything, close all dropdowns
+        track.classList.remove('active');
+        saveBtn.disabled = true;
+        
+        allInputs.forEach(input => {
+            input.disabled = true;
+        });
+        
+        allActionBtns.forEach(btn => {
+            btn.disabled = true;
+        });
+        
+        // Close all dropdowns
+        closeAllDropdowns();
+    }
 }
 
-function closePersonalArea(){
+// ============================================
+// CLOSE PERSONAL AREA
+// ============================================
 
-    const personalArea = document.getElementById("personal-area-section");
-    if(personalArea) personalArea.style.display = "none";
-
+function closePersonalArea() {
+    const personalArea = document.getElementById('details');
+    personalArea.style.display = 'none';
+    
+    // Reset everything when closed
+    isEditMode = false;
+    closeAllDropdowns();
 }
 
-/*================ PERSONAL AREA TABS ================*/
+// ============================================
+// AVATAR CHANGE
+// ============================================
 
-function openPersonalTab(tab){
+function changeAvatar() {
+    if (!isEditMode) return;
+    
+    // Create hidden file input
+    const fileInput = document.createElement('input');
+    fileInput.type = 'file';
+    fileInput.accept = 'image/*';
+    fileInput.style.display = 'none';
+    
+    fileInput.onchange = function(e) {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                document.getElementById('profileAvatar').src = event.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+    };
+    
+    document.body.appendChild(fileInput);
+    fileInput.click();
+    document.body.removeChild(fileInput);
+}
 
-document.getElementById("personal-area-section").style.display="none";
-document.getElementById("idVerificationSection").style.display="none";
-document.getElementById("proofAddressSection").style.display="none";
+// ============================================
+// DATE PICKER
+// ============================================
 
-document.querySelectorAll(".personal-tab").forEach(btn=>{
-btn.classList.remove("active");
+function openDatePicker() {
+    if (!isEditMode) return;
+    
+    const dobInput = document.getElementById('dateOfBirth');
+    
+    // Create a temporary date input for native picker
+    const tempInput = document.createElement('input');
+    tempInput.type = 'date';
+    tempInput.style.position = 'absolute';
+    tempInput.style.opacity = '0';
+    tempInput.style.pointerEvents = 'none';
+    
+    // Parse current value
+    const currentValue = dobInput.value;
+    if (currentValue) {
+        const parts = currentValue.split('/');
+        if (parts.length === 3) {
+            tempInput.value = `${parts[2]}-${parts[1]}-${parts[0]}`;
+        }
+    }
+    
+    tempInput.onchange = function() {
+        const date = new Date(this.value);
+        const day = String(date.getDate()).padStart(2, '0');
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const year = date.getFullYear();
+        dobInput.value = `${day}/${month}/${year}`;
+    };
+    
+    document.body.appendChild(tempInput);
+    tempInput.showPicker();
+    tempInput.click();
+    
+    setTimeout(() => {
+        document.body.removeChild(tempInput);
+    }, 100);
+}
+
+// ============================================
+// EMAIL CHANGE SYSTEM
+// ============================================
+
+function toggleEmailChange() {
+    if (!isEditMode) return;
+    
+    const dropdown = document.getElementById('emailChangeDropdown');
+    const sendBtn = document.getElementById('emailSendBtn');
+    const newEmailRow = document.getElementById('newEmailRow');
+    const otpInput = document.getElementById('emailOtp');
+    
+    if (dropdown.style.display === 'none' || dropdown.style.display === '') {
+        // Open dropdown
+        dropdown.style.display = 'block';
+        emailChangeStep = 0;
+        sendBtn.textContent = 'Send Code';
+        sendBtn.className = 'action-btn send-btn';
+        sendBtn.onclick = sendEmailOtp;
+        newEmailRow.style.display = 'none';
+        otpInput.value = '';
+        otpInput.placeholder = 'Add your code';
+    } else {
+        // Close dropdown
+        dropdown.style.display = 'none';
+        emailChangeStep = 0;
+    }
+}
+
+function sendEmailOtp() {
+    if (!isEditMode) return;
+    
+    const sendBtn = document.getElementById('emailSendBtn');
+    const newEmailRow = document.getElementById('newEmailRow');
+    const currentEmail = document.getElementById('currentEmail').value;
+    
+    // Simulate sending OTP
+    console.log('OTP sent to:', currentEmail);
+    
+    // Change button to "Save & Changes"
+    sendBtn.textContent = 'Save & Changes';
+    sendBtn.className = 'action-btn save-btn';
+    sendBtn.onclick = verifyEmailOtp;
+    
+    // Show new email input
+    newEmailRow.style.display = 'flex';
+    emailChangeStep = 1;
+    
+    // Auto-fill OTP for demo (remove in production)
+    setTimeout(() => {
+        document.getElementById('emailOtp').value = '123456';
+    }, 500);
+}
+
+function verifyEmailOtp() {
+    if (!isEditMode) return;
+    
+    const otpInput = document.getElementById('emailOtp');
+    const otp = otpInput.value;
+    
+    // Verify OTP (demo: any 6 digit works)
+    if (otp.length === 6) {
+        emailVerified = true;
+        emailChangeStep = 2;
+        
+        // Enable save new email
+        const saveBtn = document.querySelector('#newEmailRow .save-btn');
+        saveBtn.onclick = saveNewEmail;
+        
+        // Focus on new email
+        document.getElementById('newEmail').focus();
+    } else {
+        alert('Please enter a valid 6-digit OTP');
+        otpInput.focus();
+    }
+}
+
+function saveNewEmail() {
+    if (!isEditMode) return;
+    
+    const newEmailInput = document.getElementById('newEmail');
+    const newEmail = newEmailInput.value.trim();
+    
+    if (!newEmail || !isValidEmail(newEmail)) {
+        alert('Please enter a valid email address');
+        newEmailInput.focus();
+        return;
+    }
+    
+    // Update email
+    document.getElementById('currentEmail').value = newEmail;
+    
+    // Close dropdown and reset
+    const dropdown = document.getElementById('emailChangeDropdown');
+    dropdown.style.display = 'none';
+    emailChangeStep = 0;
+    
+    // Reset button
+    const sendBtn = document.getElementById('emailSendBtn');
+    sendBtn.textContent = 'Send Code';
+    sendBtn.className = 'action-btn send-btn';
+    sendBtn.onclick = sendEmailOtp;
+    
+    newEmailInput.value = '';
+    document.getElementById('emailOtp').value = '';
+    
+    alert('Email updated successfully!');
+}
+
+// ============================================
+// MOBILE ADD/CHANGE SYSTEM
+// ============================================
+
+function toggleMobileAdd() {
+    if (!isEditMode) return;
+    
+    const dropdown = document.getElementById('mobileChangeDropdown');
+    const sendBtn = document.getElementById('mobileSendBtn');
+    const newMobileRow = document.getElementById('newMobileRow');
+    const otpInput = document.getElementById('mobileOtp');
+    
+    if (dropdown.style.display === 'none' || dropdown.style.display === '') {
+        dropdown.style.display = 'block';
+        mobileChangeStep = 0;
+        sendBtn.textContent = 'Send';
+        sendBtn.className = 'action-btn send-btn';
+        sendBtn.onclick = sendMobileOtp;
+        newMobileRow.style.display = 'none';
+        otpInput.value = '';
+        otpInput.placeholder = 'Add your code';
+    } else {
+        dropdown.style.display = 'none';
+        mobileChangeStep = 0;
+    }
+}
+
+function toggleMobileChange() {
+    if (!isEditMode) return;
+    
+    // Same as toggleMobileAdd but for already added mobile
+    toggleMobileAdd();
+}
+
+function sendMobileOtp() {
+    if (!isEditMode) return;
+    
+    const sendBtn = document.getElementById('mobileSendBtn');
+    const newMobileRow = document.getElementById('newMobileRow');
+    const countryCode = document.getElementById('countryCode').value;
+    const mobileNumber = document.getElementById('mobileNumber').value;
+    
+    if (!mobileNumber) {
+        alert('Please enter a mobile number first');
+        document.getElementById('mobileNumber').focus();
+        return;
+    }
+    
+    // Simulate sending OTP
+    console.log('OTP sent to:', countryCode + mobileNumber);
+    
+    // Change button to "Save & Change"
+    sendBtn.textContent = 'Save & Change';
+    sendBtn.className = 'action-btn save-btn';
+    sendBtn.onclick = verifyMobileOtp;
+    
+    // Show new mobile input
+    newMobileRow.style.display = 'flex';
+    mobileChangeStep = 1;
+    
+    // Auto-fill OTP for demo
+    setTimeout(() => {
+        document.getElementById('mobileOtp').value = '123456';
+    }, 500);
+}
+
+function verifyMobileOtp() {
+    if (!isEditMode) return;
+    
+    const otpInput = document.getElementById('mobileOtp');
+    const otp = otpInput.value;
+    
+    if (otp.length === 6) {
+        mobileChangeStep = 2;
+        
+        const saveBtn = document.querySelector('#newMobileRow .save-btn');
+        saveBtn.onclick = saveNewMobile;
+        
+        document.getElementById('newMobile').focus();
+    } else {
+        alert('Please enter a valid 6-digit OTP');
+        otpInput.focus();
+    }
+}
+
+function saveNewMobile() {
+    if (!isEditMode) return;
+    
+    const newMobileInput = document.getElementById('newMobile');
+    const newMobile = newMobileInput.value.trim();
+    
+    if (!newMobile || newMobile.length < 10) {
+        alert('Please enter a valid mobile number');
+        newMobileInput.focus();
+        return;
+    }
+    
+    // Update mobile
+    document.getElementById('mobileNumber').value = newMobile;
+    
+    // Switch from Add to Change button
+    const addBtn = document.getElementById('mobileAddBtn');
+    const changeBtn = document.getElementById('mobileChangeBtn');
+    
+    addBtn.style.display = 'none';
+    changeBtn.style.display = 'inline-block';
+    changeBtn.disabled = false;
+    
+    // Close dropdown and reset
+    const dropdown = document.getElementById('mobileChangeDropdown');
+    dropdown.style.display = 'none';
+    mobileChangeStep = 0;
+    
+    mobileAdded = true;
+    
+    // Reset button
+    const sendBtn = document.getElementById('mobileSendBtn');
+    sendBtn.textContent = 'Send';
+    sendBtn.className = 'action-btn send-btn';
+    sendBtn.onclick = sendMobileOtp;
+    
+    newMobileInput.value = '';
+    document.getElementById('mobileOtp').value = '';
+    
+    alert('Mobile number added successfully!');
+}
+
+// ============================================
+// SAVE ALL CHANGES
+// ============================================
+
+function saveAllChanges() {
+    if (!isEditMode) return;
+    
+    const formData = {
+        firstName: document.getElementById('firstName').value,
+        surname: document.getElementById('surname').value,
+        dateOfBirth: document.getElementById('dateOfBirth').value,
+        gender: document.getElementById('gender').value,
+        email: document.getElementById('currentEmail').value,
+        countryCode: document.getElementById('countryCode').value,
+        mobileNumber: document.getElementById('mobileNumber').value
+    };
+    
+    console.log('Saving changes:', formData);
+    
+    // Here you would send to API
+    // fetch('/api/save-personal-details', { method: 'POST', body: JSON.stringify(formData) })
+    
+    // Turn off edit mode after save
+    toggleEditMode();
+    
+    alert('All changes saved successfully!');
+}
+
+// ============================================
+// TAB SWITCHING (if needed)
+// ============================================
+
+function openPersonalTab(tabName) {
+    // Remove active from all tabs
+    document.querySelectorAll('.personal-tab').forEach(tab => {
+        tab.classList.remove('active');
+    });
+    
+    // Hide all tab contents
+    document.querySelectorAll('.personal-tab-content').forEach(content => {
+        content.classList.remove('active');
+    });
+    
+    // Activate clicked tab
+    event.target.classList.add('active');
+    document.getElementById(tabName).classList.add('active');
+}
+
+// ============================================
+// UTILITY FUNCTIONS
+// ============================================
+
+function closeAllDropdowns() {
+    document.getElementById('emailChangeDropdown').style.display = 'none';
+    document.getElementById('mobileChangeDropdown').style.display = 'none';
+    
+    // Reset email
+    const emailSendBtn = document.getElementById('emailSendBtn');
+    if (emailSendBtn) {
+        emailSendBtn.textContent = 'Send Code';
+        emailSendBtn.className = 'action-btn send-btn';
+        emailSendBtn.onclick = sendEmailOtp;
+    }
+    document.getElementById('newEmailRow').style.display = 'none';
+    document.getElementById('emailOtp').value = '';
+    
+    // Reset mobile
+    const mobileSendBtn = document.getElementById('mobileSendBtn');
+    if (mobileSendBtn) {
+        mobileSendBtn.textContent = 'Send';
+        mobileSendBtn.className = 'action-btn send-btn';
+        mobileSendBtn.onclick = sendMobileOtp;
+    }
+    document.getElementById('newMobileRow').style.display = 'none';
+    document.getElementById('mobileOtp').value = '';
+    
+    emailChangeStep = 0;
+    mobileChangeStep = 0;
+}
+
+function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
+
+// ============================================
+// INITIALIZATION
+// ============================================
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Ensure everything is locked on load
+    const allInputs = document.querySelectorAll('.form-input');
+    const allActionBtns = document.querySelectorAll('.action-btn');
+    
+    allInputs.forEach(input => {
+        input.disabled = true;
+    });
+    
+    allActionBtns.forEach(btn => {
+        btn.disabled = true;
+    });
+    
+    // Hide dropdowns
+    document.getElementById('emailChangeDropdown').style.display = 'none';
+    document.getElementById('mobileChangeDropdown').style.display = 'none';
+    
+    // Set initial mobile button state
+    const mobileNumber = document.getElementById('mobileNumber').value;
+    if (mobileNumber && mobileNumber.trim() !== '') {
+        document.getElementById('mobileAddBtn').style.display = 'none';
+        document.getElementById('mobileChangeBtn').style.display = 'inline-block';
+        mobileAdded = true;
+    }
 });
-
-if(tab==="details"){
-document.getElementById("personal-area-section").style.display="block";
-document.querySelectorAll(".personal-tab")[0].classList.add("active");
-}
-
-if(tab==="verification"){
-document.getElementById("idVerificationSection").style.display="block";
-document.querySelectorAll(".personal-tab")[1].classList.add("active");
-}
-
-if(tab==="address"){
-document.getElementById("proofAddressSection").style.display="block";
-document.querySelectorAll(".personal-tab")[2].classList.add("active");
-}
-
-}
-/*================ CLOSE PERSONAL AREA ================*/
-
-function closePersonalArea(){
-
-document.getElementById("personalArea").style.display="none";
-
-}
-
-/*================ PROFILE PHOTO ================*/
-
-function updateProfilePhoto(event){
-
-const file=event.target.files[0];
-
-if(!file) return;
-
-const reader=new FileReader();
-
-reader.onload=function(e){
-
-document.getElementById("profilePhotoPreview").src=e.target.result;
-
-};
-
-reader.readAsDataURL(file);
-
-}
-
-/*================ EMAIL EDIT ================*/
-
-function toggleEmailEdit(){
-
-const box=document.getElementById("emailEditBox");
-
-box.style.display=(box.style.display==="block")?"none":"block";
-
-}
-
-/*================ PHONE EDIT ================*/
-
-function togglePhoneEdit(){
-
-const box=document.getElementById("phoneEditBox");
-
-box.style.display=(box.style.display==="block")?"none":"block";
-
-}
-
-/*================ PLACE OF BIRTH POPUP ================*/
-
-function openBirthCountryPopup(){
-
-// Country popup এখানে পরে যোগ করা হবে
-
-}
-
-/*================ COUNTRY POPUP ================*/
-
-function openCountryPopup(){
 
 // ID Verification Country Popup পরে যোগ করা হবে
 
