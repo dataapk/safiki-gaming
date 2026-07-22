@@ -321,20 +321,51 @@ img, svg {
    PERSONAL HEADER — FIXED (Like My Bonus)
    ============================================ */
 
+/* ============================================
+   PERSONAL AREA POPUP — FIXED
+   ============================================ */
+
+#personal-area-section {
+    position: fixed;
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 720px;
+    max-width: 94%;
+    height: 80vh;                  /* Fixed height like My Bonus */
+    overflow-y: auto;
+    background: #13151c;
+    border: 1px solid rgba(255, 214, 102, 0.25);  /* Golden border */
+    border-radius: 18px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+    z-index: 9998;
+    display: none;                 /* Hidden by default */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Show when active */
+#personal-area-section.active {
+    display: block;
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+
 .personal-header {
     display: flex;
-    justify-content: center;      /* Title center */
+    justify-content: center;
     align-items: center;
-    position: relative;            /* For absolute close button */
+    position: relative;
     margin-bottom: 18px;
-    padding: 10px 40px 10px 10px;  /* ← RIGHT padding 40px for close button */
+    padding: 10px 40px 10px 10px;
     border-bottom: 1px solid rgba(255, 214, 102, 0.2);
-    min-height: 40px;              /* ← Minimum height */
 }
 
 .personal-header h2 {
     margin: 0;
-    color: #ffd666;
+    color: #ffffff;              /* White like My Bonus */
     font-size: 22px;
     font-weight: 700;
     text-align: center;
@@ -342,15 +373,15 @@ img, svg {
 
 .close-personal-btn {
     position: absolute;
-    right: 10px;                   /* ← 10px from right */
+    right: 0;
     top: 50%;
     transform: translateY(-50%);
-    background: #ffd666;
+    background: #ffd666;         /* Golden like My Bonus */
     border: none;
     color: #13151c;
     font-size: 20px;
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
     cursor: pointer;
     display: flex;
@@ -359,35 +390,50 @@ img, svg {
     font-weight: bold;
 }
 
-/* ===== TAB BOX ===== */
+/* ============================================
+   TAB BOX
+   ============================================ */
+
 .tab-box {
     display: flex;
     gap: 0;
-    margin-bottom: 14px;
+    margin-bottom: 18px;
     background: #171b27;
     border: 1px solid rgba(255, 214, 102, 0.25);
     border-radius: 18px;
     padding: 6px;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
-    flex-shrink: 0;            /* Don't shrink */
 }
 
-/* ===== CONTENT AREA ===== */
-.personal-tab-content {
-    display: none;
-    overflow-y: auto;          /* Scroll content */
+.personal-tab {
+    flex: 1;
+    padding: 14px;
+    background: transparent;
+    border: none;
+    border-radius: 12px;
+    color: #8892b0;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s ease;
 }
 
-.personal-tab-content.active {
-    display: block;
+.personal-tab.active {
+    background: #ffd666;         /* Golden active */
+    color: #13151c;
+    box-shadow: 0 0 15px rgba(255, 214, 102, 0.3);
 }
 
-/* ===== CONTENT BOXES  ===== */
+/* ============================================
+   CONTENT BOXES
+   ============================================ */
+
 .content-box {
     background: #171b27;
     border: 1px solid rgba(255, 214, 102, 0.25);
     border-radius: 18px;
-    padding: 12px 16px;
+    padding: 16px;
     margin-bottom: 14px;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
 }
