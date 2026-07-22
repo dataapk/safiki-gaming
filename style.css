@@ -969,11 +969,11 @@ label, .box-label {
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
     #personal-area-section {
-        width: 100%;
+        width: 95%;
         max-width: 100%;
         border-radius: 0;
         top: 0;
-        height: 85vh;
+        height: 100vh;
     }
     
     .tab-box {
