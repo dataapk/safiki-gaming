@@ -1055,7 +1055,6 @@ document.addEventListener('DOMContentLoaded', function() {
 }); // End DOMContentLoaded
 // ID Verification Country Popup পরে যোগ করা হবে
 
-}
 // END  Personal area==========
 
 // START OPEN KYC VERIFICATIONM=======
