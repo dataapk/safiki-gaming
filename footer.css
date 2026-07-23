@@ -474,6 +474,7 @@
 
 @media (min-width: 768px) {
     .sidebar {
+       top: 60px
         width: 40%;
         max-width: 320px;
     }
