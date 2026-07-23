@@ -534,6 +534,7 @@
                 </div>
             </div>
 
+            <!-- Email Section -->
             <div class="form-group full-width">
                 <div class="label-row">
                     <label>Email</label>
@@ -552,20 +553,26 @@
                 </div>
             </div>
 
+            <!-- Mobile Number Section (Updated with Flag & Add/Change logic) -->
             <div class="form-group full-width">
                 <div class="label-row">
                     <label>Mobile Number</label>
+                    <!-- প্রথমে Add বাটন থাকবে, সফলভাবে অ্যাড হলে এটি Change এ রূপান্তরিত হবে -->
                     <button class="action-btn add-btn" id="mobileAddBtn" onclick="toggleMobileAdd()" disabled>Add</button>
                     <button class="action-btn change-btn" id="mobileChangeBtn" onclick="toggleMobileChange()" style="display:none;" disabled>Change</button>
                 </div>
-                <div class="mobile-row">
-                    <select id="countryCode" class="form-input country-code" disabled>
-                        <option>+880</option>
-                        <option>+91</option>
-                        <option>+1</option>
+                
+                <div class="mobile-row" style="display: flex; gap: 8px; align-items: center;">
+                    <!-- ফ্লাগসহ কান্ট্রি কোড ড্রপডাউন বক্স -->
+                    <select id="countryCode" class="form-input country-code" style="width: 110px;" disabled>
+                        <option value="+880" data-flag="🇧🇩">🇧🇩 +880</option>
+                        <option value="+91" data-flag="🇮🇳">🇮🇳 +91</option>
+                        <option value="+1" data-flag="🇺🇸">🇺🇸 +1</option>
                     </select>
-                    <input type="tel" id="mobileNumber" class="form-input mobile-input" placeholder="Enter number" disabled>
+                    <!-- মোবাইল নাম্বার ইনপুট -->
+                    <input type="tel" id="mobileNumber" class="form-input mobile-input" placeholder="Enter number" style="flex: 1;" disabled>
                 </div>
+
                 <div class="change-dropdown" id="mobileChangeDropdown" style="display:none;">
                     <div class="otp-row">
                         <input type="text" class="form-input otp-input" placeholder="Add your code">
@@ -589,6 +596,7 @@
         </div>
 
     </div>
+
 
     <!-- ================= ID VERIFICATION TAB ================= -->
     <div id="idVerificationSection" class="personal-tab-content" style="display:none;">
