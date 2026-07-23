@@ -8,21 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
    <link rel="stylesheet" href="footer.css">
-    
-    <!-- Debug: Check if CSS loaded -->
-    <script>
-        window.addEventListener('load', function() {
-            var cssLoaded = false;
-            for (var i = 0; i < document.styleSheets.length; i++) {
-                if (document.styleSheets[i].href && document.styleSheets[i].href.includes('footer.css')) {
-                    cssLoaded = true;
-                    break;
-                }
-            }
-            console.log('footer.css loaded:', cssLoaded);
-        });
-    </script>
-</head>
+ </head>
 <body>
 
 <!-- মেইন ওয়ালেট বক্স -->
@@ -2652,8 +2638,6 @@ style="display:none;">
             </div>
         </div>
     </footer>
-    <script src="footer.js" onload="console.log('✅ footer.js loaded!')" 
-        onerror="console.error('❌ footer.js failed to load! Check path.')"></script>
     
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="supabase.js"></script>
