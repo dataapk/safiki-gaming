@@ -1,6 +1,7 @@
 /* ============================================
    FOOTER & SIDEBAR CSS
    Black + Golden Theme
+   Profile Section Style Applied
    ============================================ */
 
 :root {
@@ -14,17 +15,14 @@
     --text-gray: #888888;
     --text-light: #aaaaaa;
     --border-golden: #d4af37;
-    --header-height: 60px;
+    --header-height: 70px;
     --footer-height: 60px;
 }
 
 /* ========== SIDEBAR OVERLAY ========== */
 .sidebar-overlay {
     position: fixed;
-    top: var(--header-height);
-    left: 0;
-    width: 100%;
-    height: calc(100% - var(--header-height));
+    inset: var(--header-height) 0 0 0;
     background: rgba(0, 0, 0, 0.8);
     z-index: 998;
     opacity: 0;
@@ -37,20 +35,24 @@
     visibility: visible;
 }
 
-/* ========== SIDEBAR (60% width, below header) ========== */
+/* ========== SIDEBAR (Profile Style) ========== */
 .sidebar {
     position: fixed;
     top: var(--header-height);
     left: 0;
     width: 60%;
-    height: calc(100% - var(--header-height));
+    max-width: 350px;
+    height: calc(100vh - var(--header-height) - var(--footer-height));
+    overflow-y: auto;
     background: var(--bg-black);
     border-right: 2px solid var(--border-golden);
+    border-radius: 0 16px 16px 0;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
     z-index: 999;
-    overflow-y: auto;
     transform: translateX(-100%);
     transition: transform 0.3s ease;
-    padding: 15px 12px 20px 12px;
+    padding: 15px;
+    box-sizing: border-box;
 }
 
 .sidebar.active {
@@ -71,10 +73,10 @@
     border-radius: 2px;
 }
 
-/* ========== CLOSE BUTTON (Top Right) ========== */
+/* ========== CLOSE BUTTON ========== */
 .sidebar-close {
     position: absolute;
-    top: 10px;
+    top: 8px;
     right: 10px;
     background: transparent;
     border: 1px solid var(--border-golden);
@@ -103,7 +105,7 @@
 
 /* ========== SIDEBAR TOP SECTION ========== */
 .sidebar-top {
-    margin-top: 45px;
+    margin-top: 40px;
     margin-bottom: 15px;
 }
 
@@ -204,7 +206,7 @@
     padding: 12px;
     cursor: pointer;
     transition: all 0.3s ease;
-    margin-top: 45px;
+    margin-top: 40px;
     margin-bottom: 12px;
 }
 
@@ -389,7 +391,7 @@
     color: var(--golden);
 }
 
-/* ========== BOTTOM FOOTER (NO BORDER) ========== */
+/* ========== BOTTOM FOOTER ========== */
 .bottom-footer {
     position: fixed;
     bottom: 0;
@@ -432,7 +434,7 @@
     transition: all 0.3s ease;
 }
 
-/* Active state - NO border, just color */
+/* Active state */
 .footer-item.active i,
 .footer-item.active span {
     color: var(--golden-light);
@@ -452,6 +454,7 @@
 @media (max-width: 380px) {
     .sidebar {
         width: 70%;
+        max-width: none;
     }
     
     .auth-buttons {
@@ -474,7 +477,6 @@
 
 @media (min-width: 768px) {
     .sidebar {
-       top: 60px
         width: 40%;
         max-width: 320px;
     }
