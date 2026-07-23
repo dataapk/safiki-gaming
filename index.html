@@ -2495,12 +2495,14 @@ style="display:none;">
 
 <!-- ======================================================
      🟢 START: SIDEBAR & FOOTER SECTION
+<!-- ======================================================
+     🟢 START: SIDEBAR & FOOTER SECTION
 ====================================================== -->
 
-<!-- Sidebar Overlay (click to close) -->
+<!-- Sidebar Overlay -->
 <div class="sidebar-overlay" id="sidebarOverlay" onclick="footerCloseSidebar()"></div>
 
-<!-- Sidebar Menu (60% width) -->
+<!-- Sidebar Menu (Left Slide, Box Style) -->
 <div class="sidebar" id="sidebar">
     
     <!-- Close Button (Top Right) -->
@@ -2508,56 +2510,34 @@ style="display:none;">
         <i class="fas fa-times"></i>
     </button>
 
-    <!-- ===== BEFORE LOGIN ===== -->
-    <div class="sidebar-top sidebar-before-login" id="beforeLogin">
-        <div class="auth-buttons">
-            <button class="btn-golden btn-login">Login</button>
-            <button class="btn-golden btn-signup">Sign Up</button>
+    <!-- ===== TOP 3 CARDS ===== -->
+    
+    <!-- Card 1: Login -->
+    <div class="top-card login-card" onclick="footerGoToLogin()">
+        <div class="card-icon"><i class="fas fa-sign-in-alt"></i></div>
+        <span class="card-text">Login</span>
+    </div>
+    
+    <!-- Card 2: Sign Up -->
+    <div class="top-card signup-card" onclick="footerGoToSignup()">
+        <div class="card-icon"><i class="fas fa-user-plus"></i></div>
+        <span class="card-text">Sign Up</span>
+    </div>
+    
+    <!-- Card 3: 150% Deposit Bonus -->
+    <div class="top-card bonus-card" onclick="footerGoToBonus()">
+        <div class="card-icon"><i class="fas fa-gift"></i></div>
+        <div class="card-content">
+            <span class="card-title">150% Deposit Bonus</span>
+            <span class="card-subtitle">Get Bonus Now</span>
         </div>
-        <div class="promo-card" onclick="footerGoToLogin()">
-            <div class="promo-image">
-                <i class="fas fa-gift"></i>
-            </div>
-            <div class="promo-content">
-                <h3>1st Deposit Bonus</h3>
-                <p>Get 150% Bonus</p>
-                <span class="promo-arrow"><i class="fas fa-chevron-right"></i></span>
-            </div>
-        </div>
+        <i class="fas fa-chevron-right card-arrow"></i>
     </div>
 
-    <!-- ===== AFTER LOGIN ===== -->
-    <div class="sidebar-top sidebar-after-login menusub-hidden" id="afterLogin">
-        <div class="profile-card" onclick="footerGoToProfile()">
-            <div class="profile-left">
-                <div class="profile-photo">
-                    <i class="fas fa-user"></i>
-                    <span class="vip-badge">VIP</span>
-                </div>
-                <div class="profile-info">
-                    <h3 class="username">a8fb46</h3>
-                    <p class="user-id">ID: 28827856</p>
-                </div>
-            </div>
-            <div class="profile-arrow">
-                <i class="fas fa-chevron-right"></i>
-            </div>
-        </div>
-        <div class="promo-card" onclick="footerGoToBonus()">
-            <div class="promo-image">
-                <i class="fas fa-gift"></i>
-            </div>
-            <div class="promo-content">
-                <h3>1st Deposit Bonus</h3>
-                <p>Get 150% Bonus</p>
-                <span class="promo-arrow"><i class="fas fa-chevron-right"></i></span>
-            </div>
-        </div>
-    </div>
-
-    <!-- ===== MENU ITEMS ===== -->
+    <!-- ===== MENU ITEMS WITH DROPDOWN ===== -->
     <nav class="sidebar-menu">
-        <!-- Casino -->
+        
+        <!-- Casino (Dropdown) -->
         <div class="menu-item">
             <div class="menu-header" onclick="footerToggleMenuSub('casinoMenuSub', 'casinoArrow')">
                 <div class="menu-icon"><i class="fas fa-dice"></i></div>
@@ -2567,11 +2547,11 @@ style="display:none;">
             <div class="menusub-list menusub-hidden" id="casinoMenuSub">
                 <a href="#" class="menusub-item"><i class="fas fa-circle"></i> Wheel Game</a>
                 <a href="#" class="menusub-item"><i class="fas fa-circle"></i> Slot Game</a>
-                <a href="#" class="menusub-item"><i class="fas fa-circle"></i> Crash Game (Aviator)</a>
+                <a href="#" class="menusub-item"><i class="fas fa-circle"></i> Crash Game</a>
             </div>
         </div>
 
-        <!-- Sports -->
+        <!-- Sports (Dropdown) -->
         <div class="menu-item">
             <div class="menu-header" onclick="footerToggleMenuSub('sportsMenuSub', 'sportsArrow')">
                 <div class="menu-icon"><i class="fas fa-futbol"></i></div>
@@ -2584,7 +2564,7 @@ style="display:none;">
             </div>
         </div>
 
-        <!-- Bonuses -->
+        <!-- Bonuses (Dropdown) -->
         <div class="menu-item">
             <div class="menu-header" onclick="footerToggleMenuSub('bonusesMenuSub', 'bonusesArrow')">
                 <div class="menu-icon"><i class="fas fa-gift"></i></div>
@@ -2596,6 +2576,22 @@ style="display:none;">
                 <a href="#" class="menusub-item"><i class="fas fa-circle"></i> Birthday Bonus</a>
                 <a href="#" class="menusub-item"><i class="fas fa-circle"></i> Weekly Bonus</a>
                 <a href="#" class="menusub-item"><i class="fas fa-circle"></i> Promotional Offers</a>
+            </div>
+        </div>
+
+        <!-- Refer a Friend (No Dropdown) -->
+        <div class="menu-item">
+            <div class="menu-header" onclick="footerGoToRefer()">
+                <div class="menu-icon"><i class="fas fa-user-plus"></i></div>
+                <span class="menu-name">Refer a Friend</span>
+            </div>
+        </div>
+
+        <!-- Support (No Dropdown) -->
+        <div class="menu-item">
+            <div class="menu-header" onclick="footerGoToSupport()">
+                <div class="menu-icon"><i class="fas fa-headset"></i></div>
+                <span class="menu-name">Support</span>
             </div>
         </div>
     </nav>
@@ -2629,8 +2625,7 @@ style="display:none;">
         </div>
     </div>
 </footer>
-<!-- Footer JS -->
-<script src="footer.js"></script>
+
 
 <!-- ======================================================
      🔴 END: SIDEBAR & FOOTER SECTION
