@@ -42,30 +42,44 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // ===== DROPDOWN FUNCTIONS =====
     
-    window.toggleDropdown = function(dropdownId) {
-        const dropdown = document.getElementById(dropdownId);
-        const arrowId = dropdownId.replace('Dropdown', 'Arrow');
-        const arrow = document.getElementById(arrowId);
-        
-        // Close other dropdowns
-        document.querySelectorAll('.dropdown-menu').forEach(function(menu) {
-            if (menu.id !== dropdownId && !menu.classList.contains('hidden')) {
-                menu.classList.add('hidden');
-                const otherArrowId = menu.id.replace('Dropdown', 'Arrow');
-                const otherArrow = document.getElementById(otherArrowId);
-                if (otherArrow) otherArrow.classList.remove('rotate');
-            }
-        });
-        
-        // Toggle current
-        if (dropdown) {
-            dropdown.classList.toggle('hidden');
-            console.log('Dropdown toggled:', dropdownId);
+   // ===== DROPDOWN FUNCTIONS =====
+
+window.toggleDropdown = function(dropdownId) {
+    const dropdown = document.getElementById(dropdownId);
+    
+    // Get arrow ID correctly
+    let arrowId;
+    if (dropdownId === 'casinoDropdown') arrowId = 'casinoArrow';
+    else if (dropdownId === 'sportsDropdown') arrowId = 'sportsArrow';
+    else if (dropdownId === 'bonusesDropdown') arrowId = 'bonusesArrow';
+    
+    const arrow = document.getElementById(arrowId);
+    
+    // Close other dropdowns first
+    document.querySelectorAll('.dropdown-menu').forEach(function(menu) {
+        if (menu.id !== dropdownId && !menu.classList.contains('hidden')) {
+            menu.classList.add('hidden');
+            
+            // Close other arrows
+            let otherArrowId;
+            if (menu.id === 'casinoDropdown') otherArrowId = 'casinoArrow';
+            else if (menu.id === 'sportsDropdown') otherArrowId = 'sportsArrow';
+            else if (menu.id === 'bonusesDropdown') otherArrowId = 'bonusesArrow';
+            
+            const otherArrow = document.getElementById(otherArrowId);
+            if (otherArrow) otherArrow.classList.remove('rotate');
         }
-        if (arrow) {
-            arrow.classList.toggle('rotate');
-        }
-    };
+    });
+    
+    // Toggle current dropdown
+    if (dropdown) {
+        dropdown.classList.toggle('hidden');
+        console.log('Dropdown toggled:', dropdownId);
+    }
+    if (arrow) {
+        arrow.classList.toggle('rotate');
+    }
+};
     
     // ===== LOGIN STATE FUNCTIONS =====
     
