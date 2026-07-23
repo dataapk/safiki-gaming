@@ -272,50 +272,31 @@ img, svg {
 /* ===============================
   START PERSONAL AREA CSS
 ================================ */
-/* ============================================
-   PERSONAL AREA — FIXED (NO OVERLAP)
-   ============================================ */
-
-/* ==========================================
-   PERSONAL AREA POPUP & MAIN CONTAINER
-   ========================================== */
 /* ==========================================
    PERSONAL AREA POPUP & MAIN CONTAINER
    ========================================== */
 #personal-area-section {
-    position: absolute; /* সেন্টারে ফিক্সড না রেখে হেডার বা নির্দিষ্ট পজিশন থেকে শুরু হবে */
-    top: 70px; /* হেডার ঠিক কত নিচে থাকবে, তোর হেডার অনুযায়ী এটা ১০-২০ পিক্সেল কমবেশি করতে পারিস */
+    position: fixed; /* পুরো স্ক্রিনের সাপেক্ষে ফিক্সড থাকবে, মেইন পেজ স্ক্রোল হলেও এটি নড়বে না */
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%); /* শুধু হরাইজন্টালি মাঝখানে রাখবে */
+    transform: translate(-50%, -50%);
     width: 92%;
     max-width: 650px;
-    height: calc(100vh - 90px); /* হেডার বাদ দিয়ে বাকি পুরো স্ক্রিন উচ্চতা দখল করবে */
+    height: 85vh; /* নির্দিষ্ট উচ্চতা যার বাইরে পপআপ বড় হবে না */
+    max-height: 700px;
     background: #1a1a1a; 
     color: #ffffff;
     border-radius: 14px; /* হালকা রাউন্ডেড কর্নার */
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
     z-index: 9999;
     display: none; /* ডিফল্টভাবে বন্ধ থাকবে */
     flex-direction: column;
     box-sizing: border-box;
-    overflow: hidden;
-}
-
-/* সমস্ত স্ক্রলিং এখন শুধুমাত্র এই পার্সোনাল এরিয়া কন্টেইনারের ভেতরেই হবে */
-#personal-area-section .personal-tab-content {
-    display: none;
-    flex: 1;
-    overflow-y: auto; /* ভেতরে স্ক্রোলবার সচল থাকবে */
-    padding: 16px 20px;
-    box-sizing: border-box;
-}
-
-#personal-area-section .personal-tab-content.active {
-    display: block;
+    overflow: hidden; /* পপআপের বাইরে কিছু চলে যাবে না */
 }
 
 /* ==========================================
-   HEADER & CLOSE BUTTON (Top Right)
+   FIXED HEADER & TABS (Sticky inside Popup)
    ========================================== */
 .personal-header {
     display: flex;
@@ -324,6 +305,7 @@ img, svg {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     padding: 16px 20px;
     background: #1a1a1a;
+    flex-shrink: 0; /* হেডার ছোট বা সংকুচিত হবে না */
 }
 
 .personal-header h3 {
@@ -348,13 +330,13 @@ img, svg {
     background: rgba(255, 255, 255, 0.1);
 }
 
-/* ==========================================
-   TABS SECTION (3 Tabs Side by Side)
-   ========================================== */
 .personal-tabs {
     display: flex;
     gap: 8px;
-    padding: 12px 20px 0 20px;
+    padding: 12px 20px;
+    background: #1a1a1a;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    flex-shrink: 0;
 }
 
 .personal-tab-btn {
@@ -376,6 +358,21 @@ img, svg {
     background: #3b82f6;
     color: #ffffff;
     border-color: #3b82f6;
+}
+
+/* ==========================================
+   SCROLLABLE CONTENT AREA
+   ========================================== */
+#personal-area-section .personal-tab-content {
+    display: none;
+    flex: 1;
+    overflow-y: auto; /* শুধুমাত্র এই জায়গাটুকু স্ক্রোল হবে, হেডার ও ফুটার ফিক্সড থাকবে */
+    padding: 16px 20px;
+    box-sizing: border-box;
+}
+
+#personal-area-section .personal-tab-content.active {
+    display: block;
 }
 
 /* ==========================================
@@ -566,9 +563,7 @@ img, svg {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding: 14px 20px;
     margin: 0;
-    position: sticky;
-    bottom: 0;
-    z-index: 10;
+    flex-shrink: 0; /* ফুটার বাটনগুলোও ফিক্সড থাকবে */
 }
 
 .edit-toggle-btn {
