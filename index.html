@@ -564,37 +564,45 @@
     </div>
 </div>
 
-           <!-- ================= MOBILE NUMBER SECTION ================= -->
+          <!-- ================= MOBILE NUMBER SECTION ================= -->
 <div class="form-group full-width">
     <div class="label-row">
         <label>Mobile Number</label>
-        <!-- অ্যাড বা চেঞ্জ বাটন (এগুলোর আইডি ও ফাংশন নাম তোর আগের মতো ঠিক রাখা হয়েছে) -->
+        <!-- প্রথমবার সেট করার জন্য Edit বাটন, নাম্বার সেভ হলে এটা Change হয়ে যাবে -->
         <button class="action-btn add-btn" id="mobileAddBtn" onclick="toggleMobileAdd()">Edit</button>
         <button class="action-btn change-btn" id="mobileChangeBtn" onclick="toggleMobileChange()" style="display:none;">Change</button>
     </div>
     
     <div class="mobile-row" style="display: flex; gap: 8px; align-items: center;">
-        <!-- কান্ট্রি কোড যেখানে ফ্ল্যাগসহ সুন্দরভাবে দেখাবে -->
-        <select id="countryCode" class="form-input country-code" style="width: 110px;" disabled>
-            <option value="+880">🇧🇩 +880</option>
-            <option value="+91">🇮🇳 +91</option>
-            <option value="+1">🇺🇸 +1</option>
-        </select>
+        <select id="countryCode" class="form-input country-code" style="width: 130px;" disabled>
+    <option value="+880" data-flag="🇧🇩">🇧🇩 +880 (BD)</option>
+    <option value="+91" data-flag="🇮🇳">🇮🇳 +91 (IN)</option>
+    <option value="+92" data-flag="🇵🇰">🇵🇰 +92 (PK)</option>
+    <option value="+94" data-flag="🇱🇰">🇱🇰 +94 (LK)</option>
+    <option value="+977" data-flag="🇳🇵">🇳🇵 +977 (NP)</option>
+    <option value="+60" data-flag="🇲🇾">🇲🇾 +60 (MY)</option>
+    <option value="+66" data-flag="🇹🇭">🇹🇭 +66 (TH)</option>
+    <option value="+971" data-flag="🇦🇪">🇦🇪 +971 (AE)</option>
+    <option value="+966" data-flag="🇸🇦">🇸🇦 +966 (SA)</option>
+    <option value="+44" data-flag="🇬🇧">🇬🇧 +44 (UK)</option>
+</select>
         
         <!-- মোবাইল ইনপুট বক্স (শুরুতে লক/disabled থাকবে) -->
         <input type="tel" id="mobileNumber" class="form-input mobile-input" placeholder="Enter number" style="flex: 1;" disabled>
     </div>
     
-    <!-- ড্রপডাউন বক্স (যা এডিট বা চেঞ্জে ক্লিক করলেই ওপেন হবে) -->
+    <!-- ড্রপডাউন বক্স -->
     <div class="change-dropdown" id="mobileChangeDropdown" style="display:none; margin-top: 8px;">
+        <!-- ওটিপি রো (প্রথমবার বা পরিবর্তনের সময় কোড দেওয়ার জন্য) -->
         <div class="otp-row" style="display: flex; gap: 8px; align-items: center;">
             <input type="text" id="mobileOtpInput" class="form-input otp-input" placeholder="Enter your code" style="flex: 1;">
             <button class="action-btn send-btn" id="mobileSendBtn" onclick="sendMobileOtp()">Send Code</button>
         </div>
         
+        <!-- নতুন মোবাইল রো (এটি শুধু তখনই দেখাবে যখন ইউজার পরবর্তীতে নাম্বার "Change" করতে যাবে) -->
         <div class="new-row" id="newMobileRow" style="display:none; margin-top: 8px;">
             <input type="tel" id="newMobileInput" class="form-input" placeholder="Add New Mobile" style="width: 100%; margin-bottom: 8px;">
-            <button class="action-btn save-btn" onclick="saveNewMobile()" style="width: 100%;">Save & Verify</button>
+            <button class="action-btn save-btn" onclick="saveNewMobile()">Save & Verify</button>
         </div>
     </div>
 </div>
