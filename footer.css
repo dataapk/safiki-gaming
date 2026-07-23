@@ -1,0 +1,61 @@
+/* Sidebar.css */
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 200;
+}
+
+.sidebar-container {
+  width: 60%;
+  height: 100%;
+  background: #0a0a0a;
+  border-right: 2px solid #d4af37;
+  overflow-y: auto;
+}
+
+.sidebar-top-card {
+  border: 1px solid #d4af37;
+  border-radius: 8px;
+  margin: 10px;
+  padding: 15px;
+}
+
+.golden-outline-btn {
+  border: 1px solid #d4af37;
+  color: #ffd700;
+  background: transparent;
+}
+
+.profile-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.vip-badge {
+  background: #ffd700;
+  color: #000;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.menu-item {
+  border-bottom: 1px solid #333;
+  padding: 15px;
+  color: #fff;
+}
+
+.menu-item:hover {
+  background: rgba(212, 175, 55, 0.1);
+}
+
+.dropdown-content {
+  padding-left: 20px;
+  border-left: 2px solid #d4af37;
+}
