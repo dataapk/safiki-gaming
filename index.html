@@ -564,33 +564,40 @@
     </div>
 </div>
 
-            <!-- Mobile Number Section (Original Function: toggleMobileAdd, toggleMobileChange, sendMobileOtp, saveNewMobile) -->
-            <div class="form-group full-width">
-                <div class="label-row">
-                    <label>Mobile Number</label>
-                    <button class="action-btn add-btn" id="mobileAddBtn" onclick="toggleMobileAdd()" disabled>Add</button>
-                    <button class="action-btn change-btn" id="mobileChangeBtn" onclick="toggleMobileChange()" style="display:none;" disabled>Change</button>
-                </div>
-                <div class="mobile-row" style="display: flex; gap: 8px; align-items: center;">
-                    <select id="countryCode" class="form-input country-code" style="width: 110px;" disabled>
-                        <option value="+880" data-flag="🇧🇩">🇧🇩 +880</option>
-                        <option value="+91" data-flag="🇮🇳">🇮🇳 +91</option>
-                        <option value="+1" data-flag="🇺🇸">🇺🇸 +1</option>
-                    </select>
-                    <input type="tel" id="mobileNumber" class="form-input mobile-input" placeholder="Enter number" style="flex: 1;" disabled>
-                </div>
-                <div class="change-dropdown" id="mobileChangeDropdown" style="display:none;">
-                    <div class="otp-row">
-                        <input type="text" class="form-input otp-input" placeholder="Add your code">
-                        <button class="action-btn send-btn" onclick="sendMobileOtp()">Send</button>
-                    </div>
-                    <div class="new-row" id="newMobileRow" style="display:none;">
-                        <input type="tel" class="form-input" placeholder="Add New Mobile">
-                        <button class="action-btn save-btn" onclick="saveNewMobile()">Save</button>
-                    </div>
-                </div>
-            </div>
+           <!-- ================= MOBILE NUMBER SECTION ================= -->
+<div class="form-group full-width">
+    <div class="label-row">
+        <label>Mobile Number</label>
+        <!-- অ্যাড বা চেঞ্জ বাটন (এগুলোর আইডি ও ফাংশন নাম তোর আগের মতো ঠিক রাখা হয়েছে) -->
+        <button class="action-btn add-btn" id="mobileAddBtn" onclick="toggleMobileAdd()">Edit</button>
+        <button class="action-btn change-btn" id="mobileChangeBtn" onclick="toggleMobileChange()" style="display:none;">Change</button>
+    </div>
+    
+    <div class="mobile-row" style="display: flex; gap: 8px; align-items: center;">
+        <!-- কান্ট্রি কোড যেখানে ফ্ল্যাগসহ সুন্দরভাবে দেখাবে -->
+        <select id="countryCode" class="form-input country-code" style="width: 110px;" disabled>
+            <option value="+880">🇧🇩 +880</option>
+            <option value="+91">🇮🇳 +91</option>
+            <option value="+1">🇺🇸 +1</option>
+        </select>
+        
+        <!-- মোবাইল ইনপুট বক্স (শুরুতে লক/disabled থাকবে) -->
+        <input type="tel" id="mobileNumber" class="form-input mobile-input" placeholder="Enter number" style="flex: 1;" disabled>
+    </div>
+    
+    <!-- ড্রপডাউন বক্স (যা এডিট বা চেঞ্জে ক্লিক করলেই ওপেন হবে) -->
+    <div class="change-dropdown" id="mobileChangeDropdown" style="display:none; margin-top: 8px;">
+        <div class="otp-row" style="display: flex; gap: 8px; align-items: center;">
+            <input type="text" id="mobileOtpInput" class="form-input otp-input" placeholder="Enter your code" style="flex: 1;">
+            <button class="action-btn send-btn" id="mobileSendBtn" onclick="sendMobileOtp()">Send Code</button>
         </div>
+        
+        <div class="new-row" id="newMobileRow" style="display:none; margin-top: 8px;">
+            <input type="tel" id="newMobileInput" class="form-input" placeholder="Add New Mobile" style="width: 100%; margin-bottom: 8px;">
+            <button class="action-btn save-btn" onclick="saveNewMobile()" style="width: 100%;">Save & Verify</button>
+        </div>
+    </div>
+</div>
 
         <!-- Controls -->
         <div class="content-box controls-row">
