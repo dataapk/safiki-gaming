@@ -2498,86 +2498,95 @@ style="display:none;">
 <!-- ======================================================
      🟢 START: SIDEBAR & FOOTER SECTION
 ====================================================== -->
-<!-- ===== TOP CARDS ===== -->
-<div class="auth-buttons">
-    <button class="btn-golden" onclick="footerGoToLogin()">Login</button>
-    <button class="btn-golden" onclick="footerGoToSignup()">Sign Up</button>
-</div>
-
-<div class="promo-card" onclick="footerGoToBonus()">
-    <i class="fas fa-gift"></i>
-    <span>150% Deposit Bonus</span>
-    <i class="fas fa-chevron-right"></i>
-</div>
-
-<!-- ===== MENU ITEMS (NO BOX) ===== -->
-<nav class="sidebar-menu">
+<!-- Sidebar -->
+<div class="sidebar" id="sidebar">
     
-    <!-- Casino (Dropdown) -->
-    <div class="menu-item">
-        <div class="menu-header" onclick="footerToggleMenuSub('casinoMenuSub', 'casinoArrow')">
-            <i class="fas fa-dice"></i>
-            <span>Casino</span>
-            <i class="fas fa-chevron-down" id="casinoArrow"></i>
-        </div>
-        <div class="menusub-list menusub-hidden" id="casinoMenuSub">
-            <a href="#" class="menusub-item"><i class="fas fa-circle"></i> Wheel Game</a>
-            <a href="#" class="menusub-item"><i class="fas fa-circle"></i> Slot Game</a>
-            <a href="#" class="menusub-item"><i class="fas fa-circle"></i> Crash Game</a>
-        </div>
+    <!-- CLOSE BUTTON (✕) -->
+    <button class="sidebar-close" onclick="footerCloseSidebar()">
+        <i class="fas fa-times"></i>
+    </button>
+
+    <!-- Login / Sign Up -->
+    <div class="auth-buttons">
+        <button class="btn-golden" onclick="footerGoToLogin()">Login</button>
+        <button class="btn-golden" onclick="footerGoToSignup()">Sign Up</button>
     </div>
 
-    <!-- Sports (Dropdown) -->
-    <div class="menu-item">
-        <div class="menu-header" onclick="footerToggleMenuSub('sportsMenuSub', 'sportsArrow')">
-            <i class="fas fa-futbol"></i>
-            <span>Sports</span>
-            <i class="fas fa-chevron-down" id="sportsArrow"></i>
-        </div>
-        <div class="menusub-list menusub-hidden" id="sportsMenuSub">
-            <a href="#" class="menusub-item"><i class="fas fa-circle"></i> Cricket</a>
-            <a href="#" class="menusub-item"><i class="fas fa-circle"></i> Football</a>
-        </div>
+    <!-- 150% Bonus -->
+    <div class="promo-card" onclick="footerGoToBonus()">
+        <i class="fas fa-gift"></i>
+        <span>150% Deposit Bonus</span>
+        <i class="fas fa-chevron-right"></i>
     </div>
 
-    <!-- Bonuses (Dropdown) -->
-    <div class="menu-item">
-        <div class="menu-header" onclick="footerToggleMenuSub('bonusesMenuSub', 'bonusesArrow')">
-            <i class="fas fa-gift"></i>
-            <span>Bonuses</span>
-            <i class="fas fa-chevron-down" id="bonusesArrow"></i>
+    <!-- Menu Items -->
+    <nav class="sidebar-menu">
+        
+        <!-- Casino -->
+        <div class="menu-item">
+            <div class="menu-header" onclick="footerToggleMenuSub('casinoMenuSub', 'casinoArrow')">
+                <i class="fas fa-dice"></i>
+                <span>Casino</span>
+                <i class="fas fa-chevron-down" id="casinoArrow"></i>
+            </div>
+            <div class="menusub-list menusub-hidden" id="casinoMenuSub">
+                <!-- REAL ICONS -->
+                <a href="#" class="menusub-item"><i class="fas fa-dharmachakra"></i> Wheel Game</a>
+                <a href="#" class="menusub-item"><i class="fas fa-slot-machine"></i> Slot Game</a>
+                <a href="#" class="menusub-item"><i class="fas fa-rocket"></i> Crash Game</a>
+            </div>
         </div>
-        <div class="menusub-list menusub-hidden" id="bonusesMenuSub">
-            <a href="#" class="menusub-item"><i class="fas fa-circle"></i> First Deposit 150%</a>
-            <a href="#" class="menusub-item"><i class="fas fa-circle"></i> Birthday Bonus</a>
-            <a href="#" class="menusub-item"><i class="fas fa-circle"></i> Weekly Bonus</a>
-            <a href="#" class="menusub-item"><i class="fas fa-circle"></i> Promotional Offers</a>
-        </div>
-    </div>
 
-    <!-- Refer a Friend (No Dropdown) -->
-    <div class="menu-item">
-        <div class="menu-header" onclick="footerGoToRefer()">
-            <i class="fas fa-user-plus"></i>
-            <span>Refer a Friend</span>
+        <!-- Sports -->
+        <div class="menu-item">
+            <div class="menu-header" onclick="footerToggleMenuSub('sportsMenuSub', 'sportsArrow')">
+                <i class="fas fa-futbol"></i>
+                <span>Sports</span>
+                <i class="fas fa-chevron-down" id="sportsArrow"></i>
+            </div>
+            <div class="menusub-list menusub-hidden" id="sportsMenuSub">
+                <a href="#" class="menusub-item"><i class="fas fa-cricket"></i> Cricket</a>
+                <a href="#" class="menusub-item"><i class="fas fa-futbol"></i> Football</a>
+            </div>
         </div>
-    </div>
 
-    <!-- Support (No Dropdown) -->
-    <div class="menu-item">
-        <div class="menu-header" onclick="footerGoToSupport()">
-            <i class="fas fa-headset"></i>
-            <span>Support</span>
+        <!-- Bonuses -->
+        <div class="menu-item">
+            <div class="menu-header" onclick="footerToggleMenuSub('bonusesMenuSub', 'bonusesArrow')">
+                <i class="fas fa-gift"></i>
+                <span>Bonuses</span>
+                <i class="fas fa-chevron-down" id="bonusesArrow"></i>
+            </div>
+            <div class="menusub-list menusub-hidden" id="bonusesMenuSub">
+                <a href="#" class="menusub-item"><i class="fas fa-hand-holding-usd"></i> First Deposit 150%</a>
+                <a href="#" class="menusub-item"><i class="fas fa-birthday-cake"></i> Birthday Bonus</a>
+                <a href="#" class="menusub-item"><i class="fas fa-calendar-week"></i> Weekly Bonus</a>
+                <a href="#" class="menusub-item"><i class="fas fa-bullhorn"></i> Promotional Offers</a>
+            </div>
         </div>
-    </div>
-</nav>
 
-    <!-- ===== DEMO TOGGLE (Dev Only) ===== -->
-    <div class="demo-toggle">
-        <button class="btn-demo" onclick="footerToggleLogin()">
-            <i class="fas fa-exchange-alt"></i> Toggle Login
-        </button>
-    </div>
+        <!-- Refer a Friend -->
+        <div class="menu-item">
+            <div class="menu-header" onclick="footerGoToRefer()">
+                <i class="fas fa-user-plus"></i>
+                <span>Refer a Friend</span>
+            </div>
+        </div>
+
+        <!-- Support -->
+        <div class="menu-item">
+            <div class="menu-header" onclick="footerGoToSupport()">
+                <i class="fas fa-headset"></i>
+                <span>Support</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Toggle Login -->
+    <button class="btn-demo" onclick="footerToggleLogin()">
+        <i class="fas fa-exchange-alt"></i> Toggle Login
+    </button>
+</div>
 </div>
 
 <!-- ==================== BOTTOM FOOTER NAV ==================== -->
