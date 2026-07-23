@@ -955,38 +955,121 @@ function saveNewEmail() {
     */
 }
 
-// ===== Mobile Change =====
+// ===== Mobile Number Change & Edit Flow =====
+
+// ১. Edit বাটনে ক্লিক করলে মোবাইল ইনপুট, কান্ট্রি কোড আনলক হবে এবং ওটিপি ড্রপডাউন ওপেন হবে
 function toggleMobileAdd() {
     const dropdown = document.getElementById('mobileChangeDropdown');
+    const mobileInput = document.getElementById('mobileNumber');
+    const countrySelect = document.getElementById('countryCode');
+    const addBtn = document.getElementById('mobileAddBtn');
+    
     if (dropdown) {
-        dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
+        const isHidden = dropdown.style.display === 'none';
+        dropdown.style.display = isHidden ? 'block' : 'none';
+        
+        if (isHidden) {
+            // ফিল্ডগুলো আনলক করা
+            mobileInput.disabled = false;
+            countrySelect.disabled = false;
+            mobileInput.focus();
+            addBtn.textContent = 'Cancel'; // চাইলে এডিট করার সময় ক্যান্সেল দেখাতে পারিস, ইচ্ছা হলে আগের মতো রাখতে পারিস
+        } else {
+            // বন্ধ করতে চাইলে আবার লক করে দেওয়া
+            mobileInput.disabled = true;
+            countrySelect.disabled = true;
+            addBtn.textContent = 'Edit';
+        }
     }
 }
 
+// ২. পরে যদি Change বাটনে ক্লিক করে
 function toggleMobileChange() {
-    toggleMobileAdd();
+    const confirmChange = confirm('Do you want to change your mobile number?');
+    if (confirmChange) {
+        const mobileInput = document.getElementById('mobileNumber');
+        const countrySelect = document.getElementById('countryCode');
+        const changeBtn = document.getElementById('mobileChangeBtn');
+        const addBtn = document.getElementById('mobileAddBtn');
+        const dropdown = document.getElementById('mobileChangeDropdown');
+
+        // আনলক করে দেওয়া
+        mobileInput.disabled = false;
+        countrySelect.disabled = false;
+        mobileInput.value = '';
+        mobileInput.focus();
+
+        // বাটন আবার রিসেট করা
+        changeBtn.style.display = 'none';
+        addBtn.style.display = 'inline-block';
+        addBtn.textContent = 'Cancel';
+        dropdown.style.display = 'block';
+    }
 }
 
+// ৩. Send Code বাটনে ক্লিক করলে ওটিপি ভেরিফিকেশন বা নতুন নাম্বার দেওয়ার রো ওপেন হবে
 function sendMobileOtp() {
+    const mobileInput = document.getElementById('mobileNumber');
+    
+    if (!mobileInput.value.trim()) {
+        alert('Please enter a valid mobile number first!');
+        return;
+    }
+
     const btn = event.target;
-    btn.textContent = 'Save & Change';
+    btn.textContent = 'Verify';
     btn.classList.remove('send-btn');
     btn.classList.add('save-btn');
     
-    document.getElementById('newMobileRow').style.display = 'flex';
+    // কোড পাঠানো সিমুলেট করে নতুন নাম্বার বা ওটিপি কনফার্মেশনের ঘর ওপেন করা
+    alert('Verification code sent to your mobile!');
+    document.getElementById('newMobileRow').style.display = 'block';
 }
 
+// ৪. Save করার ফাংশন (নাম্বার সেভ ও লক হয়ে যাওয়া)
 function saveNewMobile() {
-    alert('Mobile updated!');
-    document.getElementById('mobileChangeDropdown').style.display = 'none';
+    const newMobileInput = document.getElementById('newMobileInput');
+    const mobileInput = document.getElementById('mobileNumber');
+    const otpInput = document.getElementById('mobileOtpInput');
     
-    // Change Add to Change
+    if (!otpInput.value.trim()) {
+        alert('Please enter your verification code!');
+        return;
+    }
+
+    // যদি নতুন ফিল্ডে নাম্বার দেয়, তা প্রধান ইনপুটে সেট হবে, না হলে আগেরটা থাকবে
+    if (newMobileInput.value.trim() !== '') {
+        mobileInput.value = newMobileInput.value.trim();
+    }
+
+    if (!mobileInput.value.trim()) {
+        alert('Mobile number cannot be empty!');
+        return;
+    }
+
+    alert('Mobile number verified and updated successfully!');
+    
+    // ড্রপডাউন বন্ধ করা
+    document.getElementById('mobileChangeDropdown').style.display = 'none';
+    document.getElementById('newMobileRow').style.display = 'none';
+    
+    // ইনপুট বক্স ও কান্ট্রি কোড আবার চিরতরে লক/ডিজেবল করে দেওয়া (ইমেইলের মতো)
+    mobileInput.disabled = true;
+    document.getElementById('countryCode').disabled = true;
+    
+    // Add/Edit বাটন লুকিয়ে ফেলে Change বাটনটি পার্মানেন্টলি শো করা
     const addBtn = document.getElementById('mobileAddBtn');
     const changeBtn = document.getElementById('mobileChangeBtn');
     if (addBtn) addBtn.style.display = 'none';
     if (changeBtn) changeBtn.style.display = 'inline-block';
+    
+    // ফিল্ডগুলো পরিষ্কার করা
+    otpInput.value = '';
+    newMobileInput.value = '';
+    document.getElementById('mobileSendBtn').textContent = 'Send Code';
+    document.getElementById('mobileSendBtn').classList.remove('save-btn');
+    document.getElementById('mobileSendBtn').classList.add('send-btn');
 }
-
 // ===== Avatar =====
 function changeAvatar() {
     alert('Avatar change clicked!');
