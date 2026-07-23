@@ -534,24 +534,28 @@
                 </div>
             </div>
 
-          <!-- ================= EMAIL SECTION ================= -->
+         <!-- ================= EMAIL SECTION ================= -->
 <div class="form-group full-width">
     <div class="label-row">
         <label>Email</label>
         <button class="action-btn change-btn" id="emailChangeBtn" onclick="toggleEmailChange()" disabled>Change</button>
     </div>
-    <input type="email" id="currentEmail" class="form-input" value="user@example.com" disabled>
     
-    <!-- Email Dropdown Box -->
-    <div class="change-dropdown" id="emailChangeDropdown" style="display:none;">
-        <div class="otp-row" id="emailSendRow">
-            <button class="action-btn send-btn" id="emailSendBtn" onclick="sendEmailOtp()" style="width: 100%;">Send Code</button>
-        </div>
-        <div class="otp-row" id="emailVerifyRow" style="display:none;">
-            <input type="text" id="emailOtpInput" class="form-input otp-input" placeholder="Verify">
+    <!-- ইমেইল ইনপুট বক্স এবং তার ভেতরে ডানপাশের সেন্ড কোড বাটন রাখার জন্য একটি র‍্যাপার -->
+    <div class="input-with-btn-wrapper" style="position: relative; display: flex; align-items: center;">
+        <input type="email" id="currentEmail" class="form-input" value="user@example.com" disabled style="padding-right: 100px;">
+        
+        <!-- চেঞ্জে ক্লিক করলে এই বাটনটি ইনপুট বক্সের ভেতরে ডানপাশে শো করবে -->
+        <button class="action-btn send-btn inline-send-btn" id="emailSendCodeBtn" onclick="sendEmailOtp()" style="position: absolute; right: 6px; display: none;">Send Code</button>
+    </div>
+    
+    <!-- Email Dropdown Box (OTP Verify & New Email Save) -->
+    <div class="change-dropdown" id="emailChangeDropdown" style="display:none; margin-top: 8px;">
+        <div class="otp-row" id="emailVerifyRow">
+            <input type="text" id="emailOtpInput" class="form-input otp-input" placeholder="Add your code">
             <button class="action-btn send-btn" id="emailVerifyBtn" onclick="verifyEmailOtp()">Verify</button>
         </div>
-        <div class="new-row" id="newEmailRow" style="display:none;">
+        <div class="new-row" id="newEmailRow" style="display:none; margin-top: 8px;">
             <input type="email" id="newEmailInput" class="form-input" placeholder="Add New Email">
             <button class="action-btn save-btn" onclick="saveNewEmail()">Save</button>
         </div>
