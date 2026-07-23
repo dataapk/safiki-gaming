@@ -884,23 +884,39 @@ function saveAllChanges() {
 // ===== Email Change =====
 function toggleEmailChange() {
     const dropdown = document.getElementById('emailChangeDropdown');
-    if (dropdown) {
-        dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
+    const sendBtn = document.getElementById('emailSendCodeBtn');
+    
+    if (dropdown && sendBtn) {
+        const isHidden = dropdown.style.display === 'none';
+        dropdown.style.display = isHidden ? 'block' : 'none';
+        
+        // Change এ ক্লিক করলে ড্রপডাউন ওপেন হবে এবং ইমেইল বক্সের ভেতরের "Send Code" বাটনটা দৃশ্যমান হবে
+        sendBtn.style.display = isHidden ? 'block' : 'none';
+        
+        // রিসেট করার জন্য
+        document.getElementById('emailVerifyRow').style.display = 'none';
+        document.getElementById('newEmailRow').style.display = 'none';
     }
 }
 
 function sendEmailOtp() {
-    const btn = event.target;
-    btn.textContent = 'Save & Changes';
-    btn.classList.remove('send-btn');
-    btn.classList.add('save-btn');
-    
-    document.getElementById('newEmailRow').style.display = 'flex';
+    // সেন্ড কোডে ক্লিক করলে ওটিপি ভেরিফিকেশন রো ওপেন হবে
+    document.getElementById('emailVerifyRow').style.display = 'flex';
+    // সেন্ড কোড বাটনটা আর দরকার নেই তাই লুকিয়ে দিলাম
+    document.getElementById('emailSendCodeBtn').style.display = 'none';
+}
+
+function verifyEmailOtp() {
+    // ওটিপি ভেরিফাই সফল হলে নতুন ইমেইল লেখার বক্স ওপেন হবে
+    alert('Code Verified Successfully!');
+    document.getElementById('emailVerifyRow').style.display = 'none';
+    document.getElementById('newEmailRow').style.display = 'block';
 }
 
 function saveNewEmail() {
     alert('Email updated!');
     document.getElementById('emailChangeDropdown').style.display = 'none';
+    document.getElementById('emailSendCodeBtn').style.display = 'none';
 }
 
 // ===== Mobile Change =====
