@@ -52,11 +52,10 @@
     padding-top: 70px;         /* Space for close button */
     box-sizing: border-box;
     
-    /* Remove tap highlight */
+   /* ===== TAP HIGHLIGHT REMOVE ===== */
+* {
     -webkit-tap-highlight-color: transparent;
     -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    user-select: none;
 }
 
 .sidebar.active {
@@ -78,10 +77,12 @@
 }
 
 /* ========== CLOSE BUTTON ========== */
+/* ===== CLOSE BUTTON (Sidebar-এর ভেতরে) ===== */
 .sidebar-close {
-    position: fixed;           /* Fixed position, not absolute */
-    top: 15px;                 /* Below header */
-    left: calc(50% - 50px);    /* Inside sidebar */
+    position: absolute;      /* fixed → absolute */
+    top: 15px;
+    right: 15px;            /* left remove, right add */
+    left: auto;             /* left auto */
     width: 36px;
     height: 36px;
     background: var(--bg-card);
@@ -93,11 +94,14 @@
     align-items: center;
     justify-content: center;
     font-size: 16px;
-    z-index: 1000;             /* Above sidebar */
+    z-index: 10;
     transition: all 0.3s ease;
-    
-    /* Remove tap highlight */
+}
+
+/* ===== TAP HIGHLIGHT REMOVE ===== */
+* {
     -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
 }
 
 .sidebar-close:hover,
