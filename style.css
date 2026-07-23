@@ -532,6 +532,32 @@ img, svg {
     cursor: not-allowed;
 }
 
+/* ==========================================
+   EMAIL INLINE SEND BUTTON CSS
+   ========================================== */
+.input-with-btn-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+/* ইনপুট বক্সের ডানপাশে যাতে লেখা বা বাটন ওভারল্যাপ না করে, সেজন্য জায়গা রাখা */
+.input-with-btn-wrapper .form-input {
+    padding-right: 105px !important; 
+}
+
+/* ইনপুট বক্সের ঠিক ভেতরে ডানপাশে Send Code বাটনটি ফিক্স করার জন্য */
+.inline-send-btn {
+    position: absolute;
+    right: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 6px 10px;
+    font-size: 11px;
+    z-index: 5;
+}
+
 /* Dropdown OTP Box */
 .change-dropdown {
     background: #10121a;
