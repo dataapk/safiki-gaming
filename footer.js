@@ -1,5 +1,5 @@
 // ============================================
-// FOOTER & SIDEBAR JS — FINAL
+// FOOTER & SIDEBAR JS — FINAL (NO DOUBLE CLICK)
 // ============================================
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -9,10 +9,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // ===== DOM ELEMENTS =====
     const sidebar = document.getElementById('sidebar');
     const sidebarOverlay = document.getElementById('sidebarOverlay');
-    const menuBtn = document.getElementById('menuBtn');
-    const searchBtn = document.getElementById('searchBtn');
-    const historyBtn = document.getElementById('historyBtn');
-    const homeBtn = document.getElementById('homeBtn');
     
     // ===== STATE =====
     let isSidebarOpen = false;
@@ -26,14 +22,6 @@ document.addEventListener('DOMContentLoaded', function() {
         sidebarOverlay.classList.add('active');
         document.body.style.overflow = 'hidden';
         isSidebarOpen = true;
-        
-        // Set Menu button active
-        if (menuBtn) {
-            document.querySelectorAll('.footer-item').forEach(function(item) {
-                item.classList.remove('active');
-            });
-            menuBtn.classList.add('active');
-        }
         
         console.log('✅ Sidebar OPENED');
     };
@@ -51,13 +39,10 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.style.overflow = '';
         isSidebarOpen = false;
         
-        // Remove active from menu
-        if (menuBtn) menuBtn.classList.remove('active');
-        
         console.log('✅ Sidebar CLOSED');
     };
     
-    // ===== SIDEBAR TOGGLE (Menu Button) =====
+    // ===== SIDEBAR TOGGLE =====
     window.footerToggleSidebar = function() {
         if (isSidebarOpen) {
             footerCloseSidebar();
@@ -71,16 +56,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const menuSub = document.getElementById(menuSubId);
         const arrow = document.getElementById(arrowId);
         
-        if (!menuSub) {
-            console.log('❌ MenuSub not found:', menuSubId);
-            return;
-        }
+        if (!menuSub) return;
         
-        // Close all other menusubs
+        // Close others
         document.querySelectorAll('.menusub-list').forEach(function(menu) {
             if (menu.id !== menuSubId && !menu.classList.contains('menusub-hidden')) {
                 menu.classList.add('menusub-hidden');
-                
                 const otherArrowId = menu.id.replace('MenuSub', 'Arrow');
                 const otherArrow = document.getElementById(otherArrowId);
                 if (otherArrow) otherArrow.classList.remove('rotate');
@@ -88,20 +69,16 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         // Toggle current
-        const isHidden = menuSub.classList.contains('menusub-hidden');
-        
-        if (isHidden) {
+        if (menuSub.classList.contains('menusub-hidden')) {
             menuSub.classList.remove('menusub-hidden');
             if (arrow) arrow.classList.add('rotate');
-            console.log('✅ MenuSub OPENED:', menuSubId);
         } else {
             menuSub.classList.add('menusub-hidden');
             if (arrow) arrow.classList.remove('rotate');
-            console.log('✅ MenuSub CLOSED:', menuSubId);
         }
     };
     
-    // ===== SET ACTIVE FOOTER ITEM =====
+    // ===== SET ACTIVE =====
     window.footerSetActive = function(element) {
         if (!element) return;
         
@@ -110,112 +87,41 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         element.classList.add('active');
-        
-        console.log('✅ Active:', element.querySelector('span')?.textContent || 'Menu');
     };
     
-    // ===== LOGIN TOGGLE (Demo) =====
+    // ===== LOGIN TOGGLE =====
     window.footerToggleLogin = function() {
         isLoggedIn = !isLoggedIn;
-        console.log('✅ Login state:', isLoggedIn ? 'LOGGED IN' : 'LOGGED OUT');
         alert(isLoggedIn ? 'Logged In' : 'Logged Out');
     };
     
-    // ===== NAVIGATION FUNCTIONS =====
+    // ===== NAVIGATION =====
+    window.footerGoToLogin = function() { alert('Login'); };
+    window.footerGoToSignup = function() { alert('Sign Up'); };
+    window.footerGoToBonus = function() { alert('Bonus'); };
+    window.footerGoToRefer = function() { alert('Refer'); };
+    window.footerGoToSupport = function() { alert('Support'); };
+    window.footerOpenSearch = function() { alert('Search'); };
+    window.footerOpenBetHistory = function() { alert('Bet History'); };
+    window.footerGoHome = function() { alert('Home'); };
     
-    window.footerGoToLogin = function() {
-        console.log('👉 Login Page');
-        alert('Login Page');
-    };
+    // ===== EVENT LISTENERS (Only for overlay and escape) =====
     
-    window.footerGoToSignup = function() {
-        console.log('👉 Sign Up Page');
-        alert('Sign Up Page');
-    };
-    
-    window.footerGoToBonus = function() {
-        console.log('👉 Bonus Page');
-        alert('Bonus Page');
-    };
-    
-    window.footerGoToRefer = function() {
-        console.log('👉 Refer a Friend');
-        alert('Refer a Friend');
-    };
-    
-    window.footerGoToSupport = function() {
-        console.log('👉 Support');
-        alert('Support');
-    };
-    
-    window.footerOpenSearch = function() {
-        console.log('👉 Search');
-        alert('Search');
-    };
-    
-    window.footerOpenBetHistory = function() {
-        console.log('👉 Bet History');
-        alert('Bet History');
-    };
-    
-    window.footerGoHome = function() {
-        console.log('👉 Home');
-        alert('Home');
-    };
-    
-    // ===== EVENT LISTENERS =====
-    
-    // Overlay click to close
+    // Overlay click
     if (sidebarOverlay) {
         sidebarOverlay.addEventListener('click', function(e) {
-            if (e.target === sidebarOverlay) {
-                footerCloseSidebar();
-            }
+            if (e.target === sidebarOverlay) footerCloseSidebar();
         });
     }
     
-    // Escape key to close
+    // Escape key
     document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && isSidebarOpen) {
-            footerCloseSidebar();
-        }
+        if (e.key === 'Escape' && isSidebarOpen) footerCloseSidebar();
     });
-    
-    // Footer item clicks
-    if (menuBtn) {
-        menuBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            footerToggleSidebar();
-        });
-    }
-    
-    if (searchBtn) {
-        searchBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            footerSetActive(this);
-            footerOpenSearch();
-        });
-    }
-    
-    if (historyBtn) {
-        historyBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            footerSetActive(this);
-            footerOpenBetHistory();
-        });
-    }
-    
-    if (homeBtn) {
-        homeBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            footerSetActive(this);
-            footerGoHome();
-        });
-    }
     
     // ===== INITIALIZE =====
     footerCloseSidebar();
     
-    console.log('✅ Footer system ready!');
+    console.log('✅ Ready!');
     
 });
