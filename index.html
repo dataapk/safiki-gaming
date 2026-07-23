@@ -2495,48 +2495,148 @@ style="display:none;">
 <!-- ======================================================
      🟢 START: FIXED FOOTER
 ====================================================== -->
-<!-- ১. হোম মেনু ড্রপডাউন (হোম বাটনে ক্লিক করলে এটি ফুটারের উপরে ওপেন হবে) -->
-<div id="home-dropdown" class="dropdown-panel" style="display: none;">
-    <div class="download-card">
-        <i class="fas fa-download"></i> <span>Download Official App</span>
-    </div>
-    <div class="game-grid-small">
-        <div class="mini-card"><i class="fas fa-circle-notch"></i><span>Wheel</span></div>
-        <div class="mini-card"><i class="fas fa-rocket"></i><span>Crash</span></div>
-        <div class="mini-card"><i class="fas fa-dice"></i><span>Dice</span></div>
-    </div>
-    <div class="menu-links">
-        <div class="link-item"><i class="fas fa-gift"></i> Promotions</div>
-        <div class="link-item"><i class="fas fa-users"></i> Refer & Earn</div>
-    </div>
-</div>
+   <!-- ==================== SIDEBAR OVERLAY ==================== -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
-<!-- ২. সার্চ ওভারলে (সার্চ বাটনে ক্লিক করলে এটি পুরো স্ক্রিন জুড়ে আসবে) -->
-<div id="search-overlay" class="overlay-panel" style="display: none;">
-    <div class="search-header">
-        <input type="text" id="game-search-input" placeholder="Search for games...">
-        <button id="close-search">Cancel</button>
-    </div>
-    <div id="search-results-container">
-        <!-- এখানে সার্চ রেজাল্টগুলো অটোমেটিক শো করবে -->
-    </div>
-</div>
-
-<!-- ৩. ফুটার মেনু বার (ফিক্সড) -->
-<footer class="main-footer">
-    <div class="footer-nav">
-        <div class="footer-item" id="btn-menu"><i class="fas fa-bars"></i></div>
-        <div class="footer-item" id="btn-wheel"><i class="fas fa-circle-notch"></i></div>
+    <!-- ==================== SIDEBAR MENU ==================== -->
+    <div class="sidebar" id="sidebar">
         
-        <!-- মাঝখানের সার্চ বাটন -->
-        <div class="footer-item search-btn" id="btn-search">
-            <i class="fas fa-search"></i>
+        <!-- Close Button -->
+        <button class="sidebar-close" id="sidebarClose">
+            <i class="fas fa-times"></i>
+        </button>
+
+        <!-- ===== BEFORE LOGIN ===== -->
+        <div class="sidebar-top sidebar-before-login" id="beforeLogin">
+            <!-- Login / Sign Up Buttons -->
+            <div class="auth-buttons">
+                <button class="btn-golden btn-login">Login</button>
+                <button class="btn-golden btn-signup">Sign Up</button>
+            </div>
+            <!-- Promo Card -->
+            <div class="promo-card" onclick="goToLogin()">
+                <div class="promo-image">
+                    <i class="fas fa-gift"></i>
+                </div>
+                <div class="promo-content">
+                    <h3>1st Deposit Bonus</h3>
+                    <p>Get 150% Bonus</p>
+                    <span class="promo-arrow"><i class="fas fa-chevron-right"></i></span>
+                </div>
+            </div>
         </div>
 
-        <div class="footer-item" id="btn-crash"><i class="fas fa-rocket"></i></div>
-        <div class="footer-item" id="btn-home"><i class="fas fa-home"></i></div>
+        <!-- ===== AFTER LOGIN ===== -->
+        <div class="sidebar-top sidebar-after-login hidden" id="afterLogin">
+            <!-- Profile Card -->
+            <div class="profile-card" onclick="goToProfile()">
+                <div class="profile-left">
+                    <div class="profile-photo">
+                        <i class="fas fa-user"></i>
+                        <span class="vip-badge">VIP</span>
+                    </div>
+                    <div class="profile-info">
+                        <h3 class="username">a8fb46</h3>
+                        <p class="user-id">ID: 28827856</p>
+                    </div>
+                </div>
+                <div class="profile-arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+            <!-- Promo Card -->
+            <div class="promo-card" onclick="goToBonus()">
+                <div class="promo-image">
+                    <i class="fas fa-gift"></i>
+                </div>
+                <div class="promo-content">
+                    <h3>1st Deposit Bonus</h3>
+                    <p>Get 150% Bonus</p>
+                    <span class="promo-arrow"><i class="fas fa-chevron-right"></i></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== MENU ITEMS ===== -->
+        <nav class="sidebar-menu">
+            <!-- Casino -->
+            <div class="menu-item">
+                <div class="menu-header" onclick="toggleDropdown('casinoDropdown')">
+                    <div class="menu-icon"><i class="fas fa-dice"></i></div>
+                    <span class="menu-name">Casino</span>
+                    <i class="fas fa-chevron-down dropdown-arrow" id="casinoArrow"></i>
+                </div>
+                <div class="dropdown-menu hidden" id="casinoDropdown">
+                    <a href="#" class="dropdown-item"><i class="fas fa-circle"></i> Wheel Game</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-circle"></i> Slot Game</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-circle"></i> Crash Game (Aviator)</a>
+                </div>
+            </div>
+
+            <!-- Sports -->
+            <div class="menu-item">
+                <div class="menu-header" onclick="toggleDropdown('sportsDropdown')">
+                    <div class="menu-icon"><i class="fas fa-futbol"></i></div>
+                    <span class="menu-name">Sports</span>
+                    <i class="fas fa-chevron-down dropdown-arrow" id="sportsArrow"></i>
+                </div>
+                <div class="dropdown-menu hidden" id="sportsDropdown">
+                    <a href="#" class="dropdown-item"><i class="fas fa-circle"></i> Cricket</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-circle"></i> Football</a>
+                </div>
+            </div>
+
+            <!-- Bonuses -->
+            <div class="menu-item">
+                <div class="menu-header" onclick="toggleDropdown('bonusesDropdown')">
+                    <div class="menu-icon"><i class="fas fa-gift"></i></div>
+                    <span class="menu-name">Bonuses</span>
+                    <i class="fas fa-chevron-down dropdown-arrow" id="bonusesArrow"></i>
+                </div>
+                <div class="dropdown-menu hidden" id="bonusesDropdown">
+                    <a href="#" class="dropdown-item"><i class="fas fa-circle"></i> First Deposit 150%</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-circle"></i> Birthday Bonus</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-circle"></i> Weekly Bonus</a>
+                    <a href="#" class="dropdown-item"><i class="fas fa-circle"></i> Promotional Offers</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- ===== DEMO TOGGLE (Dev Only) ===== -->
+        <div class="demo-toggle">
+            <button class="btn-demo" onclick="toggleLoginState()">
+                <i class="fas fa-exchange-alt"></i> Toggle Login
+            </button>
+        </div>
     </div>
-</footer>
+
+    <!-- ==================== MAIN CONTENT AREA ==================== -->
+    <div class="main-content">
+        <h1>Main Content Area</h1>
+        <p>Click "Menu" in footer to open sidebar</p>
+    </div>
+
+    <!-- ==================== BOTTOM FOOTER NAV ==================== -->
+    <footer class="bottom-footer">
+        <div class="footer-nav">
+            <div class="footer-item active" onclick="openSidebar()">
+                <i class="fas fa-bars"></i>
+                <span>Menu</span>
+            </div>
+            <div class="footer-item" onclick="openSearch()">
+                <i class="fas fa-search"></i>
+                <span>Search</span>
+            </div>
+            <div class="footer-item" onclick="openBetHistory()">
+                <i class="fas fa-history"></i>
+                <span>Bet History</span>
+            </div>
+            <div class="footer-item" onclick="goHome()">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </div>
+        </div>
+    </footer>
     
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="supabase.js"></script>
