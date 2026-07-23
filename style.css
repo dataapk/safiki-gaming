@@ -275,127 +275,126 @@ img, svg {
 /* ==========================================
    PERSONAL AREA POPUP & MAIN CONTAINER
    ========================================== */
+/* ==========================================
+   PERSONAL AREA SECTION (Settings Style)
+   ========================================== */
+
 #personal-area-section {
-    position: fixed; /* পুরো স্ক্রিনের সাপেক্ষে ফিক্সড থাকবে, মেইন পেজ স্ক্রোল হলেও এটি নড়বে না */
-    top: 50%;
+    position: fixed;
+    top: 70px;
     left: 50%;
-    transform: translate(-50%, -50%);
-    width: 92%;
-    max-width: 650px;
-    height: 85vh; /* নির্দিষ্ট উচ্চতা যার বাইরে পপআপ বড় হবে না */
-    max-height: 700px;
-    background: #1a1a1a; 
-    color: #ffffff;
-    border-radius: 14px; /* হালকা রাউন্ডেড কর্নার */
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
-    z-index: 9999;
-    display: none; /* ডিফল্টভাবে বন্ধ থাকবে */
-    flex-direction: column;
+    transform: translateX(-50%);
+    width: 720px;
+    max-width: 94%;
+    height: 80vh;
+    overflow-y: auto;
+    background: #13151c;
+    border: 1px solid rgba(255,214,102,.25);
+    border-radius: 18px;
+    box-shadow: 0 20px 60px rgba(0,0,0,.45);
+    z-index: 9998;
+    display: none;
+    padding: 20px;
     box-sizing: border-box;
-    overflow: hidden; /* পপআপের বাইরে কিছু চলে যাবে না */
 }
 
-/* ==========================================
-   FIXED HEADER & TABS (Sticky inside Popup)
-   ========================================== */
+/* Header */
+
 .personal-header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 16px 20px;
-    background: #1a1a1a;
-    flex-shrink: 0; /* হেডার ছোট বা সংকুচিত হবে না */
+    justify-content: space-between;
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #2b2f40;
 }
 
 .personal-header h3 {
-    margin: 0;
-    font-size: 18px;
+    margin: 0 auto;
+    color: #fff;
+    font-size: 22px;
     font-weight: 600;
 }
 
 .close-personal {
-    background: transparent;
+    width: 40px;
+    height: 40px;
     border: none;
-    color: #b3b3b3;
-    font-size: 18px;
+    border-radius: 50%;
+    background: #20263a;
+    color: #fff;
+    font-size: 24px;
     cursor: pointer;
-    padding: 4px 8px;
-    border-radius: 4px;
-    transition: all 0.2s;
+    transition: .3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .close-personal:hover {
-    color: #ffffff;
-    background: rgba(255, 255, 255, 0.1);
+    background: #e67e22;
 }
+
+/* Tabs */
 
 .personal-tabs {
     display: flex;
     gap: 8px;
-    padding: 12px 20px;
-    background: #1a1a1a;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    flex-shrink: 0;
+    margin: 20px 0;
 }
 
 .personal-tab-btn {
     flex: 1;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: #b3b3b3;
-    padding: 8px 10px;
-    font-size: 13px;
-    font-weight: 500;
-    border-radius: 6px;
+    padding: 10px;
+    background: #161b2e;
+    border: 1px solid #2b2f40;
+    border-radius: 8px;
+    color: #bfbfbf;
     cursor: pointer;
+    font-size: 13px;
+    transition: .3s;
     text-align: center;
-    transition: all 0.2s;
 }
 
 .personal-tab-btn.active,
 .personal-tab-btn:hover {
-    background: #3b82f6;
-    color: #ffffff;
-    border-color: #3b82f6;
+    background: #e67e22;
+    color: #fff;
 }
 
-/* ==========================================
-   SCROLLABLE CONTENT AREA
-   ========================================== */
-#personal-area-section .personal-tab-content {
+/* Content */
+
+.personal-tab-content {
     display: none;
-    flex: 1;
-    overflow-y: auto; /* শুধুমাত্র এই জায়গাটুকু স্ক্রোল হবে, হেডার ও ফুটার ফিক্সড থাকবে */
-    padding: 16px 20px;
-    box-sizing: border-box;
+    margin-top: 15px;
 }
 
-#personal-area-section .personal-tab-content.active {
+.personal-tab-content.active {
     display: block;
 }
 
 /* ==========================================
-   CONTENT BOXES & PROFILE SECTION
+   CARDS & FORMS (Matching Theme)
    ========================================== */
+
 .content-box {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 10px;
-    padding: 14px;
-    margin-bottom: 14px;
+    background: #181d2b;
+    border: 1px solid #2b2f40;
+    border-radius: 12px;
+    padding: 18px;
+    margin-bottom: 18px;
 }
 
 .profile-row {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 16px;
 }
 
 .profile-avatar-wrapper {
     position: relative;
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
 }
 
 .profile-avatar {
@@ -403,20 +402,20 @@ img, svg {
     height: 100%;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid #3b82f6;
+    border: 2px solid #e67e22;
 }
 
 .change-avatar-btn {
     position: absolute;
     bottom: 0;
     right: 0;
-    background: #3b82f6;
+    background: #e67e22;
     border: none;
     color: #fff;
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
     border-radius: 50%;
-    font-size: 9px;
+    font-size: 10px;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -424,30 +423,30 @@ img, svg {
 }
 
 .profile-info .label-small {
-    font-size: 11px;
-    color: #888;
+    font-size: 12px;
+    color: #cfcfcf;
     margin: 0;
 }
 
 .profile-info .value-text {
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 600;
-    margin: 2px 0;
+    color: #fff;
+    margin: 4px 0;
 }
 
 .profile-info .member-text {
-    font-size: 11px;
-    color: #aaa;
+    font-size: 12px;
+    color: #999;
     margin: 0;
 }
 
-/* ==========================================
-   FORM ROWS (Side by Side Layouts)
-   ========================================== */
+/* Form Layouts (Side by Side Fix) */
+
 .form-row {
     display: flex;
-    gap: 10px;
-    margin-bottom: 12px;
+    gap: 12px;
+    margin-bottom: 15px;
 }
 
 .form-group {
@@ -458,147 +457,149 @@ img, svg {
 
 .form-group.full-width {
     width: 100%;
-    margin-bottom: 12px;
+    margin-bottom: 15px;
 }
 
 .form-group label {
-    font-size: 12px;
-    color: #ccc;
-    margin-bottom: 4px;
+    font-size: 13px;
+    color: #cfcfcf;
+    margin-bottom: 6px;
 }
 
 .label-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
 }
 
 .form-input {
-    background: rgba(0, 0, 0, 0.25);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 6px;
-    padding: 8px 10px;
+    background: #10121a;
+    border: 1px solid #2b2f40;
+    border-radius: 8px;
+    padding: 10px 12px;
     color: #fff;
-    font-size: 13px;
+    font-size: 14px;
     width: 100%;
     box-sizing: border-box;
     outline: none;
+    transition: .3s;
 }
 
 .form-input:focus {
-    border-color: #3b82f6;
+    border-color: #e67e22;
 }
 
 .form-input:disabled {
-    opacity: 0.7;
+    opacity: 0.6;
     cursor: not-allowed;
 }
 
 /* Mobile & Country Code Row */
 .mobile-row {
     display: flex;
-    gap: 8px;
+    gap: 10px;
     align-items: center;
 }
 
 .country-code {
-    width: 100px !important;
+    width: 110px !important;
 }
 
-/* ==========================================
-   ACTION BUTTONS (Change, Add, Send, Save)
-   ========================================== */
+/* Action Buttons */
+
 .action-btn {
-    background: rgba(59, 130, 246, 0.15);
-    border: 1px solid #3b82f6;
-    color: #3b82f6;
-    padding: 3px 10px;
-    font-size: 11px;
+    background: rgba(230, 126, 34, 0.15);
+    border: 1px solid #e67e22;
+    color: #e67e22;
+    padding: 4px 12px;
+    font-size: 12px;
     font-weight: 600;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: .3s;
 }
 
 .action-btn:hover:not(:disabled) {
-    background: #3b82f6;
+    background: #e67e22;
     color: #fff;
 }
 
 .action-btn:disabled {
     opacity: 0.4;
-    border-color: rgba(255, 255, 255, 0.2);
-    color: #888;
+    border-color: #2b2f40;
+    color: #777;
     cursor: not-allowed;
 }
 
 /* Dropdown OTP Box */
 .change-dropdown {
-    background: rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 6px;
-    padding: 10px;
-    margin-top: 6px;
+    background: #10121a;
+    border: 1px solid #2b2f40;
+    border-radius: 8px;
+    padding: 12px;
+    margin-top: 8px;
 }
 
 .otp-row, .new-row {
     display: flex;
-    gap: 6px;
-    margin-bottom: 6px;
+    gap: 8px;
+    margin-bottom: 8px;
 }
 
 .otp-row:last-child, .new-row:last-child {
     margin-bottom: 0;
 }
 
-/* ==========================================
-   CONTROLS (Edit Left, Small Save Right)
-   ========================================== */
+/* Controls (Edit & Save) */
+
 .controls-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #1a1a1a;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 14px 20px;
-    margin: 0;
-    flex-shrink: 0; /* ফুটার বাটনগুলোও ফিক্সড থাকবে */
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #2b2f40;
 }
 
 .edit-toggle-btn {
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: #20263a;
+    border: 1px solid #2b2f40;
     color: #fff;
-    padding: 6px 14px;
-    border-radius: 6px;
+    padding: 8px 16px;
+    border-radius: 8px;
     font-size: 13px;
     cursor: pointer;
     display: flex;
     align-items: center;
     gap: 6px;
+    transition: .3s;
+}
+
+.edit-toggle-btn:hover {
+    background: #2b2f40;
 }
 
 .save-changes-btn {
-    background: #10b981;
+    background: #27ae60;
     border: none;
     color: #fff;
-    padding: 7px 16px;
-    border-radius: 6px;
+    padding: 8px 18px;
+    border-radius: 8px;
     font-size: 13px;
     font-weight: 600;
     cursor: pointer;
-    transition: opacity 0.2s;
+    transition: .3s;
 }
 
 .save-changes-btn:disabled {
     opacity: 0.3;
     cursor: not-allowed;
-    background: #555;
+    background: #444;
 }
 
 .save-changes-btn:hover:not(:disabled) {
-    background: #059669;
+    background: #2ecc71;
 }
 /* ============================================
    ID VERIFICATION
