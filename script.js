@@ -958,157 +958,31 @@ function saveNewEmail() {
 // ===== Mobile Number Change & Edit Flow =====
 // ===== Mobile Number Flow & Verification Logic =====
 
-// ১. প্রথমবার Edit বা Add বাটনে ক্লিক করলে
-function toggleMobileAdd() {
-    const dropdown = document.getElementById('mobileChangeDropdown');
+// সিম্পল মোবাইল টগল করার জন্য
+function toggleSimpleMobile() {
+    const dropdown = document.getElementById('simpleMobileDropdown');
+    if (dropdown) {
+        const isHidden = dropdown.style.display === 'none';
+        dropdown.style.display = isHidden ? 'block' : 'none';
+    }
+}
+
+// সিম্পল সেভ করার জন্য
+function saveSimpleMobile() {
     const mobileInput = document.getElementById('mobileNumber');
     const countrySelect = document.getElementById('countryCode');
     const addBtn = document.getElementById('mobileAddBtn');
     
-    if (dropdown) {
-        const isHidden = dropdown.style.display === 'none';
-        dropdown.style.display = isHidden ? 'block' : 'none';
-        
-        if (isHidden) {
-            mobileInput.disabled = false;
-            countrySelect.disabled = false;
-            mobileInput.focus();
-            addBtn.textContent = 'Cancel';
-        } else {
-            mobileInput.disabled = true;
-            countrySelect.disabled = true;
-            addBtn.textContent = 'Edit';
-        }
-    }
-}
-
-// ২. প্রথমবার Send Code বা Verify & Save হ্যান্ডেল করার ফাংশন
-function sendMobileOtp() {
-    const mobileInput = document.getElementById('mobileNumber');
-    const otpInput = document.getElementById('mobileOtpInput');
-    const btn = document.getElementById('mobileSendBtn');
-    
-    // প্রথম স্টেপ: কোড পাঠানোর জন্য
-    if (btn.textContent === 'Send Code') {
-        if (!mobileInput.value.trim()) {
-            alert('Please enter a valid mobile number first!');
-            return;
-        }
-
-        alert('Verification code sent to your mobile!');
-        
-        btn.textContent = 'Verify & Save';
-        btn.classList.remove('send-btn');
-        btn.classList.add('save-btn');
-    } 
-    // দ্বিতীয় স্টেপ: কোড বসানোর পর ফাইনাল সেভ করার জন্য
-    else if (btn.textContent === 'Verify & Save') {
-        if (!otpInput.value.trim()) {
-            alert('Please enter your verification code!');
-            return;
-        }
-
-        alert('Mobile number verified and saved successfully!');
-        
-        // ড্রপডাউন বন্ধ করা
-        document.getElementById('mobileChangeDropdown').style.display = 'none';
-        
-        // ইনপুট বক্স ও কান্ট্রি কোড চিরতরে লক/রিড-অনলি করে দেওয়া
-        mobileInput.disabled = true;
-        document.getElementById('countryCode').disabled = true;
-        
-        // Edit বাটন লুকিয়ে Change বাটন নিয়ে আসা
-        const addBtn = document.getElementById('mobileAddBtn');
-        const changeBtn = document.getElementById('mobileChangeBtn');
-        if (addBtn) addBtn.style.display = 'none';
-        if (changeBtn) changeBtn.style.display = 'inline-block';
-        
-        // রিসেট করা
-        otpInput.value = '';
-        btn.textContent = 'Send Code';
-        btn.classList.remove('save-btn');
-        btn.classList.add('send-btn');
-    }
-}
-
-// ৩. যখন অলরেডি নাম্বার সেভ হয়ে গেছে, তারপর "Change" বাটনে ক্লিক করলে যে ফ্লো হবে (তোর ফাইনাল লজিক অনুযায়ী)
-function toggleMobileChange() {
-    const dropdown = document.getElementById('mobileChangeDropdown');
-    const mobileInput = document.getElementById('mobileNumber');
-    const countrySelect = document.getElementById('countryCode');
-    
-    if (dropdown) {
-        // ১. আগের সেভ করা মূল নাম্বার বক্সটি স্টিল ভিজিবল এবং সম্পূর্ণ "রিড-অনলি/লক" থাকবে!
-        mobileInput.disabled = true;
-        countrySelect.disabled = true;
-        
-        // ২. ড্রপডাউন ওপেন হবে
-        dropdown.style.display = 'block';
-        
-        // ৩. ইউজারকে বলতে হবে পুরোনো নাম্বারে কোড পাঠাতে
-        const sendBtn = document.getElementById('mobileSendBtn');
-        sendBtn.textContent = 'Send Code to Current Number';
-        sendBtn.onclick = function() {
-            // পুরোনো নাম্বারে কোড পাঠানোর পর ওটিপির ঘর চেক করা হবে
-            alert('Verification code sent to your current mobile number!');
-            sendBtn.textContent = 'Verify Old Number';
-            sendBtn.onclick = function() {
-                const otpInput = document.getElementById('mobileOtpInput');
-                if (!otpInput.value.trim()) {
-                    alert('Please enter the code sent to your current mobile!');
-                    return;
-                }
-                
-                alert('Old number verified successfully! Now enter your new number below.');
-                
-                // ৪. ওটিপি ভেরিফাই হওয়ার পর এবার নিচে "Add New Mobile" এর ঘর এবং সেভ অপশন ওপেন হবে!
-                const newMobileRow = document.getElementById('newMobileRow');
-                if (newMobileRow) {
-                    newMobileRow.style.display = 'block';
-                }
-                
-                // ওটিপি ইনপুট লুকিয়ে বা রিসেট করে নতুন ফিল্ডে ফোকাস দেওয়া যায়
-                otpInput.value = '';
-            };
-        };
-        
-        // Change বাটন লুকিয়ে Cancel বাটন দেখানো
-        document.getElementById('mobileChangeBtn').style.display = 'none';
-        const addBtn = document.getElementById('mobileAddBtn');
-        if (addBtn) {
-            addBtn.style.display = 'inline-block';
-            addBtn.textContent = 'Cancel';
-        }
-    }
-}
-
-// ৪. নতুন মোবাইল নাম্বার দিয়ে ফাইনাল সেভ করার ফাংশন (Change মোডের জন্য)
-function saveNewMobile() {
-    const newMobileInput = document.getElementById('newMobileInput');
-    const mobileInput = document.getElementById('mobileNumber');
-    
-    if (!newMobileInput || !newMobileInput.value.trim()) {
-        alert('Please enter the new mobile number!');
+    if (!mobileInput.value.trim()) {
+        alert('Please enter a phone number!');
         return;
     }
 
-    // নতুন নাম্বারটি মেইন ইনপুট বক্সে সেট হয়ে যাবে
-    mobileInput.disabled = false;
-    mobileInput.value = newMobileInput.value.trim();
-    mobileInput.disabled = true; // আবার লক করে দেওয়া
+    alert('Mobile number saved successfully!');
     
-    alert('New mobile number updated successfully!');
-    
-    // ড্রপডাউন এবং নতুন নাম্বারের রো বন্ধ করা
-    document.getElementById('mobileChangeDropdown').style.display = 'none';
-    document.getElementById('newMobileRow').style.display = 'none';
-    
-    // আবার আগের মতো Change বাটন ফিরিয়ে আনা
-    document.getElementById('mobileAddBtn').style.display = 'none';
-    document.getElementById('mobileChangeBtn').style.display = 'inline-block';
-    
-    // ফিল্ড পরিষ্কার করা
-    newMobileInput.value = '';
+    // ড্রপডাউন বন্ধ করে দেওয়া এবং বাটন টেক্সট চেঞ্জ করে দেওয়া
+    document.getElementById('simpleMobileDropdown').style.display = 'none';
+    addBtn.textContent = countrySelect.value + ' ' + mobileInput.value.trim();
 }
 // ===== Avatar =====
 function changeAvatar() {
