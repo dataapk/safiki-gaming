@@ -913,10 +913,46 @@ function verifyEmailOtp() {
     document.getElementById('newEmailRow').style.display = 'block';
 }
 
+//function saveNewEmail() {
+   // alert('Email updated!');
+   // document.getElementById('emailChangeDropdown').style.display = 'none';
+   // document.getElementById('emailSendCodeBtn').style.display = 'none';
+//}
+// ===== Email Save Function (Local UI Update Ready for Supabase) =====
 function saveNewEmail() {
-    alert('Email updated!');
+    const newEmailInput = document.getElementById('newEmailInput');
+    const currentEmailInput = document.getElementById('currentEmail');
+    
+    if (!newEmailInput || newEmailInput.value.trim() === '') {
+        alert('Please enter a valid email address!');
+        return;
+    }
+
+    const updatedEmail = newEmailInput.value.trim();
+
+    // ১. লোকাল ইউআই (UI) বা স্ক্রিনে ইনস্ট্যান্ট আপডেট করে দেখানো
+    currentEmailInput.value = updatedEmail;
+    
+    alert('Email updated successfully!');
+    
+    // ২. ড্রপডাউন এবং সব এক্সট্রা রো বন্ধ করে রিসেট করা
     document.getElementById('emailChangeDropdown').style.display = 'none';
     document.getElementById('emailSendCodeBtn').style.display = 'none';
+    document.getElementById('emailVerifyRow').style.display = 'none';
+    document.getElementById('newEmailRow').style.display = 'none';
+    
+    // ৩. ইনপুট বক্সগুলো ফাঁকা করে দেওয়া
+    newEmailInput.value = '';
+    document.getElementById('emailOtpInput').value = '';
+
+    /* 
+       =========================================================
+       FUTURE SUPABASE INTEGRATION NOTE:
+       ভবিষ্যতে যখন সুপারবেজ কানেক্ট করবি, তখন ঠিক এই জায়গাতে 
+       supabase.from('profiles').update({ email: updatedEmail }).eq(...) 
+       কোডটি বসিয়ে দিলেই এটা ব্যাকএন্ডের সাথে রিয়েল-টাইমে সিঙ্ক হয়ে যাবে!
+       =========================================================
+    */
 }
 
 // ===== Mobile Change =====
