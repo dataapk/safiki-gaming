@@ -9,23 +9,11 @@
     --bg-card: #1a1a1a;
     --golden: #d4af37;
     --golden-light: #ffd700;
+    --golden-dark: #b8960c;
     --text-white: #ffffff;
     --text-gray: #888888;
     --text-light: #aaaaaa;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: var(--bg-black);
-    color: var(--text-white);
-    min-height: 100vh;
-    padding-bottom: 70px;
+    --border-golden: #d4af37;
 }
 
 /* ========== SIDEBAR OVERLAY ========== */
@@ -36,20 +24,18 @@ body {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.8);
-    z-index: 999;         /* Sidebar এর থেকে কম, Footer এর থেকে বেশি */
+    z-index: 998;
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
 }
-
 
 .sidebar-overlay.active {
     opacity: 1;
     visibility: visible;
 }
 
-/* ========== SIDEBAR ========== */
-/* ========== SIDEBAR ========== */
+/* ========== SIDEBAR (60% width) ========== */
 .sidebar {
     position: fixed;
     top: 0;
@@ -57,8 +43,8 @@ body {
     width: 60%;
     height: 100%;
     background: var(--bg-black);
-    border-right: 2px solid var(--golden);
-    z-index: 1000;        /* Footer এর থেকে বেশি */
+    border-right: 2px solid var(--border-golden);
+    z-index: 999;
     overflow-y: auto;
     transform: translateX(-100%);
     transition: transform 0.3s ease;
@@ -69,57 +55,83 @@ body {
     transform: translateX(0);
 }
 
+/* Scrollbar */
+.sidebar::-webkit-scrollbar {
+    width: 4px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: var(--bg-dark);
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: var(--golden);
+    border-radius: 2px;
+}
+
+/* ========== CLOSE BUTTON (Top Right) ========== */
 .sidebar-close {
     position: absolute;
     top: 15px;
     right: 15px;
     background: transparent;
-    border: 1px solid var(--golden);
+    border: 1px solid var(--border-golden);
     color: var(--golden);
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 14px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    z-index: 10;
 }
 
 .sidebar-close:hover {
     background: var(--golden);
     color: var(--bg-black);
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
 }
 
-/* ========== HIDDEN CLASS ========== */
-.hidden {
+/* ========== MENUSUB HIDDEN ========== */
+.menusub-hidden {
     display: none !important;
 }
 
-/* ========== AUTH BUTTONS ========== */
+/* ========== SIDEBAR TOP SECTION ========== */
+.sidebar-top {
+    margin-top: 60px;
+    margin-bottom: 25px;
+}
+
+/* ========== AUTH BUTTONS (Before Login) ========== */
 .auth-buttons {
     display: flex;
     gap: 10px;
-    margin-top: 50px;
     margin-bottom: 20px;
 }
 
 .btn-golden {
     flex: 1;
-    padding: 12px;
+    padding: 12px 16px;
     background: transparent;
-    border: 2px solid var(--golden);
+    border: 2px solid var(--border-golden);
     color: var(--golden);
     font-size: 14px;
     font-weight: 600;
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .btn-golden:hover {
     background: var(--golden);
     color: var(--bg-black);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
 }
 
 /* ========== PROMO CARD ========== */
@@ -127,23 +139,25 @@ body {
     display: flex;
     align-items: center;
     background: var(--bg-card);
-    border: 1px solid var(--golden);
+    border: 1px solid var(--border-golden);
     border-radius: 12px;
     padding: 15px;
     cursor: pointer;
-    margin-bottom: 15px;
     transition: all 0.3s ease;
+    margin-bottom: 15px;
 }
 
 .promo-card:hover {
-    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+    border-color: var(--golden-light);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+    transform: translateX(5px);
 }
 
 .promo-image {
     width: 50px;
     height: 50px;
     background: var(--bg-dark);
-    border: 1px solid var(--golden);
+    border: 1px solid var(--border-golden);
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -165,6 +179,7 @@ body {
     font-size: 14px;
     color: var(--golden-light);
     margin-bottom: 4px;
+    font-weight: 600;
 }
 
 .promo-content p {
@@ -174,25 +189,26 @@ body {
 
 .promo-arrow {
     color: var(--golden);
+    font-size: 14px;
 }
 
-/* ========== PROFILE CARD ========== */
+/* ========== PROFILE CARD (After Login) ========== */
 .profile-card {
     display: flex;
     align-items: center;
     justify-content: space-between;
     background: var(--bg-card);
-    border: 1px solid var(--golden);
+    border: 1px solid var(--border-golden);
     border-radius: 12px;
     padding: 15px;
     cursor: pointer;
-    margin-top: 50px;
-    margin-bottom: 15px;
     transition: all 0.3s ease;
+    margin-bottom: 15px;
 }
 
 .profile-card:hover {
-    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+    border-color: var(--golden-light);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
 }
 
 .profile-left {
@@ -206,7 +222,7 @@ body {
     width: 45px;
     height: 45px;
     background: var(--bg-dark);
-    border: 2px solid var(--golden);
+    border: 2px solid var(--border-golden);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -228,20 +244,24 @@ body {
     font-weight: 700;
     padding: 2px 6px;
     border-radius: 4px;
+    text-transform: uppercase;
 }
 
-.profile-info h3 {
+.profile-info h3.username {
     font-size: 16px;
     color: var(--text-white);
+    margin-bottom: 3px;
+    font-weight: 600;
 }
 
-.profile-info p {
+.profile-info p.user-id {
     font-size: 12px;
     color: var(--text-gray);
 }
 
 .profile-arrow {
     color: var(--golden);
+    font-size: 16px;
 }
 
 /* ========== MENU ITEMS ========== */
@@ -259,7 +279,7 @@ body {
 }
 
 .menu-item:hover {
-    border-color: var(--golden);
+    border-color: var(--border-golden);
     background: var(--bg-card);
 }
 
@@ -268,18 +288,20 @@ body {
     align-items: center;
     padding: 15px;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .menu-icon {
     width: 35px;
     height: 35px;
     background: var(--bg-dark);
-    border: 1px solid var(--golden);
+    border: 1px solid var(--border-golden);
     border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-right: 15px;
+    flex-shrink: 0;
 }
 
 .menu-icon i {
@@ -290,21 +312,23 @@ body {
 .menu-name {
     flex: 1;
     font-size: 15px;
+    font-weight: 500;
+    color: var(--text-white);
 }
 
-.dropdown-arrow {
+.menusub-arrow {
     color: var(--text-gray);
     font-size: 12px;
     transition: transform 0.3s ease;
 }
 
-.dropdown-arrow.rotate {
+.menusub-arrow.rotate {
     transform: rotate(180deg);
     color: var(--golden);
 }
 
-/* ========== DROPDOWN ========== */
-.dropdown-menu {
+/* ========== MENUSUB LIST ========== */
+.menusub-list {
     display: flex;
     flex-direction: column;
     background: var(--bg-dark);
@@ -312,7 +336,7 @@ body {
     gap: 2px;
 }
 
-.dropdown-item {
+.menusub-item {
     display: flex;
     align-items: center;
     padding: 10px 15px;
@@ -323,15 +347,16 @@ body {
     transition: all 0.3s ease;
 }
 
-.dropdown-item i {
+.menusub-item i {
     font-size: 6px;
     color: var(--golden);
     margin-right: 10px;
 }
 
-.dropdown-item:hover {
+.menusub-item:hover {
     background: var(--bg-card);
     color: var(--golden-light);
+    padding-left: 20px;
 }
 
 /* ========== DEMO TOGGLE ========== */
@@ -350,6 +375,11 @@ body {
     font-size: 12px;
     border-radius: 8px;
     cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
 }
 
 .btn-demo:hover {
@@ -364,10 +394,11 @@ body {
     left: 0;
     width: 100%;
     background: var(--bg-black);
-    border-top: 2px solid var(--golden);
-    z-index: 998;         /* Sidebar এর থেকে কম */
+    border-top: 2px solid var(--border-golden);
+    z-index: 997;
     padding: 8px 0;
 }
+
 .footer-nav {
     display: flex;
     justify-content: space-around;
@@ -385,18 +416,22 @@ body {
     cursor: pointer;
     transition: all 0.3s ease;
     border-radius: 10px;
+    user-select: none;
 }
 
 .footer-item i {
     font-size: 20px;
     color: var(--text-gray);
+    transition: all 0.3s ease;
 }
 
 .footer-item span {
     font-size: 11px;
     color: var(--text-gray);
+    transition: all 0.3s ease;
 }
 
+/* Active state */
 .footer-item.active i,
 .footer-item.active span {
     color: var(--golden-light);
@@ -406,6 +441,7 @@ body {
     background: rgba(212, 175, 55, 0.1);
 }
 
+/* Hover state */
 .footer-item:hover i,
 .footer-item:hover span {
     color: var(--golden);
@@ -416,12 +452,15 @@ body {
     .sidebar {
         width: 70%;
     }
+    
     .auth-buttons {
         flex-direction: column;
     }
+    
     .footer-item {
         padding: 5px 10px;
     }
+    
     .footer-item span {
         font-size: 10px;
     }
