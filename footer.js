@@ -4,6 +4,8 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     
+    console.log('✅ footer.js LOADED SUCCESSFULLY!');
+    
     // ===== DOM Elements =====
     const sidebar = document.getElementById('sidebar');
     const sidebarOverlay = document.getElementById('sidebarOverlay');
@@ -12,42 +14,40 @@ document.addEventListener('DOMContentLoaded', function() {
     const afterLogin = document.getElementById('afterLogin');
     
     // ===== State =====
-    let isLoggedIn = false; // Demo state
+    let isLoggedIn = false;
     
     // ===== SIDEBAR FUNCTIONS =====
     
-    // Open Sidebar
     function openSidebar() {
-        sidebar.classList.add('active');
-        sidebarOverlay.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Prevent background scroll
-    }
-    
-    // Close Sidebar
-    function closeSidebar() {
-        sidebar.classList.remove('active');
-        sidebarOverlay.classList.remove('active');
-        document.body.style.overflow = '';
-    }
-    
-    // Toggle Sidebar (for Menu button)
-    function toggleSidebar() {
-        if (sidebar.classList.contains('active')) {
-            closeSidebar();
-        } else {
-            openSidebar();
+        if (sidebar) {
+            sidebar.classList.add('active');
+            console.log('Sidebar opened');
         }
+        if (sidebarOverlay) {
+            sidebarOverlay.classList.add('active');
+        }
+        document.body.style.overflow = 'hidden';
+    }
+    
+    function closeSidebar() {
+        if (sidebar) {
+            sidebar.classList.remove('active');
+            console.log('Sidebar closed');
+        }
+        if (sidebarOverlay) {
+            sidebarOverlay.classList.remove('active');
+        }
+        document.body.style.overflow = '';
     }
     
     // ===== DROPDOWN FUNCTIONS =====
     
-    // Toggle Dropdown
     window.toggleDropdown = function(dropdownId) {
         const dropdown = document.getElementById(dropdownId);
         const arrowId = dropdownId.replace('Dropdown', 'Arrow');
         const arrow = document.getElementById(arrowId);
         
-        // Close other dropdowns first
+        // Close other dropdowns
         document.querySelectorAll('.dropdown-menu').forEach(function(menu) {
             if (menu.id !== dropdownId && !menu.classList.contains('hidden')) {
                 menu.classList.add('hidden');
@@ -57,166 +57,74 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         
-        // Toggle current dropdown
-        dropdown.classList.toggle('hidden');
-        arrow.classList.toggle('rotate');
+        // Toggle current
+        if (dropdown) {
+            dropdown.classList.toggle('hidden');
+            console.log('Dropdown toggled:', dropdownId);
+        }
+        if (arrow) {
+            arrow.classList.toggle('rotate');
+        }
     };
     
     // ===== LOGIN STATE FUNCTIONS =====
     
-    // Toggle Login State (Demo)
     window.toggleLoginState = function() {
         isLoggedIn = !isLoggedIn;
-        updateLoginState();
-    };
-    
-    // Update UI based on login state
-    function updateLoginState() {
+        console.log('Login state:', isLoggedIn);
+        
         if (isLoggedIn) {
-            beforeLogin.classList.add('hidden');
-            afterLogin.classList.remove('hidden');
+            if (beforeLogin) beforeLogin.classList.add('hidden');
+            if (afterLogin) afterLogin.classList.remove('hidden');
         } else {
-            beforeLogin.classList.remove('hidden');
-            afterLogin.classList.add('hidden');
+            if (beforeLogin) beforeLogin.classList.remove('hidden');
+            if (afterLogin) afterLogin.classList.add('hidden');
         }
     };
     
     // ===== NAVIGATION FUNCTIONS =====
     
-    // Go to Login Page
     window.goToLogin = function() {
-        console.log('Redirect to Login Page');
-        // window.location.href = '/login';
+        console.log('Go to Login');
         alert('Redirect to Login Page');
     };
     
-    // Go to Profile Page
     window.goToProfile = function() {
-        console.log('Redirect to Profile Page');
-        // window.location.href = '/profile';
+        console.log('Go to Profile');
         alert('Redirect to Profile Page');
     };
     
-    // Go to Bonus Page
     window.goToBonus = function() {
-        console.log('Redirect to Bonus Page');
-        // window.location.href = '/bonuses';
+        console.log('Go to Bonus');
         alert('Redirect to Bonus Page');
     };
     
-    // Open Search
     window.openSearch = function() {
         console.log('Open Search');
-        // Implement search overlay
         alert('Search feature coming soon!');
     };
     
-    // Open Bet History
     window.openBetHistory = function() {
         console.log('Open Bet History');
-        // window.location.href = '/bet-history';
         alert('Bet History feature coming soon!');
     };
     
-    // Go Home
     window.goHome = function() {
         console.log('Go Home');
-        // window.location.href = '/';
         alert('Home feature coming soon!');
     };
     
-    // ===== FOOTER ACTIVE STATE =====
-    
-    // Set active footer item
-    function setActiveFooterItem(index) {
-        const footerItems = document.querySelectorAll('.footer-item');
-        footerItems.forEach(function(item, i) {
-            if (i === index) {
-                item.classList.add('active');
-            } else {
-                item.classList.remove('active');
-            }
-        });
-    }
-    
     // ===== EVENT LISTENERS =====
     
-    // Sidebar Close Button
+    // Close button
     if (sidebarClose) {
         sidebarClose.addEventListener('click', closeSidebar);
     }
     
-    // Overlay Click
+    // Overlay click
     if (sidebarOverlay) {
         sidebarOverlay.addEventListener('click', closeSidebar);
     }
     
-    // Footer Menu Button (index 0)
-    const menuButton = document.querySelector('.footer-item:nth-child(1)');
-    if (menuButton) {
-        menuButton.addEventListener('click', function() {
-            setActiveFooterItem(0);
-            toggleSidebar();
-        });
-    }
-    
-    // Footer Search Button (index 1)
-    const searchButton = document.querySelector('.footer-item:nth-child(2)');
-    if (searchButton) {
-        searchButton.addEventListener('click', function() {
-            setActiveFooterItem(1);
-            openSearch();
-        });
-    }
-    
-    // Footer Bet History Button (index 2)
-    const historyButton = document.querySelector('.footer-item:nth-child(3)');
-    if (historyButton) {
-        historyButton.addEventListener('click', function() {
-            setActiveFooterItem(2);
-            openBetHistory();
-        });
-    }
-    
-    // Footer Home Button (index 3)
-    const homeButton = document.querySelector('.footer-item:nth-child(4)');
-    if (homeButton) {
-        homeButton.addEventListener('click', function() {
-            setActiveFooterItem(3);
-            goHome();
-        });
-    }
-    
-    // Close sidebar on Escape key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && sidebar.classList.contains('active')) {
-            closeSidebar();
-        }
-    });
-    
-    // ===== SWIPE TO CLOSE SIDEBAR (Mobile) =====
-    let touchStartX = 0;
-    let touchEndX = 0;
-    
-    sidebar.addEventListener('touchstart', function(e) {
-        touchStartX = e.changedTouches[0].screenX;
-    }, false);
-    
-    sidebar.addEventListener('touchend', function(e) {
-        touchEndX = e.changedTouches[0].screenX;
-        handleSwipe();
-    }, false);
-    
-    function handleSwipe() {
-        // Swipe left to close
-        if (touchStartX - touchEndX > 50) {
-            closeSidebar();
-        }
-    }
-    
-    // ===== INITIALIZE =====
-    updateLoginState();
-    
-    console.log('Footer JS Loaded Successfully!');
-    
-});
+    // Footer menu button
+    const menuBtn = document.querySelector('.footer-item:nth
