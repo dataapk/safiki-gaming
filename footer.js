@@ -1,7 +1,12 @@
+// ============================================
+// FOOTER & SIDEBAR JS — FIXED VERSION
+// ============================================
+
 document.addEventListener('DOMContentLoaded', function() {
     
     console.log('✅ footer.js LOADED!');
     
+    // ===== DOM ELEMENTS =====
     const sidebar = document.getElementById('sidebar');
     const sidebarOverlay = document.getElementById('sidebarOverlay');
     const menuBtn = document.getElementById('menuBtn');
@@ -9,17 +14,20 @@ document.addEventListener('DOMContentLoaded', function() {
     let isSidebarOpen = false;
     let isLoggedIn = false;
     
-    // Sidebar Functions
-    window.footerOpenSidebar = function() {
+    // ===== SIDEBAR FUNCTIONS =====
+    
+    // OPEN sidebar only
+    function openSidebarOnly() {
         if (!sidebar || !sidebarOverlay) return;
         sidebarOverlay.classList.add('active');
         sidebar.classList.add('active');
         document.body.style.overflow = 'hidden';
         isSidebarOpen = true;
-        footerSetActive(menuBtn);
-    };
+        console.log('✅ Sidebar OPENED');
+    }
     
-    window.footerCloseSidebar = function() {
+    // CLOSE sidebar only
+    function closeSidebarOnly() {
         if (!sidebar || !sidebarOverlay) return;
         sidebar.classList.remove('active');
         setTimeout(function() {
@@ -27,24 +35,38 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 200);
         document.body.style.overflow = '';
         isSidebarOpen = false;
-    };
+        console.log('✅ Sidebar CLOSED');
+    }
     
+    // TOGGLE sidebar (Menu button click)
     window.footerToggleSidebar = function() {
         if (isSidebarOpen) {
-            footerCloseSidebar();
+            closeSidebarOnly();
         } else {
-            footerOpenSidebar();
+            openSidebarOnly();
         }
     };
     
-    // MenuSub Toggle
+    // CLOSE sidebar (Close button, Overlay click)
+    window.footerCloseSidebar = function() {
+        closeSidebarOnly();
+    };
+    
+    // ===== MENUSUB FUNCTIONS =====
+    
     window.footerToggleMenuSub = function(menuSubId, arrowId) {
         const menuSub = document.getElementById(menuSubId);
         const arrow = document.getElementById(arrowId);
         
-        if (!menuSub) return;
+        if (!menuSub) {
+            console.log('❌ MenuSub not found:', menuSubId);
+            return;
+        }
         
-        // Close others
+        // Stop event bubbling
+        event.stopPropagation();
+        
+        // Close all other menusubs
         document.querySelectorAll('.menusub-list').forEach(function(menu) {
             if (menu.id !== menuSubId && !menu.classList.contains('menusub-hidden')) {
                 menu.classList.add('menusub-hidden');
@@ -55,59 +77,103 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         // Toggle current
-        if (menuSub.classList.contains('menusub-hidden')) {
+        const isHidden = menuSub.classList.contains('menusub-hidden');
+        
+        if (isHidden) {
             menuSub.classList.remove('menusub-hidden');
             if (arrow) arrow.classList.add('rotate');
+            console.log('✅ MenuSub OPENED:', menuSubId);
         } else {
             menuSub.classList.add('menusub-hidden');
             if (arrow) arrow.classList.remove('rotate');
+            console.log('✅ MenuSub CLOSED:', menuSubId);
         }
     };
     
-    // Active Footer Item
+    // ===== ACTIVE FOOTER ITEM =====
+    
     window.footerSetActive = function(element) {
         if (!element) return;
+        
         document.querySelectorAll('.footer-item').forEach(function(item) {
             item.classList.remove('active');
         });
+        
         element.classList.add('active');
+        console.log('✅ Active:', element.querySelector('span')?.textContent);
     };
     
-    // Login Toggle
+    // ===== LOGIN TOGGLE =====
+    
     window.footerToggleLogin = function() {
         isLoggedIn = !isLoggedIn;
-        console.log('Login:', isLoggedIn);
+        console.log('✅ Login:', isLoggedIn);
     };
     
-    // Navigation
-    window.footerGoToLogin = function() { alert('Login Page'); };
-    window.footerGoToSignup = function() { alert('Sign Up Page'); };
-    window.footerGoToBonus = function() { alert('Bonus Page'); };
-    window.footerGoToRefer = function() { alert('Refer a Friend'); };
-    window.footerGoToSupport = function() { alert('Support'); };
-    window.footerOpenSearch = function() { alert('Search'); };
-    window.footerOpenBetHistory = function() { alert('Bet History'); };
-    window.footerGoHome = function() { alert('Home'); };
+    // ===== NAVIGATION =====
     
-    // Event Listeners
+    window.footerGoToLogin = function() { 
+        event.stopPropagation();
+        alert('Login Page'); 
+    };
+    
+    window.footerGoToSignup = function() { 
+        event.stopPropagation();
+        alert('Sign Up Page'); 
+    };
+    
+    window.footerGoToBonus = function() { 
+        event.stopPropagation();
+        alert('Bonus Page'); 
+    };
+    
+    window.footerGoToRefer = function() { 
+        event.stopPropagation();
+        alert('Refer a Friend'); 
+    };
+    
+    window.footerGoToSupport = function() { 
+        event.stopPropagation();
+        alert('Support'); 
+    };
+    
+    window.footerOpenSearch = function() { 
+        footerSetActive(document.getElementById('searchBtn'));
+        alert('Search'); 
+    };
+    
+    window.footerOpenBetHistory = function() { 
+        footerSetActive(document.getElementById('historyBtn'));
+        alert('Bet History'); 
+    };
+    
+    window.footerGoHome = function() { 
+        footerSetActive(document.getElementById('homeBtn'));
+        alert('Home'); 
+    };
+    
+    // ===== EVENT LISTENERS (NO DOUBLE ATTACH) =====
+    
+    // Overlay click to close
     if (sidebarOverlay) {
         sidebarOverlay.addEventListener('click', function(e) {
-            if (e.target === sidebarOverlay) footerCloseSidebar();
+            if (e.target === sidebarOverlay) closeSidebarOnly();
         });
     }
     
+    // Escape key
     document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && isSidebarOpen) footerCloseSidebar();
+        if (e.key === 'Escape' && isSidebarOpen) closeSidebarOnly();
     });
     
-    // Footer items
-    const footerItems = document.querySelectorAll('.footer-item');
-    if (footerItems[0]) footerItems[0].addEventListener('click', footerToggleSidebar);
-    if (footerItems[1]) footerItems[1].addEventListener('click', function() { footerSetActive(this); footerOpenSearch(); });
-    if (footerItems[2]) footerItems[2].addEventListener('click', function() { footerSetActive(this); footerOpenBetHistory(); });
-    if (footerItems[3]) footerItems[3].addEventListener('click', function() { footerSetActive(this); footerGoHome(); });
+    // ===== REMOVE DEFAULT ACTIVE FROM MENU =====
+    if (menuBtn) {
+        menuBtn.classList.remove('active');
+    }
     
-    footerCloseSidebar();
+    // ===== INITIALIZE =====
+    closeSidebarOnly();
+    
     console.log('✅ Footer ready!');
     
 });
