@@ -283,14 +283,13 @@ img, svg {
    PERSONAL AREA POPUP & MAIN CONTAINER
    ========================================== */
 #personal-area-section {
-    position: fixed;
-    top: 50%;
+    position: absolute; /* সেন্টারে ফিক্সড না রেখে হেডার বা নির্দিষ্ট পজিশন থেকে শুরু হবে */
+    top: 70px; /* হেডার ঠিক কত নিচে থাকবে, তোর হেডার অনুযায়ী এটা ১০-২০ পিক্সেল কমবেশি করতে পারিস */
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%); /* শুধু হরাইজন্টালি মাঝখানে রাখবে */
     width: 92%;
     max-width: 650px;
-    height: 90vh; /* ফুল হাইট নিশ্চিত করা হয়েছে */
-    max-height: 750px;
+    height: calc(100vh - 90px); /* হেডার বাদ দিয়ে বাকি পুরো স্ক্রিন উচ্চতা দখল করবে */
     background: #1a1a1a; 
     color: #ffffff;
     border-radius: 14px; /* হালকা রাউন্ডেড কর্নার */
@@ -302,11 +301,11 @@ img, svg {
     overflow: hidden;
 }
 
-/* ভেতরের মূল ট্যাব কনটেন্ট যা স্ক্রোল হবে */
+/* সমস্ত স্ক্রলিং এখন শুধুমাত্র এই পার্সোনাল এরিয়া কন্টেইনারের ভেতরেই হবে */
 #personal-area-section .personal-tab-content {
     display: none;
     flex: 1;
-    overflow-y: auto;
+    overflow-y: auto; /* ভেতরে স্ক্রোলবার সচল থাকবে */
     padding: 16px 20px;
     box-sizing: border-box;
 }
