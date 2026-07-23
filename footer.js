@@ -1,33 +1,24 @@
-// ============================================
-// FOOTER & SIDEBAR JS — FIXED VERSION
-// ============================================
-
 document.addEventListener('DOMContentLoaded', function() {
     
     console.log('✅ footer.js LOADED!');
     
-    // ===== DOM ELEMENTS =====
     const sidebar = document.getElementById('sidebar');
     const sidebarOverlay = document.getElementById('sidebarOverlay');
-    const menuBtn = document.getElementById('menuBtn');
     
     let isSidebarOpen = false;
-    let isLoggedIn = false;
     
-    // ===== SIDEBAR FUNCTIONS =====
-    
-    // OPEN sidebar only
-    function openSidebarOnly() {
+    // OPEN sidebar
+    window.footerOpenSidebar = function() {
         if (!sidebar || !sidebarOverlay) return;
         sidebarOverlay.classList.add('active');
         sidebar.classList.add('active');
         document.body.style.overflow = 'hidden';
         isSidebarOpen = true;
-        console.log('✅ Sidebar OPENED');
-    }
+        console.log('✅ OPEN');
+    };
     
-    // CLOSE sidebar only
-    function closeSidebarOnly() {
+    // CLOSE sidebar
+    window.footerCloseSidebar = function() {
         if (!sidebar || !sidebarOverlay) return;
         sidebar.classList.remove('active');
         setTimeout(function() {
@@ -35,38 +26,28 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 200);
         document.body.style.overflow = '';
         isSidebarOpen = false;
-        console.log('✅ Sidebar CLOSED');
-    }
+        console.log('✅ CLOSED');
+    };
     
-    // TOGGLE sidebar (Menu button click)
+    // TOGGLE (Menu button)
     window.footerToggleSidebar = function() {
         if (isSidebarOpen) {
-            closeSidebarOnly();
+            footerCloseSidebar();
         } else {
-            openSidebarOnly();
+            footerOpenSidebar();
         }
     };
     
-    // CLOSE sidebar (Close button, Overlay click)
-    window.footerCloseSidebar = function() {
-        closeSidebarOnly();
-    };
-    
-    // ===== MENUSUB FUNCTIONS =====
-    
+    // TOGGLE MENUSUB
     window.footerToggleMenuSub = function(menuSubId, arrowId) {
+        event.stopPropagation();
+        
         const menuSub = document.getElementById(menuSubId);
         const arrow = document.getElementById(arrowId);
         
-        if (!menuSub) {
-            console.log('❌ MenuSub not found:', menuSubId);
-            return;
-        }
+        if (!menuSub) return;
         
-        // Stop event bubbling
-        event.stopPropagation();
-        
-        // Close all other menusubs
+        // Close others
         document.querySelectorAll('.menusub-list').forEach(function(menu) {
             if (menu.id !== menuSubId && !menu.classList.contains('menusub-hidden')) {
                 menu.classList.add('menusub-hidden');
@@ -77,103 +58,36 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         // Toggle current
-        const isHidden = menuSub.classList.contains('menusub-hidden');
-        
-        if (isHidden) {
+        if (menuSub.classList.contains('menusub-hidden')) {
             menuSub.classList.remove('menusub-hidden');
             if (arrow) arrow.classList.add('rotate');
-            console.log('✅ MenuSub OPENED:', menuSubId);
         } else {
             menuSub.classList.add('menusub-hidden');
             if (arrow) arrow.classList.remove('rotate');
-            console.log('✅ MenuSub CLOSED:', menuSubId);
         }
     };
     
-    // ===== ACTIVE FOOTER ITEM =====
+    // Other navigation
+    window.footerGoToLogin = function() { event.stopPropagation(); alert('Login'); };
+    window.footerGoToSignup = function() { event.stopPropagation(); alert('Sign Up'); };
+    window.footerGoToBonus = function() { event.stopPropagation(); alert('Bonus'); };
+    window.footerGoToRefer = function() { event.stopPropagation(); alert('Refer'); };
+    window.footerGoToSupport = function() { event.stopPropagation(); alert('Support'); };
+    window.footerToggleLogin = function() { alert('Toggle Login'); };
     
-    window.footerSetActive = function(element) {
-        if (!element) return;
-        
-        document.querySelectorAll('.footer-item').forEach(function(item) {
-            item.classList.remove('active');
-        });
-        
-        element.classList.add('active');
-        console.log('✅ Active:', element.querySelector('span')?.textContent);
-    };
-    
-    // ===== LOGIN TOGGLE =====
-    
-    window.footerToggleLogin = function() {
-        isLoggedIn = !isLoggedIn;
-        console.log('✅ Login:', isLoggedIn);
-    };
-    
-    // ===== NAVIGATION =====
-    
-    window.footerGoToLogin = function() { 
-        event.stopPropagation();
-        alert('Login Page'); 
-    };
-    
-    window.footerGoToSignup = function() { 
-        event.stopPropagation();
-        alert('Sign Up Page'); 
-    };
-    
-    window.footerGoToBonus = function() { 
-        event.stopPropagation();
-        alert('Bonus Page'); 
-    };
-    
-    window.footerGoToRefer = function() { 
-        event.stopPropagation();
-        alert('Refer a Friend'); 
-    };
-    
-    window.footerGoToSupport = function() { 
-        event.stopPropagation();
-        alert('Support'); 
-    };
-    
-    window.footerOpenSearch = function() { 
-        footerSetActive(document.getElementById('searchBtn'));
-        alert('Search'); 
-    };
-    
-    window.footerOpenBetHistory = function() { 
-        footerSetActive(document.getElementById('historyBtn'));
-        alert('Bet History'); 
-    };
-    
-    window.footerGoHome = function() { 
-        footerSetActive(document.getElementById('homeBtn'));
-        alert('Home'); 
-    };
-    
-    // ===== EVENT LISTENERS (NO DOUBLE ATTACH) =====
-    
-    // Overlay click to close
+    // Overlay click
     if (sidebarOverlay) {
         sidebarOverlay.addEventListener('click', function(e) {
-            if (e.target === sidebarOverlay) closeSidebarOnly();
+            if (e.target === sidebarOverlay) footerCloseSidebar();
         });
     }
     
     // Escape key
     document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && isSidebarOpen) closeSidebarOnly();
+        if (e.key === 'Escape' && isSidebarOpen) footerCloseSidebar();
     });
     
-    // ===== REMOVE DEFAULT ACTIVE FROM MENU =====
-    if (menuBtn) {
-        menuBtn.classList.remove('active');
-    }
-    
-    // ===== INITIALIZE =====
-    closeSidebarOnly();
-    
-    console.log('✅ Footer ready!');
+    // Initialize
+    footerCloseSidebar();
     
 });
