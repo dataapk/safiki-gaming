@@ -956,9 +956,9 @@ function saveNewEmail() {
 }
 
 // ===== Mobile Number Change & Edit Flow =====
-// ===== Mobile Number Flow & Verification Logic =====
+// ===== Simple Mobile Number Logic (Final & Clean) =====
 
-// সিম্পল মোবাইল টগল করার জন্য
+// ১. "Add Your Phone Number" বাটনে ক্লিক করলে ইনপুট বক্স টগল (ওপেন/ক্লোজ) হবে
 function toggleSimpleMobile() {
     const dropdown = document.getElementById('simpleMobileDropdown');
     if (dropdown) {
@@ -967,22 +967,32 @@ function toggleSimpleMobile() {
     }
 }
 
-// সিম্পল সেভ করার জন্য
+// ২. নাম্বার লিখে "Save" বাটনে ক্লিক করলে নাম্বারটি সেভ হয়ে যাবে এবং বাটন আপডেট হয়ে যাবে
 function saveSimpleMobile() {
     const mobileInput = document.getElementById('mobileNumber');
     const countrySelect = document.getElementById('countryCode');
     const addBtn = document.getElementById('mobileAddBtn');
     
+    // ভ্যালিডেশন: খালি রাখা যাবে না
     if (!mobileInput.value.trim()) {
-        alert('Please enter a phone number!');
+        alert('Please enter a valid phone number!');
+        mobileInput.focus();
         return;
     }
 
+    // সফলভাবে সেভ হওয়ার মেসেজ
     alert('Mobile number saved successfully!');
     
-    // ড্রপডাউন বন্ধ করে দেওয়া এবং বাটন টেক্সট চেঞ্জ করে দেওয়া
+    // ড্রপডাউন বক্সটি বন্ধ করে দেওয়া
     document.getElementById('simpleMobileDropdown').style.display = 'none';
-    addBtn.textContent = countrySelect.value + ' ' + mobileInput.value.trim();
+    
+    // অ্যাড বাটনটির লেখা পরিবর্তন করে সেভ করা কান্ট্রি কোড ও নাম্বারটি দেখিয়ে দেওয়া
+    const selectedCountry = countrySelect.value;
+    const phoneNumber = mobileInput.value.trim();
+    addBtn.textContent = `${selectedCountry} ${phoneNumber}`;
+    
+    // চাইলে পরবর্তীতে সহজে চেনার জন্য বাটনটিতে একটি ক্লাস বা স্টাইল যোগ করা যেতে পারে
+    addBtn.classList.add('saved-number-btn');
 }
 // ===== Avatar =====
 function changeAvatar() {
