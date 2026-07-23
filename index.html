@@ -538,23 +538,27 @@
 <div class="form-group full-width">
     <div class="label-row">
         <label>Email</label>
+        <!-- Change বাটন -->
         <button class="action-btn change-btn" id="emailChangeBtn" onclick="toggleEmailChange()" disabled>Change</button>
     </div>
     
-    <!-- ইমেইল ইনপুট বক্স এবং তার ভেতরে ডানপাশের সেন্ড কোড বাটন রাখার জন্য একটি র‍্যাপার -->
+    <!-- ১. পুরোনো ইমেইল বক্স (এটি চিরকাল ডিজেবল বা লক থাকবে, কেউ এডিট করতে পারবে না) -->
     <div class="input-with-btn-wrapper" style="position: relative; display: flex; align-items: center;">
-        <input type="email" id="currentEmail" class="form-input" value="user@example.com" disabled style="padding-right: 100px;">
+        <input type="email" id="currentEmail" class="form-input" value="user@example.com" disabled style="padding-right: 105px;">
         
-        <!-- চেঞ্জে ক্লিক করলে এই বাটনটি ইনপুট বক্সের ভেতরে ডানপাশে শো করবে -->
+        <!-- Change এ ক্লিক করলে এখানে Send Code বাটন ভেসে উঠবে -->
         <button class="action-btn send-btn inline-send-btn" id="emailSendCodeBtn" onclick="sendEmailOtp()" style="position: absolute; right: 6px; display: none;">Send Code</button>
     </div>
     
-    <!-- Email Dropdown Box (OTP Verify & New Email Save) -->
+    <!-- ২. ড্রপডাউন বক্স (যেখানে ওটিপি ভেরিফিকেশন এবং একদম নিচে নতুন ইমেইল দেওয়ার ঘর থাকবে) -->
     <div class="change-dropdown" id="emailChangeDropdown" style="display:none; margin-top: 8px;">
+        <!-- ওটিপি কোড বসানোর এবং ভেরিফাই করার রো -->
         <div class="otp-row" id="emailVerifyRow">
             <input type="text" id="emailOtpInput" class="form-input otp-input" placeholder="Add your code">
             <button class="action-btn send-btn" id="emailVerifyBtn" onclick="verifyEmailOtp()">Verify</button>
         </div>
+        
+        <!-- ৩. কোড ভেরিফাই হওয়ার পর এই নতুন ইমেইলের বক্স ও সেভ বাটন নিচে ওপেন হবে -->
         <div class="new-row" id="newEmailRow" style="display:none; margin-top: 8px;">
             <input type="email" id="newEmailInput" class="form-input" placeholder="Add New Email">
             <button class="action-btn save-btn" onclick="saveNewEmail()">Save</button>
