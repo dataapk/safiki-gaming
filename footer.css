@@ -36,17 +36,19 @@ body {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.8);
-    z-index: 998;
+    z-index: 999;         /* Sidebar এর থেকে কম, Footer এর থেকে বেশি */
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
 }
+
 
 .sidebar-overlay.active {
     opacity: 1;
     visibility: visible;
 }
 
+/* ========== SIDEBAR ========== */
 /* ========== SIDEBAR ========== */
 .sidebar {
     position: fixed;
@@ -56,7 +58,7 @@ body {
     height: 100%;
     background: var(--bg-black);
     border-right: 2px solid var(--golden);
-    z-index: 999;
+    z-index: 1000;        /* Footer এর থেকে বেশি */
     overflow-y: auto;
     transform: translateX(-100%);
     transition: transform 0.3s ease;
@@ -363,10 +365,9 @@ body {
     width: 100%;
     background: var(--bg-black);
     border-top: 2px solid var(--golden);
-    z-index: 997;
+    z-index: 998;         /* Sidebar এর থেকে কম */
     padding: 8px 0;
 }
-
 .footer-nav {
     display: flex;
     justify-content: space-around;
