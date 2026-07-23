@@ -534,36 +534,32 @@
                 </div>
             </div>
 
-            <!-- Email Section -->
+            <!-- Email Section (Original Function: toggleEmailChange, sendEmailOtp, saveNewEmail) -->
             <div class="form-group full-width">
                 <div class="label-row">
                     <label>Email</label>
                     <button class="action-btn change-btn" id="emailChangeBtn" onclick="toggleEmailChange()" disabled>Change</button>
                 </div>
                 <input type="email" id="currentEmail" class="form-input" value="user@example.com" disabled>
-                
-                <!-- Email Dropdown Box -->
                 <div class="change-dropdown" id="emailChangeDropdown" style="display:none;">
-                    <div class="otp-row" id="emailOtpRow">
-                        <input type="text" id="emailOtpInput" class="form-input otp-input" placeholder="Add your code">
-                        <button class="action-btn send-btn" id="emailSendVerifyBtn" onclick="handleEmailVerification()">Send Code</button>
+                    <div class="otp-row">
+                        <input type="text" class="form-input otp-input" placeholder="Add your code">
+                        <button class="action-btn send-btn" onclick="sendEmailOtp()">Send Code</button>
                     </div>
                     <div class="new-row" id="newEmailRow" style="display:none;">
-                        <input type="email" id="newEmailInput" class="form-input" placeholder="Add New Email">
+                        <input type="email" class="form-input" placeholder="Add New Email">
                         <button class="action-btn save-btn" onclick="saveNewEmail()">Save</button>
                     </div>
                 </div>
             </div>
 
-            <!-- Mobile Number Section -->
+            <!-- Mobile Number Section (Original Function: toggleMobileAdd, toggleMobileChange, sendMobileOtp, saveNewMobile) -->
             <div class="form-group full-width">
                 <div class="label-row">
                     <label>Mobile Number</label>
-                    <!-- প্রথমে Add থাকবে, নাম্বার সেভ হলে এটি Change হবে -->
                     <button class="action-btn add-btn" id="mobileAddBtn" onclick="toggleMobileAdd()" disabled>Add</button>
                     <button class="action-btn change-btn" id="mobileChangeBtn" onclick="toggleMobileChange()" style="display:none;" disabled>Change</button>
                 </div>
-                
                 <div class="mobile-row" style="display: flex; gap: 8px; align-items: center;">
                     <select id="countryCode" class="form-input country-code" style="width: 110px;" disabled>
                         <option value="+880" data-flag="🇧🇩">🇧🇩 +880</option>
@@ -572,19 +568,14 @@
                     </select>
                     <input type="tel" id="mobileNumber" class="form-input mobile-input" placeholder="Enter number" style="flex: 1;" disabled>
                 </div>
-
-                <!-- Mobile Dropdown Box -->
                 <div class="change-dropdown" id="mobileChangeDropdown" style="display:none;">
-                    <div class="otp-row" id="mobileOtpRow">
-                        <input type="tel" id="mobileNumberInputForOtp" class="form-input" placeholder="Enter mobile number" style="margin-bottom: 8px;">
-                        <button class="action-btn send-btn" onclick="sendMobileOtpCode()">Send Code</button>
+                    <div class="otp-row">
+                        <input type="text" class="form-input otp-input" placeholder="Add your code">
+                        <button class="action-btn send-btn" onclick="sendMobileOtp()">Send</button>
                     </div>
-                    <div class="otp-row" id="mobileVerifyRow" style="display:none;">
-                        <input type="text" id="mobileOtpInput" class="form-input otp-input" placeholder="Add your code">
-                        <button class="action-btn send-btn" id="mobileVerifyBtn" onclick="verifyMobileCode()">Verify</button>
-                    </div>
-                    <div class="new-row" id="newMobileSaveRow" style="display:none;">
-                        <button class="action-btn save-btn" style="width: 100%;" onclick="saveNewMobile()">Save</button>
+                    <div class="new-row" id="newMobileRow" style="display:none;">
+                        <input type="tel" class="form-input" placeholder="Add New Mobile">
+                        <button class="action-btn save-btn" onclick="saveNewMobile()">Save</button>
                     </div>
                 </div>
             </div>
