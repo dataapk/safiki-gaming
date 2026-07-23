@@ -276,185 +276,137 @@ img, svg {
    PERSONAL AREA — FIXED (NO OVERLAP)
    ============================================ */
 
-/* ============================================
-   PERSONAL AREA — FINAL FIX
-   ============================================ */
-
+/* ==========================================
+   PERSONAL AREA POPUP & MAIN CONTAINER
+   ========================================== */
 #personal-area-section {
     position: fixed;
-    top: 80px;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
-    width: 650px;                 /* ছোট width — দুই পাশে margin বেশি */
-    max-width: 90%;               /* 98% → 90% — দুই পাশে gap বেশি */
-    height: calc(100vh - 100px);  /* Height adjust */
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 650px;
+    max-height: 85vh;
+    background: #1a1a1a; /* ডার্ক ব্যাকগ্রাউন্ড (তোমার থিম অনুযায়ী অ্যাডজাস্ট করে নিও) */
+    color: #ffffff;
+    border-radius: 16px; /* হালকা রাউন্ডেড কর্নার */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
     overflow-y: auto;
-    background: #13151c;
-    border: 1px solid rgba(255, 214, 102, 0.25);
-    border-radius: 20px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
-    z-index: 9998;
-    display: none;
-    padding: 20px;
-    padding-bottom: 50px;         /* নিচে extra padding — button cut হবে না */
+    display: none; /* ডিফল্টভাবে বন্ধ থাকবে */
+    padding: 24px;
     box-sizing: border-box;
 }
 
-/* Show */
-#personal-area-section.active {
-    display: block;
-}
-
-/* Scrollbar */
-#personal-area-section::-webkit-scrollbar {
-    width: 6px;
-}
-#personal-area-section::-webkit-scrollbar-track {
-    background: transparent;
-}
-#personal-area-section::-webkit-scrollbar-thumb {
-    background: rgba(255, 214, 102, 0.3);
-    border-radius: 3px;
-}
-
-/* ============================================
-   HEADER
-   ============================================ */
-
+/* ==========================================
+   HEADER & CLOSE BUTTON (Top Right)
+   ========================================== */
 .personal-header {
-    position: relative;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    padding: 0 8px 12px;
-    margin-bottom: 20px;
-    border-bottom: 1px solid #2b2f40;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 12px;
+    margin-bottom: 16px;
+    position: relative;
 }
 
 .personal-header h3 {
     margin: 0;
-    width: 100%;
-    text-align: center;
-    color: #fff;
     font-size: 20px;
     font-weight: 600;
 }
 
 .close-personal {
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    background: #2b2f40;
+    background: transparent;
     border: none;
-    color: #fff;
-    font-size: 20px;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
+    color: #b3b3b3;
+    font-size: 18px;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.3s;
+    padding: 6px 10px;
+    border-radius: 50%;
+    transition: all 0.2s ease;
 }
 
 .close-personal:hover {
-    background: #e67e22;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
 }
 
-/* ============================================
-   TABS
-   ============================================ */
-
+/* ==========================================
+   TABS SECTION (3 Tabs Side by Side)
+   ========================================== */
 .personal-tabs {
     display: flex;
-    gap: 5px;
-    margin-bottom: 15px;
+    gap: 10px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 12px;
 }
 
 .personal-tab-btn {
     flex: 1;
-    background: #161b2e;
-    border: none;
-    padding: 8px 12px;
-    color: #888;
-    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #b3b3b3;
+    padding: 10px 12px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 12px;
-    transition: 0.3s;
     text-align: center;
+    transition: all 0.2s ease;
 }
 
 .personal-tab-btn.active,
 .personal-tab-btn:hover {
-    background: #e67e22;
-    color: white;
+    background: #3b82f6; /* প্রাইমারি কালার */
+    color: #ffffff;
+    border-color: #3b82f6;
 }
 
-/* ============================================
-   TAB CONTENT
-   ============================================ */
-
-.personal-tab-content {
-    display: none;
-}
-
-.personal-tab-content.active {
-    display: block;
-}
-
-/* ============================================
-   CONTENT BOXES
-   ============================================ */
-
+/* ==========================================
+   CONTENT BOXES & PROFILE SECTION
+   ========================================== */
 .content-box {
-    background: #181d2b;
-    border: 1px solid #2b2f40;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
     border-radius: 12px;
-    padding: 18px;
-    margin-bottom: 15px;
+    padding: 16px;
+    margin-bottom: 16px;
 }
-
-/* Last content box — নিচে extra margin */
-.personal-tab-content .content-box:last-child {
-    margin-bottom: 30px;
-}
-
-/* ============================================
-   PROFILE
-   ============================================ */
 
 .profile-row {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 16px;
 }
 
 .profile-avatar-wrapper {
     position: relative;
-    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
 }
 
 .profile-avatar {
-    width: 70px;
-    height: 70px;
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid rgba(255, 214, 102, 0.3);
+    border: 2px solid #3b82f6;
 }
 
 .change-avatar-btn {
     position: absolute;
     bottom: 0;
     right: 0;
-    width: 26px;
-    height: 26px;
-    border-radius: 50%;
-    background: #e67e22;
+    background: #3b82f6;
     border: none;
     color: #fff;
-    font-size: 12px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    font-size: 10px;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -462,76 +414,47 @@ img, svg {
 }
 
 .profile-info .label-small {
-    color: #8892b0;
     font-size: 12px;
-    margin: 0 0 2px 0;
-}
-
-.profile-info .value-text {
-    color: #fff;
-    font-size: 16px;
-    font-weight: 600;
-    margin: 0 0 4px 0;
-}
-
-.profile-info .member-text {
-    color: #8892b0;
-    font-size: 12px;
+    color: #888;
     margin: 0;
 }
 
-/* ============================================
-   FORM
-   ============================================ */
+.profile-info .value-text {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 2px 0;
+}
 
+.profile-info .member-text {
+    font-size: 12px;
+    color: #aaa;
+    margin: 0;
+}
+
+/* ==========================================
+   FORM ROWS & INPUT LAYOUTS
+   ========================================== */
 .form-row {
     display: flex;
     gap: 12px;
-    margin-bottom: 12px;
+    margin-bottom: 14px;
 }
 
 .form-group {
     flex: 1;
-    min-width: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .form-group.full-width {
     width: 100%;
-    margin-bottom: 12px;
+    margin-bottom: 14px;
 }
 
 .form-group label {
-    display: block;
-    color: #8892b0;
     font-size: 13px;
+    color: #ccc;
     margin-bottom: 6px;
-}
-
-.form-input {
-    width: 100%;
-    padding: 10px 12px;
-    background: #0f111a;
-    border: 1px solid #2b2f40;
-    border-radius: 8px;
-    color: #fff;
-    font-size: 14px;
-    box-sizing: border-box;
-    transition: 0.3s;
-}
-
-.form-input:focus {
-    outline: none;
-    border-color: #e67e22;
-}
-
-.form-input:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-}
-
-.form-select {
-    appearance: none;
-    cursor: pointer;
 }
 
 .label-row {
@@ -539,174 +462,138 @@ img, svg {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 6px;
-    flex-wrap: wrap;
-    gap: 5px;
 }
 
-/* ============================================
-   BUTTONS
-   ============================================ */
-
-.action-btn {
-    padding: 6px 14px;
-    border: none;
-    border-radius: 6px;
-    font-size: 12px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.3s;
-    white-space: nowrap;
-}
-
-.change-btn {
-    background: #2b2f40;
-    color: #e67e22;
-}
-
-.change-btn:hover {
-    background: #e67e22;
-    color: #fff;
-}
-
-.add-btn {
-    background: #2b2f40;
-    color: #4ade80;
-}
-
-.save-btn {
-    background: #e67e22;
-    color: #fff;
-}
-
-.save-btn:hover {
-    background: #d35400;
-}
-
-.send-btn {
-    background: #2b2f40;
-    color: #fff;
-    white-space: nowrap;
-}
-
-/* ============================================
-   DROPDOWNS
-   ============================================ */
-
-.change-dropdown {
-    margin-top: 10px;
-    padding: 12px;
-    background: #0f111a;
+.form-input {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 8px;
-    border: 1px solid #2b2f40;
+    padding: 10px 12px;
+    color: #fff;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.2s;
 }
 
-.otp-row {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 10px;
+.form-input:focus {
+    border-color: #3b82f6;
 }
 
-.otp-input {
-    flex: 1;
-    min-width: 0;
+.form-input:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
 }
 
-.new-row {
-    display: flex;
-    gap: 8px;
-}
-
-/* ============================================
-   MOBILE ROW
-   ============================================ */
-
+/* Mobile & Country Code Row */
 .mobile-row {
     display: flex;
     gap: 8px;
+    align-items: center;
 }
 
 .country-code {
-    width: 90px;
-    flex-shrink: 0;
+    width: 110px !important;
 }
 
-.mobile-input {
-    flex: 1;
-    min-width: 0;
+/* ==========================================
+   ACTION BUTTONS (Change, Add, Send, Save)
+   ========================================== */
+.action-btn {
+    background: rgba(59, 130, 246, 0.15);
+    border: 1px solid #3b82f6;
+    color: #3b82f6;
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
 }
 
-/* ============================================
-   CONTROLS ROW
-   ============================================ */
+.action-btn:hover:not(:disabled) {
+    background: #3b82f6;
+    color: #fff;
+}
 
+.action-btn:disabled {
+    opacity: 0.5;
+    border-color: rgba(255, 255, 255, 0.2);
+    color: #888;
+    cursor: not-allowed;
+}
+
+/* Dropdown OTP Box */
+.change-dropdown {
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 12px;
+    margin-top: 8px;
+}
+
+.otp-row, .new-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.otp-row:last-child, .new-row:last-child {
+    margin-bottom: 0;
+}
+
+/* ==========================================
+   CONTROLS (Edit Button Left, Save Right)
+   ========================================== */
 .controls-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 12px;
-    flex-wrap: wrap;
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin-top: 20px;
 }
 
 .edit-toggle-btn {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 10px;
-    background: transparent;
-    border: none;
-    color: #fff;
-    cursor: pointer;
-    font-size: 14px;
+    gap: 8px;
+    transition: background 0.2s;
 }
 
-.toggle-track {
-    width: 44px;
-    height: 24px;
-    background: #2b2f40;
-    border-radius: 12px;
-    position: relative;
-    transition: 0.3s;
-    display: inline-block;
-    flex-shrink: 0;
-}
-
-.toggle-track.active {
-    background: #e67e22;
-}
-
-.toggle-thumb {
-    width: 20px;
-    height: 20px;
-    background: #fff;
-    border-radius: 50%;
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    transition: 0.3s;
-}
-
-.toggle-track.active .toggle-thumb {
-    left: 22px;
+.edit-toggle-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
 }
 
 .save-changes-btn {
-    padding: 10px 24px;
-    background: #e67e22;
+    background: #10b981; /* সবুজ বাটন */
     border: none;
-    border-radius: 8px;
     color: #fff;
+    padding: 9px 20px;
+    border-radius: 8px;
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
-    transition: 0.3s;
+    transition: opacity 0.2s;
 }
 
 .save-changes-btn:disabled {
-    opacity: 0.5;
+    opacity: 0.4;
     cursor: not-allowed;
+    background: #555;
 }
 
 .save-changes-btn:hover:not(:disabled) {
-    background: #d35400;
+    background: #059669;
 }
 
 /* ============================================
