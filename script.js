@@ -958,7 +958,7 @@ function saveNewEmail() {
 // ===== Mobile Number Change & Edit Flow =====
 // ===== Mobile Number Flow & Verification Logic =====
 
-// ১. Edit বাটনে ক্লিক করলে ফিল্ড আনলক হবে এবং ওটিপি ড্রপডাউন ওপেন হবে
+// ১. প্রথমবার Edit বা Add বাটনে ক্লিক করলে
 function toggleMobileAdd() {
     const dropdown = document.getElementById('mobileChangeDropdown');
     const mobileInput = document.getElementById('mobileNumber');
@@ -982,51 +982,48 @@ function toggleMobileAdd() {
     }
 }
 
-// ২. Send Code এবং Verify & Save - দুটো স্টেপ একসাথেই হ্যান্ডেল করার মূল ফাংশন
+// ২. প্রথমবার Send Code বা Verify & Save হ্যান্ডেল করার ফাংশন
 function sendMobileOtp() {
     const mobileInput = document.getElementById('mobileNumber');
     const otpInput = document.getElementById('mobileOtpInput');
     const btn = document.getElementById('mobileSendBtn');
     
-    // স্টেপ ১: যদি বাটন "Send Code" থাকে (কোড পাঠানোর জন্য)
+    // প্রথম স্টেপ: কোড পাঠানোর জন্য
     if (btn.textContent === 'Send Code') {
         if (!mobileInput.value.trim()) {
             alert('Please enter a valid mobile number first!');
             return;
         }
 
-        // কোড পাঠানোর নোটিফিকেশন
         alert('Verification code sent to your mobile!');
         
-        // বাটন টেক্সট বদলে "Verify & Save" করে দেওয়া
         btn.textContent = 'Verify & Save';
         btn.classList.remove('send-btn');
         btn.classList.add('save-btn');
     } 
-    // স্টেপ ২: যদি বাটন "Verify & Save" থাকে (কোড বসানোর পর ফাইনাল সেভ করার জন্য)
+    // দ্বিতীয় স্টেপ: কোড বসানোর পর ফাইনাল সেভ করার জন্য
     else if (btn.textContent === 'Verify & Save') {
         if (!otpInput.value.trim()) {
             alert('Please enter your verification code!');
             return;
         }
 
-        // ভেরিফিকেশন সফল মেসেজ
         alert('Mobile number verified and saved successfully!');
         
         // ড্রপডাউন বন্ধ করা
         document.getElementById('mobileChangeDropdown').style.display = 'none';
         
-        // ইনপুট বক্স ও কান্ট্রি কোড চিরতরে লক/ডিজেবল করে দেওয়া (ইমেইলের মতো)
+        // ইনপুট বক্স ও কান্ট্রি কোড চিরতরে লক/রিড-অনলি করে দেওয়া
         mobileInput.disabled = true;
         document.getElementById('countryCode').disabled = true;
         
-        // Edit বাটন লুকিয়ে ফেলে Change বাটনটি পার্মানেন্টলি শো করা
+        // Edit বাটন লুকিয়ে Change বাটন নিয়ে আসা
         const addBtn = document.getElementById('mobileAddBtn');
         const changeBtn = document.getElementById('mobileChangeBtn');
         if (addBtn) addBtn.style.display = 'none';
         if (changeBtn) changeBtn.style.display = 'inline-block';
         
-        // ফিল্ড ও বাটন আগের অবস্থায় রিসেট করা
+        // রিসেট করা
         otpInput.value = '';
         btn.textContent = 'Send Code';
         btn.classList.remove('save-btn');
@@ -1034,35 +1031,84 @@ function sendMobileOtp() {
     }
 }
 
-// ৩. পরবর্তীতে কেউ নাম্বার পরিবর্তন করতে চাইলে (Change বাটনে ক্লিক করলে)
+// ৩. যখন অলরেডি নাম্বার সেভ হয়ে গেছে, তারপর "Change" বাটনে ক্লিক করলে যে ফ্লো হবে (তোর ফাইনাল লজিক অনুযায়ী)
 function toggleMobileChange() {
-    const confirmChange = confirm('Do you want to change your mobile number?');
-    if (confirmChange) {
-        const mobileInput = document.getElementById('mobileNumber');
-        const countrySelect = document.getElementById('countryCode');
-        const dropdown = document.getElementById('mobileChangeDropdown');
-        const newMobileRow = document.getElementById('newMobileRow');
-
-        // কান্ট্রি কোড ও মোবাইল ইনপুট আনলক করা এবং বক্স ফাঁকা করা
-        countrySelect.disabled = false;
-        mobileInput.disabled = false;
-        mobileInput.value = '';
-        mobileInput.focus();
+    const dropdown = document.getElementById('mobileChangeDropdown');
+    const mobileInput = document.getElementById('mobileNumber');
+    const countrySelect = document.getElementById('countryCode');
+    
+    if (dropdown) {
+        // ১. আগের সেভ করা মূল নাম্বার বক্সটি স্টিল ভিজিবল এবং সম্পূর্ণ "রিড-অনলি/লক" থাকবে!
+        mobileInput.disabled = true;
+        countrySelect.disabled = true;
         
+        // ২. ড্রপডাউন ওপেন হবে
         dropdown.style.display = 'block';
-        if (newMobileRow) {
-            newMobileRow.style.display = 'block'; // চেঞ্জের ক্ষেত্রে নতুন নাম্বারের ঘর শো করবে
-        }
         
+        // ৩. ইউজারকে বলতে হবে পুরোনো নাম্বারে কোড পাঠাতে
+        const sendBtn = document.getElementById('mobileSendBtn');
+        sendBtn.textContent = 'Send Code to Current Number';
+        sendBtn.onclick = function() {
+            // পুরোনো নাম্বারে কোড পাঠানোর পর ওটিপির ঘর চেক করা হবে
+            alert('Verification code sent to your current mobile number!');
+            sendBtn.textContent = 'Verify Old Number';
+            sendBtn.onclick = function() {
+                const otpInput = document.getElementById('mobileOtpInput');
+                if (!otpInput.value.trim()) {
+                    alert('Please enter the code sent to your current mobile!');
+                    return;
+                }
+                
+                alert('Old number verified successfully! Now enter your new number below.');
+                
+                // ৪. ওটিপি ভেরিফাই হওয়ার পর এবার নিচে "Add New Mobile" এর ঘর এবং সেভ অপশন ওপেন হবে!
+                const newMobileRow = document.getElementById('newMobileRow');
+                if (newMobileRow) {
+                    newMobileRow.style.display = 'block';
+                }
+                
+                // ওটিপি ইনপুট লুকিয়ে বা রিসেট করে নতুন ফিল্ডে ফোকাস দেওয়া যায়
+                otpInput.value = '';
+            };
+        };
+        
+        // Change বাটন লুকিয়ে Cancel বাটন দেখানো
         document.getElementById('mobileChangeBtn').style.display = 'none';
-        document.getElementById('mobileAddBtn').style.display = 'inline-block';
-        document.getElementById('mobileAddBtn').textContent = 'Cancel';
+        const addBtn = document.getElementById('mobileAddBtn');
+        if (addBtn) {
+            addBtn.style.display = 'inline-block';
+            addBtn.textContent = 'Cancel';
+        }
     }
 }
 
-// ৪. পুরনো কোডের নাম মেইনটেইন করার জন্য অতিরিক্ত ফাংশন কানেকশন (যদি কোথাও দরকার হয়)
+// ৪. নতুন মোবাইল নাম্বার দিয়ে ফাইনাল সেভ করার ফাংশন (Change মোডের জন্য)
 function saveNewMobile() {
-    sendMobileOtp();
+    const newMobileInput = document.getElementById('newMobileInput');
+    const mobileInput = document.getElementById('mobileNumber');
+    
+    if (!newMobileInput || !newMobileInput.value.trim()) {
+        alert('Please enter the new mobile number!');
+        return;
+    }
+
+    // নতুন নাম্বারটি মেইন ইনপুট বক্সে সেট হয়ে যাবে
+    mobileInput.disabled = false;
+    mobileInput.value = newMobileInput.value.trim();
+    mobileInput.disabled = true; // আবার লক করে দেওয়া
+    
+    alert('New mobile number updated successfully!');
+    
+    // ড্রপডাউন এবং নতুন নাম্বারের রো বন্ধ করা
+    document.getElementById('mobileChangeDropdown').style.display = 'none';
+    document.getElementById('newMobileRow').style.display = 'none';
+    
+    // আবার আগের মতো Change বাটন ফিরিয়ে আনা
+    document.getElementById('mobileAddBtn').style.display = 'none';
+    document.getElementById('mobileChangeBtn').style.display = 'inline-block';
+    
+    // ফিল্ড পরিষ্কার করা
+    newMobileInput.value = '';
 }
 // ===== Avatar =====
 function changeAvatar() {
