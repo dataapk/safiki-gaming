@@ -1,51 +1,55 @@
 /* ============================================
    FOOTER & SIDEBAR CSS
-   Modal Box Style (Centered, 50% width, 70% height)
+   Dim Gray + Goldenrod Theme
+   Modal Box Style
    ============================================ */
 
 :root {
-    --bg-black: #0a0a0a;
-    --bg-dark: #111111;
-    --bg-card: #1a1a1a;
-    --golden: #d4af37;
-    --golden-light: #ffd700;
+    --bg-dimgray: #2a2a2a;
+    --bg-dark: #1a1a1a;
+    --bg-card: #333333;
+    --goldenrod: #DAA520;
+    --goldenrod-light: #FFD700;
+    --goldenrod-dark: #B8860B;
     --text-white: #ffffff;
-    --text-gray: #888888;
-    --text-light: #aaaaaa;
-    --border-golden: #d4af37;
+    --text-gray: #aaaaaa;
+    --text-light: #cccccc;
+    --border-goldenrod: #DAA520;
 }
 
-/* ========== SIDEBAR OVERLAY (Full screen dark) ========== */
+/* ========== SIDEBAR OVERLAY (Light, Footer Visible) ========== */
 .sidebar-overlay {
     position: fixed;
-    inset: 0;                          /* Full screen */
-    background: rgba(0, 0, 0, 0.85);   /* Darker overlay */
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);    /* Light overlay */
     z-index: 998;
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
+    pointer-events: none;               /* Let clicks pass through when inactive */
 }
 
 .sidebar-overlay.active {
     opacity: 1;
     visibility: visible;
+    pointer-events: auto;               /* Capture clicks when active */
 }
 
-/* ========== SIDEBAR (Modal Box - Centered) ========== */
+/* ========== SIDEBAR (Modal Box - 50% width) ========== */
 .sidebar {
     position: fixed;
-    top: 50%;                          /* Center vertically */
-    left: 50%;                         /* Center horizontally */
-    transform: translate(-50%, -50%) scale(0.95);  /* Center + slight scale */
-    width: 50%;                        /* 50% of screen width */
-    max-width: 320px;                  /* Max limit */
-    height: 70%;                       /* 70% of screen height */
-    max-height: 500px;                 /* Max limit */
-    overflow-y: auto;                  /* Scroll inside */
-    background: var(--bg-black);
-    border: 2px solid var(--border-golden);  /* ALL 4 sides border */
-    border-radius: 16px;               /* Rounded corners */
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.95);
+    width: 50%;
+    max-width: 300px;
+    height: auto;                        /* Auto height based on content */
+    max-height: 70vh;                    /* Max 70% viewport */
+    overflow-y: auto;
+    background: var(--bg-dimgray);       /* Dim Gray background */
+    border: 2px solid var(--border-goldenrod);  /* Goldenrod border all sides */
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
     z-index: 999;
     opacity: 0;
     visibility: hidden;
@@ -57,7 +61,7 @@
 .sidebar.active {
     opacity: 1;
     visibility: visible;
-    transform: translate(-50%, -50%) scale(1);  /* Full scale when active */
+    transform: translate(-50%, -50%) scale(1);
 }
 
 /* Scrollbar */
@@ -71,18 +75,18 @@
 }
 
 .sidebar::-webkit-scrollbar-thumb {
-    background: var(--golden);
+    background: var(--goldenrod);
     border-radius: 3px;
 }
 
-/* ========== CLOSE BUTTON (Top Right of Modal) ========== */
+/* ========== CLOSE BUTTON ========== */
 .sidebar-close {
     position: absolute;
     top: 10px;
     right: 10px;
     background: var(--bg-dark);
-    border: 1px solid var(--border-golden);
-    color: var(--golden);
+    border: 1px solid var(--border-goldenrod);
+    color: var(--goldenrod);
     width: 32px;
     height: 32px;
     border-radius: 50%;
@@ -96,8 +100,8 @@
 }
 
 .sidebar-close:hover {
-    background: var(--golden);
-    color: var(--bg-black);
+    background: var(--goldenrod);
+    color: var(--bg-dark);
 }
 
 /* ========== MENUSUB HIDDEN ========== */
@@ -107,11 +111,11 @@
 
 /* ========== SIDEBAR TOP SECTION ========== */
 .sidebar-top {
-    margin-top: 45px;          /* Space for close button */
+    margin-top: 45px;
     margin-bottom: 15px;
 }
 
-/* ========== AUTH BUTTONS (Side by Side) ========== */
+/* ========== AUTH BUTTONS (Two Cards Side by Side) ========== */
 .auth-buttons {
     display: flex;
     flex-direction: row;
@@ -121,13 +125,13 @@
 
 .btn-golden {
     flex: 1;
-    padding: 10px 14px;
+    padding: 12px 14px;
     background: transparent;
-    border: 2px solid var(--border-golden);
-    color: var(--golden);
+    border: 2px solid var(--border-goldenrod);
+    color: var(--goldenrod);
     font-size: 13px;
     font-weight: 600;
-    border-radius: 8px;
+    border-radius: 10px;
     cursor: pointer;
     transition: all 0.3s ease;
     text-transform: uppercase;
@@ -135,35 +139,35 @@
 }
 
 .btn-golden:hover {
-    background: var(--golden);
-    color: var(--bg-black);
-    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+    background: var(--goldenrod);
+    color: var(--bg-dark);
+    box-shadow: 0 0 15px rgba(218, 165, 32, 0.3);
 }
 
-/* ========== PROMO CARD ========== */
+/* ========== PROMO CARD (150% Deposit Bonus) ========== */
 .promo-card {
     display: flex;
     align-items: center;
     background: var(--bg-card);
-    border: 1px solid var(--border-golden);
-    border-radius: 10px;
-    padding: 12px;
+    border: 1px solid var(--border-goldenrod);
+    border-radius: 12px;
+    padding: 14px;
     cursor: pointer;
     transition: all 0.3s ease;
-    margin-bottom: 12px;
+    margin-bottom: 15px;
 }
 
 .promo-card:hover {
-    border-color: var(--golden-light);
-    box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+    border-color: var(--goldenrod-light);
+    box-shadow: 0 0 15px rgba(218, 165, 32, 0.2);
 }
 
 .promo-image {
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
     background: var(--bg-dark);
-    border: 1px solid var(--border-golden);
-    border-radius: 8px;
+    border: 1px solid var(--border-goldenrod);
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -172,8 +176,8 @@
 }
 
 .promo-image i {
-    font-size: 20px;
-    color: var(--golden);
+    font-size: 22px;
+    color: var(--goldenrod);
 }
 
 .promo-content {
@@ -181,20 +185,20 @@
 }
 
 .promo-content h3 {
-    font-size: 13px;
-    color: var(--golden-light);
-    margin-bottom: 2px;
+    font-size: 14px;
+    color: var(--goldenrod-light);
+    margin-bottom: 3px;
     font-weight: 600;
 }
 
 .promo-content p {
-    font-size: 11px;
+    font-size: 12px;
     color: var(--text-gray);
 }
 
 .promo-arrow {
-    color: var(--golden);
-    font-size: 12px;
+    color: var(--goldenrod);
+    font-size: 14px;
 }
 
 /* ========== PROFILE CARD ========== */
@@ -203,32 +207,32 @@
     align-items: center;
     justify-content: space-between;
     background: var(--bg-card);
-    border: 1px solid var(--border-golden);
-    border-radius: 10px;
-    padding: 12px;
+    border: 1px solid var(--border-goldenrod);
+    border-radius: 12px;
+    padding: 14px;
     cursor: pointer;
     transition: all 0.3s ease;
     margin-top: 45px;
-    margin-bottom: 12px;
+    margin-bottom: 15px;
 }
 
 .profile-card:hover {
-    border-color: var(--golden-light);
-    box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+    border-color: var(--goldenrod-light);
+    box-shadow: 0 0 15px rgba(218, 165, 32, 0.2);
 }
 
 .profile-left {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
 }
 
 .profile-photo {
     position: relative;
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
     background: var(--bg-dark);
-    border: 2px solid var(--border-golden);
+    border: 2px solid var(--border-goldenrod);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -236,73 +240,73 @@
 }
 
 .profile-photo i {
-    font-size: 18px;
-    color: var(--golden);
+    font-size: 20px;
+    color: var(--goldenrod);
 }
 
 .vip-badge {
     position: absolute;
     bottom: -4px;
     right: -4px;
-    background: var(--golden);
-    color: var(--bg-black);
-    font-size: 7px;
+    background: var(--goldenrod);
+    color: var(--bg-dark);
+    font-size: 8px;
     font-weight: 700;
-    padding: 1px 4px;
-    border-radius: 3px;
+    padding: 2px 5px;
+    border-radius: 4px;
     text-transform: uppercase;
 }
 
 .profile-info h3.username {
-    font-size: 14px;
+    font-size: 15px;
     color: var(--text-white);
-    margin-bottom: 2px;
+    margin-bottom: 3px;
     font-weight: 600;
 }
 
 .profile-info p.user-id {
-    font-size: 11px;
+    font-size: 12px;
     color: var(--text-gray);
 }
 
 .profile-arrow {
-    color: var(--golden);
-    font-size: 14px;
+    color: var(--goldenrod);
+    font-size: 16px;
 }
 
 /* ========== MENU ITEMS ========== */
 .sidebar-menu {
     display: flex;
     flex-direction: column;
-    gap: 3px;
+    gap: 4px;
 }
 
 .menu-item {
     border: 1px solid transparent;
-    border-radius: 8px;
+    border-radius: 10px;
     overflow: hidden;
     transition: all 0.3s ease;
 }
 
 .menu-item:hover {
-    border-color: var(--border-golden);
+    border-color: var(--border-goldenrod);
     background: var(--bg-card);
 }
 
 .menu-header {
     display: flex;
     align-items: center;
-    padding: 12px;
+    padding: 14px;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .menu-icon {
-    width: 30px;
-    height: 30px;
+    width: 32px;
+    height: 32px;
     background: var(--bg-dark);
-    border: 1px solid var(--border-golden);
-    border-radius: 6px;
+    border: 1px solid var(--border-goldenrod);
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -311,8 +315,8 @@
 }
 
 .menu-icon i {
-    font-size: 14px;
-    color: var(--golden);
+    font-size: 15px;
+    color: var(--goldenrod);
 }
 
 .menu-name {
@@ -324,13 +328,13 @@
 
 .menusub-arrow {
     color: var(--text-gray);
-    font-size: 11px;
+    font-size: 12px;
     transition: transform 0.3s ease;
 }
 
 .menusub-arrow.rotate {
     transform: rotate(180deg);
-    color: var(--golden);
+    color: var(--goldenrod);
 }
 
 /* ========== MENUSUB LIST ========== */
@@ -338,59 +342,59 @@
     display: flex;
     flex-direction: column;
     background: var(--bg-dark);
-    padding: 3px 8px 8px 50px;
-    gap: 1px;
+    padding: 4px 10px 10px 54px;
+    gap: 2px;
 }
 
 .menusub-item {
     display: flex;
     align-items: center;
-    padding: 8px 12px;
+    padding: 10px 14px;
     color: var(--text-light);
     text-decoration: none;
-    font-size: 12px;
-    border-radius: 6px;
+    font-size: 13px;
+    border-radius: 8px;
     transition: all 0.3s ease;
 }
 
 .menusub-item i {
-    font-size: 5px;
-    color: var(--golden);
-    margin-right: 8px;
+    font-size: 6px;
+    color: var(--goldenrod);
+    margin-right: 10px;
 }
 
 .menusub-item:hover {
     background: var(--bg-card);
-    color: var(--golden-light);
-    padding-left: 16px;
+    color: var(--goldenrod-light);
+    padding-left: 18px;
 }
 
 /* ========== DEMO TOGGLE ========== */
 .demo-toggle {
-    margin-top: 15px;
-    padding-top: 12px;
+    margin-top: 20px;
+    padding-top: 15px;
     border-top: 1px solid var(--bg-dark);
 }
 
 .btn-demo {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     background: var(--bg-dark);
     border: 1px dashed var(--text-gray);
     color: var(--text-gray);
-    font-size: 11px;
-    border-radius: 6px;
+    font-size: 12px;
+    border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 6px;
+    gap: 8px;
 }
 
 .btn-demo:hover {
-    border-color: var(--golden);
-    color: var(--golden);
+    border-color: var(--goldenrod);
+    color: var(--goldenrod);
 }
 
 /* ========== BOTTOM FOOTER ========== */
@@ -399,9 +403,9 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    background: var(--bg-black);
+    background: var(--bg-dimgray);
     z-index: 997;
-    padding: 6px 0;
+    padding: 8px 0;
 }
 
 .footer-nav {
@@ -416,22 +420,22 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 3px;
-    padding: 4px 12px;
+    gap: 4px;
+    padding: 5px 14px;
     cursor: pointer;
     transition: all 0.3s ease;
-    border-radius: 8px;
+    border-radius: 10px;
     user-select: none;
 }
 
 .footer-item i {
-    font-size: 18px;
+    font-size: 20px;
     color: var(--text-gray);
     transition: all 0.3s ease;
 }
 
 .footer-item span {
-    font-size: 10px;
+    font-size: 11px;
     color: var(--text-gray);
     transition: all 0.3s ease;
 }
@@ -439,25 +443,23 @@
 /* Active state */
 .footer-item.active i,
 .footer-item.active span {
-    color: var(--golden-light);
+    color: var(--goldenrod-light);
 }
 
 .footer-item.active {
-    background: rgba(212, 175, 55, 0.1);
+    background: rgba(218, 165, 32, 0.1);
 }
 
 /* Hover state */
 .footer-item:hover i,
 .footer-item:hover span {
-    color: var(--golden);
+    color: var(--goldenrod);
 }
 
 /* ========== RESPONSIVE ========== */
 @media (max-width: 380px) {
     .sidebar {
-        width: 55%;                    /* Slightly bigger on small screens */
-        max-width: none;
-        height: 75%;                   /* Taller on small screens */
+        width: 55%;
         padding: 12px;
     }
     
@@ -466,23 +468,22 @@
     }
     
     .btn-golden {
-        padding: 8px 10px;
+        padding: 10px 12px;
         font-size: 12px;
     }
     
     .footer-item {
-        padding: 4px 8px;
+        padding: 5px 10px;
     }
     
     .footer-item span {
-        font-size: 9px;
+        font-size: 10px;
     }
 }
 
 @media (min-width: 768px) {
     .sidebar {
-        width: 35%;                    /* Smaller on tablets */
-        max-width: 300px;
-        height: 60%;
+        width: 35%;
+        max-width: 280px;
     }
 }
