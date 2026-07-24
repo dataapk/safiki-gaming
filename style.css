@@ -4527,7 +4527,7 @@ END MY BONUS SECTION
 
 .auth-left{
     width:40%;
-    padding:30px;
+    padding:25px 30px;
 
     background:linear-gradient(
         135deg,
@@ -4545,34 +4545,34 @@ END MY BONUS SECTION
     color:#fff;
 }
 .auth-left h1{
-    font-size:30px;
+    font-size:28px;
     color:#22c55e;
-    margin-bottom:12px;
+    margin:0 0 10px 0;
 }
 
 
 .auth-left h3{
-    font-size:18px;
-    margin:10px 0;
+    font-size:17px;
+    margin:8px 0;
 }
 
 
 .auth-left p{
-    font-size:14px;
-    line-height:1.5;
-    color:#ccc;
+    font-size:13px;
+    line-height:1.4;
+    margin:5px 0;
 }
 
 
 .auth-left ul{
-    margin-top:15px;
+    margin:10px 0 0;
     padding-left:18px;
 }
 
 
 .auth-left li{
-    font-size:13px;
-    margin-bottom:8px;
+    font-size:12px;
+    margin-bottom:6px;
 }
 
 .auth-right{
