@@ -4480,9 +4480,9 @@ END MY BONUS SECTION
 }
 
 .auth-box{
-    width:950px;
+    width:850px;
     max-width:95%;
-    min-height:460px;
+    min-height:400px;
     display:flex;
     overflow:hidden;
     border-radius:18px;
@@ -4491,49 +4491,102 @@ END MY BONUS SECTION
     box-shadow:0 0 40px rgba(34,197,94,.25);
 }
 
+.auth-btn{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:10px;
+
+    background:linear-gradient(
+        90deg,
+        #16a34a,
+        #22c55e
+    );
+
+    color:#fff;
+
+    font-size:17px;
+    font-weight:700;
+
+    cursor:pointer;
+    transition:.3s;
+
+    box-shadow:
+    0 8px 20px rgba(34,197,94,.35);
+}
+
+
+.auth-btn:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+    0 12px 30px rgba(34,197,94,.55);
+
+}
+
 .auth-left{
-    width:42%;
-    padding:45px;
-    background:linear-gradient(135deg,#0d0d0d,#1b1b1b,#2d1f05);
+    width:40%;
+    padding:30px;
+
+    background:linear-gradient(
+        135deg,
+        #0d0d0d,
+        #1b1b1b,
+        #162f22
+    );
+
     display:flex;
     flex-direction:column;
-    justify-content:center;
+    justify-content:flex-start;
+
+    padding-top:35px;
+
     color:#fff;
 }
-
 .auth-left h1{
-    font-size:42px;
-    color:#ffd700;
-    margin-bottom:20px;
+    font-size:30px;
+    color:#22c55e;
+    margin-bottom:12px;
 }
+
 
 .auth-left h3{
-    color:#fff;
-    margin:15px 0;
+    font-size:18px;
+    margin:10px 0;
 }
+
 
 .auth-left p{
+    font-size:14px;
+    line-height:1.5;
     color:#ccc;
-    line-height:1.7;
 }
 
+
 .auth-left ul{
-    margin-top:25px;
+    margin-top:15px;
     padding-left:18px;
 }
 
+
 .auth-left li{
-    margin-bottom:12px;
-    color:#eee;
+    font-size:13px;
+    margin-bottom:8px;
 }
 
 .auth-right{
     flex:1;
-    padding:50px;
+
+    padding:35px;
+
     background:#171717;
+
     display:flex;
     flex-direction:column;
-    justify-content:center;
+    justify-content:flex-start;
+
+    padding-top:45px;
 }
 
 .auth-right h2{
