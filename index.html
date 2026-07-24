@@ -2494,118 +2494,204 @@ style="display:none;">
      🟢 START: SIDEBAR & FOOTER SECTION
 ====================================================== -->
 
-<!-- Overlay (click to close) -->
+<!-- Overlay -->
 <div class="sidebar-overlay" id="sidebarOverlay" onclick="footerCloseSidebar()"></div>
 
-<!-- Sidebar (50% width, left side) -->
+<!-- Sidebar -->
 <div class="sidebar" id="sidebar">
-    
-    <!-- Close Button (✕) Top Right -->
+
+    <!-- Close -->
     <button class="sidebar-close" onclick="footerCloseSidebar()">
         <i class="fas fa-times"></i>
     </button>
 
-    <!-- ===== LOGIN & SIGN UP (Side by Side) ===== -->
+    <!-- Login & Signup -->
     <div class="auth-buttons">
-        <button class="btn-golden" onclick="footerGoToLogin()">Login</button>
-        <button class="btn-golden" onclick="footerGoToSignup()">Sign Up</button>
+        <button class="btn-golden" onclick="footerGoToLogin()">
+            Login
+        </button>
+
+        <button class="btn-golden" onclick="footerGoToSignup()">
+            Sign Up
+        </button>
     </div>
 
-    <!-- ===== 150% DEPOSIT BONUS CARD ===== -->
-    <div class="promo-card" onclick="footerGoToBonus()">
-        <i class="fas fa-gift"></i>
-        <span>150% Deposit Bonus</span>
-        <i class="fas fa-chevron-right"></i>
-    </div>
+    <!-- ================= MENU ================= -->
 
-    <!-- ===== MENU ITEMS ===== -->
     <nav class="sidebar-menu">
-        
-        <!-- Casino (Dropdown) -->
+
+        <!-- Casino -->
         <div class="menu-item">
-            <div class="menu-header" onclick="event.stopPropagation(); footerToggleMenuSub('casinoMenuSub', 'casinoArrow')">
+
+            <div class="menu-header"
+                 onclick="event.stopPropagation(); footerToggleMenuSub('casinoMenuSub','casinoArrow')">
+
                 <i class="fas fa-dice"></i>
                 <span>Casino</span>
+
                 <i class="fas fa-chevron-down" id="casinoArrow"></i>
+
             </div>
+
             <div class="menusub-list menusub-hidden" id="casinoMenuSub">
-                <a href="#" class="menusub-item"><i class="fas fa-dharmachakra"></i> Wheel Game</a>
-                <a href="#" class="menusub-item"><i class="fas fa-slot-machine"></i> Slot Game</a>
-                <a href="#" class="menusub-item"><i class="fas fa-rocket"></i> Crash Game</a>
+
+                <a href="#" class="menusub-item">
+                    <i class="fas fa-dharmachakra"></i>
+                    Wheel Game
+                </a>
+
+                <a href="#" class="menusub-item">
+                    <i class="fas fa-slot-machine"></i>
+                    Slot Game
+                </a>
+
+                <a href="#" class="menusub-item">
+                    <i class="fas fa-rocket"></i>
+                    Crash Game
+                </a>
+
             </div>
+
         </div>
 
-        <!-- Sports (Dropdown) -->
+        <!-- Sports -->
         <div class="menu-item">
-            <div class="menu-header" onclick="event.stopPropagation(); footerToggleMenuSub('sportsMenuSub', 'sportsArrow')">
+
+            <div class="menu-header"
+                 onclick="event.stopPropagation(); footerToggleMenuSub('sportsMenuSub','sportsArrow')">
+
                 <i class="fas fa-futbol"></i>
                 <span>Sports</span>
+
                 <i class="fas fa-chevron-down" id="sportsArrow"></i>
+
             </div>
+
             <div class="menusub-list menusub-hidden" id="sportsMenuSub">
-                <a href="#" class="menusub-item"><i class="fas fa-cricket"></i> Cricket</a>
-                <a href="#" class="menusub-item"><i class="fas fa-futbol"></i> Football</a>
+
+                <a href="#" class="menusub-item">
+                    <i class="fas fa-cricket"></i>
+                    Cricket
+                </a>
+
+                <a href="#" class="menusub-item">
+                    <i class="fas fa-futbol"></i>
+                    Football
+                </a>
+
             </div>
+
         </div>
 
-        <!-- Bonuses (Dropdown) -->
+        <!-- Bonuses -->
         <div class="menu-item">
-            <div class="menu-header" onclick="event.stopPropagation(); footerToggleMenuSub('bonusesMenuSub', 'bonusesArrow')">
+
+            <div class="menu-header"
+                 onclick="event.stopPropagation(); footerToggleMenuSub('bonusesMenuSub','bonusesArrow')">
+
                 <i class="fas fa-gift"></i>
                 <span>Bonuses</span>
+
                 <i class="fas fa-chevron-down" id="bonusesArrow"></i>
+
             </div>
+
             <div class="menusub-list menusub-hidden" id="bonusesMenuSub">
-                <a href="#" class="menusub-item"><i class="fas fa-hand-holding-usd"></i> First Deposit 150%</a>
-                <a href="#" class="menusub-item"><i class="fas fa-birthday-cake"></i> Birthday Bonus</a>
-                <a href="#" class="menusub-item"><i class="fas fa-calendar-week"></i> Weekly Bonus</a>
-                <a href="#" class="menusub-item"><i class="fas fa-bullhorn"></i> Promotional Offers</a>
+
+                <a href="#" class="menusub-item">
+                    <i class="fas fa-hand-holding-usd"></i>
+                    First Deposit 150%
+                </a>
+
+                <a href="#" class="menusub-item">
+                    <i class="fas fa-birthday-cake"></i>
+                    Birthday Bonus
+                </a>
+
+                <a href="#" class="menusub-item">
+                    <i class="fas fa-calendar-week"></i>
+                    Weekly Bonus
+                </a>
+
+                <a href="#" class="menusub-item">
+                    <i class="fas fa-bullhorn"></i>
+                    Promotional Offers
+                </a>
+
             </div>
+
         </div>
 
-        <!-- Refer a Friend (No Dropdown) -->
+        <!-- Refer -->
         <div class="menu-item">
-            <div class="menu-header" onclick="event.stopPropagation(); footerGoToRefer()">
+
+            <div class="menu-header"
+                 onclick="event.stopPropagation(); footerGoToRefer()">
+
                 <i class="fas fa-user-plus"></i>
                 <span>Refer a Friend</span>
+
             </div>
+
         </div>
 
-        <!-- Support (No Dropdown) -->
+        <!-- Support -->
         <div class="menu-item">
-            <div class="menu-header" onclick="event.stopPropagation(); footerGoToSupport()">
+
+            <div class="menu-header"
+                 onclick="event.stopPropagation(); footerGoToSupport()">
+
                 <i class="fas fa-headset"></i>
                 <span>Support</span>
+
             </div>
+
         </div>
+
     </nav>
 
-    <!-- Toggle Login (Dev Only) -->
-    <button class="btn-demo" onclick="footerToggleLogin()">
-        <i class="fas fa-exchange-alt"></i> Toggle Login
-    </button>
 </div>
 
-<!-- ==================== BOTTOM FOOTER ==================== -->
+<!-- ================= FOOTER ================= -->
+
 <footer class="bottom-footer">
+
     <div class="footer-nav">
-        <div class="footer-item" id="menuBtn" onclick="footerToggleSidebar()">
+
+        <div class="footer-item" id="menuBtn"
+             onclick="footerToggleSidebar()">
+
             <i class="fas fa-bars"></i>
             <span>Menu</span>
+
         </div>
-        <div class="footer-item" id="searchBtn" onclick="footerSetActive(this); footerOpenSearch()">
+
+        <div class="footer-item" id="searchBtn"
+             onclick="footerSetActive(this); footerOpenSearch()">
+
             <i class="fas fa-search"></i>
             <span>Search</span>
+
         </div>
-        <div class="footer-item" id="historyBtn" onclick="footerSetActive(this); footerOpenBetHistory()">
+
+        <div class="footer-item" id="historyBtn"
+             onclick="footerSetActive(this); footerOpenBetHistory()">
+
             <i class="fas fa-history"></i>
             <span>Bet History</span>
+
         </div>
-        <div class="footer-item" id="homeBtn" onclick="footerSetActive(this); footerGoHome()">
+
+        <div class="footer-item" id="homeBtn"
+             onclick="footerSetActive(this); footerGoHome()">
+
             <i class="fas fa-home"></i>
             <span>Home</span>
+
         </div>
+
     </div>
+
 </footer>
 
 
