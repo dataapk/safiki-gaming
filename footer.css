@@ -74,15 +74,25 @@
 
 .footer-item i{
 
-    font-size:22px;
+    color:#ffffff;
 
-    color:#22c55e;
-
-    transition:.3s;
+    transition:.3s ease;
 
 }
 
+.footer-item span{
 
+    color:#ffffff;
+
+}
+.footer-item.active i,
+.footer-item.active span{
+
+    color:#22c55e;
+
+    filter:drop-shadow(0 0 8px #22c55e);
+
+}
 
 .footer-item:hover,
 .footer-item.active{
@@ -394,102 +404,93 @@
 
 .menu-header{
 
-
     height:52px;
-
 
     display:flex;
 
-
     align-items:center;
 
-
-    gap:15px;
-
+    gap:14px;
 
     padding:0 15px;
 
-
-    margin-bottom:10px;
-
-
     border-radius:14px;
 
-
-    color:white;
-
+    color:#ffffff;
 
     cursor:pointer;
 
+    background:transparent;
 
-    background:
-
-    rgba(255,255,255,.05);
-
-
-
-    border:
-
-    1px solid rgba(34,197,94,.2);
-
-
-    transition:.3s;
-
+    transition:.3s ease;
 
 }
 
 
-
-.menu-header i:first-child{
-
-
-    width:25px;
-
-    color:#22c55e;
+.menu-header > i:first-child{
 
     font-size:20px;
 
+    color:#ffffff;
 
 }
-
 
 
 .menu-header:hover{
 
+    background:rgba(34,197,94,.12);
 
-    background:
-
-    rgba(34,197,94,.15);
-
-
-    color:#ffd700;
-
+    color:#22c55e;
 
 }
 
+.menu-header .fa-dice{
 
+    color:#ff4d6d;
+}
+
+
+.menu-header .fa-futbol{
+
+    color:#22c55e;
+}
+
+
+.menu-header .fa-gift{
+
+    color:#ffd700;
+}
+
+
+.menu-header .fa-user-plus{
+
+    color:#38bdf8;
+}
+
+
+.menu-header .fa-headset{
+
+    color:#a78bfa;
+}
 
 /* ================= SUB MENU ================= */
 
 
 .menusub-list{
 
+    margin-left:25px;
 
-    margin-left:40px;
+    padding:0;
 
+    background:none;
 
-    overflow:hidden;
-
-
-    transition:.3s;
-
+    border:none;
 
 }
 
 
 
 .menusub-hidden{
-
 
     display:none;
 
@@ -499,48 +500,62 @@
 
 .menusub-item{
 
+    height:42px;
 
     display:flex;
 
-
     align-items:center;
-
 
     gap:12px;
 
+    padding-left:20px;
 
-    height:42px;
-
-
-    padding:0 12px;
+    margin:4px 0;
 
 
-    margin-bottom:8px;
-
-
-    border-radius:10px;
-
+    color:#ddd;
 
     text-decoration:none;
 
+    background:transparent;
 
-    color:#ccc;
+    border:none;
 
+    border-radius:10px;
 
-    background:
-
-    rgba(255,255,255,.04);
-
+    transition:.3s ease;
 
 }
 
 
 
+/* Different Icon Colors */
+
+
 .menusub-item i{
 
+    width:20px;
+
+    font-size:17px;
+
+}
+.menusub-item:nth-child(1) i{
 
     color:#ffd700;
 
+}
+
+
+.menusub-item:nth-child(2) i{
+
+    color:#22c55e;
+
+}
+
+
+.menusub-item:nth-child(3) i{
+
+    color:#ff4d6d;
 
 }
 
@@ -548,17 +563,11 @@
 
 .menusub-item:hover{
 
+    color:#22c55e;
 
-    color:white;
-
-
-    background:
-
-    rgba(255,215,0,.12);
-
+    background:rgba(34,197,94,.10);
 
 }
-
 
 
 /* MOBILE */
