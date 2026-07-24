@@ -4527,12 +4527,12 @@ END MY BONUS SECTION
 
 .auth-left{
     width:42%;
-    padding:25px 35px;
+    padding:25px;
     background:linear-gradient(
-        145deg,
+        135deg,
         #071f14,
         #101010,
-        #2d2205
+        #1a1200
     );
     display:flex;
     flex-direction:column;
@@ -4544,70 +4544,68 @@ END MY BONUS SECTION
 
 /* MAIN TITLE */
 
-.auth-left h1,
-.auth-left p{
-    background:rgba(0,0,0,.45);
-    width:85%;
+/* WELCOME TITLE */
+
+.auth-left h1{
+    width:100%;
     text-align:center;
-    margin-left:auto;
-    margin-right:auto;
+    font-size:32px;
+    color:#22c55e;
+    margin:0 0 8px;
 }
 
 
-/* DESCRIPTION */
+/* SUB TEXT */
 
 .auth-left p{
-    padding:8px 20px 15px;
-
-    margin-top:0;
-    margin-bottom:18px;
-
-    border-radius:0 0 16px 16px;
-
+    width:100%;
+    text-align:center;
     color:#ddd;
     font-size:14px;
-
-    border-left:1px solid rgba(255,215,0,.25);
-    border-right:1px solid rgba(255,215,0,.25);
-    border-bottom:1px solid rgba(255,215,0,.25);
+    margin:0 0 15px;
 }
 
 
-/* FEATURE BOX */
+/* FEATURE AREA */
 
 .auth-left ul{
     width:100%;
     display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:10px;
+    grid-template-columns:1fr 1fr;
+    gap:8px;
+
+    padding:12px;
     margin:0;
-    padding:15px;
+
     list-style:none;
 
-    background:rgba(34,197,94,.08);
-
-    border:1px solid rgba(34,197,94,.35);
+    background:rgba(0,0,0,.25);
 
     border-radius:14px;
 
-    box-shadow:
-    inset 0 0 15px rgba(34,197,94,.12),
-    0 0 18px rgba(212,175,55,.15);
+    border:1px solid rgba(34,197,94,.35);
 }
 
+
+/* EACH FEATURE */
 
 .auth-left li{
-    color:#fff;
-    font-size:13px;
-    padding:10px;
     text-align:center;
 
-    background:rgba(0,0,0,.35);
+    padding:8px;
 
-    border-radius:10px;
+    font-size:13px;
 
-    border:1px solid rgba(255,215,0,.25);
+    color:#fff;
+
+    background:rgba(255,255,255,.04);
+
+    border-radius:8px;
+
+    border:1px solid rgba(255,215,0,.20);
 }
+
+
 .auth-right{
     flex:1;
 
