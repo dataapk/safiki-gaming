@@ -244,6 +244,8 @@
 
 /* ================= FOOTER MENU ================= */
 
+/* ================= MENU ================= */
+
 .footer-sidebar-menu{
     margin-top:25px;
 }
@@ -256,12 +258,12 @@
     height:52px;
     display:flex;
     align-items:center;
-    gap:14px;
+
     padding:0 16px;
 
     color:#fff;
     cursor:pointer;
-    transition:.25s;
+    transition:.25s ease;
 
     background:transparent;
     border:none;
@@ -271,6 +273,35 @@
 
 .footer-menu-header:hover{
     background:rgba(255,255,255,.04);
+}
+
+/* Left Icon */
+.footer-menu-header > i:first-child{
+    width:22px;
+    min-width:22px;
+    text-align:center;
+    margin-right:14px;
+}
+
+/* Text */
+.footer-menu-header span{
+    flex:1;
+    font-size:15px;
+    font-weight:500;
+}
+
+/* Right Dropdown Arrow */
+.footer-menu-header .footer-arrow{
+    width:18px;
+    min-width:18px;
+    text-align:right;
+    font-size:13px;
+    margin-left:auto;
+    transition:transform .25s ease;
+}
+
+.footer-menu-header .footer-arrow.rotate{
+    transform:rotate(180deg);
 }
 
 
