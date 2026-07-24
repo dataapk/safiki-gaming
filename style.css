@@ -1,17 +1,27 @@
 /* গ্লোবাল রিসেট এবং জুম প্রিভেন্ট করার প্রস্তুতি */
 
 :root {
-    --bg: #302E2C;
-    --header: #282624;
-    --card: #3A3836;
-    --border: #4B4946;
+    /* Main Theme */
+    --bg: #1F1D1A;
+    --surface: #2A2825;
+    --surface-2: #34312D;
 
-    --gold: #F4C542;
-    --green: #00C853;
-    --red: #FF5252;
+    /* Accent Colors */
+    --primary: #2FBF71;      /* Soft Green */
+    --primary-hover: #26A862;
 
+    --gold: #E6C15A;         /* Soft Gold */
+    --gold-hover: #D4B14C;
+
+    /* Text */
     --text: #FFFFFF;
-    --text2: #CFCFCF;
+    --text-muted: #C9C9C9;
+
+    /* Border */
+    --border: #4A4640;
+
+    /* Effects */
+    --shadow: rgba(0,0,0,.35);
 }
 * {
     margin: 0;
@@ -80,7 +90,7 @@ img, svg {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background: var(--header);
+    background: var(--surface);
     color: #fff;
     height: 70px;
     
