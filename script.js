@@ -2266,7 +2266,9 @@ async function confirmLogout(){
 
     closeLogoutPopup();
 
-    await updateHeaderAuth();
+
+    // Auto Refresh After Logout
+    window.location.reload();
 
 }
 function updateLogoutUI(){
