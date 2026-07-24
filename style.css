@@ -14,12 +14,7 @@ html, body {
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     background-color: #302E2C;
     color: #ffffff;
-    :root {
-    --bg-color: #302E2C;
-    --card-color: #3A3836;
-    --text-color: #FFFFFF;
-    --accent-color: #F4C542;
-}
+  
     
     /* নিচের লাইনগুলো বাউন্স এবং মুভমেন্ট বন্ধ করার জন্য মূল চাবিকাঠি */
     overflow-y: auto; /* hidden এর বদলে auto বা scroll দাও */
@@ -69,7 +64,7 @@ img, svg {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background: #0f0f1a;
+    background: #302E2C;
     color: #fff;
     height: 70px;
     
@@ -84,8 +79,8 @@ img, svg {
 .main-control-box {
     display: flex;
     align-items: center;
-    background: #151520;
-    border: 1px solid #2d2d44;
+    background: #3A3836;
+    border: 1px solid #4B4946;
     border-radius: 12px;
     overflow: hidden;
 }
@@ -121,11 +116,11 @@ img, svg {
 /* মেইন বক্স ডিজাইন */
 .wallet-tabs-container {
     display: flex;
-    background: #0f0f1a;
+    background: #3A3836;
     padding: 4px;
     border-radius: 8px;
     margin-bottom: 15px;
-    border: 1px solid #2d2d44;
+    border: 1px solid #4B4946;
 }
 
 /* বাটন এবং আইকনের স্টাইল */
@@ -150,7 +145,7 @@ img, svg {
 }
 
 .tab-btn.active {
-    background: #2d2d44;
+    background: #4B4946;
     color: #00d2ff;
 }
 /* ক্রিপ্টো গ্রিড কন্টেইনার */
@@ -164,7 +159,7 @@ img, svg {
 /* প্রতিটি কারেন্সি বক্সের স্টাইল */
 /* প্রতিটি কারেন্সি বক্সের স্টাইল */
 .crypto-item {
-    background: #252545;
+    background: #3A3836;
     min-height: 65px; /* হাইট আরও কমানো হলো */
     width: 90%;       /* কলামের উইডথ ৯০% করে দিলাম যাতে ছোট দেখায় */
     max-width: 100px; /* এর চেয়ে বেশি বড় হবে না */
@@ -184,7 +179,7 @@ img, svg {
 /* হোভার ইফেক্ট */
 .crypto-item:hover {
     border: 1px solid #00d2ff;
-    background: #2d2d44;
+    background: #4B4946;
 }
 
 /* ইমেজ সাইজ */
@@ -202,8 +197,8 @@ img, svg {
 .back-box {
     display: flex;
     align-items: center;
-    background: #252a46; /* বক্সের কালার */
-    border: 1px solid #3b4269;
+    background: #3A3836;
+    border: 1px solid #4B4946;
     padding: 8px 15px;
     border-radius: 8px;
     cursor: pointer;
