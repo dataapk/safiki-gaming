@@ -24,13 +24,37 @@ window.footerOpenSidebar = function(){
  // Login হওয়ার পরে শুধু এই ফাংশন চালাবে। =====
 
 
-document.getElementById("footerGuestSection").style.display = "none";
-document.getElementById("footerUserSection").style.display = "block";
+// ================= USER UI =================
 
-document.getElementById("footerUserName").textContent = user.name;
-document.getElementById("footerUserVip").textContent = user.vip;
-document.getElementById("footerUserAvatar").src = user.avatar;
+window.footerUpdateUserUI = function(user){
 
+    const guest = document.getElementById("footerGuestSection");
+    const profile = document.getElementById("footerUserSection");
+
+    if(!guest || !profile) return;
+
+    if(user){
+
+        guest.style.display = "none";
+        profile.style.display = "block";
+
+        document.getElementById("footerUserName").textContent =
+            user.name || "Player";
+
+        document.getElementById("footerUserVip").textContent =
+            user.vip || "VIP 0";
+
+        document.getElementById("footerUserAvatar").src =
+            user.avatar || "images/default-avatar.png";
+
+    }else{
+
+        guest.style.display = "block";
+        profile.style.display = "none";
+
+    }
+
+};
 // ===== SIDEBAR CLOSE =====
 window.footerCloseSidebar = function(){
 
