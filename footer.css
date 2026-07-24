@@ -84,8 +84,9 @@
     bottom: 60px;
     left: -60%;
 
-    width: 60%;
-    max-width: 420px;
+    width: 50%;
+    max-width: 380px;
+   left: -55%;
 
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
