@@ -4508,14 +4508,13 @@ END MY BONUS SECTION
 
     width:42%;
 
-    padding:20px 35px;
+    padding:30px;
 
-    background:
-    linear-gradient(
+    background:linear-gradient(
         135deg,
-        #0f172a,
-        #111827,
-        #052e16
+        #0d0d0d,
+        #1b1b1b,
+        #2d1f05
     );
 
     display:flex;
