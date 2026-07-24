@@ -4186,6 +4186,98 @@ END MY BONUS SECTION
 
 /* START HEADER BEFORE LOGIN SIGN UP */
 /* START HEADER BEFORE LOGIN SIGN UP */
+/* ===============================
+   PREMIUM LOGIN & SIGNUP BUTTON
+================================= */
+
+.login-btn,
+.signup-btn{
+    position:relative;
+    overflow:hidden;
+    border:none;
+    cursor:pointer;
+    height:42px;
+    padding:0 22px;
+    border-radius:12px;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:.4px;
+    transition:.35s ease;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+/* LOGIN */
+
+.login-btn{
+    color:#ffffff;
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(34,197,94,.45);
+    box-shadow:
+        inset 0 0 10px rgba(34,197,94,.10),
+        0 0 12px rgba(34,197,94,.18);
+}
+
+.login-btn:hover{
+    background:linear-gradient(135deg,#16a34a,#22c55e);
+    color:#fff;
+    border-color:#22c55e;
+    transform:translateY(-2px);
+    box-shadow:
+        0 0 18px rgba(34,197,94,.45),
+        0 0 35px rgba(34,197,94,.25);
+}
+
+/* SIGNUP */
+
+.signup-btn{
+    color:#fff;
+    background:linear-gradient(135deg,#22c55e,#16a34a);
+    border:1px solid #22c55e;
+    box-shadow:
+        0 0 18px rgba(34,197,94,.35),
+        inset 0 0 12px rgba(255,255,255,.08);
+}
+
+.signup-btn:hover{
+    transform:translateY(-2px) scale(1.03);
+    box-shadow:
+        0 0 22px rgba(34,197,94,.60),
+        0 0 45px rgba(34,197,94,.30);
+}
+
+/* Shine Effect */
+
+.login-btn::before,
+.signup-btn::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-130%;
+    width:55%;
+    height:100%;
+    background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,.65),
+        transparent
+    );
+    transform:skewX(-25deg);
+    transition:.8s;
+}
+
+.login-btn:hover::before,
+.signup-btn:hover::before{
+    left:170%;
+}
+
+/* Active */
+
+.login-btn:active,
+.signup-btn:active{
+    transform:scale(.96);
+}
 
 .auth-modal{
     position:fixed;
@@ -4210,8 +4302,8 @@ END MY BONUS SECTION
     overflow:hidden;
     border-radius:18px;
     background:#111827;
-    border: 2px solid #d4af37; → 2px solid #22c55e;
-    box-shadow: rgba(212,175,55,.25) → rgba(34,197,94,.25);
+    border:2px solid #22c55e;
+    box-shadow:0 0 40px rgba(34,197,94,.25);
 }
 
 .auth-left{
