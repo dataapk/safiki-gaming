@@ -4508,13 +4508,14 @@ END MY BONUS SECTION
 
     width:42%;
 
-    padding:30px;
+    padding:40px;
 
-    background:linear-gradient(
+    background:
+    linear-gradient(
         135deg,
-        #0d0d0d,
-        #1b1b1b,
-        #2d1f05
+        #050505,
+        #101010,
+        #052e16
     );
 
     display:flex;
@@ -4606,28 +4607,32 @@ END MY BONUS SECTION
 
 .auth-left h1{
 
-    width:100%;
+    margin:0 0 15px;
 
-    text-align:center;
+    font-size:34px;
 
-    font-size:36px;
+    line-height:1.2;
 
     color:#22c55e;
 
-    margin:0 0 10px;
+    text-align:center;
 
 }
 
 
 .auth-left p{
 
-    width:100%;
+    max-width:280px;
 
-    text-align:center;
+    margin:0;
 
     color:#d1d5db;
 
-    margin:0 0 15px;
+    font-size:15px;
+
+    line-height:1.6;
+
+    text-align:center;
 
 }
 
