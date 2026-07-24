@@ -1229,10 +1229,10 @@ svg {
 
     padding:0 14px;
 
-    background:#161b2e;
-    color:#fff;
+    background:var(--surface-2);
+    color:var(--text);
 
-    border:1px solid #2b2f40;
+    border:1px solid var(--border);
     border-radius:8px;
 
     cursor:pointer;
@@ -1242,7 +1242,7 @@ svg {
 
 .transaction-currency-btn:hover{
 
-    border-color:#e67e22;
+    border-color:var(--primary);
 
 }
 
@@ -1257,14 +1257,14 @@ svg {
 
     width:170px;
 
-    background:#161b2e;
+    background:var(--surface);
 
-    border:1px solid #2b2f40;
+    border:1px solid var(--border);
     border-radius:8px;
 
     overflow:hidden;
 
-    box-shadow:0 10px 25px rgba(0,0,0,.35);
+    box-shadow:0 10px 25px var(--shadow);
 
     z-index:99999;
 
@@ -1280,7 +1280,7 @@ svg {
 
     padding:12px 14px;
 
-    color:#fff;
+    color:var(--text);
 
     font-size:13px;
 
@@ -1292,13 +1292,16 @@ svg {
 
 .transaction-currency-option:hover{
 
-    background:#e67e22;
+    background:var(--primary);
+    color:#fff;
 
 }
 
 /* ===============================
    END TRANSACTION CSS
 ================================ */
+
+
 /* =========================================
    SETTINGS SECTION
 ========================================= */
@@ -1312,10 +1315,10 @@ svg {
     max-width:94%;
     height:80vh;
     overflow-y:auto;
-    background:#13151c;
-    border:1px solid rgba(255,214,102,.25);
+    background:var(--surface);
+    border:1px solid var(--border);
     border-radius:18px;
-    box-shadow:0 20px 60px rgba(0,0,0,.45);
+    box-shadow:0 20px 60px var(--shadow);
     z-index:9998;
     display:none;
     padding:20px;
@@ -1330,12 +1333,12 @@ svg {
     justify-content:space-between;
     margin-bottom:18px;
     padding-bottom:12px;
-    border-bottom:1px solid #2b2f40;
+    border-bottom:1px solid var(--border);
 }
 
 .settings-header h3{
     margin:0 auto;
-    color:#fff;
+    color:var(--text);
     font-size:22px;
     font-weight:600;
 }
@@ -1345,15 +1348,15 @@ svg {
     height:40px;
     border:none;
     border-radius:50%;
-    background:#20263a;
-    color:#fff;
+    background:var(--surface-2);
+    color:var(--text);
     font-size:24px;
     cursor:pointer;
     transition:.3s;
 }
 
 .close-settings:hover{
-    background:#e67e22;
+    background:var(--primary);
 }
 
 /* Tabs */
@@ -1367,10 +1370,10 @@ svg {
 .settings-tab-btn{
     flex:1;
     padding:10px;
-    background:#161b2e;
-    border:1px solid #2b2f40;
+    background:var(--surface-2);
+    border:1px solid var(--border);
     border-radius:8px;
-    color:#bfbfbf;
+    color:var(--text-muted);
     cursor:pointer;
     font-size:13px;
     transition:.3s;
@@ -1378,7 +1381,7 @@ svg {
 
 .settings-tab-btn.active,
 .settings-tab-btn:hover{
-    background:#e67e22;
+    background:var(--primary);
     color:#fff;
 }
 
@@ -1391,20 +1394,20 @@ svg {
 /* Card */
 
 .settings-card{
-    background:#181d2b;
-    border:1px solid #2b2f40;
+    background:var(--surface-2);
+    border:1px solid var(--border);
     border-radius:12px;
     padding:18px;
     margin-bottom:18px;
 }
 
 .settings-card h4{
-    color:#fff;
+    color:var(--text);
     margin:0 0 15px;
 }
 
 .settings-card p{
-    color:#cfcfcf;
+    color:var(--text-muted);
     margin-bottom:15px;
 }
 
@@ -1414,17 +1417,17 @@ svg {
     width:100%;
     padding:12px;
     margin-bottom:12px;
-    background:#0f1422;
-    border:1px solid #2b2f40;
+    background:var(--bg);
+    border:1px solid var(--border);
     border-radius:8px;
-    color:#fff;
+    color:var(--text);
     font-size:14px;
     box-sizing:border-box;
 }
 
 .settings-card input:focus{
     outline:none;
-    border-color:#e67e22;
+    border-color:var(--primary);
 }
 
 /* Button */
@@ -1434,7 +1437,7 @@ svg {
     padding:12px;
     border:none;
     border-radius:8px;
-    background:#e67e22;
+    background:var(--primary);
     color:#fff;
     font-size:14px;
     cursor:pointer;
@@ -1442,25 +1445,25 @@ svg {
 }
 
 .settings-save-btn:hover{
-    background:#ff8c2a;
+    background:var(--primary-hover);
 }
 
 /* Status */
 
 .verified-status{
-    color:#2ecc71;
+    color:var(--primary);
     font-weight:600;
 }
 
 /* Active Sessions */
 
 .session-item{
-    background:#181d2b;
-    border:1px solid #2b2f40;
+    background:var(--surface-2);
+    border:1px solid var(--border);
     border-radius:12px;
     padding:16px;
     margin-bottom:15px;
-    color:#ddd;
+    color:var(--text-muted);
     line-height:1.8;
 }
 
@@ -1484,16 +1487,17 @@ svg {
     width:100%;
     padding:12px;
     margin-bottom:10px;
-    background:#20263a;
-    border:1px solid #2b2f40;
+    background:var(--surface-2);
+    border:1px solid var(--border);
     border-radius:8px;
-    color:#fff;
+    color:var(--text);
     cursor:pointer;
     transition:.3s;
 }
 
 .exclude-btn:hover{
-    background:#e67e22;
+    background:var(--primary);
+    border-color:var(--primary);
 }
 
 /* Scroll */
@@ -1503,15 +1507,15 @@ svg {
 }
 
 #settings-section::-webkit-scrollbar-thumb{
-    background:#444;
+    background:var(--border);
     border-radius:10px;
 }
-/* END SETTINFG SECTION */
+
+/* END SETTINGS SECTION */
 
 /* =========================================
         MY BONUS SECTION
 ========================================= */
-
 
 #my-bonus-section{
 
@@ -1531,13 +1535,13 @@ svg {
 
     overflow-y:auto;
 
-    background:#13151c;
+    background:var(--surface);
 
-    border:1px solid rgba(255,214,102,.25);
+    border:1px solid var(--border);
 
     border-radius:18px;
 
-    box-shadow:0 20px 60px rgba(0,0,0,.45);
+    box-shadow:0 20px 60px var(--shadow);
 
     z-index:9998;
 
@@ -1548,8 +1552,6 @@ svg {
     box-sizing:border-box;
 
 }
-
-
 
 /* Keep inside profile menu */
 
@@ -1563,7 +1565,6 @@ svg {
         BONUS HEADER
 ========================================= */
 
-
 .bonus-header{
 
     display:flex;
@@ -1576,12 +1577,11 @@ svg {
 
 }
 
-
 .bonus-header h2{
 
     margin:0;
 
-    color:#ffffff;
+    color:var(--text);
 
     font-size:22px;
 
@@ -1589,21 +1589,15 @@ svg {
 
 }
 
-
-
-
-
-
 /* =========================================
         BONUS PROGRESS CARD
 ========================================= */
 
-
 .bonus-progress-card{
 
-    background:#171b27;
+    background:var(--surface-2);
 
-    border:1px solid rgba(255,214,102,.25);
+    border:1px solid var(--border);
 
     border-radius:18px;
 
@@ -1611,7 +1605,7 @@ svg {
 
     margin-bottom:14px;
 
-    box-shadow:0 15px 40px rgba(0,0,0,.35);
+    box-shadow:0 15px 40px var(--shadow);
 
 }
 
@@ -1627,14 +1621,11 @@ svg {
 
 }
 
-
-
-
 .bonus-progress-header h3{
 
     margin:0;
 
-    color:#ffffff;
+    color:var(--text);
 
     font-size:16px;
 
@@ -1642,14 +1633,7 @@ svg {
 
 }
 
-
-
-
-
 /* STATUS */
-
-
-/* Bonus Status Badge */
 
 .bonus-status{
 
@@ -1663,38 +1647,29 @@ svg {
 
     color:#ffffff;
 
-    background:#22c55e;
+    background:var(--primary);
 
 }
-
 
 .bonus-status.active{
 
-    background:#22c55e;
+    background:var(--primary);
 
     color:#ffffff;
 
-    text-shadow:0 1px 2px rgba(0,0,0,.25);
-
 }
-
 
 .bonus-status.completed{
 
-    background:rgba(59,130,246,.15);
+    background:rgba(46,204,113,.15);
 
-    color:#60a5fa;
+    color:var(--primary);
 
 }
-
-
-
-
 
 /* =========================================
         INFO BOX
 ========================================= */
-
 
 .bonus-progress-info{
 
@@ -1706,14 +1681,13 @@ svg {
 
 }
 
-
-
-
 .bonus-info-box{
 
     flex:1;
 
-    background:#20263a;
+    background:var(--bg);
+
+    border:1px solid var(--border);
 
     padding:8px 12px;
 
@@ -1721,14 +1695,11 @@ svg {
 
 }
 
-
-
-
 .bonus-info-box span{
 
     display:block;
 
-    color:#9ca3af;
+    color:var(--text-muted);
 
     font-size:13px;
 
@@ -1736,26 +1707,17 @@ svg {
 
 }
 
-
-
-
 .bonus-info-box strong{
 
-    color:#ffd666;
+    color:var(--primary);
 
     font-size:18px;
 
 }
 
-
-
-
-
-
 /* =========================================
         PROGRESS BAR
 ========================================= */
-
 
 .bonus-progress-wrapper{
 
@@ -1777,7 +1739,7 @@ svg {
 
     justify-content:space-between;
 
-    color:#d1d5db;
+    color:var(--text-muted);
 
     font-size:14px;
 
@@ -1785,17 +1747,13 @@ svg {
 
 }
 
-
-
-
-
 .bonus-progress-bar{
 
     width:100%;
 
     height:10px;
 
-    background:#252b3d;
+    background:var(--bg);
 
     border-radius:20px;
 
@@ -1803,23 +1761,20 @@ svg {
 
 }
 
-
-
-
-
 .bonus-progress-fill{
 
     height:100%;
 
     width:0%;
 
-    background:#22c55e;
+    background:var(--primary);
 
     border-radius:20px;
 
     transition:.4s ease;
 
 }
+
 /* =========================================
         BONUS ACTION BAR
 ========================================= */
@@ -1850,7 +1805,7 @@ svg {
 
 .bonus-wallet-label{
 
-    color:#ffffff;
+    color:var(--text);
 
     font-size:13px;
 
@@ -1882,7 +1837,7 @@ svg {
 
     inset:0;
 
-    background:#374151;
+    background:var(--border);
 
     border-radius:20px;
 
@@ -1918,7 +1873,7 @@ svg {
 
 .bonus-switch input:checked + .bonus-slider{
 
-    background:#22c55e;
+    background:var(--primary);
 
 }
 
@@ -1968,9 +1923,9 @@ svg {
 
 .claim-bonus-btn.locked{
 
-    background:#374151;
+    background:var(--border);
 
-    color:#9ca3af;
+    color:var(--text-muted);
 
     cursor:not-allowed;
 
@@ -1980,20 +1935,17 @@ svg {
 
 .claim-bonus-btn.ready{
 
-    background:#22c55e;
+    background:var(--primary);
 
     color:#ffffff;
 
     cursor:pointer;
 
-    box-shadow:0 0 12px rgba(34,197,94,.35);
-
 }
-
 
 .claim-bonus-btn.ready:hover{
 
-    background:#16a34a;
+    background:var(--primary-hover);
 
 }
 
@@ -2005,9 +1957,9 @@ svg {
 
     display:flex;
 
-    background:#171b27;
+    background:var(--surface-2);
 
-    border:1px solid rgba(255,214,102,.25);
+    border:1px solid var(--border);
 
     border-radius:14px;
 
@@ -2018,10 +1970,6 @@ svg {
     margin-bottom:18px;
 
 }
-
-
-
-
 
 /* TAB BUTTON */
 
@@ -2037,7 +1985,7 @@ svg {
 
     background:transparent;
 
-    color:#9ca3af;
+    color:var(--text-muted);
 
     font-size:13px;
 
@@ -2049,28 +1997,21 @@ svg {
 
 }
 
-
-
-
-
 /* Hover */
 
 .bonus-menu-btn:hover{
 
-    color:#ffffff;
+    color:var(--text);
 
 }
-
 
 /* ACTIVE TAB */
 
 .bonus-menu-btn.active{
 
-    background:#ffd666;
+    background:var(--primary);
 
-    color:#111827;
-
-    box-shadow:0 5px 15px rgba(255,214,102,.35);
+    color:#ffffff;
 
 }
 /* =========================================
@@ -2082,9 +2023,9 @@ svg {
 
 .deposit-status-card{
 
-    background:#171b27;
+    background:var(--surface-2);
 
-    border:1px solid rgba(255,214,102,.25);
+    border:1px solid var(--border);
 
 }
 
@@ -2102,7 +2043,7 @@ svg {
 
     font-weight:700;
 
-    color:#111827;
+    color:#ffffff;
 
 }
 
@@ -2110,7 +2051,7 @@ svg {
 
 .bonus-status.active{
 
-    background:#22c55e;
+    background:var(--primary);
 
 }
 
@@ -2134,7 +2075,7 @@ svg {
 
     margin:10px 0 0;
 
-    color:#aeb6cc;
+    color:var(--text-muted);
 
     font-size:14px;
 
@@ -2169,13 +2110,13 @@ svg {
 
 .bonus-info-item{
 
-    background:#20263a;
+    background:var(--bg);
 
     border-radius:12px;
 
     padding:12px;
 
-    border:1px solid rgba(255,255,255,.06);
+    border:1px solid var(--border);
 
 }
 
@@ -2187,7 +2128,7 @@ svg {
 
     display:block;
 
-    color:#9ca3af;
+    color:var(--text-muted);
 
     font-size:12px;
 
@@ -2200,7 +2141,7 @@ svg {
 
 .bonus-info-item strong{
 
-    color:#ffffff;
+    color:var(--text);
 
     font-size:15px;
 
@@ -2232,7 +2173,7 @@ svg {
 
 .bonus-rules-list li{
 
-    color:#c5cada;
+    color:var(--text-muted);
 
     font-size:14px;
 
@@ -2272,7 +2213,7 @@ svg {
 
     height:85px;
 
-    background:#20263a;
+    background:var(--surface-2);
 
     border-radius:12px;
 
@@ -2280,7 +2221,7 @@ svg {
 
     text-decoration:none;
 
-    border:1px solid rgba(255,214,102,.12);
+    border:1px solid var(--border);
 
     display:flex;
 
@@ -2320,7 +2261,7 @@ svg {
 
 .eligible-game-card span{
 
-    color:#ffffff;
+    color:var(--text);
 
     font-size:12px;
 
@@ -2334,7 +2275,7 @@ svg {
 
 .eligible-game-card:hover{
 
-    border-color:#ffd666;
+    border-color:var(--primary);
 
     transform:translateY(-3px);
 
@@ -2353,22 +2294,17 @@ svg {
 
 @media(max-width:600px){
 
-
     .bonus-info-grid{
 
         grid-template-columns:1fr;
 
     }
 
-
-
     .eligible-games-grid{
 
         grid-template-columns:repeat(3,1fr);
 
     }
-
-
 
 }
 
@@ -2389,21 +2325,18 @@ svg {
 
 .promotional-status-card{
 
-    background:#171b27;
+    background:var(--surface-2);
 
-    border:1px solid rgba(255,214,102,.25);
+    border:1px solid var(--border);
 
 }
-
-
-
 
 
 /* Promotional Description */
 
 .promotional-status-card .bonus-description{
 
-    color:#aeb6cc;
+    color:var(--text-muted);
 
     font-size:14px;
 
@@ -2414,15 +2347,9 @@ svg {
 }
 
 
-
-
-
-
-
 /* =========================================
         PROMOTION DETAILS GRID
 ========================================= */
-
 
 .promotional-status-card + .bonus-card .bonus-info-grid{
 
@@ -2435,32 +2362,25 @@ svg {
 }
 
 
-
-
-
 /* Promotion Info Box */
 
 .promotional-status-card + .bonus-card .bonus-info-item{
 
-    background:#20263a;
+    background:var(--bg);
 
     border-radius:12px;
 
     padding:12px;
 
-    border:1px solid rgba(255,255,255,.06);
+    border:1px solid var(--border);
 
 }
-
-
-
-
 
 .promotional-status-card + .bonus-card .bonus-info-item span{
 
     display:block;
 
-    color:#9ca3af;
+    color:var(--text-muted);
 
     font-size:12px;
 
@@ -2468,13 +2388,9 @@ svg {
 
 }
 
-
-
-
-
 .promotional-status-card + .bonus-card .bonus-info-item strong{
 
-    color:#ffffff;
+    color:var(--text);
 
     font-size:15px;
 
@@ -2483,17 +2399,9 @@ svg {
 }
 
 
-
-
-
-
-
-
-
 /* =========================================
         PROMOTION RULES
 ========================================= */
-
 
 .promotional-status-card ~ .bonus-card .bonus-rules-list{
 
@@ -2503,13 +2411,9 @@ svg {
 
 }
 
-
-
-
-
 .promotional-status-card ~ .bonus-card .bonus-rules-list li{
 
-    color:#c5cada;
+    color:var(--text-muted);
 
     font-size:14px;
 
@@ -2520,17 +2424,9 @@ svg {
 }
 
 
-
-
-
-
-
-
-
 /* =========================================
         PROMOTIONAL ELIGIBLE GAMES
 ========================================= */
-
 
 .promotional-status-card ~ .bonus-card .eligible-games-grid{
 
@@ -2542,17 +2438,11 @@ svg {
 
 }
 
-
-
-
-
-
-
 .promotional-status-card ~ .bonus-card .eligible-game-card{
 
     height:85px;
 
-    background:#20263a;
+    background:var(--surface-2);
 
     border-radius:12px;
 
@@ -2566,17 +2456,11 @@ svg {
 
     text-decoration:none;
 
-    border:1px solid rgba(255,214,102,.12);
+    border:1px solid var(--border);
 
     transition:.25s;
 
 }
-
-
-
-
-
-
 
 .promotional-status-card ~ .bonus-card .eligible-game-card img{
 
@@ -2592,13 +2476,9 @@ svg {
 
 }
 
-
-
-
-
 .promotional-status-card ~ .bonus-card .eligible-game-card span{
 
-    color:#ffffff;
+    color:var(--text);
 
     font-size:12px;
 
@@ -2606,34 +2486,20 @@ svg {
 
 }
 
-
-
-
-
-
-
 .promotional-status-card ~ .bonus-card .eligible-game-card:hover{
 
-    border-color:#ffd666;
+    border-color:var(--primary);
 
     transform:translateY(-3px);
 
 }
 
 
-
-
-
-
-
-
 /* =========================================
         MOBILE RESPONSIVE
 ========================================= */
 
-
 @media(max-width:600px){
-
 
     .promotional-status-card + .bonus-card .bonus-info-grid{
 
@@ -2641,29 +2507,25 @@ svg {
 
     }
 
-
-
-
     .promotional-status-card ~ .bonus-card .eligible-games-grid{
 
         grid-template-columns:repeat(3,1fr);
 
     }
 
-
 }
-
-
-
 
 
 /* =========================================
         PROMOTIONAL BONUS CONTENT END
 ========================================= */
 
+
 /* =========================================
         BONUS HISTORY CONTENT START
 ========================================= */
+
+
 /* =========================================
         BONUS HISTORY INFO
 ========================================= */
@@ -2674,9 +2536,9 @@ svg {
 
     margin-bottom:18px;
 
-    background:#1b2030;
+    background:var(--surface-2);
 
-    border:1px solid rgba(255,214,102,.15);
+    border:1px solid var(--border);
 
     border-radius:12px;
 
@@ -2686,13 +2548,14 @@ svg {
 
     margin:0;
 
-    color:#cbd5e1;
+    color:var(--text-muted);
 
     font-size:13px;
 
     line-height:1.6;
 
 }
+
 
 /* =========================================
         BONUS HISTORY LIST
@@ -2708,6 +2571,7 @@ svg {
 
 }
 
+
 /* Empty State */
 
 .bonus-empty-state{
@@ -2716,34 +2580,40 @@ svg {
 
     text-align:center;
 
-    color:#9ca3af;
+    color:var(--text-muted);
 
-    background:#171b27;
+    background:var(--surface-2);
 
-    border:1px dashed rgba(255,214,102,.20);
+    border:1px dashed var(--border);
 
     border-radius:12px;
 
     font-size:14px;
 
 }
+
 .bonus-menu-btn{
 
     background:transparent;
-    color:#cbd5e1;
+
+    color:var(--text-muted);
+
     border-radius:10px;
+
     transition:.25s;
 
 }
 
 .bonus-menu-btn.active{
 
-    background:#ffd666;
-    color:#111827;
+    background:var(--primary);
+
+    color:#ffffff;
+
     font-weight:700;
-    box-shadow:0 0 12px rgba(255,214,102,.35);
 
 }
+
 
 /* =========================================
         BONUS HISTORY CONTENT END
@@ -2753,7 +2623,6 @@ svg {
 /* =========================================
         MOBILE
 ========================================= */
-
 
 @media(max-width:600px){
 
@@ -2768,6 +2637,8 @@ svg {
     }
 
 }
+
+
 /* =========================================
         BONUS CLOSE BUTTON
 ========================================= */
@@ -2789,16 +2660,15 @@ svg {
 
     padding-bottom:12px;
 
-    border-bottom:1px solid #2b2f40;
+    border-bottom:1px solid var(--border);
 
 }
-
 
 .bonus-header h2{
 
     margin:0;
 
-    color:#ffffff;
+    color:var(--text);
 
     font-size:22px;
 
@@ -2806,14 +2676,9 @@ svg {
 
 }
 
-
-
-
-
 /* =========================================
         BONUS CLOSE BUTTON
 ========================================= */
-
 
 .close-bonus{
 
@@ -2831,9 +2696,9 @@ svg {
 
     border-radius:50%;
 
-    background:#ffd666;
+    background:var(--primary);
 
-    color:#111827;
+    color:#ffffff;
 
     font-size:26px;
 
@@ -2847,293 +2712,480 @@ svg {
 
     cursor:pointer;
 
+    transition:.25s;
+
 }
-
-
 
 .close-bonus:hover{
 
-    background:#ffcc33;
+    background:var(--primary-hover);
 
 }
+
 /* ==========================================
 END MY BONUS SECTION
 ========================================== */
 
+
 /* ড্রপডাউন পজিশনিং */
-/* ১. ড্রপডাউন মেনু - ফুল পেজ ভিউ */
+
 .dropdown-menu {
-    position: absolute; /* তোমার লেআউটের জন্য absolute ভালো, তবে পুরো পেজ নিতে চাইলে এটি ব্যবহার করো */
-    width: 100%;        /* পুরো পেজের প্রস্থ */
-    height: 100vh;      /* পুরো স্ক্রিনের উচ্চতা */
-    left: 0;
-    top: 60px;          /* হেডারের নিচ থেকে শুরু */
-    background: #1a1a2e;
-    z-index: 1000;
-    display: none;      /* শুরুতে হাইড থাকবে */
-    overflow-y: auto;   /* অনেক কারেন্সি হলে স্ক্রল করা যাবে */
+
+    position:absolute;
+
+    width:100%;
+
+    height:100vh;
+
+    left:0;
+
+    top:60px;
+
+    background:var(--bg);
+
+    z-index:1000;
+
+    display:none;
+
+    overflow-y:auto;
+
 }
+
 .dropdown-header-bar {
-    display: flex;
-    justify-content: space-between; /* তিন অংশ আলাদা করার জন্য */
-    align-items: center;
-    background-color: #ff8c00; /* হলুদ বা কমলা রঙের শেপ */
-    padding: 12px 20px;
-    color: #000; /* টেক্সট কালো রঙে */
-    font-weight: bold;
-    border-radius: 5px 5px 0 0; /* নিচের দিকে হালকা রাউন্ড শেপ */
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    background:var(--surface-2);
+
+    padding:12px 20px;
+
+    color:var(--text);
+
+    font-weight:bold;
+
+    border-bottom:1px solid var(--border);
+
 }
-/* ড্রপডাউনের ভেতরে প্রতিটি কারেন্সি অপশন */
+
 .currency-option {
-    display: flex; /* এক লাইনে আনার জন্য */
-    align-items: center;
-    gap: 10px; /* আইকন, নাম ও ব্যালেন্সের মাঝে ফাঁকা */
-    padding: 10px;
-    cursor: pointer;
-    transition: background 0.3s ease;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:10px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
 }
 
-/* মাউস উপরে ধরলে হলুদ হাইলাইট */
 .currency-option:hover {
-    background-color: #ff8c00; /* হলুদ বা অরেঞ্জ শেড */
-    color: #fff;
+
+    background:var(--primary);
+
+    color:#fff;
+
 }
 
-/* টেক্সট ও ব্যালেন্স সুন্দর করার জন্য */
 .currency-option .name {
-    font-weight: bold;
-    flex-grow: 1; /* নামকে যতটুকু সম্ভব জায়গা নিতে দেওয়া */
+
+    font-weight:bold;
+
+    flex-grow:1;
+
 }
 
 .currency-option .balance {
-    font-size: 0.9em;
-    opacity: 0.8;
+
+    font-size:.9em;
+
+    opacity:.85;
+
 }
+
 .dropdown-header-controls {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 15px;
-    border-bottom: 1px solid #333;
-    background: #222; /* ড্রপডাউনের থেকে একটু আলাদা রঙ */
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:10px 15px;
+
+    border-bottom:1px solid var(--border);
+
+    background:var(--surface);
+
 }
 
 .filter-icons {
-    display: flex;
-    gap: 15px;
-    cursor: pointer;
+
+    display:flex;
+
+    gap:15px;
+
+    cursor:pointer;
+
 }
 
 .hide-empty-toggle {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
 }
+
 .fav-btn {
-    cursor: pointer;
-    font-size: 18px;
-    margin-right: 10px; /* লোগোর সাথে কিছুটা গ্যাপ */
-    color: #888; /* ডিফল্ট রঙ */
-    transition: 0.3s;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    margin-right:10px;
+
+    color:var(--text-muted);
+
+    transition:.3s;
+
 }
 
 .fav-btn.active {
-    color: #ff8c00; /* সিলেক্ট করলে হলুদ হয়ে যাবে */
+
+    color:var(--primary);
+
 }
-/* notification and profile  */
-/* ১. নোটিফিকেশন পপআপের স্টাইল */
+
+
+/* =========================================
+        NOTIFICATION
+========================================= */
+
 #notif-popup {
-    display: none;
-    position: absolute;
-    top: 65px; 
-    
-    /* তোমার পজিশনিং সেটিং - অপরিবর্তিত */
-    left: 25%; 
-    transform: translateX(-75%); 
-    
-    width: 320px; 
-    height: 70vh;
-    background: #0a0606;
-    border-radius: 10px;
-    
-    /* নতুন স্টাইল যোগ করা হলো */
-    border: 1px solid #ffd700; /* ১ পিক্সেল হলুদ বর্ডার */
-    box-shadow: 0 0 15px rgba(255, 215, 0, 0.2), 0 5px 15px rgba(0,0,0,0.5); /* হলুদ গ্লো + আগের শ্যাডো */
-    
-    z-index: 9999;
-    padding: 15px;
-    box-sizing: border-box;
-    overflow-y: auto;
+
+    display:none;
+
+    position:absolute;
+
+    top:65px;
+
+    left:25%;
+
+    transform:translateX(-75%);
+
+    width:320px;
+
+    height:70vh;
+
+    background:var(--surface);
+
+    border-radius:10px;
+
+    border:1px solid var(--border);
+
+    box-shadow:0 10px 30px var(--shadow);
+
+    z-index:9999;
+
+    padding:15px;
+
+    padding-top:40px !important;
+
+    box-sizing:border-box;
+
+    overflow-y:auto;
+
 }
 
-/* কন্টেইনারটিকে মেইন বক্সের ভেতরে পুরো জায়গা নিতে বলছি */
 .notif-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 100%; /* কন্টেইনার পুরো বক্সের উইডথ নেবে */
-    padding: 0 10px; /* ডানে-বামে ১০ পিক্সেল গ্যাপ রাখা হলো */
-    box-sizing: border-box; /* গ্যাপটা যাতে উইডথের ভেতর থাকে */
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+    width:100%;
+
+    padding:0 10px;
+
+    box-sizing:border-box;
+
 }
 
-/* আইটেমগুলোকে কন্টেইনারের সাথে মিল রেখে বড় করা */
-/* নোটিফিকেশন আইটেমের স্টাইল */
 .notif-box-item {
-    display: flex;
-    align-items: center; /* ডেট এবং টেক্সট সোজা রাখতে */
-    gap: 3px; /* ডেট এবং বক্সের মাঝে মাত্র ৩ পিক্সেল গ্যাপ */
-    margin-bottom: 8px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:3px;
+
+    margin-bottom:8px;
+
 }
 
 .notif-date {
-    font-size: 11px;
-    color: #ffd700;
-    min-width: 55px; /* ডেটের উইডথ কমিয়ে দিয়েছি */
-    text-align: left;
+
+    font-size:11px;
+
+    color:var(--primary);
+
+    min-width:55px;
+
+    text-align:left;
+
 }
 
 .notif-text {
-    flex-grow: 1;
-    padding: 8px 12px; /* হাইট কমাতে প্যাডিং কমানো হয়েছে */
-    background: #161a23;
-    border: 1px solid #333;
-    border-radius: 5px;
-    color: #fff;
-    font-size: 13px;
-    white-space: nowrap; /* লেখা এক লাইনে রাখতে */
+
+    flex-grow:1;
+
+    padding:8px 12px;
+
+    background:var(--surface-2);
+
+    border:1px solid var(--border);
+
+    border-radius:5px;
+
+    color:var(--text);
+
+    font-size:13px;
+
+    white-space:nowrap;
+
 }
 
 
-/* পেজিনেশন এরিয়াটি বক্সের একদম নিচে সুন্দরভাবে বসানোর জন্য */
+/* Pagination */
+
 .pagination {
-    display: flex !important;         /* পাশাপাশি রাখার জন্য বাধ্যতামূলক */
-    flex-direction: row !important;  /* সব এলিমেন্ট ডানে-বামে সারিবদ্ধ করবে */
-    justify-content: center !important; /* একদম মাঝখানে (মিডিল) পজিশন করবে */
-    align-items: center !important;
-    gap: 10px;                       /* এলিমেন্টগুলোর মাঝে গ্যাপ */
-    width: 100%;                     /* কন্টেইনারের পুরো জায়গা নেবে */
-    padding: 10px 0;                 /* বক্সের ভেতর একটু জায়গা ছাড়বে */
-    margin-top: auto;                /* এটি ব্যবহার করলে পেজিনেশন বক্সের নিচে নেমে যাবে */
+
+    display:flex !important;
+
+    justify-content:center !important;
+
+    align-items:center !important;
+
+    gap:10px;
+
+    width:100%;
+
+    padding:10px 0;
+
+    margin-top:auto;
+
 }
 
-/* নাম্বারগুলোর স্টাইল */
 .page-numbers {
-    display: flex;                   /* নাম্বারগুলো পাশাপাশি রাখার জন্য */
-    gap: 8px;                        /* নাম্বারগুলোর মাঝে গ্যাপ */
-    color: #fff;                     /* কালার */
-    cursor: pointer;
+
+    display:flex;
+
+    gap:8px;
+
+    color:var(--text);
+
+    cursor:pointer;
+
 }
 
-/* বাটনগুলোর স্টাইল */
 .page-btn {
-    background: none;
-    border: 1px solid #ffd700;
-    color: #ffd700;
-    padding: 2px 8px;
-    border-radius: 4px;
-    cursor: pointer;
+
+    background:transparent;
+
+    border:1px solid var(--primary);
+
+    color:var(--primary);
+
+    padding:2px 8px;
+
+    border-radius:4px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
 }
 
 .page-btn:hover {
-    background: #ffd700;
-    color: #0a0606;
+
+    background:var(--primary);
+
+    color:#fff;
+
 }
 
 .page-info {
-    font-weight: bold;
-    letter-spacing: 5px; /* নম্বরগুলোর মাঝে একটু গ্যাপ */
+
+    font-weight:bold;
+
+    letter-spacing:5px;
+
 }
+
 #close-notif {
-    background: none;
-    border: none;
-    color: #ffd700; /* হলুদ রঙ (তোমার বর্ডারের সাথে মিল রেখে) */
-    font-size: 24px;
-    cursor: pointer;
-    position: absolute;
-    top: 5px;
-    right: 10px;
-    line-height: 1;
+
+    background:none;
+
+    border:none;
+
+    color:var(--primary);
+
+    font-size:24px;
+
+    cursor:pointer;
+
+    position:absolute;
+
+    top:5px;
+
+    right:10px;
+
+    line-height:1;
+
 }
 
 #close-notif:hover {
-    color: #fff; /* মাউস নিলে রঙ সাদা হবে */
+
+    color:#fff;
+
 }
 
-/* ক্রস বাটনের জন্য জায়গা রাখতে মেইন বক্সের টপ প্যাডিং বাড়ানো */
-#notif-popup {
-    padding-top: 40px !important; /* বাটনটি যাতে লেখার ওপর না পড়ে */
-}
-/* নোটিফিকেশনের ক্ষেত্রে লেটেস্টটা উপরে আসার লজিক */
-/* ডাইনামিকালি রেন্ডার করার সময় নতুন এলিমেন্ট .prepend() করলে এটি কাজ করবে */
 
-/* ২. প্রোফাইল পপআপের স্টাইল */
+/* =========================================
+        PROFILE MENU
+========================================= */
+
 #profile-menu {
-    display: none;
-    position: absolute;
-    top: 60px; 
-    right: 3px;
-    width: 150px; /* তোমার চাওয়া অনুযায়ী উইডথ */
-    background: #0a0606;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    z-index: 9999;
-    padding: 10px 0;
+
+    display:none;
+
+    position:absolute;
+
+    top:60px;
+
+    right:3px;
+
+    width:150px;
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:10px;
+
+    box-shadow:0 10px 30px var(--shadow);
+
+    z-index:9999;
+
+    padding:10px 0;
+
 }
 
-/* প্রোফাইল পপআপের ভেতরের আইকনগুলোর জন্য ফিক্সড কালার */
 #profile-menu .menu-item i {
-    color: #ffd700 !important; /* গোল্ডেন কালার সব সময় থাকবে */
-    margin-right: 12px;
-    width: 20px;
-    text-align: center;
-    transition: color 0.3s ease; /* স্মুথ ট্রানজিশনের জন্য */
+
+    color:var(--primary) !important;
+
+    margin-right:12px;
+
+    width:20px;
+
+    text-align:center;
+
+    transition:.3s;
+
 }
 
-/* মেনুর লেখার কালার আলাদা রাখতে চাইলে (ঐচ্ছিক) */
 #profile-menu .menu-item {
-    padding: 10px 25px; 
-    /* আগের চেয়ে প্যাডিং বাড়ানো হয়েছে (২০px উপরে-নিচে, ২৫px ডানে-বামে) */
-    height: 40px;
-    cursor: pointer;
-    color: #ffffff;
-    transition: 0.3s;
-    font-size: 15px;          /* ফন্ট সাইজ একটু বড় করে দিলাম যেন ক্লিয়ার দেখা যায় */
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid #2a303c;
+
+    padding:10px 25px;
+
+    height:40px;
+
+    cursor:pointer;
+
+    color:var(--text);
+
+    transition:.3s;
+
+    font-size:15px;
+
+    display:flex;
+
+    align-items:center;
+
+    border-bottom:1px solid var(--border);
+
 }
 
 .menu-item:hover {
-    background: #252c38;
-    color: #ffd700; /* হোভার করলে গোল্ড কালার হবে */
+
+    background:var(--surface-2);
+
+    color:var(--primary);
+
 }
 
-/* Logout Modal Overlay */
+
+/* =========================================
+        LOGOUT MODAL
+========================================= */
+
 #logout-confirm-popup {
-    display: none; /* Hidden by default */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.85); /* Darker overlay for focus */
-    z-index: 10000;
-    justify-content: center;
-    align-items: center;
+
+    display:none;
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:100%;
+
+    background:rgba(0,0,0,.85);
+
+    z-index:10000;
+
+    justify-content:center;
+
+    align-items:center;
+
 }
 
-/* Modal Box */
 .logout-box {
-    background: #161a23;
-    padding: 25px;
-    border-radius: 12px;
-    border: 1px solid #ffd700;
-    text-align: center;
-    color: #fff;
-    width: 320px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-}
 
+    background:var(--surface);
+
+    padding:25px;
+
+    border-radius:12px;
+
+    border:1px solid var(--border);
+
+    text-align:center;
+
+    color:var(--text);
+
+    width:320px;
+
+    box-shadow:0 10px 30px var(--shadow);
+
+}
 /* Action Buttons Container */
 .logout-actions {
     margin-top: 25px;
@@ -3144,81 +3196,93 @@ END MY BONUS SECTION
 
 /* Buttons */
 .confirm-btn {
-    background: #ffd700;
+    background: var(--primary);
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-    color: #000;
+    color: #fff;
     font-weight: bold;
-    transition: 0.3s;
+    transition: .3s;
 }
 
 .confirm-btn:hover {
-    background: #e6c200;
+    background: var(--primary-hover);
 }
 
 .cancel-btn {
-    background: #4a3d3d;
-    border: none;
-    color: #fff;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    color: var(--text);
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-    transition: 0.3s;
+    transition: .3s;
 }
 
 .cancel-btn:hover {
-    background: #5e4d4d;
+    background: var(--border);
 }
 
 /* আইকন বক্স */
 .actions-box {
-    background: #1a1a2e;
+    background: var(--surface);
     padding: 10px 15px;
     border-radius: 10px;
-    border: 1px solid #2d2d44;
+    border: 1px solid var(--border);
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: 0.3s;
+    transition: .3s;
     position: relative;
+}
+
+.actions-box:hover {
+    border-color: var(--primary);
+    background: var(--surface-2);
 }
 
 /* আইকনকে ক্লিক ইভেন্ট থেকে মুক্ত রাখা */
 .actions-box i {
-    pointer-events: none; 
+    pointer-events: none;
+    color: var(--text);
 }
-
-
 
 /* মোবাইল ডিভাইসের জন্য অ্যাডজাস্টমেন্ট */
-@media (max-width: 480px) {
-    .header { 
-        padding: 10px 10px; 
-        box-sizing: border-box; /* এই লাইনটিই প্যাডিংকে হেডারের ভেতরে রাখবে */
-        /* যদি হাইট ফিক্সড থাকে, তবে নিচের লাইনটি যোগ করে দাও */
-        height: 60px; /* তোমার হেডারের কাঙ্ক্ষিত হাইট এখানে ফিক্স করো */
-    } 
-    .balance-text { font-size: 12px; }
+@media (max-width:480px){
+
+    .header{
+        padding:10px;
+        box-sizing:border-box;
+        height:60px;
+    }
+
+    .balance-text{
+        font-size:12px;
+    }
+
 }
 
-/* START DEPOSIT SECTION  */
-/* মেইন কন্টেইনার বক্স */
+/* =========================================
+   START DEPOSIT SECTION
+========================================= */
+
 .address-container {
-    background: #1a1e34; /* ডার্ক ব্যাকগ্রাউন্ড */
+    background: var(--surface);
+    border: 1px solid var(--border);
     padding: 20px;
     border-radius: 15px;
     width: 90%;
     max-width: 400px;
     margin: 20px auto;
-    color: white;
+    color: var(--text);
     text-align: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    box-shadow: 0 10px 30px var(--shadow);
 }
 
-/* হেডার (ব্যাক বাটন ও টাইটেল) */
+/* Header */
+
 .addr-header {
     display: flex;
     align-items: center;
@@ -3228,26 +3292,28 @@ END MY BONUS SECTION
 .addr-header button {
     background: none;
     border: none;
-    color: white;
+    color: var(--text);
     font-size: 20px;
     cursor: pointer;
     margin-right: 15px;
 }
 
-/* নেটওয়ার্ক সিলেকশন ড্রপডাউন */
+/* Network */
+
 #network-select {
     width: 100%;
     padding: 10px;
     border-radius: 8px;
-    background: #252a46;
-    color: white;
-    border: 1px solid #3b4269;
+    background: var(--surface-2);
+    color: var(--text);
+    border: 1px solid var(--border);
     margin-bottom: 20px;
 }
 
-/* কিউআর কোড বক্স */
+/* QR */
+
 .qr-code-box {
-    background: white; /* কিউআর কোডের জন্য সাদা ব্যাকগ্রাউন্ড */
+    background: #ffffff;
     padding: 15px;
     border-radius: 12px;
     display: inline-block;
@@ -3255,114 +3321,156 @@ END MY BONUS SECTION
 }
 
 .qr-code-box img {
-    width: 180px; /* কিউআর কোডের সাইজ */
+    width: 180px;
     height: 180px;
     display: block;
 }
 
-/* অ্যাড্রেস ইনপুট এরিয়া */
+/* Address */
+
 .address-input-box {
-    background: #252a46;
+    background: var(--surface-2);
     padding: 12px;
     border-radius: 8px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 10px;
-    border: 1px solid #3b4269;
+    border: 1px solid var(--border);
 }
 
 #wallet-address {
     font-size: 14px;
     word-break: break-all;
     margin-right: 10px;
+    color: var(--text);
 }
 
-/* ইনফো বক্স */
+/* Info */
+
 .info-box {
     margin-top: 20px;
     font-size: 12px;
-    color: #a0a0a0;
+    color: var(--text-muted);
     text-align: left;
 }
-/* END DEPOSIT SECTION  */
 
-/* START WITHDRAW SECTION  */
-/* উইথড্র কন্টেইনার বক্স */
+/* =========================================
+   END DEPOSIT SECTION
+========================================= */
+
+
+/* =========================================
+   START WITHDRAW SECTION
+========================================= */
+
 #withdraw-input-box {
-    background: #1a1e34;
+    background: var(--surface);
+    border: 1px solid var(--border);
     padding: 25px;
     border-radius: 15px;
     width: 90%;
     max-width: 400px;
     margin: 20px auto;
-    color: white;
-    text-align: left; /* ইনপুট ফিল্ডগুলো সাধারণত বাম দিকে থাকলে সুন্দর লাগে */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    color: var(--text);
+    text-align: left;
+    box-shadow: 0 10px 30px var(--shadow);
 }
 
-/* উইথড্র সেকশনের ইনপুট ফিল্ডগুলো */
-#withdraw-input-box input, 
+#withdraw-input-box input,
 #withdraw-input-box select {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    background: #252a46;
-    color: white;
-    border: 1px solid #3b4269;
-    box-sizing: border-box; /* যাতে প্যাডিং সাইজ ঠিক থাকে */
+
+    width:100%;
+    padding:12px;
+    margin-bottom:20px;
+    border-radius:8px;
+    background:var(--surface-2);
+    color:var(--text);
+    border:1px solid var(--border);
+    box-sizing:border-box;
+
 }
 
-/* লেবেল টেক্সট */
-#withdraw-input-box p {
-    margin-bottom: 8px;
-    font-size: 14px;
-    color: #cccccc;
+#withdraw-input-box input:focus,
+#withdraw-input-box select:focus{
+
+    outline:none;
+    border-color:var(--primary);
+
 }
 
-/* কনফার্ম বাটন */
-.withdraw-btn {
-    width: 100%;
-    padding: 14px;
-    background: #4e73df; /* বা তোমার পছন্দমতো ব্র্যান্ড কালার */
-    border: none;
-    border-radius: 8px;
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s;
+#withdraw-input-box p{
+
+    margin-bottom:8px;
+    font-size:14px;
+    color:var(--text-muted);
+
 }
 
-.withdraw-btn:hover {
-    background: #3759c9;
+/* Withdraw Button */
+
+.withdraw-btn{
+
+    width:100%;
+    padding:14px;
+    background:var(--primary);
+    border:none;
+    border-radius:8px;
+    color:#fff;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+
 }
 
+.withdraw-btn:hover{
 
-/* END WITHDRAW SECTION  */
+    background:var(--primary-hover);
 
-/* CLOSE ALL SECTION  */
-.addr-header {
-    display: flex;
-    justify-content: space-between; /* ব্যাক বাটন বামে, ক্লোজ বাটন ডানে */
-    align-items: center;
-    padding: 10px 0;
 }
 
-.back-btn, .close-btn {
-    background: transparent;
-    border: none;
-    color: white;
-    font-size: 24px;
-    cursor: pointer;
-    padding: 5px 10px;
+/* =========================================
+   END WITHDRAW SECTION
+========================================= */
+
+
+/* =========================================
+   CLOSE BUTTONS
+========================================= */
+
+.addr-header{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:10px 0;
+
 }
 
-.close-btn:hover {
-    color: #ff4d4d; /* হোভার করলে লাল রঙ হবে */
+.back-btn,
+.close-btn{
+
+    background:transparent;
+    border:none;
+    color:var(--text);
+    font-size:24px;
+    cursor:pointer;
+    padding:5px 10px;
+    transition:.3s;
+
 }
-/* END CLOSE ALL SECTION  */
+
+.back-btn:hover,
+.close-btn:hover{
+
+    color:var(--primary);
+
+}
+
+/* =========================================
+   END CLOSE BUTTONS
+========================================= */
 
  /* START EXCHANGE SECTION  */ 
 
@@ -3799,14 +3907,20 @@ END MY BONUS SECTION
 /* কারেন্সি মেনুর সাথে মিল রেখে ওয়ালেট মেনুর স্টাইল */
 
 /* হেডার সেকশন ইন্ড */
-/* হিরো সেকশন স্টার্ট */
+/* =========================
+   HERO SECTION START
+========================= */
+
 .hero-section {
-    width: 95%; 
-    /* আগে ছিল 0, এখন এখানে 10px বা 15px দাও */
-    margin: 10px auto 20px auto; 
+    width: 95%;
+    margin: 10px auto 20px auto;
     position: relative;
     overflow: hidden;
     border-radius: 15px;
+
+    /* Premium Theme */
+    background: var(--surface);
+    border: 1px solid var(--border);
 }
 
 .hero-slider {
@@ -3820,8 +3934,8 @@ END MY BONUS SECTION
 
 .slide img {
     width: 100%;
-    height: 200px; 
-    object-fit: cover; 
+    height: 200px;
+    object-fit: cover;
     border-radius: 15px;
     display: block;
 }
@@ -3836,27 +3950,34 @@ END MY BONUS SECTION
 .dot {
     height: 10px;
     width: 10px;
-    background-color: #555;
+    background-color: #4A4640;
     border-radius: 50%;
     display: inline-block;
     cursor: pointer;
+    transition: .3s;
 }
 
 .dot.active {
-    background-color: #ffd700;
+    background-color: var(--primary);
+    box-shadow: 0 0 8px rgba(47,191,113,.45);
 }
-/* হিরো সেকশন ইন্ড */
 
-/* ক্যাটাগরি সেকশন স্টার্ট */
+/* HERO SECTION END */
+
+
+/* =========================
+   CATEGORY SECTION START
+========================= */
+
 .category-section {
     width: 100%;
     padding: 15px 10px;
-    overflow-x: auto; /* হরিজন্টাল স্ক্রল করার জন্য */
-    scrollbar-width: none; /* ফায়ারফক্সের জন্য স্ক্রলবার হাইড */
+    overflow-x: auto;
+    scrollbar-width: none;
 }
 
 .category-section::-webkit-scrollbar {
-    display: none; /* ক্রোম, সাফারি ও এজ-এর জন্য স্ক্রলবার হাইড */
+    display: none;
 }
 
 .category-wrapper {
@@ -3870,37 +3991,45 @@ END MY BONUS SECTION
     flex-direction: column;
     align-items: center;
     gap: 8px;
-    min-width: 60px; /* প্রতিটি আইটেমের ন্যূনতম প্রস্থ */
+    min-width: 60px;
     cursor: pointer;
 }
 
 .category-icon {
     width: 60px;
     height: 60px;
-    background-color: #252545;
-    border-radius: 50%; /* গোল বা সার্কেল শেপ */
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 24px;
-    color: #ffffff;
-    transition: 0.3s;
-    border: 2px solid transparent;
+    color: var(--text);
+    transition: .3s;
 }
 
-.category-item:hover .category-icon, 
+.category-item:hover .category-icon,
 .category-item.active .category-icon {
-    background-color: #ffd700; /* সিলেক্টেড আইটেম হলুদ হবে */
-    color: #000;
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #fff;
+    box-shadow: 0 0 15px rgba(47,191,113,.30);
 }
 
 .category-item span {
     font-size: 12px;
     font-weight: 500;
+    color: var(--text);
 }
-/* ক্যাটাগরি সেকশন ইন্ড */
 
-/* গেম সেকশন স্টার্ট */
+/* CATEGORY SECTION END */
+
+
+/* =========================
+   GAME SECTION START
+========================= */
+
 .game-section {
     padding: 20px;
 }
@@ -3908,34 +4037,34 @@ END MY BONUS SECTION
 .section-header h2 {
     margin-bottom: 15px;
     font-size: 18px;
-    color: #fff;
+    color: var(--text);
 }
 
 .game-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* মোবাইলের জন্য ২ কলাম */
+    grid-template-columns: repeat(2, 1fr);
     gap: 15px;
 }
 
-/* ট্যাবলেট এবং ডেস্কটপের জন্য */
-@media (min-width: 768px) {
+@media (min-width:768px) {
     .game-grid {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(4,1fr);
     }
 }
 
 .game-card {
-    background-color: #1a1a2e;
+    background: var(--surface);
+    border: 1px solid var(--border);
     border-radius: 12px;
     overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: .3s;
     cursor: pointer;
 }
 
-/* হোভার অ্যানিমেশন */
 .game-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    border-color: var(--primary);
+    box-shadow: 0 12px 24px rgba(47,191,113,.18);
 }
 
 .game-image {
@@ -3949,19 +4078,15 @@ END MY BONUS SECTION
     object-fit: cover;
 }
 
-/* প্লে বাটন ওভারলে */
 .play-overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    inset: 0;
+    background: rgba(31,29,26,.60);
     display: flex;
     align-items: center;
     justify-content: center;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: .3s;
 }
 
 .game-card:hover .play-overlay {
@@ -3969,24 +4094,32 @@ END MY BONUS SECTION
 }
 
 .play-btn {
-    background-color: #ffd700; /* হলুদ বাটন */
+    background: var(--primary);
+    color: #fff;
     border: none;
     padding: 8px 15px;
     border-radius: 20px;
-    font-weight: bold;
+    font-weight: 600;
     cursor: pointer;
+    transition: .3s;
+}
+
+.play-btn:hover {
+    background: var(--primary-hover);
 }
 
 .game-info {
     padding: 10px;
     text-align: center;
+    background: var(--surface);
 }
 
 .game-info h3 {
     font-size: 14px;
-    color: #ddd;
+    color: var(--text);
 }
-/* গেম সেকশন ইন্ড */
+
+/* GAME SECTION END */
 
 /* লাইভ উইনার সেকশন স্টার্ট */
 .live-winners-section { padding: 20px; margin: 20px 10px; }
