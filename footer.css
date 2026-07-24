@@ -85,6 +85,7 @@
     left: -60%;
     width: 40%;
     max-width:360px;
+   padding-bottom:90px;
     height: calc(100vh - 140px);
 
     background: linear-gradient(
