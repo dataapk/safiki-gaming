@@ -10,36 +10,27 @@ const footerSidebarOverlay = document.getElementById("footerSidebarOverlay");
 let isFooterSidebarOpen = false;
 
 // ===== SIDEBAR OPEN =====
-window.footerOpenSidebar = function () {
+window.footerOpenSidebar = function(){
 
-    if (!footerSidebar || !footerSidebarOverlay) return;
+    const sidebar = document.getElementById("sidebar");
+    const overlay = document.getElementById("sidebarOverlay");
 
-    footerSidebar.classList.add("active");
-    footerSidebarOverlay.classList.add("active");
+    sidebar.classList.add("active");
+    overlay.classList.add("active");
 
-    document.body.style.overflow = "hidden";
-    isFooterSidebarOpen = true;
-
-    console.log("✅ Footer Sidebar OPENED");
-
+    document.body.style.overflow="hidden";
 };
 
 // ===== SIDEBAR CLOSE =====
-window.footerCloseSidebar = function () {
+window.footerCloseSidebar = function(){
 
-    if (!footerSidebar || !footerSidebarOverlay) return;
+    const sidebar = document.getElementById("sidebar");
+    const overlay = document.getElementById("sidebarOverlay");
 
-    footerSidebar.classList.remove("active");
+    sidebar.classList.remove("active");
+    overlay.classList.remove("active");
 
-    setTimeout(function () {
-        footerSidebarOverlay.classList.remove("active");
-    }, 200);
-
-    document.body.style.overflow = "";
-    isFooterSidebarOpen = false;
-
-    console.log("✅ Footer Sidebar CLOSED");
-
+    document.body.style.overflow="";
 };
 
 // ===== SIDEBAR TOGGLE =====
@@ -103,14 +94,16 @@ window.footerToggleMenuSub = function(menuSubId, arrowId) {
 
 
 // ===== FOOTER ACTIVE =====
-window.footerSetActive = function(element){
+// ===== SET ACTIVE =====
+window.footerSetActive = function(element) {
 
-    document.querySelectorAll(".footer-item").forEach(function(item){
-        item.classList.remove("active");
+    if(!element) return;
+
+    document.querySelectorAll('.footer-bottom-item').forEach(function(item){
+        item.classList.remove('active');
     });
 
-    element.classList.add("active");
-
+    element.classList.add('active');
 };
 
 
