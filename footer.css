@@ -78,22 +78,21 @@
 
 
 /* ================= SIDEBAR ================= */
-
 .footer-sidebar{
     position: fixed;
     top: 70px;
-    bottom: 60px;      /* Footer height */
+    bottom: 60px;
     left: -60%;
 
     width: 60%;
     max-width: 420px;
 
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     box-sizing: border-box;
 
     padding: 20px;
-    padding-bottom: 10px;
-    height: calc(100vh - 140px);
+    padding-bottom: 20px;
 
     background: linear-gradient(
         180deg,
