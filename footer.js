@@ -24,30 +24,12 @@ window.footerOpenSidebar = function(){
  // Login হওয়ার পরে শুধু এই ফাংশন চালাবে। =====
 
 
-function footerUpdateUser(isLoggedIn, user){
+document.getElementById("footerGuestSection").style.display = "none";
+document.getElementById("footerUserSection").style.display = "block";
 
-    const guest = document.getElementById("guestSection");
-    const profile = document.getElementById("userSection");
-
-    if(isLoggedIn){
-
-        guest.style.display = "none";
-        profile.style.display = "block";
-
-        document.getElementById("footerUserName").textContent =
-            user.username;
-
-        document.getElementById("footerUserVip").textContent =
-            "VIP " + user.vip;
-
-    }else{
-
-        guest.style.display = "block";
-        profile.style.display = "none";
-
-    }
-
-}
+document.getElementById("footerUserName").textContent = user.name;
+document.getElementById("footerUserVip").textContent = user.vip;
+document.getElementById("footerUserAvatar").src = user.avatar;
 
 // ===== SIDEBAR CLOSE =====
 window.footerCloseSidebar = function(){
