@@ -83,8 +83,8 @@
     position: fixed;
     top: 70px;
     left: -60%;
-    width: 60%;
-    max-width: 420px;
+    width: 40%;
+    max-width:360px;
     height: calc(100vh - 140px);
 
     background: linear-gradient(
