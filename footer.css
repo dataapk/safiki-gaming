@@ -135,7 +135,11 @@
     background: #ffd700;
 }
 
-
+.footer-arrow{
+    margin-left:auto;
+    font-size:14px;
+    transition:.3s;
+}
 /* ================= CLOSE ================= */
 
 .footer-sidebar-close{
