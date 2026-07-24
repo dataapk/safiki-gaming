@@ -2425,13 +2425,11 @@ async function performLogout() {
 
 }
 
-    // Redirect Home
-    window.location.href = "https://dataapk.github.io/safiki-gaming/";
 
-}
 // =========================
-// Logout
+// Login Success
 // =========================
+
 function loginSuccess() {
 
     localStorage.setItem("userLoggedIn", "true");
