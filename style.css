@@ -4606,11 +4606,54 @@ END MY BONUS SECTION
 /* TITLE */
 
 .auth-left h1{
+
     width:100%;
+
     text-align:center;
-    font-size:34px;
+
+    font-size:36px;
+
     color:#22c55e;
-    margin:0 0 12px;
+
+    margin:0 0 10px;
+
+}
+
+
+.auth-left p{
+
+    width:100%;
+
+    text-align:center;
+
+    color:#d1d5db;
+
+    margin:0 0 15px;
+
+}
+
+
+.auth-left ul{
+
+    width:100%;
+
+    max-width:280px;
+
+    margin:0;
+
+    padding:15px 20px;
+
+    list-style:none;
+
+    background:
+    rgba(0,0,0,.35);
+
+    border-radius:14px;
+
+    border:1px solid rgba(34,197,94,.25);
+
+    box-sizing:border-box;
+
 }
 
 
