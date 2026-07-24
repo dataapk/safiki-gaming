@@ -478,13 +478,15 @@
 
 .menusub-list{
 
-    margin-left:25px;
+    margin-left:35px;
 
     padding:0;
 
-    background:none;
+    background:transparent;
 
     border:none;
+
+    box-shadow:none;
 
 }
 
@@ -500,7 +502,7 @@
 
 .menusub-item{
 
-    height:42px;
+    height:40px;
 
     display:flex;
 
@@ -508,22 +510,21 @@
 
     gap:12px;
 
-    padding-left:20px;
+    padding-left:10px;
 
-    margin:4px 0;
+    margin:3px 0;
 
 
-    color:#ddd;
-
-    text-decoration:none;
+    color:#ffffff;
 
     background:transparent;
 
     border:none;
 
-    border-radius:10px;
+    border-radius:8px;
 
-    transition:.3s ease;
+
+    transition:.25s ease;
 
 }
 
@@ -563,9 +564,11 @@
 
 .menusub-item:hover{
 
+    background:rgba(34,197,94,.15);
+
     color:#22c55e;
 
-    background:rgba(34,197,94,.10);
+    transform:translateX(5px);
 
 }
 
