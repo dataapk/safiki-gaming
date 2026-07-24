@@ -2693,11 +2693,31 @@ if (!agreeTerms) {
 
     }
 
-    alert("🎉 Account created successfully!");
+ alert("🎉 Account created successfully!");
 
-    closeAuth();
+closeAuth();
+
+
+// Header Update
+await updateHeaderAuth();
+
+
+// Footer Menu Update
+if(window.footerUpdateUserUI){
+
+    footerUpdateUserUI({
+
+        name: firstName + " " + lastName,
+
+        vip: "VIP 0",
+
+        avatar: "images/default-avatar.png"
+
+    });
 
 }
+
+console.log("Signup User:", data.user);
 // ==============================
 // PAGE LOAD
 // ==============================
