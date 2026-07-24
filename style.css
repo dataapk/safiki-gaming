@@ -4209,9 +4209,9 @@ END MY BONUS SECTION
     display:flex;
     overflow:hidden;
     border-radius:18px;
-    background:#111;
-    border:2px solid #d4af37;
-    box-shadow:0 0 40px rgba(212,175,55,.25);
+    background:#111827;
+    border: 2px solid #d4af37; → 2px solid #22c55e;
+    box-shadow: rgba(212,175,55,.25) → rgba(34,197,94,.25);
 }
 
 .auth-left{
