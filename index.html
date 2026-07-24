@@ -2495,170 +2495,225 @@ style="display:none;">
 ====================================================== -->
 
 <!-- Overlay -->
-<div class="sidebar-overlay" id="sidebarOverlay" onclick="footerCloseSidebar()"></div>
+<div class="footer-sidebar-overlay"
+     id="sidebarOverlay"
+     onclick="footerCloseSidebar()">
+</div>
 
 <!-- Sidebar -->
-<div class="sidebar" id="sidebar">
+<div class="footer-sidebar" id="sidebar">
 
     <!-- Close -->
-    <button class="sidebar-close" onclick="footerCloseSidebar()">
+    <button class="footer-sidebar-close"
+            onclick="footerCloseSidebar()">
+
         <i class="fas fa-times"></i>
+
     </button>
 
-    <!-- Login & Signup -->
-    <div class="auth-buttons">
-        <button class="btn-golden" onclick="footerGoToLogin()">
-            Login
+    <!-- ================= LOGIN & SIGNUP ================= -->
+
+    <div class="footer-auth-buttons">
+
+        <button class="footer-btn-golden footer-login-btn"
+                onclick="footerGoToLogin()">
+
+            <i class="fas fa-sign-in-alt"></i>
+
+            <span>Login</span>
+
         </button>
 
-        <button class="btn-golden" onclick="footerGoToSignup()">
-            Sign Up
+        <button class="footer-btn-golden footer-signup-btn"
+                onclick="footerGoToSignup()">
+
+            <i class="fas fa-user-plus"></i>
+
+            <span>Sign Up</span>
+
         </button>
+
     </div>
 
-    <!-- ================= MENU ================= -->
+    <!-- ================= WELCOME BONUS CARD ================= -->
 
-    <nav class="sidebar-menu">
+    <div class="footer-promo-card"
+         onclick="footerGoToBonus()">
 
-        <!-- Casino -->
-        <div class="menu-item">
+        <div class="footer-promo-left">
 
-            <div class="menu-header"
-                 onclick="event.stopPropagation(); footerToggleMenuSub('casinoMenuSub','casinoArrow')">
-
-                <i class="fas fa-dice"></i>
-                <span>Casino</span>
-
-                <i class="fas fa-chevron-down" id="casinoArrow"></i>
-
-            </div>
-
-            <div class="menusub-list menusub-hidden" id="casinoMenuSub">
-
-                <a href="#" class="menusub-item">
-                    <i class="fas fa-dharmachakra"></i>
-                    Wheel Game
-                </a>
-
-                <a href="#" class="menusub-item">
-                    <i class="fas fa-slot-machine"></i>
-                    Slot Game
-                </a>
-
-                <a href="#" class="menusub-item">
-                    <i class="fas fa-rocket"></i>
-                    Crash Game
-                </a>
-
-            </div>
-
-        </div>
-
-        <!-- Sports -->
-        <div class="menu-item">
-
-            <div class="menu-header"
-                 onclick="event.stopPropagation(); footerToggleMenuSub('sportsMenuSub','sportsArrow')">
-
-                <i class="fas fa-futbol"></i>
-                <span>Sports</span>
-
-                <i class="fas fa-chevron-down" id="sportsArrow"></i>
-
-            </div>
-
-            <div class="menusub-list menusub-hidden" id="sportsMenuSub">
-
-                <a href="#" class="menusub-item">
-                    <i class="fas fa-cricket"></i>
-                    Cricket
-                </a>
-
-                <a href="#" class="menusub-item">
-                    <i class="fas fa-futbol"></i>
-                    Football
-                </a>
-
-            </div>
-
-        </div>
-
-        <!-- Bonuses -->
-        <div class="menu-item">
-
-            <div class="menu-header"
-                 onclick="event.stopPropagation(); footerToggleMenuSub('bonusesMenuSub','bonusesArrow')">
+            <div class="footer-promo-icon">
 
                 <i class="fas fa-gift"></i>
-                <span>Bonuses</span>
-
-                <i class="fas fa-chevron-down" id="bonusesArrow"></i>
 
             </div>
 
-            <div class="menusub-list menusub-hidden" id="bonusesMenuSub">
+            <div class="footer-promo-text">
 
-                <a href="#" class="menusub-item">
-                    <i class="fas fa-hand-holding-usd"></i>
-                    First Deposit 150%
-                </a>
+                <h4>WELCOME BONUS</h4>
 
-                <a href="#" class="menusub-item">
-                    <i class="fas fa-birthday-cake"></i>
-                    Birthday Bonus
-                </a>
-
-                <a href="#" class="menusub-item">
-                    <i class="fas fa-calendar-week"></i>
-                    Weekly Bonus
-                </a>
-
-                <a href="#" class="menusub-item">
-                    <i class="fas fa-bullhorn"></i>
-                    Promotional Offers
-                </a>
+                <p>Get up to <strong>150% First Deposit Bonus</strong></p>
 
             </div>
 
         </div>
 
-        <!-- Refer -->
-        <div class="menu-item">
+        <div class="footer-promo-arrow">
 
-            <div class="menu-header"
-                 onclick="event.stopPropagation(); footerGoToRefer()">
-
-                <i class="fas fa-user-plus"></i>
-                <span>Refer a Friend</span>
-
-            </div>
+            <i class="fas fa-chevron-right"></i>
 
         </div>
 
-        <!-- Support -->
-        <div class="menu-item">
+    </div>
 
-            <div class="menu-header"
-                 onclick="event.stopPropagation(); footerGoToSupport()">
+    <!-- এখান থেকেই তোমার Footer Menu শুরু হবে -->
+   <!-- ================= FOOTER MENU ================= -->
 
-                <i class="fas fa-headset"></i>
-                <span>Support</span>
+<nav class="footer-sidebar-menu">
 
-            </div>
+    <!-- Casino -->
+    <div class="footer-menu-item">
+
+        <div class="footer-menu-header"
+             onclick="event.stopPropagation(); footerToggleMenuSub('casinoMenuSub','casinoArrow')">
+
+            <i class="fas fa-dice"></i>
+            <span>Casino</span>
+
+            <i class="fas fa-chevron-down" id="casinoArrow"></i>
 
         </div>
 
-    </nav>
+        <div class="footer-menusub-list footer-menusub-hidden"
+             id="casinoMenuSub">
+
+            <a href="#" class="footer-menusub-item">
+                <i class="fas fa-dharmachakra"></i>
+                Wheel Game
+            </a>
+
+            <a href="#" class="footer-menusub-item">
+                <i class="fas fa-slot-machine"></i>
+                Slot Game
+            </a>
+
+            <a href="#" class="footer-menusub-item">
+                <i class="fas fa-rocket"></i>
+                Crash Game
+            </a>
+
+        </div>
+
+    </div>
+
+    <!-- Sports -->
+    <div class="footer-menu-item">
+
+        <div class="footer-menu-header"
+             onclick="event.stopPropagation(); footerToggleMenuSub('sportsMenuSub','sportsArrow')">
+
+            <i class="fas fa-futbol"></i>
+            <span>Sports</span>
+
+            <i class="fas fa-chevron-down" id="sportsArrow"></i>
+
+        </div>
+
+        <div class="footer-menusub-list footer-menusub-hidden"
+             id="sportsMenuSub">
+
+            <a href="#" class="footer-menusub-item">
+                <i class="fas fa-cricket"></i>
+                Cricket
+            </a>
+
+            <a href="#" class="footer-menusub-item">
+                <i class="fas fa-futbol"></i>
+                Football
+            </a>
+
+        </div>
+
+    </div>
+
+    <!-- Bonuses -->
+    <div class="footer-menu-item">
+
+        <div class="footer-menu-header"
+             onclick="event.stopPropagation(); footerToggleMenuSub('bonusesMenuSub','bonusesArrow')">
+
+            <i class="fas fa-gift"></i>
+            <span>Bonuses</span>
+
+            <i class="fas fa-chevron-down" id="bonusesArrow"></i>
+
+        </div>
+
+        <div class="footer-menusub-list footer-menusub-hidden"
+             id="bonusesMenuSub">
+
+            <a href="#" class="footer-menusub-item">
+                <i class="fas fa-hand-holding-usd"></i>
+                First Deposit 150%
+            </a>
+
+            <a href="#" class="footer-menusub-item">
+                <i class="fas fa-birthday-cake"></i>
+                Birthday Bonus
+            </a>
+
+            <a href="#" class="footer-menusub-item">
+                <i class="fas fa-calendar-week"></i>
+                Weekly Bonus
+            </a>
+
+            <a href="#" class="footer-menusub-item">
+                <i class="fas fa-bullhorn"></i>
+                Promotional Offers
+            </a>
+
+        </div>
+
+    </div>
+
+    <!-- Refer -->
+    <div class="footer-menu-item">
+
+        <div class="footer-menu-header"
+             onclick="event.stopPropagation(); footerGoToRefer()">
+
+            <i class="fas fa-user-plus"></i>
+            <span>Refer a Friend</span>
+
+        </div>
+
+    </div>
+
+    <!-- Support -->
+    <div class="footer-menu-item">
+
+        <div class="footer-menu-header"
+             onclick="event.stopPropagation(); footerGoToSupport()">
+
+            <i class="fas fa-headset"></i>
+            <span>Support</span>
+
+        </div>
+
+    </div>
+
+</nav>
 
 </div>
 
 <!-- ================= FOOTER ================= -->
 
-<footer class="bottom-footer">
+<footer class="footer-bottom">
 
-    <div class="footer-nav">
+    <div class="footer-bottom-nav">
 
-        <div class="footer-item" id="menuBtn"
+        <div class="footer-bottom-item"
+             id="menuBtn"
              onclick="footerToggleSidebar()">
 
             <i class="fas fa-bars"></i>
@@ -2666,7 +2721,8 @@ style="display:none;">
 
         </div>
 
-        <div class="footer-item" id="searchBtn"
+        <div class="footer-bottom-item"
+             id="searchBtn"
              onclick="footerSetActive(this); footerOpenSearch()">
 
             <i class="fas fa-search"></i>
@@ -2674,7 +2730,8 @@ style="display:none;">
 
         </div>
 
-        <div class="footer-item" id="historyBtn"
+        <div class="footer-bottom-item"
+             id="historyBtn"
              onclick="footerSetActive(this); footerOpenBetHistory()">
 
             <i class="fas fa-history"></i>
@@ -2682,7 +2739,8 @@ style="display:none;">
 
         </div>
 
-        <div class="footer-item" id="homeBtn"
+        <div class="footer-bottom-item"
+             id="homeBtn"
              onclick="footerSetActive(this); footerGoHome()">
 
             <i class="fas fa-home"></i>
@@ -2693,7 +2751,6 @@ style="display:none;">
     </div>
 
 </footer>
-
 
 <!-- ======================================================
      🔴 END: SIDEBAR & FOOTER SECTION
