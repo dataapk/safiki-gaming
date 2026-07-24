@@ -76,6 +76,76 @@
     filter:drop-shadow(0 0 8px rgba(34,197,94,.75));
 }
 
+/* ================= USER CARD ================= */
+
+.footer-user-card{
+
+    margin-top:20px;
+    padding:14px 16px;
+
+    display:flex;
+    align-items:center;
+    gap:14px;
+
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(34,197,94,.18);
+
+    border-radius:12px;
+    cursor:pointer;
+
+    transition:.25s ease;
+}
+
+.footer-user-card:hover{
+
+    background:rgba(34,197,94,.10);
+
+}
+
+.footer-user-avatar{
+
+    width:50px;
+    height:50px;
+
+    border-radius:50%;
+    object-fit:cover;
+
+    border:2px solid #22c55e;
+
+}
+
+.footer-user-info{
+
+    flex:1;
+
+}
+
+.footer-user-info h4{
+
+    margin:0;
+    color:#fff;
+    font-size:15px;
+    font-weight:700;
+
+}
+
+.footer-user-info span{
+
+    display:block;
+    margin-top:4px;
+
+    color:#22c55e;
+    font-size:12px;
+
+}
+
+.footer-user-card .fa-chevron-right{
+
+    color:#22c55e;
+    font-size:16px;
+
+}
+
 
 /* ================= SIDEBAR ================= */
 .footer-sidebar{
