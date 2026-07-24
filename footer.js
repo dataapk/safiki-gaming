@@ -176,6 +176,48 @@ document.addEventListener("keydown", function(e){
 });
 
 
+// ===== AUTH STATE LISTENER =====
+// Login / Logout হলে Footer Menu Auto Update হবে
+
+if(window.supabaseClient){
+
+    supabaseClient.auth.onAuthStateChange(function(event, session){
+
+        console.log("Footer Auth Change:", event);
+
+        if(event === "SIGNED_IN"){
+
+            const user = session?.user;
+
+            if(window.footerUpdateUserUI){
+
+                footerUpdateUserUI({
+                    name: user?.user_metadata?.name || "Player",
+                    vip: "VIP 0",
+                    avatar: "images/default-avatar.png"
+                });
+
+            }
+
+        }
+
+
+        if(event === "SIGNED_OUT"){
+
+            if(window.footerUpdateUserUI){
+
+                footerUpdateUserUI(null);
+
+            }
+
+        }
+
+    });
+
+}
+
+
+
 // ===== INITIALIZE =====
 footerCloseSidebar();
 
