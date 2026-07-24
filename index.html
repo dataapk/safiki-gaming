@@ -2511,53 +2511,44 @@ style="display:none;">
 
     </button>
 
-    <!-- ================= LOGIN & SIGNUP ================= -->
+<!-- ================= LOGIN & SIGNUP ================= -->
+
+<!-- Guest -->
+<div id="footerGuestSection">
 
     <div class="footer-auth-buttons">
 
-        <button class="footer-btn-golden footer-login-btn"
-                onclick="footerGoToLogin()">
-
-            <i class="fas fa-sign-in-alt"></i>
-
-            <span>Login</span>
-
-        </button>
-
-        <button class="footer-btn-golden footer-signup-btn"
-                onclick="footerGoToSignup()">
-
-            <i class="fas fa-user-plus"></i>
-
-            <span>Sign Up</span>
-
-        </button>
-
-    </div>
-    <div id="guestSection">
-
-    <div class="auth-buttons">
-        <button class="btn-golden" onclick="footerGoToLogin()">
+        <button class="footer-btn-golden"
+                onclick="footerCloseSidebar(); openLogin();">
             Login
         </button>
 
-        <button class="btn-golden" onclick="footerGoToSignup()">
+        <button class="footer-btn-golden"
+                onclick="footerCloseSidebar(); openSignup();">
             Sign Up
         </button>
+
     </div>
 
 </div>
 
+<!-- Logged User -->
+<div id="footerUserSection" style="display:none;">
 
-<div id="userSection" style="display:none;">
+    <div class="footer-user-card"
+         onclick="footerOpenProfile()">
 
-    <div class="footer-user-card">
-
-        <img src="images/default-avatar.png" class="footer-user-avatar">
+        <img id="footerUserAvatar"
+             src="images/default-avatar.png">
 
         <div class="footer-user-info">
-            <h4 id="footerUserName">MD AYAN</h4>
-            <span id="footerUserVip">VIP 3</span>
+
+            <h4 id="footerUserName">User Name</h4>
+
+            <span id="footerUserVip">
+                VIP 0
+            </span>
+
         </div>
 
         <i class="fas fa-chevron-right"></i>
