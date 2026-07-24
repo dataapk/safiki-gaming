@@ -2718,6 +2718,9 @@ if(window.footerUpdateUserUI){
 }
 
 console.log("Signup User:", data.user);
+
+}
+
 // ==============================
 // PAGE LOAD
 // ==============================
