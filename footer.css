@@ -1,3 +1,18 @@
+
+/* ===============================
+   FOOTER MAIN THEME
+================================ */
+
+.bottom-footer{
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:70px;
+    background:#050505;
+    border-top:1px solid rgba(34,197,94,.25);
+    z-index:9999;
+}
 /* ===============================
    SIDEBAR MAIN
 ================================ */
