@@ -1,36 +1,33 @@
 /* গ্লোবাল রিসেট এবং জুম প্রিভেন্ট করার প্রস্তুতি */
 
 :root {
-    /* Main Theme */
-    --bg: #1F1D1A;
-    --surface: #2A2825;
-    --surface-2: #34312D;
+    /* Green Premium Theme */
+    --bg: #0F1B16;
+    --surface: #13231D;
+    --surface-2: #1B2E26;
 
-    /* Accent Colors */
-    --primary: #2FBF71;      /* Soft Green */
-    --primary-hover: #26A862;
+    --primary: #2ECC71;
+    --primary-hover: #27AE60;
 
-    --gold: #E6C15A;         /* Soft Gold */
-    --gold-hover: #D4B14C;
+    --gold: #E8C547;
+    --gold-hover: #D4AF37;
 
-    /* Text */
     --text: #FFFFFF;
-    --text-muted: #C9C9C9;
+    --text-muted: #B8C4BE;
 
-    /* Border */
-    --border: #4A4640;
-
-    /* Effects */
+    --border: #315244;
     --shadow: rgba(0,0,0,.35);
 }
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent; /* মোবাইলে ক্লিকের হাইলাইট দূর করার জন্য */ 
+    -webkit-tap-highlight-color: transparent;
 }
 
-html, body {
+html,
+body {
     width: 100%;
     height: 100%;
     margin: 0;
@@ -39,51 +36,48 @@ html, body {
 
     background: var(--bg);
     color: var(--text);
-}
-  
-    
-    /* নিচের লাইনগুলো বাউন্স এবং মুভমেন্ট বন্ধ করার জন্য মূল চাবিকাঠি */
-    overflow-y: auto; /* hidden এর বদলে auto বা scroll দাও */
-    margin: 0;
+
+    overflow-y: auto;
     overscroll-behavior: none;
-    position: fixed; /* এটি মোবাইলকে পুরোপুরি স্ট্যাটিক করে দিবে */
+    position: fixed;
     top: 0;
     left: 0;
 }
+
 .main-content {
     height: 100vh;
-    overflow: hidden; /* মেইন পেজটি লক করে দিবে */
-    -webkit-overflow-scrolling: touch; /* আইফোনে স্মুথ স্ক্রলিংয়ের জন্য */
-    overscroll-behavior-y: contain; /* বাউন্স বন্ধ করার জন্য */
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: contain;
 }
-/* রেসপন্সিভ কন্টেইনার */
+
+/* Responsive Container */
+
 .container {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-/* ফ্লেক্সবক্স ব্যবহারের সুবিধার জন্য */
 .flex {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-/* এটি নিশ্চিত করে যে সব ডিভাইসে কন্টেন্ট ঠিকভাবে ফিট হবে */
-img, svg {
+img,
+svg {
     max-width: 100%;
     display: block;
 }
 
-/* মোবাইল ও ট্যাবলেটের জন্য মিডিয়া কুয়েরি (ভবিষ্যতের জন্য) */
 @media (max-width: 768px) {
     body {
         font-size: 14px;
     }
 }
 
-/* HEADER SECTION START */
+/* ================= HEADER ================= */
 
 .header {
     display: flex;
@@ -91,36 +85,42 @@ img, svg {
     align-items: center;
     padding: 10px 20px;
     background: var(--surface);
-    color: #fff;
+    color: var(--text);
     height: 70px;
-    
-    /* আপডেট করা অংশ */
+
     position: sticky;
     top: 0;
-    z-index: 9999; /* যেন ড্রপডাউন মেনুও এর নিচে থাকে বা প্রয়োজনে ড্রপডাউনের জেড-ইনডেক্স অ্যাডজাস্ট করতে পারো */
+    z-index: 9999;
     width: 100%;
-    box-sizing: border-box; /* প্যাডিং যেন উইথ নষ্ট না করে */
+    box-sizing: border-box;
+
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 5px 20px var(--shadow);
 }
+
+/* ================= CONTROL BOX ================= */
 
 .main-control-box {
     display: flex;
     align-items: center;
-    background: #3A3836;
-    border: 1px solid #4B4946;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
     border-radius: 12px;
     overflow: hidden;
 }
+
 #member-controls,
 #user-actions-area {
     display: none;
 }
 
-#guest-actions-area{
+#guest-actions-area {
     display: flex;
     align-items: center;
     gap: 10px;
     margin-left: 15px;
 }
+
 .currency-trigger {
     display: flex;
     align-items: center;
@@ -129,182 +129,192 @@ img, svg {
     gap: 8px;
 }
 
+/* Wallet Button */
+
 .wallet-trigger {
-    background: #ff8c00; /* অরেঞ্জ বক্স */
+    background: var(--gold);
+    color: #111;
     padding: 12px 20px;
     cursor: pointer;
-    color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-weight: 600;
+    transition: .3s;
 }
-/* AFTER CLICK WALLET DROPDOWN START */
-/* মেইন বক্স ডিজাইন */
+
+.wallet-trigger:hover {
+    background: var(--gold-hover);
+}
+
+/* ================= Wallet Dropdown ================= */
+
 .wallet-tabs-container {
     display: flex;
-    background: #3A3836;
+    background: var(--surface-2);
     padding: 4px;
     border-radius: 8px;
     margin-bottom: 15px;
-    border: 1px solid #4B4946;
+    border: 1px solid var(--border);
 }
 
-/* বাটন এবং আইকনের স্টাইল */
+/* Tabs */
+
 .tab-btn {
     flex: 1;
-    display: flex; /* আইকন এবং টেক্সট পাশাপাশি রাখার জন্য */
+    display: flex;
     align-items: center;
     justify-content: center;
-    gap: 6px; /* আইকন ও টেক্সটের মাঝে গ্যাপ */
+    gap: 6px;
     padding: 10px;
     background: transparent;
-    color: #fff;
+    color: var(--text);
     border: none;
     border-radius: 6px;
     cursor: pointer;
     font-size: 13px;
-    transition: 0.3s;
+    transition: .3s;
 }
 
 .tab-btn i {
-    font-size: 12px; /* আইকনের সাইজ কন্ট্রোল করার জন্য */
+    font-size: 12px;
 }
 
 .tab-btn.active {
-    background: #4B4946;
-    color: #00d2ff;
+    background: var(--primary);
+    color: #fff;
 }
-/* ক্রিপ্টো গ্রিড কন্টেইনার */
+
+/* Crypto Grid */
+
 .crypto-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* ৩টি সমান কলাম */
-    gap: 12px; /* বক্সের মাঝখানে দূরত্ব */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
     margin-top: 15px;
 }
 
-/* প্রতিটি কারেন্সি বক্সের স্টাইল */
-/* প্রতিটি কারেন্সি বক্সের স্টাইল */
+/* Crypto Item */
+
 .crypto-item {
-    background: #3A3836;
-    min-height: 65px; /* হাইট আরও কমানো হলো */
-    width: 90%;       /* কলামের উইডথ ৯০% করে দিলাম যাতে ছোট দেখায় */
-    max-width: 100px; /* এর চেয়ে বেশি বড় হবে না */
-    justify-self: center; /* বক্সটিকে কলামের মাঝখানে নিয়ে আসবে */
+    background: var(--surface-2);
+    border: 1px solid transparent;
+    min-height: 65px;
+    width: 90%;
+    max-width: 100px;
+
+    justify-self: center;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
     border-radius: 8px;
     padding: 5px;
     font-size: 10px;
     cursor: pointer;
     text-align: center;
-    margin: 0 auto;   /* সব দিক থেকে সেন্টারে রাখার জন্য */
+    margin: 0 auto;
+
+    transition: .3s;
 }
 
-/* হোভার ইফেক্ট */
 .crypto-item:hover {
-    border: 1px solid #00d2ff;
-    background: #4B4946;
+    border-color: var(--primary);
+    background: var(--surface);
+    transform: translateY(-2px);
 }
 
-/* ইমেজ সাইজ */
 .crypto-item img {
-    width: 35px; /* লোগোর সাইজ */
+    width: 35px;
     height: 35px;
     margin-bottom: 8px;
     object-fit: contain;
 }
-/*  END AFTER CLICK WALLET DROPDOWN  */
 
-/* START ব্যাক অ্যাকশন বাটন বক্স */
-/* তোমার বর্তমান বাটনটিকে বক্সের মতো স্টাইল করার জন্য */
-/* ব্যাক বাটন বক্সের স্টাইল */
+/* ================= Back Button ================= */
+
 .back-box {
     display: flex;
     align-items: center;
-    background: #3A3836;
-    border: 1px solid #4B4946;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
     padding: 8px 15px;
     border-radius: 8px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    gap: 8px; /* আইকন এবং টেক্সটের গ্যাপ */
+    transition: .3s;
+    gap: 8px;
     width: fit-content;
 }
 
-/* যখন ক্লিক করবে তখন হলুদ হবে */
+.back-box:hover {
+    border-color: var(--primary);
+}
+
 .back-box:active {
-    background: #f1c40f;
-    border-color: #f1c40f;
+    background: var(--gold);
+    border-color: var(--gold);
 }
 
-.back-box:active button, 
+.back-box:active button,
 .back-box:active span {
-    color: #000; /* টেক্সট কালো হয়ে যাবে */
+    color: #111;
 }
 
-/* বাটনের স্টাইল */
 .back-box button {
     background: none;
     border: none;
-    color: white;
+    color: var(--text);
     font-size: 18px;
     padding: 0;
     cursor: pointer;
 }
 
 .back-box span {
-    color: white;
+    color: var(--text);
     font-size: 14px;
     font-weight: 500;
 }
-/* END ব্যাক অ্যাকশন বাটন বক্স */
+
+
 /* ===========================
    PROFILE USER ACTION SECTION START
 =========================== */
 
-
-/* হেডারের সব অ্যাকশন বাটনকে নিশ্চিতভাবে উপরে আনো */
 .user-actions {
     position: relative;
     z-index: 9999;
     display: flex;
-    gap: 10px; /* আইকনগুলোর মাঝখানে গ্যাপ */
+    gap: 10px;
 }
 
 .actions-box {
     position: relative;
-    z-index: 10000; /* মেনুর চেয়েও উপরে */
+    z-index: 10000;
     cursor: pointer;
 }
 
 .profile-icon {
-    cursor: pointer; 
+    cursor: pointer;
 }
 
-
-#profile-menu{
-    display:none;
-    position:fixed;
-    top:80px;
-    right:20px;
-    width:260px;
-    background:#111827;
-    padding:15px;
-    border-radius:12px;
-    z-index:999999;
+#profile-menu {
+    display: none;
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    width: 260px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 15px;
+    border-radius: 12px;
+    z-index: 999999;
 }
 
 /* ===============================
-  START PERSONAL AREA CSS
+   START PERSONAL AREA CSS
 ================================ */
-/* ==========================================
-   PERSONAL AREA POPUP & MAIN CONTAINER
-   ========================================== */
-/* ==========================================
-   PERSONAL AREA SECTION (Settings Style)
-   ========================================== */
 
 #personal-area-section {
     position: fixed;
@@ -315,10 +325,10 @@ img, svg {
     max-width: 94%;
     height: 80vh;
     overflow-y: auto;
-    background: #13151c;
-    border: 1px solid rgba(255,214,102,.25);
+    background: var(--surface);
+    border: 1px solid var(--border);
     border-radius: 18px;
-    box-shadow: 0 20px 60px rgba(0,0,0,.45);
+    box-shadow: 0 20px 60px var(--shadow);
     z-index: 9998;
     display: none;
     padding: 20px;
@@ -333,12 +343,12 @@ img, svg {
     justify-content: space-between;
     margin-bottom: 18px;
     padding-bottom: 12px;
-    border-bottom: 1px solid #2b2f40;
+    border-bottom: 1px solid var(--border);
 }
 
 .personal-header h3 {
     margin: 0 auto;
-    color: #fff;
+    color: var(--text);
     font-size: 22px;
     font-weight: 600;
 }
@@ -348,8 +358,8 @@ img, svg {
     height: 40px;
     border: none;
     border-radius: 50%;
-    background: #20263a;
-    color: #fff;
+    background: var(--surface-2);
+    color: var(--text);
     font-size: 24px;
     cursor: pointer;
     transition: .3s;
@@ -359,7 +369,7 @@ img, svg {
 }
 
 .close-personal:hover {
-    background: #e67e22;
+    background: var(--primary);
 }
 
 /* Tabs */
@@ -373,10 +383,10 @@ img, svg {
 .personal-tab-btn {
     flex: 1;
     padding: 10px;
-    background: #161b2e;
-    border: 1px solid #2b2f40;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
     border-radius: 8px;
-    color: #bfbfbf;
+    color: var(--text-muted);
     cursor: pointer;
     font-size: 13px;
     transition: .3s;
@@ -385,7 +395,7 @@ img, svg {
 
 .personal-tab-btn.active,
 .personal-tab-btn:hover {
-    background: #e67e22;
+    background: var(--primary);
     color: #fff;
 }
 
@@ -400,13 +410,11 @@ img, svg {
     display: block;
 }
 
-/* ==========================================
-   CARDS & FORMS (Matching Theme)
-   ========================================== */
+/* Cards */
 
 .content-box {
-    background: #181d2b;
-    border: 1px solid #2b2f40;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
     border-radius: 12px;
     padding: 18px;
     margin-bottom: 18px;
@@ -429,14 +437,14 @@ img, svg {
     height: 100%;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid #e67e22;
+    border: 2px solid var(--primary);
 }
 
 .change-avatar-btn {
     position: absolute;
     bottom: 0;
     right: 0;
-    background: #e67e22;
+    background: var(--primary);
     border: none;
     color: #fff;
     width: 22px;
@@ -451,24 +459,24 @@ img, svg {
 
 .profile-info .label-small {
     font-size: 12px;
-    color: #cfcfcf;
+    color: var(--text-muted);
     margin: 0;
 }
 
 .profile-info .value-text {
     font-size: 16px;
     font-weight: 600;
-    color: #fff;
+    color: var(--text);
     margin: 4px 0;
 }
 
 .profile-info .member-text {
     font-size: 12px;
-    color: #999;
+    color: #8fa39a;
     margin: 0;
 }
 
-/* Form Layouts (Side by Side Fix) */
+/* Forms */
 
 .form-row {
     display: flex;
@@ -489,7 +497,7 @@ img, svg {
 
 .form-group label {
     font-size: 13px;
-    color: #cfcfcf;
+    color: var(--text-muted);
     margin-bottom: 6px;
 }
 
@@ -501,11 +509,11 @@ img, svg {
 }
 
 .form-input {
-    background: #10121a;
-    border: 1px solid #2b2f40;
+    background: var(--bg);
+    border: 1px solid var(--border);
     border-radius: 8px;
     padding: 10px 12px;
-    color: #fff;
+    color: var(--text);
     font-size: 14px;
     width: 100%;
     box-sizing: border-box;
@@ -514,7 +522,7 @@ img, svg {
 }
 
 .form-input:focus {
-    border-color: #e67e22;
+    border-color: var(--primary);
 }
 
 .form-input:disabled {
@@ -522,7 +530,8 @@ img, svg {
     cursor: not-allowed;
 }
 
-/* Mobile & Country Code Row */
+/* Mobile */
+
 .mobile-row {
     display: flex;
     gap: 10px;
@@ -536,9 +545,9 @@ img, svg {
 /* Action Buttons */
 
 .action-btn {
-    background: rgba(230, 126, 34, 0.15);
-    border: 1px solid #e67e22;
-    color: #e67e22;
+    background: rgba(46, 204, 113, 0.12);
+    border: 1px solid var(--primary);
+    color: var(--primary);
     padding: 4px 12px;
     font-size: 12px;
     font-weight: 600;
@@ -548,20 +557,21 @@ img, svg {
 }
 
 .action-btn:hover:not(:disabled) {
-    background: #e67e22;
+    background: var(--primary);
     color: #fff;
 }
 
 .action-btn:disabled {
     opacity: 0.4;
-    border-color: #2b2f40;
+    border-color: var(--border);
     color: #777;
     cursor: not-allowed;
 }
 
 /* ==========================================
    EMAIL INLINE SEND BUTTON CSS
-   ========================================== */
+========================================== */
+
 .input-with-btn-wrapper {
     position: relative;
     display: flex;
@@ -569,12 +579,12 @@ img, svg {
     width: 100%;
 }
 
-/* ইনপুট বক্সের ডানপাশে যাতে লেখা বা বাটন ওভারল্যাপ না করে, সেজন্য জায়গা রাখা */
+/* ইনপুট বক্সের ডানপাশে যাতে লেখা বা বাটন ওভারল্যাপ না করে */
 .input-with-btn-wrapper .form-input {
-    padding-right: 105px !important; 
+    padding-right: 105px !important;
 }
 
-/* ইনপুট বক্সের ঠিক ভেতরে ডানপাশে Send Code বাটনটি ফিক্স করার জন্য */
+/* ইনপুট বক্সের ভেতরে Send Code Button */
 .inline-send-btn {
     position: absolute;
     right: 6px;
@@ -586,21 +596,24 @@ img, svg {
 }
 
 /* Dropdown OTP Box */
+
 .change-dropdown {
-    background: #10121a;
-    border: 1px solid #2b2f40;
+    background: var(--bg);
+    border: 1px solid var(--border);
     border-radius: 8px;
     padding: 12px;
     margin-top: 8px;
 }
 
-.otp-row, .new-row {
+.otp-row,
+.new-row {
     display: flex;
     gap: 8px;
     margin-bottom: 8px;
 }
 
-.otp-row:last-child, .new-row:last-child {
+.otp-row:last-child,
+.new-row:last-child {
     margin-bottom: 0;
 }
 
@@ -612,13 +625,13 @@ img, svg {
     align-items: center;
     margin-top: 20px;
     padding-top: 15px;
-    border-top: 1px solid #2b2f40;
+    border-top: 1px solid var(--border);
 }
 
 .edit-toggle-btn {
-    background: #20263a;
-    border: 1px solid #2b2f40;
-    color: #fff;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    color: var(--text);
     padding: 8px 16px;
     border-radius: 8px;
     font-size: 13px;
@@ -630,11 +643,12 @@ img, svg {
 }
 
 .edit-toggle-btn:hover {
-    background: #2b2f40;
+    background: var(--surface);
+    border-color: var(--primary);
 }
 
 .save-changes-btn {
-    background: #27ae60;
+    background: var(--primary);
     border: none;
     color: #fff;
     padding: 8px 18px;
@@ -652,38 +666,39 @@ img, svg {
 }
 
 .save-changes-btn:hover:not(:disabled) {
-    background: #2ecc71;
+    background: var(--primary-hover);
 }
+
 /* ============================================
    ID VERIFICATION
-   ============================================ */
+============================================ */
 
 .box-label {
     display: block;
-    color: #8892b0;
+    color: var(--text-muted);
     font-size: 13px;
     margin-bottom: 8px;
 }
 
 .ip-text {
-    color: #8892b0;
+    color: var(--text-muted);
     font-size: 12px;
     margin: 8px 0 0 0;
 }
 
 .ip-text span {
-    color: #e67e22;
+    color: var(--primary);
 }
 
 .box-title {
-    color: #fff;
+    color: var(--text);
     font-size: 16px;
     font-weight: 600;
     margin: 0 0 12px 0;
 }
 
 .box-desc {
-    color: #8892b0;
+    color: var(--text-muted);
     font-size: 13px;
     margin: 0 0 15px 0;
 }
@@ -695,7 +710,7 @@ img, svg {
 }
 
 .guide-list li {
-    color: #8892b0;
+    color: var(--text-muted);
     font-size: 13px;
     padding: 6px 0;
     padding-left: 20px;
@@ -706,12 +721,12 @@ img, svg {
     content: "✓";
     position: absolute;
     left: 0;
-    color: #4ade80;
+    color: var(--primary);
 }
 
 /* ============================================
    UPLOAD
-   ============================================ */
+============================================ */
 
 .upload-row {
     display: flex;
@@ -724,30 +739,30 @@ img, svg {
     text-align: center;
     padding: 24px 18px;
     cursor: pointer;
-    transition: 0.3s;
+    transition: .3s;
     min-width: 0;
 }
 
 .upload-box:hover {
-    border-color: #e67e22;
+    border-color: var(--primary);
 }
 
 .upload-box i {
     font-size: 32px;
-    color: #e67e22;
+    color: var(--primary);
     margin-bottom: 10px;
     display: block;
 }
 
 .upload-box p {
-    color: #fff;
+    color: var(--text);
     font-size: 14px;
     font-weight: 600;
     margin: 0 0 4px 0;
 }
 
 .upload-box span {
-    color: #8892b0;
+    color: var(--text-muted);
     font-size: 12px;
     display: block;
     margin-bottom: 12px;
@@ -755,27 +770,27 @@ img, svg {
 
 .upload-btn {
     padding: 8px 16px;
-    background: #2b2f40;
-    border: 1px solid #e67e22;
+    background: var(--surface-2);
+    border: 1px solid var(--primary);
     border-radius: 6px;
-    color: #e67e22;
+    color: var(--primary);
     font-size: 12px;
     cursor: pointer;
-    transition: 0.3s;
+    transition: .3s;
 }
 
 .upload-btn:hover {
-    background: #e67e22;
+    background: var(--primary);
     color: #fff;
 }
 
 /* ============================================
    CAMERA
-   ============================================ */
+============================================ */
 
 .camera-box {
-    background: #0f111a;
-    border: 2px dashed #2b2f40;
+    background: var(--bg);
+    border: 2px dashed var(--border);
     border-radius: 12px;
     padding: 40px;
     text-align: center;
@@ -784,51 +799,52 @@ img, svg {
 
 .camera-box i {
     font-size: 48px;
-    color: #2b2f40;
+    color: var(--border);
     margin-bottom: 12px;
     display: block;
 }
 
 .camera-btn {
     padding: 10px 20px;
-    background: #2b2f40;
-    border: none;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
     border-radius: 8px;
-    color: #fff;
+    color: var(--text);
     font-size: 14px;
     cursor: pointer;
-    transition: 0.3s;
+    transition: .3s;
 }
 
 .camera-btn:hover {
-    background: #e67e22;
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #fff;
 }
 
 .verify-btn {
     width: 100%;
     padding: 14px;
-    background: #4ade80;
+    background: var(--primary);
     border: none;
     border-radius: 10px;
-    color: #13151c;
+    color: #fff;
     font-size: 16px;
     font-weight: 700;
     cursor: pointer;
-    transition: 0.3s;
+    transition: .3s;
 }
 
 .verify-btn:disabled {
-    opacity: 0.5;
+    opacity: .5;
     cursor: not-allowed;
 }
 
 .verify-btn:hover:not(:disabled) {
-    background: #22c55e;
+    background: var(--primary-hover);
 }
-
 /* ============================================
    ADDRESS / DOCUMENT
-   ============================================ */
+============================================ */
 
 .address-textarea {
     resize: vertical;
@@ -850,90 +866,90 @@ img, svg {
 .doc-option {
     flex: 1;
     padding: 18px 12px;
-    background: #0f111a;
-    border: 1px solid #2b2f40;
+    background: var(--bg);
+    border: 1px solid var(--border);
     border-radius: 10px;
     text-align: center;
     cursor: pointer;
-    transition: 0.3s;
+    transition: .3s;
     min-width: 0;
 }
 
 .doc-option:hover,
 .doc-option.selected {
-    border-color: #e67e22;
-    background: rgba(230, 126, 34, 0.1);
+    border-color: var(--primary);
+    background: rgba(46,204,113,.12);
 }
 
 .doc-option i {
     font-size: 24px;
-    color: #e67e22;
+    color: var(--primary);
     margin-bottom: 8px;
     display: block;
 }
 
 .doc-option span {
-    color: #fff;
+    color: var(--text);
     font-size: 13px;
 }
 
 .upload-area {
-    background: #0f111a;
-    border: 2px dashed #2b2f40;
+    background: var(--bg);
+    border: 2px dashed var(--border);
     border-radius: 12px;
     padding: 40px;
     text-align: center;
     cursor: pointer;
-    transition: 0.3s;
+    transition: .3s;
 }
 
 .upload-area:hover {
-    border-color: #e67e22;
+    border-color: var(--primary);
 }
 
 .upload-area i {
     font-size: 36px;
-    color: #e67e22;
+    color: var(--primary);
     margin-bottom: 10px;
     display: block;
 }
 
 .upload-area p {
-    color: #fff;
+    color: var(--text);
     font-size: 14px;
     margin: 0 0 4px 0;
 }
 
 .upload-area span {
-    color: #8892b0;
+    color: var(--text-muted);
     font-size: 12px;
 }
 
 .submit-btn {
     width: 100%;
     padding: 14px;
-    background: #e67e22;
+    background: var(--primary);
     border: none;
     border-radius: 10px;
     color: #fff;
     font-size: 16px;
     font-weight: 700;
     cursor: pointer;
-    transition: 0.3s;
+    transition: .3s;
 }
 
 .submit-btn:disabled {
-    opacity: 0.5;
+    opacity: .5;
     cursor: not-allowed;
 }
 
 .submit-btn:hover:not(:disabled) {
-    background: #d35400;
+    background: var(--primary-hover);
 }
 
 /* ============================================
    RESPONSIVE
-   ============================================ */
+============================================ */
 
 
 /* =========================================================
@@ -941,96 +957,70 @@ img, svg {
 ========================================================= */
 
 
-
-
 /* ===============================
    START TRANSACTION CSS
 ================================ */
+
 #profile-menu {
-    z-index: 1000; /* প্রোফাইল মেনু নিচে থাকবে */
+    z-index: 1000;
 }
 
-#transaction-history-section{
+#transaction-history-section {
 
     position: fixed;
-
     top: 70px;
-
     left: 50%;
-
     transform: translateX(-50%);
-
     width: 720px;
-
     max-width: 98%;
-
-   height: calc(100vh - 70px);
-
+    height: calc(100vh - 70px);
     overflow-y: auto;
 
-    background: #13151c;
-
-    border: 1px solid rgba(255,214,102,.25);
-
+    background: var(--surface);
+    border: 1px solid var(--border);
     border-radius: 18px;
-
-    box-shadow: 0 20px 60px rgba(0,0,0,.45);
+    box-shadow: 0 20px 60px var(--shadow);
 
     z-index: 9998;
-
     display: none;
-
 }
-
 
 /* Show */
 
-#transaction-history-section.active{
-
+#transaction-history-section.active {
     display: block;
-
 }
 
+/* Header */
 
-/* হেডার */
-.trans-header{
+.trans-header {
 
     position: relative;
-
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 
     padding: 0 8px 12px;
-
     margin-bottom: 20px;
 
-    border-bottom: 1px solid #2b2f40;
-
+    border-bottom: 1px solid var(--border);
 }
 
-.trans-header h3{
+.trans-header h3 {
 
     margin: 0;
-
     width: 100%;
-
     text-align: center;
 
-    color: #fff;
-
+    color: var(--text);
     font-size: 20px;
-
     font-weight: 600;
-
 }
 
 .close-trans {
-    background: #2b2f40;
-    border: none;
-    color: #fff;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    color: var(--text);
     font-size: 24px;
     width: 40px;
     height: 40px;
@@ -1040,7 +1030,13 @@ img, svg {
     align-items: center;
     justify-content: center;
 }
-/* টপ ট্যাব ডিজাইন */
+
+.close-trans:hover {
+    background: var(--primary);
+}
+
+/* Top Tabs */
+
 .trans-tabs {
     display: flex;
     gap: 5px;
@@ -1048,103 +1044,99 @@ img, svg {
 }
 
 .tab-btn {
-    background: #161b2e;
-    border: none;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
     padding: 8px 12px;
-    color: #888;
+    color: var(--text-muted);
     border-radius: 6px;
     cursor: pointer;
     font-size: 12px;
 }
 
 .tab-btn.active {
-    background: #e67e22;
-    color: white;
+    background: var(--primary);
+    color: #fff;
 }
 
 /* ===============================
    TRANSACTION FILTER BAR
 ================================ */
 
-.trans-controls{
+.trans-controls {
 
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    background:#121626;
-    padding:12px;
-    border-radius:10px;
-    margin-bottom:15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 15px;
 }
-
-
-
 
 /* Filter Buttons */
 
-.filter-btns{
+.filter-btns {
 
-    display:flex;
-
-    gap:8px;
-
+    display: flex;
+    gap: 8px;
 }
 
+.filter-btn {
 
-.filter-btn{
+    background: var(--surface-2);
+    color: var(--text-muted);
+    border: 1px solid var(--border);
 
-    background:#161b2e;
-
-    color:#888;
-
-    border:1px solid #2b2f40;
-
-    padding:8px 14px;
-
-    border-radius:8px;
-
-    cursor:pointer;
-
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
 }
 
+.filter-btn.active {
 
-.filter-btn.active{
-
-    color:#fff;
-
-    border-color:#e67e22;
-
-}
-
-.currency-select, .filter-btn {
-    background: #161b2e;
     color: #fff;
-    border: 1px solid #2b2f40;
+    background: var(--primary);
+    border-color: var(--primary);
+}
+
+.currency-select,
+.filter-btn {
+
+    background: var(--surface-2);
+    color: var(--text);
+    border: 1px solid var(--border);
+
     padding: 5px 10px;
     border-radius: 6px;
     font-size: 12px;
 }
 
 .filter-btn.active {
-    border-color: #e67e22;
+    border-color: var(--primary);
 }
 
-/* ট্রানজেকশন লিস্ট আইটেম */
+/* Transaction List */
+
 .trans-list {
+
     margin-top: 20px;
     width: 100%;
-    max-width: 600px; /* মোবাইল বা ছোট ভিউতে সুন্দর দেখানোর জন্য */
+    max-width: 600px;
     margin-left: auto;
     margin-right: auto;
 }
 
 .trans-item {
-    background: #121626;
+
+    background: var(--surface-2);
     padding: 15px;
     border-radius: 10px;
     margin-bottom: 15px;
-    border-left: 4px solid #e67e22;
+
+    border-left: 4px solid var(--primary);
 }
 
 .item-left {
@@ -1157,78 +1149,65 @@ img, svg {
     display: flex;
     justify-content: space-between;
     font-size: 10px;
-    color: #777;
+    color: var(--text-muted);
 }
 
 .status .paid {
-    color: #2ecc71;
+    color: var(--primary);
 }
 
-/* কাস্টম স্ক্রলবার */
+/* Scrollbar */
+
 .trans-list::-webkit-scrollbar {
     width: 5px;
 }
+
 .trans-list::-webkit-scrollbar-thumb {
-    background: #2b2f40;
+    background: var(--border);
 }
 
 /* ===============================
    START TRANSACTION PAGINATION CSS
 ================================ */
-.trans-pagination{
 
-    display:flex;
+.trans-pagination {
 
-    justify-content:center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
 
-    align-items:center;
-
-    gap:20px;      /* এখানে 16-20px দিতে পারো */
-
-    margin-top:20px;
-
+    margin-top: 20px;
 }
 
-.page-btn{
+.page-btn {
 
-    background:#e67e22;
+    background: var(--primary);
+    color: #fff;
 
-    color:#fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
 
-    border:none;
-
-    padding:10px 18px;
-
-    border-radius:8px;
-
-    cursor:pointer;
-
-    font-size:14px;
-
+    cursor: pointer;
+    font-size: 14px;
 }
 
-.page-btn:disabled{
+.page-btn:disabled {
 
-    background:#444;
-
-    color:#888;
-
-    cursor:not-allowed;
-
+    background: #444;
+    color: #888;
+    cursor: not-allowed;
 }
 
-#page-number{
+#page-number {
 
-    color:#fff;
-
-    font-weight:600;
-
+    color: var(--text);
+    font-weight: 600;
 }
-
-
 
 /* ===============================
-    TRANSACTION PAGINATION CSS
+   END TRANSACTION PAGINATION CSS
 ================================ */
 /* ===============================
    TRANSACTION CURRENCY DROPDOWN
