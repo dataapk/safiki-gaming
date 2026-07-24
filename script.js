@@ -2693,7 +2693,7 @@ if (!agreeTerms) {
 
     }
 
- alert("🎉 Account created successfully!");
+alert("🎉 Account created successfully!");
 
 closeAuth();
 
@@ -2702,7 +2702,7 @@ closeAuth();
 await updateHeaderAuth();
 
 
-// Footer Menu Update
+// Footer Direct Update
 if(window.footerUpdateUserUI){
 
     footerUpdateUserUI({
@@ -2716,11 +2716,6 @@ if(window.footerUpdateUserUI){
     });
 
 }
-
-console.log("Signup User:", data.user);
-
-}
-
 // ==============================
 // PAGE LOAD
 // ==============================
