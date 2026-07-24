@@ -2346,6 +2346,16 @@ if (user) {
     if (memberControls) memberControls.style.display = "flex";
     if (userArea) userArea.style.display = "flex";
     if (guestArea) guestArea.style.display = "none";
+    // Footer Menu Update
+if(window.footerUpdateUserUI){
+
+    footerUpdateUserUI({
+        name: user.user_metadata?.name || "Player",
+        vip: user.user_metadata?.vip || "VIP 0",
+        avatar: user.user_metadata?.avatar || "images/default-avatar.png"
+    });
+
+}
 
 } else {
 
@@ -2387,15 +2397,33 @@ async function performLogout() {
         return;
     }
 
+
     // Local Storage Remove
     localStorage.removeItem("userLoggedIn");
     localStorage.removeItem("userName");
 
+
     // Close Popup
     closeLogoutPopup();
 
+
     // Header Update
     await updateHeaderAuth();
+
+
+    // Footer Menu Update
+    if(window.footerUpdateUserUI){
+
+        footerUpdateUserUI(null);
+
+    }
+
+
+    // Redirect Home
+    window.location.href =
+    "https://dataapk.github.io/safiki-gaming/";
+
+}
 
     // Redirect Home
     window.location.href = "https://dataapk.github.io/safiki-gaming/";
