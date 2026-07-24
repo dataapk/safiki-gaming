@@ -21,6 +21,34 @@ window.footerOpenSidebar = function(){
     document.body.style.overflow="hidden";
 };
 
+ // Login হওয়ার পরে শুধু এই ফাংশন চালাবে। =====
+
+
+function footerUpdateUser(isLoggedIn, user){
+
+    const guest = document.getElementById("guestSection");
+    const profile = document.getElementById("userSection");
+
+    if(isLoggedIn){
+
+        guest.style.display = "none";
+        profile.style.display = "block";
+
+        document.getElementById("footerUserName").textContent =
+            user.username;
+
+        document.getElementById("footerUserVip").textContent =
+            "VIP " + user.vip;
+
+    }else{
+
+        guest.style.display = "block";
+        profile.style.display = "none";
+
+    }
+
+}
+
 // ===== SIDEBAR CLOSE =====
 window.footerCloseSidebar = function(){
 
