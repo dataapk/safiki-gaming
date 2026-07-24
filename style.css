@@ -4527,59 +4527,69 @@ END MY BONUS SECTION
 
 .auth-left{
     width:42%;
-    padding:25px;
+    padding:50px;
     background:linear-gradient(
         135deg,
         #071f14,
         #101010,
         #1a1200
     );
+
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
+
+    text-align:center;
     color:#fff;
 }
 
 
-/* MAIN TITLE */
+/* REMOVE OLD BLOCK FEEL */
 
-/* WELCOME TITLE */
+.auth-left h1,
+.auth-left p,
+.auth-left ul{
+    max-width:100%;
+}
+
+
+/* TITLE */
 
 .auth-left h1{
     width:100%;
     text-align:center;
-    font-size:32px;
+    font-size:34px;
     color:#22c55e;
-    margin:0 0 8px;
+    margin:0 0 12px;
 }
 
 
-/* SUB TEXT */
+/* DESCRIPTION */
 
 .auth-left p{
     width:100%;
     text-align:center;
     color:#ddd;
-    font-size:14px;
-    margin:0 0 15px;
+    font-size:15px;
+    margin:0 0 20px;
 }
 
 
-/* FEATURE AREA */
+/* FEATURES BOX */
 
 .auth-left ul{
     width:100%;
     display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:8px;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
 
-    padding:12px;
     margin:0;
+    padding:15px;
 
     list-style:none;
 
-    background:rgba(0,0,0,.25);
+    background:rgba(0,0,0,.18);
 
     border-radius:14px;
 
@@ -4587,22 +4597,16 @@ END MY BONUS SECTION
 }
 
 
-/* EACH FEATURE */
-
 .auth-left li{
     text-align:center;
-
-    padding:8px;
-
-    font-size:13px;
+    padding:10px 5px;
 
     color:#fff;
+    font-size:13px;
 
-    background:rgba(255,255,255,.04);
+    background:rgba(255,255,255,.05);
 
     border-radius:8px;
-
-    border:1px solid rgba(255,215,0,.20);
 }
 
 
