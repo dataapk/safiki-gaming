@@ -81,11 +81,18 @@
 
 .footer-sidebar{
     position: fixed;
-    top: 60px;
+    top: 70px;
+    bottom: 60px;      /* Footer height */
     left: -60%;
-    width: 40%;
-    max-width:360px;
-   padding-bottom:120px;
+
+    width: 60%;
+    max-width: 420px;
+
+    overflow-y: auto;
+    box-sizing: border-box;
+
+    padding: 20px;
+    padding-bottom: 10px;
     height: calc(100vh - 140px);
 
     background: linear-gradient(
@@ -94,8 +101,6 @@
         #111827
     );
 
-    padding: 20px;
-    overflow-y: auto;
     transition: .35s ease;
     z-index: 9998;
 
