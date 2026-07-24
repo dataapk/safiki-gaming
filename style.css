@@ -4192,98 +4192,261 @@ END MY BONUS SECTION
 
 .login-btn,
 .signup-btn{
+
     position:relative;
     overflow:hidden;
+
     border:none;
+    outline:none;
+
     cursor:pointer;
-    height:42px;
-    padding:0 22px;
-    border-radius:12px;
-    font-size:13px;
+
+    height:34px;
+    padding:0 16px;
+
+    border-radius:10px;
+
+    font-size:11px;
     font-weight:700;
-    letter-spacing:.4px;
-    transition:.35s ease;
+
+    letter-spacing:.3px;
+
     display:flex;
     align-items:center;
     justify-content:center;
+
+    transition:.35s ease;
+
 }
 
-/* LOGIN */
+
+/* ===============================
+            LOGIN BUTTON
+================================= */
+
 
 .login-btn{
-    color:#ffffff;
-    background:rgba(255,255,255,.06);
-    border:1px solid rgba(34,197,94,.45);
+
+    color:#fff;
+
+    background:rgba(20,20,20,.85);
+
+    border:1px solid #d4af37;
+
     box-shadow:
-        inset 0 0 10px rgba(34,197,94,.10),
-        0 0 12px rgba(34,197,94,.18);
+    0 0 8px rgba(212,175,55,.35),
+    inset 0 0 8px rgba(212,175,55,.15);
+
 }
 
-.login-btn:hover{
-    background:linear-gradient(135deg,#16a34a,#22c55e);
-    color:#fff;
-    border-color:#22c55e;
-    transform:translateY(-2px);
-    box-shadow:
-        0 0 18px rgba(34,197,94,.45),
-        0 0 35px rgba(34,197,94,.25);
-}
 
-/* SIGNUP */
+/* Login Gold Moving Glow */
 
-.signup-btn{
-    position:relative;
-    overflow:hidden;
+.login-btn::after{
 
-    background:linear-gradient(135deg,#22c55e,#16a34a);
-    color:#fff;
-    border:1px solid #22c55e;
+    content:"";
+
+    position:absolute;
+
+    inset:-2px;
+
     border-radius:12px;
 
+    background:linear-gradient(
+        90deg,
+        transparent,
+        #ffd700,
+        transparent
+    );
+
+    background-size:200% 100%;
+
+    animation:loginGlow 2.5s linear infinite;
+
+    z-index:-1;
+
+}
+
+
+@keyframes loginGlow{
+
+    from{
+        background-position:200% 0;
+    }
+
+    to{
+        background-position:-200% 0;
+    }
+
+}
+
+
+.login-btn:hover{
+
+    color:#ffd700;
+
+    transform:translateY(-2px);
+
     box-shadow:
-        0 8px 0 #c99b00,
-        0 14px 28px rgba(34,197,94,.35);
+    0 0 18px rgba(255,215,0,.55);
+
+}
+
+
+
+/* ===============================
+            SIGNUP BUTTON
+================================= */
+
+
+.signup-btn{
+
+    color:#111;
+
+    background:linear-gradient(
+        135deg,
+        #ffd700,
+        #f7b500,
+        #e68a00
+    );
+
+
+    border:1px solid #ffd700;
+
+
+    box-shadow:
+
+    0 5px 0 #b88600,
+
+    0 12px 25px rgba(255,215,0,.35);
+
 
     animation:signupPress 1.8s ease-in-out infinite;
+
 }
 
-.signup-btn:hover{
-    transform:translateY(-2px) scale(1.03);
-    box-shadow:
-        0 0 22px rgba(34,197,94,.60),
-        0 0 45px rgba(34,197,94,.30);
+
+
+/* Signup Click Press Effect */
+
+
+@keyframes signupPress{
+
+
+    0%,100%{
+
+        transform:translateY(0);
+
+        box-shadow:
+        0 5px 0 #b88600,
+        0 12px 25px rgba(255,215,0,.35);
+
+    }
+
+
+    50%{
+
+        transform:translateY(4px);
+
+        box-shadow:
+        0 2px 0 #b88600,
+        0 8px 18px rgba(255,215,0,.25);
+
+    }
+
 }
+
+
+
+/* নিচের Gold Bounce Line */
+
+.signup-btn::after,
+.login-btn::before{
+
+
+    content:"";
+
+    position:absolute;
+
+    bottom:0;
+
+    left:20%;
+
+    width:60%;
+
+    height:4px;
+
+    border-radius:50%;
+
+    background:#ffd700;
+
+    filter:blur(2px);
+
+
+    animation:goldBounce 1.8s ease-in-out infinite;
+
+}
+
+
+
+@keyframes goldBounce{
+
+
+    0%,100%{
+
+        transform:scaleX(1);
+
+        opacity:.8;
+
+    }
+
+
+    50%{
+
+        transform:scaleX(.6);
+
+        opacity:1;
+
+    }
+
+}
+
+
 
 /* Shine Effect */
 
-.login-btn::before,
-.signup-btn::before{
-    content:"";
-    position:absolute;
-    top:0;
-    left:-130%;
-    width:55%;
-    height:100%;
-    background:linear-gradient(
-        120deg,
-        transparent,
-        rgba(255,255,255,.65),
-        transparent
-    );
-    transform:skewX(-25deg);
-    transition:.8s;
+
+.signup-btn span,
+.login-btn span{
+
+    position:relative;
+
+    z-index:2;
+
 }
 
-.login-btn:hover::before,
-.signup-btn:hover::before{
-    left:170%;
+
+.signup-btn:hover{
+
+    transform:translateY(-2px) scale(1.03);
+
+    box-shadow:
+
+    0 0 20px rgba(255,215,0,.65),
+
+    0 0 35px rgba(255,215,0,.35);
+
 }
 
-/* Active */
+
+
+/* Click */
 
 .login-btn:active,
 .signup-btn:active{
-    transform:scale(.96);
+
+    transform:scale(.95);
+
 }
 
 .auth-modal{
