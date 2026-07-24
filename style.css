@@ -4544,25 +4544,32 @@ END MY BONUS SECTION
 
 /* MAIN TITLE */
 
-.auth-left h1{
-    width:100%;
+.auth-left h1,
+.auth-left p{
+    background:rgba(0,0,0,.45);
+    width:85%;
     text-align:center;
-    font-size:34px;
-    color:#22c55e;
-    margin:0 0 12px;
-    letter-spacing:1px;
+    margin-left:auto;
+    margin-right:auto;
 }
 
 
 /* DESCRIPTION */
 
 .auth-left p{
-    width:100%;
-    text-align:center;
+    padding:8px 20px 15px;
+
+    margin-top:0;
+    margin-bottom:18px;
+
+    border-radius:0 0 16px 16px;
+
     color:#ddd;
-    font-size:15px;
-    margin:0 0 18px;
-    line-height:1.5;
+    font-size:14px;
+
+    border-left:1px solid rgba(255,215,0,.25);
+    border-right:1px solid rgba(255,215,0,.25);
+    border-bottom:1px solid rgba(255,215,0,.25);
 }
 
 
