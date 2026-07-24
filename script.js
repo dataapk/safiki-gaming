@@ -2697,25 +2697,19 @@ alert("🎉 Account created successfully!");
 
 closeAuth();
 
-
-// Header Update
 await updateHeaderAuth();
 
+console.log("Signup User:", data.user);
 
-// Footer Direct Update
-if(window.footerUpdateUserUI){
 
-    footerUpdateUserUI({
+if(window.footerCheckUser){
 
-        name: firstName + " " + lastName,
-
-        vip: "VIP 0",
-
-        avatar: "images/default-avatar.png"
-
-    });
+    await footerCheckUser();
 
 }
+
+
+} // signupUser closing
 // ==============================
 // PAGE LOAD
 // ==============================
