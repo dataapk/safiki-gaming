@@ -409,7 +409,7 @@
 /* ICON COLORS */
 
 
-.menusub-item i{
+.footer-menusub-item i{
 
 
     color:#ffd700;
@@ -419,7 +419,7 @@
 
 
 
-.menusub-item:nth-child(2) i{
+.footer-menusub-item:nth-child(2) i{
 
 
     color:#22c55e;
