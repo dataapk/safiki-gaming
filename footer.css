@@ -331,72 +331,29 @@
 
 
 .menu-item{
-
-
-    margin-bottom:8px;
-
-
+    margin:0;
 }
-
 
 
 .menu-header{
-
-
-    height:50px;
-
-
+    height:52px;
     display:flex;
-
-
     align-items:center;
-
-
     gap:14px;
-
-
-    padding:0 15px;
-
-
-    border-radius:12px;
-
-
+    padding:0 16px;
     color:#fff;
-
-
-    background:rgba(255,255,255,.04);
-
-
     cursor:pointer;
+    transition:.25s;
 
+    background:transparent;
+    border:none;
+    border-radius:0;
 
-    transition:.3s;
-
-
+    border-bottom:1px solid rgba(255,255,255,.08);
 }
-
-
 
 .menu-header:hover{
-
-
-    background:rgba(34,197,94,.15);
-
-
-}
-
-
-
-
-.menu-header i:first-child{
-
-
-    width:22px;
-
-
-    color:#22c55e;
-
-
+    background:rgba(255,255,255,.04);
 }
 
 
@@ -405,28 +362,12 @@
 
 
 .menusub-list{
-
-
-    margin-top:8px;
-
-
-    margin-left:20px;
-
-
+    margin:0;
     padding:0;
-
-
-    background:none;
-
-
+    background:transparent;
     border:none;
-
-
     box-shadow:none;
-
-
 }
-
 
 
 .menusub-hidden{
@@ -438,61 +379,29 @@
 
 
 .menusub-item{
-
-
-    height:42px;
-
-
     display:flex;
-
-
     align-items:center;
-
-
     gap:12px;
 
-
-    padding:0 14px;
-
-
-    margin-bottom:6px;
-
-
-
-    border-radius:10px;
-
-
-    color:#ddd;
-
+    height:46px;
+    padding:0 45px;
 
     text-decoration:none;
+    color:#ddd;
 
+    background:transparent;
+    border:none;
+    border-radius:0;
 
-    background:rgba(255,255,255,.03);
-
-
-    border:1px solid rgba(255,255,255,.06);
-
+    border-bottom:1px solid rgba(255,255,255,.06);
 
     transition:.25s;
-
-
 }
 
-
-
 .menusub-item:hover{
-
-
-    background:rgba(34,197,94,.18);
-
-
+    background:rgba(34,197,94,.10);
     color:#22c55e;
-
-
-    transform:translateX(5px);
-
-
+    transform:none;
 }
 
 
